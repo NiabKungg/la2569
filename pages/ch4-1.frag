@@ -1,0 +1,296 @@
+<!-- meta
+title: 4.1 ผลคูณภายในและเซตเชิงตั้งฉาก
+ch: 4
+section: 4.1
+page: ch4-1.html
+-->
+
+<div class="crumb">บทที่ 4 · เรขาคณิตเชิงเส้นและฐานหลักเชิงตั้งฉาก</div>
+<h1 class="page-title">4.1 ผลคูณภายในและเซตเชิงตั้งฉาก</h1>
+<p class="page-sub">เปิดบทเรขาคณิตด้วย <strong>ผลคูณจุด</strong> (\(\vec{u}\cdot\vec{v}\)) ความยาว ระยะทาง และความตั้งฉาก
+แล้วจบด้วยสมบัติเวทมนตร์ของ<strong>ฐานหลักเชิงตั้งฉาก</strong> — เขียนเวกเตอร์ในฐานหลักได้โดยไม่ต้องแก้ระบบเลยสักนิด</p>
+
+<nav class="pillnav">
+  <a href="#objectives">🎯 จุดประสงค์</a>
+  <a href="#lesson">📖 บทเรียน</a>
+  <a href="#examples">✏️ ตัวอย่างโจทย์</a>
+  <a href="#recipe">⚡ สูตรสำเร็จ</a>
+  <a href="#practice">🏋️ โจทย์ซ้อมมือ</a>
+</nav>
+
+<section class="block" id="objectives">
+  <div class="obj">
+    <h2>🎯 เรียนจบหัวข้อนี้ คุณต้องทำสิ่งเหล่านี้ได้</h2>
+    <ul>
+      <li>คำนวณ \(\vec{u}\cdot\vec{v}\), \(\|\vec{v}\|\), ระยะทาง \(\|\vec{x}-\vec{y}\|\) และเวกเตอร์หนึ่งหน่วยในทิศทางที่กำหนด</li>
+      <li>ตรวจว่าเซตของเวกเตอร์เป็นเซตเชิงตั้งฉาก/เซตเชิงตั้งฉากปรกติหรือไม่ และรู้ว่าเซตเชิงตั้งฉากอิสระเชิงเส้นเสมอ</li>
+      <li>ใช้ทฤษฎีบท 4.1.3 เขียน \(\vec{y}\) เป็นการรวมเชิงเส้นของฐานหลักเชิงตั้งฉากด้วยน้ำหนัก \(\dfrac{\vec{y}\cdot\vec{u}_i}{\vec{u}_i\cdot\vec{u}_i}\)</li>
+      <li>ตรวจว่า \(U\) เป็นเมทริกซ์เชิงตั้งฉากปรกติ (\(U^TU = I\)) และใช้สมบัติ \(U^{-1} = U^T\), \(\|U\vec{x}\| = \|\vec{x}\|\)</li>
+    </ul>
+  </div>
+</section>
+
+<section class="block" id="lesson">
+  <h2><span class="h2-dot">📖</span> บทเรียน</h2>
+
+  <h3>1) ผลคูณภายใน (ผลคูณจุด)</h3>
+  <div class="box box-def">
+    <div class="box-title">📐 นิยาม</div>
+    \[ \vec{u}\cdot\vec{v} = \vec{u}^T\vec{v} = u_1v_1 + u_2v_2 + \cdots + u_nv_n \in \mathbb{R} \]
+    <p>สมบัติ (ทฤษฎีบท 4.1.1): \(\vec{u}\cdot\vec{0} = 0\), \(\vec{u}\cdot\vec{v} = \vec{v}\cdot\vec{u}\), กระจายได้, \((c\vec{u})\cdot\vec{v} = c(\vec{u}\cdot\vec{v})\) และ \(\vec{u}\cdot\vec{u} \geq 0\) (เป็นศูนย์เมื่อ \(\vec{u} = \vec{0}\) เท่านั้น)</p>
+  </div>
+  <div class="box box-def">
+    <div class="box-title">📐 ความยาว ระยะทาง เวกเตอร์หนึ่งหน่วย</div>
+    <p>• <strong>ความยาว (นอร์ม):</strong> \(\|\vec{v}\| = \sqrt{\vec{v}\cdot\vec{v}} = \sqrt{v_1^2 + \cdots + v_n^2}\) และ \(\vec{v}\cdot\vec{v} = \|\vec{v}\|^2\), \(\|c\vec{v}\| = |c|\|\vec{v}\|\)</p>
+    <p>• <strong>ระยะทาง:</strong> \(\operatorname{dist}(\vec{x}, \vec{y}) = \|\vec{x} - \vec{y}\|\)</p>
+    <p>• <strong>เวกเตอร์หนึ่งหน่วย</strong>ทิศเดียวกับ \(\vec{v} \neq \vec{0}\) คือ \(\dfrac{\vec{v}}{\|\vec{v}\|}\) (ทิศตรงข้ามคือ \(-\dfrac{\vec{v}}{\|\vec{v}\|}\))</p>
+  </div>
+
+  <h3>2) ความตั้งฉากและเซตเชิงตั้งฉาก</h3>
+  <div class="box box-def">
+    <div class="box-title">📐 นิยาม — ตั้งฉาก / เซตเชิงตั้งฉาก / เซตเชิงตั้งฉากปรกติ</div>
+    <p>• \(\vec{u}\) ตั้งฉากกับ \(\vec{v}\) ก็ต่อเมื่อ \(\vec{u}\cdot\vec{v} = 0\)</p>
+    <p>• <strong>เซตเชิงตั้งฉาก</strong> (orthogonal set) = เซตของเวกเตอร์ไม่ศูนย์ที่จับคู่กันตั้งฉากทุกคู่ (\(\vec{u}_i\cdot\vec{u}_j = 0\) เมื่อ \(i \neq j\))</p>
+    <p>• <strong>เซตเชิงตั้งฉากปรกติ</strong> (orthonormal set) = เซตเชิงตั้งฉากที่ทุกตัวยาว 1 หน่วย</p>
+  </div>
+  <div class="box box-thm">
+    <div class="box-title">⭐ ทฤษฎีบท 4.1.2 และ 4.1.3 — หัวใจของฐานหลักเชิงตั้งฉาก</div>
+    <p>• ทฤษฎีบท 4.1.2: เซตเชิงตั้งฉากเป็น<strong>เซตอิสระเชิงเส้น</strong>เสมอ จึงเป็นฐานหลักสำหรับ span ของมัน (<strong>ฐานหลักเชิงตั้งฉาก</strong>)</p>
+    <p>• ทฤษฎีบท 4.1.3: ถ้า \(\{\vec{u}_1, \dots, \vec{u}_p\}\) เป็นฐานหลักเชิงตั้งฉากของ \(H\) และ \(\vec{y} \in H\) แล้ว</p>
+    \[ \vec{y} = \frac{\vec{y}\cdot\vec{u}_1}{\vec{u}_1\cdot\vec{u}_1}\vec{u}_1 + \frac{\vec{y}\cdot\vec{u}_2}{\vec{u}_2\cdot\vec{u}_2}\vec{u}_2 + \cdots + \frac{\vec{y}\cdot\vec{u}_p}{\vec{u}_p\cdot\vec{u}_p}\vec{u}_p \]
+    <p>— เขียนเป็นการรวมเชิงเส้นได้โดย<em>ไม่ต้องแก้ระบบเชิงเส้นเลย!</em> (สัมประสิทธิ์แต่ละตัวคำนวณแยกกัน)</p>
+  </div>
+
+  <h3>3) เมทริกซ์เชิงตั้งฉากปรกติ (orthonormal matrix)</h3>
+  <div class="box box-thm">
+    <div class="box-title">⭐ ทฤษฎีบท 4.1.4 และบทแทรก 4.1.5</div>
+    <p>หลักของ \(U\) เป็นเซตเชิงตั้งฉากปรกติ ก็ต่อเมื่อ <strong>\(U^TU = I\)</strong> — และเมื่อนั้น:</p>
+    <p>1. \(\|U\vec{x}\| = \|\vec{x}\|\) (ไม่บิดความยาว) &nbsp; 2. \((U\vec{x})\cdot(U\vec{y}) = \vec{x}\cdot\vec{y}\) (ไม่บิดมุม) &nbsp; 3. รักษาความตั้งฉาก</p>
+    <p>เมื่อ \(U\) <em>จัตุรัส</em>และหลักเป็นเซตเชิงตั้งฉากปรกติ เราเรียกว่า <strong>เมทริกซ์เชิงตั้งฉากปรกติ</strong> โดย \(U\) หาตัวผกผันได้และ</p>
+    \[ U^{-1} = U^T \qquad (\text{และจะได้ } \det U = \pm 1) \]
+  </div>
+
+  <div class="box box-warn">
+    <div class="box-title">⚠️ ศัพท์ที่คนสับสน</div>
+    <p>เซตเชิงตั้งฉาก (orthogonal) = ตั้งฉากกันแต่ยาวเท่าไรก็ได้ / เซตเชิงตั้งฉากปรกติ (orthonormal) = ตั้งฉากกัน<strong>และ</strong>ยาว 1 หน่วย — แปลง orthogonal → orthonormal ได้โดยหารทุกตัวด้วยความยาวของมันเอง</p>
+  </div>
+</section>
+
+<section class="block" id="examples">
+  <h2><span class="h2-dot">✏️</span> ตัวอย่างโจทย์</h2>
+
+  <article class="ex-card">
+    <div class="ex-head"><span class="ex-badge">ตัวอย่าง 1</span><span class="tag easy">ง่าย</span><span class="ex-title">ผลคูณจุด นอร์ม และเวกเตอร์หนึ่งหน่วย (ตัวอย่างคลาสสิกของตำรา)</span></div>
+    <div class="ex-body">
+      <div class="ex-q">ให้ \(\vec{u} = \begin{bmatrix} -1\\ 2 \end{bmatrix}\) และ \(\vec{v} = \begin{bmatrix} 3\\ 2 \end{bmatrix}\) จงหา \(\vec{u}\cdot\vec{v}\), \(\vec{v}\cdot\vec{u}\), \(\|\vec{u}\|\), \(\|\vec{v}\|\) และเวกเตอร์หนึ่งหน่วยในทิศทางเดียวกับ \(2\vec{u} + \vec{v}\)</div>
+      <div class="approach"><span class="lbl">แนวคิด</span> — คูณตำแหน่งแล้วบวก / รากของผลบวกกำลังสอง / หารเวกเตอร์ด้วยความยาวตัวเอง</div>
+      <ol class="steps">
+        <li><span class="step-t">ผลคูณจุดและนอร์ม</span>
+        \[ \vec{u}\cdot\vec{v} = (-1)(3) + (2)(2) = 1 = \vec{v}\cdot\vec{u}, \qquad \|\vec{u}\| = \sqrt{1+4} = \sqrt{5}, \qquad \|\vec{v}\| = \sqrt{9+4} = \sqrt{13} \]</li>
+        <li><span class="step-t">หา \(2\vec{u} + \vec{v}\) แล้วปรับเป็นหนึ่งหน่วย</span>
+        \[ 2\vec{u} + \vec{v} = \begin{bmatrix} -2+3\\ 4+2 \end{bmatrix} = \begin{bmatrix} 1\\ 6 \end{bmatrix}, \qquad \left\| 2\vec{u}+\vec{v} \right\| = \sqrt{1 + 36} = \sqrt{37} \]
+        \[ \text{เวกเตอร์หนึ่งหน่วย} = \frac{1}{\sqrt{37}}\begin{bmatrix} 1\\ 6 \end{bmatrix} \]</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="ex-card">
+    <div class="ex-head"><span class="ex-badge">ตัวอย่าง 2</span><span class="tag easy">ง่าย</span><span class="ex-title">เวกเตอร์หนึ่งหน่วยและหลายหน่วย (ตัวอย่างคลาสสิกของตำรา)</span></div>
+    <div class="ex-body">
+      <div class="ex-q">ให้ \(\vec{v} = (1, 0, -2, 2) \in \mathbb{R}^4\) จงหาเวกเตอร์หนึ่งหน่วยในทิศทางเดียวกับ \(\vec{v}\) และเวกเตอร์สามหน่วยในทิศทางตรงข้ามกับ \(\vec{v}\)</div>
+      <div class="approach"><span class="lbl">แนวคิด</span> — หา \(\|\vec{v}\|\) ก่อน แล้วคูณสเกลาร์ให้ได้ความยาวตามต้องการ (ทิศตรงข้าม = คูณลบ)</div>
+      <ol class="steps">
+        <li><span class="step-t">หาความยาว</span>
+        \[ \|\vec{v}\| = \sqrt{1^2 + 0^2 + (-2)^2 + 2^2} = \sqrt{9} = 3 \]</li>
+        <li><span class="step-t">เวกเตอร์หนึ่งหน่วย</span>
+        \[ \frac{\vec{v}}{3} = \begin{bmatrix} 1/3\\ 0\\ -2/3\\ 2/3 \end{bmatrix} \]</li>
+        <li><span class="step-t">เวกเตอร์สามหน่วยทิศตรงข้าม</span>
+        \[ -3 \cdot \frac{\vec{v}}{\|\vec{v}\|} = -\vec{v} = \begin{bmatrix} -1\\ 0\\ 2\\ -2 \end{bmatrix} \]</li>
+      </ol>
+      <div class="verify"><span class="lbl">ตรวจคำตอบ:</span> \(\|-\vec{v}\| = 3\) ✓ และ \((-\vec{v})\cdot\vec{v} = -9 &lt; 0\) บอกทิศตรงข้าม ✓</div>
+    </div>
+  </article>
+
+  <article class="ex-card">
+    <div class="ex-head"><span class="ex-badge">ตัวอย่าง 3</span><span class="tag hard">ยาก</span><span class="ex-title">เซตเชิงตั้งฉาก + เขียน \(\vec{x}\) ด้วยน้ำหนัก + เมทริกซ์เชิงตั้งฉากปรกติ (ตัวอย่างคลาสสิกของตำรา)</span></div>
+    <div class="ex-body">
+      <div class="ex-q">กำหนด \(S = \{\vec{u}_1, \vec{u}_2, \vec{u}_3\} = \left\{ \begin{bmatrix} 2\\ 4\\ -1 \end{bmatrix}, \begin{bmatrix} 1\\ 0\\ 2 \end{bmatrix}, \begin{bmatrix} 8\\ -5\\ -4 \end{bmatrix} \right\}\) และ \(\vec{x} = \begin{bmatrix} 5\\ 1\\ 0 \end{bmatrix}\)<br>
+      (ก) จงแสดงว่า \(S\) เป็นเซตเชิงตั้งฉากใน \(\mathbb{R}^3\) (ข) จงเขียน \(\vec{x}\) เป็นการรวมเชิงเส้นของ \(S\) (ค) จงหาเมทริกซ์เชิงตั้งฉากปรกติ \(U\) ที่มีหลักเป็นเวกเตอร์หนึ่งหน่วยของ \(S\) และหา \(U^{-1}\)</div>
+      <div class="approach"><span class="lbl">แนวคิด</span> — เช็กผลคูณจุดทุกคู่ → ใช้น้ำหนัก \(\frac{\vec{x}\cdot\vec{u}_i}{\vec{u}_i\cdot\vec{u}_i}\) → ปรับแต่ละหลักให้ยาว 1 แล้วเรียงเป็นหลักของ \(U\)</div>
+      <ol class="steps">
+        <li><span class="step-t">(ก) เช็กทุกคู่</span>
+        \[ \vec{u}_1\cdot\vec{u}_2 = 2 + 0 - 2 = 0, \qquad \vec{u}_1\cdot\vec{u}_3 = 16 - 20 + 4 = 0, \qquad \vec{u}_2\cdot\vec{u}_3 = 8 + 0 - 8 = 0 \;\checkmark \]
+        ทุกคู่ตั้งฉาก → เซตเชิงตั้งฉาก → อิสระเชิงเส้น → ฐานหลักเชิงตั้งฉากของ \(\mathbb{R}^3\)</li>
+        <li><span class="step-t">(ข) หาน้ำหนักแต่ละตัวแยกกัน</span>
+        \[ \frac{\vec{x}\cdot\vec{u}_1}{\vec{u}_1\cdot\vec{u}_1} = \frac{10+4+0}{4+16+1} = \frac{14}{21} = \frac{2}{3}, \qquad
+        \frac{\vec{x}\cdot\vec{u}_2}{\vec{u}_2\cdot\vec{u}_2} = \frac{5}{5} = 1, \qquad
+        \frac{\vec{x}\cdot\vec{u}_3}{\vec{u}_3\cdot\vec{u}_3} = \frac{40-5}{64+25+16} = \frac{35}{105} = \frac{1}{3} \]
+        \[ \vec{x} = \frac{2}{3}\vec{u}_1 + \vec{u}_2 + \frac{1}{3}\vec{u}_3 \]</li>
+        <li><span class="step-t">(ค) ปรับเป็นหนึ่งหน่วยแล้วเรียงเป็นหลัก</span> \(\|\vec{u}_1\| = \sqrt{21}\), \(\|\vec{u}_2\| = \sqrt{5}\), \(\|\vec{u}_3\| = \sqrt{105}\)
+        \[ U = \begin{bmatrix} \tfrac{2}{\sqrt{21}} & \tfrac{1}{\sqrt{5}} & \tfrac{8}{\sqrt{105}}\\[4pt] \tfrac{4}{\sqrt{21}} & 0 & -\tfrac{5}{\sqrt{105}}\\[4pt] -\tfrac{1}{\sqrt{21}} & \tfrac{2}{\sqrt{5}} & -\tfrac{4}{\sqrt{105}} \end{bmatrix} \]
+        เนื่องจาก \(U\) จัตุรัสและหลักเป็นเซตเชิงตั้งฉากปรกติ → \(U^{-1} = U^T\) (เขียนคำตอบโดยสลับแถว-หลักของ \(U\))</li>
+      </ol>
+      <div class="verify"><span class="lbl">ตรวจคำตอบ (ข):</span> \(\tfrac{2}{3}(2,4,-1) + (1,0,2) + \tfrac{1}{3}(8,-5,-4) = (\tfrac{4}{3}+1+\tfrac{8}{3},\; \tfrac{8}{3}-\tfrac{5}{3},\; -\tfrac{2}{3}+2-\tfrac{4}{3}) = (5, 1, 0)\) ✓</div>
+    </div>
+  </article>
+
+  <article class="ex-card">
+    <div class="ex-head"><span class="ex-badge">ตัวอย่าง 4</span><span class="tag hard">ยาก</span><span class="ex-title">ตรวจเมทริกซ์เชิงตั้งฉากปรกติ (ตัวอย่างคลาสสิกของตำรา)</span></div>
+    <div class="ex-body">
+      <div class="ex-q">จงตรวจว่า \(U = \begin{bmatrix} \tfrac{1}{\sqrt{6}} & 0 & -\tfrac{5}{\sqrt{30}}\\[4pt] -\tfrac{2}{\sqrt{6}} & \tfrac{1}{\sqrt{5}} & -\tfrac{2}{\sqrt{30}}\\[4pt] \tfrac{1}{\sqrt{6}} & \tfrac{2}{\sqrt{5}} & \tfrac{1}{\sqrt{30}} \end{bmatrix}\) เป็นเมทริกซ์เชิงตั้งฉากปรกติหรือไม่ ถ้าใช่จงหา \(U^{-1}\)</div>
+      <div class="approach"><span class="lbl">แนวคิด</span> — เช็กสองอย่าง: หลักยาว 1 ทุกหลัก + หลักตั้งฉากกันทุกคู่ (เทียบเท่ากับ \(U^TU = I_3\))</div>
+      <ol class="steps">
+        <li><span class="step-t">ความยาวของแต่ละหลัก</span>
+        \[ \left\|\vec{u}_1\right\|^2 = \tfrac{1}{6} + \tfrac{4}{6} + \tfrac{1}{6} = 1 \;\checkmark \qquad
+        \left\|\vec{u}_2\right\|^2 = 0 + \tfrac{1}{5} + \tfrac{4}{5} = 1 \;\checkmark \qquad
+        \left\|\vec{u}_3\right\|^2 = \tfrac{25}{30} + \tfrac{4}{30} + \tfrac{1}{30} = 1 \;\checkmark \]</li>
+        <li><span class="step-t">ความตั้งฉากระหว่างหลัก</span>
+        \[ \vec{u}_1\cdot\vec{u}_2 = 0 - \tfrac{2}{\sqrt{30}} + \tfrac{2}{\sqrt{30}} = 0 \;\checkmark \qquad
+        \vec{u}_1\cdot\vec{u}_3 = \tfrac{5}{\sqrt{180}} - \tfrac{4}{\sqrt{180}} + \tfrac{1}{\sqrt{180}} = 0 \;\checkmark \qquad
+        \vec{u}_2\cdot\vec{u}_3 = 0 - \tfrac{2}{\sqrt{150}} + \tfrac{2}{\sqrt{150}} = 0 \;\checkmark \]</li>
+        <li><span class="step-t">สรุปและหา inverse</span> \(U^TU = I_3\) → เป็นเมทริกซ์เชิงตั้งฉากปรกติ จึงหา inverse ได้ทันทีโดยไม่ต้องลดรูป:
+        \[ U^{-1} = U^T = \begin{bmatrix} \tfrac{1}{\sqrt{6}} & -\tfrac{2}{\sqrt{6}} & \tfrac{1}{\sqrt{6}}\\[4pt] 0 & \tfrac{1}{\sqrt{5}} & \tfrac{2}{\sqrt{5}}\\[4pt] -\tfrac{5}{\sqrt{30}} & -\tfrac{2}{\sqrt{30}} & \tfrac{1}{\sqrt{30}} \end{bmatrix} \]</li>
+      </ol>
+    </div>
+  </article>
+</section>
+
+<section class="block" id="recipe">
+  <h2><span class="h2-dot">⚡</span> สูตรสำเร็จ — ท่าที่ใช้ทำโจทย์หัวข้อนี้</h2>
+  <div class="recipe">
+    <div class="recipe-head">🪜 ท่าหลัก: ทำงานกับฐานหลักเชิงตั้งฉาก</div>
+    <div class="recipe-body">
+      <ol>
+        <li><strong>เช็กเซตเชิงตั้งฉาก:</strong> คิดผลคูณจุดทุกคู่ ต้องได้ 0 (ไม่ต้องลดรูป — ทางลัดพิสูจน์อิสระเชิงเส้น!)</li>
+        <li><strong>เขียน \(\vec{y}\) ในฐานหลักเชิงตั้งฉาก:</strong> น้ำหนักที่ \(i\) = \(\dfrac{\vec{y}\cdot\vec{u}_i}{\vec{u}_i\cdot\vec{u}_i}\) — คิดแยกทีละตัว (ทฤษฎีบท 4.1.3)</li>
+        <li><strong>orthogonal → orthonormal:</strong> หารเวกเตอร์แต่ละตัวด้วย \(\|\vec{u}_i\|\) ของมันเอง</li>
+        <li><strong>เมทริกซ์เชิงตั้งฉากปรกติ:</strong> เช็ก \(U^TU = I\) → inverse คือ \(U^T\) ทันที (และ \(\det U = \pm 1\))</li>
+      </ol>
+    </div>
+  </div>
+  <div class="key-grid">
+    <div class="key-card"><div class="k-title">ท่า: เวกเตอร์ \(k\) หน่วย</div>ทิศเดียวกัน: \(k\,\vec{v}/\|\vec{v}\|\) / ทิศตรงข้าม: \(-k\,\vec{v}/\|\vec{v}\|\)</div>
+    <div class="key-card"><div class="k-title">ท่า: ตรวจ \(U\) เชิงตั้งฉากปรกติ</div>ยกกำลังสองสมาชิกแต่ละหลักรวมกัน = 1 และผลคูณจุดระหว่างหลัก = 0</div>
+    <div class="key-card"><div class="k-title">ท่า: รักษารูปเรขาคณิต</div>\(\|U\vec{x}\| = \|\vec{x}\|\), \((U\vec{x})\cdot(U\vec{y}) = \vec{x}\cdot\vec{y}\) เมื่อหลักของ \(U\) orthonormal</div>
+    <div class="key-card"><div class="k-title">ท่า: เทียบกับฐานหลักทั่วไป</div>ฐานหลักทั่วไปต้องแก้ระบบเพื่อหาพิกัด แต่ฐานหลักเชิงตั้งฉากแค่จุดเวกเตอร์ — นี่คือเหตุผลที่ 4.2 จะสร้างฐานหลักเชิงตั้งฉากให้ได้เสมอ</div>
+  </div>
+</section>
+
+<section class="block" id="practice">
+  <h2><span class="h2-dot">🏋️</span> โจทย์ซ้อมมือ (6 ข้อ)</h2>
+  <p class="small">ลองทำเองก่อน แล้วค่อยกดเปิดคำใบ้ → เฉลยทีละขั้น เมื่อทำได้แล้วติ๊ก ✓ เพื่อบันทึกความคืบหน้า</p>
+
+  <article class="pr-card" data-pkey="p4-1-1">
+    <div class="pr-head"><span class="pr-num">ข้อ 1</span><span class="diff">●○○</span><span class="spacer"></span>
+      <label class="pr-done"><input type="checkbox"> ทำสำเร็จแล้ว</label></div>
+    <div class="pr-body">
+      <p>ให้ \(\vec{u} = \begin{bmatrix} -1\\ 2 \end{bmatrix}\) และ \(\vec{v} = \begin{bmatrix} 3\\ 2 \end{bmatrix}\) จงหา \(\vec{u}\cdot\vec{v}\), \(\vec{v}\cdot\vec{u}\), \(\|\vec{u}\|\) และ \(\|\vec{v}\|\)</p>
+    </div>
+    <details class="hint"><summary>คำใบ้</summary><div class="hint-body">คูณตำแหน่งสอดคล้องแล้วบวก / นอร์ม = รากที่สองของผลบวกกำลังสองของสมาชิก</div></details>
+    <details class="sol"><summary>แนวคิดและเฉลยแบบละเอียด</summary><div class="sol-body">
+      <p><strong>แนวคิด:</strong> ใช้นิยามตรง ๆ</p>
+      <ol class="steps">
+        <li><span class="step-t">ผลคูณจุด</span> \(\vec{u}\cdot\vec{v} = (-1)(3) + (2)(2) = -3 + 4 = 1\) และ \(\vec{v}\cdot\vec{u} = 1\) เท่ากัน (สมบัติการสลับที่)</li>
+        <li><span class="step-t">นอร์ม</span> \(\|\vec{u}\| = \sqrt{(-1)^2 + 2^2} = \sqrt{5}\) และ \(\|\vec{v}\| = \sqrt{3^2 + 2^2} = \sqrt{13}\)</li>
+      </ol>
+    </div></details>
+  </article>
+
+  <article class="pr-card" data-pkey="p4-1-2">
+    <div class="pr-head"><span class="pr-num">ข้อ 2</span><span class="diff">●○○</span><span class="spacer"></span>
+      <label class="pr-done"><input type="checkbox"> ทำสำเร็จแล้ว</label></div>
+    <div class="pr-body">
+      <p>ให้ \(\vec{u} = \begin{bmatrix} -6\\ 2\\ -3 \end{bmatrix}\) จงหาเวกเตอร์ 3 หน่วยในทิศทางเดียวกับ \(\vec{u}\)</p>
+    </div>
+    <details class="hint"><summary>คำใบ้</summary><div class="hint-body">\(\|\vec{u}\| = \sqrt{36+4+9}\) — แล้วคูณ \(\vec{u}\) ด้วย \(3/\|\vec{u}\|\)</div></details>
+    <details class="sol"><summary>แนวคิดและเฉลยแบบละเอียด</summary><div class="sol-body">
+      <p><strong>แนวคิด:</strong> เวกเตอร์ \(k\) หน่วยทิศเดียวกัน = \(k\,\vec{u}/\|\vec{u}\|\)</p>
+      <ol class="steps">
+        <li><span class="step-t">หาความยาว</span> \(\|\vec{u}\| = \sqrt{36 + 4 + 9} = \sqrt{49} = 7\)</li>
+        <li><span class="step-t">คูณสเกลาร์ \(3/7\)</span>
+        \[ \frac{3}{7}\vec{u} = \begin{bmatrix} -\tfrac{18}{7}\\[2pt] \tfrac{6}{7}\\[2pt] -\tfrac{9}{7} \end{bmatrix} \]</li>
+        <li><span class="step-t">ตรวจคำตอบ</span> ความยาว = \(\tfrac{3}{7}(7) = 3\) ✓ และเป็นพหุคูณบวกของ \(\vec{u}\) จึงอยู่ทิศเดียวกัน ✓</li>
+      </ol>
+    </div></details>
+  </article>
+
+  <article class="pr-card" data-pkey="p4-1-3">
+    <div class="pr-head"><span class="pr-num">ข้อ 3</span><span class="diff">●●●</span><span class="spacer"></span>
+      <label class="pr-done"><input type="checkbox"> ทำสำเร็จแล้ว</label></div>
+    <div class="pr-body">
+      <p>กำหนด \(S = \left\{ \begin{bmatrix} -3\\ 3\\ 0 \end{bmatrix}, \begin{bmatrix} -2\\ -2\\ 1 \end{bmatrix}, \begin{bmatrix} 1\\ 1\\ 4 \end{bmatrix} \right\}\) และ \(\vec{x} = \begin{bmatrix} 5\\ -3\\ 1 \end{bmatrix}\)<br>
+      (ก) จงแสดงว่า \(S\) เป็นเซตเชิงตั้งฉากใน \(\mathbb{R}^3\) (ข) จงเขียน \(\vec{x}\) เป็นการรวมเชิงเส้นของเวกเตอร์ใน \(S\) (ค) จงหาเมทริกซ์เชิงตั้งฉากปรกติ \(U\) ที่มีหลักเป็นเวกเตอร์หนึ่งหน่วยของ \(S\) พร้อมทั้งหา \(U^{-1}\)</p>
+    </div>
+    <details class="hint"><summary>คำใบ้</summary><div class="hint-body">น้ำหนัก: \(\tfrac{\vec{x}\cdot\vec{u}_1}{18} = -\tfrac{4}{3}\), \(\tfrac{\vec{x}\cdot\vec{u}_2}{9} = -\tfrac{1}{3}\), \(\tfrac{\vec{x}\cdot\vec{u}_3}{18} = \tfrac{1}{3}\) / ความยาวของ \(\vec{u}_1, \vec{u}_3\) คือ \(\sqrt{18} = 3\sqrt{2}\) และ \(\vec{u}_2\) ยาว 3</div></details>
+    <details class="sol"><summary>แนวคิดและเฉลยแบบละเอียด</summary><div class="sol-body">
+      <p><strong>แนวคิด:</strong> เช็กคู่ → น้ำหนัก → orthonormal แล้วเรียงเป็นหลัก</p>
+      <ol class="steps">
+        <li><span class="step-t">(ก) เช็กทุกคู่</span>
+        \[ \vec{u}_1\cdot\vec{u}_2 = 6 - 6 + 0 = 0 \;\checkmark \quad \vec{u}_1\cdot\vec{u}_3 = -3 + 3 + 0 = 0 \;\checkmark \quad \vec{u}_2\cdot\vec{u}_3 = -2 - 2 + 4 = 0 \;\checkmark \]</li>
+        <li><span class="step-t">(ข) หาน้ำหนัก</span>
+        \[ \frac{\vec{x}\cdot\vec{u}_1}{18} = \frac{-15-9}{18} = -\frac{4}{3}, \qquad \frac{\vec{x}\cdot\vec{u}_2}{9} = \frac{-10+6+1}{9} = -\frac{1}{3}, \qquad \frac{\vec{x}\cdot\vec{u}_3}{18} = \frac{5-3+4}{18} = \frac{1}{3} \]
+        \[ \vec{x} = -\frac{4}{3}\vec{u}_1 - \frac{1}{3}\vec{u}_2 + \frac{1}{3}\vec{u}_3 \]</li>
+        <li><span class="step-t">(ข) ตรวจคำตอบ</span> \(-\tfrac43(-3,3,0) - \tfrac13(-2,-2,1) + \tfrac13(1,1,4) = (4+\tfrac23+\tfrac13,\; -4+\tfrac23+\tfrac13,\; -\tfrac13+\tfrac43) = (5, -3, 1)\) ✓</li>
+        <li><span class="step-t">(ค) ปรับหนึ่งหน่วย</span> \(\|\vec{u}_1\| = \sqrt{18} = 3\sqrt{2}\), \(\|\vec{u}_2\| = 3\), \(\|\vec{u}_3\| = \sqrt{18}\)
+        \[ U = \begin{bmatrix} -\tfrac{1}{\sqrt{2}} & -\tfrac{2}{3} & \tfrac{1}{3\sqrt{2}}\\[4pt] \tfrac{1}{\sqrt{2}} & -\tfrac{2}{3} & \tfrac{1}{3\sqrt{2}}\\[4pt] 0 & \tfrac{1}{3} & \tfrac{4}{3\sqrt{2}} \end{bmatrix}, \qquad U^{-1} = U^T \]</li>
+      </ol>
+    </div></details>
+  </article>
+
+  <article class="pr-card" data-pkey="p4-1-4">
+    <div class="pr-head"><span class="pr-num">ข้อ 4</span><span class="diff">●●○</span><span class="spacer"></span>
+      <label class="pr-done"><input type="checkbox"> ทำสำเร็จแล้ว</label></div>
+    <div class="pr-body">
+      <p>จงตรวจว่า \(U = \frac{1}{\sqrt{2}}\begin{bmatrix} 1 & 1\\ -1 & 1 \end{bmatrix}\) เป็นเมทริกซ์เชิงตั้งฉากปรกติหรือไม่ ถ้าใช่จงหา \(U^{-1}\) และ \(\det U\)</p>
+    </div>
+    <details class="hint"><summary>คำใบ้</summary><div class="hint-body">คูณ \(U^TU\) ดูว่าได้ \(I_2\) ไหม (คูณสเกลาร์ \(1/\sqrt2\) ออกก่อนก็ได้)</div></details>
+    <details class="sol"><summary>แนวคิดและเฉลยแบบละเอียด</summary><div class="sol-body">
+      <p><strong>แนวคิด:</strong> \(U^TU = I\) ⇔ orthonormal</p>
+      <ol class="steps">
+        <li><span class="step-t">หลักยาว 1?</span> \(\|\vec{u}_1\|^2 = \tfrac{1}{2}(1+1) = 1\) ✓ \(\|\vec{u}_2\|^2 = \tfrac12(1+1) = 1\) ✓</li>
+        <li><span class="step-t">หลักตั้งฉาก?</span> \(\vec{u}_1\cdot\vec{u}_2 = \tfrac{1}{2}(1 - 1) = 0\) ✓ → \(U^TU = I_2\)</li>
+        <li><span class="step-t">inverse และ det</span>
+        \[ U^{-1} = U^T = \frac{1}{\sqrt{2}}\begin{bmatrix} 1 & -1\\ 1 & 1 \end{bmatrix}, \qquad \det U = \frac{1}{2}(1\cdot 1 - 1\cdot(-1)) = \frac{2}{2} = 1 \]
+        (สอดคล้องกับข้อพิสูจน์ว่า \(\det U = \pm 1\))</li>
+      </ol>
+    </div></details>
+  </article>
+
+  <article class="pr-card" data-pkey="p4-1-5">
+    <div class="pr-head"><span class="pr-num">ข้อ 5</span><span class="diff">●●●</span><span class="spacer"></span>
+      <label class="pr-done"><input type="checkbox"> ทำสำเร็จแล้ว</label></div>
+    <div class="pr-body">
+      <p>กำหนด \(\vec{u} = \begin{bmatrix} 1\\ 2\\ 2 \end{bmatrix}, \vec{v} = \begin{bmatrix} 2\\ 1\\ -2 \end{bmatrix}, \vec{w} = \begin{bmatrix} 2\\ -2\\ 1 \end{bmatrix}, \vec{y} = \begin{bmatrix} 3\\ 1\\ 4 \end{bmatrix}\)<br>
+      (ก) จงแสดงว่า \(\{\vec{u}, \vec{v}, \vec{w}\}\) เป็นเซตเชิงตั้งฉาก (ข) จงหาเวกเตอร์หนึ่งหน่วยของแต่ละตัว (ค) จงเขียน \(\vec{y}\) เป็นการรวมเชิงเส้นของ \(\vec{u}, \vec{v}, \vec{w}\)</p>
+    </div>
+    <details class="hint"><summary>คำใบ้</summary><div class="hint-body">ทุกตัวยาว 3 / น้ำหนัก: \(\tfrac{\vec{y}\cdot\vec{u}}{9} = \tfrac{13}{9}\), \(\tfrac{\vec{y}\cdot\vec{v}}{9} = -\tfrac{1}{9}\), \(\tfrac{\vec{y}\cdot\vec{w}}{9} = \tfrac{8}{9}\)</div></details>
+    <details class="sol"><summary>แนวคิดและเฉลยแบบละเอียด</summary><div class="sol-body">
+      <p><strong>แนวคิด:</strong> เช็กทุกคู่ แล้วใช้ทฤษฎีบท 4.1.3</p>
+      <ol class="steps">
+        <li><span class="step-t">(ก) เช็กคู่</span> \(\vec{u}\cdot\vec{v} = 2+2-4 = 0\) ✓ \(\vec{u}\cdot\vec{w} = 2-4+2 = 0\) ✓ \(\vec{v}\cdot\vec{w} = 4-2-2 = 0\) ✓</li>
+        <li><span class="step-t">(ข) หนึ่งหน่วย</span> ทุกตัวยาว \(\sqrt{1+4+4} = 3\) → \(\tfrac13\vec{u} = (\tfrac13, \tfrac23, \tfrac23)\), \(\tfrac13\vec{v} = (\tfrac23, \tfrac13, -\tfrac23)\), \(\tfrac13\vec{w} = (\tfrac23, -\tfrac23, \tfrac13)\)</li>
+        <li><span class="step-t">(ค) น้ำหนัก</span>
+        \[ \frac{\vec{y}\cdot\vec{u}}{9} = \frac{3+2+8}{9} = \frac{13}{9}, \qquad \frac{\vec{y}\cdot\vec{v}}{9} = \frac{6+1-8}{9} = -\frac{1}{9}, \qquad \frac{\vec{y}\cdot\vec{w}}{9} = \frac{6-2+4}{9} = \frac{8}{9} \]
+        \[ \vec{y} = \frac{13}{9}\vec{u} - \frac{1}{9}\vec{v} + \frac{8}{9}\vec{w} \]</li>
+        <li><span class="step-t">ตรวจคำตอบ</span> \(\tfrac{1}{9}[13(1,2,2) - (2,1,-2) + 8(2,-2,1)] = \tfrac19(13-2+16,\; 26-1-16,\; 26+2+8) = \tfrac19(27, 9, 36) = (3, 1, 4)\) ✓</li>
+      </ol>
+    </div></details>
+  </article>
+
+  <article class="pr-card" data-pkey="p4-1-6">
+    <div class="pr-head"><span class="pr-num">ข้อ 6</span><span class="diff">●●○</span><span class="spacer"></span>
+      <label class="pr-done"><input type="checkbox"> ทำสำเร็จแล้ว</label></div>
+    <div class="pr-body">
+      <p>จงพิสูจน์ว่า ถ้า \(U\) เป็นเมทริกซ์เชิงตั้งฉากปรกติ (จัตุรัส) แล้ว \(\det U = \pm 1\) แล้วตรวจยืนยันกับเมทริกซ์ \(U = \frac{1}{3}\begin{bmatrix} 1 & 2 & 2\\ 2 & 1 & -2\\ 2 & -2 & 1 \end{bmatrix}\)</p>
+    </div>
+    <details class="hint"><summary>คำใบ้</summary><div class="hint-body">คิด \(\det(U^TU) = \det I_n = 1\) และใช้ \(\det U^T = \det U\)</div></details>
+    <details class="sol"><summary>แนวคิดและเฉลยแบบละเอียด</summary><div class="sol-body">
+      <p><strong>แนวคิด:</strong> พิสูจน์เชิงพีชคณิต แล้วเช็กด้วยตัวเลข</p>
+      <ol class="steps">
+        <li><span class="step-t">พิสูจน์</span> \(U^TU = I_n\) → \(\det(U^TU) = \det I_n = 1\) และ \(\det(U^TU) = \det U^T \cdot \det U = (\det U)(\det U) = (\det U)^2\) → \((\det U)^2 = 1 \Rightarrow \det U = \pm 1\)</li>
+        <li><span class="step-t">ตรวจด้วยเมทริกซ์ที่กำหนด</span> หลักยาว: \(\tfrac19(1+4+4) = 1\) ✓ หลักตั้งฉาก: \(\tfrac19(2+2-4) = 0\) ฯลฯ → \(U\) เชิงตั้งฉากปรกติ</li>
+        <li><span class="step-t">คำนวณ det</span> \(\det(U) = \tfrac{1}{27}\det\begin{bmatrix} 1 & 2 & 2\\ 2 & 1 & -2\\ 2 & -2 & 1 \end{bmatrix} = \tfrac{1}{27}\big[1(1-4) - 2(2+4) + 2(-4-2)\big] = \tfrac{1}{27}(-3-12-12) = -1\) ✓ ตรงกับ \(\pm 1\)</li>
+      </ol>
+    </div></details>
+  </article>
+</section>

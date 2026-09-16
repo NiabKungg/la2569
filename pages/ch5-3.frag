@@ -1,0 +1,270 @@
+<!-- meta
+title: 5.3 ปริภูมิผลคูณภายใน
+ch: 5
+section: 5.3
+page: ch5-3.html
+-->
+
+<div class="crumb">บทที่ 5 · แนวคิดเชิงนามธรรมของพีชคณิตเชิงเส้น</div>
+<h1 class="page-title">5.3 ปริภูมิผลคูณภายใน</h1>
+<p class="page-sub">ปิดท้ายวิชา — ใส่ "ผลคูณจุด" ให้ปริภูมิพหุนามและฟังก์ชันผ่าน<strong>อินทิกรัล</strong>
+\(\langle f, g\rangle = \int f g\) แล้วทุกอย่างเรื่องความยาว การตั้งฉาก และกราม-ชมิดต์จากบทที่ 4 ใช้ได้อีกครั้ง</p>
+
+<nav class="pillnav">
+  <a href="#objectives">🎯 จุดประสงค์</a>
+  <a href="#lesson">📖 บทเรียน</a>
+  <a href="#examples">✏️ ตัวอย่างโจทย์</a>
+  <a href="#recipe">⚡ สูตรสำเร็จ</a>
+  <a href="#practice">🏋️ โจทย์ซ้อมมือ</a>
+</nav>
+
+<section class="block" id="objectives">
+  <div class="obj">
+    <h2>🎯 เรียนจบหัวข้อนี้ คุณต้องทำสิ่งเหล่านี้ได้</h2>
+    <ul>
+      <li>คำนวณ \(\langle p, q\rangle = \int_a^b p(x)q(x)\,dx\) บน \(\mathbb{F}_n[x]\) และ \(\|f\| = \sqrt{\langle f, f\rangle}\) บนปริภูมิฟังก์ชัน</li>
+      <li>ตรวจว่าเซตของฟังก์ชัน/พหุนามตั้งฉากกันหรือไม่ ภายใต้ผลคูณภายในที่กำหนด</li>
+      <li>ใช้กระบวนการกราม-ชมิดต์สร้างฐานหลักเชิงตั้งฉากของ \(\mathbb{F}_n[x]\)</li>
+      <li>ใช้ทฤษฎีบท 4.1.3 ในรูปนามธรรม: เขียน \(\vec{y} = \sum \frac{\langle \vec{y}, \vec{u}_i\rangle}{\langle \vec{u}_i, \vec{u}_i\rangle}\vec{u}_i\) และหาการประมาณที่ดีสุด</li>
+    </ul>
+  </div>
+</section>
+
+<section class="block" id="lesson">
+  <h2><span class="h2-dot">📖</span> บทเรียน</h2>
+
+  <h3>1) ปริภูมิผลคูณภายใน (inner product space)</h3>
+  <div class="box box-def">
+    <div class="box-title">📐 นิยาม (โดยสรุป)</div>
+    <p><strong>ผลคูณภายใน</strong>บน \(V\) คือฟังก์ชัน \(\langle \cdot, \cdot\rangle : V \times V \to \mathbb{F}\) ที่เป็นเชิงเส้นในแต่ละตัวแปร สลับที่ได้ และ \(\langle \vec{v}, \vec{v}\rangle \geq 0\) (เป็นศูนย์เมื่อ \(\vec{v} = \vec{0}\)) — เมื่อมีแล้ว \(V\) เป็น<strong>ปริภูมิผลคูณภายใน</strong></p>
+    <p>ความยาว: \(\|f\| = \sqrt{\langle f, f\rangle}\), ระยะทาง: \(\|f - g\|\), ตั้งฉาก: \(\langle f, g\rangle = 0\) — นิยามเหมือนบทที่ 4 ทุกประการ เปลี่ยน \(\vec{u}\cdot\vec{v}\) เป็น \(\langle f, g\rangle\)</p>
+  </div>
+  <div class="box box-idea">
+    <div class="box-title">💡 ผลคูณภายในที่พบบ่อยที่สุดในโจทย์</div>
+    <p>• บน \(\mathbb{F}_n[x]\): \(\langle p, q\rangle = \displaystyle\int_0^1 p(x)q(x)\,dx\) (หรือ \(\int_{-1}^{1}\) แล้วแต่โจทย์)</p>
+    <p>• บนปริภูมิฟังก์ชัน: \(\langle f, g\rangle = \displaystyle\int_a^b f(x)g(x)\,dx\)</p>
+    <p>• บน \(M_{m,n}\): \(\langle A, B\rangle = \sum_{i,j} a_{ij}b_{ij}\) (Frobenius)</p>
+    <p>— ทั้งหมดเป็น "ผลคูณจุดแบบอินทิกรัล" และทฤษฎีบททั้งหมดของบทที่ 4 (ทฤษฎีบท 4.1.2–4.1.5, กราม-ชมิดต์ 4.2.3, การฉาย 4.2.2) ยังใช้ได้ (ทฤษฎีบท 5.3.1–5.3.5)</p>
+  </div>
+
+  <h3>2) เครื่องมือที่ใช้ซ้ำจากบทที่ 4</h3>
+  <div class="box box-thm">
+    <div class="box-title">⭐ ทฤษฎีบท 5.3.4 — กราม-ชมิดต์ (รูปนามธรรม)</div>
+    \[ \vec{v}_1 = \vec{x}_1, \qquad \vec{v}_2 = \vec{x}_2 - \frac{\langle \vec{x}_2, \vec{v}_1\rangle}{\langle \vec{v}_1, \vec{v}_1\rangle}\vec{v}_1, \qquad \vec{v}_3 = \vec{x}_3 - \frac{\langle \vec{x}_3, \vec{v}_1\rangle}{\langle \vec{v}_1, \vec{v}_1\rangle}\vec{v}_1 - \frac{\langle \vec{x}_3, \vec{v}_2\rangle}{\langle \vec{v}_2, \vec{v}_2\rangle}\vec{v}_2, \;\dots \]
+    <p>และทฤษฎีบท 4.1.3: เมื่อ \(\{\vec{u}_1, \dots, \vec{u}_p\}\) เป็นฐานหลักเชิงตั้งฉากของ \(H\): \(\vec{y} = \sum_i \frac{\langle \vec{y}, \vec{u}_i\rangle}{\langle \vec{u}_i, \vec{u}_i\rangle}\vec{u}_i\) — รวมถึงการฉายและการประมาณที่ดีสุด</p>
+  </div>
+
+  <div class="box box-warn">
+    <div class="box-title">⚠️ ระวังของใหม่ในหัวข้อนี้</div>
+    <p>• ค่า \(\langle f, g\rangle\) เป็น<em>จำนวนจริง</em>ที่มาจากอินทิกรัล — คำนวณอินทิกรัลให้ถูกก่อนเสมอ ส่วนใหญ่เป็นพหุนามธรรมดา</p>
+    <p>• \(\|f\| = \sqrt{\langle f, f\rangle}\) อาจเป็นรากที่ไม่ลงตัว — ปรับเป็นหนึ่งหน่วยโดยหารด้วยค่านี้ (เหมือนเดิม)</p>
+    <p>• ฟังก์ชันคู่ตรงข้ามเช่น \(x\) กับ \(x^3\) บนช่วงสมมาตร \([-1,1]\) ตั้งฉากกันโดยอัตโนมัติ (อินทิกรัลของฟังก์ชันคี่ = 0)</p>
+  </div>
+</section>
+
+<section class="block" id="examples">
+  <h2><span class="h2-dot">✏️</span> ตัวอย่างโจทย์</h2>
+
+  <article class="ex-card">
+    <div class="ex-head"><span class="ex-badge">ตัวอย่าง 1</span><span class="tag easy">ง่าย</span><span class="ex-title">คำนวณผลคูณภายในแบบอินทิกรัล</span></div>
+    <div class="ex-body">
+      <div class="ex-q">ให้ \(\mathbb{R}_1[x]\) มีผลคูณภายใน \(\langle p, q\rangle = \int_0^1 p(x)q(x)\,dx\) จงหา \(\langle 1 + x, 1 - x\rangle\) และ \(\|1 + x\|\)</div>
+      <div class="approach"><span class="lbl">แนวคิด</span> — คูณพหุนามก่อน แล้วอินทิกรัตทีละพจน์</div>
+      <ol class="steps">
+        <li><span class="step-t">ผลคูณภายใน</span>
+        \[ \langle 1+x, 1-x\rangle = \int_0^1 (1+x)(1-x)\,dx = \int_0^1 (1 - x^2)\,dx = \left[x - \frac{x^3}{3}\right]_0^1 = 1 - \frac13 = \frac23 \]</li>
+        <li><span class="step-t">นอร์ม</span>
+        \[ \|1+x\|^2 = \langle 1+x, 1+x\rangle = \int_0^1 (1 + 2x + x^2)\,dx = 1 + 1 + \frac13 = \frac73 \;\Longrightarrow\; \|1+x\| = \sqrt{\frac73} \]</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="ex-card">
+    <div class="ex-head"><span class="ex-badge">ตัวอย่าง 2</span><span class="tag easy">ง่าย</span><span class="ex-title">ความตั้งฉากบนช่วงสมมาตร</span></div>
+    <div class="ex-body">
+      <div class="ex-q">ให้ปริภูมิฟังก์ชันมีผลคูณภายใน \(\langle f, g\rangle = \int_{-1}^{1} f(x)g(x)\,dx\) จงแสดงว่า \(\{1, x, 3x^2 - 1\}\) เป็นเซตเชิงตั้งฉาก</div>
+      <div class="approach"><span class="lbl">แนวคิด</span> — จุดทุกคู่ต้องได้ 0 (ใช้ความคี่/คู่ของฟังก์ชันช่วยได้)</div>
+      <ol class="steps">
+        <li><span class="step-t">\(\langle 1, x\rangle\)</span> \(\int_{-1}^1 x\,dx = 0\) (ฟังก์ชันคี่บนช่วงสมมาตร) ✓</li>
+        <li><span class="step-t">\(\langle 1, 3x^2-1\rangle\)</span>
+        \[ \int_{-1}^1 (3x^2 - 1)\,dx = \left[x^3 - x\right]_{-1}^{1} = (1-1) - (-1+1) = 0 \;\checkmark \]</li>
+        <li><span class="step-t">\(\langle x, 3x^2-1\rangle\)</span> \(\int_{-1}^1 (3x^3 - x)\,dx = 0\) (คี่) ✓ → ทุกคู่ตั้งฉาก → <strong>เซตเชิงตั้งฉาก</strong> (และไม่มีเวกเตอร์ศูนย์ → อิสระเชิงเส้น → ฐานหลักเชิงตั้งฉากของ \(\mathbb{R}_2[x]\))</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="ex-card">
+    <div class="ex-head"><span class="ex-badge">ตัวอย่าง 3</span><span class="tag hard">ยาก</span><span class="ex-title">กราม-ชมิดต์บน \(\mathbb{R}_1[x]\) ด้วย \(\int_0^1\)</span></div>
+    <div class="ex-body">
+      <div class="ex-q">จงใช้กระบวนการกราม-ชมิดต์สร้างฐานหลักเชิงตั้งฉากปรกติของ \(\mathbb{R}_1[x]\) เมื่อผลคูณภายในคือ \(\langle p, q\rangle = \int_0^1 p(x)q(x)\,dx\) โดยเริ่มจากฐานหลักมาตรฐาน \(\{1, x\}\)</div>
+      <div class="approach"><span class="lbl">แนวคิด</span> — \(\vec{v}_1 = 1\); \(\vec{v}_2 = x\) ลบส่วนฉายบน \(\vec{v}_1\) — คำนวณอินทิกรัลทีละตัว</div>
+      <ol class="steps">
+        <li><span class="step-t">ตั้ง \(\vec{v}_1 = 1\)</span> \(\langle \vec{v}_1, \vec{v}_1\rangle = \int_0^1 1\,dx = 1\)</li>
+        <li><span class="step-t">ลบส่วนฉายออกจาก \(x\)</span> \(\langle x, 1\rangle = \int_0^1 x\,dx = \tfrac12\)
+        \[ \vec{v}_2 = x - \frac{\langle x, 1\rangle}{\langle 1, 1\rangle}\cdot 1 = x - \frac{1}{2} \]</li>
+        <li><span class="step-t">ปรับหนึ่งหน่วยทั้งสองตัว</span> \(\|\vec{v}_1\| = 1\); \(\|\vec{v}_2\|^2 = \int_0^1 (x - \tfrac12)^2\,dx = \tfrac{1}{12}\) → \(\|\vec{v}_2\| = \tfrac{1}{2\sqrt3}\)
+        \[ \vec{u}_1 = 1, \qquad \vec{u}_2 = 2\sqrt{3}\left(x - \frac12\right) = \sqrt{3}(2x - 1) \]
+        เป็นฐานหลักเชิงตั้งฉากปรกติของ \(\mathbb{R}_1[x]\)</li>
+      </ol>
+      <div class="verify"><span class="lbl">ตรวจคำตอบ:</span> \(\langle \vec{u}_1, \vec{u}_2\rangle = \int_0^1 \sqrt3(2x-1)\,dx = \sqrt3(1 - 1) = 0\) ✓ และ \(\|\vec{u}_2\|^2 = 3\int_0^1 (2x-1)^2\,dx = 3\cdot\tfrac13 = 1\) ✓</div>
+    </div>
+  </article>
+
+  <article class="ex-card">
+    <div class="ex-head"><span class="ex-badge">ตัวอย่าง 4</span><span class="tag hard">ยาก</span><span class="ex-title">การฉาย/ประมาณที่ดีสุดของ \(x^2\) บนพหุนามดีกรี ≤ 1</span></div>
+    <div class="ex-body">
+      <div class="ex-q">ให้ \(H = \operatorname{Span}\{1, x - \tfrac12\}\) ใน \(\mathbb{R}_2[x]\) ด้วยผลคูณภายใน \(\langle p, q\rangle = \int_0^1 p(x)q(x)\,dx\) จงหา \(\operatorname{proj}_H x^2\) (การประมาณที่ดีสุดของ \(x^2\) ด้วยพหุนามดีกรีไม่เกิน 1)</div>
+      <div class="approach"><span class="lbl">แนวคิด</span> — ฐานหลักเชิงตั้งฉากพร้อมแล้ว (จากตัวอย่าง 3) → น้ำหนัก = \(\frac{\langle \vec{y}, \vec{u}_i\rangle}{\langle \vec{u}_i, \vec{u}_i\rangle}\) ทีละตัว</div>
+      <ol class="steps">
+        <li><span class="step-t">น้ำหนักที่ \(\vec{u}_1 = 1\)</span>
+        \[ \frac{\langle x^2, 1\rangle}{\langle 1, 1\rangle} = \frac{\int_0^1 x^2\,dx}{1} = \frac{1}{3} \]</li>
+        <li><span class="step-t">น้ำหนักที่ \(\vec{u}_2 = x - \tfrac12\)</span>
+        \[ \langle x^2, x - \tfrac12\rangle = \int_0^1 \left(x^3 - \frac{x^2}{2}\right)dx = \frac14 - \frac16 = \frac{1}{12}, \qquad \langle \vec{u}_2, \vec{u}_2\rangle = \frac{1}{12} \;\Longrightarrow\; \text{น้ำหนัก} = 1 \]</li>
+        <li><span class="step-t">การฉาย</span>
+        \[ \operatorname{proj}_H x^2 = \frac13\cdot 1 + 1\cdot\left(x - \frac12\right) = x - \frac{1}{6} \]</li>
+      </ol>
+      <div class="verify"><span class="lbl">ตรวจคำตอบ:</span> เศษตกค้าง \(x^2 - (x - \tfrac16) = x^2 - x + \tfrac16\) ต้องตั้งฉากกับฐานหลัก: \(\int_0^1 (x^2 - x + \tfrac16)\,dx = \tfrac13 - \tfrac12 + \tfrac16 = 0\) ✓ และ \(\int_0^1 (x^2 - x + \tfrac16)(x - \tfrac12)\,dx = 0\) ✓</div>
+    </div>
+  </article>
+</section>
+
+<section class="block" id="recipe">
+  <h2><span class="h2-dot">⚡</span> สูตรสำเร็จ — ท่าที่ใช้ทำโจทย์หัวข้อนี้</h2>
+  <div class="recipe">
+    <div class="recipe-head">🪜 ท่าหลัก: ทำงานกับ \(\langle f, g\rangle = \int f g\)</div>
+    <div class="recipe-body">
+      <ol>
+        <li><strong>คำนวณ \(\langle f, g\rangle\):</strong> คูณฟังก์ชัน → กระจาย → อินทิกรัลทีละพจน์ (ระวังช่วง: \([0,1]\) หรือ \([-1,1]\))</li>
+        <li><strong>เช็กตั้งฉาก:</strong> จุดทุกคู่ = 0 / ใช้ทางลัด: คี่ × คู่บนช่วงสมมาตร = 0 ทันที</li>
+        <li><strong>กราม-ชมิดต์:</strong> สูตรเดิมของบทที่ 4 เปลี่ยนจุดเป็นวงเล็บ — คูณสเกลาร์เก็บเลขสวยได้</li>
+        <li><strong>ฉาย/ประมาณที่ดีสุด:</strong> น้ำหนัก \(\frac{\langle \vec{y}, \vec{u}_i\rangle}{\langle \vec{u}_i, \vec{u}_i\rangle}\) ทีละตัว → รวม → ตรวจด้วยเศษตกค้างตั้งฉากกับฐานหลัก</li>
+        <li><strong>หนึ่งหน่วย:</strong> หารด้วย \(\|f\| = \sqrt{\langle f, f\rangle}\)</li>
+      </ol>
+    </div>
+  </div>
+  <div class="key-grid">
+    <div class="key-card"><div class="k-title">ท่า: อินทิกรัลพหุนามเร็ว</div>\(\int_0^1 x^n dx = \tfrac{1}{n+1}\) — ทุกการคำนวณในหัวข้อนี้วนอยู่แค่สูตรนี้</div>
+    <div class="key-card"><div class="k-title">ท่า: ช่วงสมมาตร</div>\(\int_{-1}^1 \text{คี่} = 0\) — เวกเตอร์คี่ตั้งฉากกับเวกเตอร์คู่โดยอัตโนมัติ</div>
+    <div class="key-card"><div class="k-title">ท่า: โปลินอมอร์ธอโกนอล</div>ฐานที่ได้จาก \(\int_{-1}^1\) คือพหุนามเลอช็องดร์ \(\{1, x, \tfrac12(3x^2-1), \dots\}\) — โจทย์ชอบอ้างถึง</div>
+    <div class="key-card"><div class="k-title">ท่า: เชื่อมกับบทที่ 4</div>ทุกทฤษฎีบท (4.1.2–4.1.5, 4.2.2–4.2.3, 4.3.1) ใช้ได้กับปริภูมิผลคูณภายในใด ๆ — แค่เปลี่ยนจุดเป็นวงเล็บ</div>
+  </div>
+</section>
+
+<section class="block" id="practice">
+  <h2><span class="h2-dot">🏋️</span> โจทย์ซ้อมมือ (6 ข้อ)</h2>
+  <p class="small">ลองทำเองก่อน แล้วค่อยกดเปิดคำใบ้ → เฉลยทีละขั้น เมื่อทำได้แล้วติ๊ก ✓ เพื่อบันทึกความคืบหน้า</p>
+
+  <article class="pr-card" data-pkey="p5-3-1">
+    <div class="pr-head"><span class="pr-num">ข้อ 1</span><span class="diff">●○○</span><span class="spacer"></span>
+      <label class="pr-done"><input type="checkbox"> ทำสำเร็จแล้ว</label></div>
+    <div class="pr-body">
+      <p>ให้ \(\langle p, q\rangle = \int_0^1 p(x)q(x)\,dx\) บน \(\mathbb{R}_1[x]\) จงหา \(\langle 2x, 1 + x\rangle\) และ \(\|2x\|\)</p>
+    </div>
+    <details class="hint"><summary>คำใบ้</summary><div class="hint-body">\(\langle 2x, 1+x\rangle = \int_0^1 (2x + 2x^2)\,dx\) / \(\|2x\|^2 = \int_0^1 4x^2\,dx\)</div></details>
+    <details class="sol"><summary>แนวคิดและเฉลยแบบละเอียด</summary><div class="sol-body">
+      <p><strong>แนวคิด:</strong> คูณแล้วอินทิกรัล</p>
+      <ol class="steps">
+        <li><span class="step-t">ผลคูณภายใน</span>
+        \[ \langle 2x, 1+x\rangle = \int_0^1 (2x + 2x^2)\,dx = 1 + \frac23 = \frac53 \]</li>
+        <li><span class="step-t">นอร์ม</span> \(\|2x\|^2 = \int_0^1 4x^2\,dx = \tfrac43 \Rightarrow \|2x\| = \tfrac{2}{\sqrt3}\)</li>
+      </ol>
+    </div></details>
+  </article>
+
+  <article class="pr-card" data-pkey="p5-3-2">
+    <div class="pr-head"><span class="pr-num">ข้อ 2</span><span class="diff">●○○</span><span class="spacer"></span>
+      <label class="pr-done"><input type="checkbox"> ทำสำเร็จแล้ว</label></div>
+    <div class="pr-body">
+      <p>ให้ปริภูมิฟังก์ชันมีผลคูณภายใน \(\langle f, g\rangle = \int_{-1}^{1} f(x)g(x)\,dx\) จงตรวจว่า \(f(x) = x^2\) กับ \(g(x) = x\) ตั้งฉากกันหรือไม่ และหา \(\|f\|\)</p>
+    </div>
+    <details class="hint"><summary>คำใบ้</summary><div class="hint-body">\(\langle x^2, x\rangle = \int_{-1}^1 x^3\,dx\) — ฟังก์ชันคี่บนช่วงสมมาตร</div></details>
+    <details class="sol"><summary>แนวคิดและเฉลยแบบละเอียด</summary><div class="sol-body">
+      <p><strong>แนวคิด:</strong> ใช้ความคี่ของ \(x^3\)</p>
+      <ol class="steps">
+        <li><span class="step-t">ผลคูณภายใน</span> \(x^3\) เป็นฟังก์ชันคี่ → \(\int_{-1}^1 x^3\,dx = 0\) → <strong>ตั้งฉากกัน</strong> ✓</li>
+        <li><span class="step-t">นอร์ม</span> \(\|x^2\|^2 = \int_{-1}^1 x^4\,dx = \tfrac25 \Rightarrow \|x^2\| = \sqrt{\tfrac25}\)</li>
+      </ol>
+    </div></details>
+  </article>
+
+  <article class="pr-card" data-pkey="p5-3-3">
+    <div class="pr-head"><span class="pr-num">ข้อ 3</span><span class="diff">●●●</span><span class="spacer"></span>
+      <label class="pr-done"><input type="checkbox"> ทำสำเร็จแล้ว</label></div>
+    <div class="pr-body">
+      <p>จงใช้กระบวนการกราม-ชมิดต์กับฐานหลักมาตรฐาน \(\{1, x\}\) ของ \(\mathbb{R}_1[x]\) เมื่อ \(\langle p, q\rangle = \int_{-1}^{1} p(x)q(x)\,dx\) แล้วปรับให้เป็นฐานหลักเชิงตั้งฉากปรกติ</p>
+    </div>
+    <details class="hint"><summary>คำใบ้</summary><div class="hint-body">\(\langle x, 1\rangle = \int_{-1}^1 x\,dx = 0\) — \(x\) ตั้งฉากกับ 1 อยู่แล้ว! เหลือแค่ปรับหนึ่งหน่วย</div></details>
+    <details class="sol"><summary>แนวคิดและเฉลยแบบละเอียด</summary><div class="sol-body">
+      <p><strong>แนวคิด:</strong> กราม-ชมิดต์อาจ "ไม่ต้องทำอะไรเลย" ถ้าฐานเดิมตั้งฉากกันแล้ว</p>
+      <ol class="steps">
+        <li><span class="step-t">ตั้ง \(\vec{v}_1 = 1\), หา \(\vec{v}_2\)</span>
+        \[ \vec{v}_2 = x - \frac{\langle x, 1\rangle}{\langle 1, 1\rangle}\cdot 1 = x - 0 = x \]
+        (\(\langle x, 1\rangle = 0\) เพราะ \(x\) เป็นฟังก์ชันคี่ — ช่วงสมมาตรช่วยให้เลขสวย)</li>
+        <li><span class="step-t">ปรับหนึ่งหน่วย</span> \(\|1\| = \sqrt{2}\), \(\|x\| = \sqrt{\tfrac23}\):
+        \[ \vec{u}_1 = \frac{1}{\sqrt2}, \qquad \vec{u}_2 = \sqrt{\frac{3}{2}}\,x \]</li>
+        <li><span class="step-t">ตรวจคำตอบ</span> \(\langle \vec{u}_1, \vec{u}_2\rangle = 0\) ✓ และ \(\|\vec{u}_2\|^2 = \tfrac32\int_{-1}^1 x^2\,dx = \tfrac32\cdot\tfrac23 = 1\) ✓ (ฐานนี้คือพหุนามเลอช็องดร์สองตัวแรกแบบปรับหนึ่งหน่วย)</li>
+      </ol>
+    </div></details>
+  </article>
+
+  <article class="pr-card" data-pkey="p5-3-4">
+    <div class="pr-head"><span class="pr-num">ข้อ 4</span><span class="diff">●●●</span><span class="spacer"></span>
+      <label class="pr-done"><input type="checkbox"> ทำสำเร็จแล้ว</label></div>
+    <div class="pr-body">
+      <p>ให้ \(H = \operatorname{Span}\{1, 2x - 1\}\) ใน \(\mathbb{R}_2[x]\) ด้วย \(\langle p, q\rangle = \int_0^1 p(x)q(x)\,dx\) (ฐานหลักเชิงตั้งฉาก — จากตัวอย่าง 3) จงหา \(\operatorname{proj}_H (1 + x^2)\) และ \(\operatorname{dist}((1+x^2), H)\)</p>
+    </div>
+    <details class="hint"><summary>คำใบ้</summary><div class="hint-body">น้ำหนัก 1: \(\tfrac{\langle 1+x^2, 1\rangle}{\langle 1,1\rangle} = \tfrac43\) / \(\langle 1+x^2, 2x-1\rangle = \int_0^1 (1+x^2)(2x-1)\,dx = \tfrac16\) และ \(\langle 2x-1, 2x-1\rangle = \tfrac13\) → น้ำหนัก = \(\tfrac{1/6}{1/3} = \tfrac12\)</div></details>
+    <details class="sol"><summary>แนวคิดและเฉลยแบบละเอียด</summary><div class="sol-body">
+      <p><strong>แนวคิด:</strong> ฉายด้วยน้ำหนักทีละตัว</p>
+      <ol class="steps">
+        <li><span class="step-t">น้ำหนักทั้งสอง</span>
+        \[ \frac{\langle 1+x^2, 1\rangle}{\langle 1, 1\rangle} = \frac{1 + \tfrac13}{1} = \frac43, \qquad \frac{\langle 1+x^2, 2x-1\rangle}{\langle 2x-1, 2x-1\rangle} = \frac{\tfrac16}{\tfrac13} = \frac12 \]
+        (\(\langle 2x-1, 2x-1\rangle = \int_0^1 (4x^2 - 4x + 1)\,dx = \tfrac43 - 2 + 1 = \tfrac13\) ✓)</li>
+        <li><span class="step-t">การฉาย</span>
+        \[ \operatorname{proj}_H (1+x^2) = \frac43\cdot 1 + \frac12(2x - 1) = \frac{4}{3} + x - \frac12 = x + \frac{5}{6} \]</li>
+        <li><span class="step-t">ระยะทาง</span> \((1 + x^2) - (x + \tfrac56) = x^2 - x + \tfrac16\):
+        \[ \operatorname{dist} = \left\| x^2 - x + \tfrac16 \right\| = \sqrt{\int_0^1 \left(x^2 - x + \tfrac16\right)^2 dx} = \sqrt{\frac{1}{180}} = \frac{1}{6\sqrt5} \]
+        (\(\int_0^1 (x^2-x+\tfrac16)^2\,dx = \tfrac{1}{180}\) จากการกระจาย: \(\int_0^1 x^4 - 2x^3 + \tfrac43x^2 - \tfrac13x + \tfrac1{36} = \tfrac15 - \tfrac12 + \tfrac{4}{9} - \tfrac16 + \tfrac1{36} = \tfrac{36 - 90 + 80 - 30 + 5}{180} = \tfrac{1}{180}\))</li>
+        <li><span class="step-t">ตรวจคำตอบ</span> เศษตกค้าง \(x^2 - x + \tfrac16\) ตั้งฉากกับ \(1\) ✓ (\(\int_0^1 = \tfrac13 - \tfrac12 + \tfrac16 = 0\)) และกับ \(2x-1\) ✓ (\(\int_0^1 (x^2-x+\tfrac16)(2x-1) = \tfrac{8}{45} - \tfrac{7}{18} + \tfrac{1}{12} = 0\) จาก \(\tfrac{32 - 70 + 15}{180} = 0\))</li>
+      </ol>
+    </div></details>
+  </article>
+
+  <article class="pr-card" data-pkey="p5-3-5">
+    <div class="pr-head"><span class="pr-num">ข้อ 5</span><span class="diff">●●●</span><span class="spacer"></span>
+      <label class="pr-done"><input type="checkbox"> ทำสำเร็จแล้ว</label></div>
+    <div class="pr-body">
+      <p>จงยืนยันความไม่เท่ากันของโคชี-ชวาร์ตซ์ \(|\langle f, g\rangle| \leq \|f\|\,\|g\|\) ด้วย \(f(x) = x\), \(g(x) = 1 + x\) เมื่อ \(\langle f, g\rangle = \int_0^1 f(x)g(x)\,dx\)</p>
+    </div>
+    <details class="hint"><summary>คำใบ้</summary><div class="hint-body">ซ้าย: \(\langle x, 1+x\rangle = \tfrac56\) / ขวา: \(\|x\| = \tfrac{1}{\sqrt3}\), \(\|1+x\| = \sqrt{\tfrac73}\)</div></details>
+    <details class="sol"><summary>แนวคิดและเฉลยแบบละเอียด</summary><div class="sol-body">
+      <p><strong>แนวคิด:</strong> คำนวณสองฝั่งแล้วเทียบ</p>
+      <ol class="steps">
+        <li><span class="step-t">ฝั่งซ้าย</span>
+        \[ |\langle x, 1+x\rangle| = \left|\int_0^1 (x + x^2)\,dx\right| = \left|\frac12 + \frac13\right| = \frac56 \approx 0.833 \]</li>
+        <li><span class="step-t">ฝั่งขวา</span> \(\|x\| = \sqrt{\tfrac13}\), \(\|1+x\| = \sqrt{\tfrac73}\):
+        \[ \|x\|\,\|1+x\| = \sqrt{\frac{7}{9}} = \frac{\sqrt7}{3} \approx 0.882 \]</li>
+        <li><span class="step-t">สรุป</span> \(\tfrac56 \approx 0.833 \leq 0.882\) ✓ ความไม่เท่ากันเป็นจริง (เส้นแบ่ง: โคชี-ชวาร์ตซ์เป็นเท่ากับพอดีเมื่อ \(f, g\) สัดส่วนกัน — ที่นี่ไม่สัดส่วนจึงเป็น "น้อยกว่า" จริง)</li>
+      </ol>
+    </div></details>
+  </article>
+
+  <article class="pr-card" data-pkey="p5-3-6">
+    <div class="pr-head"><span class="pr-num">ข้อ 6</span><span class="diff">●●●</span><span class="spacer"></span>
+      <label class="pr-done"><input type="checkbox"> ทำสำเร็จแล้ว</label></div>
+    <div class="pr-body">
+      <p>จงใช้กระบวนการกราม-ชมิดต์กับ \(\{1, x\}\) ของ \(\mathbb{R}_1[x]\) เมื่อ \(\langle p, q\rangle = \int_0^1 x\,p(x)q(x)\,dx\) (สังเกตว่ามีตัวคูณ \(x\) พิเศษ!) แล้วปรับให้เป็นฐานหลักเชิงตั้งฉากปรกติ</p>
+    </div>
+    <details class="hint"><summary>คำใบ้</summary><div class="hint-body">\(\langle p, q\rangle = \int_0^1 x\,p q\): \(\langle 1, 1\rangle = \tfrac12\), \(\langle x, 1\rangle = \tfrac13\), \(\langle x, x\rangle = \tfrac14\) → \(\vec{v}_2 = x - \tfrac23\) → ปรับหนึ่งหน่วยด้วย \(\|\vec{v}_2\|^2 = \int_0^1 x(x - \tfrac23)^2\,dx = \tfrac{1}{18}\)</div></details>
+    <details class="sol"><summary>แนวคิดและเฉลยแบบละเอียด</summary><div class="sol-body">
+      <p><strong>แนวคิด:</strong> สูตรเดิมทุกอย่าง แค่อินทิกรัลมี \(x\) นำหน้า</p>
+      <ol class="steps">
+        <li><span class="step-t">ตั้ง \(\vec{v}_1 = 1\) และลบส่วนฉายจาก \(x\)</span> \(\langle 1, 1\rangle = \int_0^1 x\,dx = \tfrac12\), \(\langle x, 1\rangle = \int_0^1 x^2\,dx = \tfrac13\):
+        \[ \vec{v}_2 = x - \frac{1/3}{1/2}\cdot 1 = x - \frac{2}{3} \]</li>
+        <li><span class="step-t">ปรับหนึ่งหน่วย</span> \(\|\vec{v}_1\| = \sqrt{\tfrac12}\); \(\|\vec{v}_2\|^2 = \int_0^1 x\left(x - \tfrac23\right)^2\,dx = \int_0^1 \left(x^3 - \tfrac43x^2 + \tfrac49x\right)dx = \tfrac14 - \tfrac49 + \tfrac29 = \tfrac{9 - 16 + 8}{36} = \tfrac{1}{36}\)
+        \[ \vec{u}_1 = \sqrt{2}, \qquad \vec{u}_2 = 6\left(x - \frac23\right) = 6x - 4 \]</li>
+        <li><span class="step-t">ตรวจคำตอบ</span> \(\langle \vec{u}_1, \vec{u}_2\rangle = \int_0^1 x\cdot 1\cdot(6x-4)\,dx = \left[2x^3 - 2x^2\right]_0^1 = 0\) ✓ และ \(\|\vec{u}_2\|^2 = 36\cdot\tfrac{1}{36} = 1\) ✓</li>
+      </ol>
+    </div></details>
+  </article>
+</section>

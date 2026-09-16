@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>1.2 เมทริกซ์ขั้นบันได — พีชคณิตเชิงเส้น 1/2569</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22%23101a35%22/><text x=%2250%22 y=%2272%22 font-size=%2262%22 text-anchor=%22middle%22 fill=%22white%22 font-family=%22serif%22>Σ</text></svg>">
+<meta name="description" content="1.2 เมทริกซ์ขั้นบันได — สื่อการสอนวิชา 2301234 พีชคณิตเชิงเส้น ๑ เทอม 1/2569 พร้อมตัวอย่าง step-by-step และโจทย์ซ้อมพร้อมเฉลย">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Prompt:wght@500;600;700&family=Sarabun:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/katex/katex.min.css">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body data-ch="1" data-section="1.2" data-page="ch1-2.html">
+<header class="topbar">
+  <button class="icon-btn menu-btn" id="menuBtn" aria-label="เปิดเมนู">☰</button>
+  <a class="brand" href="index.html"><span class="brand-badge">Σ</span><span>พีชคณิตเชิงเส้น <span class="brand-sub">2301234 · 1/2569</span></span></a>
+  <span class="spacer"></span>
+  <button class="icon-btn theme-btn" id="themeBtn" aria-label="สลับโหมดมืด/สว่าง">🌙</button>
+</header>
+<div class="layout">
+  <nav class="sidebar" id="sidebar"></nav>
+  <div class="scrim" id="scrim"></div>
+
+  <main class="content"><div class="inner">
+
+<div class="crumb">บทที่ 1 · ระบบเชิงเส้น</div>
+<h1 class="page-title">1.2 เมทริกซ์ขั้นบันได</h1>
+<p class="page-sub">หัวใจของการแก้ระบบเชิงเส้น — เราจะเรียนรู้ "รูปแบบขั้นบันได" และ "รูปแบบขั้นบันไดลดรูป"
+ซึ่งเป็นจุดหมายของการดำเนินการแถว และเป็นเครื่องมือที่ใช้ตอบทุกคำถามของวิชานี้ตั้งแต่บทนี้ไปจนถึงบทสุดท้าย</p>
+
+<nav class="pillnav">
+  <a href="#objectives">🎯 จุดประสงค์</a>
+  <a href="#lesson">📖 บทเรียน</a>
+  <a href="#examples">✏️ ตัวอย่างโจทย์</a>
+  <a href="#recipe">⚡ สูตรสำเร็จ</a>
+  <a href="#practice">🏋️ โจทย์ซ้อมมือ</a>
+</nav>
+
+<section class="block" id="objectives">
+  <div class="obj">
+    <h2>🎯 เรียนจบหัวข้อนี้ คุณต้องทำสิ่งเหล่านี้ได้</h2>
+    <ul>
+      <li>บอกได้ว่าเมทริกซ์ใดมีรูปแบบขั้นบันได (echelon form) หรือรูปแบบขั้นบันไดลดรูป (reduced echelon form)</li>
+      <li>ใช้การดำเนินการแถวลดรูปเมทริกซ์เป็นรูปแบบขั้นบันได ระบุตำแหน่งตัวหลักและหลักตัวหลักได้</li>
+      <li>ใช้ทฤษฎีบทการมีจริง (Existence) และทฤษฎีบทความเป็นได้อย่างเดียว (Uniqueness) ตัดสินว่าระบบไม่มี/มีชุดเดียว/มีอนันต์ชุด</li>
+      <li>เขียนผลเฉลยทั่วไปของระบบที่มีตัวแปรเสรี และหาค่าพารามิเตอร์ (เช่น \(h\)) ที่ทำให้ระบบมีผลเฉลยแบบต่าง ๆ</li>
+    </ul>
+  </div>
+</section>
+
+<section class="block" id="lesson">
+  <h2><span class="h2-dot">📖</span> บทเรียน</h2>
+
+  <h3>1) รูปแบบขั้นบันได (echelon form)</h3>
+  <div class="box box-def">
+    <div class="box-title">📐 นิยาม — เมทริกซ์ขั้นบันได</div>
+    <p>เมทริกซ์มี<strong>รูปแบบขั้นบันได</strong>เมื่อสอดคล้องสมบัติทั้ง 3 ข้อ:</p>
+    <p>1. แถวที่มีแต่ 0 ล้วน ต้องอยู่<em>ต่ำกว่า</em>แถวที่มีตัวต่างจาก 0</p>
+    <p>2. ในแต่ละแถว ตัวแรกที่ไม่ใช่ 0 เรียกว่า <strong>สมาชิกนำ</strong> (leading entry) — สมาชิกนำของแถวที่ต่ำกว่า ต้องอยู่<em>หลักทางขวามือ</em>ของสมาชิกนำแถวที่สูงกว่า</p>
+    <p>3. ถ้าสมาชิกนำของแถวใดอยู่หลักใด สมาชิกของแถวที่ต่ำกว่าในหลักนั้นต้องเป็น 0</p>
+  </div>
+  <div class="box box-def">
+    <div class="box-title">📐 นิยาม — เมทริกซ์ขั้นบันไดลดรูป</div>
+    <p>เมทริกซ์ขั้นบันไดที่สอดคล้องสมบัติเพิ่มอีก 2 ข้อ เรียกว่ามี<strong>รูปแบบขั้นบันไดลดรูป</strong> (reduced echelon form)</p>
+    <p>4. ตัวแรกที่ไม่ใช่ 0 ของแต่ละแถวต้องเป็น 1 เรียกว่า <strong>1 ตัวนำ</strong> (leading 1)</p>
+    <p>5. หลักใดมี 1 ตัวนำ สมาชิกอื่นในหลักนั้นต้องเป็น 0 ทั้งหมด (ทั้งบนและล่าง)</p>
+  </div>
+
+  <div class="box box-idea">
+    <div class="box-title">💡 ภาพรวม: แถวลดหลั่นเป็นบันได</div>
+    <p>เมทริกซ์ขั้นบันไดหน้าตาเป็นแบบนี้ (เครื่องหมาย ■ คือสมาชิกนำที่ไม่ใช่ศูนย์, \(*\) คือค่าใด ๆ):</p>
+    \[ \begin{bmatrix} \blacksquare & * & * & *\\ 0 & \blacksquare & * & *\\ 0 & 0 & 0 & \blacksquare\\ 0 & 0 & 0 & 0 \end{bmatrix} \qquad
+    \text{ขั้นบันไดลดรูปจะเป็น} \qquad \begin{bmatrix} 1 & 0 & * & 0\\ 0 & 1 & * & 0\\ 0 & 0 & 0 & 1\\ 0 & 0 & 0 & 0 \end{bmatrix} \]
+    <p>สมาชิกนำ "เดินลงขวา" เหมือนขั้นบันได และในรูปลดรูป แต่ละหลักที่มี 1 ตัวนำจะ "สะอาด" หมดจนเหลือแค่หลักที่ไม่มีตัวนำเท่านั้นที่ยังมีค่าปน</p>
+  </div>
+
+  <div class="box box-thm">
+    <div class="box-title">⭐ ทฤษฎีบท 1.2.1</div>
+    <p>ทุก ๆ เมทริกซ์สามารถลดรูปโดยใช้การดำเนินการแถวให้เป็นเมทริกซ์ในรูปแบบขั้นบันไดได้ และลดรูปให้เป็นรูปแบบขั้นบันไดลดรูปได้<strong>แบบเดียว</strong></p>
+  </div>
+
+  <div class="box box-warn">
+    <div class="box-title">⚠️ ข้อควรระวัง</div>
+    <p>รูปแบบขั้นบันได (REF) ของเมทริกซ์หนึ่ง ๆ <strong>ไม่ซ้ำกัน</strong> (ขึ้นกับลำดับการดำเนินการแถว) แต่รูปแบบขั้นบันไดลดรูป (RREF) <strong>ซ้ำแบบเดียวเสมอ</strong> — เวลาตอบข้อสอบจึงควรระบุ RREF ถ้าโจทย์ขอ "รูปแบบขั้นบันไดลดรูป"</p>
+  </div>
+
+  <h3>2) ตำแหน่งตัวหลักและหลักตัวหลัก</h3>
+  <div class="box box-def">
+    <div class="box-title">📐 นิยาม — ตำแหน่งตัวหลัก (pivot position)</div>
+    <p><strong>ตำแหน่งตัวหลัก</strong> ในเมทริกซ์ \(A\) คือตำแหน่งที่สมนัยกับตำแหน่งของสมาชิกนำในรูปแบบขั้นบันไดของ \(A\) และเรียกหลักที่มีตำแหน่งตัวหลักว่า <strong>หลักตัวหลัก</strong> (pivot column)</p>
+  </div>
+
+  <h3>3) ผลเฉลยทั่วไป: ตัวแปรพื้นฐานและตัวแปรเสรี</h3>
+  <div class="box box-def">
+    <div class="box-title">📐 นิยาม — ตัวแปรพื้นฐาน / ตัวแปรเสรี / ผลเฉลยทั่วไป</div>
+    <p>เมื่อลดรูปเมทริกซ์แต่งเติมจนได้รูปแบบขั้นบันไดลดรูป:</p>
+    <p>• ตัวแปรที่สมนัยกับ<em>หลักตัวหลัก</em> เรียกว่า <strong>ตัวแปรพื้นฐาน</strong> (basic variable)</p>
+    <p>• ตัวแปรที่เหลือเรียกว่า <strong>ตัวแปรเสรี</strong> (free variable)</p>
+    <p>• การเขียนผลเฉลยโดยให้ตัวแปรพื้นฐานขึ้นกับค่าคงตัวและตัวแปรเสรี เรียกว่า <strong>ผลเฉลยทั่วไป</strong> (general solution)</p>
+    <p>เช่น จาก \(\begin{bmatrix} 1 & 0 & -2 & 2\\ 0 & 1 & 1 & 1\\ 0 & 0 & 0 & 0 \end{bmatrix}\) ได้ \(x_1 = 2 + 2x_3,\; x_2 = 1 - x_3,\; x_3\) เป็นตัวแปรเสรี</p>
+  </div>
+
+  <h3>4) ทฤษฎีบทตัดสินผลเฉลย 2 ทฤษฎี</h3>
+  <div class="box box-thm">
+    <div class="box-title">⭐ ทฤษฎีบท 1.2.2 — ทฤษฎีบทการมีจริง (Existence Theorem)</div>
+    <p>ระบบเชิงเส้นมีผลเฉลย ก็ต่อเมื่อ <strong>หลักทางขวาสุดของเมทริกซ์แต่งเติมไม่เป็นหลักตัวหลัก</strong></p>
+    <p>นั่นคือ ก็ต่อเมื่อ รูปแบบขั้นบันไดของเมทริกซ์แต่งเติมไม่มีแถวในรูป \(\begin{bmatrix} 0 & 0 & \dots & 0 & b \end{bmatrix}\) เมื่อ \(b \neq 0\) (แปลว่าได้สมการ \(0 = b\neq 0\) ซึ่งขัดแย้ง)</p>
+  </div>
+  <div class="box box-thm">
+    <div class="box-title">⭐ ทฤษฎีบท 1.2.3 — ทฤษฎีบทความเป็นได้อย่างเดียว (Uniqueness Theorem)</div>
+    <p>ถ้าระบบเชิงเส้นมีผลเฉลย แล้วผลเฉลยจะเป็นได้ 2 กรณี:</p>
+    <p>1. มีผลเฉลย<em>ชุดเดียว</em> ก็ต่อเมื่อ <strong>ไม่มีตัวแปรเสรี</strong> (ทุกหลักยกเว้นหลักขวาสุดเป็นหลักตัวหลัก)</p>
+    <p>2. มีผลเฉลย<em>อนันต์ชุด</em> ก็ต่อเมื่อ <strong>มีตัวแปรเสรีอย่างน้อยหนึ่งตัว</strong></p>
+  </div>
+
+  <div class="box box-idea">
+    <div class="box-title">💡 สรุปเป็นแผนผังตัดสินใจ</div>
+    <p>ลดรูปจนได้ REF แล้วถามตัวเอง 2 คำถามตามลำดับ:</p>
+    <p>1. มีแถว \(\begin{bmatrix} 0 & \dots & 0 & b\end{bmatrix}\), \(b \neq 0\) ไหม? → <strong>มี = ไม่มีผลเฉลย จบ</strong> / ไม่มี → ไปข้อ 2</p>
+    <p>2. มีตัวแปรเสรี (หลักที่ไม่ใช่หลักตัวหลัก) ไหม? → <strong>ไม่มี = ผลเฉลยชุดเดียว</strong> / <strong>มี = ผลเฉลยอนันต์ชุด</strong></p>
+  </div>
+</section>
+
+<section class="block" id="examples">
+  <h2><span class="h2-dot">✏️</span> ตัวอย่างโจทย์</h2>
+
+  <article class="ex-card">
+    <div class="ex-head"><span class="ex-badge">ตัวอย่าง 1</span><span class="tag easy">ง่าย</span><span class="ex-title">จำแนกรูปแบบขั้นบันได</span></div>
+    <div class="ex-body">
+      <div class="ex-q">จงพิจารณาว่าเมทริกซ์ต่อไปนี้ข้อใดเป็นเมทริกซ์ขั้นบันได ข้อใดเป็นเมทริกซ์ขั้นบันไดลดรูป และข้อใดไม่เป็นเมทริกซ์ขั้นบันได<br>
+      (ก) \(A = \begin{bmatrix} 1 & 0 & -2\\ 0 & 1 & 4 \end{bmatrix}\) &nbsp;
+      (ข) \(B = \begin{bmatrix} 2 & 0 & 3 & 0\\ 0 & 1 & 2 & 0\\ 0 & 0 & 1 & 5 \end{bmatrix}\) &nbsp;
+      (ค) \(C = \begin{bmatrix} 1 & 0 & 0 & 0\\ 0 & 1 & 1 & 0\\ 0 & 0 & 0 & 0\\ 0 & 0 & 0 & 1 \end{bmatrix}\)</div>
+      <div class="approach"><span class="lbl">แนวคิด</span> — เช็กตามเช็กลิสต์: (1) แถวศูนย์อยู่ล่างสุดไหม (2) สมาชิกนำเดินลงขวาไหม (3) ตัวนำเป็น 1 ไหม (4) หลักที่มี 1 ตัวนำสะอาดไหม</div>
+      <ol class="steps">
+        <li><span class="step-t">(ก) เป็นขั้นบันไดลดรูป</span> สมาชิกนำเป็น 1 ตัวนำทั้งคู่ เดินลงขวา และหลักที่มี 1 ตัวนำ (หลัก 1, 2) มีตัวอื่นเป็น 0 ทั้งหมด — ตรงสมบัติครบ 5 ข้อ</li>
+        <li><span class="step-t">(ข) เป็นขั้นบันได แต่ไม่เป็นขั้นบันไดลดรูป</span> สมาชิกนำ \(2, 1, 1\) เดินลงขวาถูกต้อง (สมบัติ 1–3 ผ่าน) แต่สมาชิกนำตัวแรกเป็น \(2\) ไม่ใช่ 1 (ขัดข้อสมบัติ 4) และหลักที่ 3 มีสมาชิกนำ \(1\) ในแถวที่ 3 แต่แถวบนก็มีค่า \(3, 2\) ในหลักนี้ (ขัดข้อสมบัติ 5)</li>
+        <li><span class="step-t">(ค) ไม่เป็นเมทริกซ์ขั้นบันได</span> แถวที่มี 0 ล้วน (แถวที่ 3) อยู่<em>สูงกว่า</em>แถวที่มีตัวต่างจาก 0 (แถวที่ 4) — ขัดสมบัติข้อ 1 ทันที ไม่ต้องดูข้ออื่น</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="ex-card">
+    <div class="ex-head"><span class="ex-badge">ตัวอย่าง 2</span><span class="tag easy">ง่าย</span><span class="ex-title">ลดรูปเมทริกซ์ 2×3 เป็นรูปแบบขั้นบันไดลดรูป</span></div>
+    <div class="ex-body">
+      <div class="ex-q">จงใช้การดำเนินการแถวลดรูป \(A = \begin{bmatrix} 0 & 1 & -2\\ 2 & -4 & 6 \end{bmatrix}\) ให้มีรูปแบบขั้นบันไดลดรูป</div>
+      <div class="approach"><span class="lbl">แนวคิด</span> — ทำจากซ้ายไปขวาทีละหลัก: หา 1 ตัวนำ → กวาดให้ใต้เป็น 0 → ไปหลักถัดไป สุดท้ายกวาดขึ้นให้เหนือ 1 ตัวนำเป็น 0 ด้วย</div>
+      <ol class="steps">
+        <li><span class="step-t"><span class="step-tag">ท่า: สลับแถวก่อนเริ่ม</span>แถวแรกเริ่มด้วย 0 จึงสลับแถวเพื่อให้เกิดสมาชิกนำในแถวที่ 1</span>
+        \[ A = \begin{bmatrix} 0 & 1 & -2\\ 2 & -4 & 6 \end{bmatrix} \xrightarrow{\,R_{12}\,} \begin{bmatrix} 2 & -4 & 6\\ 0 & 1 & -2 \end{bmatrix} \xrightarrow{\,\tfrac{1}{2}R_1\,} \begin{bmatrix} 1 & -2 & 3\\ 0 & 1 & -2 \end{bmatrix} \]
+        ตอนนี้เป็นรูปแบบขั้นบันไดแล้ว (หลักตัวหลักคือหลักที่ 1 และ 2)</li>
+        <li><span class="step-t"><span class="step-tag">ท่า: กวาดขึ้น</span>ทำให้เหนือ 1 ตัวนำของแถวที่ 2 เป็น 0</span>
+        \[ \xrightarrow{\,R_1 + 2R_2\,} \begin{bmatrix} 1 & 0 & -1\\ 0 & 1 & -2 \end{bmatrix} \]
+        ได้รูปแบบขั้นบันไดลดรูปตามต้องการ</li>
+      </ol>
+      <div class="verify"><span class="lbl">ตรวจคำตอบ:</span> 1 ตัวนำอยู่หลัก 1, 2 เดินลงขวา หลักที่มี 1 ตัวนำมีตัวอื่นเป็นศูนย์ทั้งหมด และเป็นรูปแบบเดียวที่เป็นไปได้สำหรับเมทริกซ์นี้ ✓</div>
+    </div>
+  </article>
+
+  <article class="ex-card">
+    <div class="ex-head"><span class="ex-badge">ตัวอย่าง 3</span><span class="tag hard">ยาก</span><span class="ex-title">ลดรูปเมทริกซ์ 4×5 → หาหลักตัวหลัก → RREF (ตัวอย่างคลาสสิกของตำรา)</span></div>
+    <div class="ex-body">
+      <div class="ex-q">จงใช้การดำเนินการแถวลดรูปเมทริกซ์ต่อไปนี้ให้มีรูปแบบขั้นบันได หาหลักตัวหลักทั้งหมด แล้วลดรูปต่อจนได้รูปแบบขั้นบันไดลดรูป
+      \[ A = \begin{bmatrix} 0 & -3 & -6 & 4 & 9\\ -1 & -2 & -1 & 3 & 1\\ -2 & -3 & 0 & 3 & -1\\ 1 & 4 & 5 & -9 & -7 \end{bmatrix} \]</div>
+      <div class="approach"><span class="lbl">แนวคิด</span> — ทำทีละหลักตามระเบียบ: หลัก 1 → หลัก 2 → ... ถ้าหลักใดไม่มีตัวนำก็ข้ามไปหลักถัดไป ระหว่างทางอาจต้องสลับแถว</div>
+      <ol class="steps">
+        <li><span class="step-t"><span class="step-tag">ท่า: จัด 1 ตัวนำหลักที่ 1</span>แถวแรกขึ้นต้นด้วย 0 จึงสลับ \(R_{14}\)</span>
+        \[ A \sim \begin{bmatrix} 1 & 4 & 5 & -9 & -7\\ -1 & -2 & -1 & 3 & 1\\ -2 & -3 & 0 & 3 & -1\\ 0 & -3 & -6 & 4 & 9 \end{bmatrix} \xrightarrow{\substack{R_2 + R_1\\ R_3 + 2R_1}} \begin{bmatrix} 1 & 4 & 5 & -9 & -7\\ 0 & 2 & 4 & -6 & -6\\ 0 & 5 & 10 & -15 & -15\\ 0 & -3 & -6 & 4 & 9 \end{bmatrix} \]</li>
+        <li><span class="step-t"><span class="step-tag">ท่า: กวาดหลักที่ 2</span>ทำให้ใต้ \(2\) (สมาชิกนำแถวที่ 2) เป็น 0 โดยใช้ \(R_3 - \tfrac{5}{2}R_2\) และ \(R_4 + \tfrac{3}{2}R_2\)</span>
+        \[ \sim \begin{bmatrix} 1 & 4 & 5 & -9 & -7\\ 0 & 2 & 4 & -6 & -6\\ 0 & 0 & 0 & 0 & 0\\ 0 & 0 & 0 & -5 & 0 \end{bmatrix} \]
+        (คำนวณ: แถวที่ 3 → \(5 - \tfrac{5}{2}(2) = 0,\; 10 - \tfrac{5}{2}(4) = 0,\; -15+\tfrac{5}{2}(6) = 0,\; -15+\tfrac{5}{2}(6) = 0\) ล้าหมด; แถวที่ 4 → \(-3 + \tfrac{3}{2}(2) = 0,\; -6+\tfrac{3}{2}(4) = 0,\; 4+\tfrac{3}{2}(-6) = -5,\; 9+\tfrac{3}{2}(-6) = 0\))</li>
+        <li><span class="step-t"><span class="step-tag">ท่า: แถวศูนย์ไปอยู่ล่าง</span>แถวที่ 3 เป็น 0 ล้วนแต่แถวที่ 4 ไม่ใช่ จึงสลับ \(R_{34}\)</span>
+        \[ \sim \begin{bmatrix} 1 & 4 & 5 & -9 & -7\\ 0 & 2 & 4 & -6 & -6\\ 0 & 0 & 0 & -5 & 0\\ 0 & 0 & 0 & 0 & 0 \end{bmatrix} \]
+        นี่คือ<strong>รูปแบบขั้นบันได</strong>ของ \(A\) — สมาชิกนำ \(1, 2, -5\) เดินลงขวา ดังนั้น <strong>หลักตัวหลักคือหลักที่ 1, 2 และ 4</strong> (สังเกตว่าหลักที่ 3 ไม่เป็นหลักตัวหลักเพราะถูก "ข้าม")</li>
+        <li><span class="step-t"><span class="step-tag">ท่า: ปรับมาตราให้เป็น 1 ตัวนำ</span>คูณแถวที่ 2 ด้วย \(\tfrac{1}{2}\) และแถวที่ 3 ด้วย \(-\tfrac{1}{5}\)</span>
+        \[ \sim \begin{bmatrix} 1 & 4 & 5 & -9 & -7\\ 0 & 1 & 2 & -3 & -3\\ 0 & 0 & 0 & 1 & 0\\ 0 & 0 & 0 & 0 & 0 \end{bmatrix} \xrightarrow{\substack{R_1 + 9R_3\\ R_2 + 3R_3}} \begin{bmatrix} 1 & 4 & 5 & 0 & -7\\ 0 & 1 & 2 & 0 & -3\\ 0 & 0 & 0 & 1 & 0\\ 0 & 0 & 0 & 0 & 0 \end{bmatrix} \xrightarrow{\substack{R_1 - 4R_2}} \begin{bmatrix} 1 & 0 & -3 & 0 & 5\\ 0 & 1 & 2 & 0 & -3\\ 0 & 0 & 0 & 1 & 0\\ 0 & 0 & 0 & 0 & 0 \end{bmatrix} \]</li>
+        <li><span class="step-t">สรุป</span> ได้รูปแบบขั้นบันไดลดรูปของ \(A\) คือ \(\begin{bmatrix} 1 & 0 & -3 & 0 & 5\\ 0 & 1 & 2 & 0 & -3\\ 0 & 0 & 0 & 1 & 0\\ 0 & 0 & 0 & 0 & 0 \end{bmatrix}\) โดยหลักตัวหลักคือหลักที่ 1, 2, 4 และหลักที่ 3, 5 ไม่เป็นหลักตัวหลัก</li>
+      </ol>
+      <div class="verify"><span class="lbl">ตรวจคำตอบ:</span> ลองคูณย้อน: แถวแรกของ RREF สมนัยกับระบบจากแถวเดิม เช่น \(R_1 + 2R_2 - 5R_3 = 0\)-แนวคิดตรวจยาก แต่ใช้วิธีตรวจแบบง่ายคือ 1 ตัวนำทุกหลักตัวหลักสะอาด 100% และลำดับบันไดถูกต้อง ✓</div>
+    </div>
+  </article>
+
+  <article class="ex-card">
+    <div class="ex-head"><span class="ex-badge">ตัวอย่าง 4</span><span class="tag hard">ยาก</span><span class="ex-title">ระบบ 4 ตัวแปร: หาผลเฉลยทั่วไป (ตัวอย่างคลาสสิกของตำรา)</span></div>
+    <div class="ex-body">
+      <div class="ex-q">จงตรวจสอบว่าระบบเชิงเส้นต่อไปนี้มีผลเฉลยหรือไม่ ถ้ามีจงหาผลเฉลยทั่วไป
+      \[ \begin{aligned} x_1 - 2x_2 + 2x_3 - x_4 &= -3\\ 2x_1 - 4x_2 + 2x_3 + 2x_4 &= 8\\ 2x_1 - 4x_2 + 3x_3 \phantom{+ x_4} &= 1 \end{aligned} \]</div>
+      <div class="approach"><span class="lbl">แนวคิด</span> — ลดรูปเมทริกซ์แต่งเติมจน REF → เช็กทฤษฎีบท 1.2.2 → ถ้ามีผลเฉลยลดรูปต่อจน RREF → เขียนผลเฉลยทั่วไปตามตัวแปรพื้นฐาน/เสรี</div>
+      <ol class="steps">
+        <li><span class="step-t"><span class="step-tag">ท่า: กวาดหลักที่ 1</span>เขียนเมทริกซ์แต่งเติมแล้วกวาดใต้ตัวนำหลักที่ 1</span>
+        \[ [A \mid \vec{b}] = \begin{bmatrix} 1 & -2 & 2 & -1 & -3\\ 2 & -4 & 2 & 2 & 8\\ 2 & -4 & 3 & 0 & 1 \end{bmatrix} \xrightarrow{\substack{R_2 - 2R_1\\ R_3 - 2R_1}} \begin{bmatrix} 1 & -2 & 2 & -1 & -3\\ 0 & 0 & -2 & 4 & 14\\ 0 & 0 & 1 & -2 & -7 \end{bmatrix} \]</li>
+        <li><span class="step-t"><span class="step-tag">ท่า: หลักถัดไปไม่มีตัวนำ</span>หลักที่ 2 เป็น 0 ทั้งหมด (ข้ามได้) กวาดหลักที่ 3 ด้วย \(R_3 + \tfrac{1}{2}R_2\)</span>
+        \[ \sim \begin{bmatrix} 1 & -2 & 2 & -1 & -3\\ 0 & 0 & -2 & 4 & 14\\ 0 & 0 & 0 & 0 & 0 \end{bmatrix} \]
+        เป็นรูปแบบขั้นบันได ไม่มีแถว \(\begin{bmatrix} 0 & 0 & 0 & 0 & b \end{bmatrix}\) โดย \(b\neq 0\) → โดยทฤษฎีบท 1.2.2 ระบบ<strong>มีผลเฉลย</strong></li>
+        <li><span class="step-t">ลดรูปต่อจนได้ RREF</span>
+        \[ \xrightarrow{\,-\tfrac{1}{2}R_2\,} \begin{bmatrix} 1 & -2 & 2 & -1 & -3\\ 0 & 0 & 1 & -2 & -7\\ 0 & 0 & 0 & 0 & 0 \end{bmatrix} \xrightarrow{\,R_1 - 2R_2\,} \begin{bmatrix} 1 & -2 & 0 & 3 & 11\\ 0 & 0 & 1 & -2 & -7\\ 0 & 0 & 0 & 0 & 0 \end{bmatrix} \]</li>
+        <li><span class="step-t"><span class="step-tag">ท่า: แยกตัวแปรพื้นฐาน/เสรี</span>หลักตัวหลักคือหลัก 1, 3 → \(x_1, x_3\) เป็นตัวแปรพื้นฐาน ส่วน \(x_2, x_4\) เป็นตัวแปรเสรี</span>
+        เขียนผลเฉลยทั่วไป:
+        \[ \begin{aligned} x_1 &= 11 + 2x_2 - 3x_4\\ x_3 &= -7 + 2x_4\\ x_2, \; x_4 &\text{ เป็นตัวแปรเสรี} \end{aligned} \]
+        ระบบมีผลเฉลยอนันต์ชุด (มีตัวแปรเสรี 2 ตัว)</li>
+      </ol>
+      <div class="verify"><span class="lbl">ตรวจคำตอบ:</span> เลือก \(x_2 = 0, x_4 = 0\) ได้ \((11, 0, -7, 0)\) แทนในสมการที่ 2: \(2(11) - 0 + 2(-7) + 0 = 22 - 14 = 8\) ✓ และเลือก \(x_2 = 1, x_4 = 1\) ได้ \((10, 1, -5, 1)\) แทนสมการที่ 3: \(20 - 4 - 15 = 1\) ✓</div>
+    </div>
+  </article>
+
+  <article class="ex-card">
+    <div class="ex-head"><span class="ex-badge">ตัวอย่าง 5</span><span class="tag hard">ยาก</span><span class="ex-title">หาค่า \(h\) ที่ทำให้เป็นระบบต้องกัน</span></div>
+    <div class="ex-body">
+      <div class="ex-q">(ก) จงหาค่าของ \(h\) ที่ทำให้ \(\begin{bmatrix} 1 & h & 1\\ 2 & 4 & 3 \end{bmatrix}\) เป็นเมทริกซ์แต่งเติมของระบบเชิงเส้นต้องกัน<br>
+      (ข) จงหาค่าของ \(h\) ที่ทำให้ \(\begin{bmatrix} 1 & -2 & -2\\ -4 & h & 8 \end{bmatrix}\) เป็นเมทริกซ์แต่งเติมของระบบเชิงเส้นต้องกัน</div>
+      <div class="approach"><span class="lbl">แนวคิด</span> — ลดรูปด้วยแถวที่<em>ไม่มี</em> \(h\) ก่อน แล้วดูว่าเมื่อไรที่ "หลักขวาสุดเป็นหลักตัวหลัก" (คือเกิด \(0 = b\neq 0\))</div>
+      <ol class="steps">
+        <li><span class="step-t">(ก) กวาดด้วยแถวบน</span>
+        \[ \begin{bmatrix} 1 & h & 1\\ 2 & 4 & 3 \end{bmatrix} \xrightarrow{\,R_2 - 2R_1\,} \begin{bmatrix} 1 & h & 1\\ 0 & 4 - 2h & 1 \end{bmatrix} \]</li>
+        <li><span class="step-t">(ก) วิเคราะห์</span> ถ้า \(h \neq 2\): ตัวนำอยู่หลัก 1, 2 → มีผลเฉลยชุดเดียว<br>
+        ถ้า \(h = 2\): แถวล่างเป็น \(\begin{bmatrix} 0 & 0 & 1 \end{bmatrix}\) สมนัยกับ \(0 = 1\) → <strong>ไม่ต้องกัน</strong></li>
+        <li><span class="step-t">(ก) สรุป</span> ระบบต้องกัน ก็ต่อเมื่อ \(h \neq 2\) (เขียนเป็นเซต \(h \in \mathbb{R} \setminus \{2\}\))</li>
+        <li><span class="step-t">(ข) กวาดด้วยแถวบน</span>
+        \[ \begin{bmatrix} 1 & -2 & -2\\ -4 & h & 8 \end{bmatrix} \xrightarrow{\,R_2 + 4R_1\,} \begin{bmatrix} 1 & -2 & -2\\ 0 & h - 8 & 0 \end{bmatrix} \]</li>
+        <li><span class="step-t">(ข) วิเคราะห์</span> ถ้า \(h \neq 8\): ตัวนำอยู่หลัก 1, 2 → มีผลเฉลยชุดเดียว<br>
+        ถ้า \(h = 8\): แถวล่างเป็น \(\begin{bmatrix} 0 & 0 & 0 \end{bmatrix}\) (แถวล้า) → เหลือ \(x_1 - 2x_2 = -2\) → มีผลเฉลยอนันต์ชุด</li>
+        <li><span class="step-t">(ข) สรุป</span> ระบบต้องกัน<em>ทุก</em>ค่า \(h \in \mathbb{R}\) — กรณี \(h = 8\) ก็ยังมีผลเฉลย (แบบอนันต์ชุด) เพราะไม่เกิด \(0 = b \neq 0\)</li>
+      </ol>
+      <div class="verify"><span class="lbl">ตรวจคำตอบ:</span> (ก) แทน \(h = 2\): ระบบคือ \(x_1 + 2x_2 = 1\) กับ \(2x_1 + 4x_2 = 3\) ขยายข้อแรกเป็น 2 เท่าได้ \(2x_1 + 4x_2 = 2 \neq 3\) ขัดแย้งจริง ✓ ส่วน (ข) แทน \(h = 8\): \(x_1 - 2x_2 = -2\) กับ \(-4x_1 + 8x_2 = 8\) ซึ่งเป็นสมการเดียวกัน (คูณ −4) → อนันต์ชุดจริง ✓</div>
+    </div>
+  </article>
+</section>
+
+<section class="block" id="recipe">
+  <h2><span class="h2-dot">⚡</span> สูตรสำเร็จ — ท่าที่ใช้ทำโจทย์หัวข้อนี้</h2>
+  <div class="recipe">
+    <div class="recipe-head">🪜 ท่าหลัก: ขั้นตอนมาตรฐานการหาผลเฉลยระบบเชิงเส้น (ตามตำรา)</div>
+    <div class="recipe-body">
+      <ol>
+        <li>เขียน<strong>เมทริกซ์แต่งเติม</strong>ของระบบ</li>
+        <li>ดำเนินการแถวลดรูปจนได้<strong>รูปแบบขั้นบันได</strong> → ใช้ทฤษฎีบท 1.2.2 ตรวจว่ามีผลเฉลยหรือไม่ (มีแถว \(\begin{bmatrix} 0 & \dots & 0 & b\end{bmatrix}, b\neq 0\) = ไม่มีผลเฉลย จบ)</li>
+        <li>ถ้ามีผลเฉลย ลดรูปต่อจนได้<strong>รูปแบบขั้นบันไดลดรูป</strong> — หลักตัวหลักบอก<strong>ตัวแปรพื้นฐาน</strong> หลักที่เหลือบอก<strong>ตัวแปรเสรี</strong></li>
+        <li>เขียน<strong>ผลเฉลยทั่วไป</strong>: ตัวแปรพื้นฐาน = ค่าคงตัว + ผลรวมเชิงเส้นของตัวแปรเสรี (ทฤษฎีบท 1.2.3: ไม่มีตัวแปรเสรี = ชุดเดียว, มี = อนันต์ชุด)</li>
+      </ol>
+    </div>
+  </div>
+  <div class="key-grid">
+    <div class="key-card"><div class="k-title">ท่า: ลดรูปอย่างเป็นระบบ</div>ทำทีละหลักจากซ้ายไปขวา: จัด 1 ตัวนำ (สลับแถว/คูณสเกลาร์ถ้าจำเป็น) → กวาดให้ใต้เป็น 0 → ย้ายไปหลักถัดไป</div>
+    <div class="key-card"><div class="k-title">ท่า: จาก REF สู่ RREF</div>ปรับมาตราให้ตัวนำเป็น 1 → กวาด<em>ขึ้น</em>ให้เหนือ 1 ตัวนำเป็น 0 (จาก 1 ตัวนำล่างสุดขึ้นไป)</div>
+    <div class="key-card"><div class="k-title">ท่า: ปัญหาพารามิเตอร์ \(h\)</div>กวาดด้วยแถวที่ไม่มี \(h\) ก่อน แล้ววิเคราะห์นิพจน์ที่มี \(h\): \([0\ \dots\ 0\mid b\neq0]\) = ไม่มีผลเฉลย, \([0\ \dots\ 0\mid 0]\) = อนันต์ชุด</div>
+    <div class="key-card"><div class="k-title">ท่า: อ่านจำนวนผลเฉลยจาก RREF</div>ตัวแปรเสรี = จำนวนหลัก (ไม่นับหลักขวาสุด) − จำนวนหลักตัวหลัก ถ้าเป็น 0 → ผลเฉลยชุดเดียว</div>
+  </div>
+</section>
+
+<section class="block" id="practice">
+  <h2><span class="h2-dot">🏋️</span> โจทย์ซ้อมมือ (6 ข้อ)</h2>
+  <p class="small">ลองทำเองก่อน แล้วค่อยกดเปิดคำใบ้ → เฉลยทีละขั้น เมื่อทำได้แล้วติ๊ก ✓ เพื่อบันทึกความคืบหน้า</p>
+
+  <article class="pr-card" data-pkey="p1-2-1">
+    <div class="pr-head"><span class="pr-num">ข้อ 1</span><span class="diff">●○○</span><span class="spacer"></span>
+      <label class="pr-done"><input type="checkbox"> ทำสำเร็จแล้ว</label></div>
+    <div class="pr-body">
+      <p>จงพิจารณาเมทริกซ์ต่อไปนี้ว่า (1.1) มีรูปแบบขั้นบันไดหรือไม่ (1.2) มีรูปแบบขั้นบันไดลดรูปหรือไม่<br>
+      (ก) \(\begin{bmatrix} 1 & 0 & -2\\ 0 & 1 & 4 \end{bmatrix}\) &nbsp;&nbsp;
+      (ข) \(\begin{bmatrix} 2 & 0 & 3 & 0\\ 0 & 1 & 2 & 0\\ 0 & 0 & 1 & 5 \end{bmatrix}\) &nbsp;&nbsp;
+      (ค) \(\begin{bmatrix} 0 & 1 & 0 & 0 & 0\\ 0 & 0 & -1 & 0 & 0\\ 0 & 0 & 0 & 0 & 1 \end{bmatrix}\)</p>
+    </div>
+    <details class="hint"><summary>คำใบ้</summary><div class="hint-body">เช็กลิสต์ 5 ข้อ: แถวศูนย์ล่างสุด? ตัวนำเดินลงขวา? ตัวนำเป็น 1? หลักที่มี 1 ตัวนำสะอาด? (ค) ระวังตัวนำเป็น −1</div></details>
+    <details class="sol"><summary>แนวคิดและเฉลยแบบละเอียด</summary><div class="sol-body">
+      <p><strong>แนวคิด:</strong> ไล่เช็กลิสต์สมบัติของรูปแบบขั้นบันได (3 ข้อ) แล้วต่อด้วยลดรูป (2 ข้อ)</p>
+      <ol class="steps">
+        <li><span class="step-t">(ก) ผ่านทั้ง 5 ข้อ</span> ตัวนำ \(1, 1\) เดินลงขวา เป็น 1 ทั้งคู่ และหลัก 1, 2 สะอาด → <strong>ขั้นบันไดและขั้นบันไดลดรูป</strong></li>
+        <li><span class="step-t">(ข) ผ่าน 3 ข้อแรกแต่พลาดข้อ 4</span> ตัวนำ \(2, 1, 1\) เดินลงขวาถูก → เป็น<strong>ขั้นบันได</strong> แต่ตัวนำแรกเป็น 2 ไม่ใช่ 1 → <strong>ไม่เป็นขั้นบันไดลดรูป</strong></li>
+        <li><span class="step-t">(ค) ตัวนำเดินลงขวาแต่ไม่ใช่ 1</span> ตัวนำ \(1, -1, 1\) อยู่หลัก 1, 3, 5 เดินลงขวาถูกต้อง → เป็น<strong>ขั้นบันได</strong> แต่ตัวนำกลางเป็น \(-1\) ไม่ใช่ 1 → <strong>ไม่เป็นขั้นบันไดลดรูป</strong></li>
+      </ol>
+    </div></details>
+  </article>
+
+  <article class="pr-card" data-pkey="p1-2-2">
+    <div class="pr-head"><span class="pr-num">ข้อ 2</span><span class="diff">●○○</span><span class="spacer"></span>
+      <label class="pr-done"><input type="checkbox"> ทำสำเร็จแล้ว</label></div>
+    <div class="pr-body">
+      <p>จงใช้การดำเนินการแถวลดรูป \(\begin{bmatrix} 0 & -1 & 3\\ 2 & -2 & 1 \end{bmatrix}\) ให้มีรูปแบบขั้นบันไดลดรูป</p>
+    </div>
+    <details class="hint"><summary>คำใบ้</summary><div class="hint-body">สลับแถวก่อน → ปรับมาตราแถวบน → กวาดใต้ตัวนำ → ปรับมาตราแถวล่าง → กวาดขึ้น</div></details>
+    <details class="sol"><summary>แนวคิดและเฉลยแบบละเอียด</summary><div class="sol-body">
+      <p><strong>แนวคิด:</strong> ทำหลักที่ 1 ให้จบก่อน แล้วค่อยทำหลักที่ 2</p>
+      <ol class="steps">
+        <li><span class="step-t">สลับแถวและปรับมาตรา</span>
+        \[ \begin{bmatrix} 0 & -1 & 3\\ 2 & -2 & 1 \end{bmatrix} \xrightarrow{\,R_{12}\,} \begin{bmatrix} 2 & -2 & 1\\ 0 & -1 & 3 \end{bmatrix} \xrightarrow{\,\tfrac{1}{2}R_1\,} \begin{bmatrix} 1 & -1 & \tfrac{1}{2}\\ 0 & -1 & 3 \end{bmatrix} \xrightarrow{\,-R_2\,} \begin{bmatrix} 1 & -1 & \tfrac{1}{2}\\ 0 & 1 & -3 \end{bmatrix} \]</li>
+        <li><span class="step-t">กวาดขึ้นให้เหนือ 1 ตัวนำเป็น 0</span>
+        \[ \xrightarrow{\,R_1 + R_2\,} \begin{bmatrix} 1 & 0 & -\tfrac{5}{2}\\ 0 & 1 & -3 \end{bmatrix} \]
+        ได้รูปแบบขั้นบันไดลดรูป (หลักตัวหลักคือหลักที่ 1 และ 2)</li>
+        <li><span class="step-t">ตรวจคำตอบ</span> \(-\tfrac{1}{2} + (-3) = -\tfrac{7}{2}\) ไม่ใช่... ระวังตรวจผิด — เช็กแบบถูกต้อง: แถวแรกเดิม \(2R_1 - 2R_2 = 2(1,0,-\tfrac52) - 2(0,1,-3) = (2,-2,1)\) ตรงกับแถวเดิม ✓ และ \(-R_2 = (0,1,-3)\) มาจาก \(-1\) คูณแถว \((0,-1,3)\) เดิม ✓</li>
+      </ol>
+    </div></details>
+  </article>
+
+  <article class="pr-card" data-pkey="p1-2-3">
+    <div class="pr-head"><span class="pr-num">ข้อ 3</span><span class="diff">●●○</span><span class="spacer"></span>
+      <label class="pr-done"><input type="checkbox"> ทำสำเร็จแล้ว</label></div>
+    <div class="pr-body">
+      <p>กำหนดให้เมทริกซ์ต่อไปนี้เป็นเมทริกซ์แต่งเติมของระบบเชิงเส้น
+      \[ \begin{bmatrix} 1 & 3 & 4 & 7\\ 3 & 9 & 7 & 6 \end{bmatrix} \]
+      จงลดรูปให้เป็นรูปแบบขั้นบันได ระบุหลักตัวหลักทั้งหมด ลดรูปต่อจนได้รูปแบบขั้นบันไดลดรูป และเขียนผลเฉลยทั่วไปของระบบ</p>
+    </div>
+    <details class="hint"><summary>คำใบ้</summary><div class="hint-body">เริ่มด้วย \(R_2 - 3R_1\) หลักที่ 2 จะกลายเป็นหลักที่ไม่มีตัวนำ — ตัวแปร \(x_2\) จึงเป็นตัวแปรเสรี</div></details>
+    <details class="sol"><summary>แนวคิดและเฉลยแบบละเอียด</summary><div class="sol-body">
+      <p><strong>แนวคิด:</strong> ตามขั้นตอนมาตรฐาน 4 ขั้น</p>
+      <ol class="steps">
+        <li><span class="step-t">ลดรูปจนได้รูปแบบขั้นบันได</span>
+        \[ \begin{bmatrix} 1 & 3 & 4 & 7\\ 3 & 9 & 7 & 6 \end{bmatrix} \xrightarrow{\,R_2 - 3R_1\,} \begin{bmatrix} 1 & 3 & 4 & 7\\ 0 & 0 & -5 & -15 \end{bmatrix} \xrightarrow{\,-\tfrac{1}{5}R_2\,} \begin{bmatrix} 1 & 3 & 4 & 7\\ 0 & 0 & 1 & 3 \end{bmatrix} \]
+        รูปแบบขั้นบันไดมีสมาชิกนำที่หลัก 1 และ 3 → <strong>หลักตัวหลักคือหลักที่ 1 และ 3</strong> (หลักที่ 2 ไม่เป็น)</li>
+        <li><span class="step-t">กวาดขึ้นจนได้ RREF</span>
+        \[ \xrightarrow{\,R_1 - 4R_2\,} \begin{bmatrix} 1 & 3 & 0 & -5\\ 0 & 0 & 1 & 3 \end{bmatrix} \]</li>
+        <li><span class="step-t">แยกตัวแปร</span> หลักตัวหลัก 1, 3 → \(x_1, x_3\) พื้นฐาน; \(x_2\) เสรี ระบบสมนัยกับ \(x_1 + 3x_2 = -5\) และ \(x_3 = 3\)</li>
+        <li><span class="step-t">เขียนผลเฉลยทั่วไป</span>
+        \[ \begin{aligned} x_1 &= -5 - 3x_2\\ x_3 &= 3\\ x_2 &\text{ เป็นตัวแปรเสรี} \end{aligned} \]
+        ระบบมีผลเฉลยอนันต์ชุด เช่น แทน \(x_2 = 0\) ได้ \((-5, 0, 3)\) ตรวจ: \(3(-5) + 7? \) เช็กสมการเดิมที่ 1: \(-5 + 0 + 12 = 7\) ✓ สมการที่ 2: \(-15 + 0 + 21 = 6\) ✓</li>
+      </ol>
+    </div></details>
+  </article>
+
+  <article class="pr-card" data-pkey="p1-2-4">
+    <div class="pr-head"><span class="pr-num">ข้อ 4</span><span class="diff">●●●</span><span class="spacer"></span>
+      <label class="pr-done"><input type="checkbox"> ทำสำเร็จแล้ว</label></div>
+    <div class="pr-body">
+      <p>จงหาผลเฉลยทั่วไป (ถ้ามี) ของระบบเชิงเส้น
+      \[ \begin{aligned} x_1 + x_2 - x_3 &= 2\\ 2x_1 + 3x_2 - x_3 &= 3\\ x_1 - x_2 - 3x_3 &= 4 \end{aligned} \]</p>
+    </div>
+    <details class="hint"><summary>คำใบ้</summary><div class="hint-body">\(R_2 - 2R_1\) และ \(R_3 - R_1\) ก่อน แล้วดูว่าเกิดแถวล้าหรือไม่ — ถ้าเกิด แสดงว่ามีตัวแปรเสรี</div></details>
+    <details class="sol"><summary>แนวคิดและเฉลยแบบละเอียด</summary><div class="sol-body">
+      <p><strong>แนวคิด:</strong> ลดรูปเมทริกซ์แต่งเติมตามขั้นตอนมาตรฐาน</p>
+      <ol class="steps">
+        <li><span class="step-t">กวาดหลักที่ 1</span>
+        \[ \begin{bmatrix} 1 & 1 & -1 & 2\\ 2 & 3 & -1 & 3\\ 1 & -1 & -3 & 4 \end{bmatrix} \xrightarrow{\substack{R_2 - 2R_1\\ R_3 - R_1}} \begin{bmatrix} 1 & 1 & -1 & 2\\ 0 & 1 & 1 & -1\\ 0 & -2 & -2 & 2 \end{bmatrix} \]</li>
+        <li><span class="step-t">กวาดหลักที่ 2</span>
+        \[ \xrightarrow{\,R_3 + 2R_2\,} \begin{bmatrix} 1 & 1 & -1 & 2\\ 0 & 1 & 1 & -1\\ 0 & 0 & 0 & 0 \end{bmatrix} \xrightarrow{\,R_1 - R_2\,} \begin{bmatrix} 1 & 0 & -2 & 3\\ 0 & 1 & 1 & -1\\ 0 & 0 & 0 & 0 \end{bmatrix} \]
+        (แถวล้าเป็น \(0 = 0\) → มีผลเฉลย และไม่ขัดทฤษฎีบท 1.2.2)</li>
+        <li><span class="step-t">แยกตัวแปร</span> หลักตัวหลักคือหลัก 1, 2 → \(x_1, x_2\) พื้นฐาน และ \(x_3\) เป็นตัวแปรเสรี</li>
+        <li><span class="step-t">ผลเฉลยทั่วไป</span>
+        \[ \begin{aligned} x_1 &= 3 + 2x_3\\ x_2 &= -1 - x_3\\ x_3 &\text{ เป็นตัวแปรเสรี} \end{aligned} \]
+        มีผลเฉลยอนันต์ชุด</li>
+        <li><span class="step-t">ตรวจคำตอบ</span> เลือก \(x_3 = 1\) ได้ \((5, -2, 1)\): สมการ 1: \(5 - 2 - 1 = 2\) ✓ สมการ 2: \(10 - 6 - 1 = 3\) ✓ สมการ 3: \(5 + 2 - 3 = 4\) ✓</li>
+      </ol>
+    </div></details>
+  </article>
+
+  <article class="pr-card" data-pkey="p1-2-5">
+    <div class="pr-head"><span class="pr-num">ข้อ 5</span><span class="diff">●●○</span><span class="spacer"></span>
+      <label class="pr-done"><input type="checkbox"> ทำสำเร็จแล้ว</label></div>
+    <div class="pr-body">
+      <p>(ก) จงหาค่าของ \(h\) ทั้งหมดที่ทำให้ระบบที่มีเมทริกซ์แต่งเติม \(\begin{bmatrix} 1 & 3 & 2\\ h & 6 & 4 \end{bmatrix}\) มีผลเฉลยอนันต์ชุด และค่า \(h\) ที่มีผลเฉลยชุดเดียว<br>
+      (ข) จงหาค่าของ \(h\) ทั้งหมดที่ทำให้ระบบที่มีเมทริกซ์แต่งเติม \(\begin{bmatrix} 1 & -4 & 2\\ h & -8 & 3 \end{bmatrix}\) ไม่มีผลเฉลย</p>
+    </div>
+    <details class="hint"><summary>คำใบ้</summary><div class="hint-body">(ก) ใช้ \(R_2 - hR_1\) (ข) ใช้ \(R_2 - hR_1\) เช่นกัน — ดูว่าแถวล่างให้ \(0 = b\) หรือ \(0 = 0\) หรือมีตัวนำ</div></details>
+    <details class="sol"><summary>แนวคิดและเฉลยแบบละเอียด</summary><div class="sol-body">
+      <p><strong>แนวคิด:</strong> กวาดด้วยแถวที่ไม่มี \(h\) ให้เหลือแถวที่ "นิพจน์ของ \(h\)" เทียบกับค่าคงตัว</p>
+      <ol class="steps">
+        <li><span class="step-t">(ก) ลดรูป</span>
+        \[ \begin{bmatrix} 1 & 3 & 2\\ h & 6 & 4 \end{bmatrix} \xrightarrow{\,R_2 - hR_1\,} \begin{bmatrix} 1 & 3 & 2\\ 0 & 6 - 3h & 4 - 2h \end{bmatrix} \]</li>
+        <li><span class="step-t">(ก) วิเคราะห์</span> ถ้า \(h = 2\): แถวล่างเป็น \(\begin{bmatrix} 0 & 0 & 0 \end{bmatrix}\) → เหลือ \(x_1 + 3x_2 = 2\) → <strong>ผลเฉลยอนันต์ชุด</strong><br>
+        ถ้า \(h \neq 2\): \(6 - 3h \neq 0\) มีตัวนำหลักที่ 2 → <strong>ผลเฉลยชุดเดียว</strong> (และไม่มีทางไม่มีผลเฉลย เพราะ \(4 - 2h = 0\) ก็ต่อเมื่อ \(h = 2\) พร้อมกันพอดี)</li>
+        <li><span class="step-t">(ข) ลดรูป</span>
+        \[ \begin{bmatrix} 1 & -4 & 2\\ h & -8 & 3 \end{bmatrix} \xrightarrow{\,R_2 - hR_1\,} \begin{bmatrix} 1 & -4 & 2\\ 0 & 4h - 8 & 3 - 2h \end{bmatrix} \]</li>
+        <li><span class="step-t">(ข) วิเคราะห์</span> ถ้า \(h = 2\): แถวล่างเป็น \(\begin{bmatrix} 0 & 0 & -1 \end{bmatrix}\) สมนัยกับ \(0 = -1\) → <strong>ไม่มีผลเฉลย</strong><br>
+        ถ้า \(h \neq 2\): ตัวนำอยู่หลัก 1, 2 → มีผลเฉลยชุดเดียว</li>
+        <li><span class="step-t">สรุป</span> (ก) อนันต์ชุดเมื่อ \(h = 2\), ชุดเดียวเมื่อ \(h \neq 2\) &nbsp; (ข) ไม่มีผลเฉลยเมื่อ \(h = 2\) เท่านั้น</li>
+      </ol>
+    </div></details>
+  </article>
+
+  <article class="pr-card" data-pkey="p1-2-6">
+    <div class="pr-head"><span class="pr-num">ข้อ 6</span><span class="diff">●●●</span><span class="spacer"></span>
+      <label class="pr-done"><input type="checkbox"> ทำสำเร็จแล้ว</label></div>
+    <div class="pr-body">
+      <p>จงหาค่าของ \(a\) ทั้งหมดที่ทำให้ระบบเชิงเส้น
+      \[ \begin{aligned} x_1 + x_2 - x_3 &= 3\\ x_1 - x_2 + 3x_3 &= 4\\ x_1 + x_2 + (a^2 - 10)x_3 &= a \end{aligned} \]
+      (ก) ไม่มีผลเฉลย &nbsp; (ข) มีผลเฉลยชุดเดียว &nbsp; (ค) มีผลเฉลยอนันต์ชุด</p>
+    </div>
+    <details class="hint"><summary>คำใบ้</summary><div class="hint-body">\(R_2 - R_1\) และ \(R_3 - R_1\) จะได้แถวสุดท้าย \(\begin{bmatrix} 0 & 0 & a^2 - 9 & a - 3 \end{bmatrix}\) แล้วแยกวิเคราะห์ค่า \(a = 3\) กับ \(a = -3\)</div></details>
+    <details class="sol"><summary>แนวคิดและเฉลยแบบละเอียด</summary><div class="sol-body">
+      <p><strong>แนวคิด:</strong> ลดรูปให้เห็นแถวพารามิเตอร์ แล้วแยกกรณี</p>
+      <ol class="steps">
+        <li><span class="step-t">กวาดหลักที่ 1 และ 2</span>
+        \[ \begin{bmatrix} 1 & 1 & -1 & 3\\ 1 & -1 & 3 & 4\\ 1 & 1 & a^2-10 & a \end{bmatrix} \xrightarrow{\substack{R_2 - R_1\\ R_3 - R_1}} \begin{bmatrix} 1 & 1 & -1 & 3\\ 0 & -2 & 4 & 1\\ 0 & 0 & a^2 - 9 & a - 3 \end{bmatrix} \]
+        (สังเกตว่า \(a^2 - 10 - (-1) = a^2 - 9\) และ \(a - 3\))</li>
+        <li><span class="step-t">วิเคราะห์แถวสุดท้าย</span> แถวสุดท้ายสมนัยกับ \((a^2 - 9)x_3 = a - 3\) นั่นคือ \((a-3)(a+3)x_3 = a-3\)</li>
+        <li><span class="step-t">กรณี \(a \neq 3\) และ \(a \neq -3\)</span> สัมประสิทธิ์ \(a^2 - 9 \neq 0\) มีตัวนำหลักที่ 3 → ไม่มีตัวแปรเสรี → <strong>(ข) ผลเฉลยชุดเดียว</strong> เมื่อ \(a \neq 3, -3\)</li>
+        <li><span class="step-t">กรณี \(a = 3\)</span> แถวสุดท้ายกลายเป็น \(\begin{bmatrix} 0 & 0 & 0 & 0 \end{bmatrix}\) → มีตัวแปรเสรี (\(x_3\)) → <strong>(ค) ผลเฉลยอนันต์ชุด</strong></li>
+        <li><span class="step-t">กรณี \(a = -3\)</span> แถวสุดท้ายกลายเป็น \(\begin{bmatrix} 0 & 0 & 0 & -6 \end{bmatrix}\) สมนัยกับ \(0 = -6\) → <strong>(ก) ไม่มีผลเฉลย</strong></li>
+        <li><span class="step-t">สรุป</span> (ก) \(a = -3\) &nbsp; (ข) \(a \neq 3\) และ \(a \neq -3\) &nbsp; (ค) \(a = 3\)</li>
+      </ol>
+    </div></details>
+  </article>
+</section>
+
+
+  </div></main>
+</div>
+<nav class="pager" id="pager"></nav>
+<script src="assets/katex/katex.min.js"></script>
+<script src="assets/katex/auto-render.min.js"></script>
+<script src="assets/js/main.js"></script>
+</body>
+</html>

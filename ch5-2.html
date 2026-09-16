@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>5.2 การแปลงเชิงเส้น — พีชคณิตเชิงเส้น 1/2569</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22%23101a35%22/><text x=%2250%22 y=%2272%22 font-size=%2262%22 text-anchor=%22middle%22 fill=%22white%22 font-family=%22serif%22>Σ</text></svg>">
+<meta name="description" content="5.2 การแปลงเชิงเส้น — สื่อการสอนวิชา 2301234 พีชคณิตเชิงเส้น ๑ เทอม 1/2569 พร้อมตัวอย่าง step-by-step และโจทย์ซ้อมพร้อมเฉลย">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Prompt:wght@500;600;700&family=Sarabun:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/katex/katex.min.css">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body data-ch="5" data-section="5.2" data-page="ch5-2.html">
+<header class="topbar">
+  <button class="icon-btn menu-btn" id="menuBtn" aria-label="เปิดเมนู">☰</button>
+  <a class="brand" href="index.html"><span class="brand-badge">Σ</span><span>พีชคณิตเชิงเส้น <span class="brand-sub">2301234 · 1/2569</span></span></a>
+  <span class="spacer"></span>
+  <button class="icon-btn theme-btn" id="themeBtn" aria-label="สลับโหมดมืด/สว่าง">🌙</button>
+</header>
+<div class="layout">
+  <nav class="sidebar" id="sidebar"></nav>
+  <div class="scrim" id="scrim"></div>
+
+  <main class="content"><div class="inner">
+
+<div class="crumb">บทที่ 5 · แนวคิดเชิงนามธรรมของพีชคณิตเชิงเส้น</div>
+<h1 class="page-title">5.2 การแปลงเชิงเส้น</h1>
+<p class="page-sub">การแปลงเชิงเส้นบนปริภูมินามธรรม — อนุพันธ์ การแทนค่า การสลับเปลี่ยน ล้วนเป็นการแปลงเชิงเส้น
+เราจะเรียนการนิยาม \(T\) ด้วยฐานหลัก และเครื่องมือสำคัญ <strong>เคอร์เนล (ker T)</strong> และ <strong>เรนจ์ (range T)</strong> พร้อมทฤษฎีบทแรงก์</p>
+
+<nav class="pillnav">
+  <a href="#objectives">🎯 จุดประสงค์</a>
+  <a href="#lesson">📖 บทเรียน</a>
+  <a href="#examples">✏️ ตัวอย่างโจทย์</a>
+  <a href="#recipe">⚡ สูตรสำเร็จ</a>
+  <a href="#practice">🏋️ โจทย์ซ้อมมือ</a>
+</nav>
+
+<section class="block" id="objectives">
+  <div class="obj">
+    <h2>🎯 เรียนจบหัวข้อนี้ คุณต้องทำสิ่งเหล่านี้ได้</h2>
+    <ul>
+      <li>ตรวจว่าฟังก์ชันระหว่างปริภูมินามธรรม (พหุนาม เมทริกซ์ ฟังก์ชัน) เป็นการแปลงเชิงเส้นหรือไม่</li>
+      <li>ใช้ทฤษฎีบท 5.2.1: กำหนดค่า \(T\) บนฐานหลักเพียงพอสำหรับนิยาม \(T\) ทั้งหมด และหา \(T(\vec{x})\) จากข้อมูลบนฐานหลัก</li>
+      <li>หา \(\ker T\) และ \(\operatorname{range} T\) และเข้าใจว่าทั้งคู่เป็นปริภูมิย่อย</li>
+      <li>ใช้ทฤษฎีบทแรงก์: \(\dim V = \operatorname{rank} T + \operatorname{nullity} T\) และเชื่อมกับสมบัติ 1-1/ทั่วถึง</li>
+    </ul>
+  </div>
+</section>
+
+<section class="block" id="lesson">
+  <h2><span class="h2-dot">📖</span> บทเรียน</h2>
+
+  <h3>1) การแปลงเชิงเส้นบนปริภูมินามธรรม</h3>
+  <div class="box box-def">
+    <div class="box-title">📐 นิยาม</div>
+    <p>\(T: V \to W\) เป็น<strong>การแปลงเชิงเส้น</strong> เมื่อ \(T(\vec{u} + \vec{v}) = T(\vec{u}) + T(\vec{v})\) และ \(T(c\vec{u}) = cT(\vec{u})\) ทุก \(\vec{u}, \vec{v} \in V\), \(c \in \mathbb{F}\) — และจะได้ \(T(\vec{0}_V) = \vec{0}_W\), \(T(-\vec{v}) = -T(\vec{v})\) ตามมา</p>
+  </div>
+  <div class="box box-idea">
+    <div class="box-title">💡 ตัวอย่างที่ต้องคุ้น (ตามตำรา)</div>
+    <p><strong>เป็นเชิงเส้น:</strong> การอนุพันธ์ \(D(f) = f'\), การแทนค่า \(T(p) = p(1)\), \(T(A) = A^T\), \(T(A) = \operatorname{tr} A\), การหาลิมิตของลำดับ</p>
+    <p><strong>ไม่เชิงเส้น:</strong> \(T(A) = \det A\) (เพราะ \(\det(A+B) \neq \det A + \det B\)), \(T(\vec{x}) = \|\vec{x}\|\) (\(T(2\vec{x}) = 2T(\vec{x})\) พัง), \(T(A) = a^2 + b^2\), \(T(f) = 1 + f(x)\) (ไม่ส่งศูนย์ไปศูนย์)</p>
+  </div>
+
+  <h3>2) นิยาม \(T\) ด้วยฐานหลัก</h3>
+  <div class="box box-thm">
+    <div class="box-title">⭐ ทฤษฎีบท 5.2.1</div>
+    <p>ให้ \(B = \{\vec{v}_1, \dots, \vec{v}_n\}\) เป็นฐานหลักของ \(V\) การกำหนดค่าของ \(T\) บน \(\vec{v}_1, \dots, \vec{v}_n\) อย่างละอัน จะมีการแปลงเชิงเส้น<strong>เพียงอันเดียว</strong>ที่สอดคล้อง — เพราะเวกเตอร์ใด ๆ \(\vec{x} = c_1\vec{v}_1 + \cdots + c_n\vec{v}_n\) บังคับให้</p>
+    \[ T(\vec{x}) = c_1T(\vec{v}_1) + \cdots + c_nT(\vec{v}_n) \]
+    <p>ท่าทำโจทย์: เขียน \(\vec{x}\) เป็นรวมเชิงเส้นของฐานหลัก (เทียบสัมประสิทธิ์) แล้ว "ดึง \(T\) เข้าไป"</p>
+  </div>
+
+  <h3>3) เคอร์เนลและเรนจ์</h3>
+  <div class="box box-def">
+    <div class="box-title">📐 นิยาม</div>
+    <p>• <strong>เคอร์เนล:</strong> \(\ker T = \{\vec{v} \in V : T(\vec{v}) = \vec{0}_W\}\) — เป็นปริภูมิย่อยของ \(V\) (ทฤษฎีบท 5.2.3) เทียบเท่ากับ \(\operatorname{Nul} A\)</p>
+    <p>• <strong>เรนจ์:</strong> \(\operatorname{range} T = \{T(\vec{v}) : \vec{v} \in V\}\) — เป็นปริภูมิย่อยของ \(W\) เทียบเท่ากับ \(\operatorname{Col} A\)</p>
+    <p>• <strong>โนลลิตี</strong> (nullity T) = \(\dim \ker T\), <strong>แรงก์</strong> (rank T) = \(\dim \operatorname{range} T\)</p>
+  </div>
+  <div class="box box-thm">
+    <div class="box-title">⭐ ทฤษฎีบทแรงก์ (5.2.6) และเกณฑ์ 1-1/ทั่วถึง</div>
+    <p>เมื่อ \(V\) มีมิติจำกัด: \(\dim V = \operatorname{rank} T + \operatorname{nullity} T\) และ:</p>
+    <p>• \(T\) <strong>1-1</strong> ⇔ \(\ker T = \{\vec{0}_V\}\) ⇔ nullity = 0</p>
+    <p>• \(T\) <strong>ทั่วถึง</strong> ไป \(W\) ⇔ \(\operatorname{range} T = W\) ⇔ rank = \(\dim W\)</p>
+    <p>เมื่อ \(\dim V = \dim W = n\): 1-1 ⟺ ทั่วถึง ⟺ หาตัวผกผันได้ (เหมือน IMT ในรูปนามธรรม)</p>
+  </div>
+</section>
+
+<section class="block" id="examples">
+  <h2><span class="h2-dot">✏️</span> ตัวอย่างโจทย์</h2>
+
+  <article class="ex-card">
+    <div class="ex-head"><span class="ex-badge">ตัวอย่าง 1</span><span class="tag easy">ง่าย</span><span class="ex-title">ตรวจการแปลงเชิงเส้นบน \(M_2(\mathbb{R})\) (ตัวอย่างคลาสสิกของตำรา)</span></div>
+    <div class="ex-body">
+      <div class="ex-q">จงพิจารณาว่าฟังก์ชันต่อไปนี้เป็นการแปลงเชิงเส้นจาก \(M_2(\mathbb{R})\) ไปยัง \(\mathbb{R}\) หรือไม่<br>
+      (ก) \(T\left(\begin{bmatrix} a & b\\ c & d \end{bmatrix}\right) = a + c - 2d\) &nbsp; (ข) \(T\left(\begin{bmatrix} a & b\\ c & d \end{bmatrix}\right) = a^2 + b^2\)</div>
+      <div class="approach"><span class="lbl">แนวคิด</span> — เอกพันธ์เชิงเส้นในสมาชิก → linear / กำลังสอง → หาตัวอย่างค้าน</div>
+      <ol class="steps">
+        <li><span class="step-t">(ก) เป็นการแปลงเชิงเส้น</span> ค่าออกมาเป็นผลรวมของ (สเกลาร์)×(สมาชิก) — สำหรับ \(A, B\) และ \(k\):
+        \[ T(A + kB) = (a + kb') \dots = T(A) + kT(B) \;\checkmark \]
+        (เขียนกระจายตามนิยามเมทริกซ์เสมอ — หรือสังเกตว่า \(T(A) = \vec{a}\cdot A\vec{?}\) ในรูปรวมเชิงเส้นของสมาชิก จึงเชิงเส้น)</li>
+        <li><span class="step-t">(ข) ไม่เป็นการแปลงเชิงเส้น</span> หาตัวอย่างค้าน: \(A = \begin{bmatrix} 1 & 0\\ 0 & 0 \end{bmatrix}\): \(T(A) = 1\) แต่ \(2T(A) = 2\) ขณะที่ \(T(2A) = 2^2 + 0 = 4 \neq 2\) — สมบัติ \(T(kA) = kT(A)\) พัง ✗</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="ex-card">
+    <div class="ex-head"><span class="ex-badge">ตัวอย่าง 2</span><span class="tag hard">ยาก</span><span class="ex-title">หา \(T(\vec{x})\) จากค่าบนฐานหลัก (ตัวอย่างคลาสสิกของตำรา)</span></div>
+    <div class="ex-body">
+      <div class="ex-q">ให้ \(T: \mathbb{R}_2[x] \to \mathbb{R}[x]\) เป็นการแปลงเชิงเส้นซึ่ง \(T(x+1) = x\), \(T(x-1) = 1\) และ \(T(x^2) = -x^2\) จงหา \(T(2 + 3x - x^2)\)</div>
+      <div class="approach"><span class="lbl">แนวคิด</span> — เขียน \(2 + 3x - x^2\) เป็นการรวมเชิงเส้นของ \(x+1, x-1, x^2\) (เทียบสัมประสิทธิ์) แล้วดึง \(T\) เข้าไป</div>
+      <ol class="steps">
+        <li><span class="step-t">แก้หาน้ำหนัก</span> \(2 + 3x - x^2 = \alpha(x+1) + \beta(x-1) + \gamma x^2\): เทียบสัมประสิทธิ์
+        \[ \text{คงตัว: } \alpha - \beta = 2, \qquad x\text{: } \alpha + \beta = 3, \qquad x^2\text{: } \gamma = -1 \]
+        บวกสองสมการแรก: \(2\alpha = 5 \Rightarrow \alpha = \tfrac52, \; \beta = \tfrac12, \; \gamma = -1\)</li>
+        <li><span class="step-t">ดึง \(T\) เข้าไป</span>
+        \[ T(2 + 3x - x^2) = \tfrac52\,T(x+1) + \tfrac12\,T(x-1) - T(x^2) = \tfrac52 x + \tfrac12 (1) - (-x^2) \]</li>
+        <li><span class="step-t">สรุป</span>
+        \[ T(2 + 3x - x^2) = \frac{1}{2} + \frac{5}{2}x + x^2 \]</li>
+      </ol>
+      <div class="verify"><span class="lbl">ตรวจคำตอบ:</span> ตรวจน้ำหนักย้อน: \(\tfrac52(x+1) + \tfrac12(x-1) - x^2 = (\tfrac52 - \tfrac12) + (\tfrac52 + \tfrac12)x - x^2 = 2 + 3x - x^2\) ✓</div>
+    </div>
+  </article>
+
+  <article class="ex-card">
+    <div class="ex-head"><span class="ex-badge">ตัวอย่าง 3</span><span class="tag hard">ยาก</span><span class="ex-title">เคอร์เนลและเรนจ์ของการแทนค่า</span></div>
+    <div class="ex-body">
+      <div class="ex-q">ให้ \(T: \mathbb{R}_2[x] \to \mathbb{R}\) กำหนดโดย \(T(p) = p(1)\) จงหา \(\ker T\) และ \(\operatorname{range} T\) พร้อมทั้งตรวจทฤษฎีบทแรงก์</div>
+      <div class="approach"><span class="lbl">แนวคิด</span> — \(\ker T\) = พหุนามที่ราก 1 → เขียนเป็น Span / range = ค่าที่เป็นไปได้ทั้งหมด</div>
+      <ol class="steps">
+        <li><span class="step-t">หา \(\ker T\)</span> \(p = a + bx + cx^2\) อยู่ใน \(\ker T\) เมื่อ \(a + b + c = 0 \Rightarrow a = -b - c\):
+        \[ p = b(x - 1) + c(x^2 - 1) \;\Longrightarrow\; \ker T = \operatorname{Span}\{x - 1,\; x^2 - 1\}, \;\; \operatorname{nullity} T = 2 \]</li>
+        <li><span class="step-t">หา \(\operatorname{range} T\)</span> ค่า \(T(p) = p(1)\) เป็นจำนวนจริงใด ๆ เช่น \(T(k) = k\) สำหรับค่าคงตัว \(k\) → \(\operatorname{range} T = \mathbb{R}\), \(\operatorname{rank} T = 1\)</li>
+        <li><span class="step-t">ตรวจทฤษฎีบทแรงก์</span> \(\dim \mathbb{R}_2[x] = 3 = \operatorname{rank} T + \operatorname{nullity} T = 1 + 2\) ✓ — และ \(T\) ทั่วถึง (rank = dim \(\mathbb{R}\) = 1) แต่ไม่ 1-1 (nullity &gt; 0)</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="ex-card">
+    <div class="ex-head"><span class="ex-badge">ตัวอย่าง 4</span><span class="tag hard">ยาก</span><span class="ex-title">เคอร์เนลและเรนจ์ของการอนุพันธ์</span></div>
+    <div class="ex-body">
+      <div class="ex-q">กำหนด \(D: C^1(-\infty, \infty) \to \mathbb{R}^{\mathbb{R}}\) โดย \(D(f) = f'\) จงแสดงว่า \(D\) เป็นการแปลงเชิงเส้น แล้วหา \(\ker D\) และ \(\operatorname{range} D\)</div>
+      <div class="approach"><span class="lbl">แนวคิด</span> — สมบัติอนุพันธ์ \((f + cg)' = f' + cg'\) → linear; เคอร์เนล = ฟังก์ชันที่อนุพันธ์เป็นศูนย์ = ค่าคงตัว</div>
+      <ol class="steps">
+        <li><span class="step-t">เป็นเชิงเส้น</span> จากกฎอนุพันธ์: \((f + cg)' = f' + cg'\) ✓ → \(D(f + cg) = D(f) + cD(g)\)</li>
+        <li><span class="step-t">\(\ker D\)</span> \(f' = 0\) บน \((-\infty, \infty)\) ⇔ \(f\) เป็นฟังก์ชันค่าคงตัว:
+        \[ \ker D = \{f : f(x) = c\} = \operatorname{Span}\{1\} \;\text{(มีมิติ 1)} \]</li>
+        <li><span class="step-t">\(\operatorname{range} D\)</span> ฟังก์ชันใด ๆ \(g\) มีปฏิยานุพันธ์ \(f\) (เช่น \(f(x) = \int_0^x g(t)dt\)) ที่ \(D(f) = g\) → \(\operatorname{range} D = \mathbb{R}^{\mathbb{R}}\) → \(D\) ทั่วถึง แต่ไม่ 1-1 (เคอร์เนลไม่ชัด)</li>
+      </ol>
+    </div>
+  </article>
+</section>
+
+<section class="block" id="recipe">
+  <h2><span class="h2-dot">⚡</span> สูตรสำเร็จ — ท่าที่ใช้ทำโจทย์หัวข้อนี้</h2>
+  <div class="recipe">
+    <div class="recipe-head">🪜 ท่าหลัก: หา ker T, range T และใช้ทฤษฎีบทแรงก์</div>
+    <div class="recipe-body">
+      <ol>
+        <li><strong>ตรวจเชิงเส้น:</strong> \(T(\vec{0}) = \vec{0}\) ก่อน (ฟังก์ชันมี "+1", กำลังสอง, |·|, det มักพังตรงนี้) แล้วเช็กการกระจาย</li>
+        <li><strong>หา \(T(\vec{x})\) จากฐานหลัก:</strong> เขียน \(\vec{x} = \sum c_i\vec{v}_i\) (เทียบสัมประสิทธิ์) → \(T(\vec{x}) = \sum c_i T(\vec{v}_i)\)</li>
+        <li><strong>\(\ker T\):</strong> แก้เงื่อนไข \(T(\vec{x}) = \vec{0}\) (เทียบสัมประสิทธิ์ในพหุนาม/สมาชิกเมทริกซ์) → เขียนเป็น Span → nullity</li>
+        <li><strong>\(\operatorname{range} T\):</strong> หาว่าค่าออกมาได้รูปแบบใด → Span ของ \(T(\vec{v}_i)\) (ฐานหลักพอ) → rank</li>
+        <li>ตรวจ: \(\dim V = \operatorname{rank} + \operatorname{nullity}\) และตอบ 1-1/ทั่วถึงจาก nullity/rank</li>
+      </ol>
+    </div>
+  </div>
+  <div class="key-grid">
+    <div class="key-card"><div class="k-title">ท่า: ไม่เชิงเส้นที่พบบ่อย</div>\(\det\), \(\operatorname{tr}\)? (tr เป็นเชิงเส้นนะ!) — จำ: det ไม่เชิงเส้น, tr เชิงเส้น, นอร์มไม่เชิงเส้น, +ค่าคงตัวไม่เชิงเส้น</div>
+    <div class="key-card"><div class="k-title">ท่า: เทียบสัมประสิทธิ์</div>สมการพหุนาม = ระบบเชิงเส้นของสัมประสิทธิ์แต่ละดีกรี — เครื่องมือแก้ทุกโจทย์ของ \(\mathbb{F}_n[x]\)</div>
+    <div class="key-card"><div class="k-title">ท่า: แรงก์ใช้ตอบไว</div>rank + nullity = \(\dim V\) เสมอ — รู้อันหนึ่งได้อีกอันทันทีแม้ไม่คำนวณเคอร์เนล</div>
+    <div class="key-card"><div class="k-title">ท่า: เทียบกับเมทริกซ์</div>\(\ker T \leftrightarrow \operatorname{Nul} A\), \(\operatorname{range} T \leftrightarrow \operatorname{Col} A\) — อ่านซ้ำหัวข้อ 2.2/2.1 ได้เลย</div>
+  </div>
+</section>
+
+<section class="block" id="practice">
+  <h2><span class="h2-dot">🏋️</span> โจทย์ซ้อมมือ (6 ข้อ)</h2>
+  <p class="small">ลองทำเองก่อน แล้วค่อยกดเปิดคำใบ้ → เฉลยทีละขั้น เมื่อทำได้แล้วติ๊ก ✓ เพื่อบันทึกความคืบหน้า</p>
+
+  <article class="pr-card" data-pkey="p5-2-1">
+    <div class="pr-head"><span class="pr-num">ข้อ 1</span><span class="diff">●○○</span><span class="spacer"></span>
+      <label class="pr-done"><input type="checkbox"> ทำสำเร็จแล้ว</label></div>
+    <div class="pr-body">
+      <p>จงพิจารณาว่า \(T: M_2(\mathbb{R}) \to \mathbb{R}\) กำหนดโดย \(T\left(\begin{bmatrix} a & b\\ c & d \end{bmatrix}\right) = \operatorname{tr} A = a + d\) เป็นการแปลงเชิงเส้นหรือไม่</p>
+    </div>
+    <details class="hint"><summary>คำใบ้</summary><div class="hint-body">สมบัติของ trace: \(\operatorname{tr}(A + kB) = \operatorname{tr} A + k\operatorname{tr} B\) — เช็กสองสมบัติตามนิยาม</div></details>
+    <details class="sol"><summary>แนวคิดและเฉลยแบบละเอียด</summary><div class="sol-body">
+      <p><strong>แนวคิด:</strong> เช็กสมบัติการบวกและการคูณสเกลาร์</p>
+      <ol class="steps">
+        <li><span class="step-t">การบวก</span> \(\operatorname{tr}(A + B) = (a_{11} + b_{11}) + (a_{22} + b_{22}) = \operatorname{tr} A + \operatorname{tr} B\) ✓</li>
+        <li><span class="step-t">สเกลาร์</span> \(\operatorname{tr}(kA) = ka_{11} + ka_{22} = k\operatorname{tr} A\) ✓</li>
+        <li><span class="step-t">สรุป</span> ผ่านทั้งสองสมบัติ → <strong>\(T\) เป็นการแปลงเชิงเส้น</strong> (ฟังก์ชันนัลเชิงเส้น — linear functional)</li>
+      </ol>
+    </div></details>
+  </article>
+
+  <article class="pr-card" data-pkey="p5-2-2">
+    <div class="pr-head"><span class="pr-num">ข้อ 2</span><span class="diff">●○○</span><span class="spacer"></span>
+      <label class="pr-done"><input type="checkbox"> ทำสำเร็จแล้ว</label></div>
+    <div class="pr-body">
+      <p>จงพิจารณาว่า \(T: \mathbb{R}_2[x] \to \mathbb{R}_2[x]\) กำหนดโดย \(T(a_0 + a_1x + a_2x^2) = (a_0 + 1) + (a_1 + 1)x + (a_2 + 1)x^2\) เป็นการแปลงเชิงเส้นหรือไม่</p>
+    </div>
+    <details class="hint"><summary>คำใบ้</summary><div class="hint-body">ลอง \(T(\vec{0})\) — พหุนามศูนย์ \(0 + 0x + 0x^2\)</div></details>
+    <details class="sol"><summary>แนวคิดและเฉลยแบบละเอียด</summary><div class="sol-body">
+      <p><strong>แนวคิด:</strong> การแปลงเชิงเส้นต้องส่ง \(\vec{0}\) ไป \(\vec{0}\)</p>
+      <ol class="steps">
+        <li><span class="step-t">แทนพหุนามศูนย์</span> \(T(0 + 0x + 0x^2) = 1 + x + x^2 \neq \vec{0}\) ✗</li>
+        <li><span class="step-t">สรุป</span> \(T(\vec{0}_V) \neq \vec{0}_W\) → <strong>\(T\) ไม่เป็นการแปลงเชิงเส้น</strong> (เพราะมีการ "บวก 1" ทุกสัมประสิทธิ์ — จุดพังคลาสสิก)</li>
+      </ol>
+    </div></details>
+  </article>
+
+  <article class="pr-card" data-pkey="p5-2-3">
+    <div class="pr-head"><span class="pr-num">ข้อ 3</span><span class="diff">●●●</span><span class="spacer"></span>
+      <label class="pr-done"><input type="checkbox"> ทำสำเร็จแล้ว</label></div>
+    <div class="pr-body">
+      <p>ให้ \(T: \mathbb{R}_1[x] \to \mathbb{R}^3\) เป็นการแปลงเชิงเส้นซึ่ง \(T(2 - x) = (1, -1, 1)^T\) และ \(T(1 + x) = (0, 1, 0)^T\) จงหา \(T(-1 + 2x)\)</p>
+    </div>
+    <details class="hint"><summary>คำใบ้</summary><div class="hint-body">แก้ \(-1 + 2x = \alpha(2 - x) + \beta(1 + x)\): \(2\alpha + \beta = -1\), \(-\alpha + \beta = 2\)</div></details>
+    <details class="sol"><summary>แนวคิดและเฉลยแบบละเอียด</summary><div class="sol-body">
+      <p><strong>แนวคิด:</strong> เขียนเป็นรวมเชิงเส้นของเวกเตอร์ที่รู้ค่า แล้วดึง \(T\) เข้าไป</p>
+      <ol class="steps">
+        <li><span class="step-t">แก้หาน้ำหนัก</span> เทียบสัมประสิทธิ์: คงตัว \(2\alpha + \beta = -1\); \(x\): \(-\alpha + \beta = 2\) ลบกัน: \(3\alpha = -3 \Rightarrow \alpha = -1, \; \beta = 1\)
+        \[ -1 + 2x = -(2 - x) + (1 + x) \]</li>
+        <li><span class="step-t">ดึง \(T\) เข้าไป</span>
+        \[ T(-1 + 2x) = -T(2 - x) + T(1 + x) = -(1, -1, 1)^T + (0, 1, 0)^T = (-1, 2, -1)^T \]</li>
+        <li><span class="step-t">ตรวจคำตอบ</span> น้ำหนักย้อน: \(-(2-x) + (1+x) = -1 + 2x\) ✓</li>
+      </ol>
+    </div></details>
+  </article>
+
+  <article class="pr-card" data-pkey="p5-2-4">
+    <div class="pr-head"><span class="pr-num">ข้อ 4</span><span class="diff">●●●</span><span class="spacer"></span>
+      <label class="pr-done"><input type="checkbox"> ทำสำเร็จแล้ว</label></div>
+    <div class="pr-body">
+      <p>ให้ \(T: M_2(\mathbb{R}) \to M_2(\mathbb{R})\) กำหนดโดย \(T(A) = A - A^T\) จงหา \(\ker T\) และ \(\operatorname{range} T\) พร้อมทั้งตรวจทฤษฎีบทแรงก์</p>
+    </div>
+    <details class="hint"><summary>คำใบ้</summary><div class="hint-body">\(T(A) = 0\) ⇔ \(A^T = A\) (สมมาตร) มีมิติ 3 / ผลลัพธ์ \(T(A)\) เป็นเมทริกซ์แอนติสมมาตร (\(B^T = -B\)) มีมิติ 1</div></details>
+    <details class="sol"><summary>แนวคิดและเฉลยแบบละเอียด</summary><div class="sol-body">
+      <p><strong>แนวคิด:</strong> แปลเงื่อนไข \(T(A) = \vec{0}\) เป็นสมบัติของ \(A\)</p>
+      <ol class="steps">
+        <li><span class="step-t">\(\ker T\)</span> \(T(A) = 0 \Leftrightarrow A = A^T\) → เซตของเมทริกซ์สมมาตร
+        \[ \ker T = \left\{ \begin{bmatrix} a & b\\ b & d \end{bmatrix} \right\} = \operatorname{Span}\left\{ \begin{bmatrix} 1 & 0\\ 0 & 0 \end{bmatrix}, \begin{bmatrix} 0 & 1\\ 1 & 0 \end{bmatrix}, \begin{bmatrix} 0 & 0\\ 0 & 1 \end{bmatrix} \right\}, \;\; \operatorname{nullity} T = 3 \]</li>
+        <li><span class="step-t">\(\operatorname{range} T\)</span> สังเกต \(T(A)^T = A^T - A = -T(A)\) → ผลลัพธ์เป็นเมทริกซ์แอนติสมมาตร \(\begin{bmatrix} 0 & x\\ -x & 0 \end{bmatrix}\) และทุกตัวแบบนี้เกิดจาก \(T\left(\begin{bmatrix} 0 & x/2\\ -x/2 & 0 \end{bmatrix}\right)\) →
+        \[ \operatorname{range} T = \operatorname{Span}\left\{ \begin{bmatrix} 0 & 1\\ -1 & 0 \end{bmatrix} \right\}, \;\; \operatorname{rank} T = 1 \]</li>
+        <li><span class="step-t">ตรวจทฤษฎีบทแรงก์</span> \(\dim M_2(\mathbb{R}) = 4 = 1 + 3\) ✓</li>
+      </ol>
+    </div></details>
+  </article>
+
+  <article class="pr-card" data-pkey="p5-2-5">
+    <div class="pr-head"><span class="pr-num">ข้อ 5</span><span class="diff">●●●</span><span class="spacer"></span>
+      <label class="pr-done"><input type="checkbox"> ทำสำเร็จแล้ว</label></div>
+    <div class="pr-body">
+      <p>ให้ \(T: \mathbb{R}_2[x] \to \mathbb{R}^2\) กำหนดโดย \(T(p) = (p(0), p(1))^T\) จงแสดงว่า \(T\) เป็นการแปลงเชิงเส้น หา \(\ker T\) และตอบว่า \(T\) ทั่วถึงหรือไม่</p>
+    </div>
+    <details class="hint"><summary>คำใบ้</summary><div class="hint-body">\(\ker T\): \(p(0) = 0 \Rightarrow a_0 = 0\); \(p(1) = 0 \Rightarrow a_0 + a_1 + a_2 = 0\) → สองเงื่อนไข สามสัมประสิทธิ์ → nullity 1 / ทั่วถึง: \(x\) ส่งไป \((0,1)\), \(1 - x\) ส่งไป \((1, 0)\)</div></details>
+    <details class="sol"><summary>แนวคิดและเฉลยแบบละเอียด</summary><div class="sol-body">
+      <p><strong>แนวคิด:</strong> แปลงเงื่อนไขการแทนค่าเป็นระบบสมการสัมประสิทธิ์</p>
+      <ol class="steps">
+        <li><span class="step-t">เชิงเส้น</span> \(T(p + cq) = ((p+cq)(0), (p+cq)(1)) = (p(0) + cq(0), p(1) + cq(1)) = T(p) + cT(q)\) ✓</li>
+        <li><span class="step-t">\(\ker T\)</span> \(p = a_0 + a_1x + a_2x^2\): \(p(0) = a_0 = 0\) และ \(p(1) = a_0 + a_1 + a_2 = 0 \Rightarrow a_1 = -a_2\):
+        \[ p = a_2(x^2 - x) \;\Longrightarrow\; \ker T = \operatorname{Span}\{x^2 - x\}, \;\; \operatorname{nullity} T = 1 \]</li>
+        <li><span class="step-t">ทั่วถึงหรือไม่</span> \(\operatorname{rank} T = 3 - 1 = 2 = \dim \mathbb{R}^2\) → <strong>ทั่วถึง</strong> (ตัวอย่าง: \(T(x) = (0,1)^T\), \(T(1-x) = (1,0)^T\)) — แต่ไม่ 1-1 เพราะเคอร์เนลไม่ชัด</li>
+      </ol>
+    </div></details>
+  </article>
+
+  <article class="pr-card" data-pkey="p5-2-6">
+    <div class="pr-head"><span class="pr-num">ข้อ 6</span><span class="diff">●●○</span><span class="spacer"></span>
+      <label class="pr-done"><input type="checkbox"> ทำสำเร็จแล้ว</label></div>
+    <div class="pr-body">
+      <p>ให้ \(T: \mathbb{R}_2[x] \to \mathbb{R}_2[x]\) กำหนดโดย \(T(p) = p'\) (อนุพันธ์) จงหา \(\ker T\), \(\operatorname{range} T\) และตอบว่า \(T\) มีสมบัติ 1-1 และทั่วถึงหรือไม่</p>
+    </div>
+    <details class="hint"><summary>คำใบ้</summary><div class="hint-body">\(T(a_0 + a_1x + a_2x^2) = a_1 + 2a_2x\) — เคอร์เนล: \(a_1 = a_2 = 0\) / ผลลัพธ์เป็นดีกรี ≤ 1 เท่านั้น</div></details>
+    <details class="sol"><summary>แนวคิดและเฉลยแบบละเอียด</summary><div class="sol-body">
+      <p><strong>แนวคิด:</strong> อนุพันธ์ลดดีกรีลง 1 → พจน์คงตัวหาย</p>
+      <ol class="steps">
+        <li><span class="step-t">\(\ker T\)</span> \(T(a_0 + a_1x + a_2x^2) = a_1 + 2a_2x = \vec{0} \Rightarrow a_1 = a_2 = 0\):
+        \[ \ker T = \operatorname{Span}\{1\} \;\text{(ค่าคงตัว)}, \;\; \operatorname{nullity} T = 1 \;\Longrightarrow\; T \text{ ไม่ 1-1} \]</li>
+        <li><span class="step-t">\(\operatorname{range} T\)</span> ผลลัพธ์เป็น \(a_1 + 2a_2x\) ซึ่งครอบคลุมพหุนามดีกรี ≤ 1 ทุกตัว:
+        \[ \operatorname{range} T = \operatorname{Span}\{1, x\} = \mathbb{R}_1[x], \;\; \operatorname{rank} T = 2 \;\Longrightarrow\; T \text{ ไม่ทั่วถึง } \mathbb{R}_2[x] \]</li>
+        <li><span class="step-t">ตรวจทฤษฎีบทแรงก์</span> \(3 = 2 + 1\) ✓ (และสอดคล้อง: \(T: V \to V\) มิติเท่ากัน แต่ไม่ 1-1 ก็ไม่ทั่วถึง — เหมือนข้อสรุปใน 2.1)</li>
+      </ol>
+    </div></details>
+  </article>
+</section>
+
+
+  </div></main>
+</div>
+<nav class="pager" id="pager"></nav>
+<script src="assets/katex/katex.min.js"></script>
+<script src="assets/katex/auto-render.min.js"></script>
+<script src="assets/js/main.js"></script>
+</body>
+</html>

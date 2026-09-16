@@ -1,0 +1,367 @@
+<!-- meta
+title: 1.4 เซตผลเฉลยและอิสระเชิงเส้น
+ch: 1
+section: 1.4
+page: ch1-4.html
+-->
+
+<div class="crumb">บทที่ 1 · ระบบเชิงเส้น</div>
+<h1 class="page-title">1.4 เซตผลเฉลยของระบบเชิงเส้นและอิสระเชิงเส้น</h1>
+<p class="page-sub">ปิดท้ายบทที่ 1 ด้วย 2 เรื่องสำคัญ: การเขียนเซตผลเฉลยในรูปแบบเวกเตอร์อิงตัวแปรเสริม (มองเห็น "เส้นตรง/ระนาบ" ของผลเฉลย)
+และแนวคิด<strong>อิสระเชิงเส้น</strong> ที่จะเป็นหัวใจของการศึกษาฐานหลักในบทต่อ ๆ ไป</p>
+
+<nav class="pillnav">
+  <a href="#objectives">🎯 จุดประสงค์</a>
+  <a href="#lesson">📖 บทเรียน</a>
+  <a href="#examples">✏️ ตัวอย่างโจทย์</a>
+  <a href="#recipe">⚡ สูตรสำเร็จ</a>
+  <a href="#practice">🏋️ โจทย์ซ้อมมือ</a>
+</nav>
+
+<section class="block" id="objectives">
+  <div class="obj">
+    <h2>🎯 เรียนจบหัวข้อนี้ คุณต้องทำสิ่งเหล่านี้ได้</h2>
+    <ul>
+      <li>ตรวจว่าระบบเชิงเส้นเอกพันธุ์มีผลเฉลยไม่ชัดหรือไม่ และเขียนผลเฉลยทั้งหมดในรูปแบบเวกเตอร์อิงตัวแปรเสริม (parametric vector form)</li>
+      <li>ใช้ทฤษฎีบท 1.4.2 เขียนผลเฉลยของระบบไม่เอกพันธุ์ในรูป \(\vec{x} = \vec{p} + \vec{v}_h\) และบอกความสัมพันธ์ทางเรขาคณิตได้</li>
+      <li>ตรวจว่าเซตของเวกเตอร์เป็นอิสระเชิงเส้นหรือไม่ และหาความสัมพันธ์ระหว่างเวกเตอร์เมื่อพึ่งเชิงเส้น</li>
+      <li>ใช้บทแทรกและข้อสังเกต (เช่น เวกเตอร์มากกว่ามิติ → พึ่งเชิงเส้น, มีเวกเตอร์ศูนย์ → พึ่งเชิงเส้น) ตอบได้เร็วโดยไม่ต้องคำนวณเยอะ</li>
+      <li>หาค่าพารามิเตอร์ \(h\) ที่ทำให้เซตเวกเตอร์เป็นอิสระ/พึ่งเชิงเส้น</li>
+    </ul>
+  </div>
+</section>
+
+<section class="block" id="lesson">
+  <h2><span class="h2-dot">📖</span> บทเรียน</h2>
+
+  <h3>1) ระบบเชิงเส้นเอกพันธุ์ (homogeneous system)</h3>
+  <div class="box box-def">
+    <div class="box-title">📐 นิยาม — ระบบเอกพันธุ์ ผลเฉลยชัด และผลเฉลยไม่ชัด</div>
+    <p><strong>ระบบเชิงเส้นเอกพันธุ์</strong> คือระบบที่เขียนได้ในรูป \(A\vec{x} = \vec{0}_m\) (ค่าคงตัวทุกสมการเป็นศูนย์)</p>
+    <p>• ระบบนี้มี \(\vec{x} = \vec{0}_n\) เป็นผลเฉลย<em>เสมอ</em> เรียกว่า <strong>ผลเฉลยชัด</strong> (trivial solution)</p>
+    <p>• สิ่งที่น่าสนใจคือมี<strong>ผลเฉลยไม่ชัด</strong> (nontrivial solution) คือผลเฉลยที่ \(\vec{x} \neq \vec{0}\) หรือไม่</p>
+  </div>
+
+  <div class="box box-thm">
+    <div class="box-title">⭐ ทฤษฎีบท 1.4.1</div>
+    <p>ระบบเชิงเส้นเอกพันธุ์ \(A\vec{x} = \vec{0}_m\) มีผลเฉลยไม่ชัด ก็ต่อเมื่อ <strong>มีตัวแปรเสรีอย่างน้อยหนึ่งตัว</strong> — นั่นคือ ก็ต่อเมื่อ \(A\) มีหลักที่<em>ไม่</em>เป็นหลักตัวหลัก</p>
+  </div>
+
+  <div class="box box-idea">
+    <div class="box-title">💡 เทคนิคจำง่าย</div>
+    <p>ถ้าจำนวน<em>ตัวแปร</em> มากกว่าจำนวน<em>สมการ</em> (\(n > m\)) ระบบเอกพันธุ์<strong>ต้องมี</strong>ผลเฉลยไม่ชัดเสมอ เพราะแถวมีแค่ \(m\) แถว ตัวนำได้ไม่เกิน \(m\) ตัว เหลือหลักที่ไม่เป็นหลักตัวหลักแน่นอน</p>
+    <p>และเนื่องจากเมทริกซ์แต่งเติมของระบบเอกพันธุ์มีหลักขวาสุดเป็นศูนย์ตลอด การลดรูปจึงทำเฉพาะเมทริกซ์สัมประสิทธิ์ \(A\) ก็พอ</p>
+  </div>
+
+  <h3>2) รูปแบบเวกเตอร์อิงตัวแปรเสริม (parametric vector form)</h3>
+  <div class="box box-def">
+    <div class="box-title">📐 นิยาม</div>
+    <p>การเขียนผลเฉลยทั่วไปในรูป</p>
+    \[ \vec{x} = t_1\vec{v}_1 + \cdots + t_p\vec{v}_p \qquad (t_1, \dots, t_p \text{ เป็นตัวแปรเสรี}) \]
+    <p>เรียกว่า<strong>รูปแบบเวกเตอร์อิงตัวแปรเสริม</strong> — เช่น ผลเฉลยทั้งหมดของ \(x_1 - 5x_3 = 0,\; x_2 - x_3 = 0\) เขียนได้เป็น \(\vec{x} = x_3\begin{bmatrix} 5\\ 1\\ 1 \end{bmatrix}\) ซึ่งเป็น<em>เส้นตรงผ่านจุดกำเนิด</em>ใน \(\mathbb{R}^3\)</p>
+  </div>
+
+  <div class="box box-thm">
+    <div class="box-title">⭐ ทฤษฎีบท 1.4.2 — ผลเฉลยของระบบไม่เอกพันธุ์</div>
+    <p>ถ้าระบบไม่เอกพันธุ์ \(A\vec{x} = \vec{b}\) มีผลเฉลยหนึ่งเป็น \(\vec{p}\) (เรียกว่า <strong>ผลเฉลยเฉพาะ</strong> / particular solution) แล้วผลเฉลยทั่วไปของระบบอยู่ในรูป</p>
+    \[ \vec{x} = \vec{p} + \vec{v}_h \]
+    <p>โดย \(\vec{v}_h\) คือผลเฉลยทั่วไปของระบบเอกพันธุ์ \(A\vec{x} = \vec{0}\) ที่สมนัยกัน (แถวขวาสุดของ RREF บอก \(\vec{p}\), ส่วนหลักที่ไม่เป็นหลักตัวหลักบอกเวกเตอร์ของ \(\vec{v}_h\))</p>
+  </div>
+
+  <div class="box box-idea">
+    <div class="box-title">💡 ภาพเรขาคณิต: ผลเฉลยของเอกพันธุ์ vs ไม่เอกพันธุ์</div>
+    <p>• ผลเฉลยของ \(A\vec{x} = \vec{0}\): เส้นตรง/ระนาบที่<strong>ผ่านจุดกำเนิด</strong></p>
+    <p>• ผลเฉลยของ \(A\vec{x} = \vec{b}\): เส้นตรง/ระนาบเดียวกันแต่<strong>เลื่อนไปอยู่ที่ปลายเวกเตอร์ \(\vec{p}\)</strong> (ไม่ผ่านจุดกำเนิด เว้นแต่ \(\vec{b} = \vec{0}\))</p>
+    <p>สองเซตผลเฉลยจึง<em>ขนานกัน</em> — นี่คือความหมายเรขาคณิตของทฤษฎีบท 1.4.2</p>
+  </div>
+
+  <h3>3) อิสระเชิงเส้น (linear independence)</h3>
+  <div class="box box-def">
+    <div class="box-title">📐 นิยาม — เซตอิสระเชิงเส้น</div>
+    <p>เซต \(\{\vec{v}_1, \vec{v}_2, \dots, \vec{v}_p\}\) ใน \(\mathbb{R}^m\) เป็น<strong>อิสระเชิงเส้น</strong> ก็ต่อเมื่อสมการเอกพันธุ์</p>
+    \[ x_1\vec{v}_1 + x_2\vec{v}_2 + \cdots + x_p\vec{v}_p = \vec{0}_m \]
+    <p>มีเพียงผลเฉลยชัด (\(x_1 = \cdots = x_p = 0\) เท่านั้น) ถ้ามีผลเฉลยไม่ชัด (มี \(x_i\) บางตัวไม่ศูนย์) เรียกว่าเซต<strong>พึ่งเชิงเส้น</strong> (linearly dependent) และเรียกความสัมพันธ์ \(c_1\vec{v}_1 + \cdots + c_p\vec{v}_p = \vec{0}\) ที่ไม่ชัดว่า <em>ความสัมพันธ์เชิงเส้น</em>ระหว่างเวกเตอร์</p>
+  </div>
+
+  <div class="box box-thm">
+    <div class="box-title">⭐ บทแทรก 1.4.3 — เช็กด้วยการลดรูป</div>
+    <p>หลักของเมทริกซ์ \(A\) เป็นอิสระเชิงเส้น ก็ต่อเมื่อ <strong>ทุกหลักของ \(A\) เป็นหลักตัวหลัก</strong> — นั่นคือลดรูป \(A\) จน REF แล้วดูว่าตัวนำ "เดินลงขวาครบทุกหลัก" หรือไม่ (สมการ \(A\vec{x} = \vec{0}\) มีเพียงผลเฉลยชัดก็ต่อเมื่อไม่มีตัวแปรเสรี)</p>
+  </div>
+
+  <div class="box box-idea">
+    <div class="box-title">💡 ข้อสังเกตที่ช่วยตอบเร็ว (5 ข้อ)</div>
+    <p>1. เซตที่มี<strong>เวกเตอร์ศูนย์</strong>อยู่ด้วย → พึ่งเชิงเส้นทันที</p>
+    <p>2. เซต \(\{\vec{v}\}\) อิสระเชิงเส้น ก็ต่อเมื่อ \(\vec{v} \neq \vec{0}\)</p>
+    <p>3. เซต \(\{\vec{v}_1, \vec{v}_2\}\) พึ่งเชิงเส้น ก็ต่อเมื่อเวกเตอร์สองตัว<em>สัดส่วนกัน</em> (มี \(c\) ที่ \(\vec{v}_1 = c\vec{v}_2\))</p>
+    <p>4. เซตพึ่งเชิงเส้น ก็ต่อเมื่อมีเวกเตอร์บางตัวเป็นการรวมเชิงเส้นของตัวอื่นในเซต</p>
+    <p>5. เซตที่มีจำนวนเวกเตอร์ \(p\) ตัวใน \(\mathbb{R}^m\) เมื่อ <strong>\(p > m\) → พึ่งเชิงเส้นทันที</strong> (ตัวนำได้ไม่เกิน \(m\) หลัก ทำให้มีหลักที่ไม่เป็นหลักตัวหลัก)</p>
+  </div>
+
+  <div class="box box-warn">
+    <div class="box-title">⚠️ สองทฤษฎีบท "ทุกแถว" vs "ทุกหลัก" — ต่างกัน!</div>
+    <p>• ทฤษฎีบท 1.3.4 (แผ่ทั่ว): มีตำแหน่งตัวหลักในทุก <strong>แถว</strong> → หลักของ \(A\) แผ่ทั่ว \(\mathbb{R}^m\)</p>
+    <p>• บทแทรก 1.4.3 (อิสระเชิงเส้น): ทุก <strong>หลัก</strong>เป็นหลักตัวหลัก → หลักของ \(A\) อิสระเชิงเส้น</p>
+    <p>เมทริกซ์ \(m \times n\): แผ่ทั่วต้องการตัวนำครบ \(m\) แถว ส่วนอิสระต้องการตัวนำครบ \(n\) หลัก — สองอย่างพร้อมกันได้ต่อเมื่อ \(m = n\) เท่านั้น</p>
+  </div>
+</section>
+
+<section class="block" id="examples">
+  <h2><span class="h2-dot">✏️</span> ตัวอย่างโจทย์</h2>
+
+  <article class="ex-card">
+    <div class="ex-head"><span class="ex-badge">ตัวอย่าง 1</span><span class="tag easy">ง่าย</span><span class="ex-title">ระบบเอกพันธุ์มีผลเฉลยไม่ชัดหรือไม่</span></div>
+    <div class="ex-body">
+      <div class="ex-q">จงพิจารณาว่าระบบเชิงเส้นเอกพันธุ์ต่อไปนี้มีผลเฉลยไม่ชัดหรือไม่ ถ้ามีจงเขียนผลเฉลยทั้งหมดในรูปแบบเวกเตอร์อิงตัวแปรเสริม
+      \[ \begin{aligned} x_1 + x_2 - 4x_3 &= 0\\ 2x_1 - x_2 - 11x_3 &= 0\\ x_1 + 3x_2 - 2x_3 &= 0 \end{aligned} \]</div>
+      <div class="approach"><span class="lbl">แนวคิด</span> — ลดรูปเมทริกซ์สัมประสิทธิ์ \(A\) (หลักขวาสุดเป็นศูนย์อยู่แล้ว ไม่ต้องแต่งเติม) แล้วดูว่ามีหลักที่ไม่เป็นหลักตัวหลักหรือไม่</div>
+      <ol class="steps">
+        <li><span class="step-t">ลดรูปจนได้รูปแบบขั้นบันได</span>
+        \[ A = \begin{bmatrix} 1 & 1 & -4\\ 2 & -1 & -11\\ 1 & 3 & -2 \end{bmatrix} \xrightarrow{\substack{R_2 - 2R_1\\ R_3 - R_1}} \begin{bmatrix} 1 & 1 & -4\\ 0 & -3 & -3\\ 0 & 2 & 2 \end{bmatrix} \xrightarrow{\,R_3 + \tfrac{2}{3}R_2\,} \begin{bmatrix} 1 & 1 & -4\\ 0 & -3 & -3\\ 0 & 0 & 0 \end{bmatrix} \]
+        หลักที่ 3 ไม่เป็นหลักตัวหลัก → โดยทฤษฎีบท 1.4.1 มี<strong>ผลเฉลยไม่ชัด</strong></li>
+        <li><span class="step-t">ลดรูปต่อจนได้ RREF</span>
+        \[ \xrightarrow{\,-\tfrac{1}{3}R_2\,} \begin{bmatrix} 1 & 1 & -4\\ 0 & 1 & 1\\ 0 & 0 & 0 \end{bmatrix} \xrightarrow{\,R_1 - R_2\,} \begin{bmatrix} 1 & 0 & -5\\ 0 & 1 & 1\\ 0 & 0 & 0 \end{bmatrix} \]</li>
+        <li><span class="step-t">เขียนผลเฉลยทั่วไป</span> \(x_1 = 5x_3,\; x_2 = -x_3,\; x_3\) เป็นตัวแปรเสรี</li>
+        <li><span class="step-t">รูปแบบเวกเตอร์อิงตัวแปรเสริม</span>
+        \[ \vec{x} = \begin{bmatrix} x_1\\ x_2\\ x_3 \end{bmatrix} = \begin{bmatrix} 5x_3\\ -x_3\\ x_3 \end{bmatrix} = x_3\begin{bmatrix} 5\\ -1\\ 1 \end{bmatrix} \qquad (x_3 \in \mathbb{R}) \]
+        หรือเขียน \(\vec{x} = t\begin{bmatrix} 5\\ -1\\ 1 \end{bmatrix}\) — เซตผลเฉลยคือ<strong>เส้นตรงผ่านจุดกำเนิด</strong>ใน \(\mathbb{R}^3\) (ทิศทางเวกเตอร์ \((5, -1, 1)^T\))</li>
+      </ol>
+      <div class="verify"><span class="lbl">ตรวจคำตอบ:</span> แทน \((5, -1, 1)\): \(5 - 1 - 4 = 0\) ✓, \(10 + 1 - 11 = 0\) ✓, \(5 - 3 - 2 = 0\) ✓ และเป็นผลเฉลยไม่ชัดเพราะไม่ใช่เวกเตอร์ศูนย์</div>
+    </div>
+  </article>
+
+  <article class="ex-card">
+    <div class="ex-head"><span class="ex-badge">ตัวอย่าง 2</span><span class="tag easy">ง่าย</span><span class="ex-title">เขียนผลเฉลยในรูปแบบเวกเตอร์อิงตัวแปรเสริมจาก RREF ที่กำหนด</span></div>
+    <div class="ex-body">
+      <div class="ex-q">กำหนดให้ \(A\) สมมูลแถวกับ \(\begin{bmatrix} 1 & 0 & 0 & 3 & 5\\ 0 & 0 & 1 & -2 & 1 \end{bmatrix}\) จงเขียนผลเฉลยของ \(A\vec{x} = \vec{0}\) ในรูปแบบเวกเตอร์อิงตัวแปรเสริม</div>
+      <div class="approach"><span class="lbl">แนวคิด</span> — ตัวแปรพื้นฐานคือ \(x_1, x_3\) (หลักตัวหลักคือหลัก 1, 3) ที่เหลือ \(x_2, x_4, x_5\) เป็นตัวแปรเสรี แล้วเขียนเวกเตอร์ผลเฉลยแยกตามตัวแปรเสรีแต่ละตัว</div>
+      <ol class="steps">
+        <li><span class="step-t">แปลง RREF เป็นสมการ</span>
+        \[ \begin{aligned} x_1 + 3x_4 + 5x_5 &= 0\\ x_3 - 2x_4 + x_5 &= 0 \end{aligned} \;\Longrightarrow\; \begin{aligned} x_1 &= -3x_4 - 5x_5\\ x_3 &= 2x_4 - x_5 \end{aligned} \]</li>
+        <li><span class="step-t">เขียนเวกเตอร์ผลเฉลยแล้วแยกพจน์ตามตัวแปรเสรี</span>
+        \[ \vec{x} = \begin{bmatrix} x_1\\ x_2\\ x_3\\ x_4\\ x_5 \end{bmatrix} = \begin{bmatrix} -3x_4 - 5x_5\\ x_2\\ 2x_4 - x_5\\ x_4\\ x_5 \end{bmatrix} = x_2\begin{bmatrix} 0\\ 1\\ 0\\ 0\\ 0 \end{bmatrix} + x_4\begin{bmatrix} -3\\ 0\\ 2\\ 1\\ 0 \end{bmatrix} + x_5\begin{bmatrix} -5\\ 0\\ -1\\ 0\\ 1 \end{bmatrix} \]</li>
+        <li><span class="step-t">สรุป</span> เซตผลเฉลยคือ \(\operatorname{Span}\{(0,1,0,0,0)^T, (-3,0,2,1,0)^T, (-5,0,-1,0,1)^T\}\) — เป็นปริภูมิมิติ 3 ใน \(\mathbb{R}^5\)</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="ex-card">
+    <div class="ex-head"><span class="ex-badge">ตัวอย่าง 3</span><span class="tag hard">ยาก</span><span class="ex-title">ผลเฉลยของระบบไม่เอกพันธุ์ในรูป \(\vec{x} = \vec{p} + \vec{v}_h\)</span></div>
+    <div class="ex-body">
+      <div class="ex-q">จงหาเซตผลเฉลยของระบบเชิงเส้นต่อไปนี้ในรูปแบบเวกเตอร์อิงตัวแปรเสริม พร้อมบอกลักษณะเรขาคณิต
+      \[ \begin{aligned} x_1 - 5x_3 &= 5\\ x_2 + x_3 &= 2\\ x_1 + x_2 - 4x_3 &= 7 \end{aligned} \]</div>
+      <div class="approach"><span class="lbl">แนวคิด</span> — ลดรูปเมทริกซ์แต่งเติมจน RREF → หลักขวาสุดให้ผลเฉลยเฉพาะ \(\vec{p}\) → หลักที่ไม่เป็นหลักตัวหลักให้เวกเตอร์ของ \(\vec{v}_h\)</div>
+      <ol class="steps">
+        <li><span class="step-t">ลดรูปจนได้ RREF</span>
+        \[ \begin{bmatrix} 1 & 0 & -5 & 5\\ 0 & 1 & 1 & 2\\ 1 & 1 & -4 & 7 \end{bmatrix} \xrightarrow{\substack{R_3 - R_1\\ R_3 - R_2}} \begin{bmatrix} 1 & 0 & -5 & 5\\ 0 & 1 & 1 & 2\\ 0 & 0 & 0 & 0 \end{bmatrix} \]
+        (แถวที่ 3: \(R_3 - R_1 = (0, 1, 1, 2)\) เท่ากับแถวที่ 2 พอดี จึงล้าเป็นศูนย์เมื่อลบออก)</li>
+        <li><span class="step-t">ผลเฉลยทั่วไป</span> \(x_1 = 5 + 5x_3,\; x_2 = 2 - x_3,\; x_3\) เป็นตัวแปรเสรี</li>
+        <li><span class="step-t">แยกเป็น \(\vec{p} + \vec{v}_h\)</span>
+        \[ \vec{x} = \begin{bmatrix} 5 + 5x_3\\ 2 - x_3\\ x_3 \end{bmatrix} = \underbrace{\begin{bmatrix} 5\\ 2\\ 0 \end{bmatrix}}_{\vec{p}:\, \text{ผลเฉลยเฉพาะ}} + \underbrace{x_3\begin{bmatrix} 5\\ -1\\ 1 \end{bmatrix}}_{\vec{v}_h:\, \text{ผลเฉลยทั่วไปของ } A\vec{x}=\vec{0}} \]</li>
+        <li><span class="step-t">ลักษณะเรขาคณิต</span> เซตผลเฉลยคือเส้นตรงใน \(\mathbb{R}^3\) ผ่านจุด \((5, 2, 0)\) มีทิศทาง \((5, -1, 1)^T\) และ<em>ขนานกับ</em>เส้นตรงผ่านจุดกำเนิด (เซตผลเฉลยของระบบเอกพันธุ์ \(A\vec{x} = \vec{0}\) ที่สมนัยกัน)</li>
+      </ol>
+      <div class="verify"><span class="lbl">ตรวจคำตอบ:</span> \(\vec{p} = (5,2,0)\): \(5 - 0 = 5\) ✓, \(2 + 0 = 2\) ✓, \(5 + 2 - 0 = 7\) ✓ / \(\vec{v}_h = (5,-1,1)\): \(5 - 5 = 0\) ✓, \(-1 + 1 = 0\) ✓, \(5 - 1 - 4 = 0\) ✓ ทั้งคู่ทำงานถูกต้อง</div>
+    </div>
+  </article>
+
+  <article class="ex-card">
+    <div class="ex-head"><span class="ex-badge">ตัวอย่าง 4</span><span class="tag easy">ง่าย</span><span class="ex-title">สองเวกเตอร์: เช็กด้วยสัดส่วน</span></div>
+    <div class="ex-body">
+      <div class="ex-q">จงพิจารณาว่า \(\{\vec{v}_1, \vec{v}_2\} = \left\{ \begin{bmatrix} 2\\ -4 \end{bmatrix}, \begin{bmatrix} -3\\ 6 \end{bmatrix} \right\}\) เป็นเซตอิสระเชิงเส้นหรือไม่ ถ้าไม่จงหาความสัมพันธ์</div>
+      <div class="approach"><span class="lbl">แนวคิด</span> — สองเวกเตอร์พึ่งเชิงเส้น ก็ต่อเมื่อสัดส่วนกัน (ข้อสังเกต 3) — เช็กเร็วกว่าลดรูป</div>
+      <ol class="steps">
+        <li><span class="step-t">เช็กสัดส่วน</span> \(\dfrac{2}{-3} = -\dfrac{2}{3}\) และ \(\dfrac{-4}{6} = -\dfrac{2}{3}\) — อัตราส่วนเท่ากัน → \(\vec{v}_1 = -\dfrac{2}{3}\vec{v}_2\)</li>
+        <li><span class="step-t">สรุป</span> เวกเตอร์สองตัวชี้ไปตามเส้นตรงเดียวกัน → เซตนี้<strong>พึ่งเชิงเส้น</strong></li>
+        <li><span class="step-t">ความสัมพันธ์เชิงเส้น</span> \(\vec{v}_1 + \dfrac{2}{3}\vec{v}_2 = \vec{0}\) หรือเขียนให้เลี่ยงเศษส่วน: \(3\vec{v}_1 + 2\vec{v}_2 = \vec{0}\) (ตรวจ: \(3(2,-4) + 2(-3,6) = (6-6, -12+12) = (0,0)\) ✓)</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="ex-card">
+    <div class="ex-head"><span class="ex-badge">ตัวอย่าง 5</span><span class="tag hard">ยาก</span><span class="ex-title">3 เวกเตอร์: อิสระหรือพึ่ง + หาความสัมพันธ์</span></div>
+    <div class="ex-body">
+      <div class="ex-q">กำหนด \(\vec{v}_1 = \begin{bmatrix} 0\\ 1\\ 1 \end{bmatrix}\), \(\vec{v}_2 = \begin{bmatrix} 3\\ -2\\ 1 \end{bmatrix}\), \(\vec{v}_3 = \begin{bmatrix} 1\\ 0\\ 1 \end{bmatrix}\) จงพิจารณาว่า \(\{\vec{v}_1, \vec{v}_2, \vec{v}_3\}\) เป็นเซตอิสระเชิงเส้นหรือไม่ ถ้าไม่ จงหาความสัมพันธ์เชิงเส้นระหว่าง 3 เวกเตอร์นี้</div>
+      <div class="approach"><span class="lbl">แนวคิด</span> — แก้สมการเอกพันธุ์ \(x_1\vec{v}_1 + x_2\vec{v}_2 + x_3\vec{v}_3 = \vec{0}\) โดยลดรูปเมทริกซ์ \(\begin{bmatrix} \vec{v}_1 & \vec{v}_2 & \vec{v}_3 \end{bmatrix}\) — มีผลเฉลยไม่ชัด = พึ่งเชิงเส้น แล้วเลือกค่าตัวแปรเสรีที่สวยงามเพื่ออ่านความสัมพันธ์</div>
+      <ol class="steps">
+        <li><span class="step-t">ลดรูปจนได้รูปแบบขั้นบันได</span>
+        \[ \begin{bmatrix} 0 & 3 & 1\\ 1 & -2 & 0\\ 1 & 1 & 1 \end{bmatrix} \xrightarrow{\,R_{12}\,} \begin{bmatrix} 1 & -2 & 0\\ 0 & 3 & 1\\ 1 & 1 & 1 \end{bmatrix} \xrightarrow{\substack{R_3 - R_1}} \begin{bmatrix} 1 & -2 & 0\\ 0 & 3 & 1\\ 0 & 3 & 1 \end{bmatrix} \xrightarrow{\,R_3 - R_2\,} \begin{bmatrix} 1 & -2 & 0\\ 0 & 3 & 1\\ 0 & 0 & 0 \end{bmatrix} \]
+        หลักที่ 3 ไม่เป็นหลักตัวหลัก → มีผลเฉลยไม่ชัด → เซต<strong>พึ่งเชิงเส้น</strong></li>
+        <li><span class="step-t">ลดต่อจน RREF</span>
+        \[ \xrightarrow{\,\tfrac{1}{3}R_2\,} \begin{bmatrix} 1 & -2 & 0\\ 0 & 1 & \tfrac{1}{3}\\ 0 & 0 & 0 \end{bmatrix} \xrightarrow{\,R_1 + 2R_2\,} \begin{bmatrix} 1 & 0 & \tfrac{2}{3}\\ 0 & 1 & \tfrac{1}{3}\\ 0 & 0 & 0 \end{bmatrix} \]</li>
+        <li><span class="step-t">ผลเฉลยทั่วไปของ \(x_1\vec{v}_1 + x_2\vec{v}_2 + x_3\vec{v}_3 = \vec{0}\)</span>
+        \[ x_1 = -\tfrac{2}{3}x_3, \quad x_2 = -\tfrac{1}{3}x_3, \quad x_3 \text{ เป็นตัวแปรเสรี} \]
+        เลือก \(x_3 = 3\) เพื่อให้เลี่ยงเศษส่วน → \(x_1 = -2,\; x_2 = -1\)</li>
+        <li><span class="step-t">ความสัมพันธ์เชิงเส้น</span>
+        \[ -2\vec{v}_1 - \vec{v}_2 + 3\vec{v}_3 = \vec{0} \qquad \text{ตรวจ: } -2(0,1,1) - (3,-2,1) + 3(1,0,1) = (0,-2,-2) + (-3,2,-1) + (3,0,3) = (0,0,0)\; \checkmark \]</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="ex-card">
+    <div class="ex-head"><span class="ex-badge">ตัวอย่าง 6</span><span class="tag hard">ยาก</span><span class="ex-title">หลักของเมทริกซ์อิสระเชิงเส้นหรือไม่ + หา \(h\) ให้อิสระ</span></div>
+    <div class="ex-body">
+      <div class="ex-q">(ก) จงพิจารณาว่าหลักของเมทริกซ์ \(A = \begin{bmatrix} 1 & 1 & 1\\ 1 & 2 & 2\\ 1 & 2 & 3 \end{bmatrix}\) เป็นอิสระเชิงเส้นหรือไม่ เพราะเหตุใด<br>
+      (ข) จงหาค่าของ \(h\) ทั้งหมดที่ทำให้เซต \(\left\{ \begin{bmatrix} 1\\ 2\\ -1 \end{bmatrix}, \begin{bmatrix} 3\\ 7\\ -2 \end{bmatrix}, \begin{bmatrix} 1\\ 3\\ h \end{bmatrix} \right\}\) เป็นเซตอิสระเชิงเส้น</div>
+      <div class="approach"><span class="lbl">แนวคิด</span> — (ก) ใช้บทแทรก 1.4.3: ลดรูป \(A\) ดูว่าทุกหลักเป็นหลักตัวหลักไหม (ข) เซตอิสระ ⇔ ทุกหลักเป็นหลักตัวหลัก ⇔ \(A\vec{x} = \vec{0}\) มีเพียงผลเฉลยชัด — ลดรูปเมทริกซ์ที่เวกเตอร์เรียงเป็นหลัก แล้วดูว่าเมื่อไรที่แถวล้า</div>
+      <ol class="steps">
+        <li><span class="step-t">(ก) ลดรูป \(A\)</span>
+        \[ A = \begin{bmatrix} 1 & 1 & 1\\ 1 & 2 & 2\\ 1 & 2 & 3 \end{bmatrix} \xrightarrow{\substack{R_2 - R_1\\ R_3 - R_1}} \begin{bmatrix} 1 & 1 & 1\\ 0 & 1 & 1\\ 0 & 1 & 2 \end{bmatrix} \xrightarrow{\,R_3 - R_2\,} \begin{bmatrix} 1 & 1 & 1\\ 0 & 1 & 1\\ 0 & 0 & 1 \end{bmatrix} \]
+        ตัวนำอยู่หลัก 1, 2, 3 ครบทุกหลัก → โดยบทแทรก 1.4.3 หลักของ \(A\) <strong>อิสระเชิงเส้น</strong> (สมการ \(A\vec{x} = \vec{0}\) มีเพียงผลเฉลยชัด)</li>
+        <li><span class="step-t">(ข) เรียงเวกเตอร์เป็นหลักแล้วลดรูป</span>
+        \[ \begin{bmatrix} 1 & 3 & 1\\ 2 & 7 & 3\\ -1 & -2 & h \end{bmatrix} \xrightarrow{\substack{R_2 - 2R_1\\ R_3 + R_1}} \begin{bmatrix} 1 & 3 & 1\\ 0 & 1 & 1\\ 0 & 1 & h + 1 \end{bmatrix} \xrightarrow{\,R_3 - R_2\,} \begin{bmatrix} 1 & 3 & 1\\ 0 & 1 & 1\\ 0 & 0 & h \end{bmatrix} \]</li>
+        <li><span class="step-t">(ข) ตัดสิน</span> ถ้า \(h \neq 0\): ตัวนำอยู่ครบหลัก 1, 2, 3 → เซต<strong>อิสระเชิงเส้น</strong><br>
+        ถ้า \(h = 0\): แถวล้า → มีตัวแปรเสรี → มีผลเฉลยไม่ชัดของ \(x_1\vec{v}_1 + x_2\vec{v}_2 + x_3\vec{v}_3 = \vec{0}\) → เซตพึ่งเชิงเส้น</li>
+        <li><span class="step-t">(ข) สรุป</span> เซตอิสระเชิงเส้น ก็ต่อเมื่อ \(h \neq 0\)</li>
+      </ol>
+      <div class="verify"><span class="lbl">ตรวจ (ข) กรณี \(h = 0\):</span> แก้จาก RREF \(\begin{bmatrix} 1 & 3 & 1\\ 0 & 1 & 1\\ 0 & 0 & 0 \end{bmatrix} \xrightarrow{R_1 - 3R_2} \begin{bmatrix} 1 & 0 & -2\\ 0 & 1 & 1\\ 0 & 0 & 0 \end{bmatrix}\) → เลือก \(x_3 = 1\): \(x_2 = -1, x_1 = 2\) → ความสัมพันธ์ \(2\vec{v}_1 - \vec{v}_2 + \vec{v}_3 = \vec{0}\) ตรวจ: \(2(1,2,-1) - (3,7,-2) + (1,3,0) = (2-3+1,\; 4-7+3,\; -2+2+0) = (0,0,0)\) ✓</div>
+    </div>
+  </article>
+</section>
+
+<section class="block" id="recipe">
+  <h2><span class="h2-dot">⚡</span> สูตรสำเร็จ — ท่าที่ใช้ทำโจทย์หัวข้อนี้</h2>
+  <div class="recipe">
+    <div class="recipe-head">🪜 ท่าหลัก: ตรวจอิสระเชิงเส้น + เขียนเซตผลเฉลย</div>
+    <div class="recipe-body">
+      <ol>
+        <li><strong>ตรวจอิสระเชิงเส้น:</strong> เรียงเวกเตอร์เป็นหลักของ \(A\) → ลดรูปจน REF → <em>ทุกหลัก</em>เป็นหลักตัวหลัก = อิสระ / มีหลักข้าม = พึ่งเชิงเส้น</li>
+        <li><strong>หาความสัมพันธ์:</strong> ลดต่อจน RREF แก้ \(A\vec{x} = \vec{0}\) → เลือกค่าตัวแปรเสรีที่สวย (มักเลี่ยงเศษส่วน) → เขียน \(c_1\vec{v}_1 + \cdots + c_p\vec{v}_p = \vec{0}\) แล้วตรวจโดยแทนกลับ</li>
+        <li><strong>เซตผลเฉลยของ \(A\vec{x} = \vec{b}\):</strong> RREF ของ \(\begin{bmatrix} A \mid \vec{b} \end{bmatrix}\) → เขียน \(\vec{x} = \vec{p} + \vec{v}_h\) (คอลัมน์ขวาสุด = \(\vec{p}\), หลักที่ไม่เป็นหลักตัวหลัก = เวกเตอร์ของ \(\vec{v}_h\))</li>
+        <li><strong>ตอบเร็วด้วยข้อสังเกต:</strong> มี \(\vec{0}\) → พึ่ง / สองเวกเตอร์สัดส่วน → พึ่ง / จำนวนเวกเตอร์ &gt; มิติ → พึ่ง</li>
+      </ol>
+    </div>
+  </div>
+  <div class="key-grid">
+    <div class="key-card"><div class="k-title">ท่า: ผลเฉลยไม่ชัดของระบบเอกพันธุ์</div>ลดรูป \(A\) → มีหลักที่ไม่เป็นหลักตัวหลัก = มีผลเฉลยไม่ชัด (ทฤษฎีบท 1.4.1) — \(n > m\) ตอบได้ทันที</div>
+    <div class="key-card"><div class="k-title">ท่า: แยก \(\vec{p}\) กับ \(\vec{v}_h\)</div>จาก RREF ของ \(\begin{bmatrix} A\mid \vec{b}\end{bmatrix}\): ค่าคงตัวหลักขวาสุดต่อหลักตัวหลัก = \(\vec{p}\); สัมประสิทธิ์ของตัวแปรเสรีเปลี่ยนเครื่องหมาย = เวกเตอร์ทิศทางของ \(\vec{v}_h\)</div>
+    <div class="key-card"><div class="k-title">ท่า: หา \(h\) ให้อิสระ</div>ลดรูปเมทริกซ์ที่เวกเตอร์เรียงเป็นหลัก → หาค่า \(h\) ที่ทำให้<em>ไม่</em>เกิดแถวล้า = ค่าที่อิสระ</div>
+    <div class="key-card"><div class="k-title">ท่า: ตอบเร็ว 3 กรณี</div>\(\vec{0}\) อยู่ในเซต → พึ่ง / จำนวน &gt; มิติ → พึ่ง / 2 เวกเตอร์สัดส่วน → พึ่ง (ไม่ต้องลดรูป)</div>
+  </div>
+</section>
+
+<section class="block" id="practice">
+  <h2><span class="h2-dot">🏋️</span> โจทย์ซ้อมมือ (6 ข้อ)</h2>
+  <p class="small">ลองทำเองก่อน แล้วค่อยกดเปิดคำใบ้ → เฉลยทีละขั้น เมื่อทำได้แล้วติ๊ก ✓ เพื่อบันทึกความคืบหน้า</p>
+
+  <article class="pr-card" data-pkey="p1-4-1">
+    <div class="pr-head"><span class="pr-num">ข้อ 1</span><span class="diff">●○○</span><span class="spacer"></span>
+      <label class="pr-done"><input type="checkbox"> ทำสำเร็จแล้ว</label></div>
+    <div class="pr-body">
+      <p>จงพิจารณาว่าระบบเชิงเส้นเอกพันธุ์ \(x_1 + x_2 + x_3 = 0\) มีผลเฉลยไม่ชัดหรือไม่ ถ้ามีจงเขียนผลเฉลยทั้งหมดในรูปแบบเวกเตอร์อิงตัวแปรเสริม</p>
+    </div>
+    <details class="hint"><summary>คำใบ้</summary><div class="hint-body">สมการเดียว ตัวแปร 3 ตัว (\(n > m\)) — ตัวแปรเสรีมี 2 ตัว จึงต้องมีผลเฉลยไม่ชัดทันที</div></details>
+    <details class="sol"><summary>แนวคิดและเฉลยแบบละเอียด</summary><div class="sol-body">
+      <p><strong>แนวคิด:</strong> จาก \(n = 3 > m = 1\) เกิดตัวแปรเสรีแน่นอน → มีผลเฉลยไม่ชัด (ทฤษฎีบท 1.4.1)</p>
+      <ol class="steps">
+        <li><span class="step-t">แก้หาตัวแปรพื้นฐาน</span> \(\begin{bmatrix} 1 & 1 & 1 \end{bmatrix}\) เป็น RREF อยู่แล้ว → \(x_1 = -x_2 - x_3\) โดย \(x_2, x_3\) เป็นตัวแปรเสรี</li>
+        <li><span class="step-t">เขียนแบบเวกเตอร์</span>
+        \[ \vec{x} = \begin{bmatrix} -x_2 - x_3\\ x_2\\ x_3 \end{bmatrix} = x_2\begin{bmatrix} -1\\ 1\\ 0 \end{bmatrix} + x_3\begin{bmatrix} -1\\ 0\\ 1 \end{bmatrix} \qquad (x_2, x_3 \in \mathbb{R}) \]</li>
+        <li><span class="step-t">เรขาคณิต</span> เซตผลเฉลยคือ<strong>ระนาบผ่านจุดกำเนิด</strong>ใน \(\mathbb{R}^3\) (แผ่ด้วยเวกเตอร์ 2 ตัวที่ไม่สัดส่วนกัน) และมีผลเฉลยไม่ชัดเช่น \((-1, 1, 0)\) ✓ ตรวจ: \(-1 + 1 + 0 = 0\)</li>
+      </ol>
+    </div></details>
+  </article>
+
+  <article class="pr-card" data-pkey="p1-4-2">
+    <div class="pr-head"><span class="pr-num">ข้อ 2</span><span class="diff">●○○</span><span class="spacer"></span>
+      <label class="pr-done"><input type="checkbox"> ทำสำเร็จแล้ว</label></div>
+    <div class="pr-body">
+      <p>กำหนดให้ \(A\) สมมูลแถวกับ \(\begin{bmatrix} 1 & -3 & 0 & 5\\ 0 & 0 & 1 & -2 \end{bmatrix}\) จงเขียนผลเฉลยของ \(A\vec{x} = \vec{0}\) ในรูปแบบเวกเตอร์อิงตัวแปรเสริม</p>
+    </div>
+    <details class="hint"><summary>คำใบ้</summary><div class="hint-body">หลักตัวหลักคือหลัก 1, 3 → \(x_2, x_4\) เป็นตัวแปรเสรี แยกพจน์ตาม \(x_2\) และ \(x_4\)</div></details>
+    <details class="sol"><summary>แนวคิดและเฉลยแบบละเอียด</summary><div class="sol-body">
+      <p><strong>แนวคิด:</strong> แปลงแถวเป็นสมการ → แก้ตัวแปรพื้นฐาน → แยกเวกเตอร์ตามตัวแปรเสรี</p>
+      <ol class="steps">
+        <li><span class="step-t">เขียนสมการ</span> \(x_1 - 3x_2 + 5x_4 = 0\) และ \(x_3 - 2x_4 = 0\)</li>
+        <li><span class="step-t">แก้ตัวแปรพื้นฐาน</span> \(x_1 = 3x_2 - 5x_4\) และ \(x_3 = 2x_4\)</li>
+        <li><span class="step-t">รูปแบบเวกเตอร์อิงตัวแปรเสริม</span>
+        \[ \vec{x} = \begin{bmatrix} 3x_2 - 5x_4\\ x_2\\ 2x_4\\ x_4 \end{bmatrix} = x_2\begin{bmatrix} 3\\ 1\\ 0\\ 0 \end{bmatrix} + x_4\begin{bmatrix} -5\\ 0\\ 2\\ 1 \end{bmatrix} \qquad (x_2, x_4 \in \mathbb{R}) \]</li>
+        <li><span class="step-t">ตรวจคำตอบ</span> แทน \(x_2 = 1, x_4 = 0\): \((3, 1, 0, 0)\) → \(3 - 3(1) + 0 = 0\) ✓ และ \(0 - 0 = 0\) ✓</li>
+      </ol>
+    </div></details>
+  </article>
+
+  <article class="pr-card" data-pkey="p1-4-3">
+    <div class="pr-head"><span class="pr-num">ข้อ 3</span><span class="diff">●●○</span><span class="spacer"></span>
+      <label class="pr-done"><input type="checkbox"> ทำสำเร็จแล้ว</label></div>
+    <div class="pr-body">
+      <p>จงหาเซตผลเฉลยของระบบต่อไปนี้ในรูปแบบเวกเตอร์อิงตัวแปรเสริม \(\vec{x} = \vec{p} + \vec{v}_h\) พร้อมบอกลักษณะเรขาคณิตของเซตผลเฉลยเทียบกับระบบเอกพันธุ์ที่สมนัยกัน
+      \[ \begin{aligned} x_1 + 2x_3 &= 3\\ x_2 - x_3 &= 1\\ x_1 + x_2 + x_3 &= 4 \end{aligned} \]</p>
+    </div>
+    <details class="hint"><summary>คำใบ้</summary><div class="hint-body">ลดรูปเมทริกซ์แต่งเติม: \(R_3 - R_1 - R_2\) จะล้าหมด → หลัก 3 ไม่เป็นหลักตัวหลัก → มีตัวแปรเสรี 1 ตัว</div></details>
+    <details class="sol"><summary>แนวคิดและเฉลยแบบละเอียด</summary><div class="sol-body">
+      <p><strong>แนวคิด:</strong> ลดรูปจน RREF แล้วแยก \(\vec{p}\) (ค่าคงตัว) กับ \(\vec{v}_h\) (เวกเตอร์ที่มาจากหลักไม่ตัวหลัก)</p>
+      <ol class="steps">
+        <li><span class="step-t">ลดรูป</span>
+        \[ \begin{bmatrix} 1 & 0 & 2 & 3\\ 0 & 1 & -1 & 1\\ 1 & 1 & 1 & 4 \end{bmatrix} \xrightarrow{\substack{R_3 - R_1\\ R_3 - R_2}} \begin{bmatrix} 1 & 0 & 2 & 3\\ 0 & 1 & -1 & 1\\ 0 & 0 & 0 & 0 \end{bmatrix} \]</li>
+        <li><span class="step-t">ผลเฉลยทั่วไป</span> \(x_1 = 3 - 2x_3,\; x_2 = 1 + x_3,\; x_3\) เป็นตัวแปรเสรี</li>
+        <li><span class="step-t">แยกรูป \(\vec{x} = \vec{p} + \vec{v}_h\)</span>
+        \[ \vec{x} = \begin{bmatrix} 3 - 2x_3\\ 1 + x_3\\ x_3 \end{bmatrix} = \begin{bmatrix} 3\\ 1\\ 0 \end{bmatrix} + x_3\begin{bmatrix} -2\\ 1\\ 1 \end{bmatrix} \]</li>
+        <li><span class="step-t">เรขาคณิต</span> เซตผลเฉลยคือเส้นตรงผ่านจุด \(\vec{p} = (3, 1, 0)\) ทิศทาง \((-2, 1, 1)^T\) ซึ่ง<em>ขนาน</em>กับเส้นตรงผ่านจุดกำเนิด (ผลเฉลยของ \(A\vec{x} = \vec{0}\) คือ \(\vec{x} = t(-2, 1, 1)^T\))</li>
+        <li><span class="step-t">ตรวจคำตอบ</span> \(\vec{p} = (3,1,0)\): \(3 + 0 = 3\) ✓, \(1 - 0 = 1\) ✓, \(3 + 1 + 0 = 4\) ✓ / \(\vec{v}_h = (-2,1,1)\): \(-2 + 2 = 0\) ✓, \(1 - 1 = 0\) ✓, \(-2 + 1 + 1 = 0\) ✓</li>
+      </ol>
+    </div></details>
+  </article>
+
+  <article class="pr-card" data-pkey="p1-4-4">
+    <div class="pr-head"><span class="pr-num">ข้อ 4</span><span class="diff">●●○</span><span class="spacer"></span>
+      <label class="pr-done"><input type="checkbox"> ทำสำเร็จแล้ว</label></div>
+    <div class="pr-body">
+      <p>จงพิจารณาว่า \(\{\vec{v}_1, \vec{v}_2, \vec{v}_3\} = \left\{ \begin{bmatrix} 1\\ 2\\ 3 \end{bmatrix}, \begin{bmatrix} 0\\ 1\\ 2 \end{bmatrix}, \begin{bmatrix} 0\\ 0\\ 1 \end{bmatrix} \right\}\) เป็นเซตอิสระเชิงเส้นหรือไม่ เพราะเหตุใด</p>
+    </div>
+    <details class="hint"><summary>คำใบ้</summary><div class="hint-body">ลดรูปเมทริกซ์ที่เวกเตอร์เรียงเป็นหลัก แล้วดูว่าตัวนำอยู่ครบทุกหลักหรือไม่ (บทแทรก 1.4.3)</div></details>
+    <details class="sol"><summary>แนวคิดและเฉลยแบบละเอียด</summary><div class="sol-body">
+      <p><strong>แนวคิด:</strong> ตรวจ \(A\vec{x} = \vec{0}\) มีเพียงผลเฉลยชัดหรือไม่</p>
+      <ol class="steps">
+        <li><span class="step-t">ลดรูป</span>
+        \[ A = \begin{bmatrix} 1 & 0 & 0\\ 2 & 1 & 0\\ 3 & 2 & 1 \end{bmatrix} \xrightarrow{\substack{R_2 - 2R_1\\ R_3 - 3R_1}} \begin{bmatrix} 1 & 0 & 0\\ 0 & 1 & 0\\ 0 & 2 & 1 \end{bmatrix} \xrightarrow{\,R_3 - 2R_2\,} \begin{bmatrix} 1 & 0 & 0\\ 0 & 1 & 0\\ 0 & 0 & 1 \end{bmatrix} \]</li>
+        <li><span class="step-t">ตัดสิน</span> RREF คือ \(I_3\) — ทุกหลักเป็นหลักตัวหลัก → ไม่มีตัวแปรเสรี → \(A\vec{x} = \vec{0}\) มีเพียงผลเฉลยชัด → เซต<strong>อิสระเชิงเส้น</strong></li>
+        <li><span class="step-t">มุมมองเสริม</span> เวกเตอร์ทั้งสามหน้าตาเป็น "สามเหลี่ยมล่าง" — หลักที่ 1 มี \(a_{11} \neq 0\), หลักที่ 2 มีค่าใหม่ที่แถว 2, หลักที่ 3 มีค่าใหม่ที่แถว 3 ตัวนำจึงเดินลงขวาครบเสมอ (เช่นเดียวกับเวกเตอร์มาตรฐาน \(e_1, e_2, e_3\))</li>
+      </ol>
+    </div></details>
+  </article>
+
+  <article class="pr-card" data-pkey="p1-4-5">
+    <div class="pr-head"><span class="pr-num">ข้อ 5</span><span class="diff">●●●</span><span class="spacer"></span>
+      <label class="pr-done"><input type="checkbox"> ทำสำเร็จแล้ว</label></div>
+    <div class="pr-body">
+      <p>จงพิจารณาว่า \(\left\{ \begin{bmatrix} 1\\ 0\\ 0 \end{bmatrix}, \begin{bmatrix} 0\\ 1\\ 0 \end{bmatrix}, \begin{bmatrix} 0\\ 0\\ 1 \end{bmatrix}, \begin{bmatrix} 2\\ 1\\ 3 \end{bmatrix} \right\}\) เป็นเซตอิสระเชิงเส้นหรือไม่ เพราะเหตุใด และถ้าพึ่งเชิงเส้น จงหาความสัมพันธ์เชิงเส้นระหว่างเวกเตอร์</p>
+    </div>
+    <details class="hint"><summary>คำใบ้</summary><div class="hint-body">4 เวกเตอร์ใน \(\mathbb{R}^3\) (\(p > m\)) → พึ่งเชิงเส้นทันทีโดยข้อสังเกต 5 แล้วแก้ \(A\vec{x} = \vec{0}\) เพื่อหาความสัมพันธ์ (เวกเตอร์ตัวสุดท้ายมองเป็นรวมเชิงเส้นของ \(e_1, e_2, e_3\))</div></details>
+    <details class="sol"><summary>แนวคิดและเฉลยแบบละเอียด</summary><div class="sol-body">
+      <p><strong>แนวคิด:</strong> เวกเตอร์ 4 ตัวใน \(\mathbb{R}^3\) ต้องพึงเชิงเส้น (ตัวนำได้ไม่เกิน 3 หลัก) — หาความสัมพันธ์โดยแก้ระบบเอกพันธุ์</p>
+      <ol class="steps">
+        <li><span class="step-t">ตอบส่วนแรกทันที</span> เพราะ \(p = 4 > m = 3\) เซตนี้<strong>พึ่งเชิงเส้น</strong>โดยข้อสังเกต 5 (ไม่ต้องคำนวณ)</li>
+        <li><span class="step-t">ตั้งระบบเอกพันธุ์</span>
+        \[ x_1\begin{bmatrix} 1\\ 0\\ 0 \end{bmatrix} + x_2\begin{bmatrix} 0\\ 1\\ 0 \end{bmatrix} + x_3\begin{bmatrix} 0\\ 0\\ 1 \end{bmatrix} + x_4\begin{bmatrix} 2\\ 1\\ 3 \end{bmatrix} = \vec{0} \;\Longrightarrow\; \begin{aligned} x_1 + 2x_4 &= 0\\ x_2 + x_4 &= 0\\ x_3 + 3x_4 &= 0 \end{aligned} \]</li>
+        <li><span class="step-t">แก้โดยให้ \(x_4\) เสรี</span> \(x_1 = -2x_4,\; x_2 = -x_4,\; x_3 = -3x_4\) เลือก \(x_4 = 1\): \((x_1, x_2, x_3, x_4) = (-2, -1, -3, 1)\)</li>
+        <li><span class="step-t">ความสัมพันธ์เชิงเส้น</span>
+        \[ -2\vec{e}_1 - \vec{e}_2 - 3\vec{e}_3 + \vec{v}_4 = \vec{0} \qquad \text{หรือ} \qquad \begin{bmatrix} 2\\ 1\\ 3 \end{bmatrix} = 2\begin{bmatrix} 1\\ 0\\ 0 \end{bmatrix} + \begin{bmatrix} 0\\ 1\\ 0 \end{bmatrix} + 3\begin{bmatrix} 0\\ 0\\ 1 \end{bmatrix} \]</li>
+        <li><span class="step-t">ตรวจคำตอบ</span> \(-2(1,0,0) - (0,1,0) - 3(0,0,1) + (2,1,3) = (-2+2, -1+1, -3+3) = (0,0,0)\) ✓</li>
+      </ol>
+    </div></details>
+  </article>
+
+  <article class="pr-card" data-pkey="p1-4-6">
+    <div class="pr-head"><span class="pr-num">ข้อ 6</span><span class="diff">●●●</span><span class="spacer"></span>
+      <label class="pr-done"><input type="checkbox"> ทำสำเร็จแล้ว</label></div>
+    <div class="pr-body">
+      <p>กำหนดระบบเชิงเส้น
+      \[ \begin{aligned} 2x_1 - x_2 \phantom{+ x_3} &= \lambda x_1\\ 2x_1 + x_2 + x_3 &= \lambda x_2\\ -2x_1 + 2x_2 + x_3 &= \lambda x_3 \end{aligned} \]
+      จงหาเซตผลเฉลยของระบบนี้เมื่อ (ก) \(\lambda = 0\) &nbsp; (ข) \(\lambda = 1\)</p>
+    </div>
+    <details class="hint"><summary>คำใบ้</summary><div class="hint-body">ย้ายข้างให้ได้ระบบเอกพันธุ์ \(A\vec{x} = \vec{0}\) โดยแต่ละค่า \(\lambda\) ให้เมทริกซ์สัมประสิทธิ์ต่างกัน — ระบบเอกพันธุ์มีผลเฉลยชัดเสมอ คำถามคือมีผลเฉลยไม่ชัดหรือไม่</div></details>
+    <details class="sol"><summary>แนวคิดและเฉลยแบบละเอียด</summary><div class="sol-body">
+      <p><strong>แนวคิด:</strong> ย้ายข้างได้ \((2-\lambda)x_1 - x_2 = 0,\; 2x_1 + (1-\lambda)x_2 + x_3 = 0,\; -2x_1 + 2x_2 + (1-\lambda)x_3 = 0\) — เป็นระบบเอกพันธุ์ แล้วลดรูปตาม \(\lambda\)</p>
+      <ol class="steps">
+        <li><span class="step-t">(ก) เมื่อ \(\lambda = 0\)</span> เมทริกซ์สัมประสิทธิ์คือ
+        \[ \begin{bmatrix} 2 & -1 & 0\\ 2 & 1 & 1\\ -2 & 2 & 1 \end{bmatrix} \xrightarrow{\substack{R_2 - R_1\\ R_3 + R_1}} \begin{bmatrix} 2 & -1 & 0\\ 0 & 2 & 1\\ 0 & 1 & 1 \end{bmatrix} \xrightarrow{\,R_3 - \tfrac{1}{2}R_2\,} \begin{bmatrix} 2 & -1 & 0\\ 0 & 2 & 1\\ 0 & 0 & \tfrac{1}{2} \end{bmatrix} \]
+        ตัวนำครบทุกหลัก → ไม่มีตัวแปรเสรี → มีเพียงผลเฉลยชัด → เซตผลเฉลยคือ \(\{\vec{0}\}\)</li>
+        <li><span class="step-t">(ข) เมื่อ \(\lambda = 1\)</span> เมทริกซ์สัมประสิทธิ์คือ
+        \[ \begin{bmatrix} 1 & -1 & 0\\ 2 & 0 & 1\\ -2 & 2 & 0 \end{bmatrix} \xrightarrow{\substack{R_2 - 2R_1\\ R_3 + 2R_1}} \begin{bmatrix} 1 & -1 & 0\\ 0 & 2 & 1\\ 0 & 0 & 0 \end{bmatrix} \xrightarrow{\,\tfrac{1}{2}R_2\,} \begin{bmatrix} 1 & -1 & 0\\ 0 & 1 & \tfrac{1}{2}\\ 0 & 0 & 0 \end{bmatrix} \xrightarrow{\,R_1 + R_2\,} \begin{bmatrix} 1 & 0 & \tfrac{1}{2}\\ 0 & 1 & \tfrac{1}{2}\\ 0 & 0 & 0 \end{bmatrix} \]
+        หลักที่ 3 ไม่เป็นหลักตัวหลัก → มีผลเฉลยไม่ชัด</li>
+        <li><span class="step-t">(ข) ผลเฉลยทั่วไป</span> \(x_1 = -\tfrac{1}{2}x_3,\; x_2 = -\tfrac{1}{2}x_3,\; x_3\) เสรี →
+        \[ \vec{x} = x_3\begin{bmatrix} -\tfrac{1}{2}\\ -\tfrac{1}{2}\\ 1 \end{bmatrix} \quad \text{หรือเทียบเท่า} \quad \vec{x} = t\begin{bmatrix} -1\\ -1\\ 2 \end{bmatrix} \;\; (t \in \mathbb{R}) \]</li>
+        <li><span class="step-t">ตรวจคำตอบ (ข)</span> แทน \((-1, -1, 2)\) ลงระบบเมื่อ \(\lambda = 1\): สมการ 1: \(2(-1) - (-1) = -1 = 1 \cdot x_1\) ✓ สมการ 2: \(2(-1) + (-1) + 2 = -1 = 1 \cdot x_2\) ✓ สมการ 3: \(-2(-1) + 2(-1) + 2 = 2 = 1 \cdot x_3\) ✓</li>
+      </ol>
+    </div></details>
+  </article>
+</section>

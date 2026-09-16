@@ -1,0 +1,386 @@
+<!-- meta
+title: 2.2 ปริภูมิย่อย ฐานหลัก มิติ และแรงก์
+ch: 2
+section: 2.2
+page: ch2-2.html
+-->
+
+<div class="crumb">บทที่ 2 · การแปลงเชิงเส้นและพีชคณิตเมทริกซ์</div>
+<h1 class="page-title">2.2 ปริภูมิย่อย ฐานหลัก มิติ และแรงก์</h1>
+<p class="page-sub">หัวใจเชิงโครงสร้างของพีชคณิตเชิงเส้น — เราจะเรียนรู้ <strong>ปริภูมิหลัก</strong> (Col A) และ
+<strong>ปริภูมิสู่ศูนย์</strong> (Nul A) วิธีหา<strong>ฐานหลัก</strong> มิติ <strong>แรงก์</strong> (rank) และ <strong>ศูนยภาพ</strong> (nullity) พร้อมทฤษฎีบทแรงก์ที่เชื่อมทุกอย่างเข้าด้วยกัน</p>
+
+<nav class="pillnav">
+  <a href="#objectives">🎯 จุดประสงค์</a>
+  <a href="#lesson">📖 บทเรียน</a>
+  <a href="#examples">✏️ ตัวอย่างโจทย์</a>
+  <a href="#recipe">⚡ สูตรสำเร็จ</a>
+  <a href="#practice">🏋️ โจทย์ซ้อมมือ</a>
+</nav>
+
+<section class="block" id="objectives">
+  <div class="obj">
+    <h2>🎯 เรียนจบหัวข้อนี้ คุณต้องทำสิ่งเหล่านี้ได้</h2>
+    <ul>
+      <li>ตรวจว่าเซตย่อยของ \(\mathbb{R}^m\) เป็นปริภูมิย่อยหรือไม่ (3 สมบัติ)</li>
+      <li>อธิบายได้ว่า \(\operatorname{Col} A\), \(\operatorname{Nul} A\), เรนจ์ของการแปลงเชิงเส้น คือปริภูมิย่อยอย่างไร และสังเกตได้จากตัวอย่าง</li>
+      <li>ตรวจว่าเซตของเวกเตอร์เป็นฐานหลักสำหรับ \(\mathbb{R}^m\) หรือไม่ และหาฐานหลักสำหรับ \(\operatorname{Col} A\) และ \(\operatorname{Nul} A\)</li>
+      <li>หา \(\operatorname{rank} A\), \(\operatorname{nullity} A\) และใช้ทฤษฎีบทแรงก์ \(\operatorname{rank} A + \operatorname{nullity} A = n\)</li>
+      <li>เขียนเซตที่กำหนดมาในรูป \(\operatorname{Col} A\) หรือ \(\operatorname{Nul} A\) เพื่อแสดงว่าเป็นปริภูมิย่อย แล้วหาฐานหลัก/มิติของมัน</li>
+    </ul>
+  </div>
+</section>
+
+<section class="block" id="lesson">
+  <h2><span class="h2-dot">📖</span> บทเรียน</h2>
+
+  <h3>1) ปริภูมิย่อย (subspace)</h3>
+  <div class="box box-def">
+    <div class="box-title">📐 นิยาม — ปริภูมิย่อยของ \(\mathbb{R}^m\)</div>
+    <p>เซตย่อย \(H\) ของ \(\mathbb{R}^m\) เป็น<strong>ปริภูมิย่อย</strong> เมื่อ:</p>
+    <p>1. \(\vec{0}_m \in H\) &nbsp; 2. ถ้า \(\vec{u}, \vec{v} \in H\) แล้ว \(\vec{u} + \vec{v} \in H\) (ปิดเมื่ออาการบวก) &nbsp; 3. ถ้า \(\vec{u} \in H\) และ \(c \in \mathbb{R}\) แล้ว \(c\vec{u} \in H\) (ปิดเมื่ออาการคูณสเกลาร์)</p>
+  </div>
+
+  <div class="box box-idea">
+    <div class="box-title">💡 เทคนิคตรวจเร็ว</div>
+    <p>• เช็กข้อ 1 ก่อนเสมอ: ถ้า \(\vec{0} \notin H\) → ไม่เป็นปริภูมิย่อยทันที เช่น \(\{(x_1, x_2): x_1^2 = x_2 + 3\}\) มี \((0,0)\) ไม่อยู่ → ไม่ใช่</p>
+    <p>• สังเกตสมการ: เซตที่เขียนได้เป็น \(\{\vec{x} : A\vec{x} = \vec{0}\}\) หรือ \(\{A\vec{x}\}\) หรือ \(\operatorname{Span}\{\dots\}\) → เป็นปริภูมิย่อยเสมอ</p>
+    <p>• เซตที่มี \(|x_i|\), \(x_i^2\), \(x_i \ge 0\), ค่าคงตัวไม่เป็นศูนย์ (เช่น \(x_1 + x_2 = 1\)) → มักไม่เป็นปริภูมิย่อย</p>
+    <p>• ปริภูมิย่อยของ \(\mathbb{R}^2\) มีแค่ 3 แบบ: \(\{\vec{0}\}\), เส้นตรงผ่านจุดกำเนิด, และ \(\mathbb{R}^2\) ทั้งหมด</p>
+  </div>
+
+  <div class="box box-thm">
+    <div class="box-title">⭐ ทฤษฎีบท 2.2.1 — Span เป็นปริภูมิย่อยเสมอ</div>
+    <p>ให้ \(\vec{v}_1, \dots, \vec{v}_p \in \mathbb{R}^m\) แล้ว \(H = \operatorname{Span}\{\vec{v}_1, \dots, \vec{v}_p\}\) เป็นปริภูมิย่อยของ \(\mathbb{R}^m\) (เพราะ \(\vec{0} = 0\vec{v}_1 + \cdots + 0\vec{v}_p\), ผลบวกและคูณสเกลาร์ของการรวมเชิงเส้นก็ยังเป็นการรวมเชิงเส้น)</p>
+  </div>
+
+  <h3>2) ปริภูมิหลักและปริภูมิสู่ศูนย์</h3>
+  <div class="box box-def">
+    <div class="box-title">📐 นิยาม — Col A และ Nul A</div>
+    <p>ให้ \(A = \begin{bmatrix} \vec{v}_1 & \cdots & \vec{v}_n \end{bmatrix}\) เป็น \(m \times n\) เมทริกซ์</p>
+    <p>• <strong>ปริภูมิหลัก</strong> (column space): \(\operatorname{Col} A = \operatorname{Span}\{\vec{v}_1, \dots, \vec{v}_n\} = \{A\vec{x} : \vec{x} \in \mathbb{R}^n\}\) — เป็นปริภูมิย่อยของ \(\mathbb{R}^{\color{#d97706}m}\) และ \(\vec{b} \in \operatorname{Col} A\) ก็ต่อเมื่อ \(\begin{bmatrix} A \mid \vec{b} \end{bmatrix}\) ต้องกัน</p>
+    <p>• <strong>ปริภูมิสู่ศูนย์</strong> (null space): \(\operatorname{Nul} A = \{\vec{x} \in \mathbb{R}^n : A\vec{x} = \vec{0}_m\}\) — เป็นปริภูมิย่อยของ \(\mathbb{R}^{\color{#d97706}n}\) (ทฤษฎีบท 2.2.3)</p>
+  </div>
+
+  <div class="box box-idea">
+    <div class="box-title">💡 Col อยู่คนละปริภูมิกับ Nul!</div>
+    <p>\(\operatorname{Col} A\) อยู่ใน \(\mathbb{R}^m\) (เวกเตอร์ "ผลลัพธ์") ส่วน \(\operatorname{Nul} A\) อยู่ใน \(\mathbb{R}^n\) (เวกเตอร์ "ข้อมูลนำเข้า") — และ \(\operatorname{Col} A\) ก็คือ<strong>เรนจ์ของการแปลง \(\vec{x} \mapsto A\vec{x}\)</strong> ด้วย (ทฤษฎีบท 2.2.2)</p>
+    <p>หา Col: ลดรูป \(A\) → หาหลักตัวหลัก → ฐานหลักคือ<em>หลักตัวหลักของ A ตัวจริง</em> (ไม่ใช่ของ REF!)<br>
+    หา Nul: ต้องแก้ \(A\vec{x} = \vec{0}\) → ลดรูปจน RREF → เขียนผลเฉลยอิงตัวแปรเสริม</p>
+  </div>
+
+  <h3>3) ฐานหลัก (basis)</h3>
+  <div class="box box-def">
+    <div class="box-title">📐 นิยาม — ฐานหลัก</div>
+    <p><strong>ฐานหลัก</strong> (basis) สำหรับปริภูมิย่อย \(H\) คือเซต \(\mathcal{B} \subseteq H\) ซึ่ง</p>
+    <p>1. เป็น<strong>อิสระเชิงเส้น</strong> และ 2. <strong>แผ่ทั่ว</strong> \(H\) (Span \(\mathcal{B} = H\))</p>
+    <p>เวกเตอร์มาตรฐาน \(\{\vec{e}_1, \dots, \vec{e}_m\}\) เป็นฐานหลักสำหรับ \(\mathbb{R}^m\) เรียกว่า <strong>ฐานหลักมาตรฐาน</strong></p>
+  </div>
+  <div class="box box-thm">
+    <div class="box-title">⭐ ทฤษฎีบท 2.2.4 — ฐานหลักของ Col A</div>
+    <p>เซตของ<strong>หลักตัวหลักของ \(A\)</strong> (หลักจากเมทริกซ์ต้นฉบับ!) เป็นฐานหลักหนึ่งสำหรับ \(\operatorname{Col} A\) — และจำนวนหลักตัวหลักก็คือ <strong>แรงก์</strong> ของ \(A\)</p>
+  </div>
+
+  <h3>4) มิติ แรงก์ และศูนยภาพ</h3>
+  <div class="box box-def">
+    <div class="box-title">📐 นิยาม — มิติ แรงก์ ศูนยภาพ</div>
+    <p>• เซตฐานหลักทั้งหมดของ \(H\) มีจำนวนสมาชิกเท่ากันเสมอ เรียกว่า <strong>มิติ</strong> (dimension) \(\dim H\) (โดยกำหนด \(\dim\{\vec{0}\} = 0\))</p>
+    <p>• <strong>แรงก์</strong>: \(\operatorname{rank} A = \dim \operatorname{Col} A\) = จำนวนหลักตัวหลัก</p>
+    <p>• <strong>ศูนยภาพ</strong>: \(\operatorname{nullity} A = \dim \operatorname{Nul} A\) = จำนวนตัวแปรเสรีของ \(A\vec{x} = \vec{0}\)</p>
+  </div>
+  <div class="box box-thm">
+    <div class="box-title">⭐ ทฤษฎีบท 2.2.5 — ทฤษฎีบทแรงก์ (Rank Theorem)</div>
+    <p>ถ้า \(A\) เป็น \(m \times n\) เมทริกซ์ (มี \(n\) หลัก) แล้ว</p>
+    \[ \operatorname{rank} A + \operatorname{nullity} A = n \]
+    <p>(จำนวนหลักตัวหลัก + จำนวนหลักที่ไม่เป็นหลักตัวหลัก = จำนวนหลักทั้งหมด — มองแบบนี้แล้วทฤษฎีบทกลายเป็นเรื่องชัดเจน!)</p>
+  </div>
+
+  <div class="box box-warn">
+    <div class="box-title">⚠️ ข้อผิดพลาดที่พบบ่อยที่สุดของหัวข้อนี้</div>
+    <p>• ฐานหลักของ \(\operatorname{Col} A\) ต้องหยิบ<em>หลักตัวหลักจาก \(A\) ต้นฉบับ</em> ไม่ใช่หลักตัวหลักของ REF/RREF</p>
+    <p>• ฐานหลักของ \(\operatorname{Nul} A\) มาจาก<em>เวกเตอร์ทิศทางในผลเฉลยอิงตัวแปรเสริม</em> (จาก RREF) ไม่ใช่หลักของ \(A\)</p>
+    <p>• \(\operatorname{rank} A + \operatorname{nullity} A = n\) (จำนวน<em>หลัก</em>) — ไม่ใช่ \(m\) (จำนวนแถว) อย่าสับสน</p>
+  </div>
+</section>
+
+<section class="block" id="examples">
+  <h2><span class="h2-dot">✏️</span> ตัวอย่างโจทย์</h2>
+
+  <article class="ex-card">
+    <div class="ex-head"><span class="ex-badge">ตัวอย่าง 1</span><span class="tag easy">ง่าย</span><span class="ex-title">ตรวจว่าเซตเป็นปริภูมิย่อยหรือไม่</span></div>
+    <div class="ex-body">
+      <div class="ex-q">จงพิจารณาว่าเซตต่อไปนี้เป็นปริภูมิย่อยของ \(\mathbb{R}^2\) หรือ \(\mathbb{R}^3\) หรือไม่ เพราะเหตุใด<br>
+      (ก) \(H_1 = \{(x_1, x_2) : x_2 = 2x_1\}\) &nbsp;
+      (ข) \(H_2 = \{(x_1, x_2) : x_1x_2 = 0\}\) &nbsp;
+      (ค) \(H_3 = \{(x_1, x_2, x_3) : x_1 - 2x_2 + x_3 = 0\}\)</div>
+      <div class="approach"><span class="lbl">แนวคิด</span> — เช็ก 3 สมบัติ: มี \(\vec{0}\) → ปิดการบวก → ปิดการคูณสเกลาร์ (เจอข้อห้ามตัวใดตัวหนึ่งก็จบ)</div>
+      <ol class="steps">
+        <li><span class="step-t">(ก) เป็นปริภูมิย่อย</span> \((0,0) \in H_1\) ✓ ถ้า \(\vec{u}, \vec{v}\) อยู่ใน \(H_1\) แล้วผลบวกก็ยังมี \(x_2 = 2x_1\) ✓ คูณสเกลาร์ก็เช่นกัน ✓ (หรือสังเกต \(H_1 = \operatorname{Nul}\begin{bmatrix} -2 & 1 \end{bmatrix}\))</li>
+        <li><span class="step-t">(ข) ไม่เป็นปริภูมิย่อย</span> \((0,0) \in H_2\) ✓ แต่ไม่ปิดการบวก: \(\vec{u} = (1, 0) \in H_2\), \(\vec{v} = (0, 1) \in H_2\) แต่ \(\vec{u} + \vec{v} = (1, 1)\) มี \(x_1x_2 = 1 \neq 0\) → \(\vec{u} + \vec{v} \notin H_2\) ✗</li>
+        <li><span class="step-t">(ค) เป็นปริภูมิย่อย</span> สมการผ่านจุดกำเนิดและเป็นเชิงเส้น → \(H_3 = \operatorname{Nul} A\) เมื่อ \(A = \begin{bmatrix} 1 & -2 & 1 \end{bmatrix}\) → เป็นปริภูมิย่อยโดยทฤษฎีบท 2.2.3</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="ex-card">
+    <div class="ex-head"><span class="ex-badge">ตัวอย่าง 2</span><span class="tag easy">ง่าย</span><span class="ex-title">เซตเป็นฐานหลักสำหรับ \(\mathbb{R}^3\) หรือไม่</span></div>
+    <div class="ex-body">
+      <div class="ex-q">จงพิจารณาว่าเซตต่อไปนี้เป็นฐานหลักสำหรับ \(\mathbb{R}^3\) หรือไม่ เพราะเหตุใด<br>
+      (ก) \(\left\{ \begin{bmatrix} 1\\ 0\\ 1 \end{bmatrix}, \begin{bmatrix} 0\\ 1\\ 1 \end{bmatrix}, \begin{bmatrix} 1\\ 1\\ 2 \end{bmatrix} \right\}\) &nbsp;
+      (ข) \(\left\{ \begin{bmatrix} 1\\ 0\\ 1 \end{bmatrix}, \begin{bmatrix} 0\\ 1\\ 1 \end{bmatrix}, \begin{bmatrix} 1\\ 1\\ 3 \end{bmatrix} \right\}\) &nbsp;
+      (ค) เซตของ 4 เวกเตอร์ใน \(\mathbb{R}^3\) ใด ๆ</div>
+      <div class="approach"><span class="lbl">แนวคิด</span> — ฐานหลักของ \(\mathbb{R}^3\) ต้องมี 3 เวกเตอร์ อิสระเชิงเส้น และแผ่ทั่ว — ใน \(\mathbb{R}^3\) เงื่อนไข "3 เวกเตอร์ + อิสระ" พอแล้ว (แผ่ทั่วตามมาอัตโนมัติ)</div>
+      <ol class="steps">
+        <li><span class="step-t">(ก) ตรวจอิสระเชิงเส้นด้วยการลดรูป</span>
+        \[ \begin{bmatrix} 1 & 0 & 1\\ 0 & 1 & 1\\ 1 & 1 & 2 \end{bmatrix} \xrightarrow{\,R_3 - R_1\,} \begin{bmatrix} 1 & 0 & 1\\ 0 & 1 & 1\\ 0 & 1 & 1 \end{bmatrix} \xrightarrow{\,R_3 - R_2\,} \begin{bmatrix} 1 & 0 & 1\\ 0 & 1 & 1\\ 0 & 0 & 0 \end{bmatrix} \]
+        หลักที่ 3 ไม่เป็นหลักตัวหลัก → เวกเตอร์พึ่งเชิงเส้น (จริง ๆ ตัวที่ 3 = ตัวที่ 1 + ตัวที่ 2) → <strong>ไม่เป็นฐานหลัก</strong></li>
+        <li><span class="step-t">(ข) ลดรูปเช็ก</span>
+        \[ \begin{bmatrix} 1 & 0 & 1\\ 0 & 1 & 1\\ 1 & 1 & 3 \end{bmatrix} \xrightarrow{\,R_3 - R_1\,} \begin{bmatrix} 1 & 0 & 1\\ 0 & 1 & 1\\ 0 & 1 & 2 \end{bmatrix} \xrightarrow{\,R_3 - R_2\,} \begin{bmatrix} 1 & 0 & 1\\ 0 & 1 & 1\\ 0 & 0 & 1 \end{bmatrix} \]
+        ตัวนำครบทุกหลัก → อิสระเชิงเส้น มี 3 เวกเตอร์ → <strong>เป็นฐานหลักสำหรับ \(\mathbb{R}^3\)</strong></li>
+        <li><span class="step-t">(ค) ไม่เป็นฐานหลักเสมอ</span> เซตที่มี 4 เวกเตอร์ใน \(\mathbb{R}^3\) พึ่งเชิงเส้นเสมอ (\(p = 4 > m = 3\)) → ขาดสมบัติอิสระเชิงเส้น → <strong>ไม่เป็นฐานหลัก</strong> (แม้จะแผ่ทั่วก็ตาม)</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="ex-card">
+    <div class="ex-head"><span class="ex-badge">ตัวอย่าง 3</span><span class="tag hard">ยาก</span><span class="ex-title">หาฐานหลักของ Col A และ Nul A + rank + nullity</span></div>
+    <div class="ex-body">
+      <div class="ex-q">จงหาฐานหลักสำหรับปริภูมิหลักและปริภูมิสู่ศูนย์ของเมทริกซ์
+      \[ A = \begin{bmatrix} 1 & 0 & -2 & 3\\ 0 & 1 & 1 & -1\\ 1 & 1 & -1 & 2 \end{bmatrix} \]
+      พร้อมทั้งหา \(\operatorname{rank} A\) และ \(\operatorname{nullity} A\)</div>
+      <div class="approach"><span class="lbl">แนวคิด</span> — ลดรูป \(A\) ครั้งเดียวได้ทั้งสองคำตอบ: หลักตัวหลัก → ฐานของ Col A (จาก \(A\) ตัวจริง) / RREF → แก้ \(A\vec{x} = \vec{0}\) เพื่อฐานของ Nul A</div>
+      <ol class="steps">
+        <li><span class="step-t">ลดรูปจนได้รูปแบบขั้นบันได</span>
+        \[ A \xrightarrow{\,R_3 - R_1\,} \begin{bmatrix} 1 & 0 & -2 & 3\\ 0 & 1 & 1 & -1\\ 0 & 1 & 1 & -1 \end{bmatrix} \xrightarrow{\,R_3 - R_2\,} \begin{bmatrix} 1 & 0 & -2 & 3\\ 0 & 1 & 1 & -1\\ 0 & 0 & 0 & 0 \end{bmatrix} \]
+        (RREF ตรงนี้เลย เพราะหลักตัวหลัก 1, 2 สะอาดอยู่แล้ว) หลักตัวหลักคือหลักที่ 1 และ 2</li>
+        <li><span class="step-t"><span class="step-tag">ท่า: ฐาน Col A</span>หยิบหลักตัวหลักจาก A ตัวจริง</span>
+        \[ \operatorname{Col} A = \operatorname{Span}\left\{ \begin{bmatrix} 1\\ 0\\ 1 \end{bmatrix}, \begin{bmatrix} 0\\ 1\\ 1 \end{bmatrix} \right\} \]
+        และ \(\operatorname{rank} A = 2\)</li>
+        <li><span class="step-t"><span class="step-tag">ท่า: ฐาน Nul A</span>แก้ \(A\vec{x} = \vec{0}\) จาก RREF</span>
+        \[ \begin{aligned} x_1 - 2x_3 + 3x_4 &= 0\\ x_2 + x_3 - x_4 &= 0 \end{aligned} \;\Longrightarrow\; \begin{aligned} x_1 &= 2x_3 - 3x_4\\ x_2 &= -x_3 + x_4 \end{aligned} \]
+        \[ \vec{x} = x_3\begin{bmatrix} 2\\ -1\\ 1\\ 0 \end{bmatrix} + x_4\begin{bmatrix} -3\\ 1\\ 0\\ 1 \end{bmatrix} \;\Longrightarrow\; \operatorname{Nul} A = \operatorname{Span}\left\{ \begin{bmatrix} 2\\ -1\\ 1\\ 0 \end{bmatrix}, \begin{bmatrix} -3\\ 1\\ 0\\ 1 \end{bmatrix} \right\} \]
+        และ \(\operatorname{nullity} A = 2\)</li>
+        <li><span class="step-t">ตรวจทฤษฎีบทแรงก์</span> \(\operatorname{rank} A + \operatorname{nullity} A = 2 + 2 = 4 = n\) (จำนวนหลักของ \(A\)) ✓</li>
+      </ol>
+      <div class="verify"><span class="lbl">ตรวจฐานของ Nul A:</span> \(A(2, -1, 1, 0) = (2 - 2,\; -1 + 1,\; 2 - 1 - 1) = (0, 0, 0)\) ✓ และ \(A(-3, 1, 0, 1) = (-3 + 3,\; 1 - 1,\; -3 + 1 + 2) = (0, 0, 0)\) ✓</div>
+    </div>
+  </article>
+
+  <article class="ex-card">
+    <div class="ex-head"><span class="ex-badge">ตัวอย่าง 4</span><span class="tag hard">ยาก</span><span class="ex-title">แสดงว่า H เป็นปริภูมิย่อย + หาฐานหลักและมิติ (ตัวอย่างคลาสสิกของตำรา)</span></div>
+    <div class="ex-body">
+      <div class="ex-q">จงแสดงว่าเซต
+      \[ H = \{(x_1 + 2x_2, \; -x_2 + x_3, \; x_1 + x_2 + x_3) : x_1, x_2, x_3 \in \mathbb{R}\} \]
+      เป็นปริภูมิย่อยของ \(\mathbb{R}^3\) พร้อมทั้งหาฐานหลักและมิติของ \(H\)</div>
+      <div class="approach"><span class="lbl">แนวคิด</span> — เซตแบบพารามิเตอร์: แยกตามพารามิเตอร์ให้เห็นว่าเป็น Span → จึงเป็นปริภูมิย่อย → หาฐานโดยการลดรูปเมทริกซ์ที่พารามิเตอร์เรียงเป็นหลัก</div>
+      <ol class="steps">
+        <li><span class="step-t"><span class="step-tag">ท่า: แยกพารามิเตอร์</span>เขียนองค์ประกอบของ H เป็นการรวมเชิงเส้น</span>
+        \[ \begin{bmatrix} x_1 + 2x_2\\ -x_2 + x_3\\ x_1 + x_2 + x_3 \end{bmatrix} = x_1\begin{bmatrix} 1\\ 0\\ 1 \end{bmatrix} + x_2\begin{bmatrix} 2\\ -1\\ 1 \end{bmatrix} + x_3\begin{bmatrix} 0\\ 1\\ 1 \end{bmatrix} = \operatorname{Col} A \;\text{เมื่อ}\; A = \begin{bmatrix} 1 & 2 & 0\\ 0 & -1 & 1\\ 1 & 1 & 1 \end{bmatrix} \]
+        โดยทฤษฎีบท 2.2.1 \(\operatorname{Col} A\) เป็นปริภูมิย่อยของ \(\mathbb{R}^3\) ✓</li>
+        <li><span class="step-t">ลดรูป \(A\) จนได้รูปแบบขั้นบันได</span>
+        \[ A \xrightarrow{\,R_3 - R_1\,} \begin{bmatrix} 1 & 2 & 0\\ 0 & -1 & 1\\ 0 & -1 & 1 \end{bmatrix} \xrightarrow{\,R_3 - R_2\,} \begin{bmatrix} 1 & 2 & 0\\ 0 & -1 & 1\\ 0 & 0 & 0 \end{bmatrix} \]
+        หลักตัวหลักคือหลักที่ 1 และ 2</li>
+        <li><span class="step-t">ฐานหลักและมิติ</span> หยิบหลักตัวหลักจาก \(A\):
+        \[ \mathcal{B} = \left\{ \begin{bmatrix} 1\\ 0\\ 1 \end{bmatrix}, \begin{bmatrix} 2\\ -1\\ 1 \end{bmatrix} \right\} \quad \text{เป็นฐานหลักหนึ่งสำหรับ } H \;\Longrightarrow\; \dim H = 2 \]
+        (เห็นไหมว่า \(H\) คือระนาบผ่านจุดกำเนิดใน \(\mathbb{R}^3\))</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="ex-card">
+    <div class="ex-head"><span class="ex-badge">ตัวอย่าง 5</span><span class="tag hard">ยาก</span><span class="ex-title">H จากเงื่อนไข 2 สมการ → Nul A (ตัวอย่างคลาสสิกของตำรา)</span></div>
+    <div class="ex-body">
+      <div class="ex-q">จงแสดงว่าเซต
+      \[ H = \{(x_1, x_2, x_3, x_4) \in \mathbb{R}^4 : x_1 + x_2 = x_3 + x_4 \;\text{และ}\; x_1 + x_2 + x_3 + x_4 = 0 \} \]
+      เป็นปริภูมิย่อยของ \(\mathbb{R}^4\) พร้อมทั้งหาฐานหลักและมิติของ \(H\)</div>
+      <div class="approach"><span class="lbl">แนวคิด</span> — เซตแบบสมการ: ย้ายข้างให้เป็น \(A\vec{x} = \vec{0}\) → \(H = \operatorname{Nul} A\) → ลดรูปจน RREF แล้วเขียนผลเฉลยอิงตัวแปรเสริม</div>
+      <ol class="steps">
+        <li><span class="step-t"><span class="step-tag">ท่า: ย้ายข้าง</span>เขียนเงื่อนไขเป็นระบบเอกพันธุ์</span>
+        \[ \begin{aligned} x_1 + x_2 - x_3 - x_4 &= 0\\ x_1 + x_2 + x_3 + x_4 &= 0 \end{aligned} \;\Longrightarrow\; H = \{\vec{x} : A\vec{x} = \vec{0}\} = \operatorname{Nul} A,\;\; A = \begin{bmatrix} 1 & 1 & -1 & -1\\ 1 & 1 & 1 & 1 \end{bmatrix} \]
+        โดยทฤษฎีบท 2.2.3 \(H\) เป็นปริภูมิย่อยของ \(\mathbb{R}^4\) ✓</li>
+        <li><span class="step-t">ลดรูปจนได้ RREF</span>
+        \[ A \xrightarrow{\,R_2 - R_1\,} \begin{bmatrix} 1 & 1 & -1 & -1\\ 0 & 0 & 2 & 2 \end{bmatrix} \xrightarrow{\substack{\tfrac{1}{2}R_2\\ R_1 + R_2}} \begin{bmatrix} 1 & 1 & 0 & 0\\ 0 & 0 & 1 & 1 \end{bmatrix} \]</li>
+        <li><span class="step-t">แก้ระบบ → ผลเฉลยอิงตัวแปรเสริม</span>
+        \[ x_1 = -x_2, \quad x_3 = -x_4 \;\Longrightarrow\; \vec{x} = x_2\begin{bmatrix} -1\\ 1\\ 0\\ 0 \end{bmatrix} + x_4\begin{bmatrix} 0\\ 0\\ -1\\ 1 \end{bmatrix} \]</li>
+        <li><span class="step-t">ฐานหลักและมิติ</span>
+        \[ \mathcal{B} = \left\{ \begin{bmatrix} -1\\ 1\\ 0\\ 0 \end{bmatrix}, \begin{bmatrix} 0\\ 0\\ -1\\ 1 \end{bmatrix} \right\} \;\text{เป็นฐานหลักหนึ่งสำหรับ } H \;\Longrightarrow\; \dim H = 2 \]
+        และตรวจ: \(\operatorname{rank} A = 2\), \(\operatorname{nullity} A = 2\), ผลรวม \(= 4 = n\) ✓</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="ex-card">
+    <div class="ex-head"><span class="ex-badge">ตัวอย่าง 6</span><span class="tag hard">ยาก</span><span class="ex-title">ใช้ทฤษฎีบทแรงก์ตอบเร็ว</span></div>
+    <div class="ex-body">
+      <div class="ex-q">กำหนดให้ \(A\) เป็น \(5 \times 8\) เมทริกซ์ซึ่ง \(\operatorname{rank} A = 3\) จงหา \(\operatorname{nullity} A\) และตอบคำถามต่อไปนี้
+      พร้อมเหตุผล<br>
+      (ก) จำนวนตัวแปรเสรีของระบบ \(A\vec{x} = \vec{0}\) เป็นเท่าใด<br>
+      (ข) มี \(\vec{b} \in \mathbb{R}^5\) ที่ทำให้ \(A\vec{x} = \vec{b}\) ไม่มีผลเฉลยหรือไม่<br>
+      (ข้อ 3) ถ้า \(T(\vec{x}) = A\vec{x}\) แล้ว \(T\) 1-1 หรือทั่วถึงหรือไม่</div>
+      <div class="approach"><span class="lbl">แนวคิด</span> — ใช้ทฤษฎีบทแรงก์ + ความสัมพันธ์ระหว่างแรงก์กับตัวนำ</div>
+      <ol class="steps">
+        <li><span class="step-t">หา nullity</span> โดยทฤษฎีบท 2.2.5: \(\operatorname{nullity} A = n - \operatorname{rank} A = 8 - 3 = 5\)</li>
+        <li><span class="step-t">(ก) ตัวแปรเสรี</span> จำนวนตัวแปรเสรีของ \(A\vec{x} = \vec{0}\) = \(\operatorname{nullity} A = 5\) (หลักที่ไม่เป็นหลักตัวหลักมี \(8 - 3 = 5\) หลัก)</li>
+        <li><span class="step-t">(ข) มี \(\vec{b}\) ที่ไม่มีผลเฉลย — มี</span> \(\operatorname{rank} A = 3 < 5 =\) จำนวนแถว → \(A\) ไม่มีตำแหน่งตัวหลักในทุกแถว → หลักของ \(A\) ไม่แผ่ทั่ว \(\mathbb{R}^5\) → มีเวกเตอร์บางตัวที่ไม่อยู่ใน \(\operatorname{Col} A\) จึงทำให้ระบบไม่ต้องกัน</li>
+        <li><span class="step-t">(ค) T ไม่ 1-1 และไม่ทั่วถึง</span> \(\operatorname{nullity} A = 5 > 0\) → \(T\vec{x} = \vec{0}\) มีผลเฉลยไม่ชัด → <em>ไม่ 1-1</em> และ \(\operatorname{rank} A = 3 < 5\) → <em>ไม่ทั่วถึง</em> \(\mathbb{R}^5\) (ค่ากลาง ๆ แบบนี้เป็นได้เพราะ \(5 \ne 8\))</li>
+      </ol>
+    </div>
+  </article>
+</section>
+
+<section class="block" id="recipe">
+  <h2><span class="h2-dot">⚡</span> สูตรสำเร็จ — ท่าที่ใช้ทำโจทย์หัวข้อนี้</h2>
+  <div class="recipe">
+    <div class="recipe-head">🪜 ท่าหลัก: หาฐานหลัก/มิติของ Col A และ Nul A ในรอบเดียว</div>
+    <div class="recipe-body">
+      <ol>
+        <li>ลดรูป \(A\) จนได้ <strong>REF</strong> (หรือ RREF ไปเลย) → ระบุ<strong>หลักตัวหลัก</strong></li>
+        <li><strong>ฐานของ Col A:</strong> หยิบหลักตัวหลักจาก \(A\) <em>ตัวจริง</em> → \(\operatorname{rank} A =\) จำนวนหลักตัวหลัก</li>
+        <li><strong>ฐานของ Nul A:</strong> จาก RREF เขียนผลเฉลยอิงตัวแปรเสริมของ \(A\vec{x} = \vec{0}\) → เวกเตอร์ทิศทางแต่ละตัวคือ 1 สมาชิกฐาน → \(\operatorname{nullity} A =\) จำนวนตัวแปรเสรี</li>
+        <li>ตรวจด้วยทฤษฎีบทแรงก์: \(\operatorname{rank} A + \operatorname{nullity} A = n\) (จำนวนหลัก)</li>
+      </ol>
+    </div>
+  </div>
+  <div class="key-grid">
+    <div class="key-card"><div class="k-title">ท่า: แสดง H เป็นปริภูมิย่อย (แบบพารามิเตอร์)</div>แยกตามพารามิเตอร์ → H = Span/Col → ใช้ทฤษฎีบท 2.2.1 → ลดรูปหาฐาน</div>
+    <div class="key-card"><div class="k-title">ท่า: แสดง H เป็นปริภูมิย่อย (แบบสมการ)</div>ย้ายข้างให้เป็น \(A\vec{x} = \vec{0}\) → H = Nul A → ใช้ทฤษฎีบท 2.2.3 → แก้เพื่อหาฐาน</div>
+    <div class="key-card"><div class="k-title">ท่า: ตรวจฐานหลักของ \(\mathbb{R}^m\)</div>ต้อง: มี \(m\) เวกเตอร์ + อิสระเชิงเส้น (ลดรูปดูว่าตัวนำครบทุกหลัก) → แผ่ทั่วตามอัตโนมัติ</div>
+    <div class="key-card"><div class="k-title">ท่า: เชื่อมโยงกับบทเรียนก่อน</div>rank = จำนวนตัวนำ / nullity = ตัวแปรเสรีของ \(A\vec{x}=0\) / rank = m ⇔ ทั่วถึง / nullity = 0 ⇔ 1-1</div>
+  </div>
+</section>
+
+<section class="block" id="practice">
+  <h2><span class="h2-dot">🏋️</span> โจทย์ซ้อมมือ (6 ข้อ)</h2>
+  <p class="small">ลองทำเองก่อน แล้วค่อยกดเปิดคำใบ้ → เฉลยทีละขั้น เมื่อทำได้แล้วติ๊ก ✓ เพื่อบันทึกความคืบหน้า</p>
+
+  <article class="pr-card" data-pkey="p2-2-1">
+    <div class="pr-head"><span class="pr-num">ข้อ 1</span><span class="diff">●○○</span><span class="spacer"></span>
+      <label class="pr-done"><input type="checkbox"> ทำสำเร็จแล้ว</label></div>
+    <div class="pr-body">
+      <p>จงพิจารณาว่าเซตต่อไปนี้เป็นปริภูมิย่อยหรือไม่ เพราะเหตุใด<br>
+      (ก) \(H_1 = \{(x_1, x_2) : x_1 = 3x_2\}\) &nbsp;
+      (ข) \(H_2 = \{(x_1, x_2) : x_1 \geq 0\}\) &nbsp;
+      (ค) \(H_3 = \{(x_1, x_2, x_3) : x_1 + x_2 + x_3 = 1\}\)</p>
+    </div>
+    <details class="hint"><summary>คำใบ้</summary><div class="hint-body">เช็ก \(\vec{0} \in H\) ก่อนเสมอ — สองเซตหลังจะตกข้อนี้หรือสมบัติการคูณสเกลาร์</div></details>
+    <details class="sol"><summary>แนวคิดและเฉลยแบบละเอียด</summary><div class="sol-body">
+      <p><strong>แนวคิด:</strong> ตรวจ 3 สมบัติตามลำดับ เจอข้อห้ามก็สรุปได้ทันที</p>
+      <ol class="steps">
+        <li><span class="step-t">(ก) เป็นปริภูมิย่อย</span> เป็นเส้นตรงผ่านจุดกำเนิด: \(H_1 = \operatorname{Nul}\begin{bmatrix} 1 & -3 \end{bmatrix}\) — มี \(\vec{0}\), ปิดการบวกและการคูณสเกลาร์ ✓</li>
+        <li><span class="step-t">(ข) ไม่เป็นปริภูมิย่อย</span> มี \((1, 0) \in H_2\) แต่ \((-1) \cdot (1, 0) = (-1, 0) \notin H_2\) → ไม่ปิดการคูณสเกลาร์ ✗ (เงื่อนไข \(x_1 \geq 0\) พังเมื่อคูณลบ)</li>
+        <li><span class="step-t">(ค) ไม่เป็นปริภูมิย่อย</span> \((0, 0, 0) \notin H_3\) เพราะ \(0 + 0 + 0 = 0 \neq 1\) → ตกสมบัติข้อ 1 ทันที ✗</li>
+      </ol>
+    </div></details>
+  </article>
+
+  <article class="pr-card" data-pkey="p2-2-2">
+    <div class="pr-head"><span class="pr-num">ข้อ 2</span><span class="diff">●○○</span><span class="spacer"></span>
+      <label class="pr-done"><input type="checkbox"> ทำสำเร็จแล้ว</label></div>
+    <div class="pr-body">
+      <p>จงพิจารณาว่าเซตต่อไปนี้เป็นฐานหลักสำหรับ \(\mathbb{R}^3\) หรือไม่ เพราะเหตุใด<br>
+      (ก) \(\left\{ \begin{bmatrix} 0\\ 1\\ -2 \end{bmatrix}, \begin{bmatrix} 6\\ 3\\ 5 \end{bmatrix}, \begin{bmatrix} 5\\ -7\\ 4 \end{bmatrix} \right\}\) &nbsp;
+      (ข) \(\left\{ \begin{bmatrix} 2\\ 2\\ -1 \end{bmatrix}, \begin{bmatrix} 4\\ -1\\ 1 \end{bmatrix}, \begin{bmatrix} 3\\ -2\\ 0 \end{bmatrix}, \begin{bmatrix} 0\\ 5\\ 0 \end{bmatrix} \right\}\)</p>
+    </div>
+    <details class="hint"><summary>คำใบ้</summary><div class="hint-body">(ข) ไม่ต้องลดรูป — นับจำนวนเวกเตอร์ก่อน (ก) ลดรูปแล้วดูว่าตัวนำครบทุกหลักไหม</div></details>
+    <details class="sol"><summary>แนวคิดและเฉลยแบบละเอียด</summary><div class="sol-body">
+      <p><strong>แนวคิด:</strong> ฐานหลักของ \(\mathbb{R}^3\) = 3 เวกเตอร์ + อิสระเชิงเส้น</p>
+      <ol class="steps">
+        <li><span class="step-t">(ข) ตอบทันที: ไม่เป็นฐานหลัก</span> มี 4 เวกเตอร์ใน \(\mathbb{R}^3\) (\(p > m\)) → พึ่งเชิงเส้นเสมอ → ขาดสมบัติฐานหลัก (แม้จะแผ่ทั่ว \(\mathbb{R}^3\) ก็ตาม)</li>
+        <li><span class="step-t">(ก) ลดรูปเมทริกซ์ที่เวกเตอร์เรียงเป็นหลัก</span>
+        \[ \begin{bmatrix} 0 & 6 & 5\\ 1 & 3 & -7\\ -2 & 5 & 4 \end{bmatrix} \xrightarrow{\,R_{12}\,} \begin{bmatrix} 1 & 3 & -7\\ 0 & 6 & 5\\ -2 & 5 & 4 \end{bmatrix} \xrightarrow{\substack{R_3 + 2R_1}} \begin{bmatrix} 1 & 3 & -7\\ 0 & 6 & 5\\ 0 & 11 & -10 \end{bmatrix} \xrightarrow{\,R_3 - \tfrac{11}{6}R_2\,} \begin{bmatrix} 1 & 3 & -7\\ 0 & 6 & 5\\ 0 & 0 & -\tfrac{115}{6} \end{bmatrix} \]
+        ตัวนำอยู่ครบหลัก 1, 2, 3 → อิสระเชิงเส้น</li>
+        <li><span class="step-t">(ก) สรุป</span> มี 3 เวกเตอร์และอิสระเชิงเส้น → <strong>เป็นฐานหลักสำหรับ \(\mathbb{R}^3\)</strong> (โดยอัตโนมัติแผ่ทั่ว \(\mathbb{R}^3\))</li>
+      </ol>
+    </div></details>
+  </article>
+
+  <article class="pr-card" data-pkey="p2-2-3">
+    <div class="pr-head"><span class="pr-num">ข้อ 3</span><span class="diff">●●●</span><span class="spacer"></span>
+      <label class="pr-done"><input type="checkbox"> ทำสำเร็จแล้ว</label></div>
+    <div class="pr-body">
+      <p>จงหาฐานหลักสำหรับปริภูมิหลักและปริภูมิสู่ศูนย์ของเมทริกซ์
+      \[ A = \begin{bmatrix} 1 & 2 & 0 & 1\\ 2 & 4 & 1 & 5\\ 1 & 2 & 1 & 4 \end{bmatrix} \]
+      พร้อมทั้งหา \(\operatorname{rank} A\) และ \(\operatorname{nullity} A\)</p>
+    </div>
+    <details class="hint"><summary>คำใบ้</summary><div class="hint-body">\(R_2 - 2R_1\) และ \(R_3 - R_1\) แล้วจะเห็นหลักตัวหลักชัด (หลัก 1 กับ 3)</div></details>
+    <details class="sol"><summary>แนวคิดและเฉลยแบบละเอียด</summary><div class="sol-body">
+      <p><strong>แนวคิด:</strong> ลดรูปครั้งเดียว ได้ทั้ง Col และ Nul</p>
+      <ol class="steps">
+        <li><span class="step-t">ลดรูปจนได้ RREF</span>
+        \[ A \xrightarrow{\substack{R_2 - 2R_1\\ R_3 - R_1}} \begin{bmatrix} 1 & 2 & 0 & 1\\ 0 & 0 & 1 & 3\\ 0 & 0 & 1 & 3 \end{bmatrix} \xrightarrow{\,R_3 - R_2\,} \begin{bmatrix} 1 & 2 & 0 & 1\\ 0 & 0 & 1 & 3\\ 0 & 0 & 0 & 0 \end{bmatrix} \]
+        หลักตัวหลักคือหลักที่ 1 และ 3</li>
+        <li><span class="step-t">ฐานของ Col A (หลักจาก A ตัวจริง)</span>
+        \[ \operatorname{Col} A = \operatorname{Span}\left\{ \begin{bmatrix} 1\\ 2\\ 1 \end{bmatrix}, \begin{bmatrix} 0\\ 1\\ 1 \end{bmatrix} \right\}, \qquad \operatorname{rank} A = 2 \]</li>
+        <li><span class="step-t">ฐานของ Nul A (จาก RREF)</span>
+        \[ x_1 = -2x_2 - x_4, \quad x_3 = -3x_4 \;\Longrightarrow\; \vec{x} = x_2\begin{bmatrix} -2\\ 1\\ 0\\ 0 \end{bmatrix} + x_4\begin{bmatrix} -1\\ 0\\ -3\\ 1 \end{bmatrix} \]
+        \[ \operatorname{Nul} A = \operatorname{Span}\left\{ \begin{bmatrix} -2\\ 1\\ 0\\ 0 \end{bmatrix}, \begin{bmatrix} -1\\ 0\\ -3\\ 1 \end{bmatrix} \right\}, \qquad \operatorname{nullity} A = 2 \]</li>
+        <li><span class="step-t">ตรวจ</span> \(\operatorname{rank} + \operatorname{nullity} = 2 + 2 = 4 = n\) ✓ และแทนฐานของ Nul กลับ: \(A(-2, 1, 0, 0) = (-2+2,\; -4+4,\; -2+2) = (0,0,0)\) ✓ และ \(A(-1, 0, -3, 1) = (-1 - 0 + 1,\; -2 - 3 + 5,\; -1 - 3 + 4) = (0,0,0)\) ✓</li>
+      </ol>
+    </div></details>
+  </article>
+
+  <article class="pr-card" data-pkey="p2-2-4">
+    <div class="pr-head"><span class="pr-num">ข้อ 4</span><span class="diff">●●○</span><span class="spacer"></span>
+      <label class="pr-done"><input type="checkbox"> ทำสำเร็จแล้ว</label></div>
+    <div class="pr-body">
+      <p>จงแสดงว่า \(H = \{(x_1, x_2, x_3) \in \mathbb{R}^3 : 2x_1 - x_2 + x_3 = 0\}\) เป็นปริภูมิย่อยของ \(\mathbb{R}^3\) พร้อมทั้งหาฐานหลักและมิติของ \(H\)</p>
+    </div>
+    <details class="hint"><summary>คำใบ้</summary><div class="hint-body">\(H = \operatorname{Nul} A\) เมื่อ \(A = \begin{bmatrix} 2 & -1 & 1 \end{bmatrix}\) ซึ่งเป็น RREF เท่ากับ \(\begin{bmatrix} 1 & -\tfrac{1}{2} & \tfrac{1}{2} \end{bmatrix}\) — ตัวแปรเสรี 2 ตัว</div></details>
+    <details class="sol"><summary>แนวคิดและเฉลยแบบละเอียด</summary><div class="sol-body">
+      <p><strong>แนวคิด:</strong> เซตแบบสมการเชิงเส้นผ่านจุดกำเนิด → Nul → ปริภูมิย่อย</p>
+      <ol class="steps">
+        <li><span class="step-t">ระบุ H</span> \(H = \{\vec{x} : A\vec{x} = \vec{0}\} = \operatorname{Nul} A\), \(A = \begin{bmatrix} 2 & -1 & 1 \end{bmatrix}\) → เป็นปริภูมิย่อยของ \(\mathbb{R}^3\) โดยทฤษฎีบท 2.2.3</li>
+        <li><span class="step-t">แก้ระบบ</span> \(x_1 = \tfrac{1}{2}x_2 - \tfrac{1}{2}x_3\) โดย \(x_2, x_3\) เป็นตัวแปรเสรี</li>
+        <li><span class="step-t">ผลเฉลยอิงตัวแปรเสริม</span>
+        \[ \vec{x} = x_2\begin{bmatrix} \tfrac{1}{2}\\ 1\\ 0 \end{bmatrix} + x_3\begin{bmatrix} -\tfrac{1}{2}\\ 0\\ 1 \end{bmatrix} \]
+        เลือกคูณ 2 เพื่อความสวย (ฐานหลักคูณสเกลาร์ก็ยังเป็นฐาน): ใช้ \(\begin{bmatrix} 1\\ 2\\ 0 \end{bmatrix}\) และ \(\begin{bmatrix} 1\\ 0\\ -2 \end{bmatrix}\)</li>
+        <li><span class="step-t">ฐานหลักและมิติ</span>
+        \[ \mathcal{B} = \left\{ \begin{bmatrix} 1\\ 2\\ 0 \end{bmatrix}, \begin{bmatrix} 1\\ 0\\ -2 \end{bmatrix} \right\}, \qquad \dim H = 2 \]
+        (เรขาคณิต: \(H\) คือระนาบผ่านจุดกำเนิดที่ตั้งฉากกับเวกเตอร์ \((2, -1, 1)\)) ตรวจฐาน: \(2(1) - 2 + 0 = 0\) ✓ \(2(1) - 0 + (-2) = 0\) ✓</li>
+      </ol>
+    </div></details>
+  </article>
+
+  <article class="pr-card" data-pkey="p2-2-5">
+    <div class="pr-head"><span class="pr-num">ข้อ 5</span><span class="diff">●●●</span><span class="spacer"></span>
+      <label class="pr-done"><input type="checkbox"> ทำสำเร็จแล้ว</label></div>
+    <div class="pr-body">
+      <p>จงแสดงว่า \(H = \{(x_1 - 2x_2, \; x_1 + x_2, \; x_1 + 3x_2) : x_1, x_2 \in \mathbb{R}\}\) เป็นปริภูมิย่อยของ \(\mathbb{R}^3\) พร้อมทั้งหาฐานหลักและมิติของ \(H\)</p>
+    </div>
+    <details class="hint"><summary>คำใบ้</summary><div class="hint-body">แยกตามพารามิเตอร์ \(x_1, x_2\): \(H = \operatorname{Span}\{\vec{v}_1, \vec{v}_2\}\) — แล้วตรวจว่าเวกเตอร์ 2 ตัวนั้นอิสระกันไหม</div></details>
+    <details class="sol"><summary>แนวคิดและเฉลยแบบละเอียด</summary><div class="sol-body">
+      <p><strong>แนวคิด:</strong> เซตแบบพารามิเตอร์ → Span → ปริภูมิย่อย</p>
+      <ol class="steps">
+        <li><span class="step-t">แยกพารามิเตอร์</span>
+        \[ H = \left\{ x_1\begin{bmatrix} 1\\ 1\\ 1 \end{bmatrix} + x_2\begin{bmatrix} -2\\ 1\\ 3 \end{bmatrix} : x_1, x_2 \in \mathbb{R} \right\} = \operatorname{Span}\left\{ \begin{bmatrix} 1\\ 1\\ 1 \end{bmatrix}, \begin{bmatrix} -2\\ 1\\ 3 \end{bmatrix} \right\} = \operatorname{Col} A \]
+        เมื่อ \(A = \begin{bmatrix} 1 & -2\\ 1 & 1\\ 1 & 3 \end{bmatrix}\) → เป็นปริภูมิย่อยโดยทฤษฎีบท 2.2.1</li>
+        <li><span class="step-t">ตรวจอิสระของ 2 เวกเตอร์</span> ไม่สัดส่วนกัน (\(\tfrac{-2}{1} \neq \tfrac{1}{1}\)) → อิสระเชิงเส้น (หรือลดรูป: ตัวนำอยู่ครบ 2 หลัก)</li>
+        <li><span class="step-t">ฐานหลักและมิติ</span>
+        \[ \mathcal{B} = \left\{ \begin{bmatrix} 1\\ 1\\ 1 \end{bmatrix}, \begin{bmatrix} -2\\ 1\\ 3 \end{bmatrix} \right\} \;\text{เป็นฐานหลักหนึ่งสำหรับ } H, \qquad \dim H = 2 \]
+        (2 เวกเตอร์อิสระใน \(\mathbb{R}^3\) → \(H\) คือระนาบผ่านจุดกำเนิด)</li>
+      </ol>
+    </div></details>
+  </article>
+
+  <article class="pr-card" data-pkey="p2-2-6">
+    <div class="pr-head"><span class="pr-num">ข้อ 6</span><span class="diff">●●●</span><span class="spacer"></span>
+      <label class="pr-done"><input type="checkbox"> ทำสำเร็จแล้ว</label></div>
+    <div class="pr-body">
+      <p>จงตอบคำถามต่อไปนี้พร้อมเหตุผล<br>
+      (ก) ให้ \(A\) เป็น \(9 \times 6\) เมทริกซ์ซึ่ง \(\operatorname{rank} A = 4\) จงหา \(\operatorname{nullity} A\) จำนวนหลักตัวหลัก และจำนวนตัวแปรเสรีของ \(A\vec{x} = \vec{0}\)<br>
+      (ข) ให้ \(T : \mathbb{R}^4 \to \mathbb{R}^6\) เป็นการแปลงเชิงเส้นที่มี \(\operatorname{nullity} A = 0\) เมื่อ \(A\) เป็นเมทริกซ์มาตรฐาน จงบอกว่า \(T\) มีสมบัติ 1-1 และทั่วถึงหรือไม่<br>
+      (ค) ให้ \(B\) เป็น \(4 \times 4\) เมทริกซ์ที่ระบบ \(B\vec{x} = \vec{0}\) มีเพียงผลเฉลยชัด จงบอกว่าระบบ \(B\vec{x} = \vec{b}\) มีผลเฉลยสำหรับทุก \(\vec{b} \in \mathbb{R}^4\) หรือไม่</p>
+    </div>
+    <details class="hint"><summary>คำใบ้</summary><div class="hint-body">ใช้ทฤษฎีบทแรงก์เป็นหลัก: rank + nullity = จำนวนหลัก และตัวนำ = rank เสมอ</div></details>
+    <details class="sol"><summary>แนวคิดและเฉลยแบบละเอียด</summary><div class="sol-body">
+      <p><strong>แนวคิด:</strong> ทุกข้อตอบด้วยทฤษฎีบทแรงก์และเกณฑ์ตัวนำ</p>
+      <ol class="steps">
+        <li><span class="step-t">(ก) ใช้ทฤษฎีบทแรงก์</span> \(\operatorname{nullity} A = n - \operatorname{rank} A = 6 - 4 = 2\) จำนวนหลักตัวหลัก = \(\operatorname{rank} A = 4\) หลัก ตัวแปรเสรีของ \(A\vec{x} = \vec{0}\) = \(\operatorname{nullity} A = 2\) ตัว</li>
+        <li><span class="step-t">(ข) rank จาก nullity</span> \(\operatorname{rank} A = 4 - 0 = 4\)<br>
+        1-1: nullity = 0 → \(A\vec{x} = \vec{0}\) มีเพียงผลเฉลยชัด → <strong>T 1-1</strong> ✓<br>
+        ทั่วถึง: \(\operatorname{rank} A = 4 < 6\) แถว → ไม่มีตัวนำครบทุกแถว → <strong>ไม่ทั่วถึง</strong> \(\mathbb{R}^6\) (จำเป็น: \(T: \mathbb{R}^4 \to \mathbb{R}^6\) ทั่วถึงไม่ได้เสมอ)</li>
+        <li><span class="step-t">(ค) มีผลเฉลยทุก \(\vec{b}\)</span> \(B\vec{x} = \vec{0}\) มีเพียงผลเฉลยชัด → \(\operatorname{nullity} B = 0\) → \(\operatorname{rank} B = 4 - 0 = 4\) = จำนวนแถว → \(B\) มีตำแหน่งตัวหลักในทุกแถว → หลักของ \(B\) แผ่ทั่ว \(\mathbb{R}^4\) → ระบบ \(B\vec{x} = \vec{b}\) <strong>มีผลเฉลยสำหรับทุก \(\vec{b}\)</strong> (และเป็นผลเฉลยชุดเดียว — ซึ่งจะกลายเป็นข้อหนึ่งของทฤษฎีบทเมทริกซ์หาตัวผกผันได้ในหัวข้อ 2.3!)</li>
+      </ol>
+    </div></details>
+  </article>
+</section>

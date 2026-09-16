@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>3.3 ระบบสมการเชิงอนุพันธ์ — พีชคณิตเชิงเส้น 1/2569</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22%23101a35%22/><text x=%2250%22 y=%2272%22 font-size=%2262%22 text-anchor=%22middle%22 fill=%22white%22 font-family=%22serif%22>Σ</text></svg>">
+<meta name="description" content="3.3 ระบบสมการเชิงอนุพันธ์ — สื่อการสอนวิชา 2301234 พีชคณิตเชิงเส้น ๑ เทอม 1/2569 พร้อมตัวอย่าง step-by-step และโจทย์ซ้อมพร้อมเฉลย">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Prompt:wght@500;600;700&family=Sarabun:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/katex/katex.min.css">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body data-ch="3" data-section="3.3" data-page="ch3-3.html">
+<header class="topbar">
+  <button class="icon-btn menu-btn" id="menuBtn" aria-label="เปิดเมนู">☰</button>
+  <a class="brand" href="index.html"><span class="brand-badge">Σ</span><span>พีชคณิตเชิงเส้น <span class="brand-sub">2301234 · 1/2569</span></span></a>
+  <span class="spacer"></span>
+  <button class="icon-btn theme-btn" id="themeBtn" aria-label="สลับโหมดมืด/สว่าง">🌙</button>
+</header>
+<div class="layout">
+  <nav class="sidebar" id="sidebar"></nav>
+  <div class="scrim" id="scrim"></div>
+
+  <main class="content"><div class="inner">
+
+<div class="crumb">บทที่ 3 · ค่าลักษณะเฉพาะและเวกเตอร์ลักษณะเฉพาะ</div>
+<h1 class="page-title">3.3 ระบบสมการเชิงอนุพันธ์</h1>
+<p class="page-sub">รางวัลของการแปลงเป็นทแยงมุม — เราจะใช้ค่า/เวกเตอร์ลักษณะเฉพาะแก้ระบบสมการเชิงอนุพันธ์
+\(\vec{x}\,' = A\vec{x}\) ที่ปรากฏทั่วไปในวิชาวิศวกรรมและวิทยาศาสตร์ ได้อย่างเป็นระบบในไม่กี่บรรทัด</p>
+
+<nav class="pillnav">
+  <a href="#objectives">🎯 จุดประสงค์</a>
+  <a href="#lesson">📖 บทเรียน</a>
+  <a href="#examples">✏️ ตัวอย่างโจทย์</a>
+  <a href="#recipe">⚡ สูตรสำเร็จ</a>
+  <a href="#practice">🏋️ โจทย์ซ้อมมือ</a>
+</nav>
+
+<section class="block" id="objectives">
+  <div class="obj">
+    <h2>🎯 เรียนจบหัวข้อนี้ คุณต้องทำสิ่งเหล่านี้ได้</h2>
+    <ul>
+      <li>เขียนระบบสมการเชิงอนุพันธ์ในรูปเมทริกซ์ \(\vec{x}\,' = A\vec{x}\)</li>
+      <li>ตรวจว่า \(\vec{x}(t) = e^{\lambda t}\vec{v}\) เป็นผลเฉลยของระบบหรือไม่ และเข้าใจที่มาจาก eigenpair</li>
+      <li>เขียนผลเฉลยทั่วไป \(\vec{x}(t) = C_1e^{\lambda_1 t}\vec{v}_1 + \cdots + C_ne^{\lambda_n t}\vec{v}_n\) เมื่อ \(A\) diagonalizable</li>
+      <li>หาผลเฉลยเฉพาะจากเงื่อนไขเริ่มต้น \(\vec{x}(0)\) โดยแก้ระบบเชิงเส้นหาค่า \(C_1, \dots, C_n\)</li>
+    </ul>
+  </div>
+</section>
+
+<section class="block" id="lesson">
+  <h2><span class="h2-dot">📖</span> บทเรียน</h2>
+
+  <h3>1) ระบบสมการเชิงอนุพันธ์ในรูปเมทริกซ์</h3>
+  <div class="box box-def">
+    <div class="box-title">📐 รูปแบบที่เราสนใจ</div>
+    <p>ระบบสมการเชิงอนุพันธ์เชิงเส้นสัมประสิทธิ์คงตัว</p>
+    \[ \begin{aligned} x_1' &= a_{11}x_1 + a_{12}x_2 + \cdots + a_{1n}x_n\\ &\;\;\vdots\\ x_n' &= a_{n1}x_1 + a_{n2}x_2 + \cdots + a_{nn}x_n \end{aligned} \qquad \Longleftrightarrow \qquad \vec{x}\,' = A\vec{x} \]
+    <p>เมื่อ \(\vec{x}(t) = \begin{bmatrix} x_1(t)\\ \vdots\\ x_n(t) \end{bmatrix}\) และ \(\vec{x}\,' = \begin{bmatrix} x_1'(t)\\ \vdots\\ x_n'(t) \end{bmatrix}\) — ผลเฉลยคือฟังก์ชัน<em>เวกเตอร์</em>ของ \(t\) ที่ทำให้สมการจริงทุก \(t\)</p>
+  </div>
+
+  <div class="box box-idea">
+    <div class="box-title">💡 ทำไม eigenpair จึงเกี่ยว</div>
+    <p>ลองเดาผลเฉลยในรูป \(e^{\lambda t}\vec{v}\) เมื่อ \(\vec{v}\) เป็นเวกเตอร์คงตัว แล้วแทน:</p>
+    \[ \vec{x}\,' = \lambda e^{\lambda t}\vec{v} \qquad \text{ขณะที่} \qquad A\vec{x} = e^{\lambda t}A\vec{v} \]
+    <p>สองฝั่งเท่ากันก็ต่อเมื่อ \(\lambda\vec{v} = A\vec{v}\) — นั่นคือ <strong>\(\vec{v}\) ต้องเป็น eigenvector และ \(\lambda\) เป็น eigenvalue ของ \(A\) พอดี!</strong> เรื่องทั้งบทจึงมาประกอบกันตรงนี้</p>
+  </div>
+
+  <h3>2) ผลเฉลยทั่วไป (ทฤษฎีบท 3.3.1)</h3>
+  <div class="box box-thm">
+    <div class="box-title">⭐ ทฤษฎีบท 3.3.1</div>
+    <p>ให้ \(A\) ขนาด \(n\) <strong>แปลงเป็นทแยงมุมได้</strong> และ \(\vec{v}_1, \dots, \vec{v}_n\) เป็น eigenvectors อิสระ \(n\) ตัว สมนัยกับ \(\lambda_1, \dots, \lambda_n\) แล้วผลเฉลยทั่วไปของ \(\vec{x}\,' = A\vec{x}\) คือ</p>
+    \[ \vec{x}(t) = C_1e^{\lambda_1 t}\vec{v}_1 + C_2e^{\lambda_2 t}\vec{v}_2 + \cdots + C_ne^{\lambda_n t}\vec{v}_n \qquad (C_1, \dots, C_n \in \mathbb{R}) \]
+  </div>
+
+  <h3>3) ผลเฉลยเฉพาะจากเงื่อนไขเริ่มต้น</h3>
+  <div class="box box-def">
+    <div class="box-title">📐 นิยาม — ผลเฉลยเฉพาะ (particular solution)</div>
+    <p>เมื่อโจทย์กำหนด \(\vec{x}(0) = \begin{bmatrix} x_1(0)\\ \vdots\\ x_n(0) \end{bmatrix}\) ให้แทน \(t = 0\) (ทุก \(e^{\lambda \cdot 0} = 1\)) จะได้ระบบเชิงเส้น</p>
+    \[ C_1\vec{v}_1 + C_2\vec{v}_2 + \cdots + C_n\vec{v}_n = \vec{x}(0) \;\Longleftrightarrow\; P\vec{C} = \vec{x}(0) \]
+    <p>แก้หา \(\vec{C} = (C_1, \dots, C_n)^T\) (ระบบมีผลเฉลยชุดเดียวเสมอเพราะหลักของ \(P\) อิสระ) แล้วแทนกลับ — เขียนผลเฉลยเฉพาะได้ทั้งรูปเวกเตอร์หรือรูปกระจายสมการ</p>
+  </div>
+
+  <div class="box box-warn">
+    <div class="box-title">⚠️ เงื่อนไขการใช้ทฤษฎีบท 3.3.1</div>
+    <p>ทฤษฎีบทนี้ใช้ได้เมื่อ \(A\) <strong>แปลงเป็นทแยงมุมได้</strong> (มี eigenvectors อิสระครบ \(n\) ตัว) — ถ้า \(A\) diagonalizable ไม่ได้ (เช่น \(\begin{bmatrix} 1 & 1\\ 0 & 1 \end{bmatrix}\)) จะใช้สูตรนี้ตรง ๆ ไม่ได้ ต้องมีเครื่องมือเพิ่ม (อยู่นอกขอบเขตวิชานี้)</p>
+    <p>และระวังจับคู่ผิด: \(e^{\lambda_i t}\) ต้องคู่กับ \(\vec{v}_i\) ตัวที่สมนัยกันเท่านั้น</p>
+  </div>
+</section>
+
+<section class="block" id="examples">
+  <h2><span class="h2-dot">✏️</span> ตัวอย่างโจทย์</h2>
+
+  <article class="ex-card">
+    <div class="ex-head"><span class="ex-badge">ตัวอย่าง 1</span><span class="tag easy">ง่าย</span><span class="ex-title">เขียนระบบเป็น \(\vec{x}\,' = A\vec{x}\) และหาผลเฉลยทั่วไป</span></div>
+    <div class="ex-body">
+      <div class="ex-q">จงหาผลเฉลยทั่วไปของระบบสมการเชิงอนุพันธ์
+      \[ \begin{aligned} x_1' &= x_1 - x_2\\ x_2' &= -4x_1 + 4x_2 \end{aligned} \]</div>
+      <div class="approach"><span class="lbl">แนวคิด</span> — เขียนเมทริกซ์ \(A\) → หา eigenpair ทั้งหมด → เขียนผลรวม \(C_ie^{\lambda_i t}\vec{v}_i\)</div>
+      <ol class="steps">
+        <li><span class="step-t">รูปเมทริกซ์</span>
+        \[ \vec{x}\,' = \begin{bmatrix} 1 & -1\\ -4 & 4 \end{bmatrix}\vec{x} \]</li>
+        <li><span class="step-t">หาค่าลักษณะเฉพาะ</span>
+        \[ \det(A - \lambda I_2) = (1-\lambda)(4-\lambda) - 4 = \lambda^2 - 5\lambda + 4 - 4 = \lambda^2 - 5\lambda = \lambda(\lambda - 5) = 0 \;\Longrightarrow\; \lambda = 0, \; 5 \]
+        (\(\lambda = 0\) ได้เพราะ \(\det A = 0\) — ระบบนี้มี "สมดุลคงตัว")</li>
+        <li><span class="step-t">หา eigenvector ของ \(\lambda = 5\)</span>
+        \[ A - 5I_2 = \begin{bmatrix} -4 & -1\\ -4 & -1 \end{bmatrix} \;\Longrightarrow\; 4x_1 + x_2 = 0 \;\Longrightarrow\; \vec{v}_1 = \begin{bmatrix} 1\\ -4 \end{bmatrix} \]</li>
+        <li><span class="step-t">หา eigenvector ของ \(\lambda = 0\)</span>
+        \[ A - 0I_2 = A \;\Longrightarrow\; x_1 - x_2 = 0 \;\Longrightarrow\; \vec{v}_2 = \begin{bmatrix} 1\\ 1 \end{bmatrix} \]</li>
+        <li><span class="step-t">ผลเฉลยทั่วไป</span>
+        \[ \vec{x}(t) = C_1e^{5t}\begin{bmatrix} 1\\ -4 \end{bmatrix} + C_2e^{0\cdot t}\begin{bmatrix} 1\\ 1 \end{bmatrix} = C_1e^{5t}\begin{bmatrix} 1\\ -4 \end{bmatrix} + C_2\begin{bmatrix} 1\\ 1 \end{bmatrix} \qquad (C_1, C_2 \in \mathbb{R}) \]</li>
+      </ol>
+      <div class="verify"><span class="lbl">ตรวจคำตอบ:</span> \(A(1,-4)^T = (1 + 4,\; -4 - 16)^T = (5, -20)^T = 5(1, -4)^T\) ✓ และ \(A(1,1)^T = (0, 0)^T = 0\cdot(1,1)^T\) ✓</div>
+    </div>
+  </article>
+
+  <article class="ex-card">
+    <div class="ex-head"><span class="ex-badge">ตัวอย่าง 2</span><span class="tag easy">ง่าย</span><span class="ex-title">ตรวจว่าฟังก์ชันเวกเตอร์เป็นผลเฉลยหรือไม่</span></div>
+    <div class="ex-body">
+      <div class="ex-q">กำหนดระบบ \(\vec{x}\,' = A\vec{x}\) เมื่อ \(A = \begin{bmatrix} 2 & 1\\ 1 & 2 \end{bmatrix}\) จงตรวจว่า \(\vec{x}(t) = e^{3t}\begin{bmatrix} 1\\ 1 \end{bmatrix}\) เป็นผลเฉลยของระบบหรือไม่</div>
+      <div class="approach"><span class="lbl">แนวคิด</span> — หาอนุพันธ์ฝั่งซ้าย คูณ \(A\) ฝั่งขวา แล้วเทียบกันทุก \(t\)</div>
+      <ol class="steps">
+        <li><span class="step-t">ฝั่งซ้าย</span>
+        \[ \vec{x}\,'(t) = 3e^{3t}\begin{bmatrix} 1\\ 1 \end{bmatrix} \]</li>
+        <li><span class="step-t">ฝั่งขวา</span>
+        \[ A\vec{x}(t) = e^{3t}\begin{bmatrix} 2 & 1\\ 1 & 2 \end{bmatrix}\begin{bmatrix} 1\\ 1 \end{bmatrix} = e^{3t}\begin{bmatrix} 3\\ 3 \end{bmatrix} = 3e^{3t}\begin{bmatrix} 1\\ 1 \end{bmatrix} \]</li>
+        <li><span class="step-t">สรุป</span> สองฝั่งเท่ากันทุก \(t\) → <strong>เป็นผลเฉลย</strong> — ทั้งนี้เพราะ \((1,1)^T\) เป็น eigenvector ของ \(A\) กับ \(\lambda = 3\) พอดี (จากตัวอย่าง 1 ของหัวข้อ 3.2)</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="ex-card">
+    <div class="ex-head"><span class="ex-badge">ตัวอย่าง 3</span><span class="tag hard">ยาก</span><span class="ex-title">ผลเฉลยทั่วไป + ผลเฉลยเฉพาะ 2 ตัวแปร</span></div>
+    <div class="ex-body">
+      <div class="ex-q">จงหาผลเฉลยทั่วไปของระบบ
+      \[ \begin{aligned} x_1' &= x_1 + 2x_2\\ x_2' &= 4x_1 + 3x_2 \end{aligned} \]
+      และหาผลเฉลยเฉพาะเมื่อ \(x_1(0) = 2,\; x_2(0) = 1\)</div>
+      <div class="approach"><span class="lbl">แนวคิด</span> — eigenpair → ผลเฉลยทั่วไป → แทน \(t = 0\) → แก้หา \(C_1, C_2\) → แทนกลับ</div>
+      <ol class="steps">
+        <li><span class="step-t">หาค่าลักษณะเฉพาะ</span>
+        \[ \det(A - \lambda I_2) = (1-\lambda)(3-\lambda) - 8 = \lambda^2 - 4\lambda - 5 = (\lambda - 5)(\lambda + 1) = 0 \;\Longrightarrow\; \lambda = 5, \; -1 \]</li>
+        <li><span class="step-t">หา eigenvectors</span> \(\lambda = 5\): \(A - 5I_2 = \begin{bmatrix} -4 & 2\\ 4 & -2 \end{bmatrix} \Rightarrow 2x_1 = x_2 \Rightarrow \vec{v}_1 = (1, 2)^T\); &nbsp; \(\lambda = -1\): \(A + I_2 = \begin{bmatrix} 2 & 2\\ 4 & 4 \end{bmatrix} \Rightarrow x_1 = -x_2 \Rightarrow \vec{v}_2 = (1, -1)^T\)</li>
+        <li><span class="step-t">ผลเฉลยทั่วไป</span>
+        \[ \vec{x}(t) = C_1e^{5t}\begin{bmatrix} 1\\ 2 \end{bmatrix} + C_2e^{-t}\begin{bmatrix} 1\\ -1 \end{bmatrix} \]</li>
+        <li><span class="step-t">แทน \(t = 0\) เทียบเงื่อนไขเริ่มต้น</span>
+        \[ \vec{x}(0) = C_1\begin{bmatrix} 1\\ 2 \end{bmatrix} + C_2\begin{bmatrix} 1\\ -1 \end{bmatrix} = \begin{bmatrix} 2\\ 1 \end{bmatrix} \;\Longrightarrow\; \begin{aligned} C_1 + C_2 &= 2\\ 2C_1 - C_2 &= 1 \end{aligned} \]</li>
+        <li><span class="step-t">แก้ระบบ</span> บวกสองสมการ: \(3C_1 = 3 \Rightarrow C_1 = 1\), \(C_2 = 1\)</li>
+        <li><span class="step-t">ผลเฉลยเฉพาะ</span>
+        \[ \vec{x}(t) = e^{5t}\begin{bmatrix} 1\\ 2 \end{bmatrix} + e^{-t}\begin{bmatrix} 1\\ -1 \end{bmatrix} \qquad \text{หรือกระจาย: } x_1(t) = e^{5t} + e^{-t}, \;\; x_2(t) = 2e^{5t} - e^{-t} \]</li>
+      </ol>
+      <div class="verify"><span class="lbl">ตรวจคำตอบ:</span> \(t = 0\): \(x_1 = 2, x_2 = 1\) ✓ และเช็กสมการแรกที่ \(t = 0\): LHS \(x_1'(0) = 5 - 1 = 4\); RHS \(x_1(0) + 2x_2(0) = 2 + 2 = 4\) ✓</div>
+    </div>
+  </article>
+
+  <article class="ex-card">
+    <div class="ex-head"><span class="ex-badge">ตัวอย่าง 4</span><span class="tag hard">ยาก</span><span class="ex-title">3×3 ผลเฉลยเฉพาะ (ตัวอย่างคลาสสิกของตำรา)</span></div>
+    <div class="ex-body">
+      <div class="ex-q">จงหาผลเฉลยเฉพาะของระบบสมการเชิงอนุพันธ์
+      \[ \begin{aligned} x_1' &= 5x_1 - 6x_2 - 6x_3\\ x_2' &= -x_1 + 4x_2 + 2x_3\\ x_3' &= 3x_1 - 6x_2 - 4x_3 \end{aligned} \]
+      เมื่อ \(x_1(0) = 4,\; x_2(0) = 2,\; x_3(0) = -1\)</div>
+      <div class="approach"><span class="lbl">แนวคิด</span> — ระบบนี้มี \(A\) ที่ diagonalizable ด้วย \(D = \operatorname{diag}(1, 2, 2)\), \(P = \begin{bmatrix} 3 & 2 & 2\\ -1 & 1 & 0\\ 3 & 0 & 1 \end{bmatrix}\) — เขียนผลเฉลยทั่วไปก่อน แล้วแก้หา \(C\) จากเงื่อนไขเริ่มต้น</div>
+      <ol class="steps">
+        <li><span class="step-t">รูปเมทริกซ์และ eigenpair</span>
+        \[ A = \begin{bmatrix} 5 & -6 & -6\\ -1 & 4 & 2\\ 3 & -6 & -4 \end{bmatrix}, \qquad \lambda = 1, 2, 2 \]
+        เมื่อแก้ \((A - \lambda I)\vec{x} = \vec{0}\) แต่ละค่าจะได้
+        \[ \vec{v}_1 = \begin{bmatrix} 3\\ -1\\ 3 \end{bmatrix} \;(\lambda = 1), \qquad \vec{v}_2 = \begin{bmatrix} 2\\ 1\\ 0 \end{bmatrix}, \; \vec{v}_3 = \begin{bmatrix} 2\\ 0\\ 1 \end{bmatrix} \;(\lambda = 2 \text{ ซ้ำ แต่ได้ 2 เวกเตอร์อิสระ} \Rightarrow \text{diagonalizable}) \]</li>
+        <li><span class="step-t">ผลเฉลยทั่วไป</span>
+        \[ \vec{x}(t) = C_1e^{t}\begin{bmatrix} 3\\ -1\\ 3 \end{bmatrix} + C_2e^{2t}\begin{bmatrix} 2\\ 1\\ 0 \end{bmatrix} + C_3e^{2t}\begin{bmatrix} 2\\ 0\\ 1 \end{bmatrix} \]</li>
+        <li><span class="step-t">แทน \(t = 0\) เทียบเงื่อนไขเริ่มต้น</span>
+        \[ C_1\begin{bmatrix} 3\\ -1\\ 3 \end{bmatrix} + C_2\begin{bmatrix} 2\\ 1\\ 0 \end{bmatrix} + C_3\begin{bmatrix} 2\\ 0\\ 1 \end{bmatrix} = \begin{bmatrix} 4\\ 2\\ -1 \end{bmatrix} \;\Longrightarrow\; \begin{aligned} 3C_1 + 2C_2 + 2C_3 &= 4\\ -C_1 + C_2 &= 2\\ 3C_1 \phantom{+2C_2} + C_3 &= -1 \end{aligned} \]</li>
+        <li><span class="step-t">แก้ระบบ (จากสมการที่ 2 และ 3 แทนในสมการที่ 1)</span> จากสมการที่ 2: \(C_2 = 2 + C_1\); จากสมการที่ 3: \(C_3 = -1 - 3C_1\); แทนในสมการที่ 1:
+        \[ 3C_1 + 2(2 + C_1) + 2(-1 - 3C_1) = 4 \;\Longrightarrow\; 3C_1 + 4 + 2C_1 - 2 - 6C_1 = 4 \;\Longrightarrow\; -C_1 = 2 \;\Longrightarrow\; C_1 = -2 \]
+        ดังนั้น \(C_2 = 0\), \(C_3 = -1 - 3(-2) = 5\)</li>
+        <li><span class="step-t">ผลเฉลยเฉพาะ</span>
+        \[ \vec{x}(t) = -2e^{t}\begin{bmatrix} 3\\ -1\\ 3 \end{bmatrix} + 5e^{2t}\begin{bmatrix} 2\\ 0\\ 1 \end{bmatrix} \qquad \text{หรือ} \qquad \begin{aligned} x_1(t) &= -6e^t + 10e^{2t}\\ x_2(t) &= 2e^t\\ x_3(t) &= -6e^t + 5e^{2t} \end{aligned} \]</li>
+      </ol>
+      <div class="verify"><span class="lbl">ตรวจคำตอบ:</span> \(t = 0\): \((x_1, x_2, x_3) = (-6+10, 2, -6+5) = (4, 2, -1)\) ✓ และเช็กสมการที่ 2 ที่ \(t = 0\): LHS \(x_2'(0) = 2\); RHS \(-x_1(0) + 4x_2(0) + 2x_3(0) = -4 + 8 - 2 = 2\) ✓</div>
+    </div>
+  </article>
+</section>
+
+<section class="block" id="recipe">
+  <h2><span class="h2-dot">⚡</span> สูตรสำเร็จ — ท่าที่ใช้ทำโจทย์หัวข้อนี้</h2>
+  <div class="recipe">
+    <div class="recipe-head">🪜 ท่าหลัก: แก้ \(\vec{x}\,' = A\vec{x}\) ด้วยค่าลักษณะเฉพาะ</div>
+    <div class="recipe-body">
+      <ol>
+        <li>เขียนระบบให้อยู่ในรูป \(\vec{x}\,' = A\vec{x}\)</li>
+        <li>หาค่าลักษณะเฉพาะ: \(\det(A - \lambda I) = 0\)</li>
+        <li>หา eigenvectors: แก้ \((A - \lambda I)\vec{x} = \vec{0}\) ทีละค่า (ต้องได้อิสระครบ \(n\) ตัว ไม่งั้นทฤษฎีบท 3.3.1 ใช้ไม่ได้)</li>
+        <li><strong>ผลเฉลยทั่วไป:</strong> \(\vec{x}(t) = C_1e^{\lambda_1 t}\vec{v}_1 + \cdots + C_ne^{\lambda_n t}\vec{v}_n\) (จับคู่ \(\lambda\) กับ \(\vec{v}\) ให้ถูกตัว)</li>
+        <li><strong>ผลเฉลยเฉพาะ:</strong> แทน \(t = 0\) → แก้ระบบ \(P\vec{C} = \vec{x}(0)\) → แทนค่า \(C\) กลับ</li>
+        <li>ตรวจเสมอ: \(\vec{x}(0)\) ตรงเงื่อนไข + แทนกลับอย่างน้อย 1 สมการที่ \(t = 0\)</li>
+      </ol>
+    </div>
+  </div>
+  <div class="key-grid">
+    <div class="key-card"><div class="k-title">ท่า: จำโครงผลเฉลย</div>แต่ละ eigenpair ให้พจน์ \(e^{\lambda t}\vec{v}\) — ค่า \(\lambda\) ขึ้นเป็นเลขชี้กำลัง เวกเตอร์คูณหน้า ค่า \(C\) มาจากเงื่อนไข</div>
+    <div class="key-card"><div class="k-title">ท่า: \(\lambda = 0\)</div>พจน์ \(e^{0\cdot t}\vec{v} = \vec{v}\) คงตัว (สมดุล) — เกิดเมื่อ \(\det A = 0\) อย่าตกใจเจอ \(\lambda = 0\)</div>
+    <div class="key-card"><div class="k-title">ท่า: \(\lambda\) ซ้ำ</div>ถ้า \(\lambda\) ซ้ำแต่ \(E_\lambda\) มีมิติพอ (A diagonalizable) ก็เขียนพจน์เท่าจำนวนเวกเตอร์อิสระตามปกติ</div>
+    <div class="key-card"><div class="k-title">ท่า: เช็กพฤติกรรม</div>\(\lambda &gt; 0\) พจน์บวมขึ้นเรื่อย ๆ / \(\lambda &lt; 0\) รีดลงสู่ศูนย์ / \(\lambda = 0\) คงตัว — ใช้ตรวจความเข้าใจเชิงคุณภาพ</div>
+  </div>
+</section>
+
+<section class="block" id="practice">
+  <h2><span class="h2-dot">🏋️</span> โจทย์ซ้อมมือ (6 ข้อ)</h2>
+  <p class="small">ลองทำเองก่อน แล้วค่อยกดเปิดคำใบ้ → เฉลยทีละขั้น เมื่อทำได้แล้วติ๊ก ✓ เพื่อบันทึกความคืบหน้า</p>
+
+  <article class="pr-card" data-pkey="p3-3-1">
+    <div class="pr-head"><span class="pr-num">ข้อ 1</span><span class="diff">●○○</span><span class="spacer"></span>
+      <label class="pr-done"><input type="checkbox"> ทำสำเร็จแล้ว</label></div>
+    <div class="pr-body">
+      <p>จงหาผลเฉลยทั่วไปของระบบสมการเชิงอนุพันธ์
+      \[ \begin{aligned} x_1' &= 4x_1 + x_2\\ x_2' &= 2x_1 + 3x_2 \end{aligned} \]</p>
+    </div>
+    <details class="hint"><summary>คำใบ้</summary><div class="hint-body">\(A = \begin{bmatrix} 4 & 1\\ 2 & 3 \end{bmatrix}\): \(\lambda^2 - 7\lambda + 10 = 0\)</div></details>
+    <details class="sol"><summary>แนวคิดและเฉลยแบบละเอียด</summary><div class="sol-body">
+      <p><strong>แนวคิด:</strong> eigenpair → ผลเฉลยทั่วไป</p>
+      <ol class="steps">
+        <li><span class="step-t">ค่าลักษณะเฉพาะ</span>
+        \[ \det(A - \lambda I_2) = (4-\lambda)(3-\lambda) - 2 = \lambda^2 - 7\lambda + 10 = (\lambda - 5)(\lambda - 2) = 0 \;\Longrightarrow\; \lambda = 5, 2 \]</li>
+        <li><span class="step-t">eigenvector ของ \(\lambda = 5\)</span>
+        \[ A - 5I_2 = \begin{bmatrix} -1 & 1\\ 2 & -2 \end{bmatrix} \;\Longrightarrow\; x_1 = x_2 \;\Longrightarrow\; \vec{v}_1 = \begin{bmatrix} 1\\ 1 \end{bmatrix} \]</li>
+        <li><span class="step-t">eigenvector ของ \(\lambda = 2\)</span>
+        \[ A - 2I_2 = \begin{bmatrix} 2 & 1\\ 2 & 1 \end{bmatrix} \;\Longrightarrow\; 2x_1 + x_2 = 0 \;\Longrightarrow\; \vec{v}_2 = \begin{bmatrix} 1\\ -2 \end{bmatrix} \]</li>
+        <li><span class="step-t">ผลเฉลยทั่วไป</span>
+        \[ \vec{x}(t) = C_1e^{5t}\begin{bmatrix} 1\\ 1 \end{bmatrix} + C_2e^{2t}\begin{bmatrix} 1\\ -2 \end{bmatrix} \qquad (C_1, C_2 \in \mathbb{R}) \]</li>
+      </ol>
+    </div></details>
+  </article>
+
+  <article class="pr-card" data-pkey="p3-3-2">
+    <div class="pr-head"><span class="pr-num">ข้อ 2</span><span class="diff">●●○</span><span class="spacer"></span>
+      <label class="pr-done"><input type="checkbox"> ทำสำเร็จแล้ว</label></div>
+    <div class="pr-body">
+      <p>จงหาผลเฉลยเฉพาะของระบบ
+      \[ \begin{aligned} x_1' &= 3x_1 - 2x_2\\ x_2' &= 2x_1 - 2x_2 \end{aligned} \]
+      เมื่อ \(x_1(0) = 3,\; x_2(0) = 0\)</p>
+    </div>
+    <details class="hint"><summary>คำใบ้</summary><div class="hint-body">\(\lambda = 2, -1\) / เวกเตอร์: \(\vec{v}_1 = (2,1)^T\), \(\vec{v}_2 = (1,2)^T\) / แก้ \(2C_1 + C_2 = 3,\; C_1 + 2C_2 = 0\)</div></details>
+    <details class="sol"><summary>แนวคิดและเฉลยแบบละเอียด</summary><div class="sol-body">
+      <p><strong>แนวคิด:</strong> ผลเฉลยทั่วไปก่อน แล้วใช้เงื่อนไขเริ่มต้น</p>
+      <ol class="steps">
+        <li><span class="step-t">ค่าลักษณะเฉพาะ</span>
+        \[ \det(A - \lambda I_2) = (3-\lambda)(-2-\lambda) + 4 = \lambda^2 - \lambda - 2 = (\lambda - 2)(\lambda + 1) = 0 \;\Longrightarrow\; \lambda = 2, -1 \]</li>
+        <li><span class="step-t">eigenvectors</span> \(\lambda = 2\): \(A - 2I_2 = \begin{bmatrix} 1 & -2\\ 2 & -4 \end{bmatrix} \Rightarrow x_1 = 2x_2 \Rightarrow \vec{v}_1 = (2, 1)^T\); &nbsp; \(\lambda = -1\): \(A + I_2 = \begin{bmatrix} 4 & -2\\ 2 & -1 \end{bmatrix} \Rightarrow 2x_1 = x_2 \Rightarrow \vec{v}_2 = (1, 2)^T\)</li>
+        <li><span class="step-t">ผลเฉลยทั่วไปและแทน \(t = 0\)</span>
+        \[ \vec{x}(t) = C_1e^{2t}\begin{bmatrix} 2\\ 1 \end{bmatrix} + C_2e^{-t}\begin{bmatrix} 1\\ 2 \end{bmatrix}, \qquad C_1\begin{bmatrix} 2\\ 1 \end{bmatrix} + C_2\begin{bmatrix} 1\\ 2 \end{bmatrix} = \begin{bmatrix} 3\\ 0 \end{bmatrix} \]</li>
+        <li><span class="step-t">แก้หา \(C\)</span> \(2C_1 + C_2 = 3\) และ \(C_1 + 2C_2 = 0 \Rightarrow C_2 = -\tfrac{C_1}{2}\) → \(2C_1 - \tfrac{C_1}{2} = 3 \Rightarrow C_1 = 2,\; C_2 = -1\)</li>
+        <li><span class="step-t">ผลเฉลยเฉพาะ</span>
+        \[ \vec{x}(t) = 2e^{2t}\begin{bmatrix} 2\\ 1 \end{bmatrix} - e^{-t}\begin{bmatrix} 1\\ 2 \end{bmatrix} \qquad \text{หรือ} \qquad x_1(t) = 4e^{2t} - e^{-t}, \;\; x_2(t) = 2e^{2t} - 2e^{-t} \]</li>
+        <li><span class="step-t">ตรวจคำตอบ</span> \(t = 0\): \((4-1, 2-2) = (3, 0)\) ✓ และสมการที่ 1 ที่ \(t = 0\): LHS \(= 8 + 1 = 9\); RHS \(= 3(3) - 2(0) = 9\) ✓</li>
+      </ol>
+    </div></details>
+  </article>
+
+  <article class="pr-card" data-pkey="p3-3-3">
+    <div class="pr-head"><span class="pr-num">ข้อ 3</span><span class="diff">●●●</span><span class="spacer"></span>
+      <label class="pr-done"><input type="checkbox"> ทำสำเร็จแล้ว</label></div>
+    <div class="pr-body">
+      <p>จงหาผลเฉลยทั่วไปของระบบ
+      \[ \begin{aligned} x_1' &= x_1 - x_2 - x_3\\ x_2' &= \phantom{x_1 -{}} x_2 + 3x_3\\ x_3' &= \phantom{x_1 -{}} 3x_2 + x_3 \end{aligned} \]</p>
+    </div>
+    <details class="hint"><summary>คำใบ้</summary><div class="hint-body">\(A = \begin{bmatrix} 1 & -1 & -1\\ 0 & 1 & 3\\ 0 & 3 & 1 \end{bmatrix}\) มี \(\lambda = 4, -2, 1\) / เวกเตอร์: \((2,-3,-3)^T, (0,1,-1)^T, (1,0,0)^T\) ตามลำดับ</div></details>
+    <details class="sol"><summary>แนวคิดและเฉลยแบบละเอียด</summary><div class="sol-body">
+      <p><strong>แนวคิด:</strong> สังเกตว่า \(x_1\) ไม่ปรากฏในสองสมการล่าง — ลดรูปสองสมการล่างก่อนได้</p>
+      <ol class="steps">
+        <li><span class="step-t">ค่าลักษณะเฉพาะ</span> บล็อกล่าง \(\begin{bmatrix} 1 & 3\\ 3 & 1 \end{bmatrix}\) มี \(\lambda = 4, -2\) และ \(x_1\) พาไปได้อีกค่าจาก char. poly รวมเป็น
+        \[ \det(A - \lambda I_3) = (1 - \lambda)\big[(1-\lambda)^2 - 9\big] = (1-\lambda)(\lambda - 4)(\lambda + 2) = 0 \;\Longrightarrow\; \lambda = 1, 4, -2 \]</li>
+        <li><span class="step-t">eigenvector ของ \(\lambda = 4\)</span> \(A - 4I_3\): แถว 2,3 ให้ \(x_2 = x_3\); แถว 1 ให้ \(-3x_1 - 2x_2 = 0 \Rightarrow x_1 = -\tfrac{2}{3}x_2\) → เลือก \(x_2 = -3\): \(\vec{v}_1 = (2, -3, -3)^T\)</li>
+        <li><span class="step-t">eigenvector ของ \(\lambda = -2\)</span> \(A + 2I_3\): แถว 2 ให้ \(3x_2 + 3x_3 = 0 \Rightarrow x_2 = -x_3\); แถว 1 ให้ \(3x_1 - x_2 - x_3 = 0 \Rightarrow x_1 = 0\) → \(\vec{v}_2 = (0, 1, -1)^T\)</li>
+        <li><span class="step-t">eigenvector ของ \(\lambda = 1\)</span> \(A - I_3 = \begin{bmatrix} 0 & -1 & -1\\ 0 & 0 & 3\\ 0 & 3 & 0 \end{bmatrix} \Rightarrow x_2 = 0, x_3 = 0, x_1\) เสรี → \(\vec{v}_3 = (1, 0, 0)^T\)</li>
+        <li><span class="step-t">ผลเฉลยทั่วไป</span>
+        \[ \vec{x}(t) = C_1e^{4t}\begin{bmatrix} 2\\ -3\\ -3 \end{bmatrix} + C_2e^{-2t}\begin{bmatrix} 0\\ 1\\ -1 \end{bmatrix} + C_3e^{t}\begin{bmatrix} 1\\ 0\\ 0 \end{bmatrix} \qquad (C_1, C_2, C_3 \in \mathbb{R}) \]</li>
+        <li><span class="step-t">ตรวจคำตอบ</span> \(A(2,-3,-3)^T = (2+3+3,\; -3-9,\; -9-3)^T = (8, -12, -12)^T = 4(2,-3,-3)^T\) ✓</li>
+      </ol>
+    </div></details>
+  </article>
+
+  <article class="pr-card" data-pkey="p3-3-4">
+    <div class="pr-head"><span class="pr-num">ข้อ 4</span><span class="diff">●●○</span><span class="spacer"></span>
+      <label class="pr-done"><input type="checkbox"> ทำสำเร็จแล้ว</label></div>
+    <div class="pr-body">
+      <p>อาจารย์ต้องการใช้ทฤษฎีบท 3.3.1 กับระบบ \(\vec{x}\,' = A\vec{x}\) เมื่อ \(A = \begin{bmatrix} 1 & 1\\ 0 & 1 \end{bmatrix}\) จงตรวจสอบว่าทฤษฎีบทนี้ใช้ได้กับ \(A\) นี้หรือไม่ พร้อมเหตุผล</p>
+    </div>
+    <details class="hint"><summary>คำใบ้</summary><div class="hint-body">หาค่าลักษณะเฉพาะก่อน แล้วนับว่าได้เวกเตอร์ลักษณะเฉพาะอิสระกี่ตัว (เทียบกับเงื่อนไขของทฤษฎีบท 3.3.1 ที่ต้องมี \(n\) ตัว)</div></details>
+    <details class="sol"><summary>แนวคิดและเฉลยแบบละเอียด</summary><div class="sol-body">
+      <p><strong>แนวคิด:</strong> ทฤษฎีบท 3.3.1 กำหนดว่า \(A\) ต้องแปลงเป็นทแยงมุมได้</p>
+      <ol class="steps">
+        <li><span class="step-t">ค่าลักษณะเฉพาะ</span> \(A\) สามเหลี่ยมบน → \(\det(A - \lambda I_2) = (1-\lambda)^2 = 0 \Rightarrow \lambda = 1\) ซ้ำ 2 ครั้ง</li>
+        <li><span class="step-t">นับ \(E_1\)</span>
+        \[ A - I_2 = \begin{bmatrix} 0 & 1\\ 0 & 0 \end{bmatrix} \;\Longrightarrow\; x_2 = 0 \;\Longrightarrow\; E_1 = \operatorname{Span}\{(1,0)^T\}, \; \dim = 1 \]</li>
+        <li><span class="step-t">สรุป</span> ได้ eigenvector อิสระเพียง 1 ตัว &lt; 2 → \(A\) <strong>แปลงเป็นทแยงมุมไม่ได้</strong> → ทฤษฎีบท 3.3.1 ใช้กับระบบนี้ไม่ได้ (ผลเฉลยจริง ๆ มีพจน์ \(te^t\) ปนอยู่ ซึ่งอยู่นอกขอบเขตของสูตรนี้)</li>
+      </ol>
+    </div></details>
+  </article>
+
+  <article class="pr-card" data-pkey="p3-3-5">
+    <div class="pr-head"><span class="pr-num">ข้อ 5</span><span class="diff">●●●</span><span class="spacer"></span>
+      <label class="pr-done"><input type="checkbox"> ทำสำเร็จแล้ว</label></div>
+    <div class="pr-body">
+      <p>จงหาผลเฉลยเฉพาะของระบบ
+      \[ \begin{aligned} x_1' &= x_1\\ x_2' &= -2x_2 + x_3\\ x_3' &= \phantom{-2x_2 +{}} x_3 \end{aligned} \]
+      เมื่อ \(x_1(0) = 2,\; x_2(0) = 7,\; x_3(0) = 15\)</p>
+    </div>
+    <details class="hint"><summary>คำใบ้</summary><div class="hint-body">\(A\) สามเหลี่ยม → \(\lambda = 1, -2, 1\) / \(E_1 = \operatorname{Span}\{(1,0,0)^T, (0,1,3)^T\}\) (มีมิติ 2 พอ), \(E_{-2} = \operatorname{Span}\{(0,1,0)^T\}\) / แก้ \(C_1 = 2, C_2 = 5, C_3 = 2\)</div></details>
+    <details class="sol"><summary>แนวคิดและเฉลยแบบละเอียด</summary><div class="sol-body">
+      <p><strong>แนวคิด:</strong> \(\lambda\) ซ้ำแต่เช็กว่า diagonalizable ก่อน แล้วทำตามสูตรปกติ</p>
+      <ol class="steps">
+        <li><span class="step-t">ค่าลักษณะเฉพาะ</span> สามเหลี่ยมบน → \(\lambda = 1, -2, 1\) (\(\lambda = 1\) ซ้ำ 2 ครั้ง)</li>
+        <li><span class="step-t">เช็ก \(E_1\)</span>
+        \[ A - I_3 = \begin{bmatrix} 0 & 0 & 0\\ 0 & -3 & 1\\ 0 & 0 & 0 \end{bmatrix} \;\Longrightarrow\; x_3 = 3x_2 \;\Longrightarrow\; E_1 = \operatorname{Span}\{(1,0,0)^T, (0,1,3)^T\}, \dim = 2 \checkmark \]</li>
+        <li><span class="step-t">eigenvector ของ \(\lambda = -2\)</span>
+        \[ A + 2I_3 = \begin{bmatrix} 3 & 0 & 0\\ 0 & 0 & 1\\ 0 & 0 & 3 \end{bmatrix} \;\Longrightarrow\; x_1 = 0, x_3 = 0 \;\Longrightarrow\; \vec{v} = (0, 1, 0)^T \]
+        รวมได้ 3 เวกเตอร์อิสระ → diagonalizable → ใช้ทฤษฎีบท 3.3.1 ได้</li>
+        <li><span class="step-t">ผลเฉลยทั่วไปและแทน \(t = 0\)</span>
+        \[ \vec{x}(t) = C_1e^{t}\begin{bmatrix} 1\\ 0\\ 0 \end{bmatrix} + C_2e^{t}\begin{bmatrix} 0\\ 1\\ 3 \end{bmatrix} + C_3e^{-2t}\begin{bmatrix} 0\\ 1\\ 0 \end{bmatrix} \]
+        \[ \vec{x}(0) = C_1\begin{bmatrix} 1\\ 0\\ 0 \end{bmatrix} + (C_2 + C_3)\begin{bmatrix} 0\\ 1\\ 0 \end{bmatrix} + 3C_2\begin{bmatrix} 0\\ 0\\ 1 \end{bmatrix} = \begin{bmatrix} 2\\ 7\\ 15 \end{bmatrix} \]</li>
+        <li><span class="step-t">แก้หา \(C\)</span> \(C_1 = 2\); \(3C_2 = 15 \Rightarrow C_2 = 5\); \(5 + C_3 = 7 \Rightarrow C_3 = 2\)</li>
+        <li><span class="step-t">ผลเฉลยเฉพาะ</span>
+        \[ \vec{x}(t) = 2e^{t}\begin{bmatrix} 1\\ 0\\ 0 \end{bmatrix} + 5e^{t}\begin{bmatrix} 0\\ 1\\ 3 \end{bmatrix} + 2e^{-2t}\begin{bmatrix} 0\\ 1\\ 0 \end{bmatrix} \qquad \text{หรือ} \qquad \begin{aligned} x_1(t) &= 2e^t\\ x_2(t) &= 5e^t + 2e^{-2t}\\ x_3(t) &= 15e^t \end{aligned} \]</li>
+        <li><span class="step-t">ตรวจคำตอบ</span> \(t = 0\): \((2, 7, 15)\) ✓ และสมการที่ 3 ที่ \(t = 0\): LHS \(x_3'(0) = 15\); RHS \(x_3(0) = 15\) ✓</li>
+      </ol>
+    </div></details>
+  </article>
+
+  <article class="pr-card" data-pkey="p3-3-6">
+    <div class="pr-head"><span class="pr-num">ข้อ 6</span><span class="diff">●●●</span><span class="spacer"></span>
+      <label class="pr-done"><input type="checkbox"> ทำสำเร็จแล้ว</label></div>
+    <div class="pr-body">
+      <p>กำหนดว่า \(\vec{x}(t) = e^{2t}\begin{bmatrix} 1\\ 1 \end{bmatrix} + e^{-t}\begin{bmatrix} 1\\ -2 \end{bmatrix}\) เป็นผลเฉลยของระบบ \(\vec{x}\,' = A\vec{x}\) เมื่อ \(A\) เป็น \(2\times2\) จงหาเมทริกซ์ \(A\) และเขียนระบบสมการที่สอดคล้อง</p>
+    </div>
+    <details class="hint"><summary>คำใบ้</summary><div class="hint-body">จากรูปผลเฉลยแปลว่า \((2, (1,1)^T)\) และ \((-1, (1,-2)^T)\) เป็น eigenpair ของ \(A\) → \(A = PDP^{-1}\) เมื่อ \(P = \begin{bmatrix} 1 & 1\\ 1 & -2 \end{bmatrix}\), \(D = \operatorname{diag}(2, -1)\)</div></details>
+    <details class="sol"><summary>แนวคิดและเฉลยแบบละเอียด</summary><div class="sol-body">
+      <p><strong>แนวคิด:</strong> อ่าน eigenpair จากรูปผลเฉลย แล้วสร้าง \(A\) ย้อนกลับด้วย \(A = PDP^{-1}\)</p>
+      <ol class="steps">
+        <li><span class="step-t">อ่าน eigenpair</span> พจน์ \(e^{2t}(1,1)^T\) บอกว่า \(\lambda_1 = 2, \vec{v}_1 = (1,1)^T\); พจน์ \(e^{-t}(1,-2)^T\) บอกว่า \(\lambda_2 = -1, \vec{v}_2 = (1,-2)^T\)</li>
+        <li><span class="step-t">เขียน \(P, D\) และ \(P^{-1}\)</span>
+        \[ P = \begin{bmatrix} 1 & 1\\ 1 & -2 \end{bmatrix}, \quad D = \begin{bmatrix} 2 & 0\\ 0 & -1 \end{bmatrix}, \quad \det P = -3 \;\Longrightarrow\; P^{-1} = \frac{1}{-3}\begin{bmatrix} -2 & -1\\ -1 & 1 \end{bmatrix} = \begin{bmatrix} \tfrac{2}{3} & \tfrac{1}{3}\\ \tfrac{1}{3} & -\tfrac{1}{3} \end{bmatrix} \]</li>
+        <li><span class="step-t">คำนวณ \(A = PDP^{-1}\)</span>
+        \[ PD = \begin{bmatrix} 1 & 1\\ 1 & -2 \end{bmatrix}\begin{bmatrix} 2 & 0\\ 0 & -1 \end{bmatrix} = \begin{bmatrix} 2 & -1\\ 2 & 2 \end{bmatrix} \]
+        \[ A = \begin{bmatrix} 2 & -1\\ 2 & 2 \end{bmatrix}\begin{bmatrix} \tfrac{2}{3} & \tfrac{1}{3}\\ \tfrac{1}{3} & -\tfrac{1}{3} \end{bmatrix} = \begin{bmatrix} \tfrac{4}{3} - \tfrac{1}{3} & \tfrac{2}{3} + \tfrac{1}{3}\\[2pt] \tfrac{4}{3} + \tfrac{2}{3} & \tfrac{2}{3} - \tfrac{2}{3} \end{bmatrix} = \begin{bmatrix} 1 & 1\\ 2 & 0 \end{bmatrix} \]</li>
+        <li><span class="step-t">ตรวจคำตอบ</span> \(A(1,1)^T = (2, 2)^T = 2(1,1)^T\) ✓ และ \(A(1,-2)^T = (1-2, 2+0)^T = (-1, 2)^T = -1\cdot(1,-2)^T\) ✓</li>
+        <li><span class="step-t">ระบบที่สอดคล้อง</span>
+        \[ \begin{aligned} x_1' &= x_1 + x_2\\ x_2' &= 2x_1 \phantom{+ x_2} \end{aligned} \]</li>
+      </ol>
+    </div></details>
+  </article>
+</section>
+
+
+  </div></main>
+</div>
+<nav class="pager" id="pager"></nav>
+<script src="assets/katex/katex.min.js"></script>
+<script src="assets/katex/auto-render.min.js"></script>
+<script src="assets/js/main.js"></script>
+</body>
+</html>
