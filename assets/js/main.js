@@ -53,8 +53,18 @@ const SITE = {
         { no: '5.3', file: 'ch5-3.html', title: 'ปริภูมิผลคูณภายใน', practice: 6 },
       ],
     },
+    {
+      ch: 6, color: '#ef4444', title: 'ติวสอบตามแนวข้อสอบจริง', en: 'Exam Prep',
+      sections: [
+        { no: 'M', file: 'exam-midterm.html', title: 'ติว Midterm — แนวข้อสอบกลางภาค', practice: 8, disp: '🎓 ติว Midterm' },
+        { no: 'F', file: 'exam-final.html', title: 'ติว Final — แนวข้อสอบปลายภาค', practice: 8, disp: '🎓 ติว Final' },
+      ],
+    },
   ],
 };
+
+/* ป้ายแสดงชื่อหน้า (หน้าติวสอบมี disp เฉพาะตัว) */
+function secLabel(s) { return s.disp ? s.disp : s.no + ' ' + s.title; }
 
 const flatSections = [];
 SITE.chapters.forEach((c) => c.sections.forEach((s) => flatSections.push({ ...s, ch: c.ch, color: c.color, chTitle: c.title })));
@@ -118,7 +128,7 @@ function buildSidebar() {
       <ul class="side-ch-list">`;
     for (const s of c.sections) {
       const done = secDoneCount(s.no, s.practice) >= s.practice && s.practice > 0;
-      html += `<li><a href="${s.file}" class="${curSec === s.no ? 'active' : ''} ${done ? 'done' : ''}">${s.no} ${s.title}</a></li>`;
+      html += `<li><a href="${s.file}" class="${curSec === s.no ? 'active' : ''} ${done ? 'done' : ''}">${secLabel(s)}</a></li>`;
     }
     html += '</ul></div>';
   }
@@ -168,14 +178,13 @@ function buildPager() {
   let html = '';
   if (idx > 0) {
     const p = idx < flatSections.length ? flatSections[idx - 1] : flatSections[flatSections.length - 1];
-    const label = idx < flatSections.length ? `${p.no} ${p.title}` : '📋 สรุปสูตรรวมทุกบท';
-    html = `<a class="prev" href="${p.file}"><span class="dir">◀ ก่อนหน้า</span><span class="dest">${label}</span></a>`;
+    html = `<a class="prev" href="${p.file}"><span class="dir">◀ ก่อนหน้า</span><span class="dest">${secLabel(p)}</span></a>`;
   } else {
     html = '<a class="empty"></a>';
   }
   if (idx >= 0 && idx < flatSections.length - 1) {
     const n = flatSections[idx + 1];
-    html += `<a class="next" href="${n.file}"><span class="dir">ถัดไป ▶</span><span class="dest">${n.no} ${n.title}</span></a>`;
+    html += `<a class="next" href="${n.file}"><span class="dir">ถัดไป ▶</span><span class="dest">${secLabel(n)}</span></a>`;
   } else if (idx === flatSections.length - 1) {
     html += '<a class="next" href="summary.html"><span class="dir">ถัดไป ▶</span><span class="dest">📋 สรุปสูตรรวมทุกบท</span></a>';
   } else {

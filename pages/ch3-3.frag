@@ -8,7 +8,7 @@ page: ch3-3.html
 <div class="crumb">บทที่ 3 · ค่าลักษณะเฉพาะและเวกเตอร์ลักษณะเฉพาะ</div>
 <h1 class="page-title">3.3 ระบบสมการเชิงอนุพันธ์</h1>
 <p class="page-sub">รางวัลของการแปลงเป็นทแยงมุม — เราจะใช้ค่า/เวกเตอร์ลักษณะเฉพาะแก้ระบบสมการเชิงอนุพันธ์
-\(\vec{x}\,' = A\vec{x}\) ที่ปรากฏทั่วไปในวิชาวิศวกรรมและวิทยาศาสตร์ ได้อย่างเป็นระบบในไม่กี่บรรทัด</p>
+\(\vec{x}\,{}' = A\vec{x}\) ที่ปรากฏทั่วไปในวิชาวิศวกรรมและวิทยาศาสตร์ ได้อย่างเป็นระบบในไม่กี่บรรทัด</p>
 
 <nav class="pillnav">
   <a href="#objectives">🎯 จุดประสงค์</a>
@@ -22,7 +22,7 @@ page: ch3-3.html
   <div class="obj">
     <h2>🎯 เรียนจบหัวข้อนี้ คุณต้องทำสิ่งเหล่านี้ได้</h2>
     <ul>
-      <li>เขียนระบบสมการเชิงอนุพันธ์ในรูปเมทริกซ์ \(\vec{x}\,' = A\vec{x}\)</li>
+      <li>เขียนระบบสมการเชิงอนุพันธ์ในรูปเมทริกซ์ \(\vec{x}\,{}' = A\vec{x}\)</li>
       <li>ตรวจว่า \(\vec{x}(t) = e^{\lambda t}\vec{v}\) เป็นผลเฉลยของระบบหรือไม่ และเข้าใจที่มาจาก eigenpair</li>
       <li>เขียนผลเฉลยทั่วไป \(\vec{x}(t) = C_1e^{\lambda_1 t}\vec{v}_1 + \cdots + C_ne^{\lambda_n t}\vec{v}_n\) เมื่อ \(A\) diagonalizable</li>
       <li>หาผลเฉลยเฉพาะจากเงื่อนไขเริ่มต้น \(\vec{x}(0)\) โดยแก้ระบบเชิงเส้นหาค่า \(C_1, \dots, C_n\)</li>
@@ -37,21 +37,21 @@ page: ch3-3.html
   <div class="box box-def">
     <div class="box-title">📐 รูปแบบที่เราสนใจ</div>
     <p>ระบบสมการเชิงอนุพันธ์เชิงเส้นสัมประสิทธิ์คงตัว</p>
-    \[ \begin{aligned} x_1' &= a_{11}x_1 + a_{12}x_2 + \cdots + a_{1n}x_n\\ &\;\;\vdots\\ x_n' &= a_{n1}x_1 + a_{n2}x_2 + \cdots + a_{nn}x_n \end{aligned} \qquad \Longleftrightarrow \qquad \vec{x}\,' = A\vec{x} \]
-    <p>เมื่อ \(\vec{x}(t) = \begin{bmatrix} x_1(t)\\ \vdots\\ x_n(t) \end{bmatrix}\) และ \(\vec{x}\,' = \begin{bmatrix} x_1'(t)\\ \vdots\\ x_n'(t) \end{bmatrix}\) — ผลเฉลยคือฟังก์ชัน<em>เวกเตอร์</em>ของ \(t\) ที่ทำให้สมการจริงทุก \(t\)</p>
+    \[ \begin{aligned} x_1' &= a_{11}x_1 + a_{12}x_2 + \cdots + a_{1n}x_n\\ &\;\;\vdots\\ x_n' &= a_{n1}x_1 + a_{n2}x_2 + \cdots + a_{nn}x_n \end{aligned} \qquad \Longleftrightarrow \qquad \vec{x}\,{}' = A\vec{x} \]
+    <p>เมื่อ \(\vec{x}(t) = \begin{bmatrix} x_1(t)\\ \vdots\\ x_n(t) \end{bmatrix}\) และ \(\vec{x}\,{}' = \begin{bmatrix} x_1'(t)\\ \vdots\\ x_n'(t) \end{bmatrix}\) — ผลเฉลยคือฟังก์ชัน<em>เวกเตอร์</em>ของ \(t\) ที่ทำให้สมการจริงทุก \(t\)</p>
   </div>
 
   <div class="box box-idea">
     <div class="box-title">💡 ทำไม eigenpair จึงเกี่ยว</div>
     <p>ลองเดาผลเฉลยในรูป \(e^{\lambda t}\vec{v}\) เมื่อ \(\vec{v}\) เป็นเวกเตอร์คงตัว แล้วแทน:</p>
-    \[ \vec{x}\,' = \lambda e^{\lambda t}\vec{v} \qquad \text{ขณะที่} \qquad A\vec{x} = e^{\lambda t}A\vec{v} \]
+    \[ \vec{x}\,{}' = \lambda e^{\lambda t}\vec{v} \qquad \text{ขณะที่} \qquad A\vec{x} = e^{\lambda t}A\vec{v} \]
     <p>สองฝั่งเท่ากันก็ต่อเมื่อ \(\lambda\vec{v} = A\vec{v}\) — นั่นคือ <strong>\(\vec{v}\) ต้องเป็น eigenvector และ \(\lambda\) เป็น eigenvalue ของ \(A\) พอดี!</strong> เรื่องทั้งบทจึงมาประกอบกันตรงนี้</p>
   </div>
 
   <h3>2) ผลเฉลยทั่วไป (ทฤษฎีบท 3.3.1)</h3>
   <div class="box box-thm">
     <div class="box-title">⭐ ทฤษฎีบท 3.3.1</div>
-    <p>ให้ \(A\) ขนาด \(n\) <strong>แปลงเป็นทแยงมุมได้</strong> และ \(\vec{v}_1, \dots, \vec{v}_n\) เป็น eigenvectors อิสระ \(n\) ตัว สมนัยกับ \(\lambda_1, \dots, \lambda_n\) แล้วผลเฉลยทั่วไปของ \(\vec{x}\,' = A\vec{x}\) คือ</p>
+    <p>ให้ \(A\) ขนาด \(n\) <strong>แปลงเป็นทแยงมุมได้</strong> และ \(\vec{v}_1, \dots, \vec{v}_n\) เป็น eigenvectors อิสระ \(n\) ตัว สมนัยกับ \(\lambda_1, \dots, \lambda_n\) แล้วผลเฉลยทั่วไปของ \(\vec{x}\,{}' = A\vec{x}\) คือ</p>
     \[ \vec{x}(t) = C_1e^{\lambda_1 t}\vec{v}_1 + C_2e^{\lambda_2 t}\vec{v}_2 + \cdots + C_ne^{\lambda_n t}\vec{v}_n \qquad (C_1, \dots, C_n \in \mathbb{R}) \]
   </div>
 
@@ -74,14 +74,14 @@ page: ch3-3.html
   <h2><span class="h2-dot">✏️</span> ตัวอย่างโจทย์</h2>
 
   <article class="ex-card">
-    <div class="ex-head"><span class="ex-badge">ตัวอย่าง 1</span><span class="tag easy">ง่าย</span><span class="ex-title">เขียนระบบเป็น \(\vec{x}\,' = A\vec{x}\) และหาผลเฉลยทั่วไป</span></div>
+    <div class="ex-head"><span class="ex-badge">ตัวอย่าง 1</span><span class="tag easy">ง่าย</span><span class="ex-title">เขียนระบบเป็น \(\vec{x}\,{}' = A\vec{x}\) และหาผลเฉลยทั่วไป</span></div>
     <div class="ex-body">
       <div class="ex-q">จงหาผลเฉลยทั่วไปของระบบสมการเชิงอนุพันธ์
       \[ \begin{aligned} x_1' &= x_1 - x_2\\ x_2' &= -4x_1 + 4x_2 \end{aligned} \]</div>
       <div class="approach"><span class="lbl">แนวคิด</span> — เขียนเมทริกซ์ \(A\) → หา eigenpair ทั้งหมด → เขียนผลรวม \(C_ie^{\lambda_i t}\vec{v}_i\)</div>
       <ol class="steps">
         <li><span class="step-t">รูปเมทริกซ์</span>
-        \[ \vec{x}\,' = \begin{bmatrix} 1 & -1\\ -4 & 4 \end{bmatrix}\vec{x} \]</li>
+        \[ \vec{x}\,{}' = \begin{bmatrix} 1 & -1\\ -4 & 4 \end{bmatrix}\vec{x} \]</li>
         <li><span class="step-t">หาค่าลักษณะเฉพาะ</span>
         \[ \det(A - \lambda I_2) = (1-\lambda)(4-\lambda) - 4 = \lambda^2 - 5\lambda + 4 - 4 = \lambda^2 - 5\lambda = \lambda(\lambda - 5) = 0 \;\Longrightarrow\; \lambda = 0, \; 5 \]
         (\(\lambda = 0\) ได้เพราะ \(\det A = 0\) — ระบบนี้มี "สมดุลคงตัว")</li>
@@ -99,11 +99,11 @@ page: ch3-3.html
   <article class="ex-card">
     <div class="ex-head"><span class="ex-badge">ตัวอย่าง 2</span><span class="tag easy">ง่าย</span><span class="ex-title">ตรวจว่าฟังก์ชันเวกเตอร์เป็นผลเฉลยหรือไม่</span></div>
     <div class="ex-body">
-      <div class="ex-q">กำหนดระบบ \(\vec{x}\,' = A\vec{x}\) เมื่อ \(A = \begin{bmatrix} 2 & 1\\ 1 & 2 \end{bmatrix}\) จงตรวจว่า \(\vec{x}(t) = e^{3t}\begin{bmatrix} 1\\ 1 \end{bmatrix}\) เป็นผลเฉลยของระบบหรือไม่</div>
+      <div class="ex-q">กำหนดระบบ \(\vec{x}\,{}' = A\vec{x}\) เมื่อ \(A = \begin{bmatrix} 2 & 1\\ 1 & 2 \end{bmatrix}\) จงตรวจว่า \(\vec{x}(t) = e^{3t}\begin{bmatrix} 1\\ 1 \end{bmatrix}\) เป็นผลเฉลยของระบบหรือไม่</div>
       <div class="approach"><span class="lbl">แนวคิด</span> — หาอนุพันธ์ฝั่งซ้าย คูณ \(A\) ฝั่งขวา แล้วเทียบกันทุก \(t\)</div>
       <ol class="steps">
         <li><span class="step-t">ฝั่งซ้าย</span>
-        \[ \vec{x}\,'(t) = 3e^{3t}\begin{bmatrix} 1\\ 1 \end{bmatrix} \]</li>
+        \[ \vec{x}\,{}'(t) = 3e^{3t}\begin{bmatrix} 1\\ 1 \end{bmatrix} \]</li>
         <li><span class="step-t">ฝั่งขวา</span>
         \[ A\vec{x}(t) = e^{3t}\begin{bmatrix} 2 & 1\\ 1 & 2 \end{bmatrix}\begin{bmatrix} 1\\ 1 \end{bmatrix} = e^{3t}\begin{bmatrix} 3\\ 3 \end{bmatrix} = 3e^{3t}\begin{bmatrix} 1\\ 1 \end{bmatrix} \]</li>
         <li><span class="step-t">สรุป</span> สองฝั่งเท่ากันทุก \(t\) → <strong>เป็นผลเฉลย</strong> — ทั้งนี้เพราะ \((1,1)^T\) เป็น eigenvector ของ \(A\) กับ \(\lambda = 3\) พอดี (จากตัวอย่าง 1 ของหัวข้อ 3.2)</li>
@@ -164,10 +164,10 @@ page: ch3-3.html
 <section class="block" id="recipe">
   <h2><span class="h2-dot">⚡</span> สูตรสำเร็จ — ท่าที่ใช้ทำโจทย์หัวข้อนี้</h2>
   <div class="recipe">
-    <div class="recipe-head">🪜 ท่าหลัก: แก้ \(\vec{x}\,' = A\vec{x}\) ด้วยค่าลักษณะเฉพาะ</div>
+    <div class="recipe-head">🪜 ท่าหลัก: แก้ \(\vec{x}\,{}' = A\vec{x}\) ด้วยค่าลักษณะเฉพาะ</div>
     <div class="recipe-body">
       <ol>
-        <li>เขียนระบบให้อยู่ในรูป \(\vec{x}\,' = A\vec{x}\)</li>
+        <li>เขียนระบบให้อยู่ในรูป \(\vec{x}\,{}' = A\vec{x}\)</li>
         <li>หาค่าลักษณะเฉพาะ: \(\det(A - \lambda I) = 0\)</li>
         <li>หา eigenvectors: แก้ \((A - \lambda I)\vec{x} = \vec{0}\) ทีละค่า (ต้องได้อิสระครบ \(n\) ตัว ไม่งั้นทฤษฎีบท 3.3.1 ใช้ไม่ได้)</li>
         <li><strong>ผลเฉลยทั่วไป:</strong> \(\vec{x}(t) = C_1e^{\lambda_1 t}\vec{v}_1 + \cdots + C_ne^{\lambda_n t}\vec{v}_n\) (จับคู่ \(\lambda\) กับ \(\vec{v}\) ให้ถูกตัว)</li>
@@ -263,7 +263,7 @@ page: ch3-3.html
     <div class="pr-head"><span class="pr-num">ข้อ 4</span><span class="diff">●●○</span><span class="spacer"></span>
       <label class="pr-done"><input type="checkbox"> ทำสำเร็จแล้ว</label></div>
     <div class="pr-body">
-      <p>อาจารย์ต้องการใช้ทฤษฎีบท 3.3.1 กับระบบ \(\vec{x}\,' = A\vec{x}\) เมื่อ \(A = \begin{bmatrix} 1 & 1\\ 0 & 1 \end{bmatrix}\) จงตรวจสอบว่าทฤษฎีบทนี้ใช้ได้กับ \(A\) นี้หรือไม่ พร้อมเหตุผล</p>
+      <p>อาจารย์ต้องการใช้ทฤษฎีบท 3.3.1 กับระบบ \(\vec{x}\,{}' = A\vec{x}\) เมื่อ \(A = \begin{bmatrix} 1 & 1\\ 0 & 1 \end{bmatrix}\) จงตรวจสอบว่าทฤษฎีบทนี้ใช้ได้กับ \(A\) นี้หรือไม่ พร้อมเหตุผล</p>
     </div>
     <details class="hint"><summary>คำใบ้</summary><div class="hint-body">หาค่าลักษณะเฉพาะก่อน แล้วนับว่าได้เวกเตอร์ลักษณะเฉพาะอิสระกี่ตัว (เทียบกับเงื่อนไขของทฤษฎีบท 3.3.1 ที่ต้องมี \(n\) ตัว)</div></details>
     <details class="sol"><summary>แนวคิดและเฉลยแบบละเอียด</summary><div class="sol-body">
@@ -310,7 +310,7 @@ page: ch3-3.html
     <div class="pr-head"><span class="pr-num">ข้อ 6</span><span class="diff">●●●</span><span class="spacer"></span>
       <label class="pr-done"><input type="checkbox"> ทำสำเร็จแล้ว</label></div>
     <div class="pr-body">
-      <p>กำหนดว่า \(\vec{x}(t) = e^{2t}\begin{bmatrix} 1\\ 1 \end{bmatrix} + e^{-t}\begin{bmatrix} 1\\ -2 \end{bmatrix}\) เป็นผลเฉลยของระบบ \(\vec{x}\,' = A\vec{x}\) เมื่อ \(A\) เป็น \(2\times2\) จงหาเมทริกซ์ \(A\) และเขียนระบบสมการที่สอดคล้อง</p>
+      <p>กำหนดว่า \(\vec{x}(t) = e^{2t}\begin{bmatrix} 1\\ 1 \end{bmatrix} + e^{-t}\begin{bmatrix} 1\\ -2 \end{bmatrix}\) เป็นผลเฉลยของระบบ \(\vec{x}\,{}' = A\vec{x}\) เมื่อ \(A\) เป็น \(2\times2\) จงหาเมทริกซ์ \(A\) และเขียนระบบสมการที่สอดคล้อง</p>
     </div>
     <details class="hint"><summary>คำใบ้</summary><div class="hint-body">จากรูปผลเฉลยแปลว่า \((2, (1,1)^T)\) และ \((-1, (1,-2)^T)\) เป็น eigenpair ของ \(A\) → \(A = PDP^{-1}\) เมื่อ \(P = \begin{bmatrix} 1 & 1\\ 1 & -2 \end{bmatrix}\), \(D = \operatorname{diag}(2, -1)\)</div></details>
     <details class="sol"><summary>แนวคิดและเฉลยแบบละเอียด</summary><div class="sol-body">

@@ -75,7 +75,7 @@ page: summary.html
       <li>diagonalizable ⟺ มี eigenvector อิสระครบ \(n\) ตัว (ค่าซ้ำ: \(\dim E_\lambda\) ต้อง = จำนวนซ้ำ)</li>
       <li>\(A^k = PD^kP^{-1}\) — ยกกำลังเฉพาะทแยง</li>
     </ul>
-    <h3>ระบบสมการเชิงอนุพันธ์ \(\vec{x}\,' = A\vec{x}\)</h3>
+    <h3>ระบบสมการเชิงอนุพันธ์ \(\vec{x}\,{}' = A\vec{x}\)</h3>
     <ul>
       <li>ผลเฉลยทั่วไป: \(\vec{x}(t) = C_1e^{\lambda_1t}\vec{v}_1 + \cdots + C_ne^{\lambda_nt}\vec{v}_n\) (A diagonalizable)</li>
       <li>เงื่อนไขเริ่มต้น \(\vec{x}(0)\): แทน \(t = 0\) → แก้ \(P\vec{C} = \vec{x}(0)\)</li>

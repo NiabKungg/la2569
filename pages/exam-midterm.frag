@@ -1,0 +1,465 @@
+<!-- meta
+title: ติว Midterm — แนวข้อสอบกลางภาค
+ch: 6
+section: M
+page: exam-midterm.html
+-->
+
+    <div class="crumb">ติวสอบพิเศษ · แนวข้อสอบจริง</div>
+    <h1 class="page-title">ติว Midterm — แนวข้อสอบกลางภาค</h1>
+    <p class="page-sub">รวมแนวข้อสอบกลางภาคจากรีวิวผู้เรียนจริง (แนวข้อสอบเก่า ๆ ของวิชานี้) มาไว้ในหน้าเดียว
+    พร้อมตัวอย่างโจทย์สไตล์เดียวกับข้อสอบ + เฉลยละเอียดแบบ "แสดงวิธีทำ" ที่ได้คะแนนเต็ม
+    ข้อสอบจริง<em>เปลี่ยนตัวเลขทุกปี</em> แต่แนวเดิม — หน้านี้จึงเน้นให้จับ "แนว" ให้คล่อง ไม่ใช่ท่องข้อสอบเก่า</p>
+
+    <nav class="pillnav">
+      <a href="#objectives">🎯 จุดประสงค์</a>
+      <a href="#tactics">⚔️ เทคนิคสอบ</a>
+      <a href="#map">🗺️ แผนที่แนวข้อสอบ</a>
+      <a href="#examples">✏️ ตัวอย่างแนว</a>
+      <a href="#recipe">⚡ ท่ารวมก่อนสอบ</a>
+      <a href="#practice">🏋️ โจทย์ซ้อมมือ</a>
+    </nav>
+
+    <section class="block" id="objectives">
+      <div class="obj">
+        <h2>🎯 ติวจบหน้านี้ คุณต้องทำสิ่งเหล่านี้ได้</h2>
+        <ul>
+          <li>แก้ระบบเชิงเส้นด้วยการลดรูปเมทริกซ์แต่งเติม และ<em>เขียนวิธีทำแบบละเอียด</em>ที่ผู้ตรวจตามได้</li>
+          <li>ตัดสินผลเฉลย 3 แบบ (ไม่มี / ชุดเดียว / อนันต์ชุด) และเขียนผลเฉลยทั่วไปเมื่อมีตัวแปรเสรี</li>
+          <li>ทำโจทย์ Span (การรวมเชิงเส้น) และอิสระเชิงเส้นโดยแปลงเป็นระบบเชิงเส้น</li>
+          <li>หาเมทริกซ์มาตรฐานของการแปลงเชิงเส้น และใช้เมทริกซ์ผกผันแก้ระบบ</li>
+          <li>ใช้ดีเทอร์มิแนนต์และกฎของคราเมอร์แก้ระบบเชิงเส้นได้เร็ว</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="block" id="tactics">
+      <h2><span class="h2-dot">⚔️</span> เทคนิคสอบจากผู้เรียนจริง — อ่านก่อนทำข้อไหนเลย</h2>
+
+      <div class="box box-idea">
+        <div class="box-title">💡 แสดงวิธีทำให้ละเอียด — นี่คือแหล่งคะแนนที่ใหญ่ที่สุด</div>
+        <p>จากรีวิวข้อสอบจริง: <strong>คำตอบผิดแต่วิธีถูก ได้คะแนนเยอะมาก</strong> ในทางกลับกัน ตอบถูกแต่ข้ามขั้นตอน อาจไม่ได้เต็ม
+        เขียนทุกการดำเนินการแถวที่ใช้ (เช่น \(R_2 - 2R_1\)) เขียนที่มาของทุกเมทริกซ์กลางทาง และสรุปคำตอบชัด ๆ ท้ายข้อ</p>
+      </div>
+
+      <div class="box box-warn">
+        <div class="box-title">⚠️ แต่ต้องชั่งเวลา — ละเอียดไม่เท่ากับเขียนทุกอย่าง</div>
+        <p>บางข้อถ้าเขียนละเอียด<em>เกินไป</em> (เช่น คูณเมทริกซ์ทีละสมาชิกทุกตัว) อาจไม่ทันเวลา เขียนละเอียดแค่ "ขั้นตอนทางคณิต" พอ:
+        ทุกการดำเนินการแถว, ทุกเมทริกซ์รูปกลาง, การตัดสินใจสำคัญ และคำตอบท้ายข้อ ส่วนเลขคูณตรง ๆ ให้คิดในใจ</p>
+      </div>
+
+      <div class="box box-warn">
+        <div class="box-title">⚠️ โจทย์ที่ "ดูเหมือนข้อมูลไม่ครบ" = กับดักวัดการแก้ปัญหา</div>
+        <p>มีข้อที่โจทย์ไม่ได้บอกครบทุกตัวเลข (เช่น ให้หา \(h\) ทั้งหมดที่ระบบมี/ไม่มีผลเฉลย) — เจตนาของข้อสอบคือให้เรา<em>วิเคราะห์</em>
+        ไม่ใช่ห้ามตอบ อย่าปล่อยว่าง! เขียนสิ่งที่รู้: ลดรูปเมทริกซ์ก่อน แล้วพิจารณาแถวพิเศษตามเงื่อนไข \(h\)</p>
+      </div>
+
+      <div class="box box-idea">
+        <div class="box-title">💡 เลขเปลี่ยนทุกปี แต่แนวเดิม + มีข้อออกจากแบบฝึกหัดในห้อง</div>
+        <p>อย่าท่องข้อสอบเก่าเป็นตัวเลข — ให้ซ้อม "ท่า" จนทำได้กับตัวเลขใหม่ ๆ และอย่าลืมทบทวน<em>แบบฝึกหัดที่ให้ทำในห้องเรียน</em>
+        เพราะมีโอกาสถูกหยิบมาออกโดยตรง (เปลี่ยนตัวเลข)</p>
+      </div>
+    </section>
+
+    <section class="block" id="map">
+      <h2><span class="h2-dot">🗺️</span> แผนที่แนวข้อสอบ Midterm (จากรีวิวแนวข้อสอบจริง)</h2>
+      <div class="tbl-wrap"><table class="tbl">
+        <tr><th>แนว</th><th>เรื่องที่ต้องใช้</th><th>บทที่</th><th>ท่าหลัก</th></tr>
+        <tr><td><strong>1</strong> ระบบเชิงเส้น / Gauss</td><td>เมทริกซ์แต่งเติม ตัดสินผลเฉลย 3 แบบ ผลเฉลยทั่วไป</td><td><a href="ch1-1.html">1.1</a>–<a href="ch1-2.html">1.2</a></td><td>ลดรูปจน RREF แล้วอ่านหลักตัวหลัก / ตัวแปรเสรี</td></tr>
+        <tr><td><strong>2</strong> การรวมเชิงเส้น / Span</td><td>\(\vec{b} = c_1\vec{v}_1 + \cdots + c_p\vec{v}_p\)</td><td><a href="ch1-3.html">1.3</a></td><td>แปลงเป็นระบบเชิงเส้นแล้วลดรูป — ต้องกัน = อยู่ใน Span</td></tr>
+        <tr><td><strong>3</strong> อิสระเชิงเส้น</td><td>\(c_1\vec{v}_1 + \cdots = \vec{0}\) มีแค่ผลเฉลยชัดหรือไม่</td><td><a href="ch1-4.html">1.4</a></td><td>ลดรูป \(\begin{bmatrix}\vec{v}_1 \cdots \vec{v}_p\end{bmatrix}\) (ใน \(\mathbb{R}^3\) ใช้ \(\det = 0\) ได้เร็ว)</td></tr>
+        <tr><td><strong>4</strong> การแปลงเชิงเส้น</td><td>เมทริกซ์มาตรฐาน \(T(\vec{x}) = A\vec{x}\) ทั่วถึง</td><td><a href="ch2-1.html">2.1</a></td><td>\(A = \begin{bmatrix} T(\vec{e}_1) \cdots T(\vec{e}_n) \end{bmatrix}\)</td></tr>
+        <tr><td><strong>5</strong> เมทริกซ์ผกผัน</td><td>\([A \mid I] \to [I \mid A^{-1}]\) ใช้แก้ระบบ</td><td><a href="ch2-3.html">2.3</a></td><td>Gauss–Jordan แล้ว \(\vec{x} = A^{-1}\vec{b}\)</td></tr>
+        <tr><td><strong>6</strong> ดีเทอร์มิแนนต์ / คราเมอร์</td><td>การกระจายโคแฟกเตอร์ สมบัติของ det</td><td><a href="ch2-4.html">2.4</a></td><td>\(x_i = \det A_i / \det A\) (เมื่อ \(\det A \neq 0\))</td></tr>
+      </table></div>
+    </section>
+
+    <section class="block" id="examples">
+      <h2><span class="h2-dot">✏️</span> ตัวอย่างแนวข้อสอบ (เลขสมมติ สไตล์เดียวกับข้อสอบจริง)</h2>
+
+      <article class="ex-card">
+        <div class="ex-head"><span class="ex-badge">แนว 1</span><span class="tag exam">แนวข้อสอบจริง</span><span class="ex-title">ระบบเชิงเส้นที่ผลเฉลยอนันต์ชุด</span></div>
+        <div class="ex-body">
+          <div class="ex-q">จงหาเซตผลเฉลยของระบบเชิงเส้นต่อไปนี้ พร้อมทั้งระบุว่าเป็นระบบต้องกันหรือไม่ต้องกัน
+          \[ \begin{aligned} x_1 + 2x_2 + x_3 &= 3\\ 2x_1 + 5x_2 + 3x_3 &= 8\\ x_1 + 3x_2 + 2x_3 &= 5 \end{aligned} \]</div>
+          <div class="approach"><span class="lbl">แนวคิด</span> — เขียนเมทริกซ์แต่งเติม ลดรูปจนรูปแบบขั้นบันไดลดรูป แล้วอ่านหลักตัวหลัก/ตัวแปรเสรี
+          ข้อสอบชอบให้ระบบแบบนี้เพราะดู "เฉลยไม่ชัด" — เป็นกับดักวัดว่าจะตอบผลเฉลยทั่วไปได้หรือเปล่า</div>
+          <ol class="steps">
+            <li><span class="step-t">เขียนเมทริกซ์แต่งเติม แล้วกวาดหลักที่ 1</span>
+            \[ \left[\begin{array}{ccc|c} 1 & 2 & 1 & 3\\ 2 & 5 & 3 & 8\\ 1 & 3 & 2 & 5 \end{array}\right]
+            \xrightarrow[\;R_3 - R_1\;]{\;R_2 - 2R_1\;}
+            \left[\begin{array}{ccc|c} 1 & 2 & 1 & 3\\ 0 & 1 & 1 & 2\\ 0 & 1 & 1 & 2 \end{array}\right] \]</li>
+            <li><span class="step-t"><span class="step-tag">ท่า: จับแถวซ้ำ</span>ลดรูปต่อจนได้รูปแบบขั้นบันไดลดรูป</span>
+            แถวที่ 2 กับแถวที่ 3 เหมือนกันเป๊ะ → \(R_3 - R_2\) ให้แถวล้า แล้วเก็บหลักที่ 2 ด้วย \(R_1 - 2R_2\):
+            \[ \xrightarrow[\;R_1 - 2R_2\;]{\;R_3 - R_2\;}
+            \left[\begin{array}{ccc|c} 1 & 0 & -1 & -1\\ 0 & 1 & 1 & 2\\ 0 & 0 & 0 & 0 \end{array}\right] \]
+            ไม่เกิดแถว \(\begin{bmatrix} 0 & 0 & 0 & b \end{bmatrix}\) โดย \(b \neq 0\) → ระบบ<strong>ต้องกัน</strong></li>
+            <li><span class="step-t">อ่านหลักตัวหลักและตัวแปรเสรี</span>
+            หลักตัวหลักอยู่หลักที่ 1, 2 → \(x_1, x_2\) เป็นตัวแปรพื้นฐาน ส่วน \(x_3\) เป็น<strong>ตัวแปรเสรี</strong> → ผลเฉลยอนันต์ชุด</li>
+            <li><span class="step-t">เขียนผลเฉลยทั่วไป (ให้ \(x_3 = t\))</span>
+            \[ \begin{aligned} x_1 - x_3 &= -1 \;\Rightarrow\; x_1 = -1 + t\\ x_2 + x_3 &= 2 \;\Rightarrow\; x_2 = 2 - t\\ x_3 &= t \end{aligned} \qquad
+            \text{ผลเฉลยทั่วไป: } (-1 + t,\; 2 - t,\; t),\; t \in \mathbb{R} \]</li>
+          </ol>
+          <div class="verify"><span class="lbl">ตรวจคำตอบ:</span> แทน \(t = 0\) ได้ \((-1, 2, 0)\): สมการที่ 1: \(-1 + 4 + 0 = 3\) ✓ สมการที่ 2: \(-2 + 10 + 0 = 8\) ✓ สมการที่ 3: \(-1 + 6 + 0 = 5\) ✓ ลองอีกค่า \(t = 1\) ก็จริงทุกสมการ</div>
+        </div>
+      </article>
+
+      <article class="ex-card">
+        <div class="ex-head"><span class="ex-badge">แนว 2</span><span class="tag exam">แนวข้อสอบจริง</span><span class="ex-title">Span — \(\vec{b}\) เป็นการรวมเชิงเส้นของ \(\vec{v}_1, \vec{v}_2, \vec{v}_3\) หรือไม่</span></div>
+        <div class="ex-body">
+          <div class="ex-q">จะหาได้หรือไม่ว่า \(\vec{b} = \begin{bmatrix} 5\\ 3\\ 4 \end{bmatrix}\) เป็นการรวมเชิงเส้นของ
+          \(\vec{v}_1 = \begin{bmatrix} 1\\ 1\\ 0 \end{bmatrix},\;
+          \vec{v}_2 = \begin{bmatrix} 0\\ 1\\ 1 \end{bmatrix},\;
+          \vec{v}_3 = \begin{bmatrix} 1\\ 0\\ 1 \end{bmatrix}\) ถ้าเป็น จงหาน้ำหนักทั้งหมด</div>
+          <div class="approach"><span class="lbl">แนวคิด</span> — ตั้ง \(\vec{b} = c_1\vec{v}_1 + c_2\vec{v}_2 + c_3\vec{v}_3\) แล้วแปลงเป็นระบบเชิงเส้น \(c_1, c_2, c_3\)
+          — \(\vec{b}\) อยู่ใน \(\operatorname{Span}\{\vec{v}_1,\vec{v}_2,\vec{v}_3\}\) ก็ต่อเมื่อระบบ<em>ต้องกัน</em> เท่านั้น</div>
+          <ol class="steps">
+            <li><span class="step-t">แตกการรวมเชิงเส้นออกเป็นระบบเชิงเส้น</span>
+            \[ c_1\begin{bmatrix} 1\\ 1\\ 0 \end{bmatrix} + c_2\begin{bmatrix} 0\\ 1\\ 1 \end{bmatrix} + c_3\begin{bmatrix} 1\\ 0\\ 1 \end{bmatrix} = \begin{bmatrix} 5\\ 3\\ 4 \end{bmatrix}
+            \;\Longleftrightarrow\;
+            \begin{aligned} c_1 + c_3 &= 5\\ c_1 + c_2 &= 3\\ c_2 + c_3 &= 4 \end{aligned} \]</li>
+            <li><span class="step-t">ลดรูปเมทริกซ์แต่งเติม</span>
+            \[ \left[\begin{array}{ccc|c} 1 & 0 & 1 & 5\\ 1 & 1 & 0 & 3\\ 0 & 1 & 1 & 4 \end{array}\right]
+            \xrightarrow{\;R_2 - R_1\;}
+            \left[\begin{array}{ccc|c} 1 & 0 & 1 & 5\\ 0 & 1 & -1 & -2\\ 0 & 1 & 1 & 4 \end{array}\right]
+            \xrightarrow{\;R_3 - R_2\;}
+            \left[\begin{array}{ccc|c} 1 & 0 & 1 & 5\\ 0 & 1 & -1 & -2\\ 0 & 0 & 2 & 6 \end{array}\right] \]
+            ตัวหลักครบ 3 หลัก → ผลเฉลยชุดเดียว → \(\vec{b}\) <strong>อยู่ใน</strong> \(\operatorname{Span}\{\vec{v}_1, \vec{v}_2, \vec{v}_3\}\)</li>
+            <li><span class="step-t">Back-substitution หาน้ำหนัก</span>
+            แถวที่ 3: \(2c_3 = 6 \Rightarrow c_3 = 3\)<br>
+            แถวที่ 2: \(c_2 - 3 = -2 \Rightarrow c_2 = 1\)<br>
+            แถวที่ 1: \(c_1 + 3 = 5 \Rightarrow c_1 = 2\)</li>
+          </ol>
+          <div class="verify"><span class="lbl">ตรวจคำตอบ:</span> \(2\vec{v}_1 + 1\vec{v}_2 + 3\vec{v}_3 = 2(1,1,0) + (0,1,1) + 3(1,0,1) = (2+0+3,\, 2+1+0,\, 0+1+3) = (5,3,4) = \vec{b}\) ✓</div>
+        </div>
+      </article>
+
+      <article class="ex-card">
+        <div class="ex-head"><span class="ex-badge">แนว 3</span><span class="tag exam">แนวข้อสอบจริง</span><span class="ex-title">อิสระเชิงเส้น — พิสูจน์ว่าพึ่งเชิงเส้นและหาน้ำหนัก</span></div>
+        <div class="ex-body">
+          <div class="ex-q">จะแสดงได้หรือไม่ว่า \(\vec{v}_1 = \begin{bmatrix} 1\\ 1\\ 2 \end{bmatrix},\;
+          \vec{v}_2 = \begin{bmatrix} 2\\ 3\\ 1 \end{bmatrix},\;
+          \vec{v}_3 = \begin{bmatrix} 0\\ -1\\ 3 \end{bmatrix}\) พึ่งเชิงเส้นกัน ถ้าพึ่ง จงเขียนเวกเตอร์หนึ่งตัวเป็นการรวมเชิงเส้นของอีกสองตัว</div>
+          <div class="approach"><span class="lbl">แนวคิด</span> — พึ่งเชิงเส้น ⟺ \(c_1\vec{v}_1 + c_2\vec{v}_2 + c_3\vec{v}_3 = \vec{0}\) มีผลเฉลย<em>ที่ไม่ชัด</em>
+          ⟺ เมทริกซ์ที่หลักเป็น \(\vec{v}_i\) มี det \(= 0\) (ใช้ได้เมื่อจำนวนเวกเตอร์ = มิติ = 3)</div>
+          <ol class="steps">
+            <li><span class="step-t"><span class="step-tag">ท่า: det = 0 เช็กเร็ว</span>คำนวณ det ของเมทริกซ์ที่หลักเป็น \(\vec{v}_1, \vec{v}_2, \vec{v}_3\)</span>
+            \[ \det\begin{bmatrix} 1 & 2 & 0\\ 1 & 3 & -1\\ 2 & 1 & 3 \end{bmatrix}
+            = 1\,(3\cdot 3 - (-1)\cdot 1) - 2\,(1\cdot 3 - (-1)\cdot 2) + 0
+            = 1(10) - 2(5) + 0 = 0 \]
+            \(\det = 0\) → หลัก<em>พึ่งเชิงเส้น</em> (ถ้า \(\det \neq 0\) จะเป็นอิสระเชิงเส้นทันที — ทางลัดที่เร็วกว่าการลดรูป)</li>
+            <li><span class="step-t">แก้ระบบ \(c_1\vec{v}_1 + c_2\vec{v}_2 + c_3\vec{v}_3 = \vec{0}\)</span>
+            \[ \left[\begin{array}{ccc|c} 1 & 2 & 0 & 0\\ 1 & 3 & -1 & 0\\ 2 & 1 & 3 & 0 \end{array}\right]
+            \xrightarrow[\;R_3 - 2R_1\;]{\;R_2 - R_1\;}
+            \left[\begin{array}{ccc|c} 1 & 2 & 0 & 0\\ 0 & 1 & -1 & 0\\ 0 & -3 & 3 & 0 \end{array}\right]
+            \xrightarrow{\;R_3 + 3R_2\;}
+            \left[\begin{array}{ccc|c} 1 & 2 & 0 & 0\\ 0 & 1 & -1 & 0\\ 0 & 0 & 0 & 0 \end{array}\right] \]
+            ให้ \(c_3 = t\): \(c_2 = t\), \(c_1 = -2t\) — มีผลเฉลยที่ไม่ชัด (เช่น \(t = 1\)) → พึ่งเชิงเส้นจริง</li>
+            <li><span class="step-t">เขียนเป็นการรวมเชิงเส้น</span> ที่ \(t = 1\) ได้ \(2\vec{v}_1 - \vec{v}_2 - \vec{v}_3 = \vec{0}\) ดังนั้น
+            \[ \vec{v}_3 = 2\vec{v}_1 - \vec{v}_2 \]</li>
+          </ol>
+          <div class="verify"><span class="lbl">ตรวจคำตอบ:</span> \(2\vec{v}_1 - \vec{v}_2 = 2(1,1,2) - (2,3,1) = (2-2,\, 2-3,\, 4-1) = (0,-1,3) = \vec{v}_3\) ✓ สอดคล้องกับผลเฉลยของระบบ \((c_1,c_2,c_3) = (-2,1,1)\) ซึ่งคูณสเกลาร์ \(-1\) ได้ \((2,-1,-1)\) — ผลเฉลยของระบบเอกพันธุ์คูณสเกลาร์ใด ๆ ได้เสมอ</div>
+        </div>
+      </article>
+
+      <article class="ex-card">
+        <div class="ex-head"><span class="ex-badge">แนว 4</span><span class="tag exam">แนวข้อสอบจริง</span><span class="ex-title">การแปลงเชิงเส้น — เมทริกซ์มาตรฐาน รูปภาพ และ preimage</span></div>
+        <div class="ex-body">
+          <div class="ex-q">ให้ \(T : \mathbb{R}^2 \to \mathbb{R}^3\) เป็นการแปลงเชิงเส้นที่ \(T(1, 0) = (3, -1, 2)\) และ \(T(0, 1) = (-2, 4, 1)\)<br>
+          (ก) จงหาเมทริกซ์มาตรฐานของ \(T\) &nbsp;&nbsp; (ข) จงหา \(T(5, -3)\) &nbsp;&nbsp;
+          (ค) เวกเตอร์ \(\vec{x}\) ใน \(\mathbb{R}^2\) ที่ \(T(\vec{x}) = (1, 1, -5)\) มีหรือไม่ — จงอธิบาย</div>
+          <div class="approach"><span class="lbl">แนวคิด</span> — เมทริกซ์มาตรฐานคือเมทริกซ์ที่หลักเป็นรูปภาพของเวกเตอร์ฐานมาตรฐาน:
+          \(A = \begin{bmatrix} T(\vec{e}_1) & T(\vec{e}_2) \end{bmatrix}\) เมื่อได้ \(A\) แล้ว \(T(\vec{x}) = A\vec{x}\) และหา preimage คือแก้ระบบ \(A\vec{x} = \vec{b}\)</div>
+          <ol class="steps">
+            <li><span class="step-t">(ก) ประกอบเมทริกซ์มาตรฐาน</span>
+            \[ A = \begin{bmatrix} T(\vec{e}_1) & T(\vec{e}_2) \end{bmatrix} = \begin{bmatrix} 3 & -2\\ -1 & 4\\ 2 & 1 \end{bmatrix} \quad (3\times 2) \]</li>
+            <li><span class="step-t">(ข) คำนวณ \(T(5, -3) = A\begin{bmatrix} 5\\ -3 \end{bmatrix}\)</span>
+            \[ T(5, -3) = 5\begin{bmatrix} 3\\ -1\\ 2 \end{bmatrix} - 3\begin{bmatrix} -2\\ 4\\ 1 \end{bmatrix}
+            = \begin{bmatrix} 15\\ -5\\ 10 \end{bmatrix} + \begin{bmatrix} 6\\ -12\\ -3 \end{bmatrix} = \begin{bmatrix} 21\\ -17\\ 7 \end{bmatrix} \]</li>
+            <li><span class="step-t">(ค) แก้ระบบ \(A\vec{x} = (1, 1, -5)\) จาก 2 สมการบน</span>
+            จาก \(\begin{bmatrix} 3 & -2\\ -1 & 4 \end{bmatrix}\begin{bmatrix} x_1\\ x_2 \end{bmatrix} = \begin{bmatrix} 1\\ 1 \end{bmatrix}\): ตัวสอดคล้อง
+            \(\det = 3(4) - (-2)(-1) = 10\) ได้
+            \[ x_1 = \frac{1\cdot 4 - (-2)\cdot 1}{10} = \frac{6}{10} = \frac{3}{5}, \qquad
+            x_2 = \frac{3\cdot 1 - (-1)\cdot 1}{10} = \frac{4}{10} = \frac{2}{5} \]</li>
+            <li><span class="step-t">ตรวกับสมการที่ 3 — ตัวชี้ขาด</span>
+            แถวที่ 3: \(2x_1 + x_2 = 2\cdot\tfrac{3}{5} + \tfrac{2}{5} = \tfrac{8}{5} \neq -5\)<br>
+            ค่า \((\tfrac{3}{5}, \tfrac{2}{5})\) อิ่มสองสมการแรกแต่<em>ขัดแย้ง</em>สมการที่สาม → <strong>ไม่มี</strong> \(\vec{x}\) ที่ \(T(\vec{x}) = (1,1,-5)\)
+            (สมนัยกับการที่ \(T\) ไม่ทั่วถึง เพราะ \(T: \mathbb{R}^2 \to \mathbb{R}^3\) มีตัวหลักได้ไม่เกิน 2 < 3)</li>
+          </ol>
+          <div class="verify"><span class="lbl">ตรวจคำตอบ:</span> (ข) \(A\begin{bmatrix} 5\\ -3 \end{bmatrix}\): แถวที่ 1 คือ \(3(5) + (-2)(-3) = 21\) ✓ แถวที่ 2 คือ \(-5 + (-12) = -17\) ✓ แถวที่ 3 คือ \(10 + (-3) = 7\) ✓ (ค) สรุปได้ว่า \((1,1,-5) \notin \operatorname{range}(T)\) — เขียนข้อสรุปนี้ท้ายข้อให้ชัด ผู้ตรวจให้คะแนนจากการสรุป</div>
+        </div>
+      </article>
+
+      <article class="ex-card">
+        <div class="ex-head"><span class="ex-badge">แนว 5</span><span class="tag exam">แนวข้อสอบจริง</span><span class="ex-title">เมทริกซ์ผกผันด้วย Gauss–Jordan และการใช้แก้ระบบ</span></div>
+        <div class="ex-body">
+          <div class="ex-q">ให้ \(A = \begin{bmatrix} 1 & 2 & 3\\ 0 & 1 & 4\\ 5 & 6 & 0 \end{bmatrix}\)<br>
+          (ก) จงหา \(A^{-1}\) ด้วยการดำเนินการแถว &nbsp;&nbsp; (ข) จงใช้ผลจาก (ก) แก้ระบบ \(A\vec{x} = \begin{bmatrix} 1\\ -1\\ 2 \end{bmatrix}\)</div>
+          <div class="approach"><span class="lbl">แนวคิด</span> — ต่อเมทริกซ์เอกลักษณ์แล้วลดรูป \([A \mid I] \to [I \mid A^{-1}]\) แล้วใช้ \(\vec{x} = A^{-1}\vec{b}\)
+          — โจทย์จงใจเขียน "ใช้ผลจาก (ก)" ถ้าไปแก้ระบบใหม่ด้วย Gauss ตรง ๆ จะเสียเวลาโดยใช่เหตุ</div>
+          <ol class="steps">
+            <li><span class="step-t">(ก) ต่อ \(I\) แล้วกวาดหลักที่ 1</span>
+            \[ \left[\begin{array}{ccc|ccc} 1 & 2 & 3 & 1 & 0 & 0\\ 0 & 1 & 4 & 0 & 1 & 0\\ 5 & 6 & 0 & 0 & 0 & 1 \end{array}\right]
+            \xrightarrow{\;R_3 - 5R_1\;}
+            \left[\begin{array}{ccc|ccc} 1 & 2 & 3 & 1 & 0 & 0\\ 0 & 1 & 4 & 0 & 1 & 0\\ 0 & -4 & -15 & -5 & 0 & 1 \end{array}\right] \]</li>
+            <li><span class="step-t">กวาดหลักที่ 3 (จากแถวที่ 3 ที่เหลือแต่ \(a_{33}\))</span>
+            \[ \xrightarrow{\;R_3 + 4R_2\;}
+            \left[\begin{array}{ccc|ccc} 1 & 2 & 3 & 1 & 0 & 0\\ 0 & 1 & 4 & 0 & 1 & 0\\ 0 & 0 & 1 & -5 & 4 & 1 \end{array}\right] \]</li>
+            <li><span class="step-t">เก็บหลักที่ 1, 2 ให้เหลือตัวนำเดียว (ขึ้นบน)</span>
+            \[ \xrightarrow[\;R_2 - 4R_3\;]{\;R_1 - 3R_3\;}
+            \left[\begin{array}{ccc|ccc} 1 & 2 & 0 & 16 & -12 & -3\\ 0 & 1 & 0 & 20 & -15 & -4\\ 0 & 0 & 1 & -5 & 4 & 1 \end{array}\right]
+            \xrightarrow{\;R_1 - 2R_2\;}
+            \left[\begin{array}{ccc|ccc} 1 & 0 & 0 & -24 & 18 & 5\\ 0 & 1 & 0 & 20 & -15 & -4\\ 0 & 0 & 1 & -5 & 4 & 1 \end{array}\right] \]
+            ดังนั้น \(A^{-1} = \begin{bmatrix} -24 & 18 & 5\\ 20 & -15 & -4\\ -5 & 4 & 1 \end{bmatrix}\)</li>
+            <li><span class="step-t">(ข) คูณ \(A^{-1}\vec{b}\)</span>
+            \[ \vec{x} = A^{-1}\vec{b} = \begin{bmatrix} -24 & 18 & 5\\ 20 & -15 & -4\\ -5 & 4 & 1 \end{bmatrix}
+            \begin{bmatrix} 1\\ -1\\ 2 \end{bmatrix}
+            = \begin{bmatrix} -24 - 18 + 10\\ 20 + 15 - 8\\ -5 - 4 + 2 \end{bmatrix} = \begin{bmatrix} -32\\ 27\\ -7 \end{bmatrix} \]</li>
+          </ol>
+          <div class="verify"><span class="lbl">ตรวจคำตอบ:</span> (ก) \(A A^{-1} = I\) เช่น แถวที่ 1 × หลักที่ 1: \(-24 + 40 - 15 = 1\) ✓ (ข) แทนกลับ: \(5(-32) + 6(27) + 0 = -160 + 162 = 2\) ✓ แถวที่ 1: \(-32 + 54 - 21 = 1\) ✓ แถวที่ 2: \(27 + 4(-7) = -1\) ✓</div>
+        </div>
+      </article>
+
+      <article class="ex-card">
+        <div class="ex-head"><span class="ex-badge">แนว 6</span><span class="tag exam">แนวข้อสอบจริง</span><span class="ex-title">ดีเทอร์มิแนนต์ + กฎของคราเมอร์</span></div>
+        <div class="ex-body">
+          <div class="ex-q">จงใช้กฎของคราเมอร์แก้ระบบเชิงเส้นต่อไปนี้
+          \[ \begin{aligned} x_1 + x_3 &= 5\\ 2x_1 + x_2 &= 3\\ 2x_2 + 3x_3 &= 7 \end{aligned} \]</div>
+          <div class="approach"><span class="lbl">แนวคิด</span> — คราเมอร์ใช้ได้เมื่อ \(\det A \neq 0\): \(x_i = \dfrac{\det A_i}{\det A}\) โดย \(A_i\) คือ \(A\) ที่<em>เปลี่ยนหลักที่ \(i\) เป็น \(\vec{b}\)</em> — ข้อนี้เขียนระบบให้เห็นสัมประสิทธิ์ที่หายไป (ต้องใส่ 0 ให้ครบก่อน!) หลายคนพลาดตรงนี้</div>
+          <ol class="steps">
+            <li><span class="step-t">เขียน \(A\) กับ \(\vec{b}\) — ใส่ 0 ให้ตัวแปรที่หายไปครบทุกสมการ</span>
+            \[ A = \begin{bmatrix} 1 & 0 & 1\\ 2 & 1 & 0\\ 0 & 2 & 3 \end{bmatrix}, \qquad \vec{b} = \begin{bmatrix} 5\\ 3\\ 7 \end{bmatrix} \]
+            \(\det A = 1(3 - 0) + 0 + 1(4 - 0) = 3 + 4 = 7 \neq 0\) → ใช้คราเมอร์ได้</li>
+            <li><span class="step-t">\(\det A_1\) (เปลี่ยนหลักที่ 1 เป็น \(\vec{b}\))</span>
+            \[ \det A_1 = \det\begin{bmatrix} 5 & 0 & 1\\ 3 & 1 & 0\\ 7 & 2 & 3 \end{bmatrix} = 5(3 - 0) + 0 + 1(6 - 7) = 15 - 1 = 14
+            \quad\Rightarrow\quad x_1 = \frac{14}{7} = 2 \]</li>
+            <li><span class="step-t">\(\det A_2\) (เปลี่ยนหลักที่ 2 เป็น \(\vec{b}\))</span>
+            \[ \det A_2 = \det\begin{bmatrix} 1 & 5 & 1\\ 2 & 3 & 0\\ 0 & 7 & 3 \end{bmatrix} = 1(9 - 0) - 5(6 - 0) + 1(14 - 0) = 9 - 30 + 14 = -7
+            \quad\Rightarrow\quad x_2 = \frac{-7}{7} = -1 \]</li>
+            <li><span class="step-t">\(\det A_3\) (เปลี่ยนหลักที่ 3 เป็น \(\vec{b}\))</span>
+            \[ \det A_3 = \det\begin{bmatrix} 1 & 0 & 5\\ 2 & 1 & 3\\ 0 & 2 & 7 \end{bmatrix} = 1(7 - 6) + 0 + 5(4 - 0) = 1 + 20 = 21
+            \quad\Rightarrow\quad x_3 = \frac{21}{7} = 3 \]</li>
+          </ol>
+          <div class="verify"><span class="lbl">ตรวจคำตอบ:</span> แทน \((2, -1, 3)\): \(2 + 3 = 5\) ✓, \(4 - 1 = 3\) ✓, \(-2 + 9 = 7\) ✓ ครบทุกสมการ — จบข้อด้วยการเขียน "ผลเฉลยคือ \((2, -1, 3)\)"</div>
+        </div>
+      </article>
+    </section>
+
+    <section class="block" id="recipe">
+      <h2><span class="h2-dot">⚡</span> ท่ารวมก่อนเข้าห้องสอบ Midterm</h2>
+      <div class="recipe">
+        <div class="recipe-head">🪜 ลำดับการทำข้อสอบที่ปลอดภัยที่สุด</div>
+        <div class="recipe-body">
+          <ol>
+            <li>อ่านทุกข้อก่อนเริ่ม ~3 นาที — ทำข้อที่<strong>ชัวร์ก่อน</strong> เก็บคะแนนพื้นฐาน แล้วค่อยกลับมาทำข้อยาก</li>
+            <li>ทุกข้อเริ่มด้วยการ<strong>เขียนสิ่งที่โจทย์ให้</strong>ลงเป็นเมทริกซ์/ระบบ (ห้ามทำในใจแล้วเขียนแต่คำตอบ)</li>
+            <li>ลดรูปด้วยการดำเนินการแถว<em>เขียนชื่อแถวที่ใช้ทุกขั้น</em> (\(R_2 - 2R_1\) ฯลฯ) — นี่คือ "วิธีทำ" ที่ผู้ตรวจให้คะแนน</li>
+            <li>จบทุกข้อด้วย<strong>ประโยคสรุป</strong> (ผลเฉลยคืออะไร / เป็นเพราะอะไร) และถ้ามีเวลาให้แทนค่ากลับตรวจ 1 สมการ</li>
+            <li>เจอข้อมูลไม่ครบ → วิเคราะห์เป็นกรณี (\(h = \dots\) กับ \(h \neq \dots\)) — <strong>ห้ามปล่อยว่าง</strong></li>
+          </ol>
+        </div>
+      </div>
+      <div class="key-grid">
+        <div class="key-card"><div class="k-title">ท่า: ตัดสินผลเฉลยจาก RREF</div>แถว \(\begin{bmatrix} 0 & \cdots & 0 & b \end{bmatrix}\), \(b \neq 0\) = ไม่มีผลเฉลย · ตัวแปรเสรี = อนันต์ชุด (เขียนผลเฉลยทั่วไป) · ตัวหลักครบ = ชุดเดียว</div>
+        <div class="key-card"><div class="k-title">ท่า: Span และอิสระ</div>สองอย่างนี้เป็นระบบเชิงเส้นเหมือนกัน: Span ตั้ง \(\sum c_i\vec{v}_i = \vec{b}\) (ดูว่าต้องกันไหม) ส่วนอิสระตั้ง \(= \vec{0}\) (ดูว่ามีผลเฉลยชัดอย่างเดียวไหม) ใน \(\mathbb{R}^3\) ใช้ det เช็กเร็ว</div>
+        <div class="key-card"><div class="k-title">ท่า: ผกผัน + แก้ระบบ</div>\([A \mid I] \to [I \mid A^{-1}]\) แล้ว \(\vec{x} = A^{-1}\vec{b}\) — ถ้าโจทย์บังคับวิธีนี้ ห้ามไป Gauss ระบบตรง ๆ (เสียเวลา)</div>
+        <div class="key-card"><div class="k-title">ท่า: คราเมอร์</div>\(x_i = \det A_i / \det A\) — เช็ก \(\det A \neq 0\) ก่อน และใส่ 0 ให้ตัวแปรที่หายไปทุกสมการก่อนเขียน \(A\)</div>
+      </div>
+    </section>
+
+    <section class="block" id="practice">
+      <h2><span class="h2-dot">🏋️</span> โจทย์ซ้อมมือ (8 ข้อ — เรียงจากง่ายไปยาก)</h2>
+      <p class="small">ทำเองก่อน แล้วค่อยเปิดเฉลยทีละขั้น จำไว้ว่าข้อสอบจริงใช้ตัวเลขใหม่ — ซ้อมให้ได้ "ท่า" ไม่ใช่ท่องคำตอบ เมื่อทำได้แล้วติ๊ก ✓ เพื่อบันทึกความคืบหน้า</p>
+
+      <article class="pr-card" data-pkey="pM-1">
+        <div class="pr-head"><span class="pr-num">ข้อ 1</span><span class="diff">●○○</span><span class="spacer"></span>
+          <label class="pr-done"><input type="checkbox"> ทำสำเร็จแล้ว</label></div>
+        <div class="pr-body">
+          <p>จงหาเซตผลเฉลยของระบบ
+          \[ \begin{aligned} x_1 + x_2 + x_3 &= 6\\ x_1 + 2x_2 + 3x_3 &= 14\\ 2x_1 + x_2 - x_3 &= 1 \end{aligned} \]</p>
+        </div>
+        <details class="hint"><summary>คำใบ้</summary><div class="hint-body">ลดรูปด้วย \(R_2 - R_1\) และ \(R_3 - 2R_1\) ก่อน ตัวหลักครบ 3 ตัว → ผลเฉลยชุดเดียว</div></details>
+        <details class="sol"><summary>แนวคิดและเฉลยแบบละเอียด</summary><div class="sol-body">
+          <p><strong>แนวคิด:</strong> Gauss elimination + back-substitution (แนว 1 แต่จบด้วยผลเฉลยชุดเดียว)</p>
+          <ol class="steps">
+            <li><span class="step-t">กวาดหลักที่ 1</span>
+            \[ \left[\begin{array}{ccc|c} 1 & 1 & 1 & 6\\ 1 & 2 & 3 & 14\\ 2 & 1 & -1 & 1 \end{array}\right]
+            \xrightarrow[\;R_3 - 2R_1\;]{\;R_2 - R_1\;}
+            \left[\begin{array}{ccc|c} 1 & 1 & 1 & 6\\ 0 & 1 & 2 & 8\\ 0 & -1 & -3 & -11 \end{array}\right]
+            \xrightarrow{\;R_3 + R_2\;}
+            \left[\begin{array}{ccc|c} 1 & 1 & 1 & 6\\ 0 & 1 & 2 & 8\\ 0 & 0 & -1 & -3 \end{array}\right] \]</li>
+            <li><span class="step-t">Back-substitution</span>
+            แถวที่ 3: \(x_3 = 3\) · แถวที่ 2: \(x_2 + 6 = 8 \Rightarrow x_2 = 2\) · แถวที่ 1: \(x_1 + 2 + 3 = 6 \Rightarrow x_1 = 1\)</li>
+            <li><span class="step-t">สรุป</span> เซตผลเฉลยคือ \(\{(1, 2, 3)\}\) — ตรวจ: \(2(1) + 2 - 3 = 1\) ✓</li>
+          </ol>
+        </div></details>
+      </article>
+
+      <article class="pr-card" data-pkey="pM-2">
+        <div class="pr-head"><span class="pr-num">ข้อ 2</span><span class="diff">●○○</span><span class="spacer"></span>
+          <label class="pr-done"><input type="checkbox"> ทำสำเร็จแล้ว</label></div>
+        <div class="pr-body">
+          <p>จงหาค่า \(h\) ทั้งหมดที่ทำให้ระบบที่มีเมทริกซ์แต่งเติมต่อไปนี้ (ก) ไม่มีผลเฉลย (ข) มีผลเฉลยอนันต์ชุด
+          \[ \begin{bmatrix} 2 & 1 & h\\ 4 & 2 & 6 \end{bmatrix} \]</p>
+        </div>
+        <details class="hint"><summary>คำใบ้</summary><div class="hint-body">ทำ \(R_2 - 2R_1\) แล้วดูแถวล่าง ว่าเมื่อไรเป็น \(\begin{bmatrix} 0 & 0 & b \end{bmatrix}, b \neq 0\) และเมื่อไรเป็นแถวล้า</div></details>
+        <details class="sol"><summary>แนวคิดและเฉลยแบบละเอียด</summary><div class="sol-body">
+          <p><strong>แนวคิด:</strong> นี่คือแนว "ข้อมูลไม่ครบ" — ลดรูปก่อนแล้ววิเคราะห์เป็นกรณีตามค่า \(h\) (ห้ามปล่อยว่าง!)</p>
+          <ol class="steps">
+            <li><span class="step-t">ลดรูป</span>
+            \[ \begin{bmatrix} 2 & 1 & h\\ 4 & 2 & 6 \end{bmatrix}
+            \xrightarrow{\;R_2 - 2R_1\;}
+            \begin{bmatrix} 2 & 1 & h\\ 0 & 0 & 6 - 2h \end{bmatrix} \]</li>
+            <li><span class="step-t">(ก) วิเคราะห์แถวที่ 2 สมนัยกับ \((6 - 2h)x_3 = 6 - 2h\)</span>
+            เมื่อ \(h \neq 3\): แถวที่ 2 คือ \(\begin{bmatrix} 0 & 0 & b \end{bmatrix}\) โดย \(b = 6 - 2h \neq 0\) ให้ \(0 = b\) ขัดแย้ง → <strong>ไม่มีผลเฉลย</strong>เมื่อ \(h \neq 3\)</li>
+            <li><span class="step-t">(ข) กรณี \(h = 3\)</span> แถวที่ 2 กลายเป็น \(\begin{bmatrix} 0 & 0 & 0 \end{bmatrix}\) เหลือ \(2x_1 + x_2 = 3\) สมการเดียว → มีตัวแปรเสรี → <strong>ผลเฉลยอนันต์ชุด</strong></li>
+            <li><span class="step-t">สรุป</span> (ก) ไม่มีผลเฉลย ⟺ \(h \neq 3\) (ข) อนันต์ชุด ⟺ \(h = 3\) — เขียนทั้งสองกรณีให้ครบ อันนี้คือที่ผู้ตรวจให้คะแนน</li>
+          </ol>
+        </div></details>
+      </article>
+
+      <article class="pr-card" data-pkey="pM-3">
+        <div class="pr-head"><span class="pr-num">ข้อ 3</span><span class="diff">●●○</span><span class="spacer"></span>
+          <label class="pr-done"><input type="checkbox"> ทำสำเร็จแล้ว</label></div>
+        <div class="pr-body">
+          <p>ให้ \(\vec{v}_1 = \begin{bmatrix} 1\\ 1\\ 0 \end{bmatrix},\;
+          \vec{v}_2 = \begin{bmatrix} 0\\ 1\\ 1 \end{bmatrix},\;
+          \vec{v}_3 = \begin{bmatrix} 1\\ 2\\ 1 \end{bmatrix},\;
+          \vec{b} = \begin{bmatrix} 2\\ 3\\ 4 \end{bmatrix}\) จะหาได้หรือไม่ว่า \(\vec{b} \in \operatorname{Span}\{\vec{v}_1, \vec{v}_2, \vec{v}_3\}\) เพราะเหตุใด</p>
+        </div>
+        <details class="hint"><summary>คำใบ้</summary><div class="hint-body">สังเกตว่า \(\vec{v}_3 = \vec{v}_1 + \vec{v}_2\) — แปลงเป็นระบบแล้วเพิ่มสมการเข้าหากันดู</div></details>
+        <details class="sol"><summary>แนวคิดและเฉลยแบบละเอียด</summary><div class="sol-body">
+          <p><strong>แนวคิด:</strong> \(\vec{b} \in \operatorname{Span}\) ⟺ ระบบ \(c_1\vec{v}_1 + c_2\vec{v}_2 + c_3\vec{v}_3 = \vec{b}\) ต้องกัน</p>
+          <ol class="steps">
+            <li><span class="step-t">แตกเป็นระบบ</span>
+            \[ \begin{aligned} c_1 + c_3 &= 2 & (1)\\ c_1 + c_2 + 2c_3 &= 3 & (2)\\ c_2 + c_3 &= 4 & (3) \end{aligned} \]</li>
+            <li><span class="step-t">ท่ากำจัด: บวก (1) + (3)</span>
+            \((1) + (3)\) ให้ \(c_1 + c_2 + 2c_3 = 2 + 4 = 6\) — แต่สมการ (2) บอกว่า \(c_1 + c_2 + 2c_3 = 3\)<br>
+            \(6 \neq 3\) → <strong>ขัดแย้ง</strong> ระบบไม่ต้องกัน</li>
+            <li><span class="step-t">สรุป</span> \(\vec{b} \notin \operatorname{Span}\{\vec{v}_1, \vec{v}_2, \vec{v}_3\}\)<br>
+            (เหตุผลเชิงโครงสร้าง: \(\vec{v}_3 = \vec{v}_1 + \vec{v}_2\) ทำให้ Span เป็นเพียง<em>ระนาบ</em>ผ่านจุดกำเนิด ไม่ใช่ทั้ง \(\mathbb{R}^3\))</li>
+          </ol>
+        </div></details>
+      </article>
+
+      <article class="pr-card" data-pkey="pM-4">
+        <div class="pr-head"><span class="pr-num">ข้อ 4</span><span class="diff">●●○</span><span class="spacer"></span>
+          <label class="pr-done"><input type="checkbox"> ทำสำเร็จแล้ว</label></div>
+        <div class="pr-body">
+          <p>ให้ \(\vec{u} = \begin{bmatrix} 2\\ -1\\ 3 \end{bmatrix},\;
+          \vec{v} = \begin{bmatrix} 1\\ 2\\ -1 \end{bmatrix},\;
+          \vec{w} = \begin{bmatrix} 5\\ 0\\ 5 \end{bmatrix}\) จะแสดงได้หรือไม่ว่า \(\{\vec{u}, \vec{v}, \vec{w}\}\) พึ่งเชิงเส้น ถ้าพึ่ง จงหาน้ำหนัก</p>
+        </div>
+        <details class="hint"><summary>คำใบ้</summary><div class="hint-body">แก้ระบบ \(a\vec{u} + b\vec{v} = \vec{w}\) — ถ้ามีผลเฉลย \((a,b)\) แสดงว่า \(\vec{w}\) เป็นการรวมเชิงเส้นของ \(\vec{u}, \vec{v}\) แล้วเซตทั้งสามพึ่งเชิงเส้นทันที</div></details>
+        <details class="sol"><summary>แนวคิดและเฉลยแบบละเอียด</summary><div class="sol-body">
+          <p><strong>แนวคิด:</strong> เซตเวกเตอร์ 3 ตัวพึ่งเชิงเส้นก็ต่อเมื่อตัวหนึ่งเป็นการรวมเชิงเส้นของอีกสองตัว</p>
+          <ol class="steps">
+            <li><span class="step-t">ตั้งระบบ \(a\vec{u} + b\vec{v} = \vec{w}\)</span>
+            \[ \begin{aligned} 2a + b &= 5\\ -a + 2b &= 0\\ 3a - b &= 5 \end{aligned}
+            \quad\text{จากสมการที่ 2: } a = 2b \]</li>
+            <li><span class="step-t">แทน \(a = 2b\) ลงสมการที่ 1</span>
+            \(4b + b = 5 \Rightarrow b = 1, a = 2\)</li>
+            <li><span class="step-t">ตรวกับสมการที่ 3</span>
+            \(3(2) - 1 = 5\) ✓ ทั้งสามสมการจริง → \(\vec{w} = 2\vec{u} + \vec{v}\)</li>
+            <li><span class="step-t">สรุป</span> เพราะ \(\vec{w} = 2\vec{u} + \vec{v}\) เซต \(\{\vec{u}, \vec{v}, \vec{w}\}\) <strong>พึ่งเชิงเส้น</strong> (ระบบ \(2\vec{u} + \vec{v} - \vec{w} = \vec{0}\) ให้น้ำหนักที่ไม่ชัดคือ \((2, 1, -1)\))</li>
+          </ol>
+        </div></details>
+      </article>
+
+      <article class="pr-card" data-pkey="pM-5">
+        <div class="pr-head"><span class="pr-num">ข้อ 5</span><span class="diff">●○○</span><span class="spacer"></span>
+          <label class="pr-done"><input type="checkbox"> ทำสำเร็จแล้ว</label></div>
+        <div class="pr-body">
+          <p>การแปลงต่อไปนี้ข้อใดเป็นการแปลงเชิงเส้น พร้อมเหตุผลสั้น ๆ<br>
+          (ก) \(T(x_1, x_2) = (x_1 + 2x_2,\; 3x_1 - x_2)\) &nbsp;&nbsp;
+          (ข) \(T(x_1, x_2) = (x_1 + 1,\; x_2)\) &nbsp;&nbsp;
+          (ค) \(T(x_1, x_2) = (|x_1|,\; x_2)\) &nbsp;&nbsp;
+          (ง) \(T(x_1, x_2) = (x_1 - x_2,\; 2x_1 + 7x_2)\)</p>
+        </div>
+        <details class="hint"><summary>คำใบ้</summary><div class="hint-body">เช็กสองข้อ: \(T(\vec{0}) = \vec{0}\) หรือไม่ และ \(T(c\vec{x}) = cT(\vec{x})\) หรือไม่ — พอพังข้อใดข้อหนึ่งก็ไม่เชิงเส้นทันที</div></details>
+        <details class="sol"><summary>แนวคิดและเฉลยแบบละเอียด</summary><div class="sol-body">
+          <p><strong>แนวคิด:</strong> การแปลงเชิงเส้นต้องอิ่ม \(T(\vec{u} + \vec{v}) = T(\vec{u}) + T(\vec{v})\) และ \(T(c\vec{u}) = cT(\vec{u})\) ทุกกรณี รูปแบบที่เป็นเชิงเส้นเสมอ: ผลรวมของตัวแปรคูณสัมประสิทธิ์คงตัว</p>
+          <ol class="steps">
+            <li><span class="step-t">(ก) เป็นเชิงเส้น</span> ทุกพจน์เป็นสัมประสิทธิ์คูณตัวแปร (ไม่มีค่าคงตัว กำลังสอง หรือฟังก์ชันพิเศษ)</li>
+            <li><span class="step-t">(ข) ไม่เป็นเชิงเส้น</span> \(T(\vec{0}) = (1, 0) \neq \vec{0}\) — การแปลงเชิงเส้นต้องส่ง \(\vec{0} \mapsto \vec{0}\) เสมอ (พจน์ \(+1\) ทำลายความเชิงเส้น)</li>
+            <li><span class="step-t">(ค) ไม่เป็นเชิงเส้น</span> ลอง \(c = -1\): \(T(-1, 0) = (1, 0)\) แต่ \(-T(1, 0) = (-1, 0)\) → \(T(c\vec{x}) \neq cT(\vec{x})\)</li>
+            <li><span class="step-t">(ง) เป็นเชิงเส้น</span> เหตุผลเดียวกับ (ก)</li>
+          </ol>
+        </div></details>
+      </article>
+
+      <article class="pr-card" data-pkey="pM-6">
+        <div class="pr-head"><span class="pr-num">ข้อ 6</span><span class="diff">●●○</span><span class="spacer"></span>
+          <label class="pr-done"><input type="checkbox"> ทำสำเร็จแล้ว</label></div>
+        <div class="pr-body">
+          <p>ให้ \(T : \mathbb{R}^2 \to \mathbb{R}^2\) เป็นการแปลงเชิงเส้นที่ \(T(1, 0) = (2, 1)\) และ \(T(0, 1) = (-1, 3)\)
+          จงหาเมทริกซ์มาตรฐานของ \(T\) และค่า \(T(3, -2)\)</p>
+        </div>
+        <details class="hint"><summary>คำใบ้</summary><div class="hint-body">\(A = \begin{bmatrix} T(\vec{e}_1) & T(\vec{e}_2) \end{bmatrix}\) แล้ว \(T(3, -2) = A\begin{bmatrix} 3\\ -2 \end{bmatrix} = 3T(\vec{e}_1) - 2T(\vec{e}_2)\)</div></details>
+        <details class="sol"><summary>แนวคิดและเฉลยแบบละเอียด</summary><div class="sol-body">
+          <p><strong>แนวคิด:</strong> หา \(A\) จากรูปภาพของเวกเตอร์ฐานมาตรฐาน แล้วใช้ความเชิงเส้น \(T(a\vec{e}_1 + b\vec{e}_2) = aT(\vec{e}_1) + bT(\vec{e}_2)\)</p>
+          <ol class="steps">
+            <li><span class="step-t">เมทริกซ์มาตรฐาน</span>
+            \[ A = \begin{bmatrix} 2 & -1\\ 1 & 3 \end{bmatrix} \]</li>
+            <li><span class="step-t">คำนวณ \(T(3, -2)\)</span>
+            \[ T(3, -2) = A\begin{bmatrix} 3\\ -2 \end{bmatrix} = 3\begin{bmatrix} 2\\ 1 \end{bmatrix} - 2\begin{bmatrix} -1\\ 3 \end{bmatrix} = \begin{bmatrix} 6\\ 3 \end{bmatrix} + \begin{bmatrix} 2\\ -6 \end{bmatrix} = \begin{bmatrix} 8\\ -3 \end{bmatrix} \]</li>
+            <li><span class="step-t">ตรวจคำตอบ</span> คูณตรง: แถวที่ 1: \(2(3) + (-1)(-2) = 8\) ✓ แถวที่ 2: \(1(3) + 3(-2) = -3\) ✓</li>
+          </ol>
+        </div></details>
+      </article>
+
+      <article class="pr-card" data-pkey="pM-7">
+        <div class="pr-head"><span class="pr-num">ข้อ 7</span><span class="diff">●●○</span><span class="spacer"></span>
+          <label class="pr-done"><input type="checkbox"> ทำสำเร็จแล้ว</label></div>
+        <div class="pr-body">
+          <p>ให้ \(A = \begin{bmatrix} 3 & 1\\ 5 & 2 \end{bmatrix}\) (ก) จงหา \(A^{-1}\) (ข) จงใช้ \(A^{-1}\) แก้ระบบ \(A\vec{x} = \begin{bmatrix} 7\\ 11 \end{bmatrix}\)</p>
+        </div>
+        <details class="hint"><summary>คำใบ้</summary><div class="hint-body">เมทริกซ์ \(2\times 2\) ใช้สูตรเร็ว: \(A^{-1} = \tfrac{1}{ad-bc}\begin{bmatrix} d & -b\\ -c & a \end{bmatrix}\) — ข้อนี้ \(\det A = 1\) เลยสวย</div></details>
+        <details class="sol"><summary>แนวคิดและเฉลยแบบละเอียด</summary><div class="sol-body">
+          <ol class="steps">
+            <li><span class="step-t">(ก) สูตร \(2\times 2\) — สลับทแยง เปลี่ยนเครื่องหมายเส้นนอก</span>
+            \[ A^{-1} = \frac{1}{3(2) - 1(5)}\begin{bmatrix} 2 & -1\\ -5 & 3 \end{bmatrix}
+            = \frac{1}{1}\begin{bmatrix} 2 & -1\\ -5 & 3 \end{bmatrix} = \begin{bmatrix} 2 & -1\\ -5 & 3 \end{bmatrix} \]</li>
+            <li><span class="step-t">(ข) \(\vec{x} = A^{-1}\vec{b}\)</span>
+            \[ \vec{x} = \begin{bmatrix} 2 & -1\\ -5 & 3 \end{bmatrix}\begin{bmatrix} 7\\ 11 \end{bmatrix}
+            = \begin{bmatrix} 14 - 11\\ -35 + 33 \end{bmatrix} = \begin{bmatrix} 3\\ -2 \end{bmatrix} \]</li>
+            <li><span class="step-t">ตรวจคำตอบ</span> \(3(3) + 1(-2) = 7\) ✓ และ \(5(3) + 2(-2) = 11\) ✓</li>
+          </ol>
+        </div></details>
+      </article>
+
+      <article class="pr-card" data-pkey="pM-8">
+        <div class="pr-head"><span class="pr-num">ข้อ 8</span><span class="diff">●●●</span><span class="spacer"></span>
+          <label class="pr-done"><input type="checkbox"> ทำสำเร็จแล้ว</label></div>
+        <div class="pr-body">
+          <p>จงใช้กฎของคราเมอร์แก้ระบบ
+          \[ \begin{aligned} 2x_1 + x_2 &= 4\\ x_1 + 3x_2 + x_3 &= 6\\ x_2 + 2x_3 &= 0 \end{aligned} \]</p>
+        </div>
+        <details class="hint"><summary>คำใบ้</summary><div class="hint-body">เขียน \(A\) ให้ครบทุก 0 ก่อน (สมการที่ 1 ไม่มี \(x_3\), สมการที่ 3 ไม่มี \(x_1\)) — แล้วคำนวณ \(\det A\) ด้วยการกระจายโคแฟกเตอร์ตามแถว/หลักที่ 0 เยอะ</div></details>
+        <details class="sol"><summary>แนวคิดและเฉลยแบบละเอียด</summary><div class="sol-body">
+          <ol class="steps">
+            <li><span class="step-t">เมทริกซ์สัมประสิทธิ์ + \(\det A\)</span>
+            \[ A = \begin{bmatrix} 2 & 1 & 0\\ 1 & 3 & 1\\ 0 & 1 & 2 \end{bmatrix}
+            \qquad \det A = 2(6 - 1) - 1(2 - 0) + 0 = 10 - 2 = 8 \neq 0 \]</li>
+            <li><span class="step-t">\(x_1 = \det A_1 / \det A\)</span>
+            \[ \det A_1 = \det\begin{bmatrix} 4 & 1 & 0\\ 6 & 3 & 1\\ 0 & 1 & 2 \end{bmatrix} = 4(6-1) - 1(12 - 0) + 0 = 20 - 12 = 8
+            \;\Rightarrow\; x_1 = \frac{8}{8} = 1 \]</li>
+            <li><span class="step-t">\(x_2 = \det A_2 / \det A\)</span>
+            \[ \det A_2 = \det\begin{bmatrix} 2 & 4 & 0\\ 1 & 6 & 1\\ 0 & 0 & 2 \end{bmatrix} = 2(12 - 0) - 4(2 - 0) + 0 = 24 - 8 = 16
+            \;\Rightarrow\; x_2 = \frac{16}{8} = 2 \]</li>
+            <li><span class="step-t">\(x_3 = \det A_3 / \det A\)</span>
+            \[ \det A_3 = \det\begin{bmatrix} 2 & 1 & 4\\ 1 & 3 & 6\\ 0 & 1 & 0 \end{bmatrix} = 2(0 - 6) - 1(0 - 0) + 4(1 - 0) = -12 + 4 = -8
+            \;\Rightarrow\; x_3 = \frac{-8}{8} = -1 \]</li>
+            <li><span class="step-t">สรุป + ตรวจ</span> ผลเฉลยคือ \((1, 2, -1)\) — แทนกลับ: \(1 + 6 - 1 = 6\) ✓ และ \(2 + 2(-1) = 0\) ✓</li>
+          </ol>
+        </div></details>
+      </article>
+    </section>
+
+    <section class="block">
+      <div class="box box-idea">
+        <div class="box-title">🎓 จบ Midterm แล้ว — ต่อด้วยฝั่งปลายภาค</div>
+        <p>แนวข้อสอบ Final (ค่าลักษณะเฉพาะ, เรขาคณิตเวกเตอร์ 3 มิติ, พหุนาม, least squares) รวมไว้ที่หน้า
+        <a href="exam-final.html"><strong>ติว Final — แนวข้อสอบปลายภาค</strong></a> — รวมถึงแนว 4×4 ที่ให้ใช้เครื่องคิดเลขด้วย</p>
+      </div>
+    </section>
