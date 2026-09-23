@@ -76,14 +76,15 @@ page: ch4-3.html
       <div class="ex-q">จงหาผลเฉลยกำลังสองน้อยสุดของ \(A\vec{x} = \vec{b}\) เมื่อ
       \[ A = \begin{bmatrix} 1 & 0\\ 1 & 1\\ 1 & 2 \end{bmatrix}, \qquad \vec{b} = \begin{bmatrix} 6\\ 0\\ 0 \end{bmatrix} \]
       พร้อมทั้งหา \(\|\vec{b} - A\hat{x}\|\)</div>
-      <div class="approach"><span class="lbl">แนวคิด</span> — สร้างสมการปรกติ \(A^TA\hat{x} = A^T\vec{b}\) → แก้ระบบ 2 ตัวแปร → คิดความผิดพลาด</div>
+      <div class="approach"><span class="lbl">แนวคิด</span> — สร้างสมการปรกติ \(A^TA\hat{x} = A^T\vec{b}\) → แก้ระบบ 2 ตัวแปร → คิดความผิดพลาด กลยุทธ์: ระบบ \(A\vec{x} = \vec{b}\) นี้แก้ตรง ๆ ไม่ได้ (สามสมการ สองตัวแปร มักขัดกัน) จึงเปลี่ยนไปแก้ "สมการปรกติ" ซึ่งเป็นระบบจัตุรัสที่แก้ได้เสมอ วิธีจำการสร้าง \(A^TA\): ช่อง (แถว \(i\), หลัก \(j\)) = (หลักที่ \(i\) ของ \(A\)) จุดกับ (หลักที่ \(j\) ของ \(A\))</div>
       <ol class="steps">
-        <li><span class="step-t">สร้าง \(A^TA\) และ \(A^T\vec{b}\)</span>
+        <li><span class="step-t">สร้าง \(A^TA\) และ \(A^T\vec{b}\)</span> หลักของ \(A\) คือ \(\vec{a}_1 = (1,1,1)^T\) และ \(\vec{a}_2 = (0,1,2)^T\) คิดทีละช่อง: ช่อง (1,1) = \(\vec{a}_1\cdot\vec{a}_1 = 1 + 1 + 1 = 3\), ช่อง (1,2) = \(\vec{a}_1\cdot\vec{a}_2 = 1(0) + 1(1) + 1(2) = 3\), ช่อง (2,2) = \(\vec{a}_2\cdot\vec{a}_2 = 0 + 1 + 4 = 5\) (ช่อง (2,1) ซ้ำช่อง (1,2) เพราะสลับที่ได้) ส่วน \(A^T\vec{b}\) แต่ละช่อง = หลักจุดกับ \(\vec{b}\): ช่องแรก \(\vec{a}_1\cdot\vec{b} = 1(6) + 1(0) + 1(0) = 6\), ช่องสอง \(\vec{a}_2\cdot\vec{b} = 0(6) + 1(0) + 2(0) = 0\)
         \[ A^TA = \begin{bmatrix} 3 & 3\\ 3 & 5 \end{bmatrix} \qquad \text{(คิดจาก } \sum 1,\; \sum x_i,\; \sum x_i^2\text{)} \qquad A^T\vec{b} = \begin{bmatrix} 6 + 0 + 0\\ 0 + 0 + 0 \end{bmatrix} = \begin{bmatrix} 6\\ 0 \end{bmatrix} \]</li>
-        <li><span class="step-t">แก้สมการปรกติ</span>
+        <li><span class="step-t">แก้สมการปรกติ</span> ได้ระบบสองสมการ ตัดตัวแปรโดยเอาสมการสองลบสมการหนึ่ง (\(c_1\) หักกันหาย): \((3c_1 + 5c_2) - (3c_1 + 3c_2) = 2c_2\) และ \(0 - 6 = -6\) จึงได้ \(2c_2 = -6\) → \(c_2 = -3\) แล้วแทนกลับหา \(c_1\): \(3c_1 = 6 - 3(-3) = 6 + 9 = 15\) → \(c_1 = 5\) (ระวังลบคูณลบ: \(-3(-3) = +9\))
         \[ \begin{aligned} 3c_1 + 3c_2 &= 6\\ 3c_1 + 5c_2 &= 0 \end{aligned} \;\xrightarrow{\;\text{หัวกัน}\;}\; 2c_2 = -6 \;\Longrightarrow\; c_2 = -3,\; c_1 = 5 \;\Longrightarrow\; \hat{x} = \begin{bmatrix} 5\\ -3 \end{bmatrix} \]</li>
-        <li><span class="step-t">หาความผิดพลาด</span>
-        \[ A\hat{x} = \begin{bmatrix} 5\\ 5-3\\ 5-6 \end{bmatrix} = \begin{bmatrix} 5\\ 2\\ -1 \end{bmatrix}, \qquad \vec{b} - A\hat{x} = \begin{bmatrix} 1\\ -2\\ 1 \end{bmatrix}, \qquad \|\vec{b} - A\hat{x}\| = \sqrt{1+4+1} = \sqrt{6} \]</li>
+        <li><span class="step-t">หาความผิดพลาด</span> คูณ \(A\hat{x}\) ทีละแถว (แถวของ \(A\) = \(1\cdot c_1 + x\cdot c_2\)): แถวแรก \(1(5) + 0(-3) = 5\), แถวกลาง \(1(5) + 1(-3) = 5 - 3 = 2\), แถวสุดท้าย \(1(5) + 2(-3) = 5 - 6 = -1\) แล้วลบกับ \(\vec{b}\) ทีละช่อง: \(6 - 5 = 1\), \(0 - 2 = -2\), \(0 - (-1) = 0 + 1 = 1\) (ลบซ้อนลบกลายเป็นบวก!) ความยาวจาก \(1^2 + (-2)^2 + 1^2 = 1 + 4 + 1 = 6\) — 6 ไม่มีตัวประกอบกำลังสองสมบูรณ์ จึงคงเป็น \(\sqrt6\)
+        \[ A\hat{x} = \begin{bmatrix} 5\\ 5-3\\ 5-6 \end{bmatrix} = \begin{bmatrix} 5\\ 2\\ -1 \end{bmatrix}, \qquad \vec{b} - A\hat{x} = \begin{bmatrix} 1\\ -2\\ 1 \end{bmatrix}, \qquad \|\vec{b} - A\hat{x}\| = \sqrt{1+4+1} = \sqrt{6} \]
+        — <strong>สรุปคำตอบ:</strong> \(\hat{x} = (5, -3)^T\) และความผิดพลาดกำลังสองน้อยสุด = \(\sqrt6\)</li>
       </ol>
       <div class="verify"><span class="lbl">ตรวจคำตอบ:</span> เศษตกค้าง \((1, -2, 1)^T\) ต้องตั้งฉากกับหลักของ \(A\): \((1,-2,1)\cdot(1,1,1) = 0\) ✓ และ \((1,-2,1)\cdot(0,1,2) = -2+2 = 0\) ✓</div>
     </div>
@@ -93,14 +94,15 @@ page: ch4-3.html
     <div class="ex-head"><span class="ex-badge">ตัวอย่าง 2</span><span class="tag easy">ง่าย</span><span class="ex-title">การประมาณที่ดีสุด (ตัวอย่างคลาสสิกของตำรา)</span></div>
     <div class="ex-body">
       <div class="ex-q">จงหาการประมาณที่ดีสุดของ \(\vec{y} = \begin{bmatrix} 1\\ 2\\ 3 \end{bmatrix}\) โดยเวกเตอร์ในปริภูมิย่อย \(H = \operatorname{Span}\{\vec{u}_1, \vec{u}_2\}\) เมื่อ \(\vec{u}_1 = \begin{bmatrix} 2\\ 5\\ -1 \end{bmatrix}\), \(\vec{u}_2 = \begin{bmatrix} 2\\ -1\\ -1 \end{bmatrix}\) และหาระยะทางจาก \(\vec{y}\) ไป \(H\)</div>
-      <div class="approach"><span class="lbl">แนวคิด</span> — \(\{\vec{u}_1, \vec{u}_2\}\) ตั้งฉากกัน → ฉายตรง ๆ ด้วยน้ำหนัก (ไม่ต้องกราม-ชมิดต์) → ระยะทาง = \(\|\vec{y} - \hat{y}\|\)</div>
+      <div class="approach"><span class="lbl">แนวคิด</span> — \(\{\vec{u}_1, \vec{u}_2\}\) ตั้งฉากกัน → ฉายตรง ๆ ด้วยน้ำหนัก (ไม่ต้องกราม-ชมิดต์) → ระยะทาง = \(\|\vec{y} - \hat{y}\|\) กลยุทธ์: "การประมาณที่ดีสุด" ก็คือ \(\hat{y} = \operatorname{proj}_H \vec{y}\) — เงาของ \(\vec{y}\) บน \(H\) — และระยะทางจาก \(\vec{y}\) ไป \(H\) คือความยาวของส่วนที่เหลือ \(\vec{y} - \hat{y}\) (ซึ่งตั้งฉากกับ \(H\) พอดี)</div>
       <ol class="steps">
-        <li><span class="step-t">เช็กและหาน้ำหนัก</span> \(\vec{u}_1\cdot\vec{u}_2 = 4 - 5 + 1 = 0\) ✓
+        <li><span class="step-t">เช็กและหาน้ำหนัก</span> เช็กความตั้งฉากก่อนใช้สูตร: \(\vec{u}_1\cdot\vec{u}_2 = 2(2) + 5(-1) + (-1)(-1) = 4 - 5 + 1 = 0\) ✓ (สังเกต \((-1)(-1) = +1\) ลบคูณลบได้บวก) น้ำหนักที่หนึ่ง: เศษ \(\vec{y}\cdot\vec{u}_1 = 1(2) + 2(5) + 3(-1) = 2 + 10 - 3 = 9\), ส่วน \(\vec{u}_1\cdot\vec{u}_1 = 4 + 25 + 1 = 30\) ได้ \(\tfrac{9}{30} = \tfrac{3}{10}\) (ตัดทอนด้วย 3) น้ำหนักที่สอง: เศษ \(\vec{y}\cdot\vec{u}_2 = 1(2) + 2(-1) + 3(-1) = 2 - 2 - 3 = -3\), ส่วน \(\vec{u}_2\cdot\vec{u}_2 = 4 + 1 + 1 = 6\) ได้ \(-\tfrac36 = -\tfrac12\) (ตัดด้วย 3 — น้ำหนักติดลบแปลว่า \(\vec{y}\) เอนไปทาง \(-\vec{u}_2\) มากกว่า)
         \[ \frac{\vec{y}\cdot\vec{u}_1}{\vec{u}_1\cdot\vec{u}_1} = \frac{2 + 10 - 3}{4 + 25 + 1} = \frac{9}{30} = \frac{3}{10}, \qquad \frac{\vec{y}\cdot\vec{u}_2}{\vec{u}_2\cdot\vec{u}_2} = \frac{2 - 2 - 3}{4 + 1 + 1} = -\frac{1}{2} \]</li>
-        <li><span class="step-t">การฉาย (ระวังเครื่องหมาย!)</span>
+        <li><span class="step-t">การฉาย (ระวังเครื่องหมาย!)</span> กระจายทีละพจน์: \(\tfrac{3}{10}(2, 5, -1) = (\tfrac35, \tfrac32, -\tfrac3{10})\) และ \(-\tfrac12(2, -1, -1) = (-1, +\tfrac12, +\tfrac12)\) — จุดที่ต้องระวังคือพจน์ที่สอง: สัมประสิทธิ์<em>ลบ</em>คูณสมาชิก<em>ลบ</em>ได้<em>บวก</em> จึงกลายเป็น \(+\tfrac12\) ทั้งสองช่อง แล้วบวกรวมกันทีละช่อง: \( \tfrac35 - 1 = -\tfrac25\), \( \tfrac32 + \tfrac12 = 2\), \( -\tfrac3{10} + \tfrac12 = -\tfrac3{10} + \tfrac5{10} = \tfrac2{10} = \tfrac15\)
         \[ \hat{y} = \frac{3}{10}\vec{u}_1 - \frac{1}{2}\vec{u}_2 = \begin{bmatrix} 3/5 - 1\\ 3/2 + 1/2\\ -3/10 + 1/2 \end{bmatrix} = \begin{bmatrix} -2/5\\ 2\\ 1/5 \end{bmatrix} \]</li>
-        <li><span class="step-t">ระยะทาง</span>
-        \[ \vec{y} - \hat{y} = \begin{bmatrix} 7/5\\ 0\\ 14/5 \end{bmatrix}, \qquad \operatorname{dist}(\vec{y}, H) = \sqrt{\tfrac{49}{25} + 0 + \tfrac{196}{25}} = \frac{\sqrt{245}}{5} = \frac{7\sqrt{5}}{5} \]</li>
+        <li><span class="step-t">ระยะทาง</span> ลบทีละช่อง (ระวังช่องแรกเป็นลบซ้อนลบ): \(1 - (-\tfrac25) = 1 + \tfrac25 = \tfrac75\), \(2 - 2 = 0\), \(3 - \tfrac15 = \tfrac{15}5 - \tfrac15 = \tfrac{14}5\) ยกกำลังสองรวม: \(\tfrac{49}{25} + 0 + \tfrac{196}{25} = \tfrac{245}{25}\) — ถอดรากทั้งเศษและส่วน: \(\sqrt{25} = 5\) และ \(\sqrt{245} = \sqrt{49 \times 5} = \sqrt{49}\sqrt5 = 7\sqrt5\) (เพราะ 49 เป็นกำลังสองสมบูรณ์ จึงดึง 7 ออกมาได้ เหลือ 5 ใต้ราก)
+        \[ \vec{y} - \hat{y} = \begin{bmatrix} 7/5\\ 0\\ 14/5 \end{bmatrix}, \qquad \operatorname{dist}(\vec{y}, H) = \sqrt{\tfrac{49}{25} + 0 + \tfrac{196}{25}} = \frac{\sqrt{245}}{5} = \frac{7\sqrt{5}}{5} \]
+        — <strong>สรุปคำตอบ:</strong> \(\hat{y} = (-\tfrac25, 2, \tfrac15)^T\) และ \(\operatorname{dist}(\vec{y}, H) = \tfrac{7\sqrt5}{5}\)</li>
       </ol>
       <div class="verify"><span class="lbl">ตรวจคำตอบ:</span> \((\vec{y}-\hat{y})\cdot\vec{u}_1 = \tfrac{14}{5} - \tfrac{14}{5} = 0\) ✓ และ \((\vec{y}-\hat{y})\cdot\vec{u}_2 = \tfrac{14}{5} - \tfrac{14}{5} = 0\) ✓ (เศษตกค้างตั้งฉากกับฐานหลักทุกตัว = สมบัติของการฉาย)</div>
     </div>
@@ -110,17 +112,18 @@ page: ch4-3.html
     <div class="ex-head"><span class="ex-badge">ตัวอย่าง 3</span><span class="tag hard">ยาก</span><span class="ex-title">ฟิตเส้นตรงกับข้อมูลจุด</span></div>
     <div class="ex-body">
       <div class="ex-q">จงหาสมการเส้นตรง \(y = c_0 + c_1x\) แบบกำลังสองน้อยสุดที่ดีที่สุดสำหรับข้อมูลจุด \((0, 1), (1, 1), (2, 3)\) พร้อมทั้งหาความผิดพลาดกำลังสองน้อยสุด</div>
-      <div class="approach"><span class="lbl">แนวคิด</span> — แปลงจุดเป็น \(A\vec{x} = \vec{b}\) แล้วแก้สมการปรกติ</div>
+      <div class="approach"><span class="lbl">แนวคิด</span> — แปลงจุดเป็น \(A\vec{x} = \vec{b}\) แล้วแก้สมการปรกติ กลยุทธ์: เส้นตรง \(y = c_0 + c_1x\) มีสองค่าต้องหา (\(c_0\) คือจุดตัดแกน \(y\), \(c_1\) คือความชัน) จุดข้อมูลแต่ละจุดให้ "สมการหนึ่งบรรทัด" แทน \(x, y\) ลงไปตรง ๆ — สามสมการสองตัวแปรมักขัดกัน จึงต้องใช้ least squares หาเส้นที่พลาดน้อยที่สุด</div>
       <ol class="steps">
-        <li><span class="step-t">สร้างระบบ</span> แทนจุดลงใน \(c_0 + c_1x = y\):
+        <li><span class="step-t">สร้างระบบ</span> แทนจุดลงใน \(c_0 + c_1x = y\) ทีละจุด — จุด \((0,1)\): \(c_0 + c_1(0) = 1\) → แถว \((1, 0)\) คู่กับคำตอบ 1 (คอลัมน์แรกเป็น 1 เสมอ เพราะ \(c_0\) คูณด้วย 1); จุด \((1,1)\): \(c_0 + c_1(1) = 1\) → แถว \((1, 1)\) คู่กับ 1; จุด \((2,3)\): \(c_0 + 2c_1 = 3\) → แถว \((1, 2)\) คู่กับ 3
         \[ \begin{bmatrix} 1 & 0\\ 1 & 1\\ 1 & 2 \end{bmatrix}\begin{bmatrix} c_0\\ c_1 \end{bmatrix} = \begin{bmatrix} 1\\ 1\\ 3 \end{bmatrix} \]
-        (ระบบนี้ไม่ต้องกัน — สามจุดไม่เรียงเส้นตรง — จึงต้องใช้ least squares)</li>
-        <li><span class="step-t">สมการปรกติ</span>
+        (ระบบนี้ไม่ต้องกัน — สามจุดไม่เรียงเส้นตรง เช่น ถ้าลองบังคับให้ผ่านสองจุดแรกจะได้ \(c_0 = 1, c_1 = 0\) แต่แล้วจุดที่สามพาไปได้แค่ \(y = 1 \neq 3\) — จึงต้องใช้ least squares)</li>
+        <li><span class="step-t">สมการปรกติ</span> สร้าง \(A^TA\) จากผลรวม: ช่อง (1,1) = นับจำนวนจุด \(= 3\), ช่อง (1,2) = \(\sum x_i = 0 + 1 + 2 = 3\), ช่อง (2,2) = \(\sum x_i^2 = 0 + 1 + 4 = 5\) ส่วน \(A^T\vec{b}\): ช่องแรก = \(\sum y_i = 1 + 1 + 3 = 5\), ช่องสอง = \(\sum x_iy_i = 0(1) + 1(1) + 2(3) = 0 + 1 + 6 = 7\)
         \[ A^TA = \begin{bmatrix} 3 & 3\\ 3 & 5 \end{bmatrix}, \qquad A^T\vec{b} = \begin{bmatrix} 1+1+3\\ 0+1+6 \end{bmatrix} = \begin{bmatrix} 5\\ 7 \end{bmatrix} \]</li>
-        <li><span class="step-t">แก้</span>
+        <li><span class="step-t">แก้</span> ตัดตัวแปร: สมการสองลบสมการหนึ่ง → \((3c_0 + 5c_1) - (3c_0 + 3c_1) = 2c_1\) และ \(7 - 5 = 2\) จึงได้ \(2c_1 = 2\) → \(c_1 = 1\) แทนกลับ: \(3c_0 = 5 - 3(1) = 2\) → \(c_0 = \tfrac23\) (หารทั้งสองข้างด้วย 3)
         \[ \begin{aligned} 3c_0 + 3c_1 &= 5\\ 3c_0 + 5c_1 &= 7 \end{aligned} \;\Longrightarrow\; 2c_1 = 2 \;\Longrightarrow\; c_1 = 1,\; c_0 = \frac{2}{3} \]</li>
-        <li><span class="step-t">เส้นตรงและความผิดพลาด</span>
-        \[ y = \frac{2}{3} + x \qquad A\hat{x} = \begin{bmatrix} 2/3\\ 5/3\\ 8/3 \end{bmatrix}, \quad \vec{b} - A\hat{x} = \begin{bmatrix} 1/3\\ -2/3\\ 1/3 \end{bmatrix}, \quad \text{error} = \sqrt{\tfrac19 + \tfrac49 + \tfrac19} = \frac{\sqrt{6}}{3} \]</li>
+        <li><span class="step-t">เส้นตรงและความผิดพลาด</span> เส้นที่ได้คือ \(y = \tfrac23 + x\) คำนวณค่าที่เส้นทำนายแต่ละ \(x\): ที่ \(x=0\): \(\tfrac23 + 0 = \tfrac23\); ที่ \(x=1\): \(\tfrac23 + 1 = \tfrac53\); ที่ \(x=2\): \(\tfrac23 + 2 = \tfrac83\) เศษตกค้างทีละจุด: \(1 - \tfrac23 = \tfrac13\), \(1 - \tfrac53 = \tfrac33 - \tfrac53 = -\tfrac23\), \(3 - \tfrac83 = \tfrac93 - \tfrac83 = \tfrac13\) ผลรวมกำลังสอง: \(\tfrac19 + \tfrac49 + \tfrac19 = \tfrac69\) แล้วถอดรากทั้งเศษและส่วน \(\sqrt{\tfrac69} = \tfrac{\sqrt6}{\sqrt9} = \tfrac{\sqrt6}{3}\) (เพราะ \(\sqrt9 = 3\))
+        \[ y = \frac{2}{3} + x \qquad A\hat{x} = \begin{bmatrix} 2/3\\ 5/3\\ 8/3 \end{bmatrix}, \quad \vec{b} - A\hat{x} = \begin{bmatrix} 1/3\\ -2/3\\ 1/3 \end{bmatrix}, \quad \text{error} = \sqrt{\tfrac19 + \tfrac49 + \tfrac19} = \frac{\sqrt{6}}{3} \]
+        — <strong>สรุปคำตอบ:</strong> เส้นกำลังสองน้อยสุดคือ \(y = \tfrac23 + x\) ความผิดพลาด = \(\tfrac{\sqrt6}{3}\)</li>
       </ol>
       <div class="verify"><span class="lbl">ตรวจคำตอบ:</span> เศษตกค้าง \((\tfrac13, -\tfrac23, \tfrac13)^T\) ตั้งฉากกับหลักของ \(A\): \(\tfrac13 - \tfrac23 + \tfrac13 = 0\) ✓ และ \(0\cdot\tfrac13 + 1(-\tfrac23) + 2(\tfrac13) = 0\) ✓</div>
     </div>
@@ -130,13 +133,13 @@ page: ch4-3.html
     <div class="ex-head"><span class="ex-badge">ตัวอย่าง 4</span><span class="tag hard">ยาก</span><span class="ex-title">ระยะทางจาก \(\vec{b}\) ไป \(\operatorname{Col} A\) (1 หลัก)</span></div>
     <div class="ex-body">
       <div class="ex-q">จงหาระยะทางจาก \(\vec{b} = \begin{bmatrix} 1\\ 3 \end{bmatrix}\) ไปยัง \(\operatorname{Col} A\) เมื่อ \(A = \begin{bmatrix} 1\\ 2 \end{bmatrix}\)</div>
-      <div class="approach"><span class="lbl">แนวคิด</span> — \(\operatorname{Col} A = \operatorname{Span}\{(1,2)^T\}\) เป็นเส้นตรง — ฉายด้วยสูตรเวกเตอร์เดียวแล้ววัดระยะ</div>
+      <div class="approach"><span class="lbl">แนวคิด</span> — \(\operatorname{Col} A = \operatorname{Span}\{(1,2)^T\}\) เป็นเส้นตรง — ฉายด้วยสูตรเวกเตอร์เดียวแล้ววัดระยะ กลยุทธ์: ระยะทางจากจุดไปปริภูมิย่อย = ความยาวของ (เวกเตอร์ต้นทาง) ลบ (เงาที่ฉายลงปริภูมิย่อย) — เพราะเงาเป็นจุดใน \(\operatorname{Col} A\) ที่ใกล้ \(\vec{b}\) ที่สุด (ทฤษฎีบทการประมาณที่ดีสุด) ส่วนที่เหลือจึงสั้นที่สุดโดยอัตโนมัติ</div>
       <ol class="steps">
-        <li><span class="step-t">การฉาย</span>
+        <li><span class="step-t">การฉาย</span> คิดผลคูณจุดสองตัว: เศษ \(\vec{b}\cdot\vec{a} = 1(1) + 3(2) = 1 + 6 = 7\) และส่วน \(\vec{a}\cdot\vec{a} = 1^2 + 2^2 = 1 + 4 = 5\) ได้น้ำหนัก \(\tfrac75\) เอาไปคูณทุกช่องของ \(\vec{a} = (1, 2)\): \(\tfrac75(1) = \tfrac75\), \(\tfrac75(2) = \tfrac{14}5\)
         \[ \hat{b} = \frac{\vec{b}\cdot\vec{a}}{\vec{a}\cdot\vec{a}}\vec{a} = \frac{1 + 6}{1 + 4}\begin{bmatrix} 1\\ 2 \end{bmatrix} = \frac{7}{5}\begin{bmatrix} 1\\ 2 \end{bmatrix} = \begin{bmatrix} 7/5\\ 14/5 \end{bmatrix} \]</li>
-        <li><span class="step-t">ระยะทาง</span>
-        \[ \vec{b} - \hat{b} = \begin{bmatrix} -2/5\\ 1/5 \end{bmatrix}, \qquad \operatorname{dist}(\vec{b}, \operatorname{Col} A) = \sqrt{\tfrac45 + \tfrac15} = \frac{\sqrt{5}}{5} \]</li>
-        <li><span class="step-t">เชื่อมโยง</span> ระยะทางนี้คือ \(\|\vec{b} - A\hat{x}\|\) น้อยที่สุด — ระบบ \(A\vec{x} = \vec{b}\) ไม่มีผลเฉลยจริง (เพราะ \((1,3)^T\) ไม่เป็นสัดส่วนกับ \((1,2)^T\)) แต่มีผลเฉลยกำลังสองน้อยสุดที่ทำให้พลาดเพียง \(\tfrac{\sqrt{5}}{5}\)</li>
+        <li><span class="step-t">ระยะทาง</span> ลบทีละช่องโดยเติมตัวส่วนร่วม 5: \(1 - \tfrac75 = \tfrac55 - \tfrac75 = -\tfrac25\), \(3 - \tfrac{14}5 = \tfrac{15}5 - \tfrac{14}5 = \tfrac15\) ยกกำลังสองรวม \(\tfrac4{25} + \tfrac1{25} = \tfrac5{25}\) แล้วถอดรากทั้งเศษและส่วน \(\sqrt{\tfrac5{25}} = \tfrac{\sqrt5}{\sqrt{25}} = \tfrac{\sqrt5}{5}\)
+        \[ \vec{b} - \hat{b} = \begin{bmatrix} -2/5\\ 1/5 \end{bmatrix}, \qquad \operatorname{dist}(\vec{b}, \operatorname{Col} A) = \sqrt{\tfrac4{25} + \tfrac1{25}} = \sqrt{\tfrac5{25}} = \frac{\sqrt{5}}{5} \]</li>
+        <li><span class="step-t">เชื่อมโยง</span> ระยะทางนี้คือ \(\|\vec{b} - A\hat{x}\|\) น้อยที่สุด — ระบบ \(A\vec{x} = \vec{b}\) ไม่มีผลเฉลยจริง (เพราะ \((1,3)^T\) ไม่เป็นสัดส่วนกับ \((1,2)^T\) — ถ้าเป็นผลเฉลยจะต้องมี \(x\) ที่ทำให้ \(x(1,2)^T = (1,3)^T\) แต่ช่องแรกบอก \(x = 1\) ช่องสองบอก \(x = \tfrac32\) ขัดกัน) แต่มีผลเฉลยกำลังสองน้อยสุดที่ทำให้พลาดเพียง \(\tfrac{\sqrt{5}}{5}\) — <strong>สรุปคำตอบ:</strong> \(\operatorname{dist}(\vec{b}, \operatorname{Col} A) = \tfrac{\sqrt5}{5}\)</li>
       </ol>
       <div class="verify"><span class="lbl">ตรวจคำตอบ:</span> \((-\tfrac25, \tfrac15)^T\cdot(1,2)^T = -\tfrac25 + \tfrac25 = 0\) ✓</div>
     </div>
@@ -176,12 +179,12 @@ page: ch4-3.html
     </div>
     <details class="hint"><summary>คำใบ้</summary><div class="hint-body">\(\hat{y} = \tfrac{\vec{y}\cdot\vec{u}}{\vec{u}\cdot\vec{u}}\vec{u} = \tfrac{3}{3}\vec{u} = \vec{u}\)</div></details>
     <details class="sol"><summary>แนวคิดและเฉลยแบบละเอียด</summary><div class="sol-body">
-      <p><strong>แนวคิด:</strong> ฉายบนเวกเตอร์เดียว</p>
+      <p><strong>แนวคิด:</strong> ฉายบนเวกเตอร์เดียว — กลยุทธ์: \(H\) เป็นเพียงเส้นตรง (แผ่ด้วยเวกเตอร์ตัวเดียว) การประมาณที่ดีสุดจึงเป็นแค่การฉายด้วยสูตรน้ำหนักตัวเดียว \(\hat{y} = \tfrac{\vec{y}\cdot\vec{u}}{\vec{u}\cdot\vec{u}}\vec{u}\) แล้วระยะทางคือความยาวของส่วนที่เหลือ</p>
       <ol class="steps">
-        <li><span class="step-t">น้ำหนัก</span> \(\vec{y}\cdot\vec{u} = 3\), \(\vec{u}\cdot\vec{u} = 3\) → น้ำหนัก = 1</li>
-        <li><span class="step-t">การฉายและระยะทาง</span>
+        <li><span class="step-t">น้ำหนัก</span> คิดผลคูณจุดทีละตัว: เศษ \(\vec{y}\cdot\vec{u} = 2(1) + 0(1) + 1(1) = 2 + 0 + 1 = 3\) และส่วน \(\vec{u}\cdot\vec{u} = 1^2 + 1^2 + 1^2 = 3\) (ความยาวกำลังสองของเวกเตอร์ที่สมาชิกล้วน 1) น้ำหนัก = \(\tfrac33 = 1\) — น้ำหนักเป็น 1 แปลว่า \(\vec{y}\) มีองค์ประกอบบนทิศ \(\vec{u}\) พอดีหนึ่งหน่วยของ \(\vec{u}\)</li>
+        <li><span class="step-t">การฉายและระยะทาง</span> น้ำหนัก 1 คูณ \(\vec{u}\) ได้ตัวมันเอง \(\hat{y} = \vec{u} = \begin{bmatrix} 1\\ 1\\ 1 \end{bmatrix}\) แล้วลบทีละช่องหาส่วนที่เหลือ: \(2 - 1 = 1\), \(0 - 1 = -1\), \(1 - 1 = 0\) ความยาวจาก \(1^2 + (-1)^2 + 0^2 = 2\) ซึ่ง 2 ไม่มีตัวประกอบกำลังสองสมบูรณ์ จึงคงเป็น \(\sqrt2\)
         \[ \hat{y} = \vec{u} = \begin{bmatrix} 1\\ 1\\ 1 \end{bmatrix}, \qquad \vec{y} - \hat{y} = \begin{bmatrix} 1\\ -1\\ 0 \end{bmatrix}, \qquad \operatorname{dist}(\vec{y}, H) = \sqrt{2} \]</li>
-        <li><span class="step-t">ตรวจคำตอบ</span> \((1,-1,0)^T\cdot(1,1,1)^T = 0\) ✓</li>
+        <li><span class="step-t">ตรวจคำตอบ</span> \((1,-1,0)^T\cdot(1,1,1)^T = 1 - 1 + 0 = 0\) ✓ เศษตกค้างตั้งฉากกับฐานหลักจริง (สมบัติของการฉาย) — <strong>สรุปคำตอบ:</strong> การประมาณที่ดีสุดคือ \(\hat{y} = (1,1,1)^T\) และ \(\operatorname{dist}(\vec{y}, H) = \sqrt2\)</li>
       </ol>
     </div></details>
   </article>
@@ -196,13 +199,13 @@ page: ch4-3.html
     </div>
     <details class="hint"><summary>คำใบ้</summary><div class="hint-body">\(A^TA = \begin{bmatrix} 3 & 6\\ 6 & 14 \end{bmatrix}\), \(A^T\vec{b} = \begin{bmatrix} 10\\ 23 \end{bmatrix}\) / \(\hat{x} = (\tfrac13, \tfrac32)^T\)</div></details>
     <details class="sol"><summary>แนวคิดและเฉลยแบบละเอียด</summary><div class="sol-body">
-      <p><strong>แนวคิด:</strong> สมการปรกติ</p>
+      <p><strong>แนวคิด:</strong> สมการปรกติ — กลยุทธ์: ระบบเดิม 3 สมการ 2 ตัวแปรไม่มีผลเฉลยพอดี (สามจุด \((1,2), (2,3), (3,5)\) ไม่เรียงเส้นตรง) จึงแก้สมการปรกติ \(A^TA\hat{x} = A^T\vec{b}\) แทน แล้วปิดท้ายด้วยการเช็กว่าเศษตกค้างตั้งฉากกับหลักของ \(A\) ทุกหลัก (สมบัติที่ผลเฉลยกำลังสองน้อยสุดต้องมี)</p>
       <ol class="steps">
-        <li><span class="step-t">สร้างและแก้</span>
+        <li><span class="step-t">สร้างและแก้</span> หลักของ \(A\) คือ \((1,1,1)^T\) กับ \((1,2,3)^T\): \(A^TA = \begin{bmatrix} 3 & 6\\ 6 & 14 \end{bmatrix}\) (ช่อง (1,2) = \(1+2+3 = 6\), ช่อง (2,2) = \(1 + 4 + 9 = 14\)) และ \(A^T\vec{b} = \begin{bmatrix} 10\\ 23 \end{bmatrix}\) (ช่องสอง = \(1(2) + 2(3) + 3(5) = 2 + 6 + 15 = 23\)) ตัดตัวแปรด้วย \(2\times(1) - (2)\): พจน์ \(c_1\) หักกันหาย \((6c_1 + 12c_2) - (6c_1 + 14c_2) = -2c_2\) และ \(2(10) - 23 = 20 - 23 = -3\) จึงได้ \(-2c_2 = -3\) → \(c_2 = \tfrac32\) (ลบหารลบได้บวก) แทนกลับ: \(3c_1 = 10 - 6(\tfrac32) = 10 - 9 = 1\) → \(c_1 = \tfrac13\)
         \[ \begin{aligned} 3c_1 + 6c_2 &= 10\\ 6c_1 + 14c_2 &= 23 \end{aligned} \;\xrightarrow{\;2\times(1) - (2)\;}\; -2c_2 = -3 \;\Longrightarrow\; c_2 = \tfrac32,\; c_1 = \tfrac13 \;\Longrightarrow\; \hat{x} = \begin{bmatrix} 1/3\\ 3/2 \end{bmatrix} \]</li>
-        <li><span class="step-t">เศษตกค้าง</span>
+        <li><span class="step-t">เศษตกค้าง</span> ค่าที่เส้นทำนายทีละแถว (แถวของ \(A\) = \(1\cdot c_1 + x\cdot c_2\)): ที่ \(x=1\): \(\tfrac13 + \tfrac32 = \tfrac26 + \tfrac96 = \tfrac{11}6\); ที่ \(x=2\): \(\tfrac13 + 3 = \tfrac{10}3\); ที่ \(x=3\): \(\tfrac13 + \tfrac92 = \tfrac26 + \tfrac{27}6 = \tfrac{29}6\) เศษตกค้างลบทีละช่อง (เติมตัวส่วนร่วม): \(2 - \tfrac{11}6 = \tfrac{12}6 - \tfrac{11}6 = \tfrac16\), \(3 - \tfrac{10}3 = \tfrac93 - \tfrac{10}3 = -\tfrac13\), \(5 - \tfrac{29}6 = \tfrac{30}6 - \tfrac{29}6 = \tfrac16\)
         \[ A\hat{x} = \begin{bmatrix} 11/6\\ 10/3\\ 29/6 \end{bmatrix}, \qquad \vec{b} - A\hat{x} = \begin{bmatrix} 1/6\\ -1/3\\ 1/6 \end{bmatrix} \]</li>
-        <li><span class="step-t">ตรวจคำตอบ</span> \((\tfrac16, -\tfrac13, \tfrac16)\cdot(1,1,1) = \tfrac16 - \tfrac13 + \tfrac16 = 0\) ✓ และ \((\tfrac16)(1) + (-\tfrac13)(2) + \tfrac16(3) = \tfrac16 - \tfrac23 + \tfrac12 = 0\) ✓ และความผิดพลาด = \(\sqrt{\tfrac{1}{36} + \tfrac19 + \tfrac{1}{36}} = \sqrt{\tfrac{6}{36}} = \tfrac{\sqrt6}{6}\) ✓</li>
+        <li><span class="step-t">ตรวจคำตอบ</span> จุดกับหลักแรก \((1,1,1)^T\): \(\tfrac16 - \tfrac13 + \tfrac16 = \tfrac{1-2+1}{6} = 0\) ✓ จุดกับหลักสอง \((1,2,3)^T\): \((\tfrac16)(1) + (-\tfrac13)(2) + \tfrac16(3) = \tfrac16 - \tfrac23 + \tfrac12 = \tfrac{1-4+3}{6} = 0\) ✓ (จัดตัวส่วนร่วม 6 ก่อนรวม) และความผิดพลาด = \(\sqrt{\tfrac{1}{36} + \tfrac{4}{36} + \tfrac{1}{36}} = \sqrt{\tfrac{6}{36}} = \tfrac{\sqrt6}{6}\) ✓ — <strong>สรุปคำตอบ:</strong> \(\hat{x} = (\tfrac13, \tfrac32)^T\) เศษตกค้างตั้งฉากกับหลักของ \(A\) ทุกหลักตามที่ต้องมี</li>
       </ol>
     </div></details>
   </article>
@@ -215,15 +218,15 @@ page: ch4-3.html
     </div>
     <details class="hint"><summary>คำใบ้</summary><div class="hint-body">\(A^T\vec{b} = (7, 10)^T\) — แก้ \(\begin{bmatrix} 3 & 3\\ 3 & 5 \end{bmatrix}\hat{x} = \begin{bmatrix} 7\\ 10 \end{bmatrix}\) ได้ \(c_1 = \tfrac32, c_0 = \tfrac56\)</div></details>
     <details class="sol"><summary>แนวคิดและเฉลยแบบละเอียด</summary><div class="sol-body">
-      <p><strong>แนวคิด:</strong> ท่าฟิตเส้นตรงมาตรฐาน</p>
+      <p><strong>แนวคิด:</strong> ท่าฟิตเส้นตรงมาตรฐาน — กลยุทธ์: จุดข้อมูลสามจุด → สมการสามบรรทัด → ไม่ต้องกัน → สร้างสมการปรกติ 2×2 → ตัดตัวแปรด้วยการลบสมการ → แทนกลับหาค่าที่เหลือ แล้วจบด้วยความผิดพลาดจากเศษตกค้าง</p>
       <ol class="steps">
-        <li><span class="step-t">ระบบและสมการปรกติ</span>
+        <li><span class="step-t">ระบบและสมการปรกติ</span> แทนจุด \((0,1), (1,2), (2,4)\) ลงใน \(c_0 + c_1x = y\): จุดแรกให้แถว \((1, 0)\) คู่กับ 1, จุดที่สองให้แถว \((1, 1)\) คู่กับ 2, จุดที่สามให้แถว \((1, 2)\) คู่กับ 4 สร้างสมการปรกติจากผลรวม: \(\sum 1 = 3\) (สามจุด), \(\sum x_i = 0+1+2 = 3\), \(\sum x_i^2 = 0+1+4 = 5\), \(\sum y_i = 1+2+4 = 7\), \(\sum x_iy_i = 0(1) + 1(2) + 2(4) = 0+2+8 = 10\)
         \[ \begin{bmatrix} 1 & 0\\ 1 & 1\\ 1 & 2 \end{bmatrix}\begin{bmatrix} c_0\\ c_1 \end{bmatrix} = \begin{bmatrix} 1\\ 2\\ 4 \end{bmatrix} \;\Longrightarrow\; A^TA = \begin{bmatrix} 3 & 3\\ 3 & 5 \end{bmatrix}, \quad A^T\vec{b} = \begin{bmatrix} 7\\ 10 \end{bmatrix} \]</li>
-        <li><span class="step-t">แก้</span> \(2c_1 = 3 \Rightarrow c_1 = \tfrac32\); \(3c_0 = 7 - \tfrac92 = \tfrac52 \Rightarrow c_0 = \tfrac56\)
-        \[ y = \frac{5}{6} + \frac{3}{2}x \]</li>
-        <li><span class="step-t">ความผิดพลาด</span>
+        <li><span class="step-t">แก้</span> ตัดตัวแปร: สมการสองลบสมการหนึ่ง → \(2c_1 = 10 - 7 = 3\) → \(c_1 = \tfrac32\) (สามคูณครึ่ง) แทนกลับในสมการแรก: \(3c_0 = 7 - 3(\tfrac32) = 7 - \tfrac92 = \tfrac{14}2 - \tfrac92 = \tfrac52\) → \(c_0 = \tfrac56\) (หารทั้งสองข้างด้วย 3 จึงตัวส่วนเป็น 6)
+        \[ 2c_1 = 3 \Rightarrow c_1 = \tfrac32;\; 3c_0 = 7 - \tfrac92 = \tfrac52 \Rightarrow c_0 = \tfrac56 \qquad\Longrightarrow\qquad y = \frac{5}{6} + \frac{3}{2}x \]</li>
+        <li><span class="step-t">ความผิดพลาด</span> ค่าที่เส้นทำนายแต่ละ \(x\): ที่ \(x=0\): \(\tfrac56\); ที่ \(x=1\): \(\tfrac56 + \tfrac32 = \tfrac56 + \tfrac96 = \tfrac{14}6 = \tfrac73\); ที่ \(x=2\): \(\tfrac56 + 3 = \tfrac56 + \tfrac{18}6 = \tfrac{23}6\) เศษตกค้าง: \(1 - \tfrac56 = \tfrac16\), \(2 - \tfrac73 = \tfrac63 - \tfrac73 = -\tfrac13\), \(4 - \tfrac{23}6 = \tfrac{24}6 - \tfrac{23}6 = \tfrac16\) รวมกำลังสอง: \(\tfrac1{36} + \tfrac4{36} + \tfrac1{36} = \tfrac6{36}\) ถอดราก \(\sqrt{\tfrac6{36}} = \tfrac{\sqrt6}{6}\) (ถอดรากเศษและส่วนแยกกัน เพราะ \(\sqrt{36} = 6\))
         \[ A\hat{x} = \begin{bmatrix} 5/6\\ 7/3\\ 23/6 \end{bmatrix}, \quad \vec{b} - A\hat{x} = \begin{bmatrix} 1/6\\ -1/3\\ 1/6 \end{bmatrix}, \quad \|\vec{b} - A\hat{x}\| = \sqrt{\tfrac{1}{36} + \tfrac{4}{36} + \tfrac{1}{36}} = \frac{\sqrt{6}}{6} \]</li>
-        <li><span class="step-t">ตรวจคำตอบ</span> เศษตกค้าง \((\tfrac16, -\tfrac13, \tfrac16)^T\) ตั้งฉากกับหลักทั้งสอง ✓ (เหมือนข้อ 2 เพราะเศษเดียวกัน — บังเอิญจากข้อมูลที่เลือก)</li>
+        <li><span class="step-t">ตรวจคำตอบ</span> เศษตกค้าง \((\tfrac16, -\tfrac13, \tfrac16)^T\) ตั้งฉากกับหลักทั้งสอง: กับ \((1,1,1)^T\) รวมได้ \(\tfrac{1-2+1}{6} = 0\) ✓ กับ \((0,1,2)^T\) รวมได้ \(\tfrac{0-2+2}{6} = 0\) ✓ — <strong>สรุปคำตอบ:</strong> เส้นตรง \(y = \tfrac56 + \tfrac32x\) ความผิดพลาด \(\tfrac{\sqrt6}{6}\) (เหมือนเศษของข้อ 2 เพราะเศษเดียวกัน — บังเอิญจากข้อมูลที่เลือก)</li>
       </ol>
     </div></details>
   </article>
@@ -236,13 +239,13 @@ page: ch4-3.html
     </div>
     <details class="hint"><summary>คำใบ้</summary><div class="hint-body">\(A^TA = \begin{bmatrix} 2 & 1\\ 1 & 2 \end{bmatrix}\), \(A^T\vec{b} = \begin{bmatrix} 2\\ 2 \end{bmatrix}\) → \(\hat{x} = (\tfrac23, \tfrac23)^T\)</div></details>
     <details class="sol"><summary>แนวคิดและเฉลยแบบละเอียด</summary><div class="sol-body">
-      <p><strong>แนวคิด:</strong> distance = \(\|\vec{b} - A\hat{x}\|\)</p>
+      <p><strong>แนวคิด:</strong> distance = \(\|\vec{b} - A\hat{x}\|\) — กลยุทธ์: แม้โจทย์ถามแค่ "ระยะทาง" ก็ยังใช้สมการปรกติได้สบาย เพราะ \(A\hat{x}\) คือจุดใน \(\operatorname{Col} A\) ที่ใกล้ \(\vec{b}\) ที่สุด ระยะทางจึงคือความยาวของ \(\vec{b} - A\hat{x}\) และจากนั้นใช้สมบัติ "ระยะ = 0 ⇔ ต้องกัน" ตอบคำถามท้ายข้อ</p>
       <ol class="steps">
-        <li><span class="step-t">สมการปรกติและเฉลย</span>
+        <li><span class="step-t">สมการปรกติและเฉลย</span> หลักของ \(A\) คือ \((1,0,1)^T\) กับ \((0,1,1)^T\): ช่อง (1,1) = \(1 + 0 + 1 = 2\), ช่อง (1,2) = \(0 + 0 + 1 = 1\), ช่อง (2,2) = \(0 + 1 + 1 = 2\) และ \(A^T\vec{b}\): หลักแรกจุดกับ \(\vec{b}\) = \(1 + 0 + 1 = 2\), หลักสอง = \(0 + 1 + 1 = 2\) แก้ระบบ (สมมาตรกัน) โดยลบกันก่อน: \((2a + b) - (a + 2b) = a - b = 0\) → \(a = b\) แล้วแทนกลับ: \(2a + a = 3a = 2\) → \(a = b = \tfrac23\)
         \[ \begin{aligned} 2a + b &= 2\\ a + 2b &= 2 \end{aligned} \;\Longrightarrow\; a = b = \frac{2}{3} \;\Longrightarrow\; \hat{x} = \begin{bmatrix} 2/3\\ 2/3 \end{bmatrix} \]</li>
-        <li><span class="step-t">ระยะทาง</span>
+        <li><span class="step-t">ระยะทาง</span> คำนวณ \(A\hat{x}\) ทีละแถว (แถวของ \(A\) คือการรวมเชิงเส้นของ \(\hat{x}\)): แถวแรก \(1(\tfrac23) + 0(\tfrac23) = \tfrac23\), แถวกลาง \(0(\tfrac23) + 1(\tfrac23) = \tfrac23\), แถวสุดท้าย \(1(\tfrac23) + 1(\tfrac23) = \tfrac43\) ลบทีละช่อง (ตัวส่วนร่วม 3): \(1 - \tfrac23 = \tfrac13\), \(1 - \tfrac23 = \tfrac13\), \(1 - \tfrac43 = \tfrac33 - \tfrac43 = -\tfrac13\) รวมกำลังสอง \(\tfrac39 + \tfrac39 + \tfrac39 = \tfrac99 = \tfrac13\) ถอดราก \(\sqrt{\tfrac13} = \tfrac{\sqrt3}{3}\) (คูณตัวส่วนเข้าไปในราก: \(\tfrac{\sqrt1}{\sqrt3} = \tfrac{\sqrt3}{3}\))
         \[ A\hat{x} = \begin{bmatrix} 2/3\\ 2/3\\ 4/3 \end{bmatrix}, \quad \vec{b} - A\hat{x} = \begin{bmatrix} 1/3\\ 1/3\\ -1/3 \end{bmatrix}, \quad \operatorname{dist} = \sqrt{\tfrac39 + \tfrac39 + \tfrac39} = \frac{\sqrt{3}}{3} \]</li>
-        <li><span class="step-t">ตรวจคำตอบและข้อสรุป</span> \((\tfrac13, \tfrac13, -\tfrac13)^T\) ตั้งฉากกับ \((1,0,1)^T\) ✓ และ \((0,1,1)^T\) ✓ — ระบบไม่ต้องกัน (ถ้าต้องกัน ระยะทางจะเป็น 0 เพราะ \(\vec{b} \in \operatorname{Col} A\); ที่จริง \(\operatorname{Col} A = \{(a, b, a+b)\}\) และ \((1,1,1)\) มี \(1 + 1 \ne 1\))</li>
+        <li><span class="step-t">ตรวจคำตอบและข้อสรุป</span> เศษตกค้างต้องตั้งฉากกับหลักทั้งสอง: \((\tfrac13, \tfrac13, -\tfrac13)^T\cdot(1,0,1)^T = \tfrac13 + 0 - \tfrac13 = 0\) ✓ และ \((\tfrac13, \tfrac13, -\tfrac13)^T\cdot(0,1,1)^T = 0 + \tfrac13 - \tfrac13 = 0\) ✓ — ระบบไม่ต้องกัน (เหตุผล: ถ้าต้องกัน \(\vec{b}\) จะอยู่ใน \(\operatorname{Col} A\) แล้วระยะทางต้องเป็น 0 แต่ที่ได้คือ \(\tfrac{\sqrt3}3 \neq 0\); ดูตรง ๆ ก็ได้: \(\operatorname{Col} A = \{(a, b, a+b)\}\) ทุกเวกเตอร์มีช่องที่สาม = ช่องแรก + ช่องสอง แต่ \(\vec{b} = (1,1,1)\) มี \(1 + 1 \neq 1\)) — <strong>สรุปคำตอบ:</strong> \(\operatorname{dist}(\vec{b}, \operatorname{Col} A) = \tfrac{\sqrt3}{3}\) และระบบไม่ต้องกัน</li>
       </ol>
     </div></details>
   </article>
@@ -257,16 +260,16 @@ page: ch4-3.html
     </div>
     <details class="hint"><summary>คำใบ้</summary><div class="hint-body">\(A^TA = \begin{bmatrix} 2 & 1 & 1\\ 1 & 2 & 1\\ 1 & 1 & 2 \end{bmatrix}\), \(A^T\vec{b} = (7, 8, 9)^T\) / ลบสมการคู่กันจะได้ \(a = b - 1, b = c - 1\)</div></details>
     <details class="sol"><summary>แนวคิดและเฉลยแบบละเอียด</summary><div class="sol-body">
-      <p><strong>แนวคิด:</strong> สมการปรกติ 3 ตัวแปร — ใช้การหักลบสมการ</p>
+      <p><strong>แนวคิด:</strong> สมการปรกติ 3 ตัวแปร — ใช้การหักลบสมการ — กลยุทธ์: ระบบ 3×3 นี้หลักของ \(A\) ไม่มีใครซ้ำใคร แต่สมการปรกติที่ได้มีตัวถ่วง \(2a, 2b, 2c\) ทำให้การหักลบสมการคู่กัน (ลบสองสมการที่อยู่ติดกัน) ทำให้ตัวแปรตัวหนึ่งหายไปทั้งคู่ เหลือความสัมพันธ์ง่าย ๆ ระหว่างตัวแปรสองตัว ไล่จนเหลือตัวแปรเดียวแล้วแทนกลับ</p>
       <ol class="steps">
-        <li><span class="step-t">สมการปรกติ</span>
+        <li><span class="step-t">สมการปรกติ</span> หลักของ \(A\) คือ \((1,0,0,1)^T\), \((0,1,0,1)^T\), \((0,0,1,1)^T\) — ช่อง (i,i) ของ \(A^TA\) = จำนวน 1 ในหลัก = 2 ทุกหลัก, ช่องอื่น = หลักคู่ไหนแชร์ 1 กันที่แถวที่ 4 = 1 ส่วน \(A^T\vec{b}\): หลักแรกจุดกับ \(\vec{b}\) = \(3(1) + 4(1) = 7\), หลักสอง = \(4 + 4 = 8\), หลักสาม = \(5 + 4 = 9\)
         \[ \begin{aligned} 2a + b + c &= 7\\ a + 2b + c &= 8\\ a + b + 2c &= 9 \end{aligned} \]</li>
-        <li><span class="step-t">หักลบสมการ</span> (1)−(2): \(a - b = -1 \Rightarrow a = b - 1\); (2)−(3): \(b - c = -1 \Rightarrow b = c - 1\) ดังนั้น \(a = c - 2\) แทนใน (2): \((c-2) + 2(c-1) + c = 8 \Rightarrow 4c - 4 = 8 \Rightarrow c = 3\) → \(b = 2,\; a = 1\)</li>
-        <li><span class="step-t">ตรวจ \(\hat{x} = (1, 2, 3)^T\)</span>
+        <li><span class="step-t">หักลบสมการ</span> (1)−(2): \((2a + b + c) - (a + 2b + c) = a - b\) และ \(7 - 8 = -1\) ได้ \(a - b = -1 \Rightarrow a = b - 1\) (2)−(3): \(b - c = 8 - 9 = -1 \Rightarrow b = c - 1\) แล้วเชื่อมต่อกัน: \(a = (c - 1) - 1 = c - 2\) แทนทั้งหมดใน (2): \((c-2) + 2(c-1) + c = 8\) → รวมพจน์ \(c\): \(c + 2c + c = 4c\) และค่าคงที่ \(-2 - 2 = -4\) ได้ \(4c - 4 = 8\) → \(4c = 12\) → \(c = 3\) → \(b = 3 - 1 = 2\), \(a = 3 - 2 = 1\)</li>
+        <li><span class="step-t">ตรวจ \(\hat{x} = (1, 2, 3)^T\)</span> คูณ \(A^TA\hat{x}\) ทีละแถว (แถวที่ \(i\) จุดกับ \(\hat{x}\)): แถวแรก \(2(1) + 1(2) + 1(3) = 2 + 2 + 3 = 7\) ตรงกับข้างขวา, แถวกลาง \(1(1) + 2(2) + 1(3) = 1 + 4 + 3 = 8\) ✓, แถวสุดท้าย \(1(1) + 1(2) + 2(3) = 1 + 2 + 6 = 9\) ✓
         \[ A^TA\hat{x} = \begin{bmatrix} 2+2+3\\ 1+4+3\\ 1+2+6 \end{bmatrix} = \begin{bmatrix} 7\\ 8\\ 9 \end{bmatrix} = A^T\vec{b} \;\checkmark \;\Longrightarrow\; \hat{x} = \begin{bmatrix} 1\\ 2\\ 3 \end{bmatrix} \]</li>
-        <li><span class="step-t">ความผิดพลาด</span>
+        <li><span class="step-t">ความผิดพลาด</span> \(A\hat{x}\) = ผลรวมของหลักคูณเนื้อคู่: \(1\cdot\text{หลัก1} + 2\cdot\text{หลัก2} + 3\cdot\text{หลัก3} = (1, 2, 3, 1+2+3)^T = (1, 2, 3, 6)^T\) ลบกับ \(\vec{b}\) ทีละช่อง: \(3-1 = 2\), \(4-2 = 2\), \(5-3 = 2\), \(4-6 = -2\) รวมกำลังสอง \(4 + 4 + 4 + 4 = 16\) → \(\sqrt{16} = 4\)
         \[ A\hat{x} = \begin{bmatrix} 1\\ 2\\ 3\\ 6 \end{bmatrix}, \quad \vec{b} - A\hat{x} = \begin{bmatrix} 2\\ 2\\ 2\\ -2 \end{bmatrix}, \quad \|\vec{b} - A\hat{x}\| = \sqrt{4+4+4+4} = 4 \]</li>
-        <li><span class="step-t">ตรวจคำตอบ</span> \((2,2,2,-2)^T\) ตั้งฉากกับหลักของ \(A\) ทุกหลัก: \((2,2,2,-2)\cdot(1,0,0,1) = 0\) ✓ (เช่นเดียวกันกับอีกสองหลัก) ✓</li>
+        <li><span class="step-t">ตรวจคำตอบ</span> \((2,2,2,-2)^T\) ตั้งฉากกับหลักของ \(A\) ทุกหลัก: \((2,2,2,-2)\cdot(1,0,0,1) = 2 + 0 + 0 - 2 = 0\) ✓ (เช่นเดียวกันกับอีกสองหลัก) ✓ — <strong>สรุปคำตอบ:</strong> \(\hat{x} = (1, 2, 3)^T\) และ \(\|\vec{b} - A\hat{x}\| = 4\)</li>
       </ol>
     </div></details>
   </article>
@@ -279,15 +282,15 @@ page: ch4-3.html
     </div>
     <details class="hint"><summary>คำใบ้</summary><div class="hint-body">\(A^TA = \begin{bmatrix} 3 & 6\\ 6 & 14 \end{bmatrix}\), \(A^T\vec{b} = \begin{bmatrix} 12\\ 27 \end{bmatrix}\) → \(c_1 = \tfrac32, c_0 = 1\) / คาดการณ์: \(y(4) = 7\)</div></details>
     <details class="sol"><summary>แนวคิดและเฉลยแบบละเอียด</summary><div class="sol-body">
-      <p><strong>แนวคิด:</strong> ท่าฟิตเส้นตรง + ใช้เส้นคาดการณ์</p>
+      <p><strong>แนวคิด:</strong> ท่าฟิตเส้นตรง + ใช้เส้นคาดการณ์ — กลยุทธ์: หาเส้น \(y = c_0 + c_1x\) ด้วยสมการปรกติก่อน (เหมือนข้อ 3) แล้ว "คาดการณ์" ก็แค่เอา \(x = 4\) ไปแทนในสมการเส้น ส่วนความผิดพลาดวัดจากเศษตกค้างของจุดข้อมูลเดิม</p>
       <ol class="steps">
-        <li><span class="step-t">ระบบและสมการปรกติ</span>
+        <li><span class="step-t">ระบบและสมการปรกติ</span> จุด \((1,2), (2,5), (3,5)\) ให้แถว \((1,1)\) คู่กับ 2, \((1,2)\) คู่กับ 5, \((1,3)\) คู่กับ 5 (คอลัมน์แรกล้วน 1 เพราะ \(c_0\) คูณด้วย 1) สมการปรกติจากผลรวม: \(\sum 1 = 3\), \(\sum x_i = 1+2+3 = 6\), \(\sum x_i^2 = 1+4+9 = 14\), \(\sum y_i = 2+5+5 = 12\), \(\sum x_iy_i = 1(2) + 2(5) + 3(5) = 2 + 10 + 15 = 27\)
         \[ \begin{bmatrix} 1 & 1\\ 1 & 2\\ 1 & 3 \end{bmatrix}\begin{bmatrix} c_0\\ c_1 \end{bmatrix} = \begin{bmatrix} 2\\ 5\\ 5 \end{bmatrix} \;\Longrightarrow\; \begin{aligned} 3c_0 + 6c_1 &= 12\\ 6c_0 + 14c_1 &= 27 \end{aligned} \]</li>
-        <li><span class="step-t">แก้</span> \(2\times(1) - (2)\): \(-2c_1 = -3 \Rightarrow c_1 = \tfrac32\); \(c_0 = 4 - 3 = 1\)
+        <li><span class="step-t">แก้</span> ตัดตัวแปรด้วย \(2\times(1) - (2)\): \((6c_0 + 12c_1) - (6c_0 + 14c_1) = -2c_1\) และ \(2(12) - 27 = 24 - 27 = -3\) → \(-2c_1 = -3\) → \(c_1 = \tfrac32\) (ลบหารลบได้บวก) แทนกลับใน (1): \(3c_0 = 12 - 6(\tfrac32) = 12 - 9 = 3\) → \(c_0 = 1\) — จะสั้นกว่าก็ได้: \(c_0 = 4 - 2c_1 = 4 - 3 = 1\) (หารสมการแรกด้วย 3 ก่อน)
         \[ y = 1 + \frac{3}{2}x \]</li>
-        <li><span class="step-t">คาดการณ์และความผิดพลาด</span> ที่ \(x = 4\): \(y = 1 + 6 = 7\)
+        <li><span class="step-t">คาดการณ์และความผิดพลาด</span> คาดการณ์: แทน \(x = 4\) ลงในเส้น \(y = 1 + \tfrac32(4) = 1 + 6 = 7\) ค่าที่เส้นทำนายจุดเดิม: ที่ \(x=1\): \(1 + \tfrac32 = \tfrac52\); ที่ \(x=2\): \(1 + 3 = 4\); ที่ \(x=3\): \(1 + \tfrac92 = \tfrac{11}2\) เศษตกค้าง: \(2 - \tfrac52 = -\tfrac12\), \(5 - 4 = 1\), \(5 - \tfrac{11}2 = \tfrac{10}2 - \tfrac{11}2 = -\tfrac12\) รวมกำลังสอง: \(\tfrac14 + 1 + \tfrac14 = \tfrac14 + \tfrac44 + \tfrac14 = \tfrac64 = \tfrac32\) ถอดราก: \(\sqrt{\tfrac32} = \tfrac{\sqrt3}{\sqrt2} = \tfrac{\sqrt3\cdot\sqrt2}{2} = \tfrac{\sqrt6}{2}\) (เทคนิคทำให้ตัวส่วนไม่มีราก: คูณ \(\tfrac{\sqrt2}{\sqrt2}\))
         \[ A\hat{x} = \begin{bmatrix} 5/2\\ 4\\ 11/2 \end{bmatrix}, \quad \vec{b} - A\hat{x} = \begin{bmatrix} -1/2\\ 1\\ -1/2 \end{bmatrix}, \quad \text{error} = \sqrt{\tfrac14 + 1 + \tfrac14} = \sqrt{\tfrac32} = \frac{\sqrt{6}}{2} \]</li>
-        <li><span class="step-t">ตรวจคำตอบ</span> \((-\tfrac12, 1, -\tfrac12)^T\cdot(1,1,1)^T = 0\) ✓ และ \((-\tfrac12)(1) + 1(2) + (-\tfrac12)(3) = 0\) ✓</li>
+        <li><span class="step-t">ตรวจคำตอบ</span> \((-\tfrac12, 1, -\tfrac12)^T\cdot(1,1,1)^T = -\tfrac12 + 1 - \tfrac12 = 0\) ✓ และ \((-\tfrac12)(1) + 1(2) + (-\tfrac12)(3) = -\tfrac12 + 2 - \tfrac32 = 0\) ✓ — <strong>สรุปคำตอบ:</strong> เส้นตรง \(y = 1 + \tfrac32x\) ค่าคาดการณ์ที่ \(x = 4\) คือ \(y = 7\) และความผิดพลาด \(\tfrac{\sqrt6}2\)</li>
       </ol>
     </div></details>
   </article>

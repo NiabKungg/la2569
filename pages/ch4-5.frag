@@ -77,13 +77,13 @@ page: ch4-5.html
     <div class="ex-head"><span class="ex-badge">ตัวอย่าง 1</span><span class="tag easy">ง่าย</span><span class="ex-title">หาเมทริกซ์ของรูปแบบกำลังสอง</span></div>
     <div class="ex-body">
       <div class="ex-q">จงหาเมทริกซ์สมมาตร \(A\) ของรูปแบบกำลังสอง (ก) \(Q = 3x_1^2 + 6x_2^2 - 4x_1x_2\) &nbsp; (ข) \(Q = x_1x_2\)</div>
-      <div class="approach"><span class="lbl">แนวคิด</span> — กำลังสองลงทแยง / ไขว้หารสองกระจายสองข้าง</div>
+      <div class="approach"><span class="lbl">แนวคิด</span> — กำลังสองลงทแยง / ไขว้หารสองกระจายสองข้าง กลยุทธ์: จำที่มาของกฎ "หารสอง" ให้ขาด — เพราะในผลคูณ \(\vec{x}^TA\vec{x}\) พจน์ไขว้โผล่มา<em>สองครั้ง</em> (ทั้ง \(a_{12}x_1x_2\) และ \(a_{21}x_2x_1\) ซึ่งเท่ากันเพราะ \(A\) สมมาตร) สัมประสิทธิ์แต่ละช่องจึงต้องเป็นครึ่งหนึ่งของสัมประสิทธิ์ไขว้เดิม รวมกันค่อยกลับเป็นเท่าเดิม</div>
       <ol class="steps">
-        <li><span class="step-t">(ก)</span> กำลังสอง: \(3, 6\) ลงทแยง; ไขว้ \(-4x_1x_2\): หาร 2 ได้ \(-2\) →
+        <li><span class="step-t">(ก)</span> สัมประสิทธิ์กำลังสองลงทแยงตรง ๆ: จาก \(3x_1^2\) ได้ \(a_{11} = 3\), จาก \(6x_2^2\) ได้ \(a_{22} = 6\) ส่วนพจน์ไขว้ \(-4x_1x_2\): หารสองได้ \(-2\) ลงทั้งสองช่องนอกทแยง (\(a_{12} = a_{21} = -2\)) เพราะสองช่องนี้จะรวมพลังกันกลับเป็น \(-2 - 2 = -4\) ตอนคูณกลับ
         \[ A = \begin{bmatrix} 3 & -2\\ -2 & 6 \end{bmatrix} \]</li>
-        <li><span class="step-t">(ข)</span> ไม่มีกำลังสอง (ทแยง = 0); ไขว้ \(1\cdot x_1x_2\): หาร 2 ได้ \(\tfrac12\) →
+        <li><span class="step-t">(ข)</span> ไม่มีพจน์กำลังสองเลย → ทแยงเป็นศูนย์ทั้งคู่ (\(a_{11} = a_{22} = 0\)) ส่วนไขว้ \(x_1x_2\) มีสัมประสิทธิ์ \(1\) → หารสองได้ \(\tfrac12\) ลงสองช่อง
         \[ A = \begin{bmatrix} 0 & 1/2\\ 1/2 & 0 \end{bmatrix} \]</li>
-        <li><span class="step-t">ตรวจคำตอบ</span> คูณกลับ: \(\vec{x}^TA\vec{x} = 3x_1^2 + 6x_2^2 - 2x_1x_2 - 2x_2x_1 = 3x_1^2 + 6x_2^2 - 4x_1x_2\) ✓</li>
+        <li><span class="step-t">ตรวจคำตอบ</span> คูณกลับเพื่อยืนยัน — กระจาย \(\vec{x}^TA\vec{x} = a_{11}x_1^2 + a_{12}x_1x_2 + a_{21}x_2x_1 + a_{22}x_2^2\) ระวังว่าพจน์ไขว้มาสองพจน์และเท่ากัน: \(\vec{x}^TA\vec{x} = 3x_1^2 - 2x_1x_2 - 2x_2x_1 + 6x_2^2 = 3x_1^2 + 6x_2^2 - 4x_1x_2\) ✓ (เพราะ \(-2x_1x_2 - 2x_2x_1 = -4x_1x_2\)) — <strong>สรุป:</strong> (ก) \(A = \begin{bmatrix} 3 & -2\\ -2 & 6 \end{bmatrix}\), (ข) \(A = \begin{bmatrix} 0 & 1/2\\ 1/2 & 0 \end{bmatrix}\)</li>
       </ol>
     </div>
   </article>
@@ -92,16 +92,16 @@ page: ch4-5.html
     <div class="ex-head"><span class="ex-badge">ตัวอย่าง 2</span><span class="tag hard">ยาก</span><span class="ex-title">เปลี่ยนตัวแปรให้ไม่มีพจน์ไขว้ + จำแนก conic (ตัวอย่างคลาสสิกของตำรา)</span></div>
     <div class="ex-body">
       <div class="ex-q">ให้ \(Q(x_1, x_2) = 3x_1^2 + 6x_2^2 - 4x_1x_2\) จงหาการเปลี่ยนตัวแปร \(\vec{x} = P\vec{y}\) ซึ่งทำให้ \(Q\) ไม่มีพจน์ไขว้ แล้วบอกหน้าของกราฟ \(3x_1^2 + 6x_2^2 - 4x_1x_2 = 14\)</div>
-      <div class="approach"><span class="lbl">แนวคิด</span> — orthogonally diagonalize \(A\) → \(P, D\) → \(Q = \vec{y}^TD\vec{y}\) → อ่านหน้า conic และ definiteness</div>
+      <div class="approach"><span class="lbl">แนวคิด</span> — orthogonally diagonalize \(A\) → \(P, D\) → \(Q = \vec{y}^TD\vec{y}\) → อ่านหน้า conic และ definiteness กลยุทธ์: เปลี่ยนพิกัดให้แกนใหม่ชี้ตาม eigenvector พอดี เมื่อนั้นพจน์ไขว้จะดับหายไปเอง เหลือแต่กำลังสองที่คูณด้วยค่าลักษณะเฉพาะ ซึ่งอ่านเครื่องหมายและหน้ากราฟได้ทันที</div>
       <ol class="steps">
-        <li><span class="step-t">ค่าลักษณะเฉพาะของ \(A = \begin{bmatrix} 3 & -2\\ -2 & 6 \end{bmatrix}\)</span>
+        <li><span class="step-t">ค่าลักษณะเฉพาะของ \(A = \begin{bmatrix} 3 & -2\\ -2 & 6 \end{bmatrix}\)</span> กระจายด้วยกฎ 2×2: \((3-\lambda)(6-\lambda) - (-2)(-2) = 18 - 3\lambda - 6\lambda + \lambda^2 - 4\) (สังเกต \((-2)(-2) = 4\) ลบคูณลบได้บวก) รวมเป็น \(\lambda^2 - 9\lambda + 14\) แยกตัวประกอบ: หาสองจำนวนที่คูณได้ 14 และบวกได้ 9 คือ 7 กับ 2
         \[ \det(A - \lambda I_2) = (3-\lambda)(6-\lambda) - 4 = \lambda^2 - 9\lambda + 14 = (\lambda - 2)(\lambda - 7) = 0 \;\Longrightarrow\; \lambda = 2, 7 \]</li>
-        <li><span class="step-t">eigenvectors แล้วปรับหนึ่งหน่วย</span> \(\lambda = 2\): \(x_1 = 2x_2 \Rightarrow \vec{u}_1 = \tfrac{1}{\sqrt5}(2, 1)^T\); \(\lambda = 7\): \(x_1 = -\tfrac12x_2 \Rightarrow \vec{u}_2 = \tfrac{1}{\sqrt5}(1, -2)^T\) (ตั้งฉากกัน ✓)</li>
-        <li><span class="step-t">เปลี่ยนตัวแปร \(\vec{x} = P\vec{y}\)</span>
+        <li><span class="step-t">eigenvectors แล้วปรับหนึ่งหน่วย</span> \(\lambda = 2\): \(A - 2I_2 = \begin{bmatrix} 1 & -2\\ -2 & 4 \end{bmatrix}\) สมการ \(x_1 - 2x_2 = 0\) → \(x_1 = 2x_2\) เลือก \(x_2 = 1\) → \((2, 1)^T\) ยาว \(\sqrt{4+1} = \sqrt5\) → \(\vec{u}_1 = \tfrac{1}{\sqrt5}(2, 1)^T\); \(\lambda = 7\): \(A - 7I_2 = \begin{bmatrix} -4 & -2\\ -2 & -1 \end{bmatrix}\) สมการ \(-4x_1 = 2x_2\) → \(x_1 = -\tfrac12x_2\) เลือก \(x_2 = -2\) → \((1, -2)^T\) ยาว \(\sqrt5\) → \(\vec{u}_2 = \tfrac{1}{\sqrt5}(1, -2)^T\) — ตั้งฉากกัน ✓ เพราะ \((2,1)\cdot(1,-2) = 2 - 2 = 0\)</li>
+        <li><span class="step-t">เปลี่ยนตัวแปร \(\vec{x} = P\vec{y}\)</span> เรียง \(\vec{u}_1, \vec{u}_2\) เป็นหลักของ \(P\) และวาง λ ตามลำดับเดียวกันลง \(D\) จากนั้นทฤษฎีบทแกนมุขสำคัญทำงาน: \(Q = \vec{x}^TA\vec{x} = \vec{y}^T(P^TAP)\vec{y} = \vec{y}^TD\vec{y}\) เพราะ \(P^TAP = D\) พอดี (สมบัติของการแปลงทแยงมุมเชิงตั้งฉาก)
         \[ P = \frac{1}{\sqrt5}\begin{bmatrix} 2 & 1\\ 1 & -2 \end{bmatrix}, \qquad D = \begin{bmatrix} 2 & 0\\ 0 & 7 \end{bmatrix} \;\Longrightarrow\; Q = \vec{y}^TD\vec{y} = 2y_1^2 + 7y_2^2 \]</li>
-        <li><span class="step-t">อ่านหน้ากราฟ</span> \(3x_1^2 + 6x_2^2 - 4x_1x_2 = 14\) กลายเป็น \(2y_1^2 + 7y_2^2 = 14\) — ทั้งสองพจน์บวก → <strong>วงรี</strong>ที่มีแกนสัมพัทธ์กับแกน \(y_1, y_2\) (แกนใหม่เอียงตาม eigenvector) — และเพราะ \(\lambda = 2, 7 > 0\) \(Q\) เป็น<strong>บวกแน่นอน</strong></li>
+        <li><span class="step-t">อ่านหน้ากราฟ</span> \(3x_1^2 + 6x_2^2 - 4x_1x_2 = 14\) กลายเป็น \(2y_1^2 + 7y_2^2 = 14\) — ทั้งสองพจน์บวก (λ ทั้งคู่เครื่องหมายเดียวกัน) → <strong>วงรี</strong>ที่มีแกนสัมพัทธ์กับแกน \(y_1, y_2\) (แกนใหม่เอียงตาม eigenvector) โดยครึ่งแกนตาม \(y_1\) ยาว \(\sqrt{14/2} = \sqrt7\) และตาม \(y_2\) ยาว \(\sqrt{14/7} = \sqrt2\) — และเพราะ \(\lambda = 2, 7 > 0\) ทุกตัว \(Q\) เป็น<strong>บวกแน่นอน</strong> (กราฟรูปชาม มีค่าน้อยสุดจริง)</li>
       </ol>
-      <div class="verify"><span class="lbl">ตรวจคำตอบ:</span> แทนจุด \(\vec{x} = (2,1)^T\) (บนทิศ \(\vec{u}_1\)): \(Q = 12 + 6 - 8 = 10 = 2\lambda_1\)? — ตรวจด้วย \(\vec{y} = P^T\vec{x} = (\tfrac{5}{\sqrt5}, 0)^T = (\sqrt5, 0)^T\): \(2y_1^2 = 2(5) = 10\) ✓ ตรงกัน</div>
+      <div class="verify"><span class="lbl">ตรวจคำตอบ:</span> แทนจุด \(\vec{x} = (2,1)^T\) (บนทิศ \(\vec{u}_1\)): \(Q = 12 + 6 - 8 = 10\) และเพราะ \(\vec{x}\) อยู่บนทิศ eigenvector ของ \(\lambda_1\) จึงต้องได้ \(Q = \lambda_1\|\vec{x}\|^2 = 2(5) = 10\) ✓ — ตรวจอีกทางด้วย \(\vec{y} = P^T\vec{x} = (\tfrac{5}{\sqrt5}, 0)^T = (\sqrt5, 0)^T\): \(2y_1^2 = 2(5) = 10\) ✓ ตรงกันทุกทาง</div>
     </div>
   </article>
 
@@ -110,14 +110,14 @@ page: ch4-5.html
     <div class="ex-body">
       <div class="ex-q">จงพิจารณาว่ารูปแบบกำลังสองต่อไปนี้เป็นบวกแน่นอน ลบแน่นอน หรือไม่แน่นอน<br>
       (ก) \(Q(x_1, x_2) = 3x_1^2 + 6x_2^2 - 4x_1x_2\) &nbsp; (ข) \(Q(x_1, x_2, x_3) = x_1^2 + 3x_2^2 + x_3^2 + 2x_1x_2 + 6x_1x_3 + 2x_2x_3\)</div>
-      <div class="approach"><span class="lbl">แนวคิด</span> — หาเมทริกซ์ → หาค่าลักษณะเฉพาะ → ดูเครื่องหมาย (ทฤษฎีบท 4.5.2)</div>
+      <div class="approach"><span class="lbl">แนวคิด</span> — หาเมทริกซ์ → หาค่าลักษณะเฉพาะ → ดูเครื่องหมาย (ทฤษฎีบท 4.5.2) กลยุทธ์: ไม่ต้องแทนค่าเวกเตอร์หลาย ๆ จุดให้เสียเวลา — แค่รู้ค่าลักษณะเฉพาะครบก็ตัดสินได้ทันที เพราะหลังเปลี่ยนตัวแปร \(Q = \lambda_1y_1^2 + \lambda_2y_2^2 + \lambda_3y_3^2\) แต่ละพจน์มีเครื่องหมายตาม λ ของมันล้วน ๆ</div>
       <ol class="steps">
-        <li><span class="step-t">(ก)</span> จากตัวอย่าง 2: \(\lambda = 2, 7\) ทั้งคู่บวก → <strong>บวกแน่นอน</strong></li>
-        <li><span class="step-t">(ข) หาเมทริกซ์</span>
+        <li><span class="step-t">(ก)</span> ใช้ผลจากตัวอย่าง 2: เมทริกซ์ \(A = \begin{bmatrix} 3 & -2\\ -2 & 6 \end{bmatrix}\) มีค่าลักษณะเฉพาะ \(\lambda = 2, 7\) — ทั้งคู่<em>เป็นบวก</em> (ทุกตัว &gt; 0) → ตามทฤษฎีบท 4.5.2 เป็น<strong>บวกแน่นอน</strong> (เพราะหลังเปลี่ยนตัวแปร \(Q = 2y_1^2 + 7y_2^2\) บวกทุกพจน์เมื่อ \(\vec{y} \neq \vec{0}\))</li>
+        <li><span class="step-t">(ข) หาเมทริกซ์</span> กำลังสองลงทแยง: \(1, 3, 1\) ส่วนไขว้หารสองลงสองตำแหน่งสมมาตร: \(2x_1x_2\) → \(1\) ที่ช่อง (1,2) และ (2,1), \(6x_1x_3\) → \(3\) ที่ช่อง (1,3) และ (3,1), \(2x_2x_3\) → \(1\) ที่ช่อง (2,3) และ (3,2)
         \[ A = \begin{bmatrix} 1 & 1 & 3\\ 1 & 3 & 1\\ 3 & 1 & 1 \end{bmatrix} \]</li>
-        <li><span class="step-t">(ข) ค่าลักษณะเฉพาะ</span> กระจายโคแฟกเตอร์:
+        <li><span class="step-t">(ข) ค่าลักษณะเฉพาะ</span> กระจายโคแฟกเตอร์ (โจทย์จำแนก 3×3 มักให้ผลแยกตัวประกอบมาให้ จงใช้มัน) — รากของสมการคือ \(-2, 2, 5\):
         \[ \det(A - \lambda I_3) = -(\lambda + 2)(\lambda - 2)(\lambda - 5) = 0 \;\Longrightarrow\; \lambda = -2, 2, 5 \]
-        มีทั้งบวก (\(2, 5\)) และลบ (\(-2\)) → <strong>ไม่แน่นอน</strong> (เช่น \(Q(1,0,0) = 1 > 0\) แต่ \(Q(-1, 1, -1)^T?\) — ลองเวกเตอร์ของ \(\lambda = -2\) จะได้ค่าติดลบ)</li>
+        มีทั้งบวก (\(2, 5\)) และลบ (\(-2\)) → <strong>ไม่แน่นอน</strong> — ลองยืนยันด้วยจุดจริง: \(Q(1,0,0) = 1 &gt; 0\) แต่เวกเตอร์ลักษณะเฉพาะของ \(\lambda = -2\) คือ \((1, 0, -1)^T\) ซึ่งให้ \(Q = \lambda\|\vec{x}\|^2 = -2(1 + 0 + 1) = -4 &lt; 0\) — ได้ทั้งบวกและลบจริง จึงไม่แน่นอน (สมบัติที่มาจาก \(\vec{x}\) บนทิศ eigenvector ของ \(\lambda\): \(Q = \lambda\|\vec{x}\|^2\))</li>
       </ol>
     </div>
   </article>
@@ -126,14 +126,14 @@ page: ch4-5.html
     <div class="ex-head"><span class="ex-badge">ตัวอย่าง 4</span><span class="tag hard">ยาก</span><span class="ex-title">หาค่า \(k\) ที่ทำให้บวกแน่นอน</span></div>
     <div class="ex-body">
       <div class="ex-q">จงหาค่าของ \(k\) ทั้งหมดที่ทำให้ \(Q(x_1, x_2) = x_1^2 + kx_2^2 - 4x_1x_2\) เป็นรูปแบบกำลังสองบวกแน่นอน</div>
-      <div class="approach"><span class="lbl">แนวคิด</span> — บวกแน่นอน ⇔ ค่าลักษณะเฉพาะทุกตัว &gt; 0 — สำหรับ 2×2 ใช้เงื่อนไข trace &gt; 0 และ det &gt; 0</div>
+      <div class="approach"><span class="lbl">แนวคิด</span> — บวกแน่นอน ⇔ ค่าลักษณะเฉพาะทุกตัว &gt; 0 — สำหรับ 2×2 ใช้เงื่อนไข trace &gt; 0 และ det &gt; 0 กลยุทธ์: ไม่ต้องหาค่าลักษณะเฉพาะที่มีตัวแปร \(k\) ปนอยู่ (จะยุ่งมาก) — ใช้ความจริงที่ว่า \(\lambda_1 + \lambda_2 = \operatorname{tr} A\) และ \(\lambda_1\lambda_2 = \det A\) แล้วคิดว่าเงื่อนไขอะไรบังคับให้สองจำนวน "บวกทั้งคู่": ผลรวมบวก + ผลคูณบวก (ผลคูณบวกบังคับให้เครื่องหมายเดียวกัน แล้วผลรวมบวกบังคับให้เป็นบวกทั้งคู่)</div>
       <ol class="steps">
-        <li><span class="step-t">เมทริกซ์และเงื่อนไข</span> \(A = \begin{bmatrix} 1 & -2\\ -2 & k \end{bmatrix}\): บวกแน่นอน ⇔ \(\operatorname{tr} A > 0\) และ \(\det A > 0\) (ค่าลักษณะเฉพาะรวม = trace &gt; 0, คูณ = det &gt; 0 บังคับให้ทั้งคู่บวก)</li>
-        <li><span class="step-t">คำนวณเงื่อนไข</span>
+        <li><span class="step-t">เมทริกซ์และเงื่อนไข</span> เขียน \(Q\) เป็นเมทริกซ์: กำลังสอง \(1, k\) ลงทแยง ไขว้ \(-4x_1x_2\) หารสองได้ \(-2\) → \(A = \begin{bmatrix} 1 & -2\\ -2 & k \end{bmatrix}\): บวกแน่นอน ⇔ \(\operatorname{tr} A &gt; 0\) และ \(\det A &gt; 0\) (เหตุผล: ค่าลักษณะเฉพาะรวมกัน = trace และคูณกัน = det — ถ้าผลคูณ &gt; 0 สองค่าเครื่องหมายเดียวกัน และถ้าผลรวม &gt; 0 อีก ก็ต้องเป็นบวกทั้งคู่)</li>
+        <li><span class="step-t">คำนวณเงื่อนไข</span> trace = ผลบวกทแยง = \(1 + k\) ต้อง &gt; 0 ซึ่งจะเป็นจริงก็ต่อเมื่อ \(k &gt; -1\) ส่วน det ใช้กฎ 2×2: \(1\cdot k - (-2)(-2) = k - 4\) (ระวัง \((-2)(-2) = 4\)) ต้อง &gt; 0 จึงได้ \(k &gt; 4\)
         \[ \operatorname{tr} A = 1 + k > 0 \;\Longleftarrow\; k > -1, \qquad \det A = k - 4 > 0 \;\Longleftrightarrow\; k > 4 \]</li>
-        <li><span class="step-t">สรุป</span> ต้องการทั้งสองเงื่อนไขพร้อมกัน → \(k > 4\) (เมื่อ \(k = 4\) ได้ \(\lambda = 0\) → บวกกึ่งแน่นอนเท่านั้น; \(k &lt; 4\) ค่าลักษณะเฉพาะติดลบ → ไม่แน่นอน)</li>
+        <li><span class="step-t">สรุป</span> ต้องการทั้งสองเงื่อนไขพร้อมกัน (เป็น "และ") เงื่อนไข \(k &gt; 4\) ครอบคลุม \(k &gt; -1\) ไปในตัว → คำตอบคือ \(k &gt; 4\) (เมื่อ \(k = 4\) ได้ \(\det = 0\) จึงมี \(\lambda = 0\) → บวกกึ่งแน่นอนเท่านั้น; \(k &lt; 4\) ผลคูณค่าลักษณะเฉพาะติดลบ → เครื่องหมายต่างกัน → ไม่แน่นอน)</li>
       </ol>
-      <div class="verify"><span class="lbl">ตรวจคำตอบ:</span> \(k = 5\): \(\lambda^2 - 6\lambda - 3\)? — \(\det = 1 > 0\), trace \(= 6 > 0\) → ทั้งคู่บวก ✓ / \(k = 4\): \(\lambda^2 - 5\lambda + 0 = \lambda(\lambda - 5)\) → \(\lambda = 0\) ปน → กึ่งแน่นอน ✓</div>
+      <div class="verify"><span class="lbl">ตรวจคำตอบ:</span> \(k = 5\): \(\lambda^2 - 6\lambda + 1\) มี \(\det = 5 - 4 = 1 &gt; 0\), trace \(= 1 + 5 = 6 &gt; 0\) → ทั้งคู่บวก ✓ จริงตามคำตอบ / \(k = 4\): \(\lambda^2 - 5\lambda + 0 = \lambda(\lambda - 5)\) → \(\lambda = 0\) ปน → กึ่งแน่นอน ✓ (ตรงขอบเพอร์เฟกต์) — <strong>สรุป:</strong> \(Q\) บวกแน่นอน ก็ต่อเมื่อ \(k &gt; 4\)</div>
     </div>
   </article>
 </section>
@@ -172,13 +172,13 @@ page: ch4-5.html
     </div>
     <details class="hint"><summary>คำใบ้</summary><div class="hint-body">ไขว้ \(4x_1x_2\) → หาร 2 = 2 ลงสองตำแหน่ง / ไขว้ \(2x_1x_2\) → 1</div></details>
     <details class="sol"><summary>แนวคิดและเฉลยแบบละเอียด</summary><div class="sol-body">
-      <p><strong>แนวคิด:</strong> กำลังสองลงทแยง ไขว้หารสอง</p>
+      <p><strong>แนวคิด:</strong> กำลังสองลงทแยง ไขว้หารสอง — กลยุทธ์: อ่านสัมประสิทธิ์กำลังสองวางทแยงตรง ๆ แล้วเอาสัมประสิทธิ์ไขว้หาร 2 วางสองตำแหน่งสมมาตร (ระวังเครื่องหมายของสัมประสิทธิ์ไขว้ด้วย — บวกก็ลงบวก ลบก็ลงลบ)</p>
       <ol class="steps">
-        <li><span class="step-t">(ก)</span>
+        <li><span class="step-t">(ก)</span> กำลังสอง: จาก \(-5x_1^2\) ได้ \(a_{11} = -5\), จาก \(-2x_2^2\) ได้ \(a_{22} = -2\) ไขว้ \(+4x_1x_2\): หารสองได้ \(+2\) ลงทั้ง \(a_{12}\) และ \(a_{21}\) (สัมประสิทธิ์ไขว้เป็นบวก ต่างจากตัวอย่าง 1 ที่เป็นลบ)
         \[ A = \begin{bmatrix} -5 & 2\\ 2 & -2 \end{bmatrix} \]</li>
-        <li><span class="step-t">(ข)</span>
+        <li><span class="step-t">(ข)</span> กำลังสอง: \(5, 3\) ลงทแยง; ไขว้ \(+2x_1x_2\): หารสองได้ \(+1\) ลงสองช่อง
         \[ A = \begin{bmatrix} 5 & 1\\ 1 & 3 \end{bmatrix} \]</li>
-        <li><span class="step-t">ตรวจคำตอบ (ก)</span> \(\vec{x}^TA\vec{x} = -5x_1^2 - 2x_2^2 + 2x_1x_2 + 2x_2x_1 = -5x_1^2 - 2x_2^2 + 4x_1x_2\) ✓</li>
+        <li><span class="step-t">ตรวจคำตอบ (ก)</span> คูณกลับ: \(\vec{x}^TA\vec{x} = -5x_1^2 + 2x_1x_2 + 2x_2x_1 - 2x_2^2 = -5x_1^2 - 2x_2^2 + 4x_1x_2\) ✓ (พจน์ไขว้สองพจน์รวมกัน \(2 + 2 = 4\) คืนสัมประสิทธิ์เดิมพอดี) — ตรวจ (ข) เช่นเดียวกัน: \(5x_1^2 + x_1x_2 + x_2x_1 + 3x_2^2 = 5x_1^2 + 3x_2^2 + 2x_1x_2\) ✓ — <strong>สรุป:</strong> (ก) \(A = \begin{bmatrix} -5 & 2\\ 2 & -2 \end{bmatrix}\), (ข) \(A = \begin{bmatrix} 5 & 1\\ 1 & 3 \end{bmatrix}\)</li>
       </ol>
     </div></details>
   </article>
@@ -191,13 +191,13 @@ page: ch4-5.html
     </div>
     <details class="hint"><summary>คำใบ้</summary><div class="hint-body">คูณ \(A\vec{x}\) ก่อน แล้วจุดกับ \(\vec{x}\)</div></details>
     <details class="sol"><summary>แนวคิดและเฉลยแบบละเอียด</summary><div class="sol-body">
-      <p><strong>แนวคิด:</strong> คูณเมทริกซ์สองขั้น</p>
+      <p><strong>แนวคิด:</strong> คูณเมทริกซ์สองขั้น — กลยุทธ์: อย่าพยายามคูณ \(\vec{x}^T \cdot A \cdot \vec{x}\) พร้อมกันทั้งสามตัว ให้คูณ \(A\vec{x}\) ก่อน (ได้เวกเตอร์) แล้วจึงจุดกับ \(\vec{x}\) (ได้สเกลาร์ตัวเดียว) — ง่ายและพลาดน้อยกว่า</p>
       <ol class="steps">
-        <li><span class="step-t">\(A\vec{x}\)</span>
+        <li><span class="step-t">\(A\vec{x}\)</span> คูณทีละแถว (แถวจุดกับ \(\vec{x}\)): แถวแรก \(5(2) + \tfrac12(-2) = 10 - 1 = 9\) แถวสอง \(\tfrac12(2) + (-1)(-2) = 1 + 2 = 3\) (สังเกตสองจุดที่ต้องระวัง: เศษครึ่งคูณ 2 ได้ 1 พอดี และ \((-1)(-2) = +2\) ลบคูณลบได้บวก)
         \[ A\vec{x} = \begin{bmatrix} 10 - 1\\ 1 + 2 \end{bmatrix} = \begin{bmatrix} 9\\ 3 \end{bmatrix} \]</li>
-        <li><span class="step-t">\(\vec{x}^T(A\vec{x})\)</span>
+        <li><span class="step-t">\(\vec{x}^T(A\vec{x})\)</span> จุด \(\vec{x}\) เข้ากับผลลัพธ์ ทีละคู่: \(2(9) = 18\) และ \((-2)(3) = -6\) แล้วบวก \(18 - 6 = 12\)
         \[ \vec{x}^TA\vec{x} = (2)(9) + (-2)(3) = 18 - 6 = 12 \]</li>
-        <li><span class="step-t">ตรวจด้วยกระจายตรง</span> \(5(4) + 2(\tfrac12)(2)(-2) + (-1)(4) = 20 - 4 - 4 = 12\) ✓</li>
+        <li><span class="step-t">ตรวจด้วยกระจายตรง</span> ใช้สูตร \(Q = a_{11}x_1^2 + 2a_{12}x_1x_2 + a_{22}x_2^2\): \(5(2)^2 + 2(\tfrac12)(2)(-2) + (-1)(-2)^2 = 20 - 4 - 4 = 12\) ✓ (ระวัง \((-2)^2 = 4\) แล้วคูณ \(-1\) ให้ \(-4\)) สองวิธีได้ 12 เท่ากัน — <strong>สรุปคำตอบ:</strong> \(\vec{x}^TA\vec{x} = 12\)</li>
       </ol>
     </div></details>
   </article>
@@ -210,13 +210,14 @@ page: ch4-5.html
     </div>
     <details class="hint"><summary>คำใบ้</summary><div class="hint-body">\(A = \begin{bmatrix} 5 & -3\\ -3 & 5 \end{bmatrix}\): \(\lambda = 8, 2\) / \(\lambda = 8\): \(\vec{u}_1 = \tfrac{1}{\sqrt2}(1,-1)^T\), \(\lambda = 2\): \(\vec{u}_2 = \tfrac{1}{\sqrt2}(1,1)^T\)</div></details>
     <details class="sol"><summary>แนวคิดและเฉลยแบบละเอียด</summary><div class="sol-body">
-      <p><strong>แนวคิด:</strong> ตามขั้นตอนมาตรฐาน</p>
+      <p><strong>แนวคิด:</strong> ตามขั้นตอนมาตรฐาน — กลยุทธ์: หาเมทริกซ์ \(A\) ก่อนเสมอ (ไขว้ \(-6\) หารสองได้ \(-3\)) แล้วทำการแปลงทแยงมุมเชิงตั้งฉากเหมือน 4.4 ทุกประการ — ค่าลักษณะเฉพาะและ eigenvector ที่ได้จะตอบทั้งคำถาม "ไม่มีไขว้" "definiteness" และ "หน้ากราฟ" ได้ในคราวเดียว</p>
       <ol class="steps">
-        <li><span class="step-t">ค่าลักษณะเฉพาะ</span> \(\det(A - \lambda I_2) = (5-\lambda)^2 - 9 = \lambda^2 - 10\lambda + 16 = (\lambda - 8)(\lambda - 2) = 0 \Rightarrow \lambda = 8, 2\)</li>
-        <li><span class="step-t">eigenvectors</span> \(\lambda = 8\): \(x_1 = -x_2 \Rightarrow \vec{u}_1 = \tfrac{1}{\sqrt2}(1,-1)^T\); \(\lambda = 2\): \(x_1 = x_2 \Rightarrow \vec{u}_2 = \tfrac{1}{\sqrt2}(1,1)^T\)</li>
-        <li><span class="step-t">เปลี่ยนตัวแปร</span>
+        <li><span class="step-t">ค่าลักษณะเฉพาะ</span> \(A = \begin{bmatrix} 5 & -3\\ -3 & 5 \end{bmatrix}\) (ไขว้ \(-6x_1x_2\) หารสองได้ \(-3\)) กระจาย: \((5-\lambda)^2 - (-3)(-3) = (5-\lambda)^2 - 9 = 25 - 10\lambda + \lambda^2 - 9 = \lambda^2 - 10\lambda + 16\) แยกตัวประกอบ: สองจำนวนคูณได้ 16 บวกได้ 10 คือ 8 กับ 2
+        \[ \det(A - \lambda I_2) = (5-\lambda)^2 - 9 = \lambda^2 - 10\lambda + 16 = (\lambda - 8)(\lambda - 2) = 0 \Rightarrow \lambda = 8, 2 \]</li>
+        <li><span class="step-t">eigenvectors</span> \(\lambda = 8\): \(A - 8I_2 = \begin{bmatrix} -3 & -3\\ -3 & -3 \end{bmatrix}\) → \(-3x_1 = 3x_2\) → \(x_1 = -x_2\) เลือก \(x_2 = -1\) → \((1,-1)^T\) ยาว \(\sqrt2\) → \(\vec{u}_1 = \tfrac{1}{\sqrt2}(1,-1)^T\); \(\lambda = 2\): \(A - 2I_2 = \begin{bmatrix} 3 & -3\\ -3 & 3 \end{bmatrix}\) → \(x_1 = x_2\) → \(\vec{u}_2 = \tfrac{1}{\sqrt2}(1,1)^T\) (ตั้งฉากกัน ✓ เพราะ \(1 - 1 = 0\))</li>
+        <li><span class="step-t">เปลี่ยนตัวแปร</span> เรียงหลักของ \(P\) ตามลำดับ λ แล้ววาง D — จากนั้น \(Q\) กลายเป็นกำลังสองล้วน \(\lambda_1y_1^2 + \lambda_2y_2^2\) ไม่มีพจน์ไขว้แล้ว
         \[ P = \frac{1}{\sqrt2}\begin{bmatrix} 1 & 1\\ -1 & 1 \end{bmatrix}, \quad D = \begin{bmatrix} 8 & 0\\ 0 & 2 \end{bmatrix} \;\Longrightarrow\; Q = 8y_1^2 + 2y_2^2 \]</li>
-        <li><span class="step-t">จำแนก</span> \(\lambda = 8, 2 > 0\) → <strong>บวกแน่นอน</strong> และ \(8y_1^2 + 2y_2^2 = 4\) เป็น<strong>วงรี</strong></li>
+        <li><span class="step-t">จำแนก</span> \(\lambda = 8, 2 &gt; 0\) ทุกตัว → <strong>บวกแน่นอน</strong> (เพราะหลังเปลี่ยนตัวแปร \(Q\) เป็นผลบวกกำลังสองที่สัมประสิทธิ์ล้วนบวก จึงบวกทุกครั้งเมื่อ \(\vec{x} \neq \vec{0}\)) และ \(8y_1^2 + 2y_2^2 = 4\) เป็น<strong>วงรี</strong> (เพราะสมการรูปวงรีมาตรฐาน \(\tfrac{y_1^2}{a^2} + \tfrac{y_2^2}{b^2} = 1\) มีเครื่องหมายเดียวกันทั้งคู่: ครึ่งแกน \(y_1\) = \(\sqrt{4/8} = \tfrac{1}{\sqrt2}\), ครึ่งแกน \(y_2\) = \(\sqrt{4/2} = \sqrt2\)) — <strong>สรุปคำตอบ:</strong> \(\vec{x} = P\vec{y}\) ตามด้านบน, บวกแน่นอน, กราฟ \(Q = 4\) เป็นวงรี</li>
       </ol>
     </div></details>
   </article>
@@ -229,13 +230,14 @@ page: ch4-5.html
     </div>
     <details class="hint"><summary>คำใบ้</summary><div class="hint-body">เมทริกซ์เดียวกับตัวอย่าง 1 ของหัวข้อ 4.4: \(\lambda = 3, -1\) / \(\lambda = 3\): \((1,-1)^T\), \(\lambda = -1\): \((1,1)^T\) หนึ่งหน่วย</div></details>
     <details class="sol"><summary>แนวคิดและเฉลยแบบละเอียด</summary><div class="sol-body">
-      <p><strong>แนวคิด:</strong> มีค่าลักษณะเฉพาะต่างเครื่องหมาย → indefinite</p>
+      <p><strong>แนวคิด:</strong> มีค่าลักษณะเฉพาะต่างเครื่องหมาย → indefinite — กลยุทธ์: เมทริกซ์นี้เคยเจอใน 4.4 (ตัวอย่าง 1) ยืมค่าลักษณะเฉพาะ \(\lambda = 3, -1\) ได้เลย เมื่อเห็นเครื่องหมายปนกัน หน้ากราฟก็ต้องเป็นไฮเปอร์โบลาทันที (สมการที่มีทั้งบวกและลบ = ทรงอานม้า/สองกิ่ง)</p>
       <ol class="steps">
-        <li><span class="step-t">ค่าลักษณะเฉพาะ</span> \(A = \begin{bmatrix} 1 & -2\\ -2 & 1 \end{bmatrix}\): \(\lambda^2 - 2\lambda - 3 = (\lambda - 3)(\lambda + 1) = 0 \Rightarrow \lambda = 3, -1\)</li>
-        <li><span class="step-t">eigenvectors</span> \(\lambda = 3\): \(x_1 = -x_2 \Rightarrow \vec{u}_1 = \tfrac{1}{\sqrt2}(1,-1)^T\); \(\lambda = -1\): \(x_1 = x_2 \Rightarrow \vec{u}_2 = \tfrac{1}{\sqrt2}(1,1)^T\)</li>
-        <li><span class="step-t">เปลี่ยนตัวแปร</span>
+        <li><span class="step-t">ค่าลักษณะเฉพาะ</span> ไขว้ \(-4x_1x_2\) หารสองได้ \(-2\) → \(A = \begin{bmatrix} 1 & -2\\ -2 & 1 \end{bmatrix}\) สมการลักษณะเฉพาะ: \((1-\lambda)^2 - 4 = \lambda^2 - 2\lambda + 1 - 4 = \lambda^2 - 2\lambda - 3\) แยกตัวประกอบ: สองจำนวนคูณได้ \(-3\) บวกได้ \(-2\) คือ \(3\) กับ \(-1\)
+        \[ \lambda^2 - 2\lambda - 3 = (\lambda - 3)(\lambda + 1) = 0 \Rightarrow \lambda = 3, -1 \]</li>
+        <li><span class="step-t">eigenvectors</span> \(\lambda = 3\): \(x_1 = -x_2\) → \(\vec{u}_1 = \tfrac{1}{\sqrt2}(1,-1)^T\); \(\lambda = -1\): \(x_1 = x_2\) → \(\vec{u}_2 = \tfrac{1}{\sqrt2}(1,1)^T\) — ตั้งฉากกัน ✓ เพราะ \((1,-1)\cdot(1,1) = 1 - 1 = 0\) (ทฤษฎีบท 4.4.1: คนละค่าตั้งฉากกันเสมอเมื่อ \(A\) สมมาตร)</li>
+        <li><span class="step-t">เปลี่ยนตัวแปร</span> ประกอบ \(P\) จาก \(\vec{u}_1, \vec{u}_2\) และ \(D\) ตามลำดับ λ — จากนั้น \(Q\) ไม่มีพจน์ไขว้ แต่สังเกตว่า λ ตัวหลัง<em>ติดลบ</em> พจน์ที่สองจึงกลายเป็นลบไปด้วย
         \[ P = \frac{1}{\sqrt2}\begin{bmatrix} 1 & 1\\ -1 & 1 \end{bmatrix}, \quad D = \begin{bmatrix} 3 & 0\\ 0 & -1 \end{bmatrix} \;\Longrightarrow\; Q = 3y_1^2 - y_2^2 \]</li>
-        <li><span class="step-t">จำแนก</span> มีทั้งบวกและลบ → <strong>ไม่แน่นอน</strong> และ \(3y_1^2 - y_2^2 = 6\) เป็น<strong>ไฮเปอร์โบลา</strong></li>
+        <li><span class="step-t">จำแนก</span> มีทั้งบวก (\(3\)) และลบ (\(-1\)) → <strong>ไม่แน่นอน</strong> (เพราะแทน \(\vec{y} = (1, 0)^T\) ได้ \(Q = 3 &gt; 0\) แต่แทน \((0, 1)^T\) ได้ \(Q = -1 &lt; 0\) — ได้ทั้งสองเครื่องหมาย) และ \(3y_1^2 - y_2^2 = 6\) เป็น<strong>ไฮเปอร์โบลา</strong> (เพราะสมการที่มีเครื่องหมายต่างกัน \(\tfrac{y_1^2}{a^2} - \tfrac{y_2^2}{b^2} = 1\) เปิดกิ่งตามแกนที่สัมประสิทธิ์บวก — ที่นี่แกน \(y_1\)) — <strong>สรุปคำตอบ:</strong> \(\vec{x} = P\vec{y}\) ตามด้านบน, ไม่แน่นอน, กราฟ \(Q = 6\) เป็นไฮเปอร์โบลา</li>
       </ol>
     </div></details>
   </article>
@@ -248,12 +250,14 @@ page: ch4-5.html
     </div>
     <details class="hint"><summary>คำใบ้</summary><div class="hint-body">เมทริกซ์ \(\begin{bmatrix} 2 & k/2\\ k/2 & 2 \end{bmatrix}\): trace \(= 4 > 0\) เสมอ / \(\det = 4 - \tfrac{k^2}{4} > 0\) ⟺ \(|k| < 4\)</div></details>
     <details class="sol"><summary>แนวคิดและเฉลยแบบละเอียด</summary><div class="sol-body">
-      <p><strong>แนวคิด:</strong> เงื่อนไข trace/det</p>
+      <p><strong>แนวคิด:</strong> เงื่อนไข trace/det — กลยุทธ์: หลังสร้างเมทริกซ์แล้ว ใช้ \(\lambda_1 + \lambda_2 = \operatorname{tr} A\), \(\lambda_1\lambda_2 = \det A\) — trace ที่นี่เป็นค่าคงที่ไม่มี \(k\) เลย ภาระทั้งหมดจึงตกอยู่ที่เงื่อนไข det ซึ่งจะได้อสมการกำลังสองอันเดียวจบ</p>
       <ol class="steps">
-        <li><span class="step-t">เมทริกซ์</span> \(A = \begin{bmatrix} 2 & k/2\\ k/2 & 2 \end{bmatrix}\) — ไขว้ \(k\) หารสอง</li>
-        <li><span class="step-t">เงื่อนไขบวกแน่นอน</span> trace \(= 4 > 0\) เสมอ; \(\det A = 4 - \tfrac{k^2}{4} > 0 \Longleftrightarrow k^2 < 16 \Longleftrightarrow -4 < k < 4\)</li>
-        <li><span class="step-t">สรุป</span> \(Q\) บวกแน่นอน ก็ต่อเมื่อ \(-4 < k < 4\) (ที่ \(k = \pm4\): \(\lambda = 0\) ปน → บวกกึ่งแน่นอน; \(|k| > 4\): ค่าลักษณะเฉพาะต่างเครื่องหมาย → ไม่แน่นอน)</li>
-        <li><span class="step-t">ตรวจคำตอบ</span> \(k = 2\): \(\lambda^2 - 4\lambda + 3 = (\lambda-1)(\lambda-3)\) → ทั้งคู่บวก ✓ / \(k = 6\): \(\lambda^2 - 4\lambda - 5 = (\lambda-5)(\lambda+1)\) → ปนลบ → ไม่แน่นอน ✓</li>
+        <li><span class="step-t">เมทริกซ์</span> กำลังสอง \(2, 2\) ลงทแยง ไขว้ \(kx_1x_2\) หารสองได้ \(\tfrac{k}{2}\) ลงสองช่อง (ไม่ต้องสนใจว่า \(k\) เป็นบวกหรือลบ — เก็บเป็นสัญลักษณ์ไว้ก่อน)
+        \[ A = \begin{bmatrix} 2 & k/2\\ k/2 & 2 \end{bmatrix} \]</li>
+        <li><span class="step-t">เงื่อนไขบวกแน่นอน</span> trace = \(2 + 2 = 4 &gt; 0\) เสมอ (ไม่มี \(k\) ปน — ผ่านโดยอัตโนมัติ) ส่วน det ใช้กฎ 2×2: \(2(2) - \tfrac{k}{2}\cdot\tfrac{k}{2} = 4 - \tfrac{k^2}{4}\) ต้อง &gt; 0 ย้ายข้าง: \(\tfrac{k^2}{4} &lt; 4\) → \(k^2 &lt; 16\) → \(|k| &lt; 4\) ซึ่งก็คือ \(-4 &lt; k &lt; 4\)
+        \[ \det A = 4 - \tfrac{k^2}{4} > 0 \Longleftrightarrow k^2 < 16 \Longleftrightarrow -4 < k < 4 \]</li>
+        <li><span class="step-t">สรุป</span> เงื่อนไขจริงมีอันเดียวคือ det &gt; 0 → \(Q\) บวกแน่นอน ก็ต่อเมื่อ \(-4 &lt; k &lt; 4\) (ที่ \(k = \pm4\): \(\det = 0\) → มี \(\lambda = 0\) ปน → บวกกึ่งแน่นอนเท่านั้น; \(|k| &gt; 4\): \(\det &lt; 0\) → ค่าลักษณะเฉพาะเครื่องหมายต่างกัน → ไม่แน่นอน)</li>
+        <li><span class="step-t">ตรวจคำตอบ</span> ทดสอบสองจุด: \(k = 2\) (อยู่ในช่วง): \(A = \begin{bmatrix} 2 & 1\\ 1 & 2 \end{bmatrix}\) มี \(\lambda^2 - 4\lambda + 3 = (\lambda-1)(\lambda-3)\) → \(\lambda = 1, 3\) ทั้งคู่บวก ✓ / \(k = 6\) (อยู่นอกช่วง): \(A = \begin{bmatrix} 2 & 3\\ 3 & 2 \end{bmatrix}\) มี \(\lambda^2 - 4\lambda - 5 = (\lambda-5)(\lambda+1)\) → ปนลบ → ไม่แน่นอน ✓ — <strong>สรุป:</strong> \(Q\) บวกแน่นอน ก็ต่อเมื่อ \(-4 &lt; k &lt; 4\)</li>
       </ol>
     </div></details>
   </article>
@@ -266,11 +270,13 @@ page: ch4-5.html
     </div>
     <details class="hint"><summary>คำใบ้</summary><div class="hint-body">\(A = \begin{bmatrix} 1 & 0 & 0\\ 0 & 1 & -1\\ 0 & -1 & 1 \end{bmatrix}\): บล็อกล่างขวา \(\begin{bmatrix} 1 & -1\\ -1 & 1 \end{bmatrix}\) มี \(\lambda = 2, 0\) → รวมกับทิศ \(x_1\) ได้ \(\lambda = 2, 1, 0\)</div></details>
     <details class="sol"><summary>แนวคิดและเฉลยแบบละเอียด</summary><div class="sol-body">
-      <p><strong>แนวคิด:</strong> เมทริกซ์บล็อกทแยง — อ่านค่าลักษณะเฉพาะได้ทันที</p>
+      <p><strong>แนวคิด:</strong> เมทริกซ์บล็อกทแยง — อ่านค่าลักษณะเฉพาะได้ทันที กลยุทธ์: สังเกตว่า \(x_1\) ไม่มีพจน์ไขว้กับใครเลย (ช่อง (1,2), (1,3) เป็นศูนย์) เมทริกซ์จึงแยกเป็นบล็อกอิสระ ค่าลักษณะเฉพาะรวมกันคือค่าลักษณะเฉพาะของแต่ละบล็อกรวมกัน — ไม่ต้องกระจาย determinant 3×3 เลย</p>
       <ol class="steps">
-        <li><span class="step-t">เมทริกซ์</span> \(A = \begin{bmatrix} 1 & 0 & 0\\ 0 & 1 & -1\\ 0 & -1 & 1 \end{bmatrix}\) — แกน \(x_1\) แยกเป็นบล็อก \([1]\) และส่วนที่เหลือเป็นบล็อก \(\begin{bmatrix} 1 & -1\\ -1 & 1 \end{bmatrix}\)</li>
-        <li><span class="step-t">ค่าลักษณะเฉพาะ</span> บล็อก \([1]\) → \(\lambda = 1\); บล็อก 2×2: \((1-\lambda)^2 - 1 = 0 \Rightarrow \lambda = 2, 0\) → รวม: \(\lambda = 2, 1, 0\)</li>
-        <li><span class="step-t">จำแนก</span> ไม่มีค่าติดลบ แต่มี 0 → <strong>บวกกึ่งแน่นอน</strong> (positive semidefinite) — เพราะ \(Q \ge 0\) เสมอแต่ \(Q(0,1,1)^T = 1 + 1 - 2 = 0\) แม้ \(\vec{x} \ne \vec{0}\)</li>
+        <li><span class="step-t">เมทริกซ์</span> กำลังสอง \(1, 1, 1\) ลงทแยง ไขว้ \(-2x_2x_3\) หารสองได้ \(-1\) ลงช่อง (2,3) และ (3,2) ส่วนช่องอื่นนอกทแยงเป็นศูนย์ (ไม่มี \(x_1x_2\), \(x_1x_3\))
+        \[ A = \begin{bmatrix} 1 & 0 & 0\\ 0 & 1 & -1\\ 0 & -1 & 1 \end{bmatrix} \]
+        — แกน \(x_1\) แยกเป็นบล็อก \([1]\) และส่วนที่เหลือเป็นบล็อก \(\begin{bmatrix} 1 & -1\\ -1 & 1 \end{bmatrix}\)</li>
+        <li><span class="step-t">ค่าลักษณะเฉพาะ</span> บล็อก \([1]\) ให้ \(\lambda = 1\) ทันที (เมทริกซ์ 1×1 ค่าลักษณะเฉพาะคือตัวมันเอง) บล็อก 2×2: \((1-\lambda)^2 - (-1)(-1) = (1-\lambda)^2 - 1 = 0\) → \((1-\lambda) = \pm1\) → \(\lambda = 0\) หรือ \(\lambda = 2\) รวมทั้งสามค่า: \(\lambda = 2, 1, 0\)</li>
+        <li><span class="step-t">จำแนก</span> ไม่มีค่าติดลบ แต่มี 0 ปน → <strong>บวกกึ่งแน่นอน</strong> (positive semidefinite) — เหตุผลเต็ม ๆ: หลังเปลี่ยนตัวแปร \(Q = 2y_1^2 + y_2^2 + 0\cdot y_3^2\) จึง \(Q \geq 0\) เสมอ (แต่ละพจน์ไม่ติดลบ) แต่ "กึ่ง" แปลว่าไม่ใช่บวกทุกจุด เพราะมีเวกเตอร์ไม่ศูนย์ที่ทำให้ \(Q = 0\) พอดี เช่น \(Q(0,1,1)^T = 0 + 1 + 1 - 2(1)(1) = 0\) แม้ \(\vec{x} \neq \vec{0}\) (ตรงกับทิศ eigenvector ของ \(\lambda = 0\)) — <strong>สรุปคำตอบ:</strong> \(Q\) เป็นบวกกึ่งแน่นอน เพราะค่าลักษณะเฉพาะคือ \(2, 1, 0\) (บวกและศูนย์ ไม่มีลบ)</li>
       </ol>
     </div></details>
   </article>

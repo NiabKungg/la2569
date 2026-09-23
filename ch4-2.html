@@ -100,15 +100,16 @@
     <div class="ex-head"><span class="ex-badge">ตัวอย่าง 1</span><span class="tag easy">ง่าย</span><span class="ex-title">หาฐานหลักสำหรับ \(H^\perp\) (ตัวอย่างคลาสสิกของตำรา)</span></div>
     <div class="ex-body">
       <div class="ex-q">ให้ \(H = \operatorname{Span}\{(1,1,0), (0,1,1)\}\) จงหาฐานหลักสำหรับ \(H^\perp\)</div>
-      <div class="approach"><span class="lbl">แนวคิด</span> — \(H^\perp = \operatorname{Nul} A^T\) เมื่อ \(A\) มีเวกเตอร์ฐานหลักเรียงเป็นหลัก — คือแก้ระบบเอกพันธุ์ \(A^T\vec{x} = \vec{0}\)</div>
+      <div class="approach"><span class="lbl">แนวคิด</span> — \(H^\perp = \operatorname{Nul} A^T\) เมื่อ \(A\) มีเวกเตอร์ฐานหลักเรียงเป็นหลัก — คือแก้ระบบเอกพันธุ์ \(A^T\vec{x} = \vec{0}\) กลยุทธ์คือแปลงโจทย์ "หาเวกเตอร์ที่ตั้งฉากกับทุกตัวใน \(H\)" ให้เป็นโจทย์แก้ระบบสมการที่คุ้นเคย: เพราะการตั้งฉากกับฐานหลักทุกตัว = ตั้งฉากกับทุกการรวมเชิงเส้นของมัน (นิยามของ \(H\) คือชุดการรวมเชิงเส้นทั้งหมด) เราจึงต้องเขียนสมการผลคูณจุด = 0 เพียงเท่าจำนวนเวกเตอร์ฐานหลัก</div>
       <ol class="steps">
-        <li><span class="step-t">เขียนเงื่อนไขการตั้งฉาก</span> \(\vec{z} = (x_1, x_2, x_3)^T \in H^\perp\) ก็ต่อเมื่อ
+        <li><span class="step-t">เขียนเงื่อนไขการตั้งฉาก</span> ให้ \(\vec{z} = (x_1, x_2, x_3)^T \in H^\perp\) คำนวณผลคูณจุดทีละตัวโดยคูณตำแหน่งต่อตำแหน่ง: \(\vec{z}\cdot(1,1,0) = x_1(1) + x_2(1) + x_3(0) = x_1 + x_2\) (พจน์สุดท้ายหายไปเพราะคูณ 0) และ \(\vec{z}\cdot(0,1,1) = x_1(0) + x_2(1) + x_3(1) = x_2 + x_3\)
         \[ \vec{z}\cdot(1,1,0) = x_1 + x_2 = 0 \qquad \vec{z}\cdot(0,1,1) = x_2 + x_3 = 0 \]</li>
-        <li><span class="step-t">แก้ระบบเอกพันธุ์</span>
-        \[ A^T = \begin{bmatrix} 1 & 1 & 0\\ 0 & 1 & 1 \end{bmatrix} \sim \begin{bmatrix} 1 & 0 & -1\\ 0 & 1 & 1 \end{bmatrix} \;\Longrightarrow\; x_1 = x_3, \;\; x_2 = -x_3 \]</li>
-        <li><span class="step-t">เขียนผลเฉลยอิงตัวแปรเสริม</span>
+        <li><span class="step-t">แก้ระบบเอกพันธุ์</span> เรียงสมการเป็นเมทริกซ์ (แถวละสมการ) แล้วลดรูป: ขั้นเดียวคือเอาแถวบนลบแถวล่าง (\(R_1 - R_2\)) เพื่อกำจัด \(x_2\) ออกจากสมการแรก: แถวบนใหม่ = \((1-0,\; 1-1,\; 0-1) = (1, 0, -1)\)
+        \[ A^T = \begin{bmatrix} 1 & 1 & 0\\ 0 & 1 & 1 \end{bmatrix} \sim \begin{bmatrix} 1 & 0 & -1\\ 0 & 1 & 1 \end{bmatrix} \;\Longrightarrow\; x_1 = x_3, \;\; x_2 = -x_3 \]
+        (อ่านจากรูปลดรูป: แถวแรกบอก \(x_1 - x_3 = 0\) จึงได้ \(x_1 = x_3\), แถวสองบอก \(x_2 + x_3 = 0\) จึงได้ \(x_2 = -x_3\) และไม่มีสมการกำจัด \(x_3\) จึงให้ \(x_3\)<em>เป็นตัวแปรเสรี</em> = เลือกค่าได้อิสระ)</li>
+        <li><span class="step-t">เขียนผลเฉลยอิงตัวแปรเสริม</span> แทนค่า \(x_1, x_2\) ที่อิง \(x_3\) ลงใน \(\vec{x} = (x_1, x_2, x_3)^T\) แล้วดึง \(x_3\) ออกมาเป็นตัวคูณกลาง (เทคนิค: แยกทีละช่อง \((x_3, -x_3, x_3)^T = x_3(1, -1, 1)^T\))
         \[ \vec{x} = x_3\begin{bmatrix} 1\\ -1\\ 1 \end{bmatrix} \;\Longrightarrow\; \text{ฐานหลักสำหรับ } H^\perp = \left\{ \begin{bmatrix} 1\\ -1\\ 1 \end{bmatrix} \right\} \]
-        (\(\dim H + \dim H^\perp = 2 + 1 = 3\) ✓)</li>
+        (เลือก \(x_3 = 1\) ให้ได้เวกเตอร์ไม่ศูนย์ที่ง่ายที่สุด — และเพราะมีตัวแปรเสรีตัวเดียว ฐานหลักจึงมีเวกเตอร์เดียว) \(\dim H + \dim H^\perp = 2 + 1 = 3\) ✓ สมดุลตามสูตร \(\dim H + \dim H^\perp = n = 3\)</li>
       </ol>
       <div class="verify"><span class="lbl">ตรวจคำตอบ:</span> \((1,-1,1)\cdot(1,1,0) = 0\) ✓ และ \((1,-1,1)\cdot(0,1,1) = 0\) ✓</div>
     </div>
@@ -118,16 +119,16 @@
     <div class="ex-head"><span class="ex-badge">ตัวอย่าง 2</span><span class="tag easy">ง่าย</span><span class="ex-title">ฉายบนเส้นตรง \(\operatorname{Span}\{\vec{u}\}\)</span></div>
     <div class="ex-body">
       <div class="ex-q">ให้ \(\vec{y} = \begin{bmatrix} 5\\ 0 \end{bmatrix}\) และ \(\vec{u} = \begin{bmatrix} 3\\ 4 \end{bmatrix}\) จงหา \(\operatorname{proj}_{\operatorname{Span}\{\vec{u}\}} \vec{y}\) และส่วนเติมเต็ม \(\vec{z}\) ที่ตั้งฉากกับ \(\vec{u}\)</div>
-      <div class="approach"><span class="lbl">แนวคิด</span> — กรณีเวกเตอร์เดียว: \(\hat{y} = \frac{\vec{y}\cdot\vec{u}}{\vec{u}\cdot\vec{u}}\vec{u}\) แล้ว \(\vec{z} = \vec{y} - \hat{y}\)</div>
+      <div class="approach"><span class="lbl">แนวคิด</span> — กรณีเวกเตอร์เดียว: \(\hat{y} = \frac{\vec{y}\cdot\vec{u}}{\vec{u}\cdot\vec{u}}\vec{u}\) แล้ว \(\vec{z} = \vec{y} - \hat{y}\) กลยุทธ์คือมอง \(\hat{y}\) เป็น "เวกเตอร์เดิมคูณด้วยน้ำหนักที่เหมาะสม" — น้ำหนักนี้คำนวณจากผลคูณจุดสองตัว (เศษ = ตัวเลขเส้นทางของ \(\vec{y}\) บน \(\vec{u}\), ส่วน = ความยาวกำลังสองของ \(\vec{u}\)) แล้วส่วนที่เหลือ \(\vec{z}\) ก็ได้มาจากการลบ ซึ่งจะตั้งฉากกับ \(\vec{u}\) โดยอัตโนมัติ</div>
       <ol class="steps">
-        <li><span class="step-t">หาน้ำหนัก</span>
+        <li><span class="step-t">หาน้ำหนัก</span> คิดผลคูณจุดสองตัวแยกกัน: เศษ \(\vec{y}\cdot\vec{u} = 5(3) + 0(4) = 15 + 0 = 15\) (พจน์ที่สองเป็นศูนย์เพราะ \(\vec{y}\) ช่องล่างเป็น 0) และส่วน \(\vec{u}\cdot\vec{u} = 3^2 + 4^2 = 9 + 16 = 25\) แล้วหารกัน \(\tfrac{15}{25} = \tfrac35\) (ตัดทอนด้วย 5 ทั้งตัวเศษและตัวส่วน)
         \[ \frac{\vec{y}\cdot\vec{u}}{\vec{u}\cdot\vec{u}} = \frac{15 + 0}{9 + 16} = \frac{15}{25} = \frac{3}{5} \]</li>
-        <li><span class="step-t">การฉาย</span>
+        <li><span class="step-t">การฉาย</span> เอาน้ำหนัก \(\tfrac35\) ไปคูณทุกสมาชิกของ \(\vec{u}\): ช่องบน \(\tfrac35(3) = \tfrac95\), ช่องล่าง \(\tfrac35(4) = \tfrac{12}{5}\) — นี่คือ "เงา" ของ \(\vec{y}\) ที่ตกลงบนเส้นตรงผ่าน \(\vec{u}\)
         \[ \hat{y} = \frac{3}{5}\begin{bmatrix} 3\\ 4 \end{bmatrix} = \begin{bmatrix} 9/5\\ 12/5 \end{bmatrix} \]</li>
-        <li><span class="step-t">ส่วนเติมเต็ม</span>
+        <li><span class="step-t">ส่วนเติมเต็ม</span> ลบแบบตำแหน่งต่อตำแหน่ง โดยเติมตัวส่วนร่วมก่อน (เพราะ \(\vec{y}\) เป็นจำนวนเต็มแต่ \(\hat{y}\) เป็นเศษส่วน): ช่องบน \(5 - \tfrac95 = \tfrac{25}{5} - \tfrac95 = \tfrac{16}{5}\), ช่องล่าง \(0 - \tfrac{12}{5} = -\tfrac{12}{5}\)
         \[ \vec{z} = \vec{y} - \hat{y} = \begin{bmatrix} 16/5\\ -12/5 \end{bmatrix} \]</li>
       </ol>
-      <div class="verify"><span class="lbl">ตรวจคำตอบ:</span> \(\vec{z}\cdot\vec{u} = \tfrac{48}{5} - \tfrac{48}{5} = 0\) ✓ และ \(\vec{y} = \hat{y} + \vec{z}\) ✓</div>
+      <div class="verify"><span class="lbl">ตรวจคำตอบ:</span> \(\vec{z}\cdot\vec{u} = \tfrac{16}{5}(3) + \left(-\tfrac{12}{5}\right)(4) = \tfrac{48}{5} - \tfrac{48}{5} = 0\) ✓ และ \(\hat{y} + \vec{z} = \left(\tfrac95 + \tfrac{16}{5},\; \tfrac{12}{5} - \tfrac{12}{5}\right) = (5, 0) = \vec{y}\) ✓ — <strong>สรุปคำตอบ:</strong> \(\hat{y} = \left(\tfrac95, \tfrac{12}{5}\right)^T\) และ \(\vec{z} = \left(\tfrac{16}{5}, -\tfrac{12}{5}\right)^T\)</div>
     </div>
   </article>
 
@@ -135,16 +136,17 @@
     <div class="ex-head"><span class="ex-badge">ตัวอย่าง 3</span><span class="tag hard">ยาก</span><span class="ex-title">แยก \(\vec{x} = \vec{y} + \vec{z}\) บนฐานหลักเชิงตั้งฉาก (ตัวอย่างคลาสสิกของตำรา)</span></div>
     <div class="ex-body">
       <div class="ex-q">กำหนด \(\vec{u}_1 = \begin{bmatrix} 1\\ 0\\ 1 \end{bmatrix}, \vec{u}_2 = \begin{bmatrix} -1\\ 4\\ 1 \end{bmatrix}, \vec{u}_3 = \begin{bmatrix} 2\\ 1\\ -2 \end{bmatrix}, \vec{x} = \begin{bmatrix} 8\\ -4\\ -3 \end{bmatrix}\) โดย \(\{\vec{u}_1, \vec{u}_2, \vec{u}_3\}\) เป็นฐานหลักเชิงตั้งฉากของ \(\mathbb{R}^3\) จงเขียน \(\vec{x}\) ในรูป \(\vec{x} = \vec{y} + \vec{z}\) โดย \(\vec{y} \in \operatorname{Span}\{\vec{u}_1, \vec{u}_2\}\) และ \(\vec{z} \in \operatorname{Span}\{\vec{u}_3\}\)</div>
-      <div class="approach"><span class="lbl">แนวคิด</span> — คิดน้ำหนักทั้งสามตัวแยกกันด้วยทฤษฎีบท 4.1.3 แล้วตัดตามที่โจทย์ขอ: \(\vec{y}\) เก็บน้ำหนักของ \(\vec{u}_1, \vec{u}_2\), \(\vec{z}\) เก็บของ \(\vec{u}_3\)</div>
+      <div class="approach"><span class="lbl">แนวคิด</span> — คิดน้ำหนักทั้งสามตัวแยกกันด้วยทฤษฎีบท 4.1.3 แล้วตัดตามที่โจทย์ขอ: \(\vec{y}\) เก็บน้ำหนักของ \(\vec{u}_1, \vec{u}_2\), \(\vec{z}\) เก็บของ \(\vec{u}_3\) กลยุทธ์คือ "เขียนพิกัดในฐานหลักเชิงตั้งฉากให้ครบก่อน แล้วจึงจัดกลุ่ม" — เพราะฐานหลักตั้งฉากทำให้แต่ละน้ำหนักหาได้อิสระจากกัน (จุดกับ \(\vec{u}_i\) แล้วส่วนอื่นดับหายหมด) การแบ่งกลุ่มจึงแค่เลือกว่าจะเก็บพิกัดตัวไหนไว้ฝั่งไหน</div>
       <ol class="steps">
-        <li><span class="step-t">คิดน้ำหนักทั้งสาม</span>
+        <li><span class="step-t">คิดน้ำหนักทั้งสาม</span> น้ำหนักที่ \(i\) คือ \(\dfrac{\vec{x}\cdot\vec{u}_i}{\vec{u}_i\cdot\vec{u}_i}\) ขยายทีละตัว: ตัวแรก เศษ \(\vec{x}\cdot\vec{u}_1 = 8(1) + (-4)(0) + (-3)(1) = 8 + 0 - 3 = 5\), ส่วน \(\vec{u}_1\cdot\vec{u}_1 = 1 + 0 + 1 = 2\) ได้ \(\tfrac52\) ตัวที่สอง เศษ \(\vec{x}\cdot\vec{u}_2 = 8(-1) + (-4)(4) + (-3)(1) = -8 - 16 - 3 = -27\), ส่วน \(\vec{u}_2\cdot\vec{u}_2 = 1 + 16 + 1 = 18\) ได้ \(-\tfrac{27}{18} = -\tfrac32\) (ตัดทอนด้วย 9) ตัวที่สาม เศษ \(\vec{x}\cdot\vec{u}_3 = 8(2) + (-4)(1) + (-3)(-2) = 16 - 4 + 6 = 18\), ส่วน \(\vec{u}_3\cdot\vec{u}_3 = 4 + 1 + 4 = 9\) ได้ \(\tfrac{18}{9} = 2\)
         \[ \frac{\vec{x}\cdot\vec{u}_1}{\vec{u}_1\cdot\vec{u}_1} = \frac{8-3}{2} = \frac{5}{2}, \qquad
         \frac{\vec{x}\cdot\vec{u}_2}{\vec{u}_2\cdot\vec{u}_2} = \frac{-8-16-3}{18} = -\frac{3}{2}, \qquad
         \frac{\vec{x}\cdot\vec{u}_3}{\vec{u}_3\cdot\vec{u}_3} = \frac{16-4+6}{9} = 2 \]</li>
-        <li><span class="step-t">แยกตามที่โจทย์ต้องการ</span>
+        <li><span class="step-t">แยกตามที่โจทย์ต้องการ</span> น้ำหนักของ \(\vec{u}_1, \vec{u}_2\) รวมเป็น \(\vec{y}\): กระจายทีละพจน์ \(\tfrac52(1, 0, 1) = (\tfrac52, 0, \tfrac52)\) และ \(-\tfrac32(-1, 4, 1) = (\tfrac32, -6, -\tfrac32)\) แล้วบวกตำแหน่งต่อตำแหน่ง (ช่องแรก: \(\tfrac52 + \tfrac32 = \tfrac{8}{2} = 4\) เพราะตัวส่วนเท่ากันจึงบวกตัวเศษตรง ๆ; ช่องกลาง \(0 + (-6) = -6\); ช่องสุดท้าย \(\tfrac52 - \tfrac32 = \tfrac22 = 1\))
         \[ \vec{y} = \frac{5}{2}\vec{u}_1 - \frac{3}{2}\vec{u}_2 = \begin{bmatrix} 5/2 + 3/2\\ -6\\ 5/2 - 3/2 \end{bmatrix} = \begin{bmatrix} 4\\ -6\\ 1 \end{bmatrix} \in \operatorname{Span}\{\vec{u}_1, \vec{u}_2\} \]
+        ส่วนน้ำหนักของ \(\vec{u}_3\) รวมเป็น \(\vec{z}\): คูณ 2 เข้าทุกช่องของ \(\vec{u}_3 = (2, 1, -2)\)
         \[ \vec{z} = 2\vec{u}_3 = \begin{bmatrix} 4\\ 2\\ -4 \end{bmatrix} \in \operatorname{Span}\{\vec{u}_3\} \]</li>
-        <li><span class="step-t">สรุป</span> \(\vec{x} = \vec{y} + \vec{z}\) โดย \(\vec{y} = \operatorname{proj}_H \vec{x}\) (เมื่อ \(H = \operatorname{Span}\{\vec{u}_1, \vec{u}_2\}\)) และ \(\vec{z} \in H^\perp\)</li>
+        <li><span class="step-t">สรุป</span> \(\vec{x} = \vec{y} + \vec{z}\) โดย \(\vec{y} = \operatorname{proj}_H \vec{x}\) (เมื่อ \(H = \operatorname{Span}\{\vec{u}_1, \vec{u}_2\}\)) และ \(\vec{z} \in H^\perp\) — <strong>สรุปคำตอบ:</strong> \(\vec{y} = (4, -6, 1)^T\), \(\vec{z} = (4, 2, -4)^T\) เป็นการแยกที่โจทย์ต้องการ (เพราะ \(\vec{z}\) อยู่ใน \(\operatorname{Span}\{\vec{u}_3\}\) ซึ่งตั้งฉากกับทั้ง \(\vec{u}_1, \vec{u}_2\) จึงตั้งฉากกับทุกตัวใน \(H\))</li>
       </ol>
       <div class="verify"><span class="lbl">ตรวจคำตอบ:</span> \(\vec{y} + \vec{z} = (8, -4, -3) = \vec{x}\) ✓ และ \(\vec{z}\cdot\vec{u}_1 = 4-4 = 0\), \(\vec{z}\cdot\vec{u}_2 = -4+8-4 = 0\) ✓</div>
     </div>
@@ -154,12 +156,12 @@
     <div class="ex-head"><span class="ex-badge">ตัวอย่าง 4</span><span class="tag hard">ยาก</span><span class="ex-title">กราม-ชมิดต์ 2 เวกเตอร์ (ตัวอย่างคลาสสิกของตำรา)</span></div>
     <div class="ex-body">
       <div class="ex-q">ให้ \(H = \operatorname{Span}\{\vec{x}_1, \vec{x}_2\}\) เมื่อ \(\vec{x}_1 = \begin{bmatrix} 1\\ 2\\ 0 \end{bmatrix}\), \(\vec{x}_2 = \begin{bmatrix} 1\\ 2\\ -3 \end{bmatrix}\) จงใช้กระบวนการกราม-ชมิดต์สร้างฐานหลักเชิงตั้งฉากสำหรับ \(H\)</div>
-      <div class="approach"><span class="lbl">แนวคิด</span> — \(\vec{v}_1 = \vec{x}_1\) แล้ว \(\vec{v}_2 = \vec{x}_2\) ลบส่วนที่ฉายบน \(\vec{v}_1\)</div>
+      <div class="approach"><span class="lbl">แนวคิด</span> — \(\vec{v}_1 = \vec{x}_1\) แล้ว \(\vec{v}_2 = \vec{x}_2\) ลบส่วนที่ฉายบน \(\vec{v}_1\) กลยุทธ์คือนึกภาพเรขาคณิต: \(\vec{x}_2\) เป็นเวกเตอร์ที่ "เอน" ไปตามทิศของ \(\vec{x}_1\) อยู่บ้าง เราจะเอาเฉพาะส่วนที่<em>ไม่</em>อยู่ในทิศ \(\vec{x}_1\) มาเป็น \(\vec{v}_2\) โดยการลบเงาที่ฉายบน \(\vec{v}_1\) ทิ้งไป — สิ่งที่เหลือจะตั้งฉากกับ \(\vec{v}_1\) โดยอัตโนมัติ (นี่คือหัวใจของกราม-ชมิดต์)</div>
       <ol class="steps">
-        <li><span class="step-t">ตั้ง \(\vec{v}_1 = \vec{x}_1\)</span> \(\vec{v}_1 = (1, 2, 0)^T\), \(\vec{v}_1\cdot\vec{v}_1 = 5\)</li>
-        <li><span class="step-t">ลบส่วนฉายออกจาก \(\vec{x}_2\)</span>
+        <li><span class="step-t">ตั้ง \(\vec{v}_1 = \vec{x}_1\)</span> เวกเตอร์ตัวแรกไม่ต้องแตะ (ไม่มีเวกเตอร์ก่อนหน้าให้ตั้งฉากด้วย) \(\vec{v}_1 = (1, 2, 0)^T\) และความยาวกำลังสอง \(\vec{v}_1\cdot\vec{v}_1 = 1^2 + 2^2 + 0^2 = 1 + 4 + 0 = 5\) (ตัวเลขนี้จะเป็นตัวส่วนในขั้นถัดไป)</li>
+        <li><span class="step-t">ลบส่วนฉายออกจาก \(\vec{x}_2\)</span> คิดเศษก่อน: \(\vec{x}_2\cdot\vec{v}_1 = 1(1) + 2(2) + (-3)(0) = 1 + 4 + 0 = 5\) ได้สัมประสิทธิ์ \(\tfrac{1+4+0}{5} = \tfrac55 = 1\) — เงาที่ฉายบน \(\vec{v}_1\) จึงเป็น \(1\cdot\vec{v}_1 = (1, 2, 0)^T\) พอดีเป๊ะ ลบออกทีละช่อง: \(1 - 1 = 0\), \(2 - 2 = 0\), \(-3 - 0 = -3\)
         \[ \vec{v}_2 = \vec{x}_2 - \frac{\vec{x}_2\cdot\vec{v}_1}{\vec{v}_1\cdot\vec{v}_1}\vec{v}_1 = \begin{bmatrix} 1\\ 2\\ -3 \end{bmatrix} - \frac{1 + 4 + 0}{5}\begin{bmatrix} 1\\ 2\\ 0 \end{bmatrix} = \begin{bmatrix} 1\\ 2\\ -3 \end{bmatrix} - \begin{bmatrix} 1\\ 2\\ 0 \end{bmatrix} = \begin{bmatrix} 0\\ 0\\ -3 \end{bmatrix} \]</li>
-        <li><span class="step-t">สรุป</span> \(\left\{ (1,2,0)^T, (0,0,-3)^T \right\}\) เป็นฐานหลักเชิงตั้งฉากสำหรับ \(H\) (ตรวจ: ผลคูณจุด = 0 ✓)</li>
+        <li><span class="step-t">สรุป</span> \(\left\{ (1,2,0)^T, (0,0,-3)^T \right\}\) เป็นฐานหลักเชิงตั้งฉากสำหรับ \(H\) — <strong>สรุปพร้อมเหตุผล:</strong> ตั้งฉากกันเพราะ \((1,2,0)\cdot(0,0,-3) = 0 + 0 + 0 = 0\) ✓ และเป็นฐานหลักของ \(H\) ได้เพราะกราม-ชมิดต์ไม่เปลี่ยน span (ลบไปด้วยส่วนที่อยู่ใน span เดิมเท่านั้น) และเวกเตอร์ไม่ศูนย์ทั้งคู่จึงอิสระเชิงเส้น</li>
       </ol>
     </div>
   </article>
@@ -168,15 +170,16 @@
     <div class="ex-head"><span class="ex-badge">ตัวอย่าง 5</span><span class="tag hard">ยาก</span><span class="ex-title">กราม-ชมิดต์ 3 เวกเตอร์พร้อมท่าคูณสเกลาร์เก็บเลขสวย</span></div>
     <div class="ex-body">
       <div class="ex-q">จงใช้กระบวนการกราม-ชมิดต์สร้างฐานหลักเชิงตั้งฉากสำหรับ \(H = \operatorname{Span}\{\vec{x}_1, \vec{x}_2, \vec{x}_3\}\) เมื่อ \(\vec{x}_1 = (1,1,0)^T\), \(\vec{x}_2 = (1,0,1)^T\), \(\vec{x}_3 = (0,1,1)^T\)</div>
-      <div class="approach"><span class="lbl">แนวคิด</span> — ทำทีละตัว และระหว่างทางคูณสเกลาร์เก็บตัวเลขให้เป็นจำนวนเต็ม</div>
+      <div class="approach"><span class="lbl">แนวคิด</span> — ทำทีละตัว และระหว่างทางคูณสเกลาร์เก็บตัวเลขให้เป็นจำนวนเต็ม กลยุทธ์คืออย่าปล่อยให้เศษส่วนกองสะสม: ทันทีที่ \(\vec{v}_i\) มีแต่เศษ ให้คูณสเกลาร์ (ที่ไม่ศูนย์) รีดเศษทิ้งก่อน เพราะการคูณสเกลาร์ไม่ทำลายความตั้งฉากและไม่เปลี่ยน span (เวกเตอร์ชี้ทิศเดิม ยาวขึ้น/สั้นลงเท่านั้น) ทำให้ขั้นถัดไปคิดเลขสบายขึ้นมาก</div>
       <ol class="steps">
-        <li><span class="step-t">ตั้ง \(\vec{v}_1\)</span> \(\vec{v}_1 = (1, 1, 0)^T\), \(\vec{v}_1\cdot\vec{v}_1 = 2\)</li>
-        <li><span class="step-t">หา \(\vec{v}_2\)</span> \(\vec{x}_2\cdot\vec{v}_1 = 1\)
+        <li><span class="step-t">ตั้ง \(\vec{v}_1\)</span> เวกเตอร์แรกคงเดิม \(\vec{v}_1 = (1, 1, 0)^T\) และคำนวณความยาวกำลังสองไว้ใช้: \(\vec{v}_1\cdot\vec{v}_1 = 1^2 + 1^2 + 0^2 = 2\)</li>
+        <li><span class="step-t">หา \(\vec{v}_2\)</span> เศษคือ \(\vec{x}_2\cdot\vec{v}_1 = 1(1) + 0(1) + 1(0) = 1 + 0 + 0 = 1\) ลบเงาออกทีละช่อง: \(1 - \tfrac12 = \tfrac12\), \(0 - \tfrac12 = -\tfrac12\), \(1 - 0 = 1\)
         \[ \vec{v}_2 = \begin{bmatrix} 1\\ 0\\ 1 \end{bmatrix} - \frac{1}{2}\begin{bmatrix} 1\\ 1\\ 0 \end{bmatrix} = \begin{bmatrix} 1/2\\ -1/2\\ 1 \end{bmatrix} \;\xrightarrow{\;\times 2\;}\; \vec{v}_2' = \begin{bmatrix} 1\\ -1\\ 2 \end{bmatrix} \]
-        (\(\vec{v}_2'\cdot\vec{v}_1 = 0\) ✓, \(\vec{v}_2'\cdot\vec{v}_2' = 6\))</li>
-        <li><span class="step-t">หา \(\vec{v}_3\)</span> ลบส่วนฉายบน \(\vec{v}_1\) และ \(\vec{v}_2'\): \(\vec{x}_3\cdot\vec{v}_1 = 1\), \(\vec{x}_3\cdot\vec{v}_2' = 0 - 1 + 2 = 1\)
-        \[ \vec{v}_3 = \begin{bmatrix} 0\\ 1\\ 1 \end{bmatrix} - \frac{1}{2}\begin{bmatrix} 1\\ 1\\ 0 \end{bmatrix} - \frac{1}{6}\begin{bmatrix} 1\\ -1\\ 2 \end{bmatrix} = \begin{bmatrix} -2/3\\ 2/3\\ 2/3 \end{bmatrix} \;\xrightarrow{\;\times 3/2\;}\; \vec{v}_3' = \begin{bmatrix} -1\\ 1\\ 1 \end{bmatrix} \]</li>
-        <li><span class="step-t">สรุป</span> \(\{(1,1,0)^T, (1,-1,2)^T, (-1,1,1)^T\}\) เป็นฐานหลักเชิงตั้งฉากสำหรับ \(H\) (จับคู่จุดกันหมด ✓)</li>
+        (คูณสเกลาร์ 2 เพื่อรีดเศษครึ่งออก — ทิศเดิม span เดิม) ตรวจว่าตั้งฉากจริง: \(\vec{v}_2'\cdot\vec{v}_1 = 1 - 1 + 0 = 0\) ✓ และเก็บความยาวกำลังสองไว้ใช้ขั้นถัดไป \(\vec{v}_2'\cdot\vec{v}_2' = 1 + 1 + 4 = 6\)</li>
+        <li><span class="step-t">หา \(\vec{v}_3\)</span> ตอนนี้ต้องลบเงาออกสองทิศ (ทุกเวกเตอร์ที่สร้างไว้ก่อนหน้า): คิดเศษทีละตัว \(\vec{x}_3\cdot\vec{v}_1 = 0(1) + 1(1) + 1(0) = 1\) และ \(\vec{x}_3\cdot\vec{v}_2' = 0(1) + 1(-1) + 1(2) = 0 - 1 + 2 = 1\) แล้วลบพร้อมกันทีละช่อง (จัดตัวส่วนร่วมเป็น 6): ช่องแรก \(0 - \tfrac12 - \tfrac16 = -\tfrac36 - \tfrac16 = -\tfrac46 = -\tfrac23\), ช่องกลาง \(1 - \tfrac12 + \tfrac16 = \tfrac66 - \tfrac36 + \tfrac16 = \tfrac46 = \tfrac23\), ช่องสุดท้าย \(1 - 0 - \tfrac26 = \tfrac46 = \tfrac23\)
+        \[ \vec{v}_3 = \begin{bmatrix} 0\\ 1\\ 1 \end{bmatrix} - \frac{1}{2}\begin{bmatrix} 1\\ 1\\ 0 \end{bmatrix} - \frac{1}{6}\begin{bmatrix} 1\\ -1\\ 2 \end{bmatrix} = \begin{bmatrix} -2/3\\ 2/3\\ 2/3 \end{bmatrix} \;\xrightarrow{\;\times 3/2\;}\; \vec{v}_3' = \begin{bmatrix} -1\\ 1\\ 1 \end{bmatrix} \]
+        (คูณ \(\tfrac32\) รีดเศษ: \(\tfrac32 \cdot \left(-\tfrac23\right) = -1\), \(\tfrac32 \cdot \tfrac23 = 1\), \(\tfrac32 \cdot \tfrac23 = 1\) — เลือก \(\tfrac32\) เพราะเป็นตัวกลับของ \(\tfrac23\) พอดี)</li>
+        <li><span class="step-t">สรุป</span> \(\{(1,1,0)^T, (1,-1,2)^T, (-1,1,1)^T\}\) เป็นฐานหลักเชิงตั้งฉากสำหรับ \(H\) — <strong>สรุปเหตุผล:</strong> จับคู่จุดกันหมดทุกคู่ (ดูบล็อกตรวจคำตอบด้านล่าง) และ span คงเดิมเพราะกราม-ชมิดต์เปลี่ยนแค่ "ทิศทางตัวแทน" ไม่ได้เพิ่มหรือหายของช่องว่างที่แผ่ได้</li>
       </ol>
       <div class="verify"><span class="lbl">ตรวจคำตอบ:</span> \((1,1,0)\cdot(1,-1,2) = 0\) ✓, \((1,1,0)\cdot(-1,1,1) = 0\) ✓, \((1,-1,2)\cdot(-1,1,1) = -1-1+2 = 0\) ✓ และเวกเตอร์ทั้งสามไม่ศูนย์ → อิสระเชิงเส้น → เป็นฐานหลักของ \(H\) จริง</div>
     </div>
@@ -186,17 +189,17 @@
     <div class="ex-head"><span class="ex-badge">ตัวอย่าง 6</span><span class="tag hard">ยาก</span><span class="ex-title">QR Factorization</span></div>
     <div class="ex-body">
       <div class="ex-q">จงหาการแยกตัวประกอบ \(A = QR\) ของ \(A = \begin{bmatrix} 1 & 1\\ 1 & 0\\ 0 & 1 \end{bmatrix}\)</div>
-      <div class="approach"><span class="lbl">แนวคิด</span> — หลักของ \(A\) คือ \(\vec{x}_1 = (1,1,0)^T, \vec{x}_2 = (1,0,1)^T\) — ทำกราม-ชมิดต์ → ปรับหนึ่งหน่วย → \(Q\) = เรียงเป็นหลัก → \(R = Q^TA\)</div>
+      <div class="approach"><span class="lbl">แนวคิด</span> — หลักของ \(A\) คือ \(\vec{x}_1 = (1,1,0)^T, \vec{x}_2 = (1,0,1)^T\) — ทำกราม-ชมิดต์ → ปรับหนึ่งหน่วย → \(Q\) = เรียงเป็นหลัก → \(R = Q^TA\) กลยุทธ์คือแยกงานเป็นสามก้อน: กราม-ชมิดต์ทำให้หลักตั้งฉากกัน (แต่ยาวไม่เท่ากัน), การปรับหนึ่งหน่วยทำให้เป็น orthonormal (จบเรื่อง \(Q\)), แล้ว \(R\) หาได้จากการคูณ \(Q^TA\) หนึ่งครั้ง — ไม่ต้องแต่ง \(R\) เองเลย เพราะโครงสร้างสามเหลี่ยมบนจะโผล่มาเอง</div>
       <ol class="steps">
-        <li><span class="step-t">กราม-ชมิดต์ (จากตัวอย่าง 5 สองตัวแรก)</span>
+        <li><span class="step-t">กราม-ชมิดต์ (จากตัวอย่าง 5 สองตัวแรก)</span> ยืมผลจากตัวอย่าง 5 ได้ตรง ๆ เพราะเวกเตอร์ \(\vec{x}_1, \vec{x}_2\) เหมือนกัน: ตั้ง \(\vec{v}_1 = (1,1,0)^T\) แล้วลบเงาของ \(\vec{x}_2\) ออก (\(\vec{x}_2\cdot\vec{v}_1 = 1\), ส่วน \(2\)) ได้ \(\tfrac12(1,1,0)\) ถูกลบไป เหลือ \((\tfrac12, -\tfrac12, 1)\) แล้วคูณสเกลาร์ 2 ให้เป็นจำนวนเต็ม
         \[ \vec{v}_1 = (1,1,0)^T, \qquad \vec{v}_2' = (1,-1,2)^T \]</li>
-        <li><span class="step-t">ปรับหนึ่งหน่วยแล้วเรียงเป็นหลักของ \(Q\)</span> \(\|\vec{v}_1\| = \sqrt{2}\), \(\|\vec{v}_2'\| = \sqrt{6}\)
+        <li><span class="step-t">ปรับหนึ่งหน่วยแล้วเรียงเป็นหลักของ \(Q\)</span> ความยาว: \(\|\vec{v}_1\| = \sqrt{1+1+0} = \sqrt{2}\), \(\|\vec{v}_2'\| = \sqrt{1+1+4} = \sqrt{6}\) หลักที่ \(i\) ของ \(Q\) = เวกเตอร์ที่ \(i\) หารด้วยความยาวตัวเอง (เช่น หลักแรก = \((\tfrac{1}{\sqrt2}, \tfrac{1}{\sqrt2}, 0)^T\)) — ต้องเรียง<em>เป็นหลัก</em> (คอลัมน์) ตามลำดับเดียวกับหลักของ \(A\)
         \[ Q = \begin{bmatrix} \tfrac{1}{\sqrt{2}} & \tfrac{1}{\sqrt{6}}\\[4pt] \tfrac{1}{\sqrt{2}} & -\tfrac{1}{\sqrt{6}}\\[4pt] 0 & \tfrac{2}{\sqrt{6}} \end{bmatrix} \]</li>
-        <li><span class="step-t">คำนวณ \(R = Q^TA\)</span>
+        <li><span class="step-t">คำนวณ \(R = Q^TA\)</span> แต่ละช่องของ \(R\) มาจาก "(แถวที่ \(i\) ของ \(Q^T\)) · (หลักที่ \(j\) ของ \(A\))" ซึ่งก็คือ \(\vec{q}_i\cdot\vec{x}_j\) ช่อง (1,1): \(\vec{q}_1\cdot\vec{x}_1 = \tfrac{1}{\sqrt2}(1) + \tfrac{1}{\sqrt2}(1) + 0(0) = \tfrac{2}{\sqrt2} = \sqrt2\) (เพราะ \(\tfrac{2}{\sqrt2} = \tfrac{\sqrt2 \cdot \sqrt2}{\sqrt2} = \sqrt2\)) ช่อง (2,1): \(\vec{q}_2\cdot\vec{x}_1 = \tfrac{1}{\sqrt6}(1) + \left(-\tfrac{1}{\sqrt6}\right)(1) + \tfrac{2}{\sqrt6}(0) = 0\) (เป็นศูนย์เพราะ \(\vec{q}_2\) ถูกสร้างให้ตั้งฉากกับ \(\vec{x}_1\) พอดี — นี่คือเหตุผลที่ \(R\) เป็นสามเหลี่ยมบนเสมอ)
         \[ R = \begin{bmatrix} \tfrac{1}{\sqrt{2}} & \tfrac{1}{\sqrt{2}} & 0\\[4pt] \tfrac{1}{\sqrt{6}} & -\tfrac{1}{\sqrt{6}} & \tfrac{2}{\sqrt{6}} \end{bmatrix}\begin{bmatrix} 1 & 1\\ 1 & 0\\ 0 & 1 \end{bmatrix} = \begin{bmatrix} \tfrac{2}{\sqrt{2}} & \tfrac{1}{\sqrt{2}}\\[4pt] 0 & \tfrac{3}{\sqrt{6}} \end{bmatrix} = \begin{bmatrix} \sqrt{2} & \tfrac{1}{\sqrt{2}}\\[4pt] 0 & \sqrt{\tfrac{3}{2}} \end{bmatrix} \]
-        (เป็นสามเหลี่ยมบน ทแยงเป็นบวก ✓)</li>
+        (ช่อง (2,2): \(\vec{q}_2\cdot\vec{x}_2 = \tfrac{1}{\sqrt6}(1) + \left(-\tfrac{1}{\sqrt6}\right)(0) + \tfrac{2}{\sqrt6}(1) = \tfrac{3}{\sqrt6}\) และ \(\tfrac{3}{\sqrt6} = \sqrt{\tfrac32}\) เพราะยกกำลังสองแล้วเท่ากัน \(\left(\tfrac{3}{\sqrt6}\right)^2 = \tfrac96 = \tfrac32\) ทั้งคู่เป็นบวก) เป็นสามเหลี่ยมบน ทแยงเป็นบวก ✓</li>
       </ol>
-      <div class="verify"><span class="lbl">ตรวจคำตอบ:</span> \(QR\) หลักแรก: \(\sqrt{2}\,\vec{q}_1 = (1,1,0)^T = \vec{x}_1\) ✓ หลักที่สอง: \(\tfrac{1}{\sqrt{2}}\vec{q}_1 + \sqrt{\tfrac{3}{2}}\,\vec{q}_2 = (\tfrac12 + \tfrac12,\; \tfrac12 - \tfrac12,\; 0 + 1)^T = (1, 0, 1)^T = \vec{x}_2\) ✓</div>
+      <div class="verify"><span class="lbl">ตรวจคำตอบ:</span> \(QR\) หลักแรก: \(\sqrt{2}\,\vec{q}_1 = (1,1,0)^T = \vec{x}_1\) ✓ หลักที่สอง: \(\tfrac{1}{\sqrt{2}}\vec{q}_1 + \sqrt{\tfrac{3}{2}}\,\vec{q}_2 = (\tfrac12 + \tfrac12,\; \tfrac12 - \tfrac12,\; 0 + 1)^T = (1, 0, 1)^T = \vec{x}_2\) ✓ — <strong>สรุป:</strong> ได้ \(A = QR\) ตามเมทริกซ์ \(Q, R\) ด้านบน ซึ่งตอบโจทย์เพราะ \(QR = A\) ทุกช่อง</div>
     </div>
   </article>
 </section>
@@ -235,12 +238,12 @@
     </div>
     <details class="hint"><summary>คำใบ้</summary><div class="hint-body">\(\vec{z} = (x_1, x_2, x_3)^T \in H^\perp\) ก็ต่อเมื่อ \(x_1 + 2x_2 - 3x_3 = 0\) → เขียน \(x_1 = -2x_2 + 3x_3\)</div></details>
     <details class="sol"><summary>แนวคิดและเฉลยแบบละเอียด</summary><div class="sol-body">
-      <p><strong>แนวคิด:</strong> \(H^\perp = \operatorname{Nul} A^T\) เมื่อ \(A = \begin{bmatrix} 1 & 2 & -3 \end{bmatrix}^T\)</p>
+      <p><strong>แนวคิด:</strong> \(H^\perp = \operatorname{Nul} A^T\) เมื่อ \(A = \begin{bmatrix} 1 & 2 & -3 \end{bmatrix}^T\) — กลยุทธ์: เนื่องจาก \(H\) แผ่ด้วยเวกเตอร์<em>ตัวเดียว</em> เงื่อนไข "\(\vec{z}\) ตั้งฉากกับทุกตัวใน \(H\)" จึงยุบเหลือสมการเดียว \(\vec{z}\cdot\vec{u} = 0\) (เพราะตั้งฉากกับฐานหลักตัวเดียว = ตั้งฉากกับทุกพหุคูณสเกลาร์ของมัน = ตั้งฉากกับทุกตัวใน \(H\)) ระบบสมการเดียวกับตัวแปรสามตัวจะให้ตัวแปรเสรี 2 ตัว จึงคาดหวังฐานหลัก 2 เวกเตอร์</p>
       <ol class="steps">
-        <li><span class="step-t">เงื่อนไขเดียว</span> \(x_1 + 2x_2 - 3x_3 = 0 \Rightarrow x_1 = -2x_2 + 3x_3\) โดย \(x_2, x_3\) เสรี</li>
-        <li><span class="step-t">ผลเฉลยอิงตัวแปรเสริม</span>
+        <li><span class="step-t">เงื่อนไขเดียว</span> ขยายผลคูณจุด: \(\vec{z}\cdot(1, 2, -3) = x_1(1) + x_2(2) + x_3(-3) = x_1 + 2x_2 - 3x_3 = 0\) แก้หา \(x_1\) (ย้ายข้าง): \(x_1 = -2x_2 + 3x_3\) โดย \(x_2, x_3\) เสรี (เพราะเราแก้ให้ตัวแปรที่มีสัมประสิทธิ์ 1 ออกมาได้เพียงตัวเดียว ที่เหลือเลือกค่าได้อิสระ)</li>
+        <li><span class="step-t">ผลเฉลยอิงตัวแปรเสริม</span> เทคนิคมาตรฐาน: แยกผลเฉลยตามตัวแปรเสรีแต่ละตัว — เลือก \((x_2, x_3) = (1, 0)\) ได้ \((-2, 1, 0)^T\) และเลือก \((x_2, x_3) = (0, 1)\) ได้ \((3, 0, 1)^T\) (วิธีอ่าน: ช่อง \(x_1\) ใส่ค่าจากสูตร \(x_1 = -2x_2 + 3x_3\), ช่องตัวแปรเสรีใส่ 1 ทีละตัวและ 0 ที่เหลือ)
         \[ \vec{x} = x_2\begin{bmatrix} -2\\ 1\\ 0 \end{bmatrix} + x_3\begin{bmatrix} 3\\ 0\\ 1 \end{bmatrix} \;\Longrightarrow\; \text{ฐานหลักสำหรับ } H^\perp = \left\{ \begin{bmatrix} -2\\ 1\\ 0 \end{bmatrix}, \begin{bmatrix} 3\\ 0\\ 1 \end{bmatrix} \right\} \]</li>
-        <li><span class="step-t">ตรวจคำตอบ</span> \((-2,1,0)\cdot(1,2,-3) = -2+2 = 0\) ✓ และ \((3,0,1)\cdot(1,2,-3) = 3-3 = 0\) ✓ และ \(\dim H + \dim H^\perp = 1 + 2 = 3\) ✓</li>
+        <li><span class="step-t">ตรวจคำตอบ</span> จุดกลับเข้าไปทีละตัว: \((-2,1,0)\cdot(1,2,-3) = -2 + 2 + 0 = 0\) ✓ และ \((3,0,1)\cdot(1,2,-3) = 3 + 0 - 3 = 0\) ✓ และนับมิติถูกต้อง \(\dim H + \dim H^\perp = 1 + 2 = 3\) ✓ — <strong>สรุปคำตอบ:</strong> ฐานหลักสำหรับ \(H^\perp\) คือสองเวกเตอร์ \((-2,1,0)^T\) และ \((3,0,1)^T\)</li>
       </ol>
     </div></details>
   </article>
@@ -253,14 +256,14 @@
     </div>
     <details class="hint"><summary>คำใบ้</summary><div class="hint-body">\(\vec{y}\cdot\vec{u}_1 = -3\), \(\vec{y}\cdot\vec{u}_2 = -5\) และ \(\|\vec{u}_1\|^2 = \|\vec{u}_2\|^2 = 2\)</div></details>
     <details class="sol"><summary>แนวคิดและเฉลยแบบละเอียด</summary><div class="sol-body">
-      <p><strong>แนวคิด:</strong> ทฤษฎีบท 4.2.2 โดยตรง</p>
+      <p><strong>แนวคิด:</strong> ทฤษฎีบท 4.2.2 โดยตรง — กลยุทธ์: ก่อนใช้สูตรฉายต้องมีสิทธิ์ใช้ก่อน คือฐานหลักต้องเป็นเซตเชิงตั้งฉากจริง (เช็กด้วยผลคูณจุดหนึ่งครั้ง) จากนั้นหาน้ำหนักทีละตัวแบบอิสระจากกัน แล้วประกอบกลับเป็น \(\hat{y}\)</p>
       <ol class="steps">
-        <li><span class="step-t">เช็กเซตเชิงตั้งฉาก</span> \(\vec{u}_1\cdot\vec{u}_2 = -1 + 1 + 0 = 0\) ✓</li>
-        <li><span class="step-t">น้ำหนัก</span>
+        <li><span class="step-t">เช็กเซตเชิงตั้งฉาก</span> คูณจุดคู่เดียวที่มี: \(\vec{u}_1\cdot\vec{u}_2 = 1(-1) + 1(1) + 0(0) = -1 + 1 + 0 = 0\) ✓ เป็นเซตเชิงตั้งฉาก (เพราะผลคูณจุด = 0 ตามนิยาม) จึงใช้สูตรฉายได้</li>
+        <li><span class="step-t">น้ำหนัก</span> คิดเศษทีละตัว: \(\vec{y}\cdot\vec{u}_1 = 1(1) + (-4)(1) + 3(0) = 1 - 4 + 0 = -3\) และ \(\vec{y}\cdot\vec{u}_2 = 1(-1) + (-4)(1) + 3(0) = -1 - 4 + 0 = -5\) ตัวส่วนคือความยาวกำลังสอง \(\vec{u}_1\cdot\vec{u}_1 = 1 + 1 + 0 = 2\) และ \(\vec{u}_2\cdot\vec{u}_2 = 1 + 1 + 0 = 2\) หารกันได้
         \[ \frac{\vec{y}\cdot\vec{u}_1}{2} = \frac{1-4}{2} = -\frac{3}{2}, \qquad \frac{\vec{y}\cdot\vec{u}_2}{2} = \frac{-1-4}{2} = -\frac{5}{2} \]</li>
-        <li><span class="step-t">การฉาย</span>
+        <li><span class="step-t">การฉาย</span> นำน้ำหนักไปคูณเวกเตอร์ของตัวเองแล้วบวก: \(-\tfrac32(1,1,0) = (-\tfrac32, -\tfrac32, 0)\) และ \(-\tfrac52(-1,1,0) = (\tfrac52, -\tfrac52, 0)\) บวกตำแหน่งต่อตำแหน่ง (ตัวส่วนเท่ากันจึงบวกตัวเศษตรง ๆ): ช่องแรก \(-\tfrac32 + \tfrac52 = \tfrac{-3+5}{2} = 1\), ช่องที่สอง \(-\tfrac32 - \tfrac52 = \tfrac{-3-5}{2} = -4\), ช่องที่สาม \(0\)
         \[ \hat{y} = -\frac{3}{2}\begin{bmatrix} 1\\ 1\\ 0 \end{bmatrix} - \frac{5}{2}\begin{bmatrix} -1\\ 1\\ 0 \end{bmatrix} = \begin{bmatrix} -3/2 + 5/2\\ -3/2 - 5/2\\ 0 \end{bmatrix} = \begin{bmatrix} 1\\ -4\\ 0 \end{bmatrix} \]
-        (และ \(\vec{z} = \vec{y} - \hat{y} = (0, 0, 3)^T \in H^\perp\) ✓ เพราะตั้งฉากกับ \(\vec{u}_1, \vec{u}_2\) ทั้งคู่)</li>
+        (และ \(\vec{z} = \vec{y} - \hat{y} = (1-1,\; -4+4,\; 3-0)^T = (0, 0, 3)^T \in H^\perp\) ✓ เพราะตั้งฉากกับ \(\vec{u}_1, \vec{u}_2\) ทั้งคู่ — สังเกตว่า \(\hat{y}\) ดึงเอาเฉพาะส่วน \(x, y\) ของ \(\vec{y}\) ไป เพราะฐานหลักทั้งคู่ไม่มีองค์ประกอบแกน \(z\)) — <strong>สรุปคำตอบ:</strong> \(\operatorname{proj}_H \vec{y} = (1, -4, 0)^T\)</li>
       </ol>
     </div></details>
   </article>
@@ -273,12 +276,13 @@
     </div>
     <details class="hint"><summary>คำใบ้</summary><div class="hint-body">\(\vec{x}_2\cdot\vec{v}_1 = -1\), \(\vec{v}_1\cdot\vec{v}_1 = 2\) — หลังลบแล้วได้เศษส่วน คูณ 2 เก็บเลขให้สวยได้</div></details>
     <details class="sol"><summary>แนวคิดและเฉลยแบบละเอียด</summary><div class="sol-body">
-      <p><strong>แนวคิด:</strong> กราม-ชมิดต์สองตัว</p>
+      <p><strong>แนวคิด:</strong> กราม-ชมิดต์สองตัว — กลยุทธ์: เวกเตอร์แรกคงเดิม เวกเตอร์ที่สองลบเงาที่ฉายบนเวกเตอร์แรกทิ้ง แล้วคูณสเกลาร์รีดเศษส่วนให้เป็นจำนวนเต็ม (ทำได้เพราะการคูณสเกลาร์ไม่ทำลายความตั้งฉากและไม่เปลี่ยน span)</p>
       <ol class="steps">
-        <li><span class="step-t">ตั้ง \(\vec{v}_1 = \vec{x}_1\)</span> \(\vec{v}_1 = (1,-1,0)^T\), \(\vec{v}_1\cdot\vec{v}_1 = 2\)</li>
-        <li><span class="step-t">ลบส่วนฉาย</span>
-        \[ \vec{v}_2 = \begin{bmatrix} 0\\ 1\\ -1 \end{bmatrix} - \frac{-1}{2}\begin{bmatrix} 1\\ -1\\ 0 \end{bmatrix} = \begin{bmatrix} 1/2\\ 1/2\\ -1 \end{bmatrix} \;\xrightarrow{\;\times 2\;}\; \begin{bmatrix} 1\\ 1\\ -2 \end{bmatrix} \]</li>
-        <li><span class="step-t">สรุป</span> \(\{(1,-1,0)^T, (1,1,-2)^T\}\) เป็นฐานหลักเชิงตั้งฉาก (ตรวจ: \(1 - 1 + 0 = 0\) ✓)</li>
+        <li><span class="step-t">ตั้ง \(\vec{v}_1 = \vec{x}_1\)</span> ตัวแรกไม่ต้องแตะ \(\vec{v}_1 = (1,-1,0)^T\) คิดความยาวกำลังสองไว้ใช้เป็นตัวส่วน: \(\vec{v}_1\cdot\vec{v}_1 = 1^2 + (-1)^2 + 0^2 = 1 + 1 + 0 = 2\)</li>
+        <li><span class="step-t">ลบส่วนฉาย</span> เศษ: \(\vec{x}_2\cdot\vec{v}_1 = 0(1) + 1(-1) + (-1)(0) = 0 - 1 + 0 = -1\) (เศษติดลบ — เงาชี้สวนทิศ \(\vec{v}_1\)) สัมประสิทธิ์คือ \(\tfrac{-1}{2}\) ลบเงาออกทีละช่อง (ระวังลบซ้อนลบ: \(1 - (-\tfrac12) = 1 + \tfrac12 = \tfrac32\) ไม่ใช่ \(\tfrac12\)): ช่องแรก \(0 - \tfrac{-1}{2}(1) = \tfrac12\), ช่องที่สอง \(1 - \tfrac{-1}{2}(-1) = 1 - \tfrac12 = \tfrac12\), ช่องที่สาม \(-1 - 0 = -1\)
+        \[ \vec{v}_2 = \begin{bmatrix} 0\\ 1\\ -1 \end{bmatrix} - \frac{-1}{2}\begin{bmatrix} 1\\ -1\\ 0 \end{bmatrix} = \begin{bmatrix} 1/2\\ 1/2\\ -1 \end{bmatrix} \;\xrightarrow{\;\times 2\;}\; \begin{bmatrix} 1\\ 1\\ -2 \end{bmatrix} \]
+        (คูณ 2 เก็บเลขให้เป็นจำนวนเต็ม — ทิศเดิม span เดิม)</li>
+        <li><span class="step-t">สรุป</span> \(\{(1,-1,0)^T, (1,1,-2)^T\}\) เป็นฐานหลักเชิงตั้งฉาก — <strong>ตรวจและสรุป:</strong> \((1,-1,0)\cdot(1,1,-2) = 1 - 1 + 0 = 0\) ✓ ตั้งฉากกันจริง และทั้งคู่ไม่ศูนย์จึงอิสระเชิงเส้น รวมกับ span คงเดิม (กราม-ชมิดต์ไม่เปลี่ยน span) จึงเป็นฐานหลักเชิงตั้งฉากที่โจทย์ต้องการ</li>
       </ol>
     </div></details>
   </article>
@@ -291,12 +295,13 @@
     </div>
     <details class="hint"><summary>คำใบ้</summary><div class="hint-body">หลักที่ 3 ของ \(A\) เป็นการรวมเชิงเส้นของสองหลักแรก (หลัก 1 − หลัก 2) → ฐานหลักของ Col A มี 2 ตัว (หลักตัวหลัก 1, 2)</div></details>
     <details class="sol"><summary>แนวคิดและเฉลยแบบละเอียด</summary><div class="sol-body">
-      <p><strong>แนวคิด:</strong> ต้องหาฐานหลักก่อนเสมอ — กราม-ชมิดต์ใช้กับ<em>ฐานหลัก</em>เท่านั้น</p>
+      <p><strong>แนวคิด:</strong> ต้องหาฐานหลักก่อนเสมอ — กราม-ชมิดต์ใช้กับ<em>ฐานหลัก</em>เท่านั้น กลยุทธ์สองชั้น: (1) ตัดหลักที่ซ้ำซ้อนออกจนเหลือหลักตัวหลัก (pivot columns) เพราะหลักที่เป็นการรวมเชิงเส้นของหลักอื่นไม่มีข้อมูลใหม่ แล้ว (2) นำฐานหลักนั้นเข้ากราม-ชมิดต์ ถ้าข้ามขั้น (1) ไปใส่เวกเตอร์ที่พึ่งกันเชิงเส้น จะได้ \(\vec{v} = \vec{0}\) กลางทางและทำต่อไม่ได้</p>
       <ol class="steps">
-        <li><span class="step-t">หาฐานหลักของ Col A</span> สังเกต \(\vec{a}_1 - \vec{a}_2 = (1,0,1)^T = \vec{a}_3\) → หลักที่ 3 พึ่งเชิงเส้น → โดยทฤษฎีบท 2.2.4 ฐานหลักคือหลักตัวหลัก \(\{(1,1,1)^T, (0,1,0)^T\}\)</li>
-        <li><span class="step-t">กราม-ชมิดต์</span> \(\vec{v}_1 = (1,1,1)^T\), \(\vec{v}_1\cdot\vec{v}_1 = 3\); \(\vec{x}_2\cdot\vec{v}_1 = 1\)
-        \[ \vec{v}_2 = \begin{bmatrix} 0\\ 1\\ 0 \end{bmatrix} - \frac{1}{3}\begin{bmatrix} 1\\ 1\\ 1 \end{bmatrix} = \begin{bmatrix} -1/3\\ 2/3\\ -1/3 \end{bmatrix} \;\xrightarrow{\;\times 3\;}\; \begin{bmatrix} -1\\ 2\\ -1 \end{bmatrix} \]</li>
-        <li><span class="step-t">สรุป</span> \(\{(1,1,1)^T, (-1,2,-1)^T\}\) เป็นฐานหลักเชิงตั้งฉากของ \(\operatorname{Col} A\) (ตรวจ: \(-1+2-1 = 0\) ✓) — และถ้าต้องการ orthonormal ให้หารด้วย \(\sqrt{3}\) และ \(\sqrt{6}\) ตามลำดับ</li>
+        <li><span class="step-t">หาฐานหลักของ Col A</span> ตรวจว่าหลักไหนพึ่งกัน: ลองลบกัน \(\vec{a}_1 - \vec{a}_2 = (1-0,\; 1-1,\; 1-0)^T = (1,0,1)^T = \vec{a}_3\) → หลักที่ 3 เขียนแทนด้วยสองหลักแรกได้ จึงพึ่งเชิงเส้น ไม่มีข้อมูลใหม่ → โดยทฤษฎีบท 2.2.4 (หลักตัวหลักของ \(A\) สร้างฐานหลักของ Col A) ฐานหลักคือหลักตัวหลัก \(\{(1,1,1)^T, (0,1,0)^T\}\) (ลองลดรูปยืนยันได้: หลัก 1, 2 เป็นหลักตัวหลัก ส่วนหลัก 3 ถูกกำจัด)</li>
+        <li><span class="step-t">กราม-ชมิดต์</span> ตั้ง \(\vec{v}_1 = (1,1,1)^T\) ความยาวกำลังสอง \(\vec{v}_1\cdot\vec{v}_1 = 1 + 1 + 1 = 3\) เศษของตัวที่สอง: \(\vec{x}_2\cdot\vec{v}_1 = 0(1) + 1(1) + 0(1) = 1\) สัมประสิทธิ์ \(\tfrac13\) ลบเงาออกทีละช่อง: \(0 - \tfrac13 = -\tfrac13\), \(1 - \tfrac13 = \tfrac23\), \(0 - \tfrac13 = -\tfrac13\)
+        \[ \vec{v}_2 = \begin{bmatrix} 0\\ 1\\ 0 \end{bmatrix} - \frac{1}{3}\begin{bmatrix} 1\\ 1\\ 1 \end{bmatrix} = \begin{bmatrix} -1/3\\ 2/3\\ -1/3 \end{bmatrix} \;\xrightarrow{\;\times 3\;}\; \begin{bmatrix} -1\\ 2\\ -1 \end{bmatrix} \]
+        (คูณ 3 รีดเศษสามส่วนออก — ทิศเดิม span เดิม)</li>
+        <li><span class="step-t">สรุป</span> \(\{(1,1,1)^T, (-1,2,-1)^T\}\) เป็นฐานหลักเชิงตั้งฉากของ \(\operatorname{Col} A\) — <strong>ตรวจและสรุป:</strong> \((1,1,1)\cdot(-1,2,-1) = -1 + 2 - 1 = 0\) ✓ ตั้งฉากกันจริง และเป็นฐานหลักเพราะมีสองเวกเตอร์ไม่ศูนย์อิสระกัน ซึ่งเท่ากับ \(\dim \operatorname{Col} A = 2\) พอดี และถ้าต้องการฐานหลักเชิงตั้งฉากปรกติ (orthonormal) ให้หารด้วย \(\sqrt{3}\) (เพราะ \(1+1+1 = 3\)) และ \(\sqrt{6}\) (เพราะ \(1+4+1 = 6\)) ตามลำดับ</li>
       </ol>
     </div></details>
   </article>
@@ -309,15 +314,16 @@
     </div>
     <details class="hint"><summary>คำใบ้</summary><div class="hint-body">หลักของ \(A\): \(\vec{x}_1 = (1,1,0)^T\), \(\vec{x}_2 = (0,1,1)^T\) / กราม-ชมิดต์: \(\vec{v}_1 = \vec{x}_1\), \(\vec{x}_2\cdot\vec{v}_1 = 1\) → \(\vec{v}_2 \to (-1,1,2)^T\) (คูณ 2) / \(R = Q^TA\)</div></details>
     <details class="sol"><summary>แนวคิดและเฉลยแบบละเอียด</summary><div class="sol-body">
-      <p><strong>แนวคิด:</strong> กราม-ชมิดต์ → ปรับหนึ่งหน่วย → \(Q\) → \(R = Q^TA\)</p>
+      <p><strong>แนวคิด:</strong> กราม-ชมิดต์ → ปรับหนึ่งหน่วย → \(Q\) → \(R = Q^TA\) — กลยุทธ์: \(Q\) ทำให้หลักตั้งฉากและยาว 1 หน่วย (งานหนักอยู่ที่กราม-ชมิดต์) ส่วน \(R\) ไม่ต้องแต่งเอง แค่คูณ \(Q^TA\) หนึ่งครั้ง โครงสามเหลี่ยมบนจะออกมาเองเพราะ \(\vec{q}_2\) ถูกสร้างให้ตั้งฉากกับ \(\vec{x}_1\) โดยตั้งใจ</p>
       <ol class="steps">
-        <li><span class="step-t">กราม-ชมิดต์</span> \(\vec{v}_1 = (1,1,0)^T\), \(\vec{v}_1\cdot\vec{v}_1 = 2\); \(\vec{x}_2\cdot\vec{v}_1 = 1\)
-        \[ \vec{v}_2 = \begin{bmatrix} 0\\ 1\\ 1 \end{bmatrix} - \frac{1}{2}\begin{bmatrix} 1\\ 1\\ 0 \end{bmatrix} = \begin{bmatrix} -1/2\\ 1/2\\ 1 \end{bmatrix} \;\xrightarrow{\;\times 2\;}\; \begin{bmatrix} -1\\ 1\\ 2 \end{bmatrix} \]</li>
-        <li><span class="step-t">ปรับหนึ่งหน่วย</span> \(\|\vec{v}_1\| = \sqrt{2}\), \(\|(-1,1,2)^T\| = \sqrt{6}\)
+        <li><span class="step-t">กราม-ชมิดต์</span> ตั้ง \(\vec{v}_1 = (1,1,0)^T\) ความยาวกำลังสอง \(\vec{v}_1\cdot\vec{v}_1 = 1 + 1 + 0 = 2\) เศษของตัวที่สอง: \(\vec{x}_2\cdot\vec{v}_1 = 0(1) + 1(1) + 1(0) = 1\) ลบเงาออกทีละช่อง: \(0 - \tfrac12 = -\tfrac12\), \(1 - \tfrac12 = \tfrac12\), \(1 - 0 = 1\)
+        \[ \vec{v}_2 = \begin{bmatrix} 0\\ 1\\ 1 \end{bmatrix} - \frac{1}{2}\begin{bmatrix} 1\\ 1\\ 0 \end{bmatrix} = \begin{bmatrix} -1/2\\ 1/2\\ 1 \end{bmatrix} \;\xrightarrow{\;\times 2\;}\; \begin{bmatrix} -1\\ 1\\ 2 \end{bmatrix} \]
+        (คูณ 2 รีดเศษ — ทิศเดิม span เดิม ความตั้งฉากไม่หาย)</li>
+        <li><span class="step-t">ปรับหนึ่งหน่วย</span> ความยาว: \(\|\vec{v}_1\| = \sqrt{2}\) และ \(\|(-1,1,2)^T\| = \sqrt{1 + 1 + 4} = \sqrt{6}\) หลักของ \(Q\) = เวกเตอร์หนึ่งหน่วยของแต่ละตัว (สมาชิกทุกช่องหารด้วยความยาวของเวกเตอร์ตัวเอง) เรียงตามลำดับเดิมของหลัก \(A\)
         \[ Q = \begin{bmatrix} \tfrac{1}{\sqrt{2}} & -\tfrac{1}{\sqrt{6}}\\[4pt] \tfrac{1}{\sqrt{2}} & \tfrac{1}{\sqrt{6}}\\[4pt] 0 & \tfrac{2}{\sqrt{6}} \end{bmatrix} \]</li>
-        <li><span class="step-t">หา \(R = Q^TA\)</span>
+        <li><span class="step-t">หา \(R = Q^TA\)</span> แต่ละช่องของ \(R\) มาจาก "(แถวที่ \(i\) ของ \(Q^T\)) · (หลักที่ \(j\) ของ \(A\))" ซึ่งก็คือ \(\vec{q}_i\cdot\vec{x}_j\): ช่อง (1,1) \(\vec{q}_1\cdot\vec{x}_1 = \tfrac{1}{\sqrt2}(1) + \tfrac{1}{\sqrt2}(1) + 0(0) = \tfrac{2}{\sqrt2} = \sqrt2\) ช่อง (2,1) \(\vec{q}_2\cdot\vec{x}_1 = -\tfrac{1}{\sqrt6}(1) + \tfrac{1}{\sqrt6}(1) + \tfrac{2}{\sqrt6}(0) = 0\) (เป็นศูนย์เพราะ \(\vec{q}_2 \perp \vec{x}_1\) จากกราม-ชมิดต์) ช่อง (1,2) \(\vec{q}_1\cdot\vec{x}_2 = \tfrac{1}{\sqrt2}(0) + \tfrac{1}{\sqrt2}(1) + 0(1) = \tfrac{1}{\sqrt2}\) ช่อง (2,2) \(\vec{q}_2\cdot\vec{x}_2 = 0 + \tfrac{1}{\sqrt6}(1) + \tfrac{2}{\sqrt6}(1) = \tfrac{3}{\sqrt6}\)
         \[ R = \begin{bmatrix} \vec{q}_1^T\vec{x}_1 & \vec{q}_1^T\vec{x}_2\\ \vec{q}_2^T\vec{x}_1 & \vec{q}_2^T\vec{x}_2 \end{bmatrix} = \begin{bmatrix} \tfrac{2}{\sqrt{2}} & \tfrac{1}{\sqrt{2}}\\[4pt] 0 & \tfrac{3}{\sqrt{6}} \end{bmatrix} = \begin{bmatrix} \sqrt{2} & \tfrac{1}{\sqrt{2}}\\[4pt] 0 & \tfrac{3}{\sqrt{6}} \end{bmatrix} \]
-        (สามเหลี่ยมบน ทแยงเป็นบวก ✓ — \(R_{21} = 0\) เพราะ \(\vec{q}_2 \perp \vec{x}_1\))</li>
+        (สามเหลี่ยมบน ทแยงเป็นบวก ✓ — \(R_{21} = 0\) เพราะ \(\vec{q}_2 \perp \vec{x}_1\)) — <strong>สรุป:</strong> ได้ \(A = QR\) โดย \(Q, R\) ตามด้านบน</li>
       </ol>
       <div class="verify"><span class="lbl">ตรวจคำตอบ:</span> หลักแรกของ \(QR\): \(\sqrt{2}\,\vec{q}_1 = (1,1,0)^T = \vec{x}_1\) ✓ หลักที่สอง: \(\tfrac{1}{\sqrt{2}}\vec{q}_1 + \tfrac{3}{\sqrt{6}}\vec{q}_2 = (\tfrac12 - \tfrac36,\; \tfrac12 + \tfrac36,\; 0 + \tfrac66)^T = (0, 1, 1)^T = \vec{x}_2\) ✓</div>
     </div></details>
@@ -331,16 +337,16 @@
     </div>
     <details class="hint"><summary>คำใบ้</summary><div class="hint-body">\(\vec{u}_1\cdot\vec{u}_1 = 14\), \(\vec{u}_2\cdot\vec{u}_2 = 42\) / น้ำหนัก: \(\tfrac{\vec{y}\cdot\vec{u}_1}{14} = 0\), \(\tfrac{\vec{y}\cdot\vec{u}_2}{42} = \tfrac{2}{3}\) — แล้ว \(\vec{z} = \vec{y} - \hat{y}\)</div></details>
     <details class="sol"><summary>แนวคิดและเฉลยแบบละเอียด</summary><div class="sol-body">
-      <p><strong>แนวคิด:</strong> ทฤษฎีบท 4.2.2</p>
+      <p><strong>แนวคิด:</strong> ทฤษฎีบท 4.2.2 — กลยุทธ์: เขียน \(\vec{y}\) ในฐานหลักเชิงตั้งฉากให้ครบทั้งสองน้ำหนัก (ทฤษฎีบท 4.1.3) น้ำหนักที่ได้คือส่วนที่อยู่ใน \(H\) (\(\hat{y}\)) แล้วสิ่งที่เหลือจากการลบคือ \(\vec{z}\) ซึ่งจะตั้งฉากกับทั้ง \(H\) โดยโครงสร้าง</p>
       <ol class="steps">
-        <li><span class="step-t">เช็กและหาน้ำหนัก</span> เซตเชิงตั้งฉาก: \(\vec{u}_1\cdot\vec{u}_2 = 5 + 3 - 8 = 0\) ✓
+        <li><span class="step-t">เช็กและหาน้ำหนัก</span> เช็กว่าเป็นเซตเชิงตั้งฉากจริง: \(\vec{u}_1\cdot\vec{u}_2 = 1(5) + 3(1) + (-2)(4) = 5 + 3 - 8 = 0\) ✓ (โจทย์บอกมาแล้วแต่เช็กซ้ำไม่เสียหาย) ตัวส่วนคือความยาวกำลังสอง: \(\vec{u}_1\cdot\vec{u}_1 = 1 + 9 + 4 = 14\), \(\vec{u}_2\cdot\vec{u}_2 = 25 + 1 + 16 = 42\) ตัวเศษ: \(\vec{y}\cdot\vec{u}_1 = 1(1) + 3(3) + 5(-2) = 1 + 9 - 10 = 0\) และ \(\vec{y}\cdot\vec{u}_2 = 1(5) + 3(1) + 5(4) = 5 + 3 + 20 = 28\) หารกัน: \(\tfrac{0}{14} = 0\) และ \(\tfrac{28}{42} = \tfrac23\) (ตัดทอนด้วย 14)
         \[ \frac{\vec{y}\cdot\vec{u}_1}{\vec{u}_1\cdot\vec{u}_1} = \frac{1 + 9 - 10}{14} = 0, \qquad \frac{\vec{y}\cdot\vec{u}_2}{\vec{u}_2\cdot\vec{u}_2} = \frac{5 + 3 + 20}{42} = \frac{28}{42} = \frac{2}{3} \]
-        (น้ำหนักแรกเป็น 0 ได้ — แปลว่า \(\vec{y}\) ตั้งฉากกับ \(\vec{u}_1\) ไปเองแล้ว)</li>
-        <li><span class="step-t">การฉาย</span>
+        (น้ำหนักแรกเป็น 0 ได้ — แปลว่า \(\vec{y}\) ตั้งฉากกับ \(\vec{u}_1\) ไปเองแล้ว จึงไม่มีส่วนของ \(\vec{y}\) ที่อยู่บนทิศ \(\vec{u}_1\) เลย)</li>
+        <li><span class="step-t">การฉาย</span> ประกอบน้ำหนักกลับเป็นเวกเตอร์: พจน์แรกดับ (\(0\cdot\vec{u}_1 = \vec{0}\)) เหลือคูณ \(\tfrac23\) เข้าทุกช่องของ \(\vec{u}_2 = (5, 1, 4)\): \(\tfrac23(5) = \tfrac{10}{3}\), \(\tfrac23(1) = \tfrac23\), \(\tfrac23(4) = \tfrac83\)
         \[ \hat{y} = 0\cdot\vec{u}_1 + \frac{2}{3}\vec{u}_2 = \begin{bmatrix} 10/3\\ 2/3\\ 8/3 \end{bmatrix} \in H \]</li>
-        <li><span class="step-t">ส่วนเติมเต็ม</span>
+        <li><span class="step-t">ส่วนเติมเต็ม</span> ลบแบบตำแหน่งต่อตำแหน่ง โดยเติมตัวส่วนร่วม 3 ก่อน (จำนวนเต็มต้องแปลงเป็นเศษส่วนเสียก่อนลบกับเศษส่วน): ช่องแรก \(1 - \tfrac{10}{3} = \tfrac33 - \tfrac{10}{3} = -\tfrac73\), ช่องกลาง \(3 - \tfrac23 = \tfrac93 - \tfrac23 = \tfrac73\), ช่องสุดท้าย \(5 - \tfrac83 = \tfrac{15}{3} - \tfrac83 = \tfrac73\)
         \[ \vec{z} = \vec{y} - \hat{y} = \begin{bmatrix} -7/3\\ 7/3\\ 7/3 \end{bmatrix} \in H^\perp \]</li>
-        <li><span class="step-t">ตรวจคำตอบ</span> \(\hat{y} + \vec{z} = (1, 3, 5)^T = \vec{y}\) ✓ และ \(\vec{z}\cdot\vec{u}_1 = \tfrac{7}{3}(-1 + 3 - 2) = 0\) ✓, \(\vec{z}\cdot\vec{u}_2 = \tfrac{7}{3}(-5 + 1 + 4) = 0\) ✓</li>
+        <li><span class="step-t">ตรวจคำตอบ</span> รวมกลับ: \(\hat{y} + \vec{z} = \left(\tfrac{10}{3} - \tfrac73,\; \tfrac23 + \tfrac73,\; \tfrac83 + \tfrac73\right)^T = \left(\tfrac33, \tfrac93, \tfrac{15}{3}\right)^T = (1, 3, 5)^T = \vec{y}\) ✓ และเช็กความตั้งฉาก: \(\vec{z}\cdot\vec{u}_1 = \tfrac{7}{3}(1) + \tfrac{7}{3}(3) + \tfrac{7}{3}(-2) = \tfrac{7}{3}(-1 + 3 - 2) = 0\) ✓, \(\vec{z}\cdot\vec{u}_2 = \tfrac{7}{3}(-5 + 1 + 4) = 0\) ✓ — <strong>สรุปคำตอบ:</strong> \(\hat{y} = \tfrac23\vec{u}_2 = \left(\tfrac{10}{3}, \tfrac23, \tfrac83\right)^T\) และ \(\vec{z} = \left(-\tfrac73, \tfrac73, \tfrac73\right)^T\)</li>
       </ol>
     </div></details>
   </article>

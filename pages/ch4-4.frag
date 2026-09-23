@@ -79,15 +79,17 @@ page: ch4-4.html
     <div class="ex-head"><span class="ex-badge">ตัวอย่าง 1</span><span class="tag easy">ง่าย</span><span class="ex-title">แปลงทแยงมุมเชิงตั้งฉาก 2×2 + การแยกเชิงสเปกตรัม (ตัวอย่างคลาสสิกของตำรา)</span></div>
     <div class="ex-body">
       <div class="ex-q">จงแปลง \(A = \begin{bmatrix} 1 & -2\\ -2 & 1 \end{bmatrix}\) เป็นทแยงมุมเชิงตั้งฉาก แล้วเขียนการแยกเชิงสเปกตรัมของ \(A\)</div>
-      <div class="approach"><span class="lbl">แนวคิด</span> — eigen → eigenvector → ปรับหนึ่งหน่วย → \(P\) orthonormal, \(D\) = λ ตามลำดับ → สเปกตรัม</div>
+      <div class="approach"><span class="lbl">แนวคิด</span> — eigen → eigenvector → ปรับหนึ่งหน่วย → \(P\) orthonormal, \(D\) = λ ตามลำดับ → สเปกตรัม กลยุทธ์: เริ่มจากเช็กว่า \(A\) สมมาตร (\(A^T = A\)) เพื่อยืนยันสิทธิ์ใช้ทฤษฎีบทเชิงสเปกตรัม (แล้วจะรู้ว่าจะได้ \(P\) เชิงตั้งฉากปรกติแน่นอน) จากนั้นทำตามสูตร: หาค่าลักษณะเฉพาะ → เวกเตอร์ลักษณะเฉพาะ → ปรับให้ยาว 1 หน่วย → เรียงเป็นหลักของ \(P\) โดยลำดับ λ ใน \(D\) ต้องเดินตามหลักของ \(P\) ทีละตัว</div>
       <ol class="steps">
-        <li><span class="step-t">ค่าลักษณะเฉพาะ</span>
-        \[ \det(A - \lambda I_2) = (1-\lambda)^2 - 4 = \lambda^2 - 2\lambda - 3 = (\lambda - 3)(\lambda + 1) = 0 \;\Longrightarrow\; \lambda = 3, -1 \]</li>
-        <li><span class="step-t">eigenvectors แล้วปรับหนึ่งหน่วย</span> \(\lambda = 3\): \((A - 3I)\vec{x} = \vec{0} \Rightarrow x_1 = -x_2 \Rightarrow \vec{v}_1 = (1,-1)^T \Rightarrow \vec{u}_1 = \tfrac{1}{\sqrt{2}}(1,-1)^T\); &nbsp; \(\lambda = -1\): \(x_1 = x_2 \Rightarrow \vec{u}_2 = \tfrac{1}{\sqrt{2}}(1,1)^T\) (ตั้งฉากกัน ✓ ตามทฤษฎีบท 4.4.1)</li>
-        <li><span class="step-t">ประกอบ \(P, D\)</span>
+        <li><span class="step-t">ค่าลักษณะเฉพาะ</span> สร้าง \(\det(A - \lambda I_2)\) ด้วยกฎ 2×2 "ทแยงหลักคูณกัน ลบทแยงรองคูณกัน": \((1-\lambda)^2 - (-2)(-2)\) — ระวัง \((-2)(-2) = +4\) (ลบคูณลบได้บวก) จึงได้ \((1-\lambda)^2 - 4\) กระจาย \((1-\lambda)^2 = 1 - 2\lambda + \lambda^2\) รวมกับ \(-4\) ได้ \(\lambda^2 - 2\lambda - 3\) แยกตัวประกอบ: หาสองจำนวนที่คูณกันได้ \(-3\) และบวกกันได้ \(-2\) คือ \(3\) กับ \(-1\) จึงได้ \((\lambda - 3)(\lambda + 1)\)
+        \[ \det(A - \lambda I_2) = (1-\lambda)^2 - 4 = \lambda^2 - 2\lambda - 3 = (\lambda - 3)(\lambda + 1) = 0 \;\Longrightarrow\; \lambda = 3, -1 \]
+        (ค่าลักษณะเฉพาะเป็นจำนวนจริงทั้งคู่ — สมบัติที่เมทริกซ์สมมาตรมีเสมอ)</li>
+        <li><span class="step-t">eigenvectors แล้วปรับหนึ่งหน่วย</span> \(\lambda = 3\): \(A - 3I_2 = \begin{bmatrix} -2 & -2\\ -2 & -2 \end{bmatrix}\) สมการ \(-2x_1 - 2x_2 = 0\) → \(x_1 = -x_2\) เลือก \(x_2 = -1\) ได้ \(\vec{v}_1 = (1,-1)^T\) ความยาว \(\sqrt{1^2 + (-1)^2} = \sqrt2\) จึงปรับหนึ่งหน่วย \(\vec{u}_1 = \tfrac{1}{\sqrt{2}}(1,-1)^T\); &nbsp; \(\lambda = -1\): \(A + I_2 = \begin{bmatrix} 2 & -2\\ -2 & 2 \end{bmatrix}\) ให้ \(x_1 = x_2\) เลือก \(x_2 = 1\) ได้ \(\vec{u}_2 = \tfrac{1}{\sqrt{2}}(1,1)^T\) — ตั้งฉากกัน ✓ เพราะ \((1,-1)\cdot(1,1) = 1 - 1 = 0\) ตามทฤษฎีบท 4.4.1 (คนละค่าลักษณะเฉพาะต้องตั้งฉากกัน)</li>
+        <li><span class="step-t">ประกอบ \(P, D\)</span> เรียงเวกเตอร์หนึ่งหน่วยเป็น<em>หลัก</em>ของ \(P\) ตามลำดับ แล้ววาง λ ลงทแยงของ \(D\) ตามลำดับเดียวกัน (หลักแรกของ \(P\) คู่กับ λ ตัวหน้าสุดของ \(D\) เสมอ — สลับไม่ได้เป็นคู่ ๆ)
         \[ P = \frac{1}{\sqrt{2}}\begin{bmatrix} 1 & 1\\ -1 & 1 \end{bmatrix}, \qquad D = \begin{bmatrix} 3 & 0\\ 0 & -1 \end{bmatrix}, \qquad A = PDP^T \]</li>
-        <li><span class="step-t">การแยกเชิงสเปกตรัม</span>
-        \[ A = 3\vec{u}_1\vec{u}_1^T + (-1)\vec{u}_2\vec{u}_2^T = 3\begin{bmatrix} 1/2 & -1/2\\ -1/2 & 1/2 \end{bmatrix} - \begin{bmatrix} 1/2 & 1/2\\ 1/2 & 1/2 \end{bmatrix} = \begin{bmatrix} 3/2 - 1/2 & -3/2 - 1/2\\ -3/2 - 1/2 & 3/2 - 1/2 \end{bmatrix} = \begin{bmatrix} 1 & -2\\ -2 & 1 \end{bmatrix} \;\checkmark \]</li>
+        <li><span class="step-t">การแยกเชิงสเปกตรัม</span> เทคนิค "คอลัมน์ × แถว": \(\vec{u}_1\vec{u}_1^T = \tfrac{1}{\sqrt2}\begin{bmatrix} 1\\ -1 \end{bmatrix} \cdot \tfrac{1}{\sqrt2}\begin{bmatrix} 1 & -1 \end{bmatrix} = \tfrac12\begin{bmatrix} 1 & -1\\ -1 & 1 \end{bmatrix}\) (คูณทีละช่อง ตัวส่วน \(\sqrt2 \cdot \sqrt2 = 2\)) และ \(\vec{u}_2\vec{u}_2^T = \tfrac12\begin{bmatrix} 1 & 1\\ 1 & 1 \end{bmatrix}\) แล้วรวมด้วยน้ำหนัก λ: พจน์แรกคูณ 3, พจน์ที่สองคูณ \(-1\)
+        \[ A = 3\vec{u}_1\vec{u}_1^T + (-1)\vec{u}_2\vec{u}_2^T = 3\begin{bmatrix} 1/2 & -1/2\\ -1/2 & 1/2 \end{bmatrix} - \begin{bmatrix} 1/2 & 1/2\\ 1/2 & 1/2 \end{bmatrix} = \begin{bmatrix} 3/2 - 1/2 & -3/2 - 1/2\\ -3/2 - 1/2 & 3/2 - 1/2 \end{bmatrix} = \begin{bmatrix} 1 & -2\\ -2 & 1 \end{bmatrix} \;\checkmark \]
+        (เช่น ช่องขวาบน: \(3(-\tfrac12) - \tfrac12 = -\tfrac32 - \tfrac12 = -2\) ตรงกับ \(A\) ต้นทาง — <strong>สรุป:</strong> ได้ \(A = PDP^T\) และการแยกเชิงสเปกตรัมตรงตามด้านบน)</li>
       </ol>
     </div>
   </article>
@@ -96,14 +98,15 @@ page: ch4-4.html
     <div class="ex-head"><span class="ex-badge">ตัวอย่าง 2</span><span class="tag hard">ยาก</span><span class="ex-title">3×3 ค่าซ้ำ ต้องกราม-ชมิดต์ (ตัวอย่างคลาสสิกของตำรา)</span></div>
     <div class="ex-body">
       <div class="ex-q">จงแปลง \(A = \begin{bmatrix} 7 & -16 & -8\\ -16 & 7 & 8\\ -8 & 8 & -5 \end{bmatrix}\) ซึ่งมีสมการลักษณะเฉพาะ \((27 - \lambda)(\lambda + 9)^2 = 0\) เป็นทแยงมุมเชิงตั้งฉาก</div>
-      <div class="approach"><span class="lbl">แนวคิด</span> — λ = 27, −9, −9 → กลุ่ม λ = −9 ซ้ำ ฐานที่ได้อาจไม่ตั้งฉากกัน → กราม-ชมิดต์<em>เฉพาะในกลุ่มนั้น</em> → ปรับหนึ่งหน่วยทุกตัว</div>
+      <div class="approach"><span class="lbl">แนวคิด</span> — λ = 27, −9, −9 → กลุ่ม λ = −9 ซ้ำ ฐานที่ได้อาจไม่ตั้งฉากกัน → กราม-ชมิดต์<em>เฉพาะในกลุ่มนั้น</em> → ปรับหนึ่งหน่วยทุกตัว กลยุทธ์: โจทย์ใจดีให้สมการลักษณะเฉพาะมาแล้ว งานจึงเหลือหาเวกเตอร์ → จุดเสี่ยงเดียวของข้อนี้คือกลุ่มค่าซ้ำ \(E_{-9}\) ที่ฐานหลักที่ได้จากการลดรูปไม่ได้ตั้งฉากกันโดยอัตโนมัติ ต้องกราม-ชมิดต์<strong>เฉพาะภายในกลุ่มนั้น</strong> (ห้ามผสมกับ \(\vec{u}_1\) เพราะคนละกลุ่มตั้งฉากกันอยู่แล้วตามทฤษฎีบท 4.4.1)</div>
       <ol class="steps">
-        <li><span class="step-t">\(E_{27}\)</span> ลดรูป \(A - 27I_3\): \(x_1 = -2x_3,\; x_2 = 2x_3\) → \(\vec{u}_1 = \tfrac13(-2, 2, 1)^T\) (ยาว \(\sqrt{9} = 3\))</li>
-        <li><span class="step-t">\(E_{-9}\) และกราม-ชมิดต์ในกลุ่ม</span> ลดรูป \(A + 9I_3\): \(x_1 = x_2 + \tfrac12x_3\) → ฐาน \(\vec{x}_1 = (1,1,0)^T, \vec{x}_2 = (1,0,2)^T\) — <em>ไม่ตั้งฉากกัน</em> (\(\vec{x}_1\cdot\vec{x}_2 = 1\)):
+        <li><span class="step-t">\(E_{27}\)</span> ลดรูป \(A - 27I_3 = \begin{bmatrix} -20 & -16 & -8\\ -16 & -20 & 8\\ -8 & 8 & -32 \end{bmatrix}\) ได้ความสัมพันธ์ \(x_1 = -2x_3,\; x_2 = 2x_3\) เลือก \(x_3 = 1\) → \(\vec{v} = (-2, 2, 1)^T\) ความยาว \(\sqrt{(-2)^2 + 2^2 + 1^2} = \sqrt{4+4+1} = \sqrt{9} = 3\) (ลงตัว!) จึงได้ \(\vec{u}_1 = \tfrac13(-2, 2, 1)^T\) (หารทุกช่องด้วย 3)</li>
+        <li><span class="step-t">\(E_{-9}\) และกราม-ชมิดต์ในกลุ่ม</span> ลดรูป \(A + 9I_3 = \begin{bmatrix} 16 & -16 & -8\\ -16 & 16 & 8\\ -8 & 8 & 4 \end{bmatrix}\) ได้ \(x_1 = x_2 + \tfrac12x_3\) เลือก \((x_2, x_3) = (1, 0)\) และ \((0, 2)\) ได้ฐาน \(\vec{x}_1 = (1,1,0)^T, \vec{x}_2 = (1,0,2)^T\) — <em>ไม่ตั้งฉากกัน</em> เพราะ \(\vec{x}_1\cdot\vec{x}_2 = 1(1) + 1(0) + 0(2) = 1 \neq 0\) จึงต้องกราม-ชมิดต์: เศษ \(\vec{x}_2\cdot\vec{x}_1 = 1\), ส่วน \(\vec{x}_1\cdot\vec{x}_1 = 1 + 1 + 0 = 2\) ลบเงาออกทีละช่อง: \(1 - \tfrac12 = \tfrac12\), \(0 - \tfrac12 = -\tfrac12\), \(2 - 0 = 2\)
         \[ \vec{v}_2 = \vec{x}_2 - \frac{\vec{x}_2\cdot\vec{x}_1}{\vec{x}_1\cdot\vec{x}_1}\vec{x}_1 = \begin{bmatrix} 1\\ 0\\ 2 \end{bmatrix} - \frac{1}{2}\begin{bmatrix} 1\\ 1\\ 0 \end{bmatrix} = \begin{bmatrix} 1/2\\ -1/2\\ 2 \end{bmatrix} \;\xrightarrow{\;\times 2\;}\; \begin{bmatrix} 1\\ -1\\ 4 \end{bmatrix} \]
-        → \(\vec{u}_2 = \tfrac{1}{\sqrt{2}}(1, 1, 0)^T\), \(\vec{u}_3 = \tfrac{1}{\sqrt{18}}(1, -1, 4)^T\) (ตั้งฉากกัน ✓ และทั้งคู่ตั้งฉากกับ \(\vec{u}_1\) ✓ ตามทฤษฎีบท 4.4.1)</li>
-        <li><span class="step-t">ประกอบ \(P, D\)</span>
-        \[ P = \begin{bmatrix} -\tfrac{2}{3} & \tfrac{1}{\sqrt{2}} & \tfrac{1}{\sqrt{18}}\\[4pt] \tfrac{2}{3} & \tfrac{1}{\sqrt{2}} & -\tfrac{1}{\sqrt{18}}\\[4pt] \tfrac{1}{3} & 0 & \tfrac{4}{\sqrt{18}} \end{bmatrix}, \qquad D = \begin{bmatrix} 27 & 0 & 0\\ 0 & -9 & 0\\ 0 & 0 & -9 \end{bmatrix}, \qquad A = PDP^T \]</li>
+        (คูณ 2 รีดเศษ) ปรับหนึ่งหน่วย: \(\|(1,1,0)\| = \sqrt2\), \(\|(1,-1,4)\| = \sqrt{1+1+16} = \sqrt{18}\) → \(\vec{u}_2 = \tfrac{1}{\sqrt{2}}(1, 1, 0)^T\), \(\vec{u}_3 = \tfrac{1}{\sqrt{18}}(1, -1, 4)^T\) (ตั้งฉากกัน ✓ และทั้งคู่ตั้งฉากกับ \(\vec{u}_1\) ✓ ตามทฤษฎีบท 4.4.1 — ไม่ต้องทำอะไรเพิ่มเพราะกลุ่มคนละค่าจัดการให้เอง)</li>
+        <li><span class="step-t">ประกอบ \(P, D\)</span> เรียง \(\vec{u}_1, \vec{u}_2, \vec{u}_3\) เป็นหลักของ \(P\) แล้ววาง λ ตามลำดับเดียวกันลงทแยงของ \(D\) (หลักที่สองและสามเป็นกลุ่ม λ = −9 ทั้งคู่ สลับกันได้ แต่ต้องสลับหลัก \(P\) พร้อมทแยง \(D\) เสมอ)
+        \[ P = \begin{bmatrix} -\tfrac{2}{3} & \tfrac{1}{\sqrt{2}} & \tfrac{1}{\sqrt{18}}\\[4pt] \tfrac{2}{3} & \tfrac{1}{\sqrt{2}} & -\tfrac{1}{\sqrt{18}}\\[4pt] \tfrac{1}{3} & 0 & \tfrac{4}{\sqrt{18}} \end{bmatrix}, \qquad D = \begin{bmatrix} 27 & 0 & 0\\ 0 & -9 & 0\\ 0 & 0 & -9 \end{bmatrix}, \qquad A = PDP^T \]
+        — <strong>สรุปคำตอบ:</strong> ได้การแปลงเป็นทแยงมุมเชิงตั้งฉาก \(A = PDP^T\) ตามเมทริกซ์ด้านบน</li>
       </ol>
       <div class="verify"><span class="lbl">ตรวจคำตอบ:</span> \(P^TP = I\) (ทุกหลักยาว 1 และตั้งฉากกัน) ✓ และ \(A\vec{u}_1 = 27\vec{u}_1\), \(A\vec{u}_2 = -9\vec{u}_2\), \(A\vec{u}_3 = -9\vec{u}_3\) ✓</div>
     </div>
@@ -113,12 +116,14 @@ page: ch4-4.html
     <div class="ex-head"><span class="ex-badge">ตัวอย่าง 3</span><span class="tag hard">ยาก</span><span class="ex-title">การแยกเชิงสเปกตรัม (ตัวอย่างคลาสสิกของตำรา)</span></div>
     <div class="ex-body">
       <div class="ex-q">เมทริกซ์สมมาตร \(A = \begin{bmatrix} 7 & 2\\ 2 & 4 \end{bmatrix}\) มีการแยกเชิงตั้งฉาก \(A = PDP^T\) เมื่อ \(\vec{u}_1 = \tfrac{1}{\sqrt{5}}(2,1)^T, \vec{u}_2 = \tfrac{1}{\sqrt{5}}(-1,2)^T\) และ \(D = \operatorname{diag}(8, 3)\) จงเขียนการแยกเชิงสเปกตรัมของ \(A\)</div>
-      <div class="approach"><span class="lbl">แนวคิด</span> — \(A = \lambda_1\vec{u}_1\vec{u}_1^T + \lambda_2\vec{u}_2\vec{u}_2^T\) — คูณเวกเตอร์หลักด้วยเวกเตอร์แถว</div>
+      <div class="approach"><span class="lbl">แนวคิด</span> — \(A = \lambda_1\vec{u}_1\vec{u}_1^T + \lambda_2\vec{u}_2\vec{u}_2^T\) — คูณเวกเตอร์หลักด้วยเวกเตอร์แถว กลยุทธ์: โจทย์ให้ eigenpair ครบแล้ว งานจึงเป็นงานประกอบล้วน ๆ — สร้างเมทริกซ์ฉายแรงก์ 1 แต่ละตัวจาก "คอลัมน์ × แถว" แล้วคูณด้วยค่าลักษณะเฉพาะของตัวเอง แล้วบวกกัน</div>
       <ol class="steps">
-        <li><span class="step-t">สร้างเมทริกซ์แรงก์ 1</span>
-        \[ \vec{u}_1\vec{u}_1^T = \frac{1}{5}\begin{bmatrix} 4 & 2\\ 2 & 1 \end{bmatrix}, \qquad \vec{u}_2\vec{u}_2^T = \frac{1}{5}\begin{bmatrix} 1 & -2\\ -2 & 4 \end{bmatrix} \]</li>
-        <li><span class="step-t">ประกอบด้วยน้ำหนัก λ</span>
-        \[ A = 8\begin{bmatrix} 4/5 & 2/5\\ 2/5 & 1/5 \end{bmatrix} + 3\begin{bmatrix} 1/5 & -2/5\\ -2/5 & 4/5 \end{bmatrix} = \begin{bmatrix} 32/5 + 3/5 & 16/5 - 6/5\\ 16/5 - 6/5 & 8/5 + 12/5 \end{bmatrix} = \begin{bmatrix} 7 & 2\\ 2 & 4 \end{bmatrix} \;\checkmark \]</li>
+        <li><span class="step-t">สร้างเมทริกซ์แรงก์ 1</span> ผลคูณ "คอลัมน์ × แถว" คูณทีละช่อง และสัดส่วน \(\tfrac{1}{\sqrt5}\cdot\tfrac{1}{\sqrt5} = \tfrac15\) ยกกำลังสองของตัวประกอบ: \(\vec{u}_1\vec{u}_1^T = \tfrac15\begin{bmatrix} 2(2) & 2(1)\\ 1(2) & 1(1) \end{bmatrix}\) เช่น ช่องขวาบนมาจาก (ช่องแรกของ \(\vec{u}_1\)) × (ช่องที่สองของ \(\vec{u}_1\)) = \(2 \times 1\)
+        \[ \vec{u}_1\vec{u}_1^T = \frac{1}{5}\begin{bmatrix} 4 & 2\\ 2 & 1 \end{bmatrix}, \qquad \vec{u}_2\vec{u}_2^T = \frac{1}{5}\begin{bmatrix} 1 & -2\\ -2 & 4 \end{bmatrix} \]
+        (\(\vec{u}_2 = \tfrac{1}{\sqrt5}(-1, 2)^T\): ช่องซ้ายบน \((-1)(-1) = 1\), ช่องขวาบน \((-1)(2) = -2\) ลบคูณลบได้บวก ลบคูณบวกได้ลบ)</li>
+        <li><span class="step-t">ประกอบด้วยน้ำหนัก λ</span> คูณทีละพจน์: \(8\cdot\tfrac45 = \tfrac{32}5\), \(8\cdot\tfrac25 = \tfrac{16}5\), \(8\cdot\tfrac15 = \tfrac85\) และ \(3\cdot\tfrac15 = \tfrac35\), \(3\cdot(-\tfrac25) = -\tfrac65\), \(3\cdot\tfrac45 = \tfrac{12}5\) แล้วบวกทีละช่อง (ตัวส่วนเท่ากันจึงบวกตัวเศษตรง ๆ): ช่อง (1,1) \(\tfrac{32}5 + \tfrac35 = \tfrac{35}5 = 7\) ✓, ช่อง (1,2) \(\tfrac{16}5 - \tfrac65 = \tfrac{10}5 = 2\) ✓, ช่อง (2,2) \(\tfrac85 + \tfrac{12}5 = \tfrac{20}5 = 4\) ✓
+        \[ A = 8\begin{bmatrix} 4/5 & 2/5\\ 2/5 & 1/5 \end{bmatrix} + 3\begin{bmatrix} 1/5 & -2/5\\ -2/5 & 4/5 \end{bmatrix} = \begin{bmatrix} 32/5 + 3/5 & 16/5 - 6/5\\ 16/5 - 6/5 & 8/5 + 12/5 \end{bmatrix} = \begin{bmatrix} 7 & 2\\ 2 & 4 \end{bmatrix} \;\checkmark \]
+        — <strong>สรุปคำตอบ:</strong> การแยกเชิงสเปกตรัมคือ \(A = 8\vec{u}_1\vec{u}_1^T + 3\vec{u}_2\vec{u}_2^T\) และเมื่อรวมกลับได้ \(A\) ต้นทางพอดี จึงยืนยันถูกต้อง</li>
       </ol>
     </div>
   </article>
@@ -159,12 +164,14 @@ page: ch4-4.html
     </div>
     <details class="hint"><summary>คำใบ้</summary><div class="hint-body">\(\lambda^2 - 13\lambda + 36 = (\lambda - 9)(\lambda - 4)\) / \(\lambda = 9\): \(\vec{v} = (2,-1)^T\), \(\lambda = 4\): \(\vec{v} = (1,2)^T\)</div></details>
     <details class="sol"><summary>แนวคิดและเฉลยแบบละเอียด</summary><div class="sol-body">
-      <p><strong>แนวคิด:</strong> ตามขั้นตอนมาตรฐาน</p>
+      <p><strong>แนวคิด:</strong> ตามขั้นตอนมาตรฐาน — กลยุทธ์: เช็กสมมาตร (\(A^T = A\) ✓ เพราะ \(-2\) สมมาตรรอบทแยง) → สมการลักษณะเฉพาะ → เวกเตอร์ลักษณะเฉพาะทีละค่า → ปรับหนึ่งหน่วย → เรียงเป็น \(P\) และ \(D\) โดยลำดับต้องจับคู่กันทีละหลัก</p>
       <ol class="steps">
-        <li><span class="step-t">ค่าลักษณะเฉพาะ</span> \(\det(A - \lambda I_2) = (8-\lambda)(5-\lambda) - 4 = \lambda^2 - 13\lambda + 36 = (\lambda - 9)(\lambda - 4) = 0 \Rightarrow \lambda = 9, 4\)</li>
-        <li><span class="step-t">eigenvectors</span> \(\lambda = 9\): \(A - 9I_2 = \begin{bmatrix} -1 & -2\\ -2 & -4 \end{bmatrix} \Rightarrow x_1 = -2x_2 \Rightarrow \vec{v}_1 = (-2, 1)^T\); \(\lambda = 4\): \(A - 4I_2 = \begin{bmatrix} 4 & -2\\ -2 & 1 \end{bmatrix} \Rightarrow 2x_1 = x_2 \Rightarrow \vec{v}_2 = (1, 2)^T\) (ตั้งฉากกัน ✓)</li>
-        <li><span class="step-t">ปรับหนึ่งหน่วย (ยาว \(\sqrt5\)) แล้วประกอบ</span>
-        \[ P = \frac{1}{\sqrt{5}}\begin{bmatrix} -2 & 1\\ 1 & 2 \end{bmatrix}, \qquad D = \begin{bmatrix} 9 & 0\\ 0 & 4 \end{bmatrix}, \qquad A = PDP^T \]</li>
+        <li><span class="step-t">ค่าลักษณะเฉพาะ</span> กระจาย \(\det(A - \lambda I_2) = (8-\lambda)(5-\lambda) - (-2)(-2)\) — เพราะ \((-2)(-2) = +4\) — ได้ \(40 - 8\lambda - 5\lambda + \lambda^2 - 4 = \lambda^2 - 13\lambda + 36\) แยกตัวประกอบ: หาสองจำนวนที่คูณได้ 36 และบวกได้ 13 คือ \(9\) กับ \(4\)
+        \[ \det(A - \lambda I_2) = (8-\lambda)(5-\lambda) - 4 = \lambda^2 - 13\lambda + 36 = (\lambda - 9)(\lambda - 4) = 0 \Rightarrow \lambda = 9, 4 \]</li>
+        <li><span class="step-t">eigenvectors</span> \(\lambda = 9\): \(A - 9I_2 = \begin{bmatrix} -1 & -2\\ -2 & -4 \end{bmatrix}\) (ลบ 9 จากทแยง) สมการแรก \(-x_1 - 2x_2 = 0\) → \(x_1 = -2x_2\) เลือก \(x_2 = 1\) → \(\vec{v}_1 = (-2, 1)^T\); \(\lambda = 4\): \(A - 4I_2 = \begin{bmatrix} 4 & -2\\ -2 & 1 \end{bmatrix}\) สมการ \(4x_1 = 2x_2\) หารด้วย 2 → \(2x_1 = x_2\) เลือก \(x_1 = 1\) → \(\vec{v}_2 = (1, 2)^T\) — ตั้งฉากกัน ✓ เพราะ \((-2, 1)\cdot(1, 2) = -2 + 2 = 0\) (คนละค่าลักษณะเฉพาะตามทฤษฎีบท 4.4.1)</li>
+        <li><span class="step-t">ปรับหนึ่งหน่วย (ยาว \(\sqrt5\)) แล้วประกอบ</span> ความยาว: \(\|(-2,1)\| = \sqrt{4+1} = \sqrt5\), \(\|(1,2)\| = \sqrt{1+4} = \sqrt5\) (เท่ากันโชคดี จึงใช้ตัวประกอบ \(\tfrac{1}{\sqrt5}\) ตัวเดียวพาทั้ง \(P\)) เรียงหลักแรก = เวกเตอร์ของ λ = 9, หลักสอง = ของ λ = 4 แล้ววาง D ตามลำดับเดียวกัน
+        \[ P = \frac{1}{\sqrt{5}}\begin{bmatrix} -2 & 1\\ 1 & 2 \end{bmatrix}, \qquad D = \begin{bmatrix} 9 & 0\\ 0 & 4 \end{bmatrix}, \qquad A = PDP^T \]
+        — <strong>สรุปคำตอบ:</strong> ได้ \(A = PDP^T\) ตามด้านบน (ตรวจยืนยันได้ด้วย \(A\vec{v}_1 = 9\vec{v}_1\) เช่น \(A(-2,1)^T = (-16+2, 4+5)^T = (-14, 9)^T = 9(-2,1)^T\) ✓)</li>
       </ol>
     </div></details>
   </article>
@@ -177,13 +184,13 @@ page: ch4-4.html
     </div>
     <details class="hint"><summary>คำใบ้</summary><div class="hint-body">\(\lambda = 0\): \(\vec{u}_1 = \tfrac{1}{\sqrt3}(1,1,1)^T\) / \(\lambda = 3\): \(x_1+x_2+x_3 = 0\) → ฐาน \((1,-1,0)^T, (1,1,-2)^T\) <em>ตั้งฉากกันอยู่แล้ว</em> → ปรับหนึ่งหน่วย</div></details>
     <details class="sol"><summary>แนวคิดและเฉลยแบบละเอียด</summary><div class="sol-body">
-      <p><strong>แนวคิด:</strong> ค่าซ้ำแต่โชคดีที่ฐานของ \(E_3\) ตั้งฉากกันอยู่แล้ว — ตรวจก่อนเสมอ ถ้าไม่ตั้งฉากค่อยกราม-ชมิดต์</p>
+      <p><strong>แนวคิด:</strong> ค่าซ้ำแต่โชคดีที่ฐานของ \(E_3\) ตั้งฉากกันอยู่แล้ว — ตรวจก่อนเสมอ ถ้าไม่ตั้งฉากค่อยกราม-ชมิดต์ กลยุทธ์: เริ่มจากค่าเดี่ยว (\(\lambda = 0\)) ที่ทำง่าย แล้วค่อยจัดการกลุ่มค่าซ้ำ (\(\lambda = 3\)) โดยตรวจผลคูณจุดของฐานก่อนตัดสินใจว่าต้องกราม-ชมิดต์หรือเปล่า</p>
       <ol class="steps">
-        <li><span class="step-t">\(E_0\)</span> \(A\vec{x} = \vec{0} \Rightarrow x_1 = x_2 = x_3\) → \(\vec{u}_1 = \tfrac{1}{\sqrt{3}}(1,1,1)^T\)</li>
-        <li><span class="step-t">\(E_3\)</span> \(A - 3I_3 = \begin{bmatrix} -1 & -1 & -1\\ -1 & -1 & -1\\ -1 & -1 & -1 \end{bmatrix} \Rightarrow x_1 + x_2 + x_3 = 0\) → ฐาน \((1,-1,0)^T, (1,1,-2)^T\) — จุดกัน = \(1 - 1 + 0 = 0\) ✓ ตั้งฉากอยู่แล้ว → \(\vec{u}_2 = \tfrac{1}{\sqrt{2}}(1,-1,0)^T\), \(\vec{u}_3 = \tfrac{1}{\sqrt{6}}(1,1,-2)^T\)</li>
-        <li><span class="step-t">ประกอบ \(P, D\)</span>
+        <li><span class="step-t">\(E_0\)</span> แก้ \(A\vec{x} = \vec{0}\) — ทุกแถวของ \(A\) รวมกันได้ 0 (\(2 - 1 - 1 = 0\)) จึงได้เงื่อนไข \(x_1 = x_2 = x_3\) เลือกค่า 1 → \((1,1,1)^T\) ความยาว \(\sqrt{1+1+1} = \sqrt3\) → \(\vec{u}_1 = \tfrac{1}{\sqrt{3}}(1,1,1)^T\)</li>
+        <li><span class="step-t">\(E_3\)</span> \(A - 3I_3 = \begin{bmatrix} -1 & -1 & -1\\ -1 & -1 & -1\\ -1 & -1 & -1 \end{bmatrix}\) (ทุกแถวเหมือนกันเพราะลบ 3 จากทแยงล้วน 2) → เหลือสมการเดียว \(x_1 + x_2 + x_3 = 0\) → เลือกฐาน \((1,-1,0)^T\) (ให้ \(x_3 = 0\)) และ \((1,1,-2)^T\) (ให้ \(x_2 = 1\)) — ตรวจก่อน: จุดกัน = \(1(1) + (-1)(1) + 0(-2) = 1 - 1 + 0 = 0\) ✓ ตั้งฉากอยู่แล้ว ไม่ต้องกราม-ชมิดต์ → ความยาว \(\sqrt2\) และ \(\sqrt{1+1+4} = \sqrt6\) → \(\vec{u}_2 = \tfrac{1}{\sqrt{2}}(1,-1,0)^T\), \(\vec{u}_3 = \tfrac{1}{\sqrt{6}}(1,1,-2)^T\)</li>
+        <li><span class="step-t">ประกอบ \(P, D\)</span> เรียงหลักตามลำดับ \(\vec{u}_1\) (λ = 0), \(\vec{u}_2\) (λ = 3), \(\vec{u}_3\) (λ = 3) แล้ววาง D ตามลำดับเดียวกัน (สองหลักหลังเป็นค่าซ้ำ สลับกันได้แต่ต้องสลับหลัก \(P\) ด้วยเสมอ)
         \[ P = \begin{bmatrix} \tfrac{1}{\sqrt3} & \tfrac{1}{\sqrt2} & \tfrac{1}{\sqrt6}\\[4pt] \tfrac{1}{\sqrt3} & -\tfrac{1}{\sqrt2} & \tfrac{1}{\sqrt6}\\[4pt] \tfrac{1}{\sqrt3} & 0 & -\tfrac{2}{\sqrt6} \end{bmatrix}, \qquad D = \begin{bmatrix} 0 & 0 & 0\\ 0 & 3 & 0\\ 0 & 0 & 3 \end{bmatrix}, \qquad A = PDP^T \]</li>
-        <li><span class="step-t">ตรวจคำตอบ</span> \(A\tfrac13(1,1,1)^T = \vec{0}\) ✓ \(A(1,-1,0)^T = (3,-3,0)^T = 3(1,-1,0)^T\) ✓ \(A(1,1,-2)^T = (3,3,-6)^T = 3(1,1,-2)^T\) ✓</li>
+        <li><span class="step-t">ตรวจคำตอบ</span> คูณ \(A\) เข้าเวกเตอร์จริงแต่ละตัว: \(A\tfrac13(1,1,1)^T = \tfrac13(0, 0, 0)^T = \vec{0} = 0\cdot\vec{u}_1\) ✓ (ทุกแถวรวมได้ \(2-1-1 = 0\)); \(A(1,-1,0)^T = (2+1, -1-2, -1+1)^T = (3,-3,0)^T = 3(1,-1,0)^T\) ✓ (เช่น ช่องแรก \(2(1) + (-1)(-1) + (-1)(0) = 2+1 = 3\)); \(A(1,1,-2)^T = (2-1+2, -1+2+2, -1-1-4)^T = (3,3,-6)^T = 3(1,1,-2)^T\) ✓ — <strong>สรุปคำตอบ:</strong> \(A = PDP^T\) ตามด้านบน ทุกเวกเตอร์ตรงตามที่ต้องมี</li>
       </ol>
     </div></details>
   </article>
@@ -196,15 +203,16 @@ page: ch4-4.html
     </div>
     <details class="hint"><summary>คำใบ้</summary><div class="hint-body">\(E_{30}\): \(x_1 = x_2 + 2x_3\) → ฐาน \((1,1,0)^T, (2,0,1)^T\) <em>ไม่ตั้งฉากกัน</em> → กราม-ชมิดต์ในกลุ่ม → \((1,-1,1)^T\) / \(\lambda = 0\): \((1,-1,2)^T\) (ลบเครื่องหมายได้)</div></details>
     <details class="sol"><summary>แนวคิดและเฉลยแบบละเอียด</summary><div class="sol-body">
-      <p><strong>แนวคิด:</strong> ค่าซ้ำที่ฐานไม่ตั้งฉาก — กราม-ชมิดต์เข้ามาแก้</p>
+      <p><strong>แนวคิด:</strong> ค่าซ้ำที่ฐานไม่ตั้งฉาก — กราม-ชมิดต์เข้ามาแก้ กลยุทธ์: กลุ่ม λ = 30 ซ้ำสองตัวคือจุดเสี่ยง — หาฐานก่อน แล้ว<em>เช็กทุกครั้ง</em>ด้วยผลคูณจุดว่าตั้งฉากกันหรือเปล่า ถ้าไม่ใช่จึงกราม-ชมิดต์เฉพาะในกลุ่ม ส่วนค่าลักษณะเฉพาะ 0 ก็เป็นค่าที่ถูกกฎหมาย (แค่แปลว่า \(A\) มีเวกเตอร์บางทิศที่ถูกบีบเป็นศูนย์)</p>
       <ol class="steps">
-        <li><span class="step-t">\(E_{30}\) ก่อนตั้งฉาก</span> \(A - 30I_3 = \begin{bmatrix} -5 & 5 & 10\\ 5 & -5 & -10\\ 10 & -10 & -20 \end{bmatrix} \Rightarrow x_1 = x_2 + 2x_3\) → ฐาน \(\vec{x}_1 = (1,1,0)^T, \vec{x}_2 = (2,0,1)^T\) — จุดกัน = 2 ≠ 0 → ต้องกราม-ชมิดต์</li>
-        <li><span class="step-t">กราม-ชมิดต์ใน \(E_{30}\)</span>
+        <li><span class="step-t">\(E_{30}\) ก่อนตั้งฉาก</span> \(A - 30I_3 = \begin{bmatrix} -5 & 5 & 10\\ 5 & -5 & -10\\ 10 & -10 & -20 \end{bmatrix}\) (ลบ 30 จากทแยง 25, 25, 10) ทุกแถวเป็นพหุคูณของแถวแรก → เหลือสมการเดียว \(-x_1 + x_2 + 2x_3 = 0\) → \(x_1 = x_2 + 2x_3\) เลือก \((x_2, x_3) = (1,0)\) และ \((0,1)\) ได้ฐาน \(\vec{x}_1 = (1,1,0)^T, \vec{x}_2 = (2,0,1)^T\) — จุดกัน = \(1(2) + 1(0) + 0(1) = 2 \neq 0\) → <em>ไม่</em>ตั้งฉากกัน ต้องกราม-ชมิดต์</li>
+        <li><span class="step-t">กราม-ชมิดต์ใน \(E_{30}\)</span> เก็บ \(\vec{x}_1\) ไว้เป็นตัวแรก แล้วลบเงาของ \(\vec{x}_2\) บน \(\vec{x}_1\): เศษ \(\vec{x}_2\cdot\vec{x}_1 = 2\), ส่วน \(\vec{x}_1\cdot\vec{x}_1 = 1 + 1 + 0 = 2\) สัมประสิทธิ์ \(\tfrac22 = 1\) ลบออกทีละช่อง: \(2 - 1 = 1\), \(0 - 1 = -1\), \(1 - 0 = 1\)
         \[ \vec{v}_2 = \vec{x}_2 - \frac{\vec{x}_2\cdot\vec{x}_1}{\vec{x}_1\cdot\vec{x}_1}\vec{x}_1 = \begin{bmatrix} 2\\ 0\\ 1 \end{bmatrix} - \frac{2}{2}\begin{bmatrix} 1\\ 1\\ 0 \end{bmatrix} = \begin{bmatrix} 1\\ -1\\ 1 \end{bmatrix} \]
-        → \(\vec{u}_1 = \tfrac{1}{\sqrt2}(1,1,0)^T\), \(\vec{u}_2 = \tfrac{1}{\sqrt3}(1,-1,1)^T\)</li>
-        <li><span class="step-t">\(E_0\)</span> \(A\vec{x} = \vec{0} \Rightarrow x_1 = x_2 - x_3\) และ \(x_3 = 2x_2\) → \(\vec{u}_3 = \tfrac{1}{\sqrt6}(-1, 1, 2)^T\) (ตรวจตั้งฉากกับ \(\vec{u}_1, \vec{u}_2\): \((-1+1+0)/\sqrt{12} = 0\) ✓, \((-1-1+2)/\sqrt{18} = 0\) ✓)</li>
-        <li><span class="step-t">ประกอบ \(P, D\)</span>
-        \[ P = \begin{bmatrix} \tfrac{1}{\sqrt2} & \tfrac{1}{\sqrt3} & -\tfrac{1}{\sqrt6}\\[4pt] \tfrac{1}{\sqrt2} & -\tfrac{1}{\sqrt3} & \tfrac{1}{\sqrt6}\\[4pt] 0 & \tfrac{1}{\sqrt3} & \tfrac{2}{\sqrt6} \end{bmatrix}, \qquad D = \begin{bmatrix} 30 & 0 & 0\\ 0 & 30 & 0\\ 0 & 0 & 0 \end{bmatrix}, \qquad A = PDP^T \]</li>
+        ปรับหนึ่งหน่วย: \(\|(1,1,0)\| = \sqrt2\), \(\|(1,-1,1)\| = \sqrt{1+1+1} = \sqrt3\) → \(\vec{u}_1 = \tfrac{1}{\sqrt2}(1,1,0)^T\), \(\vec{u}_2 = \tfrac{1}{\sqrt3}(1,-1,1)^T\) (ทั้งคู่ยังอยู่ใน \(E_{30}\) เพราะกราม-ชมิดต์ผสมเฉพาะเวกเตอร์ในกลุ่มเดียวกัน span ไม่หลุด)</li>
+        <li><span class="step-t">\(E_0\)</span> แก้ \(A\vec{x} = \vec{0}\): จากการลดรูปได้ \(x_1 = x_2 - x_3\) และ \(x_3 = 2x_2\) เลือก \(x_2 = 1\) → \(x_3 = 2\), \(x_1 = 1 - 2 = -1\) → \((-1, 1, 2)^T\) ความยาว \(\sqrt{1+1+4} = \sqrt6\) → \(\vec{u}_3 = \tfrac{1}{\sqrt6}(-1, 1, 2)^T\) (ตรวจตั้งฉากกับ \(\vec{u}_1, \vec{u}_2\): \((-1,1,2)\cdot(1,1,0) = -1+1+0 = 0\) ✓, \((-1,1,2)\cdot(1,-1,1) = -1-1+2 = 0\) ✓ — ตั้งฉากโดยอัตโนมัติเพราะคนละค่าลักษณะเฉพาะ ตามทฤษฎีบท 4.4.1)</li>
+        <li><span class="step-t">ประกอบ \(P, D\)</span> เรียง \(\vec{u}_1, \vec{u}_2\) (กลุ่ม λ = 30) และ \(\vec{u}_3\) (λ = 0) เป็นหลักของ \(P\) วาง D ตามลำดับเดียวกัน
+        \[ P = \begin{bmatrix} \tfrac{1}{\sqrt2} & \tfrac{1}{\sqrt3} & -\tfrac{1}{\sqrt6}\\[4pt] \tfrac{1}{\sqrt2} & -\tfrac{1}{\sqrt3} & \tfrac{1}{\sqrt6}\\[4pt] 0 & \tfrac{1}{\sqrt3} & \tfrac{2}{\sqrt6} \end{bmatrix}, \qquad D = \begin{bmatrix} 30 & 0 & 0\\ 0 & 30 & 0\\ 0 & 0 & 0 \end{bmatrix}, \qquad A = PDP^T \]
+        — <strong>สรุปคำตอบ:</strong> ได้ \(A = PDP^T\) ตามด้านบน (สังเกต: λ = 0 ทำให้ช่องทแยงสุดท้ายของ \(D\) เป็นศูนย์ ซึ่งถูกต้องเพราะ \(\det A = 0\))</li>
       </ol>
     </div></details>
   </article>
@@ -217,13 +225,14 @@ page: ch4-4.html
     </div>
     <details class="hint"><summary>คำใบ้</summary><div class="hint-body">trace 7, det 6 → \(\lambda = 6, 1\) / \(\lambda = 6\): \(\vec{u}_1 = \tfrac{1}{\sqrt5}(2,-1)^T\), \(\lambda = 1\): \(\vec{u}_2 = \tfrac{1}{\sqrt5}(1,2)^T\)</div></details>
     <details class="sol"><summary>แนวคิดและเฉลยแบบละเอียด</summary><div class="sol-body">
-      <p><strong>แนวคิด:</strong> \(A = \lambda_1\vec{u}_1\vec{u}_1^T + \lambda_2\vec{u}_2\vec{u}_2^T\)</p>
+      <p><strong>แนวคิด:</strong> \(A = \lambda_1\vec{u}_1\vec{u}_1^T + \lambda_2\vec{u}_2\vec{u}_2^T\) — กลยุทธ์: ต้องหา eigenpair ครบก่อน (เส้นทางเดิม: สมการลักษณะเฉพาะ → เวกเตอร์ → ปรับหนึ่งหน่วย) แล้วจึงประกอบการแยกเชิงสเปกตรัมด้วยท่า "คอลัมน์ × แถว" แล้วบวกด้วยน้ำหนักคือค่าลักษณะเฉพาะ</p>
       <ol class="steps">
-        <li><span class="step-t">eigenpair</span> \(\lambda^2 - 7\lambda + 6 = (\lambda - 6)(\lambda - 1)\) → \(\lambda = 6, 1\); \(\lambda = 6\): \(A - 6I = \begin{bmatrix} -1 & -2\\ -2 & -4 \end{bmatrix} \Rightarrow x_1 = -2x_2 \Rightarrow \vec{u}_1 = \tfrac{1}{\sqrt5}(-2, 1)^T\) (ใช้ \((2,-1)^T\) ก็ได้เพราะคูณ −1 ไม่เปลี่ยน); \(\lambda = 1\): \(A - I = \begin{bmatrix} 4 & -2\\ -2 & 1 \end{bmatrix} \Rightarrow 2x_1 = x_2 \Rightarrow \vec{u}_2 = \tfrac{1}{\sqrt5}(1, 2)^T\)</li>
-        <li><span class="step-t">เมทริกซ์แรงก์ 1</span>
+        <li><span class="step-t">eigenpair</span> \(\det(A - \lambda I) = (5-\lambda)(2-\lambda) - (-2)(-2) = 10 - 5\lambda - 2\lambda + \lambda^2 - 4 = \lambda^2 - 7\lambda + 6\) (เพราะ \((-2)(-2) = 4\) ลบคูณลบได้บวก) แยกตัวประกอบ \((\lambda - 6)(\lambda - 1)\) → \(\lambda = 6, 1\) \(\lambda = 6\): \(A - 6I = \begin{bmatrix} -1 & -2\\ -2 & -4 \end{bmatrix}\) ให้ \(x_1 = -2x_2\) → เวกเตอร์ \((-2, 1)^T\) หรือ \((2,-1)^T\) (คูณ −1 ไม่เปลี่ยนทิศ ใช้ตัวไหนก็ได้) ยาว \(\sqrt5\) → \(\vec{u}_1 = \tfrac{1}{\sqrt5}(2, -1)^T\); \(\lambda = 1\): \(A - I = \begin{bmatrix} 4 & -2\\ -2 & 1 \end{bmatrix}\) ให้ \(2x_1 = x_2\) → \((1, 2)^T\) ยาว \(\sqrt5\) → \(\vec{u}_2 = \tfrac{1}{\sqrt5}(1, 2)^T\)</li>
+        <li><span class="step-t">เมทริกซ์แรงก์ 1</span> ท่า "คอลัมน์ × แถว" คูณทีละช่อง (ตัวประกอบ \(\tfrac{1}{\sqrt5}\cdot\tfrac{1}{\sqrt5} = \tfrac15\)): \(\vec{u}_1\vec{u}_1^T\): ช่อง (1,1) = \(2(2) = 4\), ช่อง (1,2) = \(2(-1) = -2\), ช่อง (2,2) = \((-1)(-1) = 1\) (ลบคูณลบได้บวก)
         \[ \vec{u}_1\vec{u}_1^T = \frac{1}{5}\begin{bmatrix} 4 & -2\\ -2 & 1 \end{bmatrix}, \qquad \vec{u}_2\vec{u}_2^T = \frac{1}{5}\begin{bmatrix} 1 & 2\\ 2 & 4 \end{bmatrix} \]</li>
-        <li><span class="step-t">รวมด้วยน้ำหนัก</span>
-        \[ A = 6 \cdot \frac{1}{5}\begin{bmatrix} 4 & -2\\ -2 & 1 \end{bmatrix} + 1 \cdot \frac{1}{5}\begin{bmatrix} 1 & 2\\ 2 & 4 \end{bmatrix} = \frac{1}{5}\begin{bmatrix} 25 & -10\\ -10 & 10 \end{bmatrix} = \begin{bmatrix} 5 & -2\\ -2 & 2 \end{bmatrix} \;\checkmark \]</li>
+        <li><span class="step-t">รวมด้วยน้ำหนัก</span> คูณพจน์แรกด้วย 6 และพจน์ที่สองด้วย 1 แล้วบวกทีละช่อง (ตัวส่วนร่วม 5): ช่อง (1,1) = \(\tfrac{24}5 + \tfrac15 = \tfrac{25}5 = 5\), ช่อง (1,2) = \(\tfrac{-12}5 + \tfrac25 = \tfrac{-10}5 = -2\), ช่อง (2,2) = \(\tfrac65 + \tfrac45 = \tfrac{10}5 = 2\)
+        \[ A = 6 \cdot \frac{1}{5}\begin{bmatrix} 4 & -2\\ -2 & 1 \end{bmatrix} + 1 \cdot \frac{1}{5}\begin{bmatrix} 1 & 2\\ 2 & 4 \end{bmatrix} = \frac{1}{5}\begin{bmatrix} 25 & -10\\ -10 & 10 \end{bmatrix} = \begin{bmatrix} 5 & -2\\ -2 & 2 \end{bmatrix} \;\checkmark \]
+        — <strong>สรุปคำตอบ:</strong> การแยกเชิงสเปกตรัมคือ \(A = 6\,\vec{u}_1\vec{u}_1^T + 1\cdot\vec{u}_2\vec{u}_2^T\) และเมื่อรวมกลับได้ \(A\) ต้นทางพอดี ✓</li>
       </ol>
     </div></details>
   </article>
@@ -236,12 +245,12 @@ page: ch4-4.html
     </div>
     <details class="hint"><summary>คำใบ้</summary><div class="hint-body">\((A\vec{v})\cdot\vec{w} = (A\vec{v})^T\vec{w} = \vec{v}^TA^T\vec{w} = \vec{v}^TA\vec{w} = \vec{v}\cdot(A\vec{w})\) — ขั้นสำคัญคือ \(A^T = A\)</div></details>
     <details class="sol"><summary>แนวคิดและเฉลยแบบละเอียด</summary><div class="sol-body">
-      <p><strong>แนวคิด:</strong> ใช้สมบัติ transpose และความสมมาตร</p>
+      <p><strong>แนวคิด:</strong> ใช้สมบัติ transpose และความสมมาตร — กลยุทธ์: โยงทุกอย่างกลับไปที่นิยามผลคูณจุดว่า \(\vec{a}\cdot\vec{b} = \vec{a}^T\vec{b}\) แล้ว "ยก transpose" ออกจากวงเล็บด้วยกฎ \((MN)^T = N^TM^T\) (ผลคูณสลับลำดับ) จุดตายของข้อนี้คือขั้นที่ใช้ \(A^T = A\) พอดีหนึ่งครั้ง</p>
       <ol class="steps">
-        <li><span class="step-t">พิสูจน์</span>
+        <li><span class="step-t">พิสูจน์</span> ทีละเครื่องหมายเท่ากับ: (1) \((A\vec{v})\cdot\vec{w} = (A\vec{v})^T\vec{w}\) เพราะนิยามผลคูณจุดคือทรานสโพสตัวแรกคูณตัวหลัง (2) \((A\vec{v})^T = \vec{v}^TA^T\) เพราะ transpose ของผลคูณสลับลำดับและแยกย่อย (3) แทน \(A^T = A\) (จุดนี้แหละที่ใช้ความ<em>สมมาตร</em>ของ \(A\)!) จึงเหลือ \(\vec{v}^TA\vec{w}\) (4) เขียนกลับเป็นผลคูณจุด \(\vec{v}\cdot(A\vec{w})\)
         \[ (A\vec{v})\cdot\vec{w} = (A\vec{v})^T\vec{w} = \vec{v}^TA^T\vec{w} \xlongequal{A^T = A} \vec{v}^TA\vec{w} = \vec{v}\cdot(A\vec{w}) \;\checkmark \]
         (นี่คือเหตุผลเบื้องหลังทฤษฎีบท 4.4.1 — เวกเตอร์ลักษณะเฉพาะคนละค่าจึงตั้งฉากกัน)</li>
-        <li><span class="step-t">ตรวจด้วยตัวเลข</span> \(A\vec{v} = (1, 2)^T\) → \((A\vec{v})\cdot\vec{w} = 2\); \(A\vec{w} = (2, 1)^T\) → \(\vec{v}\cdot(A\vec{w}) = 2\) ✓ เท่ากัน</li>
+        <li><span class="step-t">ตรวจด้วยตัวเลข</span> คำนวณสองฝั่งจริง: \(A\vec{v} = \begin{bmatrix} 1 & 2\\ 2 & 1 \end{bmatrix}\begin{bmatrix} 1\\ 0 \end{bmatrix} = \begin{bmatrix} 1(1) + 2(0)\\ 2(1) + 1(0) \end{bmatrix} = \begin{bmatrix} 1\\ 2 \end{bmatrix}\) → \((A\vec{v})\cdot\vec{w} = 1(0) + 2(1) = 2\) ฝั่งขวา: \(A\vec{w} = \begin{bmatrix} 2\\ 1 \end{bmatrix}\) (แถวแรก \(1(0) + 2(1) = 2\)) → \(\vec{v}\cdot(A\vec{w}) = 1(2) + 0(1) = 2\) ✓ สองฝั่งเท่ากันเป็น 2 พอดี — <strong>สรุป:</strong> พิสูจน์และยืนยันแล้วว่าสมบัตินี้จริงสำหรับเมทริกซ์สมมาตรทุกตัว</li>
       </ol>
     </div></details>
   </article>
@@ -254,14 +263,16 @@ page: ch4-4.html
     </div>
     <details class="hint"><summary>คำใบ้</summary><div class="hint-body">\(\lambda = 4\): \(\vec{u}_1 = \tfrac{1}{\sqrt3}(1,1,1)^T\) / \(\lambda = 1\): \(x_1+x_2+x_3 = 0\) → \(\vec{u}_2 = \tfrac{1}{\sqrt2}(1,-1,0)^T\), \(\vec{u}_3 = \tfrac{1}{\sqrt6}(1,1,-2)^T\)</div></details>
     <details class="sol"><summary>แนวคิดและเฉลยแบบละเอียด</summary><div class="sol-body">
-      <p><strong>แนวคิด:</strong> เหมือนข้อ 2 — ตรวจว่าฐานของ \(E_1\) ตั้งฉากกันอยู่แล้วหรือไม่</p>
+      <p><strong>แนวคิด:</strong> เหมือนข้อ 2 — ตรวจว่าฐานของ \(E_1\) ตั้งฉากกันอยู่แล้วหรือไม่ กลยุทธ์: โจทย์ให้ค่าลักษณะเฉพาะมาแล้ว (\(\lambda = 4, 1, 1\)) งานคือหาเวกเตอร์ → จัดกลุ่มค่าซ้ำ \(E_1\) ให้ตั้งฉาก (เช็กก่อนเสมอ) → ประกอบ \(P, D\) → ปิดท้ายด้วยการแยกเชิงสเปกตรัม</p>
       <ol class="steps">
-        <li><span class="step-t">eigenvectors</span> \(\lambda = 4\): \(A - 4I_3\) ทุกแถวเป็น \((-1,-1,-1)\) → \(x_1 = x_2 = x_3\) → \(\vec{u}_1 = \tfrac{1}{\sqrt3}(1,1,1)^T\); \(\lambda = 1\): \(A - I_3\) ทุกแถวเป็น \((1,1,1)\) → \(x_1 + x_2 + x_3 = 0\) → ฐาน \((1,-1,0)^T, (1,1,-2)^T\) ซึ่งจุดกัน = 0 ✓ → \(\vec{u}_2 = \tfrac{1}{\sqrt2}(1,-1,0)^T\), \(\vec{u}_3 = \tfrac{1}{\sqrt6}(1,1,-2)^T\)</li>
-        <li><span class="step-t">ประกอบ \(P, D\)</span>
+        <li><span class="step-t">eigenvectors</span> \(\lambda = 4\): \(A - 4I_3 = \begin{bmatrix} -1 & -1 & -1\\ -1 & -1 & -1\\ -1 & -1 & -1 \end{bmatrix}\) (ลบ 4 จากทแยงล้วน 2) ทุกแถวซ้ำ → \(x_1 = x_2 = x_3\) → \((1,1,1)^T\) ยาว \(\sqrt3\) → \(\vec{u}_1 = \tfrac{1}{\sqrt3}(1,1,1)^T\); \(\lambda = 1\): \(A - I_3\) ทุกแถวเป็น \((1,1,1)\) → สมการเดียว \(x_1 + x_2 + x_3 = 0\) → ฐาน \((1,-1,0)^T, (1,1,-2)^T\) ซึ่งจุดกัน = \(1 - 1 + 0 = 0\) ✓ ตั้งฉากอยู่แล้ว (โชคดี ไม่ต้องกราม-ชมิดต์) ยาว \(\sqrt2\) และ \(\sqrt6\) → \(\vec{u}_2 = \tfrac{1}{\sqrt2}(1,-1,0)^T\), \(\vec{u}_3 = \tfrac{1}{\sqrt6}(1,1,-2)^T\)</li>
+        <li><span class="step-t">ประกอบ \(P, D\)</span> เรียงหลักตามลำดับ λ = 4, 1, 1 แล้ววาง D ทแยงตามลำดับเดียวกัน
         \[ P = \begin{bmatrix} \tfrac{1}{\sqrt3} & \tfrac{1}{\sqrt2} & \tfrac{1}{\sqrt6}\\[4pt] \tfrac{1}{\sqrt3} & -\tfrac{1}{\sqrt2} & \tfrac{1}{\sqrt6}\\[4pt] \tfrac{1}{\sqrt3} & 0 & -\tfrac{2}{\sqrt6} \end{bmatrix}, \qquad D = \begin{bmatrix} 4 & 0 & 0\\ 0 & 1 & 0\\ 0 & 0 & 1 \end{bmatrix}, \qquad A = PDP^T \]</li>
-        <li><span class="step-t">การแยกเชิงสเปกตรัม</span>
+        <li><span class="step-t">การแยกเชิงสเปกตรัม</span> ท่า "คอลัมน์ × แถว" ทีละตัว: \(\vec{u}_1\vec{u}_1^T = \tfrac13\begin{bmatrix} 1 & 1 & 1\\ 1 & 1 & 1\\ 1 & 1 & 1 \end{bmatrix}\) (ทุกช่องคือ \(1 \times 1\) คูณ \(\tfrac13\)), \(\vec{u}_2\vec{u}_2^T = \tfrac12\begin{bmatrix} 1 & -1 & 0\\ -1 & 1 & 0\\ 0 & 0 & 0 \end{bmatrix}\) (เช่น ช่อง (1,2) = \(1(-1) = -1\)), \(\vec{u}_3\vec{u}_3^T = \tfrac16\begin{bmatrix} 1 & 1 & -2\\ 1 & 1 & -2\\ -2 & -2 & 4 \end{bmatrix}\) (เช่น ช่อง (1,3) = \(1(-2) = -2\), ช่อง (3,3) = \((-2)(-2) = 4\)) แล้วรวมด้วยน้ำหนัก \(4, 1, 1\)
         \[ A = 4\vec{u}_1\vec{u}_1^T + \vec{u}_2\vec{u}_2^T + \vec{u}_3\vec{u}_3^T = \frac{4}{3}\begin{bmatrix} 1 & 1 & 1\\ 1 & 1 & 1\\ 1 & 1 & 1 \end{bmatrix} + \frac{1}{2}\begin{bmatrix} 1 & -1 & 0\\ -1 & 1 & 0\\ 0 & 0 & 0 \end{bmatrix} + \frac{1}{6}\begin{bmatrix} 1 & 1 & -2\\ 1 & 1 & -2\\ -2 & -2 & 4 \end{bmatrix} \]
-        \[ = \begin{bmatrix} \tfrac43 + \tfrac12 + \tfrac16 & \tfrac43 - \tfrac12 + \tfrac16 & \tfrac43 - \tfrac26\\ \tfrac43 - \tfrac12 + \tfrac16 & \tfrac43 + \tfrac12 + \tfrac16 & \tfrac43 - \tfrac26\\ \tfrac43 - \tfrac26 & \tfrac43 - \tfrac26 & \tfrac43 + \tfrac46 \end{bmatrix} = \begin{bmatrix} 2 & 1 & 1\\ 1 & 2 & 1\\ 1 & 1 & 2 \end{bmatrix} \;\checkmark \]</li>
+        ตรวจทีละช่องด้วยตัวส่วนร่วม 12: ช่อง (1,1) \(\tfrac43 + \tfrac12 + \tfrac16 = \tfrac{16+6+2}{12} = \tfrac{24}{12} = 2\) ✓, ช่อง (1,2) \(\tfrac43 - \tfrac12 + \tfrac16 = \tfrac{16-6+2}{12} = 1\) ✓, ช่อง (1,3) \(\tfrac43 + 0 - \tfrac26 = \tfrac{16-4}{12} = 1\) ✓, ช่อง (3,3) \(\tfrac43 + 0 + \tfrac46 = \tfrac{16+8}{12} = 2\) ✓
+        \[ = \begin{bmatrix} \tfrac43 + \tfrac12 + \tfrac16 & \tfrac43 - \tfrac12 + \tfrac16 & \tfrac43 - \tfrac26\\ \tfrac43 - \tfrac12 + \tfrac16 & \tfrac43 + \tfrac12 + \tfrac16 & \tfrac43 - \tfrac26\\ \tfrac43 - \tfrac26 & \tfrac43 - \tfrac26 & \tfrac43 + \tfrac46 \end{bmatrix} = \begin{bmatrix} 2 & 1 & 1\\ 1 & 2 & 1\\ 1 & 1 & 2 \end{bmatrix} \;\checkmark \]
+        — <strong>สรุปคำตอบ:</strong> ได้ \(A = PDP^T\) และการแยกเชิงสเปกตรัม \(A = 4\vec{u}_1\vec{u}_1^T + \vec{u}_2\vec{u}_2^T + \vec{u}_3\vec{u}_3^T\) ที่รวมกลับได้ \(A\) พอดี</li>
       </ol>
     </div></details>
   </article>

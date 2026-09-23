@@ -120,15 +120,15 @@
     <div class="ex-head"><span class="ex-badge">ตัวอย่าง 1</span><span class="tag easy">ง่าย</span><span class="ex-title">ตรวจ eigenvector และหา eigenvalue</span></div>
     <div class="ex-body">
       <div class="ex-q">ให้ \(A = \begin{bmatrix} 2 & 1\\ 1 & 2 \end{bmatrix}\) จงตรวจว่า \(\vec{u} = \begin{bmatrix} 1\\ 1 \end{bmatrix}\) และ \(\vec{v} = \begin{bmatrix} 1\\ -1 \end{bmatrix}\) เป็นเวกเตอร์ลักษณะเฉพาะของ \(A\) หรือไม่ ถ้าเป็นจงหาค่าลักษณะเฉพาะที่สมนัย</div>
-      <div class="approach"><span class="lbl">แนวคิด</span> — คูณ \(A\) กับเวกเตอร์ แล้วดูว่าผลลัพธ์เป็นสเกลาร์เท่าของเวกเตอร์เดิมหรือไม่ (และเวกเตอร์ต้องไม่ศูนย์)</div>
+      <div class="approach"><span class="lbl">แนวคิด</span> — คูณ \(A\) กับเวกเตอร์ แล้วดูว่าผลลัพธ์เป็นสเกลาร์เท่าของเวกเตอร์เดิมหรือไม่ (และเวกเตอร์ต้องไม่ศูนย์) กลยุทธ์ของข้อนี้: การตรวจ eigenvector คือการทำ "การคูณเมทริกซ์ธรรมดา" แค่รอบเดียว ไม่ต้องแก้สมการอะไรเลย — ถ้า \(A\vec{v}\) ออกมาเป็นตัว \(\vec{v}\) เองคูณเลขสักตัว (ทิศเดิม แค่ยืด/หด/กลับ) ก็ตอบว่าเป็น eigenvector ทันที โดยเลขที่คูณอยู่นั่นแหละคือ \(\lambda\) (แลมบ์ดา = ตัวแปรแทนค่าลักษณะเฉพาะ) ที่สมนัย</div>
       <ol class="steps">
-        <li><span class="step-t">เช็ก \(\vec{u}\)</span>
+        <li><span class="step-t">เช็ก \(\vec{u}\)</span> คูณ \(A\vec{u}\) — ช่องที่ \(i\) ของผลลัพธ์ = (แถวที่ \(i\) ของ \(A\)) · \(\vec{u}\) คือคูณตำแหน่งต่อตำแหน่งแล้วบวกสะสม: ช่องบน = \(2(1) + 1(1) = 2 + 1 = 3\), ช่องล่าง = \(1(1) + 2(1) = 1 + 2 = 3\):
         \[ A\vec{u} = \begin{bmatrix} 2 & 1\\ 1 & 2 \end{bmatrix}\begin{bmatrix} 1\\ 1 \end{bmatrix} = \begin{bmatrix} 3\\ 3 \end{bmatrix} = 3\begin{bmatrix} 1\\ 1 \end{bmatrix} = 3\vec{u} \]
-        เป็นสเกลาร์เท่า → \(\vec{u}\) เป็น eigenvector ที่สมนัยกับ \(\lambda = 3\)</li>
-        <li><span class="step-t">เช็ก \(\vec{v}\)</span>
+        ผลลัพธ์ \(\begin{bmatrix} 3\\ 3 \end{bmatrix}\) ชี้ไปทิศเดียวกับ \(\vec{u} = \begin{bmatrix} 1\\ 1 \end{bmatrix}\) พอดี (ทุกช่องโดนคูณด้วย 3 เท่าตัว) → เป็นสเกลาร์เท่า → \(\vec{u}\) เป็น eigenvector ที่สมนัยกับ \(\lambda = 3\) (<em>เพราะ</em>ตรงนิยาม \(A\vec{v} = \lambda\vec{v}\) เป๊ะ โดย \(\vec{u} \neq \vec{0}\))</li>
+        <li><span class="step-t">เช็ก \(\vec{v}\)</span> คูณแบบเดียวกัน: ช่องบน = \(2(1) + 1(-1) = 2 - 1 = 1\), ช่องล่าง = \(1(1) + 2(-1) = 1 - 2 = -1\):
         \[ A\vec{v} = \begin{bmatrix} 2 & 1\\ 1 & 2 \end{bmatrix}\begin{bmatrix} 1\\ -1 \end{bmatrix} = \begin{bmatrix} 1\\ -1 \end{bmatrix} = 1\cdot\vec{v} \]
-        → \(\vec{v}\) เป็น eigenvector ที่สมนัยกับ \(\lambda = 1\) (ค่าลักษณะเฉพาะเป็นบวกไม่จำเป็น — เป็น 1 ก็ได้)</li>
-        <li><span class="step-t">สรุป</span> ทั้งสองเวกเตอร์เป็น eigenvector ของ \(A\) โดย \(\lambda = 3\) และ \(\lambda = 1\) ตามลำดับ (และตรงกับ trace \(= 4 = 3+1\), det \(= 3 = 3\times1\) ✓)</li>
+        ผลลัพธ์เท่ากับ \(\vec{v}\) ตัวเดิมทุกช่อง (เท่ากับโดนคูณ 1) → \(\vec{v}\) เป็น eigenvector ที่สมนัยกับ \(\lambda = 1\) (ค่าลักษณะเฉพาะเป็นบวกไม่จำเป็น — เป็น 1 ก็ได้ และติดลบก็ได้เช่นกัน)</li>
+        <li><span class="step-t">สรุปและตรวจด้วย trace/det</span> ทั้งสองเวกเตอร์เป็น eigenvector ของ \(A\) โดย \(\lambda = 3\) และ \(\lambda = 1\) ตามลำดับ — ตรวจซ้ำด้วยคุณสมบัติ: trace (ผลบวกของเลขบนเส้นทแยงมุมหลัก) \(= 2 + 2 = 4 = 3+1\) ✓ และ det \(= 2\cdot2 - 1\cdot1 = 4 - 1 = 3 = 3\times1\) ✓ (<em>เพราะ</em>ผลบวกค่าลักษณะเฉพาะต้องเท่ากับ trace และผลคูณต้องเท่ากับ det เสมอ) — สรุปคำตอบ: \(\vec{u}\) เป็น eigenvector กับ \(\lambda = 3\), \(\vec{v}\) เป็น eigenvector กับ \(\lambda = 1\)</li>
       </ol>
     </div>
   </article>
@@ -137,13 +137,13 @@
     <div class="ex-head"><span class="ex-badge">ตัวอย่าง 2</span><span class="tag easy">ง่าย</span><span class="ex-title">หาค่าลักษณะเฉพาะทั้งหมดของ \(2\times2\)</span></div>
     <div class="ex-body">
       <div class="ex-q">จงหาค่าลักษณะเฉพาะทั้งหมดของ \(A = \begin{bmatrix} 1 & 2\\ 2 & 1 \end{bmatrix}\)</div>
-      <div class="approach"><span class="lbl">แนวคิด</span> — แก้สมการลักษณะเฉพาะ \(\det(A - \lambda I_2) = 0\)</div>
+      <div class="approach"><span class="lbl">แนวคิด</span> — แก้สมการลักษณะเฉพาะ \(\det(A - \lambda I_2) = 0\) กลยุทธ์ของข้อนี้: สมการ \(\det(A - \lambda I) = 0\) คือเงื่อนไขที่ทำให้ \((A - \lambda I)\vec{x} = \vec{0}\) มีผลเฉลยไม่ชัด (เพราะเมทริกซ์เอกฐาน) — สำหรับ \(2\times2\) ขั้นตอนจึงคาดเดาได้: เขียน \(A - \lambda I\) (ลบ \(\lambda\) ลงทแยง), คิด det (จะออกมาเป็นพหุนามดีกรี 2 ของ \(\lambda\)), แยกตัวประกอบ, แล้วตั้งแต่ละตัวประกอบเป็นศูนย์เพื่ออ่านค่า \(\lambda\)</div>
       <ol class="steps">
-        <li><span class="step-t">เขียน \(A - \lambda I\) และหา det</span>
+        <li><span class="step-t">เขียน \(A - \lambda I\) และหา det</span> \(I_2\) คือเมทริกซ์เอกลักษณ์ \(\begin{bmatrix} 1 & 0\\ 0 & 1 \end{bmatrix}\) การลบ \(\lambda I\) จึงไปลบ \(\lambda\) ที่<em>ช่องทแยงมุมหลัก</em>เท่านั้น (ช่องนอกทแยงคงเดิม: \(2, 2\)) แล้วคิด det สูตรทแยงลงลบทแยงขึ้น: \((1-\lambda)(1-\lambda) - (2)(2) = (1-\lambda)^2 - 4\) — กระจาย \((1-\lambda)^2 = 1 - 2\lambda + \lambda^2\) ได้ \(1 - 2\lambda + \lambda^2 - 4 = \lambda^2 - 2\lambda - 3\):
         \[ \det(A - \lambda I_2) = \begin{vmatrix} 1-\lambda & 2\\ 2 & 1-\lambda \end{vmatrix} = (1-\lambda)^2 - 4 = \lambda^2 - 2\lambda - 3 \]</li>
-        <li><span class="step-t">แก้สมการ</span>
+        <li><span class="step-t">แก้สมการ</span> หาสองจำนวนที่<em>คูณกันได้ \(-3\)</em> และ<em>บวกกันได้ \(-2\)</em> (สัมประสิทธิ์ของพหุนาม) — คือ \(-3\) กับ \(1\) → แยกตัวประกอบได้ \((\lambda - 3)(\lambda + 1)\) (ตรวจ: \((\lambda-3)(\lambda+1) = \lambda^2 + \lambda - 3\lambda - 3 = \lambda^2 - 2\lambda - 3\) ✓) หรือจะทดลองแทนก็ได้: ลอง \(\lambda = 3\) จากตัวประกอบของค่าคงตัว: \(9 - 6 - 3 = 0\) ✓ และ \(\lambda = -1\): \(1 + 2 - 3 = 0\) ✓ — เมื่อผลคูณเป็นศูนย์ ตัวใดตัวหนึ่งต้องเป็นศูนย์:
         \[ \lambda^2 - 2\lambda - 3 = (\lambda - 3)(\lambda + 1) = 0 \;\Longrightarrow\; \lambda = 3, \; -1 \]</li>
-        <li><span class="step-t">ตรวจด้วย trace/det</span> trace \(= 2 = 3 + (-1)\) ✓ det \(= 1 - 4 = -3 = 3 \times (-1)\) ✓</li>
+        <li><span class="step-t">ตรวจด้วย trace/det และสรุป</span> trace (ผลบวกเลขบนทแยงหลัก) \(= 1 + 1 = 2 = 3 + (-1)\) ✓ det \(= 1\cdot1 - 2\cdot2 = 1 - 4 = -3 = 3 \times (-1)\) ✓ ทั้งผลบวกและผลคูณตรง → การแยกตัวประกอบไม่พลาด — สรุปคำตอบ: ค่าลักษณะเฉพาะทั้งหมดของ \(A\) คือ \(\lambda = 3\) และ \(\lambda = -1\)</li>
       </ol>
     </div>
   </article>
@@ -152,22 +152,22 @@
     <div class="ex-head"><span class="ex-badge">ตัวอย่าง 3</span><span class="tag hard">ยาก</span><span class="ex-title">3×3 ค่าลักษณะเฉพาะซ้ำ + ตัดสินว่า diagonalizable ได้หรือไม่ (ตัวอย่างคลาสสิกของตำรา)</span></div>
     <div class="ex-body">
       <div class="ex-q">กำหนด \(A = \begin{bmatrix} 3 & 1 & -1\\ 2 & 2 & -1\\ 2 & 2 & 0 \end{bmatrix}\) จงหาค่าลักษณะเฉพาะ ปริภูมิลักษณะเฉพาะทุกค่า และตัดสินว่า \(A\) แปลงเป็นทแยงมุมได้หรือไม่</div>
-      <div class="approach"><span class="lbl">แนวคิด</span> — หา char. poly → แยกตัวประกอบ → หา \(\dim E_\lambda\) แต่ละค่า → เทียบกับจำนวนครั้งที่ซ้ำ</div>
+      <div class="approach"><span class="lbl">แนวคิด</span> — หา char. poly → แยกตัวประกอบ → หา \(\dim E_\lambda\) แต่ละค่า → เทียบกับจำนวนครั้งที่ซ้ำ กลยุทธ์ของข้อนี้: ค่าลักษณะเฉพาะที่<em>ไม่ซ้ำ</em>รับประกันเวกเตอร์อิสระได้คนละ 1 ตัวเสมอ (ทฤษฎีบท 3.2.1) แต่ค่าที่<em>ซ้ำ</em>ต้องเปิดตรวจของจริง — ต้องไปแก้ระบบ \((A - \lambda I)\vec{x} = \vec{0}\) แล้วนับว่ามีตัวแปรเสรีกี่ตัว ถ้าค่าที่ซ้ำ 2 ครั้งให้เวกเตอร์อิสระได้แค่ 1 ตัว ก็รวมกันไม่ครบ 3 ตัว แปลว่าแปลงเป็นทแยงมุมไม่ได้</div>
       <ol class="steps">
-        <li><span class="step-t">หาพหุนามลักษณะเฉพาะ</span> (กระจายโคแฟกเตอร์ตามแถวที่ 1)
+        <li><span class="step-t">หาพหุนามลักษณะเฉพาะ</span> (กระจายโคแฟกเตอร์ตามแถวที่ 1 — แต่ละพจน์ = เลขช่องนั้น × det ของเมทริกซ์ย่อยที่เหลือ เครื่องหมายสลับ + − +) เมทริกซ์ย่อยสามตัวคือ \(\begin{bmatrix} 2-\lambda & -1\\ 2 & -\lambda \end{bmatrix}\), \(\begin{bmatrix} 2 & -1\\ 2 & -\lambda \end{bmatrix}\), \(\begin{bmatrix} 2 & 2-\lambda\\ 2 & 2 \end{bmatrix}\) โดย det ตัวแรก \(= (2-\lambda)(-\lambda) - (-1)(2) = \lambda^2 - 2\lambda + 2\), det ตัวที่สอง \(= 2(-\lambda) - (-1)(2) = -2\lambda + 2\), det ตัวที่สาม \(= 2\cdot2 - (2-\lambda)\cdot2 = 4 - 4 + 2\lambda = 2\lambda\) รวมกระจายแล้วรวบพจน์ (เช่น พจน์ \(\lambda^3\) มาจาก \((3-\lambda)\cdot\lambda^2 = 3\lambda^2 - \lambda^3\)) จะได้
         \[ \det(A - \lambda I_3) = \begin{vmatrix} 3-\lambda & 1 & -1\\ 2 & 2-\lambda & -1\\ 2 & 2 & -\lambda \end{vmatrix} = -\lambda^3 + 5\lambda^2 - 8\lambda + 4 \]</li>
-        <li><span class="step-t">แยกตัวประกอบ</span> ลอง \(\lambda = 1\): \(-1 + 5 - 8 + 4 = 0\) ✓ หารยาวได้
+        <li><span class="step-t">แยกตัวประกอบ</span> วิธีมาตรฐานคือ "ทดลองแทน \(\lambda\) = ตัวหารของค่าคงตัว" (ค่าคงตัวคือ 4 ตัวหารคือ \(\pm1, \pm2, \pm4\)) — ลอง \(\lambda = 1\): \(-(1)^3 + 5(1)^2 - 8(1) + 4 = -1 + 5 - 8 + 4 = 0\) ✓ เจอราก! หารยาวด้วย \((\lambda - 1)\) เหลือ \(-\lambda^2 + 4\lambda - 4 = -(\lambda^2 - 4\lambda + 4) = -(\lambda - 2)^2\) (สี่เหลี่ยมสมบูรณ์: \((\lambda-2)^2 = \lambda^2 - 2\cdot2\lambda + 4\)) จึงแยกได้ครบ (จะทดลอง \(\lambda = 2\) ซ้ำก็ได้: \(-8 + 20 - 16 + 4 = 0\) ✓)
         \[ -\lambda^3 + 5\lambda^2 - 8\lambda + 4 = -(\lambda - 1)(\lambda - 2)^2 = 0 \;\Longrightarrow\; \lambda = 1, \; 2, \; 2 \]
-        \(\lambda = 2\) ซ้ำ 2 ครั้ง</li>
-        <li><span class="step-t">\(E_1 = \operatorname{Nul}(A - I_3)\)</span>
+        \(\lambda = 2\) ซ้ำ 2 ครั้ง — จุดนี้แหละที่ต้องเฝ้าระวังในขั้นถัดไป</li>
+        <li><span class="step-t">\(E_1 = \operatorname{Nul}(A - I_3)\)</span> ลบ \(I_3\) (เลข 1 บนทแยง) ออกจากทแยงของ \(A\): ช่อง \(3 \to 3 - 1 = 2\), ช่อง \(2 \to 2 - 1 = 1\), ช่อง \(0 \to 0 - 1 = -1\) ส่วนช่องนอกทแยงคงเดิม แล้วลดรูป: \(R_2 - R_1\) ทำทุกช่อง (\(2 - 2 = 0\), \(1 - 1 = 0\), \(-1 - (-1) = 0\)) ให้แถวศูนย์ (เขียนเป็นภาพขั้นบันไดแล้วแถวศูนย์ถูกเลื่อนไปนั่งล่างสุด), \(R_3 - R_1\) ทำทุกช่อง (\(2 - 2 = 0\), \(2 - 1 = 1\), \(-1 - (-1) = -1 + 1 = 0\)) ได้ \((0, 1, 0)\) หลังจากนั้นหารแถวบนด้วย 2 (\(2 \div 2 = 1\), \(1 \div 2 = \tfrac{1}{2}\), \(-1 \div 2 = -\tfrac{1}{2}\)) แล้วใช้ \(R_1 - \tfrac{1}{2}R_2\) เคลียร์ช่องกลาง (\(\tfrac{1}{2} - \tfrac{1}{2}(1) = 0\)) จนได้ RREF:
         \[ A - I_3 = \begin{bmatrix} 2 & 1 & -1\\ 2 & 1 & -1\\ 2 & 2 & -1 \end{bmatrix} \xrightarrow{\substack{R_2 - R_1\\ R_3 - R_1}} \begin{bmatrix} 2 & 1 & -1\\ 0 & 1 & 0\\ 0 & 1 & 0 \end{bmatrix} \xrightarrow{\,R_3 - R_2\,} \begin{bmatrix} 1 & \tfrac{1}{2} & -\tfrac{1}{2}\\ 0 & 1 & 0\\ 0 & 0 & 0 \end{bmatrix} \xrightarrow{\,R_1 - \tfrac{1}{2}R_2\,} \begin{bmatrix} 1 & 0 & -\tfrac{1}{2}\\ 0 & 1 & 0\\ 0 & 0 & 0 \end{bmatrix} \]
-        → \(x_1 = \tfrac{1}{2}x_3,\; x_2 = 0\) → \(\vec{x} = x_3(\tfrac12, 0, 1)^T\) → \(E_1 = \operatorname{Span}\{(1, 0, 2)^T\}\), \(\dim E_1 = 1\) ✓ (ตรงจำนวนที่ไม่ซ้ำ)</li>
-        <li><span class="step-t">\(E_2 = \operatorname{Nul}(A - 2I_3)\)</span>
+        อ่านระบบ: \(x_1 - \tfrac{1}{2}x_3 = 0 \Rightarrow x_1 = \tfrac{1}{2}x_3\), \(x_2 = 0\) ส่วน \(x_3\) เสรี → \(\vec{x} = x_3(\tfrac12, 0, 1)^T\) — เลือก \(x_3 = 2\) (ตัวคูณที่ทำให้เศษส่วน \(\tfrac12\cdot2 = 1\) หายไป) → \(E_1 = \operatorname{Span}\{(1, 0, 2)^T\}\), \(\dim E_1 = 1\) ✓ (ตรงจำนวนที่ไม่ซ้ำ — ค่าไม่ซ้ำได้เวกเตอร์อิสระอย่างน้อย 1 เสมอ)</li>
+        <li><span class="step-t">\(E_2 = \operatorname{Nul}(A - 2I_3)\)</span> ลบ 2 ออกจากทแยง: \(3 \to 1\), \(2 \to 0\), \(0 \to -2\) — ลดรูป: \(R_2 - 2R_1\) ทำทุกช่อง (\(2 - 2(1) = 0\), \(0 - 2(1) = -2\), \(-1 - 2(-1) = -1 + 2 = 1\)) ได้ \((0, -2, 1)\); \(R_3 - 2R_1\) ก็ทำทุกช่อง (\(2 - 2 = 0\), \(2 - 2 = 0\), \(-2 + 2 = 0\)) ได้แถวศูนย์; จากนั้นคูณ \(R_2\) ด้วย \(-\tfrac{1}{2}\) (\(-2\cdot(-\tfrac12) = 1\), \(1\cdot(-\tfrac12) = -\tfrac{1}{2}\)) และใช้ \(R_1 - R_2\) เคลียร์ช่องกลางของแถวบน (\(1 - 0 = 1\), \(1 - 1 = 0\), \(-1 - (-\tfrac{1}{2}) = -\tfrac{1}{2}\)):
         \[ A - 2I_3 = \begin{bmatrix} 1 & 1 & -1\\ 2 & 0 & -1\\ 2 & 2 & -2 \end{bmatrix} \xrightarrow{\substack{R_2 - 2R_1\\ R_3 - 2R_1}} \begin{bmatrix} 1 & 1 & -1\\ 0 & -2 & 1\\ 0 & 0 & 0 \end{bmatrix} \xrightarrow{\,-\tfrac{1}{2}R_2\,} \begin{bmatrix} 1 & 0 & -\tfrac{1}{2}\\ 0 & 1 & -\tfrac{1}{2}\\ 0 & 0 & 0 \end{bmatrix} \]
-        → \(x_1 = \tfrac{1}{2}x_3,\; x_2 = \tfrac{1}{2}x_3\) → \(E_2 = \operatorname{Span}\{(1, 1, 2)^T\}\), \(\dim E_2 = 1\) — <strong>แต่ \(\lambda = 2\) ซ้ำ 2 ครั้ง!</strong></li>
-        <li><span class="step-t">ตัดสิน</span> รวมเวกเตอร์ลักษณะเฉพาะอิสระได้เพียง \(1 + 1 = 2 &lt; 3\) ตัว → โดยทฤษฎีบท 3.2.3 \(A\) <strong>ไม่สามารถแปลงเป็นทแยงมุมได้</strong> (เพราะ \(\dim E_2 = 1\) น้อยกว่าจำนวนครั้งที่ \(\lambda = 2\) ซ้ำ)</li>
+        อ่านระบบ: \(x_1 = \tfrac{1}{2}x_3,\; x_2 = \tfrac{1}{2}x_3\), \(x_3\) เสรี → เลือก \(x_3 = 2\) กำจัดเศษส่วน → \(E_2 = \operatorname{Span}\{(1, 1, 2)^T\}\), \(\dim E_2 = 1\) — <strong>แต่ \(\lambda = 2\) ซ้ำ 2 ครั้ง!</strong> (ที่ต้องการคือ 2 เวกเตอร์อิสระ แต่ได้มาแค่ 1)</li>
+        <li><span class="step-t">ตัดสิน</span> รวมเวกเตอร์ลักษณะเฉพาะอิสระได้เพียง \(1 + 1 = 2 &lt; 3\) ตัว → โดยทฤษฎีบท 3.2.3 \(A\) <strong>ไม่สามารถแปลงเป็นทแยงมุมได้</strong> — <em>เพราะ</em>การสร้าง \(P\) ต้องใช้เวกเตอร์อิสระครบ \(n = 3\) ตัว (ให้ครบทุกทิศของ \(\mathbb{R}^3\)) แต่ค่า \(\lambda = 2\) ที่ซ้ำ 2 ครั้งให้ \(\dim E_2 = 1\) น้อยกว่าจำนวนครั้งที่ซ้ำ จึงเก็บเวกเตอร์มาได้ไม่ครบเสมอ — สรุปคำตอบ: ค่าลักษณะเฉพาะคือ \(1, 2, 2\), \(E_1 = \operatorname{Span}\{(1,0,2)^T\}\), \(E_2 = \operatorname{Span}\{(1,1,2)^T\}\) และ \(A\) แปลงเป็นทแยงมุมไม่ได้</li>
       </ol>
-      <div class="verify"><span class="lbl">ตรวจคำตอบ:</span> \(A(1,0,2)^T = (3+0-2,\; 2+0-2,\; 2+0+0)^T = (1, 0, 2)^T = 1\cdot(1,0,2)\) ✓ และ \(A(1,1,2)^T = (3+1-2,\; 2+2-2,\; 2+2+0)^T = (2, 2, 4)^T = 2(1,1,2)^T\) ✓</div>
+      <div class="verify"><span class="lbl">ตรวจคำตอบ:</span> \(A(1,0,2)^T = (3+0-2,\; 2+0-2,\; 2+0+0)^T = (1, 0, 2)^T = 1\cdot(1,0,2)\) ✓ (แถวบน: \(3(1) + 1(0) + (-1)(2) = 1\) ฯลฯ) และ \(A(1,1,2)^T = (3+1-2,\; 2+2-2,\; 2+2+0)^T = (2, 2, 4)^T = 2(1,1,2)^T\) ✓ — ทั้งสองเวกเตอร์ผ่านการทดสอบ \(A\vec{v} = \lambda\vec{v}\) จริง ยืนยันว่าฐานของ \(E_1, E_2\) ที่รายงานถูกต้อง</div>
     </div>
   </article>
 
@@ -175,23 +175,25 @@
     <div class="ex-head"><span class="ex-badge">ตัวอย่าง 4</span><span class="tag hard">ยาก</span><span class="ex-title">แปลงเป็นทแยงมุม + หา \(A^k\) (ตัวอย่างคลาสสิกของตำรา)</span></div>
     <div class="ex-body">
       <div class="ex-q">จงแปลง \(A = \begin{bmatrix} 7 & 2\\ -4 & 1 \end{bmatrix}\) เป็นเมทริกซ์ทแยงมุม นั่นคือหา \(P, D\) ที่ \(A = PDP^{-1}\) และหาสูตร \(A^k\)</div>
-      <div class="approach"><span class="lbl">แนวคิด</span> — λ จาก char. equation → eigenvector ทีละค่า → เรียงเป็นหลักของ \(P\), ค่า λ เรียงตามลำดับเดียวกันใน \(D\) → \(A^k = PD^kP^{-1}\)</div>
+      <div class="approach"><span class="lbl">แนวคิด</span> — λ จาก char. equation → eigenvector ทีละค่า → เรียงเป็นหลักของ \(P\), ค่า λ เรียงตามลำดับเดียวกันใน \(D\) → \(A^k = PD^kP^{-1}\) กลยุทธ์ของข้อนี้: นี่คือโจทย์ "ครบเครื่อง" ของหัวข้อ — หาค่าลักษณะเฉพาะก่อน (สองค่าต่างกัน = ผ่านเงื่อนไข diagonalizable ทันที) แล้วแก้ระบบเอกพันธุ์หาเวกเตอร์ทีละค่า ประกอบ \(P, D\) ให้ลำดับหลักกับทแยง<em>จับคู่ตรงกัน</em> แล้วปิดท้ายด้วยการยกกำลังผ่าน \(D^k\) ซึ่งเร็วกว่าคูณ \(A\) ซ้ำ ๆ มาก</div>
       <ol class="steps">
-        <li><span class="step-t">หาค่าลักษณะเฉพาะ</span>
+        <li><span class="step-t">หาค่าลักษณะเฉพาะ</span> ลบ \(\lambda\) ลงทแยงแล้วคิด det (ทแยงลง − ทแยงขึ้น): \((7-\lambda)(1-\lambda) - (2)(-4) = 7 - 7\lambda - \lambda + \lambda^2 + 8 = \lambda^2 - 8\lambda + 15\) — แยกตัวประกอบ: หาสองจำนวนที่คูณกันได้ 15 และบวกกันได้ \(-8\) → คือ \(-3\) กับ \(-5\) (ทดลองแทน \(\lambda = 3\): \(9 - 24 + 15 = 0\) ✓):
         \[ \det(A - \lambda I_2) = \begin{vmatrix} 7-\lambda & 2\\ -4 & 1-\lambda \end{vmatrix} = \lambda^2 - 8\lambda + 15 = (\lambda - 3)(\lambda - 5) = 0 \;\Longrightarrow\; \lambda = 3, 5 \]
-        ค่าลักษณะเฉพาะต่างกัน 2 ค่า → diagonalizable ทันที</li>
-        <li><span class="step-t">หา \(E_3 = \operatorname{Nul}(A - 3I_2)\)</span>
-        \[ A - 3I_2 = \begin{bmatrix} 4 & 2\\ -4 & -2 \end{bmatrix} \sim \begin{bmatrix} 1 & \tfrac{1}{2}\\ 0 & 0 \end{bmatrix} \;\Longrightarrow\; x_1 = -\tfrac{1}{2}x_2 \;\Longrightarrow\; \vec{v}_1 = \begin{bmatrix} -1\\ 2 \end{bmatrix} \]</li>
-        <li><span class="step-t">หา \(E_5 = \operatorname{Nul}(A - 5I_2)\)</span>
-        \[ A - 5I_2 = \begin{bmatrix} 2 & 2\\ -4 & -4 \end{bmatrix} \sim \begin{bmatrix} 1 & 1\\ 0 & 0 \end{bmatrix} \;\Longrightarrow\; x_1 = -x_2 \;\Longrightarrow\; \vec{v}_2 = \begin{bmatrix} -1\\ 1 \end{bmatrix} \]</li>
-        <li><span class="step-t">เรียงเป็น \(P\) และ \(D\) (ลำดับต้องตรงกัน!)</span>
+        ค่าลักษณะเฉพาะต่างกัน 2 ค่า → diagonalizable ทันที (<em>เพราะ</em>ค่าที่ต่างกันให้ eigenvector อิสระคนละตัวเสมอ ตามทฤษฎีบท 3.2.1 — ครบ 2 ตัวพอดีกับ \(n = 2\))</li>
+        <li><span class="step-t">หา \(E_3 = \operatorname{Nul}(A - 3I_2)\)</span> ลบ 3 ออกจากทแยง: \(7 \to 4\), \(1 \to -2\) (ช่อง \(-4, 2\) คงเดิม) — ลดรูป: หารแถวบนด้วย 4 (\(4 \div 4 = 1\), \(2 \div 4 = \tfrac{1}{2}\)) แล้วใช้ \(R_2 + 4R_1\) (\(-4 + 4(1) = 0\), \(-2 + 4(\tfrac{1}{2}) = -2 + 2 = 0\)) ได้แถวศูนย์:
+        \[ A - 3I_2 = \begin{bmatrix} 4 & 2\\ -4 & -2 \end{bmatrix} \sim \begin{bmatrix} 1 & \tfrac{1}{2}\\ 0 & 0 \end{bmatrix} \;\Longrightarrow\; x_1 = -\tfrac{1}{2}x_2 \;\Longrightarrow\; \vec{v}_1 = \begin{bmatrix} -1\\ 2 \end{bmatrix} \]
+        (จาก \(x_1 + \tfrac{1}{2}x_2 = 0\): เลือก \(x_2 = 2\) เพื่อกำจัดเศษส่วน → \(x_1 = -\tfrac{1}{2}(2) = -1\))</li>
+        <li><span class="step-t">หา \(E_5 = \operatorname{Nul}(A - 5I_2)\)</span> ลบ 5 ออกจากทแยง: \(7 \to 2\), \(1 \to -4\) — หารแถวบนด้วย 2 (\(2 \div 2 = 1\), \(2 \div 2 = 1\)) แล้ว \(R_2 + 4R_1\) (\(-4 + 4 = 0\), \(-4 + 4 = 0\)) ได้แถวศูนย์:
+        \[ A - 5I_2 = \begin{bmatrix} 2 & 2\\ -4 & -4 \end{bmatrix} \sim \begin{bmatrix} 1 & 1\\ 0 & 0 \end{bmatrix} \;\Longrightarrow\; x_1 = -x_2 \;\Longrightarrow\; \vec{v}_2 = \begin{bmatrix} -1\\ 1 \end{bmatrix} \]
+        (เลือก \(x_2 = 1\) → \(x_1 = -1\))</li>
+        <li><span class="step-t">เรียงเป็น \(P\) และ \(D\) (ลำดับต้องตรงกัน!)</span> เอา \(\vec{v}_1\) เป็นหลักแรกของ \(P\) → ทแยงช่องแรกของ \(D\) ต้องเป็น 3 (ค่าที่สมนัยกับ \(\vec{v}_1\)) และ \(\vec{v}_2\) เป็นหลักสอง → ทแยงช่องที่สองเป็น 5 (<em>เพราะ</em>หลักที่ \(j\) ของ \(P\) กับทแยงช่องที่ \(j\) ของ \(D\) ต้องอ้างถึง eigenvector–eigenvalue คู่เดียวกัน) ส่วน \(P^{-1}\) ใช้สูตร \(2\times2\): det \(= (-1)(1) - (-1)(2) = -1 + 2 = 1\) สลับทแยง เปลี่ยนเครื่องหมายตัวนอก หารด้วย det:
         \[ P = \begin{bmatrix} -1 & -1\\ 2 & 1 \end{bmatrix}, \qquad D = \begin{bmatrix} 3 & 0\\ 0 & 5 \end{bmatrix} \]
         โดย \(P^{-1} = \frac{1}{(-1)(1) - (-1)(2)}\begin{bmatrix} 1 & 1\\ -2 & -1 \end{bmatrix} = \begin{bmatrix} 1 & 1\\ -2 & -1 \end{bmatrix}\) (det \(P = 1\))</li>
-        <li><span class="step-t">สูตร \(A^k\)</span>
+        <li><span class="step-t">สูตร \(A^k\)</span> เหตุผลที่ \(A^k = PD^kP^{-1}\): \(A^2 = (PDP^{-1})(PDP^{-1}) = PD(P^{-1}P)DP^{-1} = PD^2P^{-1}\) เพราะ \(P^{-1}P = I\) ตรงกลางหักล้างกัน — ยกกำลัง \(k\) ครั้งก็ได้ \(D^k\) ซึ่งแค่<em>ยกกำลังตัวเลขบนทแยง</em> (\(3^k, 5^k\)) ง่ายกว่าคูณ \(A\) ซ้ำกัน \(k\) รอบมาก:
         \[ A^k = PD^kP^{-1} = \begin{bmatrix} -1 & -1\\ 2 & 1 \end{bmatrix}\begin{bmatrix} 3^k & 0\\ 0 & 5^k \end{bmatrix}\begin{bmatrix} 1 & 1\\ -2 & -1 \end{bmatrix} = \begin{bmatrix} 2\cdot 5^k - 3^k & 5^k - 3^k\\ 2(3^k - 5^k) & 2\cdot 3^k - 5^k \end{bmatrix} \]
-        เช่น \(A^2 = \begin{bmatrix} 50-9 & 25-9\\ 18-50 & 18-25 \end{bmatrix} = \begin{bmatrix} 41 & 16\\ -32 & -7 \end{bmatrix}\)</li>
+        ลองแทน \(k = 2\): \(3^2 = 9, 5^2 = 25\) → ช่องซ้ายบน \(2(25) - 9 = 50 - 9 = 41\), ช่องขวาบน \(25 - 9 = 16\), ช่องซ้ายล่าง \(2(9 - 25) = 2(-16) = -32\), ช่องขวาล่าง \(2(9) - 25 = 18 - 25 = -7\) คือ \(A^2 = \begin{bmatrix} 50-9 & 25-9\\ 18-50 & 18-25 \end{bmatrix} = \begin{bmatrix} 41 & 16\\ -32 & -7 \end{bmatrix}\)</li>
       </ol>
-      <div class="verify"><span class="lbl">ตรวจคำตอบ:</span> คูณ \(A^2\) ตรง ๆ: \(A^2 = \begin{bmatrix} 7 & 2\\ -4 & 1 \end{bmatrix}\begin{bmatrix} 7 & 2\\ -4 & 1 \end{bmatrix} = \begin{bmatrix} 49-8 & 14+2\\ -28-4 & -8+1 \end{bmatrix} = \begin{bmatrix} 41 & 16\\ -32 & -7 \end{bmatrix}\) ✓ ตรงกัน!</div>
+      <div class="verify"><span class="lbl">ตรวจคำตอบ:</span> คูณ \(A^2\) ตรง ๆ (ช่องซ้ายบน = \((7, 2)\cdot(7, -4) = 49 - 8 = 41\), ช่องขวาบน = \((7, 2)\cdot(2, 1) = 14 + 2 = 16\) ฯลฯ): \(A^2 = \begin{bmatrix} 7 & 2\\ -4 & 1 \end{bmatrix}\begin{bmatrix} 7 & 2\\ -4 & 1 \end{bmatrix} = \begin{bmatrix} 49-8 & 14+2\\ -28-4 & -8+1 \end{bmatrix} = \begin{bmatrix} 41 & 16\\ -32 & -7 \end{bmatrix}\) ✓ ตรงกัน! — สรุปคำตอบ: \(A = PDP^{-1}\) เมื่อ \(P = \begin{bmatrix} -1 & -1\\ 2 & 1 \end{bmatrix}\), \(D = \operatorname{diag}(3, 5)\) และ \(A^k = \begin{bmatrix} 2\cdot 5^k - 3^k & 5^k - 3^k\\ 2(3^k - 5^k) & 2\cdot 3^k - 5^k \end{bmatrix}\)</div>
     </div>
   </article>
 
@@ -199,13 +201,14 @@
     <div class="ex-head"><span class="ex-badge">ตัวอย่าง 5</span><span class="tag hard">ยาก</span><span class="ex-title">2×2 ค่าลักษณะเฉพาะซ้ำที่แปลงไม่ได้</span></div>
     <div class="ex-body">
       <div class="ex-q">จงแสดงว่า \(A = \begin{bmatrix} 3 & 1\\ 0 & 3 \end{bmatrix}\) ไม่สามารถแปลงเป็นเมทริกซ์ทแยงมุมได้</div>
-      <div class="approach"><span class="lbl">แนวคิด</span> — ค่าลักษณะเฉพาะซ้ำ → เช็กว่า \(\dim E_\lambda\) พอหรือไม่</div>
+      <div class="approach"><span class="lbl">แนวคิด</span> — ค่าลักษณะเฉพาะซ้ำ → เช็กว่า \(\dim E_\lambda\) พอหรือไม่ กลยุทธ์ของข้อนี้: เมื่อพหุนามลักษณะเฉพาะให้ค่าเดียวซ้ำ ๆ อย่าเพิ่งตัดสินว่า "ซ้ำ = ไม่ได้" — ให้ไปแก้ \((A - \lambda I)\vec{x} = \vec{0}\) จริง ๆ แล้วนับเวกเตอร์อิสระ: ถ้าได้ครบ \(n = 2\) ตัวก็ยัง diagonalizable ได้ แต่ถ้าได้แค่ 1 ตัว (อย่างข้อนี้) ก็จบ ไม่มีทางสร้าง \(P\) ได้</div>
       <ol class="steps">
-        <li><span class="step-t">หาค่าลักษณะเฉพาะ</span> \(A\) เป็นสามเหลี่ยม → \(\det(A - \lambda I_2) = (3-\lambda)^2\) → \(\lambda = 3\) ซ้ำ 2 ครั้ง</li>
-        <li><span class="step-t">หา \(E_3\)</span>
-        \[ A - 3I_2 = \begin{bmatrix} 0 & 1\\ 0 & 0 \end{bmatrix} \;\Longrightarrow\; x_2 = 0,\; x_1 \text{ เสรี} \;\Longrightarrow\; E_3 = \operatorname{Span}\{(1, 0)^T\}, \; \dim E_3 = 1 \]</li>
-        <li><span class="step-t">ตัดสิน</span> ได้เวกเตอร์ลักษณะเฉพาะอิสระเพียง 1 ตัว &lt; 2 → ไม่มีเวกเตอร์พอสร้าง \(P\) ไม่เอกฐาน → <strong>\(A\) แปลงเป็นทแยงมุมไม่ได้</strong></li>
-        <li><span class="step-t">ต่อยอด (ความเข้าใจ)</span> \(2\times2\) ที่มี \(\lambda\) ซ้ำจะ diagonalizable ได้<em>ก็ต่อเมื่อ</em> \(A = \lambda I\) เท่านั้น (ถ้ามีตัวนอกทแยงอย่างน้อย 1 ตัว \(E_\lambda\) จะเหลือมิติ 1 เสมอ)</li>
+        <li><span class="step-t">หาค่าลักษณะเฉพาะ</span> \(A\) เป็นเมทริกซ์สามเหลี่ยม (ใต้/เหนือทแยงเป็นศูนย์หมด) → det ของเมทริกซ์สามเหลี่ยมคือผลคูณของเลขบนทแยง ดังนั้น \(\det(A - \lambda I_2) = (3-\lambda)(3-\lambda) = (3-\lambda)^2\) → ตั้งเป็นศูนย์ได้ \(\lambda = 3\) ซ้ำ 2 ครั้ง (ค่าลักษณะเฉพาะของเมทริกซ์สามเหลี่ยม = เลขบนทแยงหลักเสมอ ไม่ต้องคำนวณยาว)</li>
+        <li><span class="step-t">หา \(E_3\)</span> ลบ 3 ออกจากทแยง: \(3 \to 0\) ทั้งสองช่อง (ช่อง \(1\) นอกทแยงคงเดิม) — แถวบนบอก \(0\cdot x_1 + 1\cdot x_2 = 0\) คือ \(x_2 = 0\) เท่านั้น ส่วน \(x_1\) ไม่ถูกผูกเงื่อนไข (เสรี):
+        \[ A - 3I_2 = \begin{bmatrix} 0 & 1\\ 0 & 0 \end{bmatrix} \;\Longrightarrow\; x_2 = 0,\; x_1 \text{ เสรี} \;\Longrightarrow\; E_3 = \operatorname{Span}\{(1, 0)^T\}, \; \dim E_3 = 1 \]
+        (เลือก \(x_1 = 1\) เป็นเวกเตอร์ฐาน \((1, 0)^T\) — พื้นที่ผลเฉลยจึงเป็นเส้นตรงเดียวบนแกน \(x_1\))</li>
+        <li><span class="step-t">ตัดสิน</span> ได้เวกเตอร์ลักษณะเฉพาะอิสระเพียง 1 ตัว &lt; 2 → ไม่มีเวกเตอร์พอสร้าง \(P\) ไม่เอกฐาน → <strong>\(A\) แปลงเป็นทแยงมุมไม่ได้</strong> — <em>เพราะ</em>เงื่อนไขของทฤษฎีบท 3.2.3 ต้องการ eigenvector อิสระครบ \(n = 2\) ตัว แต่ที่นี่ \(\lambda = 3\) ซ้ำ 2 ครั้งแทนที่จะให้ \(\dim E_3 = 2\) กลับให้แค่ \(\dim E_3 = 1\) เก็บเวกเตอร์ไม่ครบ ตัดสิ้นเชิง</li>
+        <li><span class="step-t">ต่อยอด (ความเข้าใจ)</span> \(2\times2\) ที่มี \(\lambda\) ซ้ำจะ diagonalizable ได้<em>ก็ต่อเมื่อ</em> \(A = \lambda I\) เท่านั้น — เหตุผล: ถ้ามีตัวนอกทแยงอย่างน้อย 1 ตัว (เช่น เลข 1 ช่องขวาบนของข้อนี้) ระบบ \((A - \lambda I)\vec{x} = \vec{0}\) จะบังคับ \(x_2 = 0\) ทำให้ \(E_\lambda\) เหลือมิติ 1 เสมอ ส่วนถ้า \(A = \lambda I\) ล้วน ๆ ทุกเวกเตอร์ที่ไม่ศูนย์จะเป็น eigenvector จึงได้ครบ 2 ตัวสบาย</li>
       </ol>
     </div>
   </article>
@@ -245,13 +248,15 @@
     </div>
     <details class="hint"><summary>คำใบ้</summary><div class="hint-body">คูณ \(A\vec{u}\) กับ \(A\vec{w}\) แล้วดูว่าเป็นสเกลาร์เท่าของตัวเดิมไหม</div></details>
     <details class="sol"><summary>แนวคิดและเฉลยแบบละเอียด</summary><div class="sol-body">
-      <p><strong>แนวคิด:</strong> \(A\vec{v} = \lambda\vec{v}\) — ภาพต้องอยู่ทางเดียวกับตัวเอง</p>
+      <p><strong>แนวคิด:</strong> \(A\vec{v} = \lambda\vec{v}\) — ภาพต้องอยู่ทางเดียวกับตัวเอง กลยุทธ์ของข้อนี้: คูณเมทริกซ์กับเวกเตอร์แต่ละตัวรอบเดียว (ช่องละหนึ่งการ "แถว · เวกเตอร์") แล้วมองว่าผลลัพธ์เป็นตัวเวกเตอร์เดิมคูณเลขอะไรอยู่ — ถ้าทิศไม่เปลี่ยนก็เป็น eigenvector และเลขคูณนั้นคือ \(\lambda\) (แลมบ์ดา = ค่าลักษณะเฉพาะ)</p>
       <ol class="steps">
-        <li><span class="step-t">เช็ก \(\vec{u}\)</span>
-        \[ A\vec{u} = \begin{bmatrix} 2+3\\ 3+2 \end{bmatrix} = \begin{bmatrix} 5\\ 5 \end{bmatrix} = 5\vec{u} \;\Longrightarrow\; \lambda = 5 \]</li>
-        <li><span class="step-t">เช็ก \(\vec{w}\)</span>
-        \[ A\vec{w} = \begin{bmatrix} 2-3\\ 3-2 \end{bmatrix} = \begin{bmatrix} -1\\ 1 \end{bmatrix} = -1\cdot\vec{w} \;\Longrightarrow\; \lambda = -1 \]</li>
-        <li><span class="step-t">สรุป</span> ทั้งคู่เป็น eigenvector โดย \(\lambda = 5\) (สำหรับ \(\vec{u}\)) และ \(\lambda = -1\) (สำหรับ \(\vec{w}\)) ตรวจ: trace \(= 4 = 5 + (-1)\) ✓ det \(= 4 - 9 = -5 = 5(-1)\) ✓</li>
+        <li><span class="step-t">เช็ก \(\vec{u}\)</span> คูณช่องต่อช่อง: ช่องบน = \(2(1) + 3(1) = 2 + 3 = 5\), ช่องล่าง = \(3(1) + 2(1) = 3 + 2 = 5\):
+        \[ A\vec{u} = \begin{bmatrix} 2+3\\ 3+2 \end{bmatrix} = \begin{bmatrix} 5\\ 5 \end{bmatrix} = 5\vec{u} \;\Longrightarrow\; \lambda = 5 \]
+        ผลลัพธ์ทุกช่องคูณ 5 เท่าของ \(\vec{u}\) พอดี → ทิศเดิม เป็น eigenvector ที่ \(\lambda = 5\)</li>
+        <li><span class="step-t">เช็ก \(\vec{w}\)</span> ระวังเครื่องหมาย: ช่องบน = \(2(1) + 3(-1) = 2 - 3 = -1\), ช่องล่าง = \(3(1) + 2(-1) = 3 - 2 = 1\):
+        \[ A\vec{w} = \begin{bmatrix} 2-3\\ 3-2 \end{bmatrix} = \begin{bmatrix} -1\\ 1 \end{bmatrix} = -1\cdot\vec{w} \;\Longrightarrow\; \lambda = -1 \]
+        ผลลัพธ์เป็น \(\vec{w}\) คูณ \(-1\) (กลับหัว 180°) — ยังนับเป็น "ทิศเดียวกัน" ในความหมายของ eigenvector → เป็น eigenvector ที่ \(\lambda = -1\)</li>
+        <li><span class="step-t">สรุปและตรวจ</span> ทั้งคู่เป็น eigenvector โดย \(\lambda = 5\) (สำหรับ \(\vec{u}\)) และ \(\lambda = -1\) (สำหรับ \(\vec{w}\)) ตรวจด้วย trace/det: trace \(= 2 + 2 = 4 = 5 + (-1)\) ✓ det \(= 2\cdot2 - 3\cdot3 = 4 - 9 = -5 = 5(-1)\) ✓ ทั้งผลบวกและผลคูณตรง — สรุปคำตอบ: \(\vec{u}\) เป็น eigenvector กับ \(\lambda = 5\), \(\vec{w}\) เป็น eigenvector กับ \(\lambda = -1\)</li>
       </ol>
     </div></details>
   </article>
@@ -264,13 +269,13 @@
     </div>
     <details class="hint"><summary>คำใบ้</summary><div class="hint-body">\(\det(A - \lambda I_2) = (1-\lambda)(4-\lambda) + 2\)</div></details>
     <details class="sol"><summary>แนวคิดและเฉลยแบบละเอียด</summary><div class="sol-body">
-      <p><strong>แนวคิด:</strong> แก้สมการลักษณะเฉพาะ</p>
+      <p><strong>แนวคิด:</strong> แก้สมการลักษณะเฉพาะ กลยุทธ์ของข้อนี้: เขียน \(\det(A - \lambda I_2) = 0\) ให้เป็นพหุนามดีกรี 2 ของ \(\lambda\) (คิด det ด้วยสูตรทแยงลง − ทแยงขึ้น โดยระวังช่อง \(-2\) ที่ติดลบอยู่แล้ว) จากนั้นแยกตัวประกอบและตั้งแต่ละตัวประกอบเป็นศูนย์ ปิดท้ายด้วยการตรวจ trace/det ทุกครั้งเพื่อจับพลาดการแยกตัวประกอบ</p>
       <ol class="steps">
-        <li><span class="step-t">หาพหุนามลักษณะเฉพาะ</span>
+        <li><span class="step-t">หาพหุนามลักษณะเฉพาะ</span> det = (ทแยงลงคูณกัน) − (ทแยงขึ้นคูณกัน) = \((1-\lambda)(4-\lambda) - (-2)(1)\) — กระจาย \((1-\lambda)(4-\lambda) = 4 - \lambda - 4\lambda + \lambda^2 = 4 - 5\lambda + \lambda^2\) แล้วลบด้วย \((-2)(1) = -2\) ซึ่งเท่ากับ "บวก 2" (ลบด้วยเลขลบ = บวก): \(4 + 2 = 6\):
         \[ \det(A - \lambda I_2) = (1-\lambda)(4-\lambda) - (-2)(1) = \lambda^2 - 5\lambda + 4 + 2 = \lambda^2 - 5\lambda + 6 \]</li>
-        <li><span class="step-t">แยกตัวประกอบ</span>
+        <li><span class="step-t">แยกตัวประกอบ</span> หาสองจำนวนที่คูณกันได้ 6 และบวกกันได้ \(-5\) → คือ \(-2\) กับ \(-3\) (ทดลองแทน \(\lambda = 2\) จากตัวประกอบของค่าคงตัว: \(4 - 10 + 6 = 0\) ✓ และ \(\lambda = 3\): \(9 - 15 + 6 = 0\) ✓) — เมื่อผลคูณเป็นศูนย์ ตัวใดตัวหนึ่งต้องเป็นศูนย์:
         \[ (\lambda - 2)(\lambda - 3) = 0 \;\Longrightarrow\; \lambda = 2, \; 3 \]</li>
-        <li><span class="step-t">ตรวจ</span> trace \(= 5 = 2 + 3\) ✓ det \(= 4 + 2 = 6 = 2 \times 3\) ✓</li>
+        <li><span class="step-t">ตรวจและสรุป</span> trace \(= 1 + 4 = 5 = 2 + 3\) ✓ det \(= 1\cdot4 - (-2)(1) = 4 + 2 = 6 = 2 \times 3\) ✓ ทั้งคู่ตรง → ไม่มีพลาด — สรุปคำตอบ: ค่าลักษณะเฉพาะทั้งหมดของ \(A\) คือ \(\lambda = 2\) และ \(\lambda = 3\)</li>
       </ol>
     </div></details>
   </article>
@@ -283,13 +288,15 @@
     </div>
     <details class="hint"><summary>คำใบ้</summary><div class="hint-body">แก้ \((A - 2I)\vec{x} = \vec{0}\) และ \((A - 3I)\vec{x} = \vec{0}\) แยกกัน</div></details>
     <details class="sol"><summary>แนวคิดและเฉลยแบบละเอียด</summary><div class="sol-body">
-      <p><strong>แนวคิด:</strong> \(E_\lambda = \operatorname{Nul}(A - \lambda I)\)</p>
+      <p><strong>แนวคิด:</strong> \(E_\lambda = \operatorname{Nul}(A - \lambda I)\) กลยุทธ์ของข้อนี้: โจทย์ให้ค่าลักษณะเฉพาะมาแล้ว (ไม่ต้องหาเอง) เหลือหน้าที่เดียวคือไปหา "ผลเฉลยทั้งหมด" ของ \((A - \lambda I)\vec{x} = \vec{0}\) ทีละค่า — เขียนเมทริกซ์ \(A - \lambda I\) (ลบ \(\lambda\) ที่ทแยง), ลดรูป, ตั้งตัวแปรเสรี แล้วเลือกค่าที่ทำให้เวกเตอร์ฐานสวย ๆ (ไม่มีเศษส่วน)</p>
       <ol class="steps">
-        <li><span class="step-t">กรณี \(\lambda = 2\)</span>
-        \[ A - 2I_2 = \begin{bmatrix} 2 & -2\\ 1 & -1 \end{bmatrix} \sim \begin{bmatrix} 1 & -1\\ 0 & 0 \end{bmatrix} \;\Longrightarrow\; x_1 = x_2 \;\Longrightarrow\; E_2 = \operatorname{Span}\left\{ \begin{bmatrix} 1\\ 1 \end{bmatrix} \right\} \]</li>
-        <li><span class="step-t">กรณี \(\lambda = 3\)</span>
-        \[ A - 3I_2 = \begin{bmatrix} 1 & -2\\ 1 & -2 \end{bmatrix} \sim \begin{bmatrix} 1 & -2\\ 0 & 0 \end{bmatrix} \;\Longrightarrow\; x_1 = 2x_2 \;\Longrightarrow\; E_3 = \operatorname{Span}\left\{ \begin{bmatrix} 2\\ 1 \end{bmatrix} \right\} \]</li>
-        <li><span class="step-t">ตรวจคำตอบ</span> \(A(1,1) = (2, 2) = 2(1,1)\) ✓ และ \(A(2,1) = (6, 3) = 3(2,1)\) ✓ — และเวกเตอร์ 2 ตัวนี้ก็คือฐานหลัก \(B'\) ในโจทย์ซ้อมข้อ 5 ของหัวข้อ 3.1 ที่ทำให้ \([T]_{B'} = \operatorname{diag}(2, 3)\) พอดี!</li>
+        <li><span class="step-t">กรณี \(\lambda = 2\)</span> ลบ 2 ออกจากทแยง: \(4 \to 2\), \(1 \to -1\) (ช่อง \(-2, 1\) คงเดิม) — ลดรูป: หารแถวบนด้วย 2 (\(2 \div 2 = 1\), \(-2 \div 2 = -1\)) แล้ว \(R_2 - R_1\) (\(1 - 1 = 0\), \(-1 - (-1) = 0\)) ได้แถวศูนย์:
+        \[ A - 2I_2 = \begin{bmatrix} 2 & -2\\ 1 & -1 \end{bmatrix} \sim \begin{bmatrix} 1 & -1\\ 0 & 0 \end{bmatrix} \;\Longrightarrow\; x_1 = x_2 \;\Longrightarrow\; E_2 = \operatorname{Span}\left\{ \begin{bmatrix} 1\\ 1 \end{bmatrix} \right\} \]
+        (จากสมการ \(x_1 - x_2 = 0\): เลือก \(x_2 = 1\) → \(x_1 = 1\) ได้เวกเตอร์ฐาน \((1, 1)^T\))</li>
+        <li><span class="step-t">กรณี \(\lambda = 3\)</span> ลบ 3 ออกจากทแยง: \(4 \to 1\), \(1 \to -2\) — แถวล่าง \(R_2 - R_1\) (\(1 - 1 = 0\), \(-2 - (-2) = 0\)) ได้แถวศูนย์:
+        \[ A - 3I_2 = \begin{bmatrix} 1 & -2\\ 1 & -2 \end{bmatrix} \sim \begin{bmatrix} 1 & -2\\ 0 & 0 \end{bmatrix} \;\Longrightarrow\; x_1 = 2x_2 \;\Longrightarrow\; E_3 = \operatorname{Span}\left\{ \begin{bmatrix} 2\\ 1 \end{bmatrix} \right\} \]
+        (จาก \(x_1 - 2x_2 = 0\): เลือก \(x_2 = 1\) → \(x_1 = 2\))</li>
+        <li><span class="step-t">ตรวจคำตอบและสรุป</span> ทดสอบ \(A\vec{v} = \lambda\vec{v}\) ด้วยเลขจริง: \(A(1,1) = (4(1) + (-2)(1),\; 1(1) + 1(1)) = (2, 2) = 2(1,1)\) ✓ และ \(A(2,1) = (4(2) + (-2)(1),\; 1(2) + 1(1)) = (8 - 2,\; 2 + 1) = (6, 3) = 3(2,1)\) ✓ — และเวกเตอร์ 2 ตัวนี้ก็คือฐานหลัก \(B'\) ในโจทย์ซ้อมข้อ 5 ของหัวข้อ 3.1 ที่ทำให้ \([T]_{B'} = \operatorname{diag}(2, 3)\) พอดี! — สรุปคำตอบ: \(E_2 = \operatorname{Span}\{(1,1)^T\}\) ฐานหลักคือ \((1,1)^T\), \(E_3 = \operatorname{Span}\{(2,1)^T\}\) ฐานหลักคือ \((2,1)^T\)</li>
       </ol>
     </div></details>
   </article>
@@ -302,17 +309,17 @@
     </div>
     <details class="hint"><summary>คำใบ้</summary><div class="hint-body">\(\lambda^2 - \lambda - 6 = 0\) → \(\lambda = 3, -2\) / \(\lambda = 3\): \(v = (2, 3)^T\), \(\lambda = -2\): \(v = (1, -1)^T\) / \(P^{-1} = \begin{bmatrix} \tfrac{1}{5} & \tfrac{1}{5}\\ \tfrac{3}{5} & -\tfrac{2}{5} \end{bmatrix}\)</div></details>
     <details class="sol"><summary>แนวคิดและเฉลยแบบละเอียด</summary><div class="sol-body">
-      <p><strong>แนวคิด:</strong> ตามขั้นตอนมาตรฐาน 5 ขั้น</p>
+      <p><strong>แนวคิด:</strong> ตามขั้นตอนมาตรฐาน 5 ขั้น กลยุทธ์ของข้อนี้: (1) แก้ \(\det(A - \lambda I) = 0\) หาค่าลักษณะเฉพาะ — ได้สองค่าต่างกันจึงมั่นใจได้เลยว่า diagonalizable (2) แก้ \((A - \lambda I)\vec{x} = \vec{0}\) หาเวกเตอร์ทีละค่า (3) ประกอบ \(P, D\) ให้ลำดับจับคู่ถูกต้อง (4) หา \(P^{-1}\) แล้วเขียนสูตร \(A^k\) (5) แทน \(k = 3\) หา \(A^3\) และตรวจด้วยการคูณตรง</p>
       <ol class="steps">
-        <li><span class="step-t">ค่าลักษณะเฉพาะ</span>
+        <li><span class="step-t">ค่าลักษณะเฉพาะ</span> det = \((0-\lambda)(1-\lambda) - (2)(3)\) — กระจายพจน์แรก: \(-\lambda(1-\lambda) = -\lambda + \lambda^2\) และ \(2\cdot3 = 6\) จึงได้ \(\lambda^2 - \lambda - 6\) — หาสองจำนวนคูณกันได้ \(-6\) บวกกันได้ \(-1\) → คือ \(3\) กับ \(-2\) (ทดลองแทน \(\lambda = 3\): \(9 - 3 - 6 = 0\) ✓):
         \[ \det(A - \lambda I_2) = -\lambda(1-\lambda) - 6 = \lambda^2 - \lambda - 6 = (\lambda - 3)(\lambda + 2) = 0 \;\Longrightarrow\; \lambda = 3, -2 \]</li>
-        <li><span class="step-t">เวกเตอร์ลักษณะเฉพาะ</span> \(\lambda = 3\): \(A - 3I_2 = \begin{bmatrix} -3 & 2\\ 3 & -2 \end{bmatrix} \Rightarrow 3x_1 = 2x_2 \Rightarrow \vec{v}_1 = (2, 3)^T\); &nbsp; \(\lambda = -2\): \(A + 2I_2 = \begin{bmatrix} 2 & 2\\ 3 & 3 \end{bmatrix} \Rightarrow x_1 = -x_2 \Rightarrow \vec{v}_2 = (1, -1)^T\)</li>
-        <li><span class="step-t">ประกอบ \(P, D\)</span>
+        <li><span class="step-t">เวกเตอร์ลักษณะเฉพาะ</span> กรณี \(\lambda = 3\): ลบ 3 ที่ทแยง → \(A - 3I_2 = \begin{bmatrix} -3 & 2\\ 3 & -2 \end{bmatrix}\) (ช่อง \(0 \to -3\), \(1 \to -2\)) ใช้ \(R_2 + R_1\) ได้แถวศูนย์ สมการ \(-3x_1 + 2x_2 = 0 \Rightarrow 3x_1 = 2x_2 \Rightarrow x_2 = \tfrac{3}{2}x_1\) เลือก \(x_1 = 2\) (กำจัดเศษส่วน) → \(x_2 = 3\) → \(\vec{v}_1 = (2, 3)^T\); กรณี \(\lambda = -2\): <em>บวก</em> 2 ที่ทแยง (ลบด้วย \(-2\) = บวก 2) → \(A + 2I_2 = \begin{bmatrix} 2 & 2\\ 3 & 3 \end{bmatrix}\) ใช้ \(R_2 - \tfrac{3}{2}R_1\) ได้แถวศูนย์ สมการ \(2x_1 + 2x_2 = 0 \Rightarrow x_1 = -x_2\) เลือก \(x_2 = -1\) → \(\vec{v}_2 = (1, -1)^T\)</li>
+        <li><span class="step-t">ประกอบ \(P, D\)</span> เอา \(\vec{v}_1 = (2, 3)^T\) เป็นหลักแรก → ทแยงแรกของ \(D\) คือ 3, \(\vec{v}_2 = (1, -1)^T\) เป็นหลักสอง → ทแยงสองคือ \(-2\) (<em>เพราะ</em>หลัก \(P\) กับทแยง \(D\) ต้องเป็นคู่ eigenvector–eigenvalue เดียวกันตามลำดับ) — \(P^{-1}\): det \(P = 2(-1) - 1(3) = -2 - 3 = -5\) สลับทแยง เปลี่ยนเครื่องหมายตัวนอก (\(-1 \to -1\) ... ตัวนอกคือ \(1, 3 \to -1, -3\)) แล้วหารด้วย \(-5\): \(\frac{-1}{-5} = \tfrac{1}{5}\), \(\frac{-3}{-5} = \tfrac{3}{5}\), \(\frac{2}{-5} = -\tfrac{2}{5}\):
         \[ P = \begin{bmatrix} 2 & 1\\ 3 & -1 \end{bmatrix}, \qquad D = \begin{bmatrix} 3 & 0\\ 0 & -2 \end{bmatrix}, \qquad P^{-1} = \frac{1}{-5}\begin{bmatrix} -1 & -1\\ -3 & 2 \end{bmatrix} = \begin{bmatrix} \tfrac{1}{5} & \tfrac{1}{5}\\ \tfrac{3}{5} & -\tfrac{2}{5} \end{bmatrix} \]</li>
-        <li><span class="step-t">สูตร \(A^k\) และค่า \(A^3\)</span>
+        <li><span class="step-t">สูตร \(A^k\) และค่า \(A^3\)</span> \(D^3\) = ยกกำลังทแยง: \(3^3 = 27\), \((-2)^3 = -8\) (ลบคูณลบคูณลบ = ลบ) — คูณ \(PD^3\) ก่อน (หลักแรกคูณ 27, หลักสองคูณ \(-8\)): \(\begin{bmatrix} 2\cdot27 & 1\cdot(-8)\\ 3\cdot27 & (-1)(-8) \end{bmatrix} = \begin{bmatrix} 54 & -8\\ 81 & 8 \end{bmatrix}\) แล้วคูณต่อด้วย \(P^{-1}\): ช่องซ้ายบน = \((54, -8)\cdot(\tfrac15, \tfrac35) = \tfrac{54}{5} - \tfrac{24}{5} = \tfrac{30}{5} = 6\), ช่องขวาบน = \((54, -8)\cdot(\tfrac15, -\tfrac25) = \tfrac{54}{5} + \tfrac{16}{5} = \tfrac{70}{5} = 14\), ช่องซ้ายล่าง = \((81, 8)\cdot(\tfrac15, \tfrac35) = \tfrac{81}{5} + \tfrac{24}{5} = \tfrac{105}{5} = 21\), ช่องขวาล่าง = \((81, 8)\cdot(\tfrac15, -\tfrac25) = \tfrac{81}{5} - \tfrac{16}{5} = \tfrac{65}{5} = 13\):
         \[ A^k = PD^kP^{-1} = \begin{bmatrix} 2 & 1\\ 3 & -1 \end{bmatrix}\begin{bmatrix} 3^k & 0\\ 0 & (-2)^k \end{bmatrix}\begin{bmatrix} \tfrac{1}{5} & \tfrac{1}{5}\\ \tfrac{3}{5} & -\tfrac{2}{5} \end{bmatrix} \]
         \[ A^3 = \begin{bmatrix} 2 & 1\\ 3 & -1 \end{bmatrix}\begin{bmatrix} 27 & 0\\ 0 & -8 \end{bmatrix}\begin{bmatrix} \tfrac{1}{5} & \tfrac{1}{5}\\ \tfrac{3}{5} & -\tfrac{2}{5} \end{bmatrix} = \begin{bmatrix} 54 & -8\\ 81 & 8 \end{bmatrix}\begin{bmatrix} \tfrac{1}{5} & \tfrac{1}{5}\\ \tfrac{3}{5} & -\tfrac{2}{5} \end{bmatrix} = \begin{bmatrix} 6 & 14\\ 21 & 13 \end{bmatrix} \]</li>
-        <li><span class="step-t">ตรวจคำตอบ</span> คูณตรง: \(A^2 = \begin{bmatrix} 6 & 2\\ 3 & 7 \end{bmatrix}\), \(A^3 = A^2A = \begin{bmatrix} 6 & 2\\ 3 & 7 \end{bmatrix}\begin{bmatrix} 0 & 2\\ 3 & 1 \end{bmatrix} = \begin{bmatrix} 6 & 14\\ 21 & 13 \end{bmatrix}\) ✓ ตรงกัน!</li>
+        <li><span class="step-t">ตรวจคำตอบ</span> คูณตรงช้า ๆ: \(A^2 = \begin{bmatrix} 0 & 2\\ 3 & 1 \end{bmatrix}\begin{bmatrix} 0 & 2\\ 3 & 1 \end{bmatrix} = \begin{bmatrix} 0+6 & 0+2\\ 0+3 & 6+1 \end{bmatrix} = \begin{bmatrix} 6 & 2\\ 3 & 7 \end{bmatrix}\), \(A^3 = A^2A = \begin{bmatrix} 6 & 2\\ 3 & 7 \end{bmatrix}\begin{bmatrix} 0 & 2\\ 3 & 1 \end{bmatrix} = \begin{bmatrix} 0+6 & 12+2\\ 0+21 & 6+7 \end{bmatrix} = \begin{bmatrix} 6 & 14\\ 21 & 13 \end{bmatrix}\) ✓ ตรงกับวิธี diagonalization ทุกช่อง! — สรุปคำตอบ: \(A = PDP^{-1}\) เมื่อ \(P = \begin{bmatrix} 2 & 1\\ 3 & -1 \end{bmatrix}\), \(D = \operatorname{diag}(3, -2)\) และ \(A^3 = \begin{bmatrix} 6 & 14\\ 21 & 13 \end{bmatrix}\)</li>
       </ol>
     </div></details>
   </article>
@@ -325,16 +332,16 @@
     </div>
     <details class="hint"><summary>คำใบ้</summary><div class="hint-body">char. poly = \((\lambda - 1)(\lambda - 2)(\lambda - 3)\) / เวกเตอร์ลักษณะเฉพาะ: \(\lambda=1\): \((0,1,0)^T\), \(\lambda=2\): \((1,-2,-2)^T\), \(\lambda=3\): \((1,-1,-1)^T\)</div></details>
     <details class="sol"><summary>แนวคิดและเฉลยแบบละเอียด</summary><div class="sol-body">
-      <p><strong>แนวคิด:</strong> ค่าลักษณะเฉพาะต่างกัน 3 ค่า → ต้อง diagonalizable ตามทฤษฎีบท 3.2.1 + 3.2.3</p>
+      <p><strong>แนวคิด:</strong> ค่าลักษณะเฉพาะต่างกัน 3 ค่า → ต้อง diagonalizable ตามทฤษฎีบท 3.2.1 + 3.2.3 กลยุทธ์ของข้อนี้: หาค่าลักษณะเฉพาะจากพหุนามลักษณะเฉพาะก่อน (ทดลองแทนตัวหารของค่าคงตัว 6) แล้วแก้ \((A - \lambda I)\vec{x} = \vec{0}\) ทีละค่าเพื่อเก็บ eigenvector ครบ 3 ตัว เรียงเป็นหลักของ \(P\) พร้อมค่า \(\lambda\) เรียงตามใน \(D\) และปิดท้ายด้วยการทดสอบ \(A\vec{v}_i = \lambda_i\vec{v}_i\) ทุกตัว</p>
       <ol class="steps">
-        <li><span class="step-t">พหุนามลักษณะเฉพาะ</span> กระจายโคแฟกเตอร์ตามแถวที่ 1 แล้วแยกตัวประกอบ
+        <li><span class="step-t">พหุนามลักษณะเฉพาะ</span> กระจายโคแฟกเตอร์ตามแถวที่ 1 แล้วแยกตัวประกอบ — ค่าคงตัวคือ 6 ทดลองแทน \(\lambda = 1\): \(-1 + 6 - 11 + 6 = 0\) ✓, \(\lambda = 2\): \(-8 + 24 - 22 + 6 = 0\) ✓, \(\lambda = 3\): \(-27 + 54 - 33 + 6 = 0\) ✓ เจอรากครบสามค่า (ดีกรี 3 มีรากได้มากที่สุด 3 ค่า จึงแยกได้หมดพอดี):
         \[ \det(A - \lambda I_3) = -\lambda^3 + 6\lambda^2 - 11\lambda + 6 = -(\lambda - 1)(\lambda - 2)(\lambda - 3) = 0 \;\Longrightarrow\; \lambda = 1, 2, 3 \]</li>
-        <li><span class="step-t">หา \(E_1\)</span> \(A - I_3 = \begin{bmatrix} 3 & 0 & 1\\ -2 & 0 & 0\\ -2 & 0 & 0 \end{bmatrix} \Rightarrow x_1 = 0, x_3 = 0, x_2\) เสรี → \(\vec{v}_1 = (0, 1, 0)^T\)</li>
-        <li><span class="step-t">หา \(E_2\)</span> \(A - 2I_3 = \begin{bmatrix} 2 & 0 & 1\\ -2 & -1 & 0\\ -2 & 0 & -1 \end{bmatrix} \Rightarrow x_2 = -2x_1,\; x_3 = -2x_1\) → \(\vec{v}_2 = (1, -2, -2)^T\)</li>
-        <li><span class="step-t">หา \(E_3\)</span> \(A - 3I_3 = \begin{bmatrix} 1 & 0 & 1\\ -2 & -2 & 0\\ -2 & 0 & -2 \end{bmatrix} \Rightarrow x_3 = -x_1,\; x_2 = -x_1\) → \(\vec{v}_3 = (1, -1, -1)^T\)</li>
-        <li><span class="step-t">ประกอบ \(P, D\)</span>
+        <li><span class="step-t">หา \(E_1\)</span> ลบ 1 ที่ทแยง: \(4 \to 3\), \(1 \to 0\), \(1 \to 0\) ได้ \(A - I_3 = \begin{bmatrix} 3 & 0 & 1\\ -2 & 0 & 0\\ -2 & 0 & 0 \end{bmatrix}\) — แถวกลางบอก \(-2x_1 = 0 \Rightarrow x_1 = 0\) แทนลงแถวบน: \(3(0) + 0 + x_3 = 0 \Rightarrow x_3 = 0\) เหลือ \(x_2\) เสรี เลือก \(x_2 = 1\) → \(\vec{v}_1 = (0, 1, 0)^T\) (ทำไมได้: หลักที่ 2 ของเมทริกซ์เป็นศูนย์หมด ไม่มีสมการใดผูก \(x_2\))</li>
+        <li><span class="step-t">หา \(E_2\)</span> ลบ 2 ที่ทแยง: \(4 \to 2\), \(1 \to -1\), \(1 \to -1\) ได้ \(A - 2I_3 = \begin{bmatrix} 2 & 0 & 1\\ -2 & -1 & 0\\ -2 & 0 & -1 \end{bmatrix}\) — แถวกลาง: \(-2x_1 - x_2 = 0 \Rightarrow x_2 = -2x_1\); แถวบน: \(2x_1 + x_3 = 0 \Rightarrow x_3 = -2x_1\) เลือก \(x_1 = 1\) → \(\vec{v}_2 = (1, -2, -2)^T\) (แถวล่าง \(-2x_1 - x_3 = 0\) ให้ข้อมูลซ้ำกับแถวบน ไม่เพิ่มเงื่อนไขใหม่)</li>
+        <li><span class="step-t">หา \(E_3\)</span> ลบ 3 ที่ทแยง: \(4 \to 1\), \(1 \to -2\), \(1 \to -2\) ได้ \(A - 3I_3 = \begin{bmatrix} 1 & 0 & 1\\ -2 & -2 & 0\\ -2 & 0 & -2 \end{bmatrix}\) — แถวบน: \(x_1 + x_3 = 0 \Rightarrow x_3 = -x_1\); แถวกลาง: \(-2x_1 - 2x_2 = 0 \Rightarrow x_2 = -x_1\) เลือก \(x_1 = 1\) → \(\vec{v}_3 = (1, -1, -1)^T\)</li>
+        <li><span class="step-t">ประกอบ \(P, D\)</span> เรียง \(\vec{v}_1, \vec{v}_2, \vec{v}_3\) เป็นหลัก แล้วใส่ \(\lambda = 1, 2, 3\) บนทแยงของ \(D\) ตามลำดับเดียวกัน — ตรวจ \(P\) ไม่เอกฐานด้วย det: กระจายตามแถวที่ 1: \(0\cdot\det(\cdot) - 1\cdot(1\cdot(-1) - (-1)\cdot0) + 1\cdot(1\cdot(-2) - (-2)\cdot0) = 0 - 1\cdot(-1) + 1\cdot(-2) = 1 - 2 = -1\):
         \[ P = \begin{bmatrix} 0 & 1 & 1\\ 1 & -2 & -1\\ 0 & -2 & -1 \end{bmatrix}, \qquad D = \begin{bmatrix} 1 & 0 & 0\\ 0 & 2 & 0\\ 0 & 0 & 3 \end{bmatrix} \qquad (\det P = -1 \neq 0 \Rightarrow P \text{ ไม่เอกฐาน} \checkmark) \]</li>
-        <li><span class="step-t">ตรวจคำตอบ</span> \(A\vec{v}_1 = A(0,1,0)^T = (0, 1, 0)^T = \vec{v}_1\) ✓ \(A\vec{v}_2 = A(1,-2,-2)^T = (4 + 0 - 2,\; -2 + 2 + 0,\; -2 + 0 - 2)^T = (2, -4, -4)^T = 2\vec{v}_2\) ✓ และ \(A\vec{v}_3 = A(1,-1,-1)^T = (4 - 1,\; -2 + 1,\; -2 - 1)^T = (3, -3, -3)^T = 3\vec{v}_3\) ✓</li>
+        <li><span class="step-t">ตรวจคำตอบ</span> ทดสอบ \(A\vec{v}_i = \lambda_i\vec{v}_i\) ทีละตัวด้วยเลขจริง: \(A\vec{v}_1 = A(0,1,0)^T = (0, 1, 0)^T = \vec{v}_1\) ✓ (ช่องแรก: \(4(0) + 0(1) + 1(0) = 0\) ฯลฯ) \(A\vec{v}_2 = A(1,-2,-2)^T = (4 + 0 - 2,\; -2 + 2 + 0,\; -2 + 0 - 2)^T = (2, -4, -4)^T = 2\vec{v}_2\) ✓ และ \(A\vec{v}_3 = A(1,-1,-1)^T = (4 - 1,\; -2 + 1,\; -2 - 1)^T = (3, -3, -3)^T = 3\vec{v}_3\) ✓ — สรุปคำตอบ: \(A\) แปลงเป็นทแยงมุมได้ โดย \(A = PDP^{-1}\) เมื่อ \(P = \begin{bmatrix} 0 & 1 & 1\\ 1 & -2 & -1\\ 0 & -2 & -1 \end{bmatrix}\), \(D = \operatorname{diag}(1, 2, 3)\)</li>
       </ol>
     </div></details>
   </article>
@@ -349,19 +356,19 @@
     </div>
     <details class="hint"><summary>คำใบ้</summary><div class="hint-body">ทั้งคู่มีค่าลักษณะเฉพาะซ้ำ — ชี้ชวนอยู่ที่ว่า \(\dim E_\lambda\) ของค่าที่ซ้ำพอหรือไม่</div></details>
     <details class="sol"><summary>แนวคิดและเฉลยแบบละเอียด</summary><div class="sol-body">
-      <p><strong>แนวคิด:</strong> ค่าซ้ำไม่ใช่คำตัดสิน — ให้นับจำนวนเวกเตอร์ลักษณะเฉพาะอิสระจริง ๆ</p>
+      <p><strong>แนวคิด:</strong> ค่าซ้ำไม่ใช่คำตัดสิน — ให้นับจำนวนเวกเตอร์ลักษณะเฉพาะอิสระจริง ๆ กลยุทธ์ของข้อนี้: ทั้ง (ก) และ (ข) มีค่าลักษณะเฉพาะซ้ำ (เห็นได้ทันทีเพราะเป็นเมทริกซ์สามเหลี่ยม — ค่าลักษณะเฉพาะ = เลขบนทแยง) แต่ผลลัพธ์ต่างกัน! ต้องไปแก้ \((A - \lambda I)\vec{x} = \vec{0}\) ของค่าที่ซ้ำแล้วนับเวกเตอร์อิสระเทียบกับจำนวนครั้งที่ซ้ำ — นี่คือข้อที่แยก "จำกฎ" ออกจาก "เข้าใจกฎ" ชัดที่สุด</p>
       <ol class="steps">
-        <li><span class="step-t">(ก) ค่าลักษณะเฉพาะ</span> สามเหลี่ยม → \(\lambda = 2\) ซ้ำ 2 ครั้ง</li>
-        <li><span class="step-t">(ก) หา \(E_2\)</span>
-        \[ A - 2I_2 = \begin{bmatrix} 0 & 1\\ 0 & 0 \end{bmatrix} \;\Longrightarrow\; x_2 = 0 \;\Longrightarrow\; E_2 = \operatorname{Span}\{(1,0)^T\}, \dim = 1 < 2 \]
-        → <strong>\(A\) แปลงเป็นทแยงมุมไม่ได้</strong> (มี eigenvector อิสระแค่ตัวเดียว)</li>
-        <li><span class="step-t">(ข) ค่าลักษณะเฉพาะ</span> สามเหลี่ยม → \(\lambda = 2, 2, 5\)</li>
-        <li><span class="step-t">(ข) หา \(E_2\)</span>
+        <li><span class="step-t">(ก) ค่าลักษณะเฉพาะ</span> สามเหลี่ยม → det คือผลคูณทแยง → \(\det(A - \lambda I_2) = (2-\lambda)(2-\lambda) = (2-\lambda)^2\) → \(\lambda = 2\) ซ้ำ 2 ครั้ง</li>
+        <li><span class="step-t">(ก) หา \(E_2\)</span> ลบ 2 ที่ทแยง: \(2 \to 0\) ทั้งคู่ (ช่อง 1 คงเดิม) — แถวบนบอก \(x_2 = 0\), ส่วน \(x_1\) เสรี เลือก \(x_1 = 1\):
+        \[ A - 2I_2 = \begin{bmatrix} 0 & 1\\ 0 & 0 \end{bmatrix} \;\Longrightarrow\; x_2 = 0 \;\Longrightarrow\; E_2 = \operatorname{Span}\{(1,0)^T\}, \dim = 1 &lt; 2 \]
+        → <strong>\(A\) แปลงเป็นทแยงมุมไม่ได้</strong> (<em>เพราะ</em> \(\lambda = 2\) ซ้ำ 2 ครั้งแต่ \(\dim E_2 = 1\) — เวกเตอร์อิสระได้แค่ตัวเดียว รวมไม่ครบ \(n = 2\) ตามเงื่อนไขทฤษฎีบท 3.2.3)</li>
+        <li><span class="step-t">(ข) ค่าลักษณะเฉพาะ</span> สามเหลี่ยม → อ่านจากทแยงได้เลย → \(\lambda = 2, 2, 5\)</li>
+        <li><span class="step-t">(ข) หา \(E_2\)</span> ลบ 2 ที่ทแยง: \(2 \to 0\) สองช่อง, \(5 \to 3\) ได้แถวบนสองแถวเป็นศูนย์หมด (ตัวแปร \(x_1, x_2\) จึงถูกปล่อยอิสระจากสองแถวนั้น) เหลือแถวล่างบอก \(x_1 + 3x_3 = 0\) — ให้ \(x_2 = 1, x_3 = 0\) → \((0, 1, 0)^T\); ให้ \(x_2 = 0, x_3 = 1\) → \(x_1 = -3\) → \((-3, 0, 1)^T\) (ลบ 3 ย้ายข้าง):
         \[ B - 2I_3 = \begin{bmatrix} 0 & 0 & 0\\ 0 & 0 & 0\\ 1 & 0 & 3 \end{bmatrix} \;\Longrightarrow\; x_1 + 3x_3 = 0 \;\Longrightarrow\; x_2, x_3 \text{ เสรี} \;\Longrightarrow\; E_2 = \operatorname{Span}\{(0,1,0)^T, (-3,0,1)^T\}, \dim = 2 \checkmark \]</li>
-        <li><span class="step-t">(ข) หา \(E_5\) และสรุป</span> \(B - 5I_3 = \begin{bmatrix} -3 & 0 & 0\\ 0 & -3 & 0\\ 1 & 0 & 0 \end{bmatrix} \Rightarrow x_1 = 0, x_2 = 0\) → \(\vec{v}_3 = (0, 0, 1)^T\) รวมทั้งหมดได้ 3 เวกเตอร์อิสระ → <strong>\(B\) แปลงเป็นทแยงมุมได้</strong> โดย
+        <li><span class="step-t">(ข) หา \(E_5\) และสรุป</span> ลบ 5 ที่ทแยง: \(2 \to -3\) สองช่อง, \(5 \to 0\) → แถวบน: \(-3x_1 = 0 \Rightarrow x_1 = 0\), แถวกลาง: \(-3x_2 = 0 \Rightarrow x_2 = 0\) (แถวล่าง \(x_1 = 0\) ซ้ำข้อมูลเดิม) \(x_3\) เสรี เลือก \(x_3 = 1\) → \(\vec{v}_3 = (0, 0, 1)^T\) รวมทั้งหมดได้ \(2 + 1 = 3\) เวกเตอร์อิสระครบ \(n = 3\) → <strong>\(B\) แปลงเป็นทแยงมุมได้</strong> (<em>เพราะ</em>ค่าซ้ำ \(\lambda = 2\) ให้ \(\dim E_2 = 2\) เท่ากับจำนวนครั้งที่ซ้ำพอดี) โดย
         \[ P = \begin{bmatrix} 0 & -3 & 0\\ 1 & 0 & 0\\ 0 & 1 & 1 \end{bmatrix}, \qquad D = \begin{bmatrix} 2 & 0 & 0\\ 0 & 2 & 0\\ 0 & 0 & 5 \end{bmatrix} \]
-        (ตรวจ: \(B(0,1,0)^T = (0,2,0)^T = 2(0,1,0)\) ✓ \(B(-3,0,1)^T = (-6,0,2)^T = 2(-3,0,1)\) ✓ \(B(0,0,1)^T = (0,0,5)^T = 5(0,0,1)\) ✓)</li>
-        <li><span class="step-t">บทเรียนจากข้อนี้</span> ค่าลักษณะเฉพาะซ้ำอาจ diagonalizable ได้หรือไม่ได้ก็ได้ — ตัดสินด้วย \(\dim E_\lambda\) เทียบจำนวนครั้งซ้ำเสมอ</li>
+        (ตรวจ: \(B(0,1,0)^T = (0,2,0)^T = 2(0,1,0)\) ✓ (แถวกลาง: \(0 + 2(1) + 0 = 2\)) \(B(-3,0,1)^T = (-6,0,2)^T = 2(-3,0,1)\) ✓ (แถวบน: \(2(-3) = -6\), แถวล่าง: \(-3 + 5(1) = 2\)) \(B(0,0,1)^T = (0,0,5)^T = 5(0,0,1)\) ✓)</li>
+        <li><span class="step-t">บทเรียนจากข้อนี้</span> ค่าลักษณะเฉพาะซ้ำอาจ diagonalizable ได้หรือไม่ได้ก็ได้ — (ก) ซ้ำแล้วได้เวกเตอร์ไม่พอ = ไม่ได้, (ข) ซ้ำแล้วได้เวกเตอร์พอ = ได้ — ตัดสินด้วย \(\dim E_\lambda\) เทียบจำนวนครั้งซ้ำเสมอ อย่าเดาจากพหุนามอย่างเดียว — สรุปคำตอบ: (ก) แปลงเป็นทแยงมุมไม่ได้ (ข) ได้ โดย \(P, D\) ด้านบน</li>
       </ol>
     </div></details>
   </article>
