@@ -14,6 +14,8 @@ page: ch4-1.html
   <a href="#objectives">🎯 จุดประสงค์</a>
   <a href="#lesson">📖 บทเรียน</a>
   <a href="#examples">✏️ ตัวอย่างโจทย์</a>
+  <a href="#textbook">📚 ตัวอย่างจากตำรา</a>
+  <a href="#apply">🌍 การใช้จริง</a>
   <a href="#recipe">⚡ สูตรสำเร็จ</a>
   <a href="#practice">🏋️ โจทย์ซ้อมมือ</a>
 </nav>
@@ -163,6 +165,159 @@ page: ch4-1.html
         \[ U^{-1} = U^T = \begin{bmatrix} \tfrac{1}{\sqrt{6}} & -\tfrac{2}{\sqrt{6}} & \tfrac{1}{\sqrt{6}}\\[4pt] 0 & \tfrac{1}{\sqrt{5}} & \tfrac{2}{\sqrt{5}}\\[4pt] -\tfrac{5}{\sqrt{30}} & -\tfrac{2}{\sqrt{30}} & \tfrac{1}{\sqrt{30}} \end{bmatrix} \]</li>
       </ol>
       <p><strong>ตรวจและสรุปคำตอบ:</strong> ลองแทนเช็กหนึ่งช่องของ \(U^TU\): ช่องทแยง (3,3) = หลักสามจุดกับตัวเอง \(= \tfrac{25+4+1}{30} = 1\) ✓ — สรุปว่า \(U\) เป็นเมทริกซ์เชิงตั้งฉากปรกติ และ \(U^{-1} = U^T\) ตามเมทริกซ์ด้านบน</p>
+    </div>
+  </article>
+</section>
+
+<section class="block" id="textbook">
+  <h2><span class="h2-dot">📚</span> ตัวอย่างจากตำรา (พีชคณิต.pdf)</h2>
+  <p class="page-sub">โจทย์ทุกข้อคัดมาตรงจากตำราประกอบการสอน โดยเรียงจากง่ายไปยาก — ใต้โจทย์แต่ละข้อมี "อธิบายโจทย์ง่าย ๆ" ช่วยให้เห็นว่าโจทย์ถามอะไรก่อนลงมือทำ</p>
+
+  <article class="ex-card">
+    <div class="ex-head"><span class="ex-badge">ตัวอย่าง 4.1.1</span><span class="tag book">จากตำรา</span><span class="tag easy">ง่าย</span><span class="ex-title">เวกเตอร์หนึ่งหน่วยและสามหน่วยใน \(\mathbb{R}^4\)</span></div>
+    <div class="ex-body">
+      <div class="ex-q">ให้ \(\vec{v} = (1, 0, -2, 2) \in \mathbb{R}^4\) จงหาเวกเตอร์หนึ่งหน่วยในทิศทางเดียวกับเวกเตอร์ \(\vec{v}\) และเวกเตอร์สามหน่วยในทิศทางตรงข้ามกับเวกเตอร์ \(\vec{v}\)</div>
+      <div class="approach"><span class="lbl">อธิบายโจทย์ง่าย ๆ</span> — โจทย์ให้เวกเตอร์สี่ช่องมาตัวหนึ่ง แล้วขอเวกเตอร์ "เหมือนเดิมแต่ยาว 1 หน่วย" กับ "เหมือนเดิมแต่หันสวนทางและยาว 3 หน่วย" ของแถมเลยคือต้องรู้ความยาวของ \(\vec{v}\) ก่อน เพราะการปรับความยาวทั้งสองแบบทำได้ด้วยการคูณสเกลาร์ที่เหมาะสม</div>
+      <ol class="steps">
+        <li><span class="step-t">หาความยาวของ \(\vec{v}\) ก่อน</span> ยกกำลังสองทีละสมาชิกแล้วบวก: \(1^2 + 0^2 + (-2)^2 + 2^2 = 1 + 0 + 4 + 4 = 9\) แล้วถอดราก (ลบยกกำลังสองแล้วเป็นบวก เพราะลบคูณลบได้บวก)
+        \[ \|\vec{v}\| = \sqrt{1^2 + 0^2 + (-2)^2 + 2^2} = \sqrt{9} = 3 \]</li>
+        <li><span class="step-t">เวกเตอร์หนึ่งหน่วยทิศเดียวกัน</span> หารทุกสมาชิกด้วยความยาว 3 (เขียนได้เป็นคูณ \(\tfrac13\)) — ทิศไม่ขยับเพราะหารด้วยจำนวนบวก และความยาวกลายเป็น \(3 \cdot \tfrac13 = 1\) พอดี
+        \[ \frac{1}{3}\begin{bmatrix} 1\\ 0\\ -2\\ 2 \end{bmatrix} = \begin{bmatrix} \tfrac13\\[2pt] 0\\[2pt] -\tfrac23\\[2pt] \tfrac23 \end{bmatrix} \]</li>
+        <li><span class="step-t">เวกเตอร์สามหน่วยทิศตรงข้าม</span> ใช้สูตร \(-k\,\vec{v}/\|\vec{v}\|\) เมื่อ \(k = 3\) และ \(\|\vec{v}\| = 3\) ตัวสเกลาร์จึงเป็น \(-3 \cdot \tfrac13 = -1\) พอดี เหลือเพียงสลับเครื่องหมายทุกช่อง (บวกเป็นลบ ลบเป็นบวก)
+        \[ -\frac{3}{3}\begin{bmatrix} 1\\ 0\\ -2\\ 2 \end{bmatrix} = \begin{bmatrix} -1\\ 0\\ 2\\ -2 \end{bmatrix} \]</li>
+      </ol>
+      <div class="verify"><span class="lbl">สรุปคำตอบ:</span> เวกเตอร์หนึ่งหน่วยทิศเดียวกับ \(\vec{v}\) คือ \(\left(\tfrac13, 0, -\tfrac23, \tfrac23\right)\) และเวกเตอร์สามหน่วยทิศตรงข้ามคือ \((-1, 0, 2, -2)\) — ตรงตามตำรา (ตรวจ: \(\|-\vec{v}\| = |-1| \cdot 3 = 3\) ✓)</div>
+    </div>
+  </article>
+
+  <article class="ex-card">
+    <div class="ex-head"><span class="ex-badge">ตัวอย่าง 4.1.2 + 4.1.3</span><span class="tag book">จากตำรา</span><span class="tag easy">ง่าย</span><span class="ex-title">เซตเชิงตั้งฉากและฐานหลักเชิงตั้งฉากของ \(\mathbb{R}^3\)</span></div>
+    <div class="ex-body">
+      <div class="ex-q">เซต \(S = \left\{ \begin{bmatrix} 1\\ -2\\ 1 \end{bmatrix}, \begin{bmatrix} 0\\ 1\\ 2 \end{bmatrix}, \begin{bmatrix} -5\\ -2\\ 1 \end{bmatrix} \right\}\) เป็นเซตเชิงตั้งฉากใน \(\mathbb{R}^3\) และเซต \(S\) ในตัวอย่าง 4.1.2 เป็นฐานหลักเชิงตั้งฉากสำหรับ \(\mathbb{R}^3\)</div>
+      <div class="approach"><span class="lbl">อธิบายโจทย์ง่าย ๆ</span> — ตำรายืนยันสองข้อความต่อเนื่องกัน: (1) เวกเตอร์สามตัวนี้จับคู่กันตั้งฉากทุกคู่ (2) พอตั้งฉากกันแล้วมันก็อิสระเชิงเส้นโดยอัตโนมัติ จึงเป็นฐานหลักของ \(\mathbb{R}^3\) ไปด้วย เรามาเช็กทั้งสองข้อความด้วยการจุดเวกเตอร์ล้วน ๆ ไม่ต้องลดรูปเมทริกซ์เลย</div>
+      <ol class="steps">
+        <li><span class="step-t">เช็กผลคูณจุดทุกคู่</span> เซตจะเชิงตั้งฉากก็ต่อเมื่อจุดของทุกคู่ (คนละตัวกัน) เป็นศูนย์ — มี 3 เวกเตอร์ จึงเช็กแค่ 3 คู่ (คู่ซ้ำไม่ต้อง เพราะ \(\vec{u}\cdot\vec{v} = \vec{v}\cdot\vec{u}\)): \(\vec{u}_1\cdot\vec{u}_2 = 1(0) + (-2)(1) + 1(2) = 0 - 2 + 2 = 0\) · \(\vec{u}_1\cdot\vec{u}_3 = 1(-5) + (-2)(-2) + 1(1) = -5 + 4 + 1 = 0\) · \(\vec{u}_2\cdot\vec{u}_3 = 0(-5) + 1(-2) + 2(1) = 0 - 2 + 2 = 0\)
+        \[ \vec{u}_1\cdot\vec{u}_2 = 0, \qquad \vec{u}_1\cdot\vec{u}_3 = 0, \qquad \vec{u}_2\cdot\vec{u}_3 = 0 \;\checkmark \]
+        ทุกพจน์บวกกับพจน์ลบหักกันเป็นศูนย์พอดี — จึงเป็น<em>เซตเชิงตั้งฉาก</em>ตามตำรา</li>
+        <li><span class="step-t">ยกระดับเป็นฐานหลักเชิงตั้งฉาก</span> ทฤษฎีบท 4.1.2 บอกว่าเซตเชิงตั้งฉากของเวกเตอร์ไม่ศูนย์<em>อิสระเชิงเส้นเสมอ</em> (ไม่ต้องพิสูจน์ซ้ำ!) — ที่นี่มี 3 เวกเตอร์อิสระใน \(\mathbb{R}^3\) ซึ่งมีมิติ 3 จึงครบจำนวนเท่ากับฐานหลักพอดี สรุปได้ว่า \(S\) เป็น<em>ฐานหลักเชิงตั้งฉาก</em>สำหรับ \(\mathbb{R}^3\) ทั้งที่ไม่ได้ลดรูปอะไรเลย</li>
+      </ol>
+      <div class="verify"><span class="lbl">สรุปคำตอบ:</span> \(S\) เป็นเซตเชิงตั้งฉากเพราะผลคูณจุดทุกคู่เป็น 0 ✓ และเป็นฐานหลักเชิงตั้งฉากของ \(\mathbb{R}^3\) เพราะเซตเชิงตั้งฉากอิสระเชิงเส้นเสมอ (ทฤษฎีบท 4.1.2) และมี 3 ตัวพอดีกับมิติของ \(\mathbb{R}^3\)</div>
+    </div>
+  </article>
+
+  <article class="ex-card">
+    <div class="ex-head"><span class="ex-badge">แบบฝึกหัด 4.1 ข้อ 1</span><span class="tag book">จากตำรา</span><span class="tag easy">ง่าย</span><span class="ex-title">ผลคูณจุด นอร์ม และเวกเตอร์หนึ่งหน่วยของ \(2\vec{u} + \vec{v}\)</span></div>
+    <div class="ex-body">
+      <div class="ex-q">ให้ \(\vec{u} = \begin{bmatrix} -1\\ 2 \end{bmatrix}\) และ \(\vec{v} = \begin{bmatrix} 3\\ 2 \end{bmatrix}\) จงหา \(\vec{u}\cdot\vec{v}\), \(\vec{v}\cdot\vec{u}\), \(\|\vec{u}\|\), \(\|\vec{v}\|\) และเวกเตอร์หนึ่งหน่วยในทิศทางเดียวและทิศทางตรงข้ามกับเวกเตอร์ \(2\vec{u} + \vec{v}\)</div>
+      <div class="approach"><span class="lbl">อธิบายโจทย์ง่าย ๆ</span> — ข้อนี้ทดสอบนิยามล้วน ๆ สามอย่าง: ผลคูณจุด (คูณตำแหน่งเดียวกันแล้วบวก), นอร์ม (รากที่สองของผลบวกกำลังสอง) และการสร้างเวกเตอร์หนึ่งหน่วยทั้งทิศเดียวกัน (\(+\)) และทิศตรงข้าม (\(-\)) จุดที่ต้องระวังคือต้องรวม \(2\vec{u} + \vec{v}\) เสร็จก่อนค่อยปรับความยาว</div>
+      <ol class="steps">
+        <li><span class="step-t">ผลคูณจุดและนอร์ม</span> \(\vec{u}\cdot\vec{v} = (-1)(3) + (2)(2) = -3 + 4 = 1\) และสลับลำดับใหม่ \(\vec{v}\cdot\vec{u} = (3)(-1) + (2)(2) = 1\) ได้เท่าเดิม เพราะผลคูณจุดสลับที่ได้ (\(ab = ba\) ทุกพจน์) ส่วนนอร์ม: \(\|\vec{u}\|^2 = (-1)^2 + 2^2 = 5\) และ \(\|\vec{v}\|^2 = 3^2 + 2^2 = 13\) — รากไม่ลงตัวทั้งคู่เพราะ 5 และ 13 เป็นจำนวนเฉพาะ ไม่มีตัวประกอบกำลังสองสมบูรณ์ให้ดึงออก
+        \[ \vec{u}\cdot\vec{v} = \vec{v}\cdot\vec{u} = 1, \qquad \|\vec{u}\| = \sqrt{5}, \qquad \|\vec{v}\| = \sqrt{13} \]</li>
+        <li><span class="step-t">รวม \(2\vec{u} + \vec{v}\) ก่อน</span> \(2\vec{u} = \begin{bmatrix} -2\\ 4 \end{bmatrix}\) (คูณทุกช่อง) แล้วบวกตำแหน่งต่อตำแหน่ง: \(\begin{bmatrix} -2+3\\ 4+2 \end{bmatrix} = \begin{bmatrix} 1\\ 6 \end{bmatrix}\) ความยาวคือ \(\sqrt{1^2 + 6^2} = \sqrt{37}\) (37 เป็นจำนวนเฉพาะ รากจึงคงอยู่ในรูปราก)</li>
+        <li><span class="step-t">หนึ่งหน่วยทั้งสองทิศ</span> ทิศเดียวกัน: คูณด้วย \(+\tfrac{1}{\sqrt{37}}\) · ทิศตรงข้าม: คูณด้วย \(-\tfrac{1}{\sqrt{37}}\) (เครื่องหมายลบคือการ "กลับหัว" เวกเตอร์ และตัวเลข \(\tfrac{1}{\sqrt{37}}\) คือการปรับให้ยาว 1 หน่วย)
+        \[ \pm\frac{1}{\sqrt{37}}\begin{bmatrix} 1\\ 6 \end{bmatrix} \]</li>
+      </ol>
+      <div class="verify"><span class="lbl">สรุปคำตอบ:</span> \(\vec{u}\cdot\vec{v} = \vec{v}\cdot\vec{u} = 1\), \(\|\vec{u}\| = \sqrt{5}\), \(\|\vec{v}\| = \sqrt{13}\), \(2\vec{u}+\vec{v} = \begin{bmatrix} 1\\ 6 \end{bmatrix}\) และเวกเตอร์หนึ่งหน่วยคือ \(\pm\tfrac{1}{\sqrt{37}}\begin{bmatrix} 1\\ 6 \end{bmatrix}\) — ตรงคำตอบท้ายบท (ตรวจ: \(\left(\tfrac{1}{\sqrt{37}}\right)^2(1+36) = \tfrac{37}{37} = 1\) ✓)</div>
+    </div>
+  </article>
+
+  <article class="ex-card">
+    <div class="ex-head"><span class="ex-badge">ตัวอย่าง 4.1.4</span><span class="tag book">จากตำรา</span><span class="tag mid">กลาง</span><span class="ex-title">เขียน \(\vec{y}\) ด้วยฐานหลักเชิงตั้งฉาก (ทฤษฎีบท 4.1.3)</span></div>
+    <div class="ex-body">
+      <div class="ex-q">จาก \(S = \left\{ \vec{u}_1 = \begin{bmatrix} 1\\ -2\\ 1 \end{bmatrix}, \vec{u}_2 = \begin{bmatrix} 0\\ 1\\ 2 \end{bmatrix}, \vec{u}_3 = \begin{bmatrix} -5\\ -2\\ 1 \end{bmatrix} \right\}\) เป็นฐานหลักเชิงตั้งฉากฐานหนึ่งสำหรับ \(\mathbb{R}^3\) ดังนั้น สำหรับ \(\vec{y} = \begin{bmatrix} 3\\ -1\\ 1 \end{bmatrix}\) เราได้ว่า
+      \[ \vec{y} = \frac{\vec{y}\cdot\vec{u}_1}{\vec{u}_1\cdot\vec{u}_1}\vec{u}_1 + \frac{\vec{y}\cdot\vec{u}_2}{\vec{u}_2\cdot\vec{u}_2}\vec{u}_2 + \frac{\vec{y}\cdot\vec{u}_3}{\vec{u}_3\cdot\vec{u}_3}\vec{u}_3 \]</div>
+      <div class="approach"><span class="lbl">อธิบายโจทย์ง่าย ๆ</span> — โจทย์อยากได้ "น้ำหนัก" ที่ทำให้ \(\vec{y} = c_1\vec{u}_1 + c_2\vec{u}_2 + c_3\vec{u}_3\) ปกติต้องแก้ระบบ 3 สมการ แต่เพราะฐานหลักนี้<em>ตั้งฉากกัน</em> ทฤษฎีบท 4.1.3 อนุญาตให้หาน้ำหนักทีละตัวด้วยสูตร "จุดเศษ หารด้วยจุดส่วน" — แต่ละตัวคิดแยกกันจบ ไม่ต้องแก้ระบบเลย</div>
+      <ol class="steps">
+        <li><span class="step-t">น้ำหนักตัวที่ 1</span> เศษ \(\vec{y}\cdot\vec{u}_1 = 3(1) + (-1)(-2) + 1(1) = 3 + 2 + 1 = 6\) ส่วน \(\vec{u}_1\cdot\vec{u}_1 = 1^2 + (-2)^2 + 1^2 = 6\) ได้ \(\tfrac{6}{6} = 1\)</li>
+        <li><span class="step-t">น้ำหนักตัวที่ 2</span> เศษ \(\vec{y}\cdot\vec{u}_2 = 3(0) + (-1)(1) + 1(2) = 0 - 1 + 2 = 1\) ส่วน \(\vec{u}_2\cdot\vec{u}_2 = 0^2 + 1^2 + 2^2 = 5\) ได้ \(\tfrac{1}{5}\) (ลบคูณลบได้บวกจึงได้ \(+2\) พอดีชดเชย \(-1\))</li>
+        <li><span class="step-t">น้ำหนักตัวที่ 3</span> เศษ \(\vec{y}\cdot\vec{u}_3 = 3(-5) + (-1)(-2) + 1(1) = -15 + 2 + 1 = -12\) ส่วน \(\vec{u}_3\cdot\vec{u}_3 = (-5)^2 + (-2)^2 + 1^2 = 30\) ได้ \(\tfrac{-12}{30} = -\tfrac{2}{5}\) (ตัดทอนด้วย 6)
+        \[ \vec{y} = \frac{6}{6}\vec{u}_1 + \frac{1}{5}\vec{u}_2 - \frac{2}{5}\vec{u}_3 = \vec{u}_1 + \frac{1}{5}\vec{u}_2 - \frac{2}{5}\vec{u}_3 \]</li>
+      </ol>
+      <div class="verify"><span class="lbl">สรุปคำตอบ:</span> \(\vec{y} = \vec{u}_1 + \tfrac{1}{5}\vec{u}_2 - \tfrac{2}{5}\vec{u}_3\) — ตรงตามตำรา (ตรวจ: \((1, -2, 1) + (0, \tfrac15, \tfrac25) - \tfrac25(-5, -2, 1) = (1+0+2,\; -2+\tfrac15+\tfrac45,\; 1+\tfrac25-\tfrac25) = (3, -1, 1)\) ✓)</div>
+    </div>
+  </article>
+
+  <article class="ex-card">
+    <div class="ex-head"><span class="ex-badge">ตัวอย่าง 4.1.5 + 4.1.6</span><span class="tag book">จากตำรา</span><span class="tag mid">กลาง</span><span class="ex-title">เซตเชิงตั้งฉากปรกติและเมทริกซ์เชิงตั้งฉากปรกติ \(U^{-1} = U^T\)</span></div>
+    <div class="ex-body">
+      <div class="ex-q">จากตัวอย่าง 4.1.2 เราได้ว่า \(S' = \left\{ \tfrac{1}{\sqrt{6}}\begin{bmatrix} 1\\ -2\\ 1 \end{bmatrix}, \tfrac{1}{\sqrt{5}}\begin{bmatrix} 0\\ 1\\ 2 \end{bmatrix}, \tfrac{1}{\sqrt{30}}\begin{bmatrix} -5\\ -2\\ 1 \end{bmatrix} \right\}\) เป็นฐานหลักเชิงตั้งฉากปรกติของ \(\mathbb{R}^3\) และสังเกตว่า \(U = \begin{bmatrix} 1/\sqrt{6} &amp; 0 &amp; -5/\sqrt{30}\\ -2/\sqrt{6} &amp; 1/\sqrt{5} &amp; -2/\sqrt{30}\\ 1/\sqrt{6} &amp; 2/\sqrt{5} &amp; 1/\sqrt{30} \end{bmatrix}\) เป็นเมทริกซ์เชิงตั้งฉากปรกติ ดังนั้นเราได้ว่า \(U^{-1} = U^T\)</div>
+      <div class="approach"><span class="lbl">อธิบายโจทย์ง่าย ๆ</span> — สองข้อความต่อเนื่องกัน: (1) ถ้าเอาเซตเชิงตั้งฉากเดิมมาหารแต่ละตัวด้วยความยาวของมัน เราได้เซตเชิงตั้งฉากปรกติ (ตั้งฉากเหมือนเดิม + ยาว 1 ทุกตัว) (2) เมื่อเรียงเวกเตอร์เหล่านี้เป็น<em>หลัก</em>ของเมทริกซ์จัตุรัส \(U\) จะได้ของขวัญพิเศษ: inverse ของ \(U\) คือการทรานสโพสเฉย ๆ ไม่ต้องกวาดแถวเลย</div>
+      <ol class="steps">
+        <li><span class="step-t">ทำไมตัวหารคือ \(\sqrt{6}, \sqrt{5}, \sqrt{30}\)</span> ความยาวแต่ละตัวได้จากการถอดรากผลบวกกำลังสอง: \(\|\vec{u}_1\| = \sqrt{1+4+1} = \sqrt{6}\), \(\|\vec{u}_2\| = \sqrt{0+1+4} = \sqrt{5}\), \(\|\vec{u}_3\| = \sqrt{25+4+1} = \sqrt{30}\) — หารแต่ละตัวด้วยความยาวตัวเองแล้วยาวเหลือ 1 หน่วยพอดี เช่น \(\left\|\tfrac{1}{\sqrt{6}}\vec{u}_1\right\| = \tfrac{1}{\sqrt{6}} \cdot \sqrt{6} = 1\) ครบทั้งสามตัว จึงเป็น<em>เซตเชิงตั้งฉากปรกติ</em></li>
+        <li><span class="step-t">เรียงเป็นหลักของ \(U\) แล้วเช็ก \(U^TU = I\)</span> หลักที่ \(i\) ของ \(U\) คือเวกเตอร์หนึ่งหน่วยตัวที่ \(i\) ทฤษฎีบท 4.1.4 บอกว่า "หลักเป็นเซตเชิงตั้งฉากปรกติ ⟺ \(U^TU = I_3\)" ซึ่งจริงเพราะ (ก) ช่องทแยงของ \(U^TU\) = ผลคูณจุดของหลักกับตัวเอง = ความยาวกำลังสอง = 1 ทุกหลัก (ข) ช่องนอกทแยง = ผลคูณจุดระหว่างหลัก = 0 เพราะตั้งฉากกันตั้งแต่ตัวอย่าง 4.1.2 — การหารด้วยค่าคงตัวไม่ทำให้ความตั้งฉากหาย</li>
+        <li><span class="step-t">inverse โดยไม่ต้องคำนวณ</span> เมื่อ \(U\) จัตุรัสและ \(U^TU = I\) บทแทรก 4.1.5 ให้ \(U^{-1} = U^T\) ทันที — สลับแถวกับหลักเสร็จจบ
+        \[ U^{-1} = U^T = \begin{bmatrix} 1/\sqrt{6} &amp; -2/\sqrt{6} &amp; 1/\sqrt{6}\\ 0 &amp; 1/\sqrt{5} &amp; 2/\sqrt{5}\\ -5/\sqrt{30} &amp; -2/\sqrt{30} &amp; 1/\sqrt{30} \end{bmatrix} \]</li>
+      </ol>
+      <div class="verify"><span class="lbl">สรุปคำตอบ:</span> \(S'\) เป็นฐานหลักเชิงตั้งฉากปรกติของ \(\mathbb{R}^3\) และ \(U^{-1} = U^T\) ตามเมทริกซ์ด้านบน — ตรงตามตำรา (สังเกตว่าแถวของ \(U^T\) คือหลักของ \(U\) เรียงตามลำดับเดิม)</div>
+    </div>
+  </article>
+
+  <article class="ex-card">
+    <div class="ex-head"><span class="ex-badge">แบบฝึกหัด 4.1 ข้อ 2</span><span class="tag book">จากตำรา</span><span class="tag mid">กลาง</span><span class="ex-title">เวกเตอร์สามหน่วยและระยะห่างระหว่าง \(\vec{u}\) กับ \(\vec{x}\)</span></div>
+    <div class="ex-body">
+      <div class="ex-q">ให้ \(\vec{u} = \begin{bmatrix} -6\\ 2\\ -3 \end{bmatrix}\) และ \(\vec{x} = \begin{bmatrix} -1\\ 0\\ -1 \end{bmatrix}\) จงหาเวกเตอร์ 3 หน่วยในทิศทางเดียวกับเวกเตอร์ \(\vec{u}\) และระยะห่างระหว่าง \(\vec{u}\) และ \(\vec{x}\)</div>
+      <div class="approach"><span class="lbl">อธิบายโจทย์ง่าย ๆ</span> — สองคำถามสองท่า: (1) อยากได้เวกเตอร์เดิมที่ยาว 3 หน่วย → หาความยาวจริงก่อนแล้วคูณด้วยสเกลาร์ให้พอดี 3 (2) "ระยะห่างระหว่างสองเวกเตอร์" = ความยาวของเวกเตอร์ผลต่าง \(\|\vec{u} - \vec{x}\|\) — ลบก่อนแล้วค่อยวัดความยาว ห้ามวัดทีละตัวแล้วเอามาลบกัน!</div>
+      <ol class="steps">
+        <li><span class="step-t">ความยาวของ \(\vec{u}\)</span> \(\|\vec{u}\|^2 = (-6)^2 + 2^2 + (-3)^2 = 36 + 4 + 9 = 49\) จึงได้ \(\|\vec{u}\| = \sqrt{49} = 7\) (ลงตัวสวยงามเพราะ \(7 \times 7 = 49\))</li>
+        <li><span class="step-t">เวกเตอร์ 3 หน่วยทิศเดียวกัน</span> สูตร \(k\,\vec{u}/\|\vec{u}\|\) เมื่อ \(k = 3\): ตัวสเกลาร์คือ \(\tfrac{3}{7}\) คูณทีละสมาชิก: \(\tfrac37(-6) = -\tfrac{18}{7}\), \(\tfrac37(2) = \tfrac67\), \(\tfrac37(-3) = -\tfrac97\)
+        \[ \frac{3}{7}\vec{u} = \begin{bmatrix} -\tfrac{18}{7}\\[2pt] \tfrac{6}{7}\\[2pt] -\tfrac{9}{7} \end{bmatrix} \]
+        ตรวจ: \(\tfrac37 \cdot 7 = 3\) หน่วยพอดี และ \(\tfrac37 &gt; 0\) จึงอยู่ทิศเดียวกันแน่นอน</li>
+        <li><span class="step-t">ระยะห่าง \(\|\vec{u} - \vec{x}\|\)</span> ลบตำแหน่งต่อตำแหน่งก่อน: \(\vec{u} - \vec{x} = \begin{bmatrix} -6-(-1)\\ 2-0\\ -3-(-1) \end{bmatrix} = \begin{bmatrix} -5\\ 2\\ -2 \end{bmatrix}\) (ระวังลบของลบ: \(-6-(-1) = -6+1 = -5\)) แล้ววัดความยาว: \((-5)^2 + 2^2 + (-2)^2 = 25 + 4 + 4 = 33\)
+        \[ \|\vec{u} - \vec{x}\| = \sqrt{33} \]</li>
+      </ol>
+      <div class="verify"><span class="lbl">สรุปคำตอบ:</span> เวกเตอร์ 3 หน่วยทิศเดียวกับ \(\vec{u}\) คือ \(\begin{bmatrix} -\tfrac{18}{7}\\ \tfrac{6}{7}\\ -\tfrac{9}{7} \end{bmatrix}\) และระยะห่างระหว่าง \(\vec{u}\) และ \(\vec{x}\) คือ \(\sqrt{33}\) — ตรงคำตอบท้ายบททุกตัว</div>
+    </div>
+  </article>
+
+  <article class="ex-card">
+    <div class="ex-head"><span class="ex-badge">แบบฝึกหัด 4.1 ข้อ 5 ก,ข,ค</span><span class="tag book">จากตำรา</span><span class="tag hard">ยาก</span><span class="ex-title">อัตลักษณ์พารัลเลโลแกรมและเงื่อนไขความตั้งฉาก</span></div>
+    <div class="ex-body">
+      <div class="ex-q">สำหรับเวกเตอร์ \(\vec{u}\) และ \(\vec{v}\) ใน \(\mathbb{R}^n\) จงแสดงว่า<br>
+      (ก) \(\|\vec{u} + \vec{v}\|^2 + \|\vec{u} - \vec{v}\|^2 = 2\|\vec{u}\|^2 + 2\|\vec{v}\|^2\) &nbsp;&nbsp;
+      (ข) \(4\vec{u}\cdot\vec{v} = \|\vec{u} + \vec{v}\|^2 - \|\vec{u} - \vec{v}\|^2\) &nbsp;&nbsp;
+      (ค) \(\vec{u}\) ตั้งฉากกับ \(\vec{v}\) ก็ต่อเมื่อ \(\|\vec{u} + \vec{v}\|^2 = \|\vec{u}\|^2 + \|\vec{v}\|^2\)</div>
+      <div class="approach"><span class="lbl">อธิบายโจทย์ง่าย ๆ</span> — สามข้อนี้พิสูจน์ด้วยกุญแจดอกเดียวกัน: เปิด \(\|\vec{w}\|^2\) ให้กลายเป็น \(\vec{w}\cdot\vec{w}\) แล้วกระจายผลคูณจุดทีละพจน์ ข้อ (ก) คือสมบัติ "ผลบวกกำลังสองของเส้นทแยงมุม" ของสี่เหลี่ยมด้านขนาน (พารัลเลโลแกรม) ข้อ (ข) คือ "ผลต่างกำลังสอง" และข้อ (ค) คือทฤษฎีบทพีทาโกรัสในเวอร์ชันเวกเตอร์</div>
+      <ol class="steps">
+        <li><span class="step-t">(ก) กระจายทั้งสองพจน์</span> \(\|\vec{u} + \vec{v}\|^2 = (\vec{u} + \vec{v})\cdot(\vec{u} + \vec{v}) = \vec{u}\cdot\vec{u} + \vec{u}\cdot\vec{v} + \vec{v}\cdot\vec{u} + \vec{v}\cdot\vec{v} = \|\vec{u}\|^2 + 2(\vec{u}\cdot\vec{v}) + \|\vec{v}\|^2\) (พจน์กลางสองตัวเท่ากันเพราะสลับที่ได้ จึงรวมเป็น 2) คิดเช่นเดียวกันแต่เครื่องหมายกลับ: \(\|\vec{u} - \vec{v}\|^2 = \|\vec{u}\|^2 - 2(\vec{u}\cdot\vec{v}) + \|\vec{v}\|^2\) บวกกันเข้า พจน์ \(\pm 2(\vec{u}\cdot\vec{v})\) หักกันหาย
+        \[ \|\vec{u} + \vec{v}\|^2 + \|\vec{u} - \vec{v}\|^2 = \big(\|\vec{u}\|^2 + \|\vec{v}\|^2\big) + \big(\|\vec{u}\|^2 + \|\vec{v}\|^2\big) = 2\|\vec{u}\|^2 + 2\|\vec{v}\|^2 \;\checkmark \]</li>
+        <li><span class="step-t">(ข) ลบแทนที่จะบวก</span> ใช้ผลกระจายสองอันเดิมจากข้อ (ก) คราวนี้ลบกัน: พจน์ \(\|\vec{u}\|^2\) กับ \(\|\vec{v}\|^2\) หักกันหาย เหลือพจน์กลางรวมกัน \(2(\vec{u}\cdot\vec{v}) - \big(-2(\vec{u}\cdot\vec{v})\big) = 4(\vec{u}\cdot\vec{v})\)
+        \[ \|\vec{u} + \vec{v}\|^2 - \|\vec{u} - \vec{v}\|^2 = 4(\vec{u}\cdot\vec{v}) \;\checkmark \]</li>
+        <li><span class="step-t">(ค) พิสูจน์สองทาง</span> ทางไป: ถ้า \(\vec{u}\cdot\vec{v} = 0\) แล้วจากการกระจาย \(\|\vec{u} + \vec{v}\|^2 = \|\vec{u}\|^2 + 2(\vec{u}\cdot\vec{v}) + \|\vec{v}\|^2 = \|\vec{u}\|^2 + 0 + \|\vec{v}\|^2\) ตามต้องการ ทางกลับ: ถ้า \(\|\vec{u} + \vec{v}\|^2 = \|\vec{u}\|^2 + \|\vec{v}\|^2\) แล้วเทียบกับการกระจายได้ \(2(\vec{u}\cdot\vec{v}) = 0\) จึง \(\vec{u}\cdot\vec{v} = 0\) นั่นคือตั้งฉากกัน — เป็น "ก็ต่อเมื่อ" ครบสองทาง ✓ (เชิงเรขาคณิต: สามเหลี่ยมมุมฉาก ด้านตรงข้ามมุมฉากคือ \(\vec{u}+\vec{v}\) และนี่คือพีทาโกรัส)</li>
+      </ol>
+      <div class="verify"><span class="lbl">สรุปคำตอบ:</span> ทั้งสามข้อจริงทุก \(\vec{u}, \vec{v} \in \mathbb{R}^n\) — กุญแจคือเปิด \(\|\vec{w}\|^2 = \vec{w}\cdot\vec{w}\) แล้วกระจาย โดยข้อ (ค) ต้องพิสูจน์ทั้งสองทิศทางเพราะโจทย์ใช้คำว่า "ก็ต่อเมื่อ"</div>
+    </div>
+  </article>
+</section>
+
+<section class="block" id="apply">
+  <h2><span class="h2-dot">🌍</span> เอาไปใช้ทำอะไร — โจทย์ประยุกต์</h2>
+
+  <article class="ex-card">
+    <div class="ex-head"><span class="ex-badge">🔍 เครื่องค้นหาเอกสาร</span><span class="tag app">ใช้จริง</span><span class="tag easy">ง่าย</span><span class="ex-title">วัดความคล้ายเอกสารด้วยผลคูณจุด (cosine similarity)</span></div>
+    <div class="ex-body">
+      <div class="ex-q">เสิร์ชเอนจินแทนเอกสารแต่ละฉบับด้วยเวกเตอร์ของ "จำนวนครั้งที่คำค้นสำคัญปรากฏ" พิจารณา 4 คำค้น: [พีชคณิต, เมทริกซ์, สมการ, เรขาคณิต] เอกสาร A นับได้ \(\vec{d}_1 = (2, 1, 0, 1)\), เอกสาร B ได้ \(\vec{d}_2 = (1, 1, 2, 0)\) และเอกสาร C ได้ \(\vec{d}_3 = (0, 0, 3, 1)\) ถ้าใช้คำค้นเดียวกันทั้ง 4 คำ เอกสารฉบับไหน "คล้ายกัน" กับเอกสาร A มากที่สุด</div>
+      <div class="approach"><span class="lbl">อธิบายโจทย์ง่าย ๆ</span> — เอกสารยาวก็มีตัวเลขใหญ่ เอกสารสั้นก็มีตัวเลขเล็ก ถ้าเทียบดิบ ๆ จะเอาเปรียบเอกสารยาวเสมอ วิธีแก้ของเสิร์ชเอนจินคือวัด<em>มุม</em>ระหว่างเวกเตอร์แทนความยาว: ค่า cosine similarity \(= \dfrac{\vec{d}_1\cdot\vec{d}_2}{\|\vec{d}_1\|\,\|\vec{d}_2\|}\) ใกล้ 1 = ทิศเดียวกัน = เนื้อหาคล้ายกัน ใกล้ 0 = ต่างเรื่องกัน</div>
+      <ol class="steps">
+        <li><span class="step-t">เทียบ A กับ B</span> เศษ: \(\vec{d}_1\cdot\vec{d}_2 = 2(1) + 1(1) + 0(2) + 1(0) = 2 + 1 + 0 + 0 = 3\) · ส่วน: \(\|\vec{d}_1\| = \sqrt{2^2 + 1^2 + 0^2 + 1^2} = \sqrt{6}\), \(\|\vec{d}_2\| = \sqrt{1^2 + 1^2 + 2^2 + 0^2} = \sqrt{6}\)
+        \[ \cos\theta = \frac{3}{\sqrt{6}\cdot\sqrt{6}} = \frac{3}{6} = 0.5 \]</li>
+        <li><span class="step-t">เทียบ A กับ C</span> เศษ: \(\vec{d}_1\cdot\vec{d}_3 = 2(0) + 1(0) + 0(3) + 1(1) = 1\) · ส่วน: \(\|\vec{d}_3\| = \sqrt{0^2 + 0^2 + 3^2 + 1^2} = \sqrt{10}\)
+        \[ \cos\theta = \frac{1}{\sqrt{6}\cdot\sqrt{10}} = \frac{1}{\sqrt{60}} \approx 0.13 \]</li>
+        <li><span class="step-t">ตัดสิน</span> B ได้ 0.5 สูงกว่า C ที่ได้ 0.13 มาก — เอกสาร B จึงถูกจัดอันดับไว้บนสุด (ระบบจริงใช้หลักการนี้กับเวกเตอร์หลายหมื่นมิติ แล้วจัดอันดับด้วยค่า cos จากมากไปน้อย)</li>
+      </ol>
+      <div class="verify"><span class="lbl">เห็นไหมว่า...</span> "ผลคูณจุด" ที่ดูเป็นแค่การคูณแล้วบวก แปลงเป็น "ความคล้ายของเนื้อหา" ได้ทันทีเมื่อหารด้วยความยาวสองข้าง — ระบบค้นหา ระบบแนะนำสินค้า และ AI จับคู่คำถาม-คำตอบ ล้วนใช้ \(\tfrac{\vec{u}\cdot\vec{v}}{\|\vec{u}\|\,\|\vec{v}\|}\) ทุกวันนี้</div>
+    </div>
+  </article>
+
+  <article class="ex-card">
+    <div class="ex-head"><span class="ex-badge">🚴 ความเร็วจาก GPS</span><span class="tag app">ใช้จริง</span><span class="tag easy">ง่าย</span><span class="ex-title">ความเร็วเป็นเวกเตอร์ — หาขนาดและทิศทาง</span></div>
+    <div class="ex-body">
+      <div class="ex-q">นักปั่นจักรยานใช้แอป GPS ที่รายงานอัตราเร็วองค์ประกอบ: เคลื่อนที่ไปทางทิศตะวันออก 6 เมตรต่อวินาที และทิศเหนือ 8 เมตรต่อวินาที คือ \(\vec{v} = (6, 8)\) จงหาอัตราเร็วจริง (ความยาวของ \(\vec{v}\)) และเวกเตอร์หนึ่งหน่วยที่บอกทิศทางการปั่น</div>
+      <div class="approach"><span class="lbl">อธิบายโจทย์ง่าย ๆ</span> — GPS วัดทีละแกน (ตะวันออก-เหนือ) แต่ที่เรา "รู้สึก" คืออัตราเร็วรวมทั้งสองแกนพร้อมกัน ซึ่งก็คือความยาวของเวกเตอร์ \(\vec{v}\) ตามทฤษฎีบทพีทาโกรัส ส่วน "ทิศทาง" ที่แอปใช้วาดลูกศร คือเวกเตอร์หนึ่งหน่วย \(\vec{v}/\|\vec{v}\|\)</div>
+      <ol class="steps">
+        <li><span class="step-t">อัตราเร็วจริง = นอร์ม</span> \(\|\vec{v}\| = \sqrt{6^2 + 8^2} = \sqrt{36 + 64} = \sqrt{100} = 10\) เมตรต่อวินาที (คู่ \(6, 8, 10\) คือพีทาโกรัสคู่เลื่องชื่อ คูณ 2 จาก \(3, 4, 5\))</li>
+        <li><span class="step-t">ทิศทาง = เวกเตอร์หนึ่งหน่วย</span> หารทุกสมาชิกด้วยความยาว 10: \(\tfrac{\vec{v}}{\|\vec{v}\|} = \left(\tfrac{6}{10}, \tfrac{8}{10}\right) = \left(\tfrac35, \tfrac45\right)\) — ตรวจ: \(\left(\tfrac35\right)^2 + \left(\tfrac45\right)^2 = \tfrac{9}{25} + \tfrac{16}{25} = 1\) ✓ แปลว่าเป็นเวกเตอร์หนึ่งหน่วยจริง และคอมโพเนนต์ \(\tfrac35\) คือ \(\cos\theta\) ของมุมที่ทำกับแกนตะวันออก จึงรู้ได้ทันทีว่ามุม \(\theta = \arccos(0.6) \approx 53^\circ\)</li>
+      </ol>
+      <div class="verify"><span class="lbl">เห็นไหมว่า...</span> ทุกครั้งที่นาวิเกเตอร์บอก "ความเร็ว 36 กม./ชม. มุม 53 องศา" มันกำลังทำสองอย่างที่เราเพิ่งฝึก: คำนวณ \(\|\vec{v}\|\) แล้วหารด้วย \(\|\vec{v}\|\) เพื่อได้เวกเตอร์หนึ่งหน่วยสำหรับบอกทิศ — หัวข้อ 4.1 คือภาษาที่ GPS พูดจริง ๆ</div>
     </div>
   </article>
 </section>

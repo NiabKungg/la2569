@@ -34,6 +34,8 @@
   <a href="#objectives">🎯 จุดประสงค์</a>
   <a href="#lesson">📖 บทเรียน</a>
   <a href="#examples">✏️ ตัวอย่างโจทย์</a>
+  <a href="#textbook">📚 ตัวอย่างจากตำรา</a>
+  <a href="#apply">🌍 การใช้จริง</a>
   <a href="#recipe">⚡ สูตรสำเร็จ</a>
   <a href="#practice">🏋️ โจทย์ซ้อมมือ</a>
 </nav>
@@ -168,6 +170,165 @@
         (รวมค่าคงตัว: \(\tfrac13 - \tfrac12 = \tfrac{2-3}{6} = -\tfrac16\)) — สรุปคำตอบเต็ม: \(\operatorname{proj}_H x^2 = x - \tfrac16\) คือพหุนามดีกรี ≤ 1 ที่ประมาณ \(x^2\) ได้ดีที่สุด — ตรวจคำตอบด้วยเศษตกค้างตั้งฉากกับฐานหลักอยู่ในแถบ "ตรวจคำตอบ" ด้านล่างแล้ว</li>
       </ol>
       <div class="verify"><span class="lbl">ตรวจคำตอบ:</span> เศษตกค้าง \(x^2 - (x - \tfrac16) = x^2 - x + \tfrac16\) ต้องตั้งฉากกับฐานหลัก: \(\int_0^1 (x^2 - x + \tfrac16)\,dx = \tfrac13 - \tfrac12 + \tfrac16 = 0\) ✓ และ \(\int_0^1 (x^2 - x + \tfrac16)(x - \tfrac12)\,dx = 0\) ✓</div>
+    </div>
+  </article>
+</section>
+
+<section class="block" id="textbook">
+  <h2><span class="h2-dot">📚</span> ตัวอย่างจากตำรา (พีชคณิต.pdf)</h2>
+  <p class="page-sub">โจทย์ทุกข้อคัดมาตรงจากตำราประกอบการสอน โดยเรียงจากง่ายไปยาก — ใต้โจทย์แต่ละข้อมี "อธิบายโจทย์ง่าย ๆ" ช่วยให้เห็นว่าโจทย์ถามอะไรก่อนลงมือทำ</p>
+
+  <article class="ex-card">
+    <div class="ex-head"><span class="ex-badge">ตัวอย่าง 5.3.1 (1, 2)</span><span class="tag book">จากตำรา</span><span class="tag easy">ง่าย</span><span class="ex-title">ผลคูณภายในมาตรฐานและแบบถ่วงน้ำหนัก</span></div>
+    <div class="ex-body">
+      <div class="ex-q">จงแสดงว่าการกำหนดต่อไปนี้เป็นผลคูณภายใน
+      (1) บน \(V = \mathbb{F}^n\): \(\langle \vec{u}, \vec{v}\rangle = \displaystyle\sum_{i=1}^{n} u_i \bar{v}_i\) สำหรับ \(\vec{u} = (u_1, \dots, u_n)\) และ \(\vec{v} = (v_1, \dots, v_n)\) (ผลคูณภายในมาตรฐาน)
+      (2) บน \(V = \mathbb{R}^n\): \(\langle \vec{u}, \vec{v}\rangle = \displaystyle\sum_{i=1}^{n} a_i u_i v_i\) เมื่อ \(a_1, a_2, \dots, a_n\) เป็นจำนวนจริงบวก (ผลคูณภายในถ่วงน้ำหนัก)</div>
+      <div class="approach"><span class="lbl">อธิบายโจทย์ง่าย ๆ</span> — ผลคูณภายในต้องผ่านสมบัติ 4 ข้อ: \(\langle \vec{u}, \vec{u}\rangle \geq 0\) (เท่ากับ 0 เมื่อ \(\vec{u} = \vec{0}\) เท่านั้น), เชิงเส้นในตัวแปรแรก, สลับที่พร้อมสังยุค \(\langle \vec{v}, \vec{w}\rangle = \overline{\langle \vec{w}, \vec{v}\rangle}\) — ทั้งสองสูตรเป็น "ผลรวมของพจน์รายตำแหน่ง" จึงตรวจทีละพจน์แล้วรวมกันได้</div>
+      <ol class="steps">
+        <li><span class="step-t">(1) เอกภาพบวก</span> \(\langle \vec{u}, \vec{u}\rangle = \sum u_i \bar{u}_i = \sum |u_i|^2 \geq 0\) และเท่ากับ 0 เมื่อทุก \(|u_i|^2 = 0\) คือ \(\vec{u} = \vec{0}\) ✓ (ถ้า \(\mathbb{F} = \mathbb{R}\) ตัวสังยุคหายไป เหลือผลคูณจุดธรรมดาของบทที่ 4)</li>
+        <li><span class="step-t">(1) เชิงเส้นและสลับที่</span> \(\langle c\vec{u} + \vec{w}, \vec{v}\rangle = \sum (cu_i + w_i)\bar{v}_i = c\langle \vec{u}, \vec{v}\rangle + \langle \vec{w}, \vec{v}\rangle\) ✓ · การสลับที่: \(\langle \vec{v}, \vec{u}\rangle = \sum v_i \bar{u}_i = \overline{\sum u_i \bar{v}_i} = \overline{\langle \vec{u}, \vec{v}\rangle}\) ✓ (<em>เพราะ</em>สังยุคของผลรวม = ผลรวมของสังยุค)</li>
+        <li><span class="step-t">(2) ทุกข้อเหมือนเดิม ยกเว้นจุดชี้ขาด</span> \(\langle \vec{u}, \vec{u}\rangle = \sum a_i u_i^2\) เป็นศูนย์ได้ต่อเมื่อ \(u_i = 0\) ทุกตัว<em>เพราะ</em>\(a_i &gt; 0\) ทุกตัว (ถ้าเผลอใช้น้ำหนักติดลบสักตัว เช่น \(a_2 = -1\) บน \(\mathbb{R}^2\) จะได้ \(\langle (0,1), (0,1)\rangle = -1 &lt; 0\) พังทันที — ความบวกของน้ำหนักจึงไม่ใช่ของแต่ง) — สมบัติเชิงเส้นและสลับที่ผ่านเพราะทุกพจน์เป็น (พจน์ของ \(\vec{u}\))×(พจน์ของ \(\vec{v}\)) สมมาตรกัน</li>
+        <li><span class="step-t">ตัวเลขจริงของข้อ (2)</span> บน \(\mathbb{R}^2\) ด้วย \(a_1 = 1, a_2 = 4\): \(\langle (1, 2), (3, -1)\rangle = 1(1)(3) + 4(2)(-1) = 3 - 8 = -5\) (ติดลบได้ — เพราะไม่ใช่ \(\langle \vec{u}, \vec{u}\rangle\)) และ \(\langle (1, 2), (1, 2)\rangle = 1 + 16 = 17 &gt; 0\) ✓</li>
+      </ol>
+      <div class="verify"><span class="lbl">สรุปคำตอบ:</span> ทั้งสองสูตรเป็นผลคูณภายใน — ข้อ (1) คือผลคูณจุดของบทที่ 4 พร้อมสังยุค และข้อ (2) แสดงว่าน้ำหนักบวกใด ๆ ก็สร้างผลคูณภายในใหม่ได้เสมอ</div>
+    </div>
+  </article>
+
+  <article class="ex-card">
+    <div class="ex-head"><span class="ex-badge">ตัวอย่าง 5.3.1 (3)</span><span class="tag book">จากตำรา</span><span class="tag mid">กลาง</span><span class="ex-title">ผลคูณภายในแบบอินทิกรัล \(\int_a^b f(x)g(x)\,dx\)</span></div>
+    <div class="ex-body">
+      <div class="ex-q">ให้ \(V = C^0[a, b]\) เป็นเซตของฟังก์ชันค่าจริงที่ต่อเนื่องบน \([a, b]\) ทั้งหมด ซึ่งเซตนี้เป็นปริภูมิย่อยของ \(\mathbb{R}^{\mathbb{R}}\) และสำหรับฟังก์ชันต่อเนื่อง \(f\) และ \(g\) ใน \(C^0[a, b]\) เรากำหนด \(\langle f, g\rangle = \displaystyle\int_a^b f(x)g(x)\,dx\) จงแสดงว่า \(\langle \cdot, \cdot\rangle\) เป็นผลคูณภายในสำหรับ \(C^0[a, b]\)</div>
+      <div class="approach"><span class="lbl">อธิบายโจทย์ง่าย ๆ</span> — ทิศทางเดิมทุกอย่าง แค่เปลี่ยน "ผลรวมรายตำแหน่ง" เป็น "อินทิกรัล" — สมบัติเชิงเส้นและการสลับที่มาจากสมบัติของอินทิกรัลตรง ๆ จุดที่ต้องพิสูจน์พิเศษคือ "อินทิกรัลของ \(f^2\) เป็นศูนย์ ⇒ \(f\) เป็นศูนย์" ซึ่ง<em>ความต่อเนื่อง</em>เป็นกุญแจ</div>
+      <ol class="steps">
+        <li><span class="step-t">เอกภาพบวก (ครึ่งแรกง่าย)</span> \(\langle f, f\rangle = \int_a^b f(x)^2\,dx \geq 0\) เพราะ \(f^2 \geq 0\) ทุกจุด (กำลังสองไม่ติดลบ) ✓</li>
+        <li><span class="step-t">ครึ่งหลังใช้ความต่อเนื่อง</span> ถ้า \(\int_a^b f^2 = 0\) แต่ยังมีจุด \(x_0\) ที่ \(f(x_0) = c \neq 0\) ละก็ โดยความต่อเนื่องจะมีช่วงรอบ \(x_0\) กว้างพอที่ \(f^2 &gt; \tfrac{c^2}{2} &gt; 0\) ตลอดช่วงย่อยนั้น → อินทิกรัลช่วงย่อยเป็นบวก และส่วนที่เหลือไม่ติดลบ → \(\int_a^b f^2 &gt; 0\) ขัดกับสมมติฐาน → ไม่มีจุดให้ค่าไม่ศูนย์ → \(f \equiv 0\) ✓ (จุดนี้แหละที่ทำให้ต้องทำงานบน \(C^0\) ไม่ใช่ฟังก์ชันใด ๆ)</li>
+        <li><span class="step-t">เชิงเส้นและสลับที่</span> \(\int_a^b (cf + h)g\,dx = c\int_a^b fg\,dx + \int_a^b hg\,dx\) ✓ และ \(fg = gf\) ทุกจุดทำให้ \(\langle f, g\rangle = \langle g, f\rangle\) ✓ (ฟีลด์เป็นจำนวนจริงจึงไม่ต้องใช้สังยุค)</li>
+        <li><span class="step-t">ตัวเลขให้เห็นว่าใช้งานได้จริง</span> \(\langle x, 1 - x\rangle = \int_0^1 x(1 - x)\,dx = \int_0^1 (x - x^2)\,dx = \tfrac12 - \tfrac13 = \tfrac16\) · \(\|x\| = \sqrt{\int_0^1 x^2\,dx} = \tfrac{1}{\sqrt3}\) — ความยาวของ "เวกเตอร์ฟังก์ชัน" คำนวณได้เป็นตัวเลขจริง</li>
+      </ol>
+      <div class="verify"><span class="lbl">สรุปคำตอบ:</span> \(\langle f, g\rangle = \int_a^b f(x)g(x)\,dx\) เป็นผลคูณภายในบน \(C^0[a, b]\) — ผลคูณภายในแบบอินทิกรัลนี้คือเวทีหลักของหัวข้อ 5.3 ทั้งหมด (พหุนาม ฟังก์ชันตรีโกณ และกราม-ชมิดต์)</div>
+    </div>
+  </article>
+
+  <article class="ex-card">
+    <div class="ex-head"><span class="ex-badge">ตัวอย่าง 5.3.2</span><span class="tag book">จากตำรา</span><span class="tag mid">กลาง</span><span class="ex-title">สูตรคล้ายกันมาก แต่จบคนละทาง</span></div>
+    <div class="ex-body">
+      <div class="ex-q">จงพิจารณาว่าการกำหนดต่อไปนี้เป็นผลคูณภายในบน \(\mathbb{R}^3\) หรือไม่ เพราะเหตุใด
+      (ก) \(\langle (x_1, x_2, x_3), (y_1, y_2, y_3)\rangle = x_1y_1 - x_2y_2 + 2x_3y_3\)
+      (ข) \(\langle (x_1, x_2, x_3), (y_1, y_2, y_3)\rangle = x_1y_1 - x_1y_3 - x_3y_1 + x_2y_2 + 2x_3y_3\)</div>
+      <div class="approach"><span class="lbl">อธิบายโจทย์ง่าย ๆ</span> — สองสูตรหน้าตาใกล้กันแต่จบคนละแบบ — ข้อ (ก) มี<em>น้ำหนักลบ</em> (\(-x_2y_2\)) ให้ยิงด้วยเวกเตอร์เดียวที่ตำแหน่งนั้นเป็น 1 · ข้อ (ข) มี<em>พจน์ไขว้</em> \(x_1y_3\) ให้ลองจัดรูปเป็นกำลังสอง แล้วดูว่าเอกภาพบวกรอดหรือไม่</div>
+      <ol class="steps">
+        <li><span class="step-t">(ก) ยิงด้วยตัวค้านตัวเดียว</span> เลือก \(\vec{v} = (0, 1, 0)\): \(\langle \vec{v}, \vec{v}\rangle = 0 - 1 + 0 = -1 &lt; 0\) ล้มสมบัติที่ 1 (\(\langle \vec{u}, \vec{u}\rangle \geq 0\)) ทันที ✗ — <em>เพราะ</em>น้ำหนัก \(-1\) ทำให้ "ความยาวกำลังสอง" ติดลบได้ → <strong>ไม่เป็นผลคูณภายใน</strong></li>
+        <li><span class="step-t">(ข) จัดรูปพจน์ไขว้เป็นผลคูณของผลต่าง</span> \(x_1y_1 - x_1y_3 - x_3y_1 + x_3y_3 = (x_1 - x_3)(y_1 - y_3)\) พอดี ดังนั้น
+        \[ \langle \vec{x}, \vec{y}\rangle = (x_1 - x_3)(y_1 - y_3) + x_2y_2 + x_3y_3 \]
+        (ขยายกลับ: \(x_1y_1 - x_1y_3 - x_3y_1 + x_3y_3 + x_2y_2 + x_3y_3\) = ตรงกับสูตรเดิมทุกพจน์)</li>
+        <li><span class="step-t">(ข) เอกภาพบวกผ่านสวยงาม</span> \(\langle \vec{x}, \vec{x}\rangle = (x_1 - x_3)^2 + x_2^2 + x_3^2 \geq 0\) และเท่ากับ 0 ⇔ \(x_1 = x_3,\; x_2 = 0,\; x_3 = 0\) ⇔ \(\vec{x} = \vec{0}\) ✓ (ตรวจความเท่ากันของสองรูปด้วย python3: สุ่ม 1000 จุดตรงทุกจุด)</li>
+        <li><span class="step-t">(ข) เชิงเส้นและสลับที่</span> ทุกพจน์เป็น "(พจน์ของ \(x\))×(พจน์ของ \(y\))" จึงกระจายและดึงสเกลาร์ออกได้ ✓ และสลับ \(x \leftrightarrow y\) ได้สูตรเดิม (ทุกพจน์สมมาตร) ✓ → <strong>เป็นผลคูณภายใน</strong></li>
+      </ol>
+      <div class="verify"><span class="lbl">สรุปคำตอบ:</span> (ก) ไม่เป็นผลคูณภายใน เพราะ \(\langle (0,1,0), (0,1,0)\rangle = -1 &lt; 0\) · (ข) เป็นผลคูณภายใน เพราะจัดรูปเป็น \((x_1 - x_3)(y_1 - y_3) + x_2y_2 + x_3y_3\) ทำให้เอกภาพบวกเห็นชัดเป็นผลรวมกำลังสอง</div>
+    </div>
+  </article>
+
+  <article class="ex-card">
+    <div class="ex-head"><span class="ex-badge">ตัวอย่าง 5.3.3</span><span class="tag book">จากตำรา</span><span class="tag mid">กลาง</span><span class="ex-title">ผลคูณภายในมาตรฐานบน \(\mathbb{C}^3\) — ห้ามลืมสังยุค</span></div>
+    <div class="ex-body">
+      <div class="ex-q">ให้ \(\vec{x} = (2,\; 1 + i,\; i)\) และ \(\vec{y} = (2 - i,\; 1,\; 1 + 2i)\) โดยการใช้ผลคูณภายในมาตรฐาน จงหา \(\langle \vec{x}, \vec{y}\rangle\), \(\|\vec{x}\|\), \(\|\vec{y}\|\) และ \(\|\vec{x} - \vec{y}\|\)</div>
+      <div class="approach"><span class="lbl">อธิบายโจทย์ง่าย ๆ</span> — ผลคูณภายในมาตรฐานบน \(\mathbb{C}^3\) คือ \(\langle \vec{x}, \vec{y}\rangle = \sum x_i \bar{y}_i\) — <em>สังยุคฝั่งที่สองเสมอ</em> (ลืมแล้วคำตอบผิดทันที) ส่วนนอร์ม \(\|\vec{x}\| = \sqrt{\sum |x_i|^2}\) ใช้ \(|a + bi|^2 = a^2 + b^2\) รายตำแหน่ง</div>
+      <ol class="steps">
+        <li><span class="step-t">สังยุคของ \(\vec{y}\) ก่อน</span> \(\bar{\vec{y}} = (\overline{2 - i},\; \bar{1},\; \overline{1 + 2i}) = (2 + i,\; 1,\; 1 - 2i)\) (สลับเครื่องหมายส่วนจินตภาพ)</li>
+        <li><span class="step-t">คูณรายตำแหน่งแล้วรวม</span>
+        \[ \langle \vec{x}, \vec{y}\rangle = 2(2 + i) + (1 + i)(1) + i(1 - 2i) = (4 + 2i) + (1 + i) + (i + 2) = 7 + 4i \]
+        (พจน์ที่สาม: \(i(1 - 2i) = i - 2i^2 = i + 2\)) — <em>กับดัก:</em> ถ้าลืมสังยุคจะได้ \(2(2 - i) + (1 + i) + i(1 + 2i) = 3\) ซึ่งผิด ค่าที่ถูกคือ \(7 + 4i\)</li>
+        <li><span class="step-t">นอร์มของสองเวกเตอร์</span> \(\|\vec{x}\|^2 = 2^2 + |1 + i|^2 + |i|^2 = 4 + 2 + 1 = 7 \Rightarrow \|\vec{x}\| = \sqrt7\) · \(\|\vec{y}\|^2 = |2 - i|^2 + 1 + |1 + 2i|^2 = (4 + 1) + 1 + (1 + 4) = 11 \Rightarrow \|\vec{y}\| = \sqrt{11}\) (ตรวจด้วย python3/numpy: \(\langle \vec{x}, \vec{y}\rangle = 7 + 4i\) ตรงพอดี)</li>
+        <li><span class="step-t">ระยะทาง</span> \(\vec{x} - \vec{y} = (2 - (2 - i),\; 1 + i - 1,\; i - (1 + 2i)) = (i,\; i,\; -1 - i)\) → \(\|\vec{x} - \vec{y}\|^2 = |i|^2 + |i|^2 + |-1 - i|^2 = 1 + 1 + 2 = 4 \Rightarrow \|\vec{x} - \vec{y}\| = 2\) — สังเกตว่า \(\langle \vec{x}, \vec{y}\rangle\) เป็นจำนวนเชิงซ้อนได้ แต่นอร์มเป็นจำนวนจริงบวกเสมอ</li>
+      </ol>
+      <div class="verify"><span class="lbl">สรุปคำตอบ:</span> \(\langle \vec{x}, \vec{y}\rangle = 7 + 4i\), \(\|\vec{x}\| = \sqrt7\), \(\|\vec{y}\| = \sqrt{11}\), \(\|\vec{x} - \vec{y}\| = 2\) — ตรวจด้วย python3 (np.vdot) ตรงทุกค่า</div>
+    </div>
+  </article>
+
+  <article class="ex-card">
+    <div class="ex-head"><span class="ex-badge">ตัวอย่าง 5.3.4</span><span class="tag book">จากตำรา</span><span class="tag hard">ยาก</span><span class="ex-title">กราม-ชมิดต์ด้วยผลคูณภายในถ่วงน้ำหนัก</span></div>
+    <div class="ex-body">
+      <div class="ex-q">กำหนดผลคูณภายในบน \(\mathbb{R}^3\) โดย \(\langle \vec{u}, \vec{v}\rangle = u_1v_1 + 2u_2v_2 + 3u_3v_3\) สำหรับทุกๆ \(\vec{u} = (u_1, u_2, u_3)\) และ \(\vec{v} = (v_1, v_2, v_3)\) ใน \(\mathbb{R}^3\) จงใช้กระบวนการกราม-ชมิดต์สร้างฐานหลักเชิงตั้งฉากปรกติสำหรับ \(H = \operatorname{Span}\{(1, 1, 1), (1, 1, 0)\}\)</div>
+      <div class="approach"><span class="lbl">อธิบายโจทย์ง่าย ๆ</span> — สูตรกราม-ชมิดต์เดิมของบทที่ 4 ใช้ได้เลย แค่เปลี่ยน "เครื่องวัด" เป็น \(\langle \vec{u}, \vec{v}\rangle = u_1v_1 + 2u_2v_2 + 3u_3v_3\) — ขั้นแรก \(\vec{v}_1 = \vec{x}_1\) ขั้นสองลบส่วนฉายของ \(\vec{x}_2\) ออก จบด้วยการปรับหนึ่งหน่วย — ระวัง: น้ำหนัก 2 กับ 3 ทำให้ทุกตัวเลขต่างจากผลคูณจุดธรรมดา</div>
+      <ol class="steps">
+        <li><span class="step-t">ตั้ง \(\vec{v}_1\) และวัดความยาวกำลังสองไว้ก่อน</span> \(\vec{v}_1 = (1, 1, 1)\) และ \(\langle \vec{v}_1, \vec{v}_1\rangle = 1(1)(1) + 2(1)(1) + 3(1)(1) = 6\) (ไม่ใช่ 3 แบบผลคูณจุด — เพราะน้ำหนัก 2, 3 เพิ่มเข้ามา)</li>
+        <li><span class="step-t">ลบส่วนฉายของ \(\vec{x}_2 = (1, 1, 0)\) ออก</span> วัดก่อน: \(\langle \vec{x}_2, \vec{v}_1\rangle = 1(1)(1) + 2(1)(1) + 3(0)(1) = 3\) แล้วแทนสูตร:
+        \[ \vec{v}_2 = \vec{x}_2 - \frac{\langle \vec{x}_2, \vec{v}_1\rangle}{\langle \vec{v}_1, \vec{v}_1\rangle}\vec{v}_1 = (1, 1, 0) - \frac{3}{6}(1, 1, 1) = \left(\tfrac12,\; \tfrac12,\; -\tfrac12\right) \]
+        (พจน์ที่ลบออกคือส่วนของ \(\vec{x}_2\) ที่ทับทิศทาง \(\vec{v}_1\) ภายใต้เครื่องวัดใหม่ — พอลบแล้วที่เหลือจึงตั้งฉากกับ \(\vec{v}_1\))</li>
+        <li><span class="step-t">ตรวจตั้งฉาก (คูณ 2 ให้เลขสวย)</span> ใช้ \((1, 1, -1)\) แทน (การคูณสเกลาร์ไม่ทำลายความตั้งฉาก): \(\langle (1, 1, -1), (1, 1, 1)\rangle = 1(1)(1) + 2(1)(1) + 3(-1)(1) = 1 + 2 - 3 = 0\) ✓</li>
+        <li><span class="step-t">ปรับหนึ่งหน่วย</span> \(\|(1, 1, 1)\|^2 = 6\) และ \(\|(1, 1, -1)\|^2 = 1(1) + 2(1) + 3(1) = 6\) →
+        \[ \vec{u}_1 = \frac{(1, 1, 1)}{\sqrt6}, \qquad \vec{u}_2 = \frac{(1, 1, -1)}{\sqrt6} \]</li>
+      </ol>
+      <div class="verify"><span class="lbl">สรุปคำตอบ:</span> ฐานหลักเชิงตั้งฉากปรกติของ \(H\) คือ \(\{\tfrac{1}{\sqrt6}(1, 1, 1)^T,\; \tfrac{1}{\sqrt6}(1, 1, -1)^T\}\) — สังเกตว่าสองเวกเตอร์ต้นฉบับหน้าตาใกล้กันมาก แต่น้ำหนัก 2, 3 ทำให้ส่วนฉายที่ต้องลบคือ \(\tfrac{3}{6}\) ไม่ใช่ \(\tfrac{2}{3}\) แบบผลคูณจุดธรรมดา</div>
+    </div>
+  </article>
+
+  <article class="ex-card">
+    <div class="ex-head"><span class="ex-badge">ตัวอย่าง 5.3.5</span><span class="tag book">จากตำรา</span><span class="tag hard">ยาก</span><span class="ex-title">กราม-ชมิดต์บนฟังก์ชันจริง (มี \(\sqrt{x}\) ด้วย)</span></div>
+    <div class="ex-body">
+      <div class="ex-q">ให้ \(W = \operatorname{Span}\{1 - x,\; 1 + x,\; \sqrt{x}\}\) เป็นปริภูมิย่อยของ \(C^0[0, 1]\) จงใช้กระบวนการกราม-ชมิดต์สร้างฐานหลักเชิงตั้งฉากปรกติสำหรับ \(W\) โดยใช้ผลคูณภายใน \(\langle f, g\rangle = \displaystyle\int_0^1 f(x)g(x)\,dx\) จากตัวอย่าง 5.3.1</div>
+      <div class="approach"><span class="lbl">อธิบายโจทย์ง่าย ๆ</span> — ครั้งแรกที่กราม-ชมิดต์ทำงานบนฟังก์ชันจริง ๆ และมีราก \(\sqrt{x}\) ปนมาด้วย — ขั้นตอนเดิมทุกอย่าง: ตั้ง \(\vec{v}_1 = \vec{x}_1\), ลบส่วนฉายทีละตัว, ปรับหนึ่งหน่วย ทุกการวัดคืออินทิกรัล ใช้สูตร \(\int_0^1 x^k\,dx = \tfrac{1}{k+1}\) (พจน์ \(x^{1/2}\) ให้ \(\tfrac{2}{3}\)) — ตัวเลขทุกตัวตรวจด้วย python3 แล้ว</div>
+      <ol class="steps">
+        <li><span class="step-t">ตั้ง \(\vec{v}_1 = 1 - x\) และวัดค่าที่ต้องใช้</span> \(\langle \vec{v}_1, \vec{v}_1\rangle = \int_0^1 (1 - x)^2\,dx = \int_0^1 (1 - 2x + x^2)\,dx = 1 - 1 + \tfrac13 = \tfrac13\) · \(\langle 1 + x,\, 1 - x\rangle = \int_0^1 (1 - x^2)\,dx = 1 - \tfrac13 = \tfrac23\) (ใช้ผลต่างกำลังสอง \((1+x)(1-x) = 1 - x^2\))</li>
+        <li><span class="step-t">ลบส่วนฉายจาก \(1 + x\)</span> หารเศษส่วน: \(\tfrac{2/3}{1/3} = 2\):
+        \[ \vec{v}_2 = (1 + x) - 2(1 - x) = 3x - 1 \]
+        ตรวจตั้งฉาก: \(\int_0^1 (3x - 1)(1 - x)\,dx = \int_0^1 (-3x^2 + 4x - 1)\,dx = -1 + 2 - 1 = 0\) ✓ และ \(\|\vec{v}_2\|^2 = \int_0^1 (3x - 1)^2\,dx = 3 - 3 + 1 = 1\) — ยาว 1 พอดี ไม่ต้องปรับ</li>
+        <li><span class="step-t">ลบส่วนฉายสองส่วนออกจาก \(\sqrt{x}\)</span> \(\langle \sqrt{x},\, 1 - x\rangle = \int_0^1 (x^{1/2} - x^{3/2})\,dx = \tfrac23 - \tfrac25 = \tfrac{4}{15}\) · \(\langle \sqrt{x},\, 3x - 1\rangle = \int_0^1 (3x^{3/2} - x^{1/2})\,dx = \tfrac{6}{5} - \tfrac{2}{3} = \tfrac{8}{15}\)
+        \[ \vec{v}_3 = \sqrt{x} - \frac{4/15}{1/3}(1 - x) - \frac{8/15}{1}(3x - 1) = \sqrt{x} - \tfrac45(1 - x) - \tfrac{8}{15}(3x - 1) = \sqrt{x} - \tfrac45 x - \tfrac{4}{15} \]</li>
+        <li><span class="step-t">ปรับหนึ่งหน่วยตัวสุดท้าย</span> คูณ 15 ให้เลขสวย ได้ \(15\sqrt{x} - 12x - 4\) แล้วขยายกำลังสอง: \((15\sqrt{x} - 12x - 4)^2 = 225x + 144x^2 + 16 - 360x^{3/2} - 120x^{1/2} + 96x\) อินทิกรัลทีละพจน์: \(\tfrac{225}{2} + 48 + 16 - 144 - 80 + 48 = \tfrac12\) → ฐานหลักเชิงตั้งฉากปรกติ:
+        \[ \vec{u}_1 = \sqrt3\,(1 - x), \qquad \vec{u}_2 = 3x - 1, \qquad \vec{u}_3 = \sqrt2\,\left(15\sqrt{x} - 12x - 4\right) \]</li>
+      </ol>
+      <div class="verify"><span class="lbl">สรุปคำตอบ:</span> \(\{\sqrt3(1 - x),\; 3x - 1,\; \sqrt2\,(15\sqrt{x} - 12x - 4)\}\) เป็นฐานหลักเชิงตั้งฉากปรกติของ \(W\) — ตรวจด้วย python3 (อินทิกรัลเชิงตัวเลข): ทุกคู่ให้ 0 และทุกตัวยาว 1 ✓ แม้สมาชิกตัวที่สามหน้าตาแปลกตา กระบวนการก็จัดการได้เหมือนเวกเตอร์ธรรมดา</div>
+    </div>
+  </article>
+
+  <article class="ex-card">
+    <div class="ex-head"><span class="ex-badge">ลองทำ 5.3.1</span><span class="tag book">จากตำรา</span><span class="tag easy">ง่าย</span><span class="ex-title">\(\langle p, q\rangle = p(1)q(1)\) เป็นผลคูณภายในหรือไม่ — ลองก่อนดูเฉลย</span></div>
+    <div class="ex-body">
+      <div class="ex-q">จงพิจารณาว่าการกำหนด \(\langle p(x), q(x)\rangle = p(1)q(1)\) สำหรับทุกๆ \(p(x), q(x) \in \mathbb{R}[x]\) เป็นผลคูณภายในบน \(\mathbb{R}[x]\) หรือไม่ เพราะเหตุใด</div>
+      <div class="approach"><span class="lbl">อธิบายโจทย์ง่าย ๆ</span> — เช็กสมบัติที่ 1 ก่อนเป็นประจำ: \(\langle p, p\rangle \geq 0\) และเท่ากับ 0 <em>เฉพาะ</em> \(p = \vec{0}\) — การแทนค่าที่จุดเดียว "บีบ" พหุนามทั้งตัวให้เหลือตัวเลขเดียว มักมีพหุนามไม่ศูนย์ที่หลุดไปเป็น 0 ได้</div>
+      <ol class="steps">
+        <li><span class="step-t">สมบัติอื่นดูผ่านหมด</span> เชิงเส้น ✓ สลับที่ ✓ และ \(\langle p, p\rangle = p(1)^2 \geq 0\) ✓ (กำลังสองไม่ติดลบ) — ดูเหมือนผ่านทุกข้อ</li>
+        <li><span class="step-t">แต่จุดตายอยู่ที่ "เฉพาะ \(p = \vec{0}\)"</span> เลือก \(p(x) = x - 1 \neq \vec{0}\) (พหุนามไม่ศูนย์ มีดีกรี 1) แต่ \(p(1) = 0\) → \(\langle p, p\rangle = 0 \cdot 0 = 0\) — พหุนาม<em>ไม่ศูนย์</em>มี "ความยาวกำลังสอง" เป็นศูนย์ ✗</li>
+        <li><span class="step-t">สาเหตุเชิงลึก</span> พหุนามที่ถูกบีบไป 0 คือทุกตัวที่มี 1 เป็นราก ได้แก่ \((x - 1)q(x)\) ทุกตัว — ผลคูณภายในจริงต้องแยกแยะเวกเตอร์ไม่ศูนย์ทุกตัวออกจากศูนย์ แต่การแทนค่าจุดเดียวทำไม่ได้ (ต่างจาก \(\int_0^1 f^2\,dx\) ที่<em>ความต่อเนื่อง</em>ช่วยกันไว้ตามที่พิสูจน์ในตัวอย่าง 5.3.1(3))</li>
+        <li><span class="step-t">สรุป</span> ล้มสมบัติที่ 1 ที่ข้อ "เท่ากับ 0 เฉพาะตัวศูนย์" → <strong>ไม่เป็นผลคูณภายในบน \(\mathbb{R}[x]\)</strong></li>
+      </ol>
+      <div class="verify"><span class="lbl">สรุปคำตอบ:</span> ไม่เป็นผลคูณภายใน — เพราะ \(p(x) = x - 1 \neq \vec{0}\) แต่ \(\langle p, p\rangle = p(1)^2 = 0\) ขัดสมบัติ \(\langle \vec{v}, \vec{v}\rangle = 0\) ก็ต่อเมื่อ \(\vec{v} = \vec{0}\)</div>
+    </div>
+  </article>
+</section>
+
+<section class="block" id="apply">
+  <h2><span class="h2-dot">🌍</span> เอาไปใช้ทำอะไร — โจทย์ประยุกต์</h2>
+
+  <article class="ex-card">
+    <div class="ex-head"><span class="ex-badge">🎤 จับเพลงจากเสียงตัวอย่าง</span><span class="tag app">ใช้จริง</span><span class="tag mid">กลาง</span><span class="ex-title">ความคล้ายสัญญาณด้วยผลคูณภายในแบบอินทิกรัล</span></div>
+    <div class="ex-body">
+      <div class="ex-q">แอปจับเพลงวัดความคล้ายของสัญญาณเสียงสองช่วงด้วย "มุมโคไซน์" ในปริภูมิฟังก์ชัน: \(\cos\theta = \dfrac{\langle f, g\rangle}{\|f\|\,\|g\|}\) เมื่อ \(\langle f, g\rangle = \int_0^{2\pi} f(t)g(t)\,dt\) ให้เสียงตัวอย่าง \(f(t) = \sin t\) ในคลังมี \(g(t) = \sin t + 0.1\sin 3t\) (เพลงเดิมเสียงรบกวนเบา ๆ) และ \(h(t) = \sin 2t\) (เพลงละเมลด) จงหา \(\cos\theta\) ของ \(f\) กับ \(g\) และของ \(f\) กับ \(h\) เพื่อบอกว่าเสียงตัวอย่างตรงกับเพลงไหน</div>
+      <div class="approach"><span class="lbl">อธิบายโจทย์ง่าย ๆ</span> — เสียงคือฟังก์ชันของเวลา และ "ความคล้าย" ของฟังก์ชันสองตัววัดด้วยผลคูณภายใน \(\int fg\) หารด้วยความยาวสองตัว (สูตรเดียวกับ cosine similarity ในบทที่ 4 แต่เปลี่ยนผลรวมเป็นอินทิกรัล) — เคล็ดลับ: คลื่นไซน์ความถี่ต่างกัน<em>ตั้งฉากกัน</em>บนช่วง \([0, 2\pi]\) ทำให้พจน์ไขว้ดับหายไปเอง</div>
+      <ol class="steps">
+        <li><span class="step-t">ค่าพื้นฐานที่ใช้ซ้ำ</span> \(\int_0^{2\pi} \sin^2 t\,dt = \pi\) (ครึ่งช่วงบวกครึ่งช่วงลบเฉลี่ยได้ \(\tfrac12\) ตลอด) และ \(\int_0^{2\pi} \sin t \sin 3t\,dt = \int_0^{2\pi} \sin t \sin 2t\,dt = 0\) — <em>เพราะ</em>ผลคูณไซน์สองความถี่ต่างกันลงเอยด้วยสูตรผลคูณเป็นผลบวกของ \(\cos\) ที่วนครบวงอยู่แล้ว (ตั้งฉากโดยอัตโนมัติ)</li>
+        <li><span class="step-t">\(f\) กับ \(g\): แทบเป็นตัวเดียวกัน</span> \(\langle f, g\rangle = \int \sin t(\sin t + 0.1\sin 3t)\,dt = \pi + 0.1(0) = \pi\) · \(\|f\|^2 = \pi\), \(\|g\|^2 = \pi + 0.01\pi = 1.01\pi\) → \(\cos\theta = \dfrac{\pi}{\sqrt{\pi}\sqrt{1.01\pi}} = \dfrac{1}{\sqrt{1.01}} \approx 0.995\) — เกือบ 1 สุด ๆ</li>
+        <li><span class="step-t">\(f\) กับ \(h\): ตั้งฉากกัน = ไม่คล้ายเลย</span> \(\langle f, h\rangle = \int_0^{2\pi} \sin t \sin 2t\,dt = 0\) → \(\cos\theta = 0\) — แม้ทั้งคู่เป็น "เสียงไซน์" เหมือนกัน แต่ความถี่ต่างกันทำให้ตั้งฉากกันสนิท (ตรวจด้วย python3: \(\pi \approx 3.1416\), \(0.995\), \(0\) ✓)</li>
+        <li><span class="step-t">ตัดสิน</span> \(0.995 \gg 0\) → เสียงตัวอย่างตรงกับ \(g\) (เพลงเดิม + เสียงรบกวน) ไม่ใช่ \(h\) — ระบบจัดอันดับเพลงเลือกค่า \(\cos\theta\) สูงสุดทันที</li>
+      </ol>
+      <div class="verify"><span class="lbl">เห็นไหมว่า...</span> แอปจับเพลง ระบบจับคู่เสียงพูด และการค้นหาคลิปซ้ำในคลังวิดีโอ ล้วนวัด "ความคล้ายสัญญาณ" ด้วยผลคูณภายในบนปริภูมิฟังก์ชัน — และความตั้งฉากของคลื่นไซน์ความถี่ต่างกัน (ที่มาจากอินทิกรัลเป็นศูนย์) คือเหตุผลที่ระบบแยกเสียงต่ำ/เสียงสูงออกจากกันได้แม่นยำ</div>
+    </div>
+  </article>
+
+  <article class="ex-card">
+    <div class="ex-head"><span class="ex-badge">🎵 บีบอัดเสียง MP3</span><span class="tag app">ใช้จริง</span><span class="tag mid">กลาง</span><span class="ex-title">Fourier ตั้งฉาก — เก็บสัมประสิทธิ์ใหญ่ ทิ้งตัวเล็ก</span></div>
+    <div class="ex-body">
+      <div class="ex-q">เสียง 1 วินาทีแบบดิจิทัลคือฟังก์ชันที่มีค่าเป็นหมื่นจุด เครื่องเล่นเพลงบีบอัดโดย "ฉาย" สัญญาณลงบนฐานหลักเชิงตั้งฉากของคลื่นไซน์ (รากฐานของ Fourier) แล้วเก็บเฉพาะสัมประสิทธิ์ที่ใหญ่ ให้สัญญาณ \(f(t) = 3\sin t + 0.05\sin 2t\) บน \([0, 2\pi]\) จงหาสัมประสิทธิ์ของแต่ละความถี่ และแสดงว่าทำไมตัด \(\sin 2t\) ทิ้งได้แทบไม่เสียเสียง</div>
+      <div class="approach"><span class="lbl">อธิบายโจทย์ง่าย ๆ</span> — การฉายบนฐานหลักเชิงตั้งฉากใช้สูตรทฤษฎีบท 4.1.3: น้ำหนักแต่ละตัว = \(\tfrac{\langle f, \text{ฐาน}\rangle}{\langle \text{ฐาน}, \text{ฐาน}\rangle}\) — ที่นี่ "ฐาน" คือคลื่นไซน์ความถี่ต่าง ๆ ซึ่งตั้งฉากกันเองตามอินทิกรัล จึงถอดสัมประสิทธิ์ทีละตัวได้โดยไม่ต้องแก้ระบบสมการใหญ่</div>
+      <ol class="steps">
+        <li><span class="step-t">เช็กความตั้งฉากของฐานหลักก่อน</span> \(\langle \sin t, \sin 2t\rangle = \int_0^{2\pi} \sin t \sin 2t\,dt = 0\) ✓ และ \(\|\sin kt\|^2 = \int_0^{2\pi} \sin^2 kt\,dt = \pi\) ทุก \(k\) — คลื่นไซน์ความถี่ต่างกันเป็น<em>ฐานหลักเชิงตั้งฉาก</em>ที่วัดความยาวเท่ากันทุกตัว</li>
+        <li><span class="step-t">ถอดสัมประสิทธิ์ความถี่ที่ 1</span> \(\langle f, \sin t\rangle = \int (3\sin t + 0.05\sin 2t)\sin t\,dt = 3\pi + 0.05(0) = 3\pi\) → น้ำหนัก = \(\tfrac{3\pi}{\pi} = 3\) (พจน์ \(\sin 2t\) หายไปเพราะตั้งฉากกับ \(\sin t\) — ไม่รบกวนการวัดเลย)</li>
+        <li><span class="step-t">ถอดสัมประสิทธิ์ความถี่ที่ 2</span> \(\langle f, \sin 2t\rangle = 3(0) + 0.05\pi = 0.05\pi\) → น้ำหนัก = \(\tfrac{0.05\pi}{\pi} = 0.05\)</li>
+        <li><span class="step-t">เทียบพลังงานแล้วตัดสินใจ</span> ส่วนของความถี่ที่ 2 ในพลังงานรวม: \(\tfrac{(0.05)^2}{3^2 + (0.05)^2} = \tfrac{0.0025}{9.0025} \approx 0.03\%\) — ตัดทิ้งได้เพราะหูมนุษย์แยกความต่างระดับนี้ไม่ออก (ตรวจด้วย python3: \(3\pi \approx 9.4248\), \(0.05\pi \approx 0.1571\), \(0.03\%\) ✓) — เก็บแค่เลข "3" แทนข้อมูลหมื่นจุด = บีบอัดมหาศาล</li>
+      </ol>
+      <div class="verify"><span class="lbl">เห็นไหมว่า...</span> MP3/AAC/JPEG ทั้งหมดคือสูตรเดียวกัน: "ฉายลงฐานหลักเชิงตั้งฉาก → เก็บสัมประสิทธิ์ใหญ่ → ทิ้งตัวเล็ก" — และความตั้งฉากคือสิ่งที่ทำให้ทั้งหมดเป็นไปได้ เพราะถอดสัมประสิทธิ์แต่ละตัวได้ด้วยผลคูณภายในจุดเดียว \(\tfrac{\langle f, \vec{u}\rangle}{\|\vec{u}\|^2}\) โดยสมาชิกฐานอื่นไม่รบกวนเลย</div>
     </div>
   </article>
 </section>

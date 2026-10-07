@@ -34,6 +34,8 @@
   <a href="#objectives">🎯 จุดประสงค์</a>
   <a href="#lesson">📖 บทเรียน</a>
   <a href="#examples">✏️ ตัวอย่างโจทย์</a>
+  <a href="#textbook">📚 ตัวอย่างจากตำรา</a>
+  <a href="#apply">🌍 การใช้จริง</a>
   <a href="#recipe">⚡ สูตรสำเร็จ</a>
   <a href="#practice">🏋️ โจทย์ซ้อมมือ</a>
 </nav>
@@ -145,6 +147,179 @@
         \[ A = 8\begin{bmatrix} 4/5 & 2/5\\ 2/5 & 1/5 \end{bmatrix} + 3\begin{bmatrix} 1/5 & -2/5\\ -2/5 & 4/5 \end{bmatrix} = \begin{bmatrix} 32/5 + 3/5 & 16/5 - 6/5\\ 16/5 - 6/5 & 8/5 + 12/5 \end{bmatrix} = \begin{bmatrix} 7 & 2\\ 2 & 4 \end{bmatrix} \;\checkmark \]
         — <strong>สรุปคำตอบ:</strong> การแยกเชิงสเปกตรัมคือ \(A = 8\vec{u}_1\vec{u}_1^T + 3\vec{u}_2\vec{u}_2^T\) และเมื่อรวมกลับได้ \(A\) ต้นทางพอดี จึงยืนยันถูกต้อง</li>
       </ol>
+    </div>
+  </article>
+</section>
+
+<section class="block" id="textbook">
+  <h2><span class="h2-dot">📚</span> ตัวอย่างจากตำรา (พีชคณิต.pdf)</h2>
+  <p class="page-sub">โจทย์ทุกข้อคัดมาตรงจากตำราประกอบการสอน โดยเรียงจากง่ายไปยาก — ใต้โจทย์แต่ละข้อมี "อธิบายโจทย์ง่าย ๆ" ช่วยให้เห็นว่าโจทย์ถามอะไรก่อนลงมือทำ</p>
+
+  <article class="ex-card">
+    <div class="ex-head"><span class="ex-badge">ตัวอย่าง 4.4.1</span><span class="tag book">จากตำรา</span><span class="tag easy">ง่าย</span><span class="ex-title">จำแนกเมทริกซ์สมมาตรและไม่สมมาตร</span></div>
+    <div class="ex-body">
+      <div class="ex-q">เมทริกซ์ \(\begin{bmatrix} 1 &amp; 3\\ 3 &amp; -2 \end{bmatrix}\) และ \(\begin{bmatrix} 0 &amp; 1 &amp; 2\\ 1 &amp; 3 &amp; -1\\ 2 &amp; -1 &amp; 2 \end{bmatrix}\) เป็นเมทริกซ์สมมาตร ส่วน \(\begin{bmatrix} 2 &amp; -1\\ 1 &amp; -2 \end{bmatrix}\) และ \(\begin{bmatrix} 3 &amp; -1 &amp; 0\\ 1 &amp; 1 &amp; 2\\ 0 &amp; -2 &amp; 2 \end{bmatrix}\) ไม่เป็นเมทริกซ์สมมาตร</div>
+      <div class="approach"><span class="lbl">อธิบายโจทย์ง่าย ๆ</span> — "สมมาตร" แปลว่าพับตามแนวทแยงแล้วทับกันพอดี หรือเขียนเป็นนิยาม \(A^T = A\) — ช่องที่ \(i, j\) ต้องเท่ากับช่อง \(j, i\) ทุกคู่ ตรวจได้โดยการสลับแถว-หลักแล้วเทียบทีละช่อง ซึ่งในทางปฏิบัติคือเทียบคู่กระจกเงา: ช่องเหนือทแยงกับช่องใต้ทแยงตำแหน่งสมมาตร</div>
+      <ol class="steps">
+        <li><span class="step-t">สองตัวแรกผ่าน</span> \(\begin{bmatrix} 1 &amp; 3\\ 3 &amp; -2 \end{bmatrix}\): ช่อง (1,2) = 3 และช่อง (2,1) = 3 เท่ากัน ✓ ทแยงหลักไม่ต้องเช็ก (สลับแล้วอยู่ที่เดิม) · ตัว 3×3: ช่อง (1,2) = 1 = ช่อง (2,1) ✓, ช่อง (1,3) = 2 = ช่อง (3,1) ✓, ช่อง (2,3) = −1 = ช่อง (3,2) ✓ ครบทุกคู่กระจก → เป็นเมทริกซ์สมมาตร</li>
+        <li><span class="step-t">สองตัวหลังไม่ผ่าน</span> \(\begin{bmatrix} 2 &amp; -1\\ 1 &amp; -2 \end{bmatrix}\): ช่อง (1,2) = −1 แต่ช่อง (2,1) = 1 ไม่เท่ากัน (ต่างเครื่องหมาย) → ไม่สมมาตร แค่จุดเดียวก็พอตัดสิน · ตัว 3×3: ช่อง (1,2) = −1 แต่ช่อง (2,1) = 1 → ไม่สมมาตทันทีเช่นกัน</li>
+      </ol>
+      <div class="verify"><span class="lbl">สรุปคำตอบ:</span> เกณฑ์ตัดสินมีข้อเดียว: \(A^T = A\) — ในทางปฏิบัติแค่เทียบช่องกระจกเงาทีละคู่ เจอคู่ไหนไม่เท่ากันก็ตัดสินได้ทันทีว่าไม่สมมาตร (เมทริกซ์สมมาตรคือพระเอกของหัวข้อนี้ เพราะแปลงทแยงมุมเชิงตั้งฉากได้เสมอ)</div>
+    </div>
+  </article>
+
+  <article class="ex-card">
+    <div class="ex-head"><span class="ex-badge">แบบฝึกหัด 4.4 ข้อ 1 ก,ข,ค</span><span class="tag book">จากตำรา</span><span class="tag mid">กลาง</span><span class="ex-title">แปลงทแยงมุมเชิงตั้งฉากเมทริกซ์ \(2\times2\) สามตัว</span></div>
+    <div class="ex-body">
+      <div class="ex-q">จงแปลงเมทริกซ์ต่อไปนี้เป็นทแยงมุมเชิงตั้งฉาก<br>
+      (ก) \(A = \begin{bmatrix} 8 &amp; -2\\ -2 &amp; 5 \end{bmatrix}\) &nbsp;&nbsp;
+      (ข) \(A = \begin{bmatrix} 1 &amp; -2\\ -2 &amp; 1 \end{bmatrix}\) &nbsp;&nbsp;
+      (ค) \(A = \begin{bmatrix} 9 &amp; -12\\ -12 &amp; 16 \end{bmatrix}\)</div>
+      <div class="approach"><span class="lbl">อธิบายโจทย์ง่าย ๆ</span> — สูตรมาตรฐานสำหรับเมทริกซ์สมมาตร \(2\times2\): หา \(\lambda\) จาก \(\det(A - \lambda I) = 0\) → หาเวกเตอร์ลักษณะเฉพาะแต่ละตัว → หนึ่งหน่วย → เรียงเป็นหลักของ \(P\) แล้ววาง \(\lambda\) ตามลำดับเดียวกันลง \(D\) — เมทริกซ์สมมาตรรับประกันว่าสองเวกเตอร์ที่ได้ตั้งฉากกันอยู่แล้ว (ทฤษฎีบท 4.4.1)</div>
+      <ol class="steps">
+        <li><span class="step-t">(ก) หา \(\lambda\) และเวกเตอร์</span> \(\det(A - \lambda I) = \lambda^2 - 13\lambda + 36 = (\lambda - 4)(\lambda - 9) = 0\) ได้ \(\lambda = 4, 9\) · \(\lambda = 4\): \(A - 4I = \begin{bmatrix} 4 &amp; -2\\ -2 &amp; 1 \end{bmatrix}\) สมการ \(4x_1 - 2x_2 = 0\) → \(\vec{x} = (1, 2)\) · \(\lambda = 9\): \(A - 9I = \begin{bmatrix} -1 &amp; -2\\ -2 &amp; -4 \end{bmatrix}\) สมการ \(x_1 + 2x_2 = 0\) → \(\vec{x} = (-2, 1)\) — จุดกันได้ \(1(−2) + 2(1) = 0\) ✓ ตั้งฉากกันตามสัญญา</li>
+        <li><span class="step-t">(ก) ประกอบ \(P\) และ \(D\)</span> ทั้งคู่ยาว \(\sqrt{1+4} = \sqrt5\) จึงหารด้วย \(\sqrt5\)
+        \[ P = \frac{1}{\sqrt{5}}\begin{bmatrix} 1 &amp; -2\\ 2 &amp; 1 \end{bmatrix}, \qquad D = \begin{bmatrix} 4 &amp; 0\\ 0 &amp; 9 \end{bmatrix}, \qquad A = PDP^T \]</li>
+        <li><span class="step-t">(ข) \(\lambda^2 - 2\lambda - 3 = (\lambda + 1)(\lambda - 3)\)</span> ได้ \(\lambda = -1, 3\) · \(\lambda = -1\): \(A + I = \begin{bmatrix} 2 &amp; -2\\ -2 &amp; 2 \end{bmatrix}\) → \((1, 1)\) · \(\lambda = 3\): \(A - 3I = \begin{bmatrix} -2 &amp; -2\\ -2 &amp; -2 \end{bmatrix}\) → \((-1, 1)\) ทั้งคู่ยาว \(\sqrt2\)
+        \[ P = \frac{1}{\sqrt{2}}\begin{bmatrix} 1 &amp; -1\\ 1 &amp; 1 \end{bmatrix}, \qquad D = \begin{bmatrix} -1 &amp; 0\\ 0 &amp; 3 \end{bmatrix}, \qquad A = PDP^T \]</li>
+        <li><span class="step-t">(ค) \(\lambda^2 - 25\lambda = \lambda(\lambda - 25)\)</span> ได้ \(\lambda = 0, 25\) · \(\lambda = 0\): \(9x_1 = 12x_2\) → \((4, 3)\) · \(\lambda = 25\): \(A - 25I = \begin{bmatrix} -16 &amp; -12\\ -12 &amp; -9 \end{bmatrix}\) สมการ \(4x_1 + 3x_2 = 0\) → \((-3, 4)\) ทั้งคู่ยาว 5 พอดี จึงหารด้วย 5
+        \[ P = \begin{bmatrix} \tfrac45 &amp; -\tfrac35\\[2pt] \tfrac35 &amp; \tfrac45 \end{bmatrix}, \qquad D = \begin{bmatrix} 0 &amp; 0\\ 0 &amp; 25 \end{bmatrix}, \qquad A = PDP^T \]
+        (ข้อ (ค) ได้ \(\lambda = 0\) — เมทริกซ์เอกฐานไม่ได้ก็แปลงทแยงมุมเชิงตั้งฉากได้ตามปกติ)</li>
+      </ol>
+      <div class="verify"><span class="lbl">สรุปคำตอบ:</span> (ก) \(\lambda = 4, 9\), \(P = \tfrac{1}{\sqrt5}\begin{bmatrix} 1 &amp; -2\\ 2 &amp; 1 \end{bmatrix}\) · (ข) \(\lambda = -1, 3\), \(P = \tfrac{1}{\sqrt2}\begin{bmatrix} 1 &amp; -1\\ 1 &amp; 1 \end{bmatrix}\) · (ค) \(\lambda = 0, 25\), \(P = \begin{bmatrix} \tfrac45 &amp; -\tfrac35\\ \tfrac35 &amp; \tfrac45 \end{bmatrix}\) — ตรงคำตอบท้ายบท (ตรวจ (ก): \(A(1, 2)^T = (8(1) + (-2)(2),\; (-2)(1) + 5(2)) = (4, 8) = 4(1, 2)\) ✓)</div>
+    </div>
+  </article>
+
+  <article class="ex-card">
+    <div class="ex-head"><span class="ex-badge">ตัวอย่าง 4.4.2</span><span class="tag book">จากตำรา</span><span class="tag mid">กลาง</span><span class="ex-title">แปลงเมทริกซ์ \(3\times3\) สมมาตรเป็นทแยงมุม</span></div>
+    <div class="ex-body">
+      <div class="ex-q">จงแปลงเมทริกซ์ \(A = \begin{bmatrix} 2 &amp; 3 &amp; 3\\ 3 &amp; -1 &amp; 0\\ 3 &amp; 0 &amp; -1 \end{bmatrix}\) เป็นทแยงมุม</div>
+      <div class="approach"><span class="lbl">อธิบายโจทย์ง่าย ๆ</span> — ขั้นตอนสามช่วงเหมือนเดิม: แก้สมการลักษณะเฉพาะเพื่อได้ \(\lambda\) ทั้งสาม → แก้ \((A - \lambda I)\vec{x} = \vec{0}\) ทีละค่าเพื่อได้เวกเตอร์ → จัดเรียงเป็น \(P\) กับ \(D\) — โจทย์ข้อนี้ \(\lambda\) แตกต่างกันทั้งสามตัว จึงไม่ต้องใช้กราม-ชมิดต์ (เวกเตอร์จะตั้งฉากกันเองโดยทฤษฎีบท 4.4.1)</div>
+      <ol class="steps">
+        <li><span class="step-t">สมการลักษณะเฉพาะ</span> \(\det(A - \lambda I_3) = (\lambda + 1)(\lambda + 4)(5 - \lambda) = 0\) ได้ \(\lambda = -1, -4, 5\)</li>
+        <li><span class="step-t">\(\lambda = -1\)</span> ลดรูป \(A + I_3 = \begin{bmatrix} 3 &amp; 3 &amp; 3\\ 3 &amp; 0 &amp; 0\\ 3 &amp; 0 &amp; 0 \end{bmatrix} \sim \begin{bmatrix} 1 &amp; 0 &amp; 0\\ 0 &amp; 1 &amp; 1\\ 0 &amp; 0 &amp; 0 \end{bmatrix}\) สมนัยกับ \(x_1 = 0\), \(x_2 + x_3 = 0\) → เวกเตอร์ฐานหลัก \((0, -1, 1)\)</li>
+        <li><span class="step-t">\(\lambda = -4\)</span> ลดรูป \(A + 4I_3 = \begin{bmatrix} 6 &amp; 3 &amp; 3\\ 3 &amp; 3 &amp; 0\\ 3 &amp; 0 &amp; 3 \end{bmatrix} \sim \begin{bmatrix} 1 &amp; 0 &amp; 1\\ 0 &amp; 1 &amp; -1\\ 0 &amp; 0 &amp; 0 \end{bmatrix}\) สมนัยกับ \(x_1 + x_3 = 0\), \(x_2 - x_3 = 0\) → เวกเตอร์ฐานหลัก \((-1, 1, 1)\)</li>
+        <li><span class="step-t">\(\lambda = 5\)</span> ลดรูป \(A - 5I_3 = \begin{bmatrix} -3 &amp; 3 &amp; 3\\ 3 &amp; -6 &amp; 0\\ 3 &amp; 0 &amp; -6 \end{bmatrix} \sim \begin{bmatrix} 1 &amp; 0 &amp; -2\\ 0 &amp; 1 &amp; -1\\ 0 &amp; 0 &amp; 0 \end{bmatrix}\) สมนัยกับ \(x_1 - 2x_3 = 0\), \(x_2 - x_3 = 0\) → เวกเตอร์ฐานหลัก \((2, 1, 1)\)</li>
+        <li><span class="step-t">ประกอบ \(A = PDP^{-1}\)</span> เรียงเวกเตอร์เป็นหลักของ \(P\) ตามลำดับ \(\lambda = -1, -4, 5\)
+        \[ D = \begin{bmatrix} -1 &amp; 0 &amp; 0\\ 0 &amp; -4 &amp; 0\\ 0 &amp; 0 &amp; 5 \end{bmatrix}, \qquad P = \begin{bmatrix} 0 &amp; -1 &amp; 2\\ -1 &amp; 1 &amp; 1\\ 1 &amp; 1 &amp; 1 \end{bmatrix}, \qquad A = PDP^{-1} \]
+        ตรวจตั้งฉากกันเอง: \((0,-1,1)\cdot(-1,1,1) = 0 - 1 + 1 = 0\) ✓, \((0,-1,1)\cdot(2,1,1) = 0 - 1 + 1 = 0\) ✓, \((-1,1,1)\cdot(2,1,1) = -2 + 1 + 1 = 0\) ✓ — นี่คือของขวัญของเมทริกซ์สมมาตร ทำให้ขั้นถัดไป (ตัวอย่าง 4.4.3) แปลงเป็น \(A = PDP^T\) ได้ทันที</li>
+      </ol>
+      <div class="verify"><span class="lbl">สรุปคำตอบ:</span> \(A = PDP^{-1}\) ตามเมทริกซ์ด้านบน — ตรงตามตำรา (ตรวจ \(\lambda = 5\): \(A(2,1,1)^T = (4+3+3, 6-1, 6-1) = (10, 5, 5) = 5(2,1,1)\) ✓)</div>
+    </div>
+  </article>
+
+  <article class="ex-card">
+    <div class="ex-head"><span class="ex-badge">ตัวอย่าง 4.4.3</span><span class="tag book">จากตำรา</span><span class="tag mid">กลาง</span><span class="ex-title">อัปเกรดเป็น \(P\) เชิงตั้งฉากปรกติ → \(A = PDP^T\)</span></div>
+    <div class="ex-body">
+      <div class="ex-q">ให้ \(A = \begin{bmatrix} 2 &amp; 3 &amp; 3\\ 3 &amp; -1 &amp; 0\\ 3 &amp; 0 &amp; -1 \end{bmatrix}\) จากตัวอย่าง 4.4.2 เราสังเกตว่าเราอาจเลือกเมทริกซ์
+      \[ P = \begin{bmatrix} 0 &amp; -\tfrac{1}{\sqrt{3}} &amp; \tfrac{2}{\sqrt{6}}\\[2pt] -\tfrac{1}{\sqrt{2}} &amp; \tfrac{1}{\sqrt{3}} &amp; \tfrac{1}{\sqrt{6}}\\[2pt] \tfrac{1}{\sqrt{2}} &amp; \tfrac{1}{\sqrt{3}} &amp; \tfrac{1}{\sqrt{6}} \end{bmatrix} \]
+      ซึ่งเป็นเมทริกซ์เชิงตั้งฉากปรกติ ทำให้ได้ว่า \(P^{-1} = P^T\) และ \(A = P\begin{bmatrix} -1 &amp; 0 &amp; 0\\ 0 &amp; -4 &amp; 0\\ 0 &amp; 0 &amp; 5 \end{bmatrix}P^T\) ดังนั้น \(A\) สามารถแปลงเป็นทแยงมุมเชิงตั้งฉากได้</div>
+      <div class="approach"><span class="lbl">อธิบายโจทย์ง่าย ๆ</span> — ขั้นเดียวที่เพิ่มมาคือ "หนึ่งหน่วย": นำเวกเตอร์จาก 4.4.2 มาหารด้วยความยาวของมันเอง \(\sqrt2, \sqrt3, \sqrt6\) ตามลำดับ แล้วเรียงเป็นหลักของ \(P\) — พอทุกหลัก orthonormal แล้ว \(P^{-1}\) กลายเป็น \(P^T\) สูตรจึงสวยขึ้นเป็น \(A = PDP^T\) ซึ่งเป็นรูปแบบมาตรฐานที่ใช้ต่อใน 4.5</div>
+      <ol class="steps">
+        <li><span class="step-t">หารแต่ละหลักด้วยความยาว</span> หลักแรก \((0, -1, 1)\) ยาว \(\sqrt{0+1+1} = \sqrt2\) → \((0, -\tfrac{1}{\sqrt2}, \tfrac{1}{\sqrt2})\) · หลักที่สอง \((-1, 1, 1)\) ยาว \(\sqrt3\) → \((-\tfrac{1}{\sqrt3}, \tfrac{1}{\sqrt3}, \tfrac{1}{\sqrt3})\) · หลักที่สาม \((2, 1, 1)\) ยาว \(\sqrt{4+1+1} = \sqrt6\) → \((\tfrac{2}{\sqrt6}, \tfrac{1}{\sqrt6}, \tfrac{1}{\sqrt6})\)</li>
+        <li><span class="step-t">เรียงเป็นหลักและสรุป</span> หลักของ \(P\) orthonormal ครบ (ยาว 1 ทุกหลัก + ตั้งฉากทุกคู่จาก 4.4.2) จึงได้ \(P^TP = I_3\) → \(P^{-1} = P^T\) และ
+        \[ A = PDP^T, \qquad D = \begin{bmatrix} -1 &amp; 0 &amp; 0\\ 0 &amp; -4 &amp; 0\\ 0 &amp; 0 &amp; 5 \end{bmatrix} \]
+        จำไว้: ลำดับ \(\lambda\) ใน \(D\) ต้องตรงกับลำดับหลักของ \(P\) เสมอ</li>
+      </ol>
+      <div class="verify"><span class="lbl">สรุปคำตอบ:</span> \(A\) แปลงทแยงมุมเชิงตั้งฉากได้ด้วย \(P, D\) ตามด้านบน — ตรงตามตำรา (ตรวจหลักแรก (\(\lambda = -1\)): \(A(0, -1, 1)^T = (2(0) + 3(-1) + 3(1),\; 3(0) + (-1)(-1) + 0,\; 3(0) + 0 + (-1)(1)) = (0, 1, -1) = -1 \cdot (0, -1, 1)\) ✓)</div>
+    </div>
+  </article>
+
+  <article class="ex-card">
+    <div class="ex-head"><span class="ex-badge">ตัวอย่าง 4.4.5</span><span class="tag book">จากตำรา</span><span class="tag mid">กลาง</span><span class="ex-title">การแยกเชิงสเปกตรัมของ \(\begin{bmatrix} 7 &amp; 2\\ 2 &amp; 4 \end{bmatrix}\)</span></div>
+    <div class="ex-body">
+      <div class="ex-q">เมทริกซ์สมมาตร \(A = \begin{bmatrix} 7 &amp; 2\\ 2 &amp; 4 \end{bmatrix} = \begin{bmatrix} \tfrac{2}{\sqrt5} &amp; -\tfrac{1}{\sqrt5}\\[2pt] \tfrac{1}{\sqrt5} &amp; \tfrac{2}{\sqrt5} \end{bmatrix}\begin{bmatrix} 8 &amp; 0\\ 0 &amp; 3 \end{bmatrix}\begin{bmatrix} \tfrac{2}{\sqrt5} &amp; \tfrac{1}{\sqrt5}\\[2pt] -\tfrac{1}{\sqrt5} &amp; \tfrac{2}{\sqrt5} \end{bmatrix}\) มีการแยกเชิงสเปกตรัมเป็น
+      \[ A = 8\begin{bmatrix} \tfrac45 &amp; \tfrac25\\ \tfrac25 &amp; \tfrac15 \end{bmatrix} + 3\begin{bmatrix} \tfrac15 &amp; -\tfrac25\\ -\tfrac25 &amp; \tfrac45 \end{bmatrix} \]</div>
+      <div class="approach"><span class="lbl">อธิบายโจทย์ง่าย ๆ</span> — การแยกเชิงสเปกตรัมคือการเขียน \(A = \lambda_1\vec{u}_1\vec{u}_1^T + \lambda_2\vec{u}_2\vec{u}_2^T\) — แต่ละพจน์คือ "ค่าลักษณะเฉพาะ × เมทริกซ์ฉายแรงก์ 1" ที่เกิดจากการเอาเวกเตอร์หลัก (คอลัมน์) คูณกับตัวทรานสโพสของตัวเอง (แถว) — คือการแยก \(A\) ออกเป็น "ทิศอิทธิพล" ตามความสำคัญของแต่ละ \(\lambda\)</div>
+      <ol class="steps">
+        <li><span class="step-t">รู้จักเวกเตอร์หลัก</span> \(\vec{u}_1 = \tfrac{1}{\sqrt5}(2, 1)\) คู่กับ \(\lambda_1 = 8\) และ \(\vec{u}_2 = \tfrac{1}{\sqrt5}(-1, 2)\) คู่กับ \(\lambda_2 = 3\) — ทั้งคู่หนึ่งหน่วยและตั้งฉากกัน (\(2(-1) + 1(2) = 0\) ✓)</li>
+        <li><span class="step-t">สร้างเมทริกซ์แรงก์ 1</span> คูณ "คอลัมน์ × แถว" ทีละช่อง ตัวประกอบ \(\tfrac{1}{\sqrt5} \cdot \tfrac{1}{\sqrt5} = \tfrac15\): \(\vec{u}_1\vec{u}_1^T = \tfrac15\begin{bmatrix} 4 &amp; 2\\ 2 &amp; 1 \end{bmatrix}\) (เช่น ช่องขวาบน = \(2 \times 1\)) และ \(\vec{u}_2\vec{u}_2^T = \tfrac15\begin{bmatrix} 1 &amp; -2\\ -2 &amp; 4 \end{bmatrix}\) (ช่องซ้ายบน = \((-1)(-1) = 1\))</li>
+        <li><span class="step-t">คูณ \(\lambda\) แล้วบวกกัน</span> \(8 \times \tfrac15(4, 2, 2, 1) = (\tfrac{32}5, \tfrac{16}5, \tfrac{16}5, \tfrac85)\) และ \(3 \times \tfrac15(1, -2, -2, 4) = (\tfrac35, -\tfrac65, -\tfrac65, \tfrac{12}5)\) บวกทีละช่อง: \(\tfrac{32}5 + \tfrac35 = 7\) ✓, \(\tfrac{16}5 - \tfrac65 = 2\) ✓, \(\tfrac85 + \tfrac{12}5 = 4\) ✓ — ได้ \(A\) กลับคืนพอดี
+        \[ A = 8\begin{bmatrix} \tfrac45 &amp; \tfrac25\\ \tfrac25 &amp; \tfrac15 \end{bmatrix} + 3\begin{bmatrix} \tfrac15 &amp; -\tfrac25\\ -\tfrac25 &amp; \tfrac45 \end{bmatrix} \]</li>
+      </ol>
+      <div class="verify"><span class="lbl">สรุปคำตอบ:</span> การแยกเชิงสเปกตรัมคือ \(A = 8\vec{u}_1\vec{u}_1^T + 3\vec{u}_2\vec{u}_2^T\) ตามด้านบน — ตรงตามตำรา (แปลว่า \(A\) ทำสองหน้าที่อิสระต่อกัน: ยืดทิศ \((2,1)\) ด้วยปัจจัย 8 และยืดทิศ \((-1,2)\) ด้วยปัจจัย 3)</div>
+    </div>
+  </article>
+
+  <article class="ex-card">
+    <div class="ex-head"><span class="ex-badge">แบบฝึกหัด 4.4 ข้อ 2 ก,ข</span><span class="tag book">จากตำรา</span><span class="tag mid">กลาง</span><span class="ex-title">ฝึกแยกเชิงสเปกตรัมเองสองตัว</span></div>
+    <div class="ex-body">
+      <div class="ex-q">จงหาการแยกเชิงสเปกตรัมของเมทริกซ์สมมาตร \(A\) ในข้อ 1. (ก)–(ข)<br>
+      (ก) \(A = \begin{bmatrix} 8 &amp; -2\\ -2 &amp; 5 \end{bmatrix}\) &nbsp;&nbsp;&nbsp;&nbsp;
+      (ข) \(A = \begin{bmatrix} 1 &amp; -2\\ -2 &amp; 1 \end{bmatrix}\)</div>
+      <div class="approach"><span class="lbl">อธิบายโจทย์ง่าย ๆ</span> — ยืมของจากข้อ 1: เวกเตอร์หนึ่งหน่วยที่ได้ไว้แล้วนำมา "คอลัมน์ × แถว" คูณด้วย \(\lambda\) ของตัวเอง แล้วบวกกัน — จบเลย ไม่ต้องหาอะไรใหม่</div>
+      <ol class="steps">
+        <li><span class="step-t">(ก) ใช้ \(\vec{u}_1 = \tfrac{1}{\sqrt5}(1, 2)\) คู่ \(\lambda = 4\), \(\vec{u}_2 = \tfrac{1}{\sqrt5}(-2, 1)\) คู่ \(\lambda = 9\)</span> \(\vec{u}_1\vec{u}_1^T = \tfrac15\begin{bmatrix} 1 &amp; 2\\ 2 &amp; 4 \end{bmatrix}\), \(\vec{u}_2\vec{u}_2^T = \tfrac15\begin{bmatrix} 4 &amp; -2\\ -2 &amp; 1 \end{bmatrix}\)
+        \[ A = \frac{4}{5}\begin{bmatrix} 1 &amp; 2\\ 2 &amp; 4 \end{bmatrix} + \frac{9}{5}\begin{bmatrix} 4 &amp; -2\\ -2 &amp; 1 \end{bmatrix} \]
+        ตรวจ: ช่อง (1,1) \(\tfrac45 + \tfrac{36}5 = \tfrac{40}5 = 8\) ✓ ช่อง (1,2) \(\tfrac85 - \tfrac{18}5 = -\tfrac{10}5 = -2\) ✓ ช่อง (2,2) \(\tfrac{16}5 + \tfrac95 = 5\) ✓</li>
+        <li><span class="step-t">(ข) ใช้ \(\vec{u}_1 = \tfrac{1}{\sqrt2}(1, 1)\) คู่ \(\lambda = -1\), \(\vec{u}_2 = \tfrac{1}{\sqrt2}(-1, 1)\) คู่ \(\lambda = 3\)</span> \(\vec{u}_1\vec{u}_1^T = \tfrac12\begin{bmatrix} 1 &amp; 1\\ 1 &amp; 1 \end{bmatrix}\), \(\vec{u}_2\vec{u}_2^T = \tfrac12\begin{bmatrix} 1 &amp; -1\\ -1 &amp; 1 \end{bmatrix}\)
+        \[ A = -\frac{1}{2}\begin{bmatrix} 1 &amp; 1\\ 1 &amp; 1 \end{bmatrix} + \frac{3}{2}\begin{bmatrix} 1 &amp; -1\\ -1 &amp; 1 \end{bmatrix} \]
+        ตรวจ: ช่อง (1,1) \(-\tfrac12 + \tfrac32 = 1\) ✓ ช่อง (1,2) \(-\tfrac12 - \tfrac32 = -2\) ✓ ช่อง (2,2) \(-\tfrac12 + \tfrac32 = 1\) ✓ (สังเกตว่า \(\lambda = -1\) ให้พจน์เป็นลบ — เป็นเรื่องปกติ)</li>
+      </ol>
+      <div class="verify"><span class="lbl">สรุปคำตอบ:</span> (ก) \(A = \tfrac45\begin{bmatrix} 1 &amp; 2\\ 2 &amp; 4 \end{bmatrix} + \tfrac95\begin{bmatrix} 4 &amp; -2\\ -2 &amp; 1 \end{bmatrix}\) · (ข) \(A = -\tfrac12\begin{bmatrix} 1 &amp; 1\\ 1 &amp; 1 \end{bmatrix} + \tfrac32\begin{bmatrix} 1 &amp; -1\\ -1 &amp; 1 \end{bmatrix}\) — รวมกลับได้ \(A\) เดิมทุกช่อง ✓</div>
+    </div>
+  </article>
+
+  <article class="ex-card">
+    <div class="ex-head"><span class="ex-badge">แบบฝึกหัด 4.4 ข้อ 5</span><span class="tag book">จากตำรา</span><span class="tag hard">ยาก</span><span class="ex-title">แปลงทแยงมุมเชิงตั้งฉากด้วยสัญลักษณ์ \(A = \begin{bmatrix} a &amp; b\\ b &amp; a \end{bmatrix}\)</span></div>
+    <div class="ex-body">
+      <div class="ex-q">ให้ \(A = \begin{bmatrix} a &amp; b\\ b &amp; a \end{bmatrix}\) โดยที่ \(b \neq 0\) จงแปลง \(A\) เป็นทแยงมุมเชิงตั้งฉาก</div>
+      <div class="approach"><span class="lbl">อธิบายโจทย์ง่าย ๆ</span> — โจทย์ไม่ให้ตัวเลขแต่ให้ "ตระกูล" ของเมทริกซ์ที่ทแยงหลักเท่ากันและนอกทแยงเท่ากัน (เจอบ่อยในระบบสองส่วนที่สมมาตรกัน) ต้องคิดทั้งหมดด้วยตัวอักษร \(a, b\) — ขั้นตอนเหมือนเดิมทุกอย่างแค่แทนเลขด้วยตัวแปร ระวังตอนยกกำลังสองและตัดทอน</div>
+      <ol class="steps">
+        <li><span class="step-t">สมการลักษณะเฉพาะ</span> \(\det(A - \lambda I) = (a - \lambda)^2 - b^2 = 0\) แก้ได้ \((a - \lambda) = \pm b\) จึงได้ \(\lambda = a - b\) และ \(\lambda = a + b\) — ค่าลักษณะเฉพาะเป็นจำนวนจริงเสมอแม้ \(a, b\) เป็นจำนวนจริงใด ๆ (และแตกต่างกันเพราะ \(b \neq 0\))</li>
+        <li><span class="step-t">เวกเตอร์ลักษณะเฉพาะ</span> \(\lambda = a - b\): \(A - \lambda I = \begin{bmatrix} b &amp; b\\ b &amp; b \end{bmatrix}\) ให้ \(x_1 + x_2 = 0\) → \(\vec{u}_1 = \tfrac{1}{\sqrt2}(1, -1)\) · \(\lambda = a + b\): \(A - \lambda I = \begin{bmatrix} -b &amp; b\\ b &amp; -b \end{bmatrix}\) ให้ \(-x_1 + x_2 = 0\) → \(\vec{u}_2 = \tfrac{1}{\sqrt2}(1, 1)\) — สังเกตว่าทิศของเวกเตอร์ไม่ขึ้นกับ \(a, b\) เลย ตั้งฉากกันตามคาด (\(1 - 1 = 0\) ✓)</li>
+        <li><span class="step-t">ประกอบคำตอบ</span> เรียงหลักตามลำดับ \(\lambda = a - b, a + b\)
+        \[ P = \frac{1}{\sqrt{2}}\begin{bmatrix} 1 &amp; 1\\ -1 &amp; 1 \end{bmatrix}, \qquad D = \begin{bmatrix} a - b &amp; 0\\ 0 &amp; a + b \end{bmatrix}, \qquad A = PDP^T \]</li>
+      </ol>
+      <div class="verify"><span class="lbl">สรุปคำตอบ:</span> \(\lambda = a \pm b\), \(P = \tfrac{1}{\sqrt2}\begin{bmatrix} 1 &amp; 1\\ -1 &amp; 1 \end{bmatrix}\) — ตรงคำตอบท้ายบท (ตรวจ: \(A\begin{bmatrix}1\\1\end{bmatrix} = (a+b)\begin{bmatrix}1\\1\end{bmatrix}\) ✓ และ \(A\begin{bmatrix}1\\-1\end{bmatrix} = (a-b)\begin{bmatrix}1\\-1\end{bmatrix}\) ✓)</div>
+    </div>
+  </article>
+
+  <article class="ex-card">
+    <div class="ex-head"><span class="ex-badge">ตัวอย่าง 4.4.4</span><span class="tag book">จากตำรา</span><span class="tag hard">ยาก</span><span class="ex-title">\(\lambda\) ซ้ำต้องใช้กราม-ชมิดต์ — แปลงทแยงมุมเชิงตั้งฉากเต็มขั้น</span></div>
+    <div class="ex-body">
+      <div class="ex-q">จงแปลงเมทริกซ์สมมาตร \(A = \begin{bmatrix} 7 &amp; -16 &amp; -8\\ -16 &amp; 7 &amp; 8\\ -8 &amp; 8 &amp; -5 \end{bmatrix}\) ซึ่งมีสมการลักษณะเฉพาะเป็น \((27 - \lambda)(\lambda + 9)^2 = 0\) เป็นทแยงมุมเชิงตั้งฉาก</div>
+      <div class="approach"><span class="lbl">อธิบายโจทย์ง่าย ๆ</span> — จุดใหม่ของข้อนี้คือ \(\lambda = -9\)<em>ซ้ำสองครั้ง</em> ปริภูมิลักษณะเฉพาะจึงมีเวกเตอร์สองตัว ซึ่งรับประกันแค่ว่า "ตั้งฉากกับกลุ่มอื่น" แต่สองตัวภายในกลุ่มเดียวกัน<em>ไม่จำเป็น</em>ต้องตั้งฉากกันเอง — จึงต้องรีดกราม-ชมิดต์เฉพาะในกลุ่มนั้น แล้วปิดท้ายด้วยการหนึ่งหน่วยทุกตัว</div>
+      <ol class="steps">
+        <li><span class="step-t">\(\lambda = 27\)</span> ลดรูป \(A - 27I_3 \sim \begin{bmatrix} 1 &amp; 0 &amp; 2\\ 0 &amp; 1 &amp; -2\\ 0 &amp; 0 &amp; 0 \end{bmatrix}\) ได้ \(x_1 + 2x_3 = 0\), \(x_2 - 2x_3 = 0\) → เวกเตอร์ \((-2, 2, 1)\) ยาว \(\sqrt{4+4+1} = 3\) → หนึ่งหน่วยคือ \(\tfrac13(-2, 2, 1)\)</li>
+        <li><span class="step-t">\(\lambda = -9\): ฐานหลักดิบ ๆ ยังไม่ตั้งฉากกัน</span> ลดรูป \(A + 9I_3 \sim \begin{bmatrix} 1 &amp; -1 &amp; -\tfrac12\\ 0 &amp; 0 &amp; 0\\ 0 &amp; 0 &amp; 0 \end{bmatrix}\) ได้ \(x_1 = x_2 + \tfrac12 x_3\) → ฐานหลัก \(\vec{x}_1 = (1, 1, 0)\), \(\vec{x}_2 = (1, 0, 2)\) — เช็ก: \(\vec{x}_1\cdot\vec{x}_2 = 1 + 0 + 0 = 1 \neq 0\) ยังเอียงกันอยู่ จึงต้องใช้กราม-ชมิดต์</li>
+        <li><span class="step-t">กราม-ชมิดต์ภายในกลุ่ม</span> \(\vec{v}_1 = \vec{x}_1 = (1, 1, 0)\) · \(\vec{v}_2 = \vec{x}_2 - \tfrac{\vec{x}_2\cdot\vec{v}_1}{\vec{v}_1\cdot\vec{v}_1}\vec{v}_1 = (1, 0, 2) - \tfrac12(1, 1, 0) = (\tfrac12, -\tfrac12, 2)\) คูณสเกลาร์ 2 ได้ \(\vec{v}_2' = (1, -1, 4)\) (ตรวจ: \((1,1,0)\cdot(1,-1,4) = 0\) ✓)</li>
+        <li><span class="step-t">หนึ่งหน่วยทุกตัวแล้วประกอบ</span> \(\|(1,1,0)\| = \sqrt2\), \(\|(1,-1,4)\| = \sqrt{1+1+16} = \sqrt{18}\)
+        \[ P = \begin{bmatrix} -\tfrac23 &amp; \tfrac{1}{\sqrt{2}} &amp; \tfrac{1}{\sqrt{18}}\\[2pt] \tfrac23 &amp; \tfrac{1}{\sqrt{2}} &amp; -\tfrac{1}{\sqrt{18}}\\[2pt] \tfrac13 &amp; 0 &amp; \tfrac{4}{\sqrt{18}} \end{bmatrix}, \qquad D = \begin{bmatrix} 27 &amp; 0 &amp; 0\\ 0 &amp; -9 &amp; 0\\ 0 &amp; 0 &amp; -9 \end{bmatrix}, \qquad A = PDP^T \]</li>
+      </ol>
+      <div class="verify"><span class="lbl">สรุปคำตอบ:</span> \(A = PDP^T\) ตามเมทริกซ์ด้านบน — ตรงตามตำรา (ตรวจด้วย numpy แล้ว: ค่าลักษณะเฉพาะของ \(A\) คือ \(27, -9, -9\) และ \(PDP^T\) คืน \(A\) ทุกช่อง ✓ จำหลักการ: กราม-ชมิดต์ใช้เฉพาะ<em>ภายใน</em>ปริภูมิลักษณะเฉพาะที่ \(\lambda\) ซ้ำ)</div>
+    </div>
+  </article>
+</section>
+
+<section class="block" id="apply">
+  <h2><span class="h2-dot">🌍</span> เอาไปใช้ทำอะไร — โจทย์ประยุกต์</h2>
+
+  <article class="ex-card">
+    <div class="ex-head"><span class="ex-badge">🖼️ PCA ย่อมิติข้อมูล</span><span class="tag app">ใช้จริง</span><span class="tag easy">ง่าย</span><span class="ex-title">ค้นหา "แกนหลัก" ของข้อมูลด้วยค่าลักษณะเฉพาะ</span></div>
+    <div class="ex-body">
+      <div class="ex-q">เก็บข้อมูลคู่ (ชั่วโมงเรียนพิเศษ, คะแนนสอบ) ของ 4 คน ได้จุด \((0, 1), (1, 2), (2, 3), (3, 4)\) ที่ศูนย์กลางข้อมูลเมทริกซ์ความแปรปรวนร่วม (covariance matrix) คือ \(S = \begin{bmatrix} 1.25 &amp; 1.25\\ 1.25 &amp; 1.25 \end{bmatrix}\) จงหาค่าลักษณะเฉพาะและเวกเตอร์หลักของ \(S\) แล้วตอบว่าถ้าต้องยุบข้อมูล 2 มิตินี้เหลือ 1 มิติ ควรฉายลงทิศไหน และเสียข้อมูลแค่ไหน</div>
+      <div class="approach"><span class="lbl">อธิบายโจทย์ง่าย ๆ</span> — หัวใจของ PCA (Principal Component Analysis) ที่ใช้ย่อภาพ ย่อข้อมูล ทำระบบแนะนำ: หาทิศที่ข้อมูล "กระจายมากที่สุด" โดยดูจากค่าลักษณะเฉพาะของเมทริกซ์ความแปรปรวนร่วม — \(\lambda\) ใหญ่ = ทิศนั้นเก็บข้อมูลไว้เยอะ, \(\lambda\) เล็ก = ทิศนั้นแทบไม่มีอะไรจะเสีย</div>
+      <ol class="steps">
+        <li><span class="step-t">หาค่าลักษณะเฉพาะ</span> \(\det(S - \lambda I) = (1.25 - \lambda)^2 - (1.25)^2 = 0\) แก้ได้ \(\lambda = 1.25 \pm 1.25\) คือ \(\lambda_1 = 2.5\) และ \(\lambda_2 = 0\)</li>
+        <li><span class="step-t">หาเวกเตอร์หลัก</span> \(\lambda_1 = 2.5\): \((S - 2.5I)\vec{x} = \begin{bmatrix} -1.25 &amp; 1.25\\ 1.25 &amp; -1.25 \end{bmatrix}\vec{x} = \vec{0}\) ให้ \(x_1 = x_2\) → แกนหลักคือ \(\tfrac{1}{\sqrt2}(1, 1)\) (ตรวจ: \(S(1,1)^T = (2.5, 2.5) = 2.5(1,1)\) ✓)</li>
+        <li><span class="step-t">ตีความและยุบข้อมูล</span> \(\lambda_2 = 0\) แปลว่าทิศตั้งฉากกับแกนหลัก<em>ไม่มีความแปรปรวนเลย</em> — ข้อมูลทั้ง 4 จุดนอนราบบนเส้น \(y = x + 1\) พอดี ดังนั้นการฉายลงแกน \(\tfrac{1}{\sqrt2}(1, 1)\) (คะแนนใหม่ = \(\tfrac{x' + y'}{\sqrt2}\) เมื่อ \((x', y')\) คือข้อมูลที่ลบค่ากลางแล้ว) จะเก็บข้อมูลไว้ 100% ไม่เสียเลยแม้แต่นิด ลดจาก 2 ตัวแปรเหลือ 1 ตัวได้ฟรี ๆ</li>
+      </ol>
+      <div class="verify"><span class="lbl">เห็นไหมว่า...</span> "แปลงทแยงมุมเชิงตั้งฉาก" ที่ฝึกในหัวข้อนี้ คือหัวใจของ PCA ที่ย่อภาพหลายล้านพิกเซลให้เหลือไม่กี่ร้อยตัวแปร และเป็นที่มาของการบีบอัดข้อมูล ตรวจจับความผิดปกติ และ visualization — เมทริกซ์จริงใหญ่กว่านี้มาก แต่แนวคิดเดิมทุกประการ: เรียง \(\lambda\) จากมากไปน้อย เก็บทิศที่ \(\lambda\) ใหญ่ ตัดทิศที่ \(\lambda\) เล็กทิ้ง</div>
+    </div>
+  </article>
+
+  <article class="ex-card">
+    <div class="ex-head"><span class="ex-badge">🎢 ระบบสปริงสองลูก</span><span class="tag app">ใช้จริง</span><span class="tag mid">กลาง</span><span class="ex-title">โหมดการสั่นของรถยนต์ — eigenvector คือ "ท่าทางการสั่น"</span></div>
+    <div class="ex-body">
+      <div class="ex-q">รถเข็นสองคัน มวลเท่ากัน 1 หน่วย ต่อกันด้วยสปริง (ค่า \(k = 1\)) และผูกกับกำแพงสองข้าง เมื่อกระจายสมการการสั่นได้ระบบ \(\vec{x}'' = A\vec{x}\) เมื่อ \(A = \begin{bmatrix} -2 &amp; 1\\ 1 &amp; -2 \end{bmatrix}\) จงหาค่าลักษณะเฉพาะและเวกเตอร์ลักษณะเฉพาะของ \(A\) แล้วตอบว่าระบบนี้สั่นได้กี่ "โหมด" แต่ละโหมดความถี่เท่าไรและสองคันขยับสัมพันธ์กันอย่างไร</div>
+      <div class="approach"><span class="lbl">อธิบายโจทย์ง่าย ๆ</span> — ในวิชากลศาสตร์การสั่น เวกเตอร์ลักษณะเฉพาะของ \(A\) คือ "รูปแบบการสั่นที่เป็นไปได้" และความถี่การสั่นคือ \(\omega = \sqrt{-\lambda}\) — โจทย์แค่ต้องการให้เห็นว่า eigenpair ที่คำนวณด้วยพีชคณิตเชิงเส้นธรรมดา อธิบายการสั่นของสะพาน รถยนต์ และอาคารได้จริง</div>
+      <ol class="steps">
+        <li><span class="step-t">หาค่าลักษณะเฉพาะ</span> \(\det(A - \lambda I) = (-2 - \lambda)^2 - 1 = 0\) ได้ \(-2 - \lambda = \pm 1\) คือ \(\lambda = -1, -3\) (ลบทั้งคู่ — จำเป็นสำหรับระบบเสถียรที่สั่นแล้วกลับมา ไม่ระเบิด)</li>
+        <li><span class="step-t">หาเวกเตอร์ลักษณะเฉพาะ (โหมดการสั่น)</span> \(\lambda = -1\): \((A + I)\vec{x} = \begin{bmatrix} -1 &amp; 1\\ 1 &amp; -1 \end{bmatrix}\vec{x} = \vec{0}\) → \(\vec{v}_1 = (1, 1)\) — สองคัน<em>ขยับไปทางเดียวกัน</em> (สปริงกลางยืดหดไม่เลย) · \(\lambda = -3\): \((A + 3I)\vec{x} = \begin{bmatrix} 1 &amp; 1\\ 1 &amp; 1 \end{bmatrix}\vec{x} = \vec{0}\) → \(\vec{v}_2 = (1, -1)\) — สองคัน<em>สวนทางกัน</em> (สปริงกลางทำงานหนัก จึงสั่นเร็วกว่า)</li>
+        <li><span class="step-t">ความถี่ของแต่ละโหมด</span> โหมดซิงก์: \(\omega_1 = \sqrt{-\lambda_1} = \sqrt1 = 1\) เรเดียน/วินาที · โหมดสวนทาง: \(\omega_2 = \sqrt{-\lambda_2} = \sqrt3 \approx 1.73\) เรเดียน/วินาที — ทุกการสั่นของระบบคือผสมของสองโหมดนี้ด้วยน้ำหนักต่าง ๆ (เพราะ \(\{\vec{v}_1, \vec{v}_2\}\) เป็นฐานหลักเชิงตั้งฉากของ \(\mathbb{R}^2\) พอดี)</li>
+      </ol>
+      <div class="verify"><span class="lbl">เห็นไหมว่า...</span> การแปลงทแยงมุมเชิงตั้งฉาก \(A = PDP^T\) ในบริบทนี้แปลว่า "แยกการสั่นพันกันซับซ้อน ให้กลายเป็นโหมดอิสระที่สั่นด้วยความถี่ของตัวเอง" — วิศวกรใช้หลักนี้ออกแบบตัวถังรถ สะพาน (โหมดการสั่น = eigenmode) และอาคารกันแผ่นดินไหว โดยเมทริกซ์ใหญ่กว่า 2×2 มหาศาล แต่แนวคิดคือตัวอย่างนี้เป๊ะ ๆ</div>
     </div>
   </article>
 </section>

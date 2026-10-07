@@ -14,6 +14,8 @@ page: ch3-2.html
   <a href="#objectives">🎯 จุดประสงค์</a>
   <a href="#lesson">📖 บทเรียน</a>
   <a href="#examples">✏️ ตัวอย่างโจทย์</a>
+  <a href="#textbook">📚 ตัวอย่างจากตำรา</a>
+  <a href="#apply">🌍 การใช้จริง</a>
   <a href="#recipe">⚡ สูตรสำเร็จ</a>
   <a href="#practice">🏋️ โจทย์ซ้อมมือ</a>
 </nav>
@@ -194,7 +196,277 @@ page: ch3-2.html
   </article>
 </section>
 
-<section class="block" id="recipe">
+  <section class="block" id="textbook">
+    <h2><span class="h2-dot">📚</span> ตัวอย่างจากตำรา (พีชคณิต.pdf)</h2>
+    <p class="page-sub">โจทย์ทุกข้อคัดมาตรงจากตำราประกอบการสอน โดยเรียงจากง่ายไปยาก — ใต้โจทย์แต่ละข้อมี "อธิบายโจทย์ง่าย ๆ" ช่วยให้เห็นว่าโจทย์ถามอะไรก่อนลงมือทำ</p>
+
+    <article class="ex-card">
+      <div class="ex-head"><span class="ex-badge">ตัวอย่าง 3.2.1</span><span class="tag book">จากตำรา</span><span class="tag easy">ง่าย</span><span class="ex-title">ตรวจด้วยนิยาม: \(\lambda\) เป็นค่าลักษณะเฉพาะ / \(\vec{v}\) เป็นเวกเตอร์ลักษณะเฉพาะ</span></div>
+      <div class="ex-body">
+        <div class="ex-q">ให้ \(A = \begin{bmatrix} 2 & 1\\ 4 & 2 \end{bmatrix}\) จงพิจารณาว่า
+        (ก) \(1\) เป็นค่าลักษณะเฉพาะของ \(A\) หรือไม่<br>
+        (ข) เวกเตอร์ \(\begin{bmatrix} 1\\ 2 \end{bmatrix}\) เป็นเวกเตอร์ลักษณะเฉพาะของ \(A\) หรือไม่ ถ้าเป็นจงหาค่าลักษณะเฉพาะซึ่งสมนัยกับเวกเตอร์นี้</div>
+        <div class="approach"><span class="lbl">อธิบายโจทย์ง่าย ๆ</span> — สองข้อนี้ไม่ต้องหาค่าลักษณะเฉพาะทั้งหมดเลย — ใช้นิยามตรง ๆ ข้อ (ก): \(\lambda = 1\) จะเป็นค่าลักษณะเฉพาะก็ต่อเมื่อ \((A - I)\vec{x} = \vec{0}\) มีผลเฉลยไม่ชัด ซึ่งเช็กเร็วสุดด้วย \(\det(A - I) = 0\) หรือไม่ ข้อ (ข): คูณ \(A\vec{v}\) รอบเดียว ถ้าผลออกมาเป็น \(\vec{v}\) คูณสเกลาร์สักตัว (ทิศเดิม) ก็เป็นเวกเตอร์ลักษณะเฉพาะทันที โดยสเกลาร์นั้นคือ \(\lambda\)</div>
+        <ol class="steps">
+          <li><span class="step-t">(ก) เขียน \(A - I_2\) แล้วคิด det</span> ลบ 1 ออกจากทแยง: \(2 \to 1\), \(2 \to 1\) (ช่อง \(1, 4\) คงเดิม) แล้วคิด det สูตรทแยงลง − ทแยงขึ้น:
+          \[ \det(A - I_2) = \begin{vmatrix} 2-1 & 1\\ 4 & 2-1 \end{vmatrix} = \begin{vmatrix} 1 & 1\\ 4 & 1 \end{vmatrix} = 1 - 4 = -3 \neq 0 \]
+          det ไม่เป็นศูนย์แปลว่า \(A - I_2\) ไม่เอกฐาน ระบบ \((A - I_2)\vec{x} = \vec{0}\) มีเพียงผลเฉลยชัด → <strong>1 ไม่เป็นค่าลักษณะเฉพาะของ \(A\)</strong></li>
+          <li><span class="step-t">(ข) คูณ \(A\vec{v}\)</span> ช่องบน \(2(1) + 1(2) = 4\), ช่องล่าง \(4(1) + 2(2) = 8\):
+          \[ A\begin{bmatrix} 1\\ 2 \end{bmatrix} = \begin{bmatrix} 2 & 1\\ 4 & 2 \end{bmatrix}\begin{bmatrix} 1\\ 2 \end{bmatrix} = \begin{bmatrix} 4\\ 8 \end{bmatrix} = 4\begin{bmatrix} 1\\ 2 \end{bmatrix} \]
+          ผลลัพธ์เป็นตัวเวกเตอร์เดิมคูณ 4 พอดี → <strong>เป็นเวกเตอร์ลักษณะเฉพาะ สมนัยกับ \(\lambda = 4\)</strong></li>
+        </ol>
+        <div class="verify"><span class="lbl">สรุปคำตอบ:</span> (ก) 1 ไม่เป็นค่าลักษณะเฉพาะของ \(A\) เพราะ \(\det(A - I_2) = -3 \neq 0\) · (ข) \(\begin{bmatrix} 1\\ 2 \end{bmatrix}\) เป็นเวกเตอร์ลักษณะเฉพาะ สมนัยกับ \(\lambda = 4\) — ตรงตามตำรา</div>
+      </div>
+    </article>
+
+    <article class="ex-card">
+      <div class="ex-head"><span class="ex-badge">แบบฝึกหัด 3.2 ข้อ 1 ก,ข + ข้อ 2 (ก)</span><span class="tag book">จากตำรา</span><span class="tag easy">ง่าย</span><span class="ex-title">ท่าเดียวกับ 3.2.1 — ตรวจด้วยนิยาม (3 ข้อย่อย)</span></div>
+      <div class="ex-body">
+        <div class="ex-q">จงตอบคำถามต่อไปนี้<br>
+        ข้อ 1 (ก) \(\lambda = 2\) เป็นค่าลักษณะเฉพาะของ \(\begin{bmatrix} 3 & 8\\ 3 & 2 \end{bmatrix}\) หรือไม่ เพราะเหตุใด<br>
+        ข้อ 1 (ข) \(\lambda = -2\) เป็นค่าลักษณะเฉพาะของ \(\begin{bmatrix} 7 & 3\\ 3 & -1 \end{bmatrix}\) หรือไม่ เพราะเหตุใด<br>
+        ข้อ 2 (ก) เวกเตอร์ \(\begin{bmatrix} 1\\ 4 \end{bmatrix}\) เป็นเวกเตอร์ลักษณะเฉพาะของ \(\begin{bmatrix} -3 & 1\\ -3 & 5 \end{bmatrix}\) หรือไม่ ถ้าเป็นจงหาค่าลักษณะเฉพาะซึ่งสมนัยกับเวกเตอร์นี้</div>
+        <div class="approach"><span class="lbl">อธิบายโจทย์ง่าย ๆ</span> — สามข้อย่อยใช้เครื่องมือเดียวกับตัวอย่าง 3.2.1: สองข้อแรกถามเรื่องค่าลักษณะเฉพาะ → ตรวจด้วย \(\det(A - \lambda I) = 0\) หรือไม่ (ระวัง \(\lambda = -2\) ต้อง "บวก 2" ที่ทแยง เพราะลบด้วยจำนวนลบ) ข้อที่สามถามเรื่องเวกเตอร์ → คูณ \(A\vec{v}\) แล้วดูว่าเป็นสเกลาร์เท่าของ \(\vec{v}\) หรือไม่</div>
+        <ol class="steps">
+          <li><span class="step-t">ข้อ 1 (ก)</span> \(A - 2I_2 = \begin{bmatrix} 3-2 & 8\\ 3 & 2-2 \end{bmatrix} = \begin{bmatrix} 1 & 8\\ 3 & 0 \end{bmatrix}\) → \(\det = 1(0) - 8(3) = -24 \neq 0\) → <strong>ไม่เป็นค่าลักษณะเฉพาะ</strong> (เมทริกซ์ไม่เอกฐาน ระบบมีแต่ผลเฉลยชัด)</li>
+          <li><span class="step-t">ข้อ 1 (ข)</span> \(A - (-2)I_2 = A + 2I_2 = \begin{bmatrix} 7+2 & 3\\ 3 & -1+2 \end{bmatrix} = \begin{bmatrix} 9 & 3\\ 3 & 1 \end{bmatrix}\) → \(\det = 9 - 9 = 0\) → <strong>เป็นค่าลักษณะเฉพาะ</strong> (<em>เพราะ</em> \((A + 2I_2)\vec{x} = \vec{0}\) มีผลเฉลยไม่ชัด)</li>
+          <li><span class="step-t">ข้อ 2 (ก)</span> คูณ: ช่องบน \(-3(1) + 1(4) = 1\), ช่องล่าง \(-3(1) + 5(4) = 17\):
+          \[ A\begin{bmatrix} 1\\ 4 \end{bmatrix} = \begin{bmatrix} 1\\ 17 \end{bmatrix} \]
+          ถ้าเป็นเวกเตอร์ลักษณะเฉพาะ ต้องมี \(\lambda\) ที่ \(1 = \lambda(1)\) และ \(17 = \lambda(4)\) พร้อมกัน — ข้อแรกบังคับ \(\lambda = 1\) แต่ข้อสองต้องการ \(\lambda = 17/4\) ขัดกัน → <strong>ไม่เป็นเวกเตอร์ลักษณะเฉพาะ</strong></li>
+        </ol>
+        <div class="verify"><span class="lbl">สรุปคำตอบ:</span> ข้อ 1: (ก) ไม่ · (ข) เป็น — ข้อ 2 (ก) ไม่ (เพราะ \(A\vec{v} = (1, 17)^T\) ไม่เป็นสเกลาร์เท่าของ \((1, 4)^T\)) — ตรงกับคำตอบท้ายบทของตำรา</div>
+      </div>
+    </article>
+
+    <article class="ex-card">
+      <div class="ex-head"><span class="ex-badge">ตัวอย่าง 3.2.2</span><span class="tag book">จากตำรา</span><span class="tag easy">ง่าย</span><span class="ex-title">สมการลักษณะเฉพาะ + ปริภูมิลักษณะเฉพาะ (\(2 \times 2\))</span></div>
+      <div class="ex-body">
+        <div class="ex-q">กำหนดให้ \(A = \begin{bmatrix} 3 & 2\\ 3 & 8 \end{bmatrix}\) จงหาสมการลักษณะเฉพาะ ค่าลักษณะเฉพาะ และฐานหลักสำหรับปริภูมิลักษณะเฉพาะซึ่งสมนัยกับแต่ละค่าลักษณะเฉพาะที่หาได้</div>
+        <div class="approach"><span class="lbl">อธิบายโจทย์ง่าย ๆ</span> — สามงานตามลำดับ: (1) แก้ \(\det(A - \lambda I_2) = 0\) ได้พหุนามแล้วแยกตัวประกอบ (2) สำหรับ \(\lambda\) แต่ละค่า ไปแก้ \((A - \lambda I)\vec{x} = \vec{0}\) แบบระบบเอกพันธุ์ (3) เวกเตอร์ฐานของเซตผลเฉลย = ฐานหลักของปริภูมิลักษณะเฉพาะ — จำไว้ว่าปริภูมิลักษณะเฉพาะคือ "ทุกทิศที่เมทริกซ์ยืดด้วยเลข \(\lambda\) ตัวเดียวกัน" ไม่ใช่เวกเตอร์เดียว</div>
+        <ol class="steps">
+          <li><span class="step-t">สมการลักษณะเฉพาะ</span> det = \((3 - \lambda)(8 - \lambda) - (2)(3)\) — กระจาย: \(24 - 11\lambda + \lambda^2\) แล้วลบ 6:
+          \[ \det(A - \lambda I_2) = (3 - \lambda)(8 - \lambda) - 6 = \lambda^2 - 11\lambda + 18 = 0 \]
+          แยกตัวประกอบ: หาสองจำนวนคูณกันได้ 18 บวกกันได้ \(-11\) → \(-2\) กับ \(-9\) → \((\lambda - 2)(\lambda - 9) = 0 \Rightarrow \lambda = 2, 9\) (ตรวจ trace/det: \(3 + 8 = 11 = 2 + 9\) ✓, \(24 - 6 = 18 = 2 \times 9\) ✓)</li>
+          <li><span class="step-t">\(\lambda = 2\): แก้ \((A - 2I_2)\vec{x} = \vec{0}\)</span> ลบ 2 ที่ทแยง → \(\begin{bmatrix} 1 & 2\\ 3 & 6 \end{bmatrix}\) — แถวล่างเป็น 3 เท่าของแถวบน เหลือสมการ \(x_1 + 2x_2 = 0 \Rightarrow x_1 = -2x_2\) เลือก \(x_2 = 1\):
+          \[ E_2 = \operatorname{Nul}(A - 2I_2) = \operatorname{Span}\left\{ \begin{bmatrix} -2\\ 1 \end{bmatrix} \right\} \]</li>
+          <li><span class="step-t">\(\lambda = 9\): แก้ \((A - 9I_2)\vec{x} = \vec{0}\)</span> ลบ 9 ที่ทแยง → \(\begin{bmatrix} -6 & 2\\ 3 & -1 \end{bmatrix}\) — แถวล่างเป็น \(-\tfrac{1}{2}\) เท่าของแถวบน เหลือสมการ \(x_1 - \tfrac{1}{3}x_2 = 0 \Rightarrow x_1 = \tfrac{1}{3}x_2\) เลือก \(x_2 = 3\) ได้ \(\begin{bmatrix} 1\\ 3 \end{bmatrix}\) (คูณ 3 เพื่อกำจัดเศษส่วน — ยังเป็นเวกเตอร์ลักษณะเฉพาะเพราะคูณสเกลาร์ได้เสมอ):
+          \[ E_9 = \operatorname{Nul}(A - 9I_2) = \operatorname{Span}\left\{ \begin{bmatrix} 1\\ 3 \end{bmatrix} \right\} \]</li>
+        </ol>
+        <div class="verify"><span class="lbl">สรุปคำตอบ:</span> \(\lambda^2 - 11\lambda + 18 = 0 \Rightarrow \lambda = 2, 9\) · ฐานหลัก: \(\lambda = 2\): \(\left\{ \begin{bmatrix} -2\\ 1 \end{bmatrix} \right\}\) · \(\lambda = 9\): \(\left\{ \begin{bmatrix} 1\\ 3 \end{bmatrix} \right\}\) (ตำราเขียนรูป \(\left\{ \begin{bmatrix} 1/3\\ 1 \end{bmatrix} \right\}\) ซึ่งเท่ากันเพราะเป็นสเกลาร์เท่ากัน) — ตรงตามตำรา</div>
+      </div>
+    </article>
+
+    <article class="ex-card">
+      <div class="ex-head"><span class="ex-badge">แบบฝึกหัด 3.2 ข้อ 3 (ก),(ข)</span><span class="tag book">จากตำรา</span><span class="tag mid">กลาง</span><span class="ex-title">ฐานหลักของปริภูมิลักษณะเฉพาะ (โจทย์ให้ \(\lambda\) มาแล้ว)</span></div>
+      <div class="ex-body">
+        <div class="ex-q">จงหาฐานหลักสำหรับปริภูมิลักษณะเฉพาะของเมทริกซ์ \(A\) ซึ่งสมนัยกับค่าลักษณะเฉพาะที่กำหนดให้
+        \[ \text{(ก)}\;\; A = \begin{bmatrix} 10 & -9\\ 4 & -2 \end{bmatrix}, \;\; \lambda = 4 \qquad\qquad
+        \text{(ข)}\;\; A = \begin{bmatrix} 4 & -2\\ -3 & 9 \end{bmatrix}, \;\; \lambda = 10 \]</div>
+        <div class="approach"><span class="lbl">อธิบายโจทย์ง่าย ๆ</span> — โจทย์ให้ \(\lambda\) มาแล้วจึงข้ามขั้นหาค่าลักษณะเฉพาะไปได้ เหลืองานเดียวคือแก้ \((A - \lambda I)\vec{x} = \vec{0}\) แล้วเลือกเวกเตอร์ฐานที่ไม่มีเศษส่วน — ระวังช่องที่ติดลบตอนลบ \(\lambda\) ที่ทแยง</div>
+        <ol class="steps">
+          <li><span class="step-t">(ก) แก้ \((A - 4I_2)\vec{x} = \vec{0}\)</span> ลบ 4 ที่ทแยง → \(\begin{bmatrix} 6 & -9\\ 4 & -6 \end{bmatrix}\) — หารแถวบนด้วย 3 ได้ \(\begin{bmatrix} 2 & -3 \end{bmatrix}\) (แถวล่างซ้ำข้อมูล: \(4/2 = 2\), \(-6/-3 = 2\) เป็น 2 เท่าของแถวบนเดิม) สมการ \(2x_1 - 3x_2 = 0 \Rightarrow x_1 = \tfrac{3}{2}x_2\) เลือก \(x_2 = 2\) กำจัดเศษส่วน:
+          \[ E_4 = \operatorname{Span}\left\{ \begin{bmatrix} 3\\ 2 \end{bmatrix} \right\} \]</li>
+          <li><span class="step-t">(ข) แก้ \((A - 10I_2)\vec{x} = \vec{0}\)</span> ลบ 10 ที่ทแยง → \(\begin{bmatrix} -6 & -2\\ -3 & -1 \end{bmatrix}\) — แถวล่างเป็นครึ่งหนึ่งของแถวบน เหลือสมการ \(3x_1 + x_2 = 0 \Rightarrow x_2 = -3x_1\) เลือก \(x_1 = -1\):
+          \[ E_{10} = \operatorname{Span}\left\{ \begin{bmatrix} -1\\ 3 \end{bmatrix} \right\} \]</li>
+        </ol>
+        <div class="verify"><span class="lbl">สรุปคำตอบ:</span> (ก) ฐานหลัก \(\begin{bmatrix} 3\\ 2 \end{bmatrix}\) · (ข) ฐานหลัก \(\begin{bmatrix} -1\\ 3 \end{bmatrix}\) — ตรงกับคำตอบท้ายบทของตำรา (ตรวจ: \(10(3) - 9(2) = 12 = 4(3)\) ✓ และ \(4(-1) - 2(3) = -10 = 10(-1)\) ✓)</div>
+      </div>
+    </article>
+
+    <article class="ex-card">
+      <div class="ex-head"><span class="ex-badge">ตัวอย่าง 3.2.3 (ก)</span><span class="tag book">จากตำรา</span><span class="tag mid">กลาง</span><span class="ex-title">\(3 \times 3\) ค่าลักษณะเฉพาะซ้ำ — หาครบทั้งสมการและฐานหลัก</span></div>
+      <div class="ex-body">
+        <div class="ex-q">จงหาสมการลักษณะเฉพาะ ค่าลักษณะเฉพาะ และฐานหลักสำหรับปริภูมิลักษณะเฉพาะของเมทริกซ์ \(A\) ซึ่งสมนัยกับแต่ละค่าลักษณะเฉพาะที่หาได้ เมื่อกำหนดให้
+        \[ A = \begin{bmatrix} 5 & -6 & -6\\ -1 & 4 & 2\\ 3 & -6 & -4 \end{bmatrix} \]</div>
+        <div class="approach"><span class="lbl">อธิบายโจทย์ง่าย ๆ</span> — ขั้นตอนมาตรฐานของ \(3 \times 3\): กระจายโคแฟกเตอร์หา \(\det(A - \lambda I_3)\) → แยกตัวประกอบ (ทดลองแทนตัวหารของค่าคงตัว) → สำหรับ \(\lambda\) แต่ละค่า แก้ \((A - \lambda I)\vec{x} = \vec{0}\) — จุดที่ต้องเฝ้าระวังคือ \(\lambda = 2\) ที่<em>ซ้ำสองครั้ง</em>: ถ้าแก้แล้วได้เวกเตอร์อิสระสองตัวก็ดี ถ้าได้แค่ตัวเดียวจะกลายเป็นปัญหาในตัวอย่าง 3.2.5</div>
+        <ol class="steps">
+          <li><span class="step-t">พหุนามลักษณะเฉพาะ</span> กระจายโคแฟกเตอร์ตามแถวที่ 1 แล้วรวบพจน์:
+          \[ \det(A - \lambda I_3) = -\lambda^3 + 5\lambda^2 - 8\lambda + 4 = 0 \]
+          ทดลองแทน \(\lambda = 1\): \(-1 + 5 - 8 + 4 = 0\) ✓ หารยาวด้วย \((\lambda - 1)\) เหลือ \(-(\lambda^2 - 4\lambda + 4) = -(\lambda - 2)^2\) → \(A\) มีค่าลักษณะเฉพาะ \(\lambda = 1, 2, 2\) (เลข 2 ซ้ำสองครั้ง)</li>
+          <li><span class="step-t">\(\lambda = 1\): ลดรูป \(A - I_3\)</span> ลบ 1 ที่ทแยง → \(\begin{bmatrix} 4 & -6 & -6\\ -1 & 3 & 2\\ 3 & -6 & -5 \end{bmatrix}\) ลดรูปจนได้รูปแบบขั้นบันไดลดรูป \(\begin{bmatrix} 1 & 0 & -1\\ 0 & 1 & \tfrac{1}{3}\\ 0 & 0 & 0 \end{bmatrix}\) → \(x_1 = x_3,\; x_2 = -\tfrac{1}{3}x_3\) เลือก \(x_3 = 3\) (กำจัดเศษส่วน):
+          \[ E_1 = \operatorname{Span}\left\{ \begin{bmatrix} 3\\ -1\\ 3 \end{bmatrix} \right\} \]</li>
+          <li><span class="step-t">\(\lambda = 2\): ลดรูป \(A - 2I_3\)</span> ลบ 2 ที่ทแยง → \(\begin{bmatrix} 3 & -6 & -6\\ -1 & 2 & 2\\ 3 & -6 & -6 \end{bmatrix}\) — แถวที่ 2 และ 3 เป็นสเกลาร์เท่าของกันหมด (ทุกแถวบอกเรื่องเดียว) ลดเหลือ \(\begin{bmatrix} 1 & -2 & -2\\ 0 & 0 & 0\\ 0 & 0 & 0 \end{bmatrix}\) → \(x_1 = 2x_2 + 2x_3\) โดย \(x_2, x_3\) เสรีทั้งคู่ (นี่คือเหตุผลที่ \(\dim E_2 = 2\)):
+          \[ E_2 = \operatorname{Span}\left\{ \begin{bmatrix} 2\\ 1\\ 0 \end{bmatrix}, \begin{bmatrix} 2\\ 0\\ 1 \end{bmatrix} \right\} \]
+          (ให้ \(x_2 = 1, x_3 = 0\) ได้ \((2, 1, 0)^T\); ให้ \(x_2 = 0, x_3 = 1\) ได้ \((2, 0, 1)^T\))</li>
+        </ol>
+        <div class="verify"><span class="lbl">สรุปคำตอบ:</span> สมการลักษณะเฉพาะ \(-\lambda^3 + 5\lambda^2 - 8\lambda + 4 = 0\), ค่าลักษณะเฉพาะ \(\lambda = 1, 2, 2\) · ฐานหลัก: \(\lambda = 1\): \(\left\{ \begin{bmatrix} 3\\ -1\\ 3 \end{bmatrix} \right\}\) · \(\lambda = 2\): \(\left\{ \begin{bmatrix} 2\\ 1\\ 0 \end{bmatrix}, \begin{bmatrix} 2\\ 0\\ 1 \end{bmatrix} \right\}\) — ตรงตามตำรา (ตรวจ: \(A(3,-1,3)^T = (3, -1, 3)^T\) ✓ และ \(A(2,1,0)^T = (4, 2, 0)^T = 2(2,1,0)^T\) ✓)</div>
+      </div>
+    </article>
+
+    <article class="ex-card">
+      <div class="ex-head"><span class="ex-badge">ตัวอย่าง 3.2.3 (ข)</span><span class="tag book">จากตำรา</span><span class="tag mid">กลาง</span><span class="ex-title">\(3 \times 3\) อีกตัว — พหุนามเดิม คำตอบต่าง</span></div>
+      <div class="ex-body">
+        <div class="ex-q">จงหาสมการลักษณะเฉพาะ ค่าลักษณะเฉพาะ และฐานหลักสำหรับปริภูมิลักษณะเฉพาะของเมทริกซ์ \(A\) ซึ่งสมนัยกับแต่ละค่าลักษณะเฉพาะที่หาได้ เมื่อกำหนดให้
+        \[ A = \begin{bmatrix} 3 & 1 & -1\\ 2 & 2 & -1\\ 2 & 2 & 0 \end{bmatrix} \]</div>
+        <div class="approach"><span class="lbl">อธิบายโจทย์ง่าย ๆ</span> — ขั้นตอนเดียวกับข้อ (ก) ทุกอย่าง และเผอิญได้พหุนามลักษณะเฉพาะ<em>เหมือนกันเป๊ะ</em> (\(-\lambda^3 + 5\lambda^2 - 8\lambda + 4\)) — ตำราตั้งใจวางคู่กันเพื่อชวนสังเกตว่าพหุนามเหมือนกันไม่ได้แปลว่าเมทริกซ์เหมือนกัน: ข้อนี้ค่า \(\lambda = 2\) ที่ซ้ำจะให้เวกเตอร์อิสระ<em>แค่ตัวเดียว</em> ต่างจากข้อ (ก)</div>
+        <ol class="steps">
+          <li><span class="step-t">พหุนามลักษณะเฉพาะ</span> กระจายโคแฟกเตอร์ตามแถวที่ 1:
+          \[ \det(A - \lambda I_3) = -\lambda^3 + 5\lambda^2 - 8\lambda + 4 = -(\lambda - 1)(\lambda - 2)^2 = 0 \;\Longrightarrow\; \lambda = 1, 2, 2 \]</li>
+          <li><span class="step-t">\(\lambda = 1\): ลดรูป \(A - I_3\)</span> ลบ 1 ที่ทแยง → \(\begin{bmatrix} 2 & 1 & -1\\ 2 & 1 & -1\\ 2 & 2 & -1 \end{bmatrix}\) — \(R_2 - R_1\) ให้แถวศูนย์, \(R_3 - R_1\) ให้ \((0, 1, 0)\) จากนั้น \(R_1 - R_2\) และ \(\tfrac{1}{2}R_1\) ได้ \(\begin{bmatrix} 1 & 0 & -\tfrac{1}{2}\\ 0 & 1 & 0\\ 0 & 0 & 0 \end{bmatrix}\) → \(x_1 = \tfrac{1}{2}x_3,\; x_2 = 0\) เลือก \(x_3 = 2\):
+          \[ E_1 = \operatorname{Span}\left\{ \begin{bmatrix} 1\\ 0\\ 2 \end{bmatrix} \right\} \]</li>
+          <li><span class="step-t">\(\lambda = 2\): ลดรูป \(A - 2I_3\)</span> ลบ 2 ที่ทแยง → \(\begin{bmatrix} 1 & 1 & -1\\ 2 & 0 & -1\\ 2 & 2 & -2 \end{bmatrix}\) — \(R_2 - 2R_1\) ได้ \((0, -2, 1)\), \(R_3 - 2R_1\) ได้แถวศูนย์ (ข้อมูลซ้ำ) จากนั้น \(-\tfrac{1}{2}R_2\) และ \(R_1 - R_2\) ได้
+          \[ \sim \begin{bmatrix} 1 & 0 & -\tfrac{1}{2}\\ 0 & 1 & -\tfrac{1}{2}\\ 0 & 0 & 0 \end{bmatrix} \;\Longrightarrow\; x_1 = \tfrac{1}{2}x_3, \;\; x_2 = \tfrac{1}{2}x_3 \;\Longrightarrow\; E_2 = \operatorname{Span}\left\{ \begin{bmatrix} 1\\ 1\\ 2 \end{bmatrix} \right\} \]
+          <strong>สังเกต: \(\dim E_2 = 1\)</strong> — ค่าลักษณะเฉพาะซ้ำสองครั้งแต่ได้เวกเตอร์อิสระแค่ตัวเดียว (ต่างจากข้อ (ก) ที่ได้สองตัว)</li>
+        </ol>
+        <div class="verify"><span class="lbl">สรุปคำตอบ:</span> \(\lambda = 1, 2, 2\) · ฐานหลัก: \(\lambda = 1\): \(\left\{ \begin{bmatrix} 1\\ 0\\ 2 \end{bmatrix} \right\}\) · \(\lambda = 2\): \(\left\{ \begin{bmatrix} 1\\ 1\\ 2 \end{bmatrix} \right\}\) — <em>หมายเหตุ:</em> ตำราพิมพ์ฐานหลักของ \(\lambda = 2\) เป็น \(\begin{bmatrix} -1\\ 1\\ 2 \end{bmatrix}\) เพราะ RREF ในตำราได้ช่อง \((1, 3)\) เป็น \(+\tfrac{1}{2}\) ซึ่งคำนวณผิดเครื่องหมาย (RREF ที่ถูกต้องแถวแรกเป็น \(-\tfrac{1}{2}\) ตามขั้นตอนด้านบน) — ตรวจด้วยการคูณจริง: \(A(1,1,2)^T = (2, 2, 4)^T = 2(1,1,2)^T\) ✓ ขณะที่ \(A(-1,1,2)^T = (-4, -2, 0)^T \neq 2(-1,1,2)^T\) จึงใช้ฐานหลัก \((1, 1, 2)^T\) ตามที่คำนวณได้ถูกต้อง</div>
+      </div>
+    </article>
+
+    <article class="ex-card">
+      <div class="ex-head"><span class="ex-badge">ตัวอย่าง 3.2.5 (ก)</span><span class="tag book">จากตำรา</span><span class="tag mid">กลาง</span><span class="ex-title">เมทริกซ์ 3.2.3 (ก) แปลงเป็นทแยงมุมได้</span></div>
+      <div class="ex-body">
+        <div class="ex-q">จงพิจารณาว่าเมทริกซ์ \(A = \begin{bmatrix} 5 & -6 & -6\\ -1 & 4 & 2\\ 3 & -6 & -4 \end{bmatrix}\) (จากตัวอย่าง 3.2.3 (ก)) สามารถแปลงเป็นทแยงมุมได้หรือไม่ เพราะเหตุใด</div>
+        <div class="approach"><span class="lbl">อธิบายโจทย์ง่าย ๆ</span> — เกณฑ์ตัดสินมีข้อเดียว: รวมเวกเตอร์ลักษณะเฉพาะอิสระทุกค่าลักษณะเฉพาะได้ครบ \(n = 3\) ตัวหรือไม่ (ทฤษฎีบท 3.2.5) — ข้อมูลทั้งหมดอยู่ในตัวอย่าง 3.2.3 (ก) แล้ว งานของข้อนี้คือ "นับให้ถูก" แล้วประกอบ \(P, D\) ให้ลำดับจับคู่ถูกตัว</div>
+        <ol class="steps">
+          <li><span class="step-t">นับเวกเตอร์อิสระ</span> จากตัวอย่าง 3.2.3 (ก): \(\lambda = 1\) ให้ \(\dim E_1 = 1\) (ฐาน \((3, -1, 3)^T\)) และ \(\lambda = 2\) ซ้ำ 2 ครั้งแต่ให้ \(\dim E_2 = 2\) (ฐาน \((2, 1, 0)^T, (2, 0, 1)^T\)) — เท่ากับจำนวนครั้งที่ซ้ำพอดี → รวม \(1 + 2 = 3\) เวกเตอร์อิสระครบ \(n = 3\) → <strong>แปลงเป็นทแยงมุมได้</strong></li>
+          <li><span class="step-t">ประกอบ \(P\) และ \(D\)</span> เรียงเวกเตอร์ลักษณะเฉพาะเป็นหลักของ \(P\) ตามลำดับ แล้วใส่ค่าลักษณะเฉพาะที่จับคู่กันลงทแยงของ \(D\) (หลักที่ \(j\) ของ \(P\) กับทแยงช่องที่ \(j\) ของ \(D\) ต้องเป็นคู่เดียวกัน):
+          \[ P = \begin{bmatrix} 3 & 2 & 2\\ -1 & 1 & 0\\ 3 & 0 & 1 \end{bmatrix}, \qquad D = \begin{bmatrix} 1 & 0 & 0\\ 0 & 2 & 0\\ 0 & 0 & 2 \end{bmatrix} \]</li>
+          <li><span class="step-t">ตรวจ \(AP = PD\)</span> หลักแรกของ \(PD\) คือ \(1 \cdot (3, -1, 3)^T = (3, -1, 3)^T\) และ \(A(3, -1, 3)^T = (3, -1, 3)^T\) ✓ · หลักสอง \(2 \cdot (2, 1, 0)^T = (4, 2, 0)^T\) และ \(A(2, 1, 0)^T = (4, 2, 0)^T\) ✓ · หลักสาม \(2 \cdot (2, 0, 1)^T = (4, 0, 2)^T\) และ \(A(2, 0, 1)^T = (4, 0, 2)^T\) ✓ — สองข้างตรงกันทุกหลัก จึงได้ \(A = PDP^{-1}\)</li>
+        </ol>
+        <div class="verify"><span class="lbl">สรุปคำตอบ:</span> \(A\) แปลงเป็นทแยงมุมได้ เพราะผลรวมมิติของปริภูมิลักษณะเฉพาะ \(= 1 + 2 = 3 = n\) โดย \(A = PDP^{-1}\) เมื่อ \(P = \begin{bmatrix} 3 & 2 & 2\\ -1 & 1 & 0\\ 3 & 0 & 1 \end{bmatrix}\), \(D = \operatorname{diag}(1, 2, 2)\) — ตรงตามตำรา</div>
+      </div>
+    </article>
+
+    <article class="ex-card">
+      <div class="ex-head"><span class="ex-badge">ตัวอย่าง 3.2.5 (ข)</span><span class="tag book">จากตำรา</span><span class="tag mid">กลาง</span><span class="ex-title">เมทริกซ์ 3.2.3 (ข) แปลงเป็นทแยงมุมไม่ได้</span></div>
+      <div class="ex-body">
+        <div class="ex-q">จงพิจารณาว่าเมทริกซ์ \(A = \begin{bmatrix} 3 & 1 & -1\\ 2 & 2 & -1\\ 2 & 2 & 0 \end{bmatrix}\) (จากตัวอย่าง 3.2.3 (ข)) สามารถแปลงเป็นทแยงมุมได้หรือไม่ เพราะเหตุใด</div>
+        <div class="approach"><span class="lbl">อธิบายโจทย์ง่าย ๆ</span> — คู่ตรงข้ามของข้อ (ก): ค่าลักษณะเฉพาะซ้ำ \(\lambda = 2\) ของเมทริกซ์นี้ให้ปริภูมิลักษณะเฉพาะมีมิติแค่ 1 — น้อยกว่าจำนวนครั้งที่ซ้ำ — เก็บเวกเตอร์อิสระไม่ครบ 3 ตัว จึงสร้าง \(P\) ไม่เอกฐานไม่ได้ ตัดสินจบได้จากการนับ ไม่ต้องคำนวณเพิ่ม</div>
+        <ol class="steps">
+          <li><span class="step-t">รวบข้อมูลจากตัวอย่าง 3.2.3 (ข)</span> \(\lambda = 1\): \(\dim E_1 = 1\) (ฐาน \((1, 0, 2)^T\)) · \(\lambda = 2\) ซ้ำ 2 ครั้ง: \(\dim E_2 = 1\) (ฐาน \((1, 1, 2)^T\))</li>
+          <li><span class="step-t">เทียบกับจำนวนครั้งที่ซ้ำ</span> โดยทฤษฎีบท 3.2.5 ข้อ 1: มิติของปริภูมิลักษณะเฉพาะต้อง ≤ จำนวนการซ้ำ (ที่นี่ \(1 \le 2\) ผ่าน) แต่ข้อ 2 บอกว่าแปลงเป็นทแยงมุมได้<em>ก็ต่อเมื่อ</em>ผลรวมมิติเท่ากับ \(n\) — ที่นี่ \(1 + 1 = 2 &lt; 3\) → <strong>แปลงเป็นทแยงมุมไม่ได้</strong></li>
+          <li><span class="step-t">เหตุผลเชิงภาพ</span> เวกเตอร์อิสระมีแค่ 2 ตัว เมื่อเรียงเป็นหลักของ \(P\) ได้เมทริกซ์ \(3 \times 3\) ที่หลักขาด (เอกฐาน) — \(P^{-1}\) ไม่มีจึงพูดถึง \(PDP^{-1}\) ไม่ได้เลย เมทริกซ์ประเภทนี้ "บิด" ทิศที่ค่าลักษณะเฉพาะซ้ำครอบคลุมไม่พอ จึงเลียนแบบด้วยทแยงมุมไม่ได้</li>
+        </ol>
+        <div class="verify"><span class="lbl">สรุปคำตอบ:</span> \(A\) <strong>ไม่สามารถแปลงเป็นทแยงมุมได้</strong> เพราะ \(\dim E_2 = 1\) น้อยกว่าจำนวนการซ้ำของ \(\lambda = 2\) ทำให้ผลรวมมิติของปริภูมิลักษณะเฉพาะ \(= 2 \neq 3\) — ตรงตามตำรา</div>
+      </div>
+    </article>
+
+    <article class="ex-card">
+      <div class="ex-head"><span class="ex-badge">ตัวอย่าง 3.2.6</span><span class="tag book">จากตำรา</span><span class="tag mid">กลาง</span><span class="ex-title">หาฐานหลัก \(B'\) ที่ทำให้ \([T]_{B'}\) เป็นทแยงมุม</span></div>
+      <div class="ex-body">
+        <div class="ex-q">ให้ \(T: \mathbb{R}^2 \to \mathbb{R}^2\) เป็นการแปลงเชิงเส้นกำหนดโดย \(T(x_1, x_2) = (7x_1 + 2x_2,\; -4x_1 + x_2)\) สำหรับทุก ๆ \((x_1, x_2) \in \mathbb{R}^2\) จงหาฐานหลัก \(B'\) สำหรับ \(\mathbb{R}^2\) ซึ่งทำให้ \([T]_{B'}\) เป็นเมทริกซ์ทแยงมุม (ถ้ามี)</div>
+        <div class="approach"><span class="lbl">อธิบายโจทย์ง่าย ๆ</span> — โจทย์ถามหา "มุมมองที่ทำให้ \(T\) ดูง่าย": เขียน \(T\) ในรูปเมทริกซ์มาตรฐาน \(A\) ก่อน (สัมประสิทธิ์ของสูตร = แถวของ \(A\)) แล้วทำเหมือน 3.2.4 ทั้งหมด — หาค่าลักษณะเฉพาะ เวกเตอร์ลักษณะเฉพาะ แล้วใช้ทฤษฎีบท 3.2.6: ฐานหลัก \(B'\) ที่สร้างจากหลักของ \(P\) ทำให้ \([T]_{B'} = D\) พอดี</div>
+        <ol class="steps">
+          <li><span class="step-t">เขียนเมทริกซ์มาตรฐาน</span> \(T(\vec{x}) = A\vec{x}\) เมื่อ \(A = \begin{bmatrix} 7 & 2\\ -4 & 1 \end{bmatrix}\) (สังเกตว่าเป็นเมทริกซ์เดียวกับตัวอย่าง 3.2.4 — โจทย์ตำราตั้งใจเชื่อมสองข้อนี้)</li>
+          <li><span class="step-t">หา eigenpair</span> จากตัวอย่าง 3.2.4: \(\det(A - \lambda I_2) = \lambda^2 - 8\lambda + 15 = (\lambda - 3)(\lambda - 5) = 0 \Rightarrow \lambda = 3, 5\) โดย \(\lambda = 3\) ได้เวกเตอร์ฐาน \((-1, 2)^T\) และ \(\lambda = 5\) ได้ \((-1, 1)^T\) (ตรวจเร็ว: \(A(-1, 2)^T = (-7 + 4,\; 4 + 2)^T = (-3, 6)^T = 3(-1, 2)^T\) ✓ และ \(A(-1, 1)^T = (-7 + 2,\; 4 + 1)^T = (-5, 5)^T = 5(-1, 1)^T\) ✓)</li>
+          <li><span class="step-t">ประกาศฐานหลัก \(B'\)</span> เอาเวกเตอร์ลักษณะเฉพาะสองตัวมาเป็นสมาชิก \(B'\) — โดยทฤษฎีบท 3.2.6 ฐานหลักนี้ทำให้ \([T]_{B'}\) เป็นเมทริกซ์ทแยงมุมโดยตรง:
+          \[ B' = \left\{ \begin{bmatrix} -1\\ 2 \end{bmatrix}, \begin{bmatrix} -1\\ 1 \end{bmatrix} \right\}, \qquad [T]_{B'} = \begin{bmatrix} 3 & 0\\ 0 & 5 \end{bmatrix} \]
+          (หลักที่ \(j\) ของ \([T]_{B'}\) คือ \([T(\vec{v}_j)]_{B'} = \lambda_j\vec{v}_j\) ในพิกัด \(B'\) — จึงมีแต่เลขยืดบนทแยง)</li>
+        </ol>
+        <div class="verify"><span class="lbl">สรุปคำตอบ:</span> \(B' = \left\{ \begin{bmatrix} -1\\ 2 \end{bmatrix}, \begin{bmatrix} -1\\ 1 \end{bmatrix} \right\}\) ทำให้ \([T]_{B'} = \begin{bmatrix} 3 & 0\\ 0 & 5 \end{bmatrix}\) เป็นเมทริกซ์ทแยงมุม — ตรงตามตำรา</div>
+      </div>
+    </article>
+
+    <article class="ex-card">
+      <div class="ex-head"><span class="ex-badge">ตัวอย่าง 3.2.7</span><span class="tag book">จากตำรา</span><span class="tag mid">กลาง</span><span class="ex-title">ค่าลักษณะเฉพาะซ้ำ \(2 \times 2\) — แปลงเป็นทแยงมุมไม่ได้</span></div>
+      <div class="ex-body">
+        <div class="ex-q">ให้ \(A = \begin{bmatrix} 4 & -9\\ 4 & -8 \end{bmatrix}\) และ \(T: \mathbb{R}^2 \to \mathbb{R}^2\) เป็นการแปลงเมทริกซ์กำหนดโดย \(T(\vec{x}) = A\vec{x}\) สำหรับทุก ๆ \(\vec{x} \in \mathbb{R}^2\) จงหาฐานหลัก \(B'\) สำหรับ \(\mathbb{R}^2\) ซึ่งทำให้ \([T]_{B'}\) เป็นเมทริกซ์ทแยงมุม (ถ้ามี)</div>
+        <div class="approach"><span class="lbl">อธิบายโจทย์ง่าย ๆ</span> — ทำเหมือนตัวอย่าง 3.2.6 ทุกขั้น แต่เจอกับดัก: พหุนามลักษณะเฉพาะให้รากซ้ำ \((\lambda + 2)^2\) — เมื่อเจอค่าซ้ำให้ไปนับเวกเตอร์อิสระของค่านั้นทันที ถ้าได้ไม่ครบ 2 ตัวก็ตอบว่าไม่มีฐานหลักดังกล่าว จบเลย</div>
+        <ol class="steps">
+          <li><span class="step-t">หาค่าลักษณะเฉพาะ</span> det = \((4 - \lambda)(-8 - \lambda) - (-9)(4)\) — กระจาย: \(-32 - 4\lambda + 8\lambda + \lambda^2 = \lambda^2 + 4\lambda - 32\) แล้ว "ลบด้วย \(-36\)" คือบวก 36: \(-32 + 36 = 4\):
+          \[ \det(A - \lambda I_2) = (4 - \lambda)(-8 - \lambda) + 36 = \lambda^2 + 4\lambda + 4 = (\lambda + 2)^2 = 0 \;\Longrightarrow\; \lambda = -2, -2 \]</li>
+          <li><span class="step-t">หา \(E_{-2} = \operatorname{Nul}(A + 2I_2)\)</span> บวก 2 ที่ทแยง (ลบด้วย \(-2\) = บวก 2) → \(\begin{bmatrix} 6 & -9\\ 4 & -6 \end{bmatrix}\) — หารแถวบนด้วย 3 ได้ \(\begin{bmatrix} 2 & -3 \end{bmatrix}\) (แถวล่างเป็น 2 เท่าของแถวบน) สมการ \(2x_1 - 3x_2 = 0 \Rightarrow x_1 = \tfrac{3}{2}x_2\) เลือก \(x_2 = 2\):
+          \[ E_{-2} = \operatorname{Span}\left\{ \begin{bmatrix} 3\\ 2 \end{bmatrix} \right\} \;\Longrightarrow\; \operatorname{nullity}(A + 2I_2) = 1 \]</li>
+          <li><span class="step-t">ตัดสิน</span> \(\lambda = -2\) ซ้ำ 2 ครั้งแต่ \(\dim E_{-2} = 1 &lt; 2\) → เวกเตอร์ลักษณะเฉพาะอิสระมีแค่ตัวเดียว ไม่พอสร้างฐานหลักของ \(\mathbb{R}^2\) → <strong>ไม่มีฐานหลัก \(B'\) ที่ทำให้ \([T]_{B'}\) เป็นเมทริกซ์ทแยงมุม</strong> (โดยทฤษฎีบท 3.2.5 และ 3.2.6)</li>
+        </ol>
+        <div class="verify"><span class="lbl">สรุปคำตอบ:</span> \(\lambda = -2, -2\) แต่ \(\operatorname{nullity}(A + 2I) = 1\) น้อยกว่าจำนวนการซ้ำ → \(A\) (และ \(T\)) แปลงเป็นทแยงมุมไม่ได้ จึงไม่มีฐานหลัก \(B'\) ดังกล่าว — ตรงตามตำรา</div>
+      </div>
+    </article>
+
+    <article class="ex-card">
+      <div class="ex-head"><span class="ex-badge">แบบฝึกหัด 3.2 ข้อ 7</span><span class="tag book">จากตำรา</span><span class="tag mid">กลาง</span><span class="ex-title">ตัดสิน \(4 \times 4\) จากข้อมูลที่ให้มา — ไม่ต้องคำนวณเมทริกซ์</span></div>
+      <div class="ex-body">
+        <div class="ex-q">กำหนดให้ \(A\) เป็นเมทริกซ์มิติ \(4 \times 4\) ซึ่งมีค่าลักษณะเฉพาะเป็น \(\lambda = 2, 2, 1, -1\) ถ้า \(\operatorname{nullity}(A - 2I_4) = 2\) แล้ว \(A\) สามารถแปลงเป็นทแยงมุมได้หรือไม่ เพราะเหตุใด</div>
+        <div class="approach"><span class="lbl">อธิบายโจทย์ง่าย ๆ</span> — ข้อนี้ไม่ให้เมทริกซ์จริงมา ให้ตัดสินจากตัวเลขล้วน ๆ: นับ "เวกเตอร์อิสระที่จะได้" รวมทุกค่าลักษณะเฉพาะ แล้วเทียบกับ \(n = 4\) — ค่าที่ไม่ซ้ำให้เวกเตอร์อิสระอย่างน้อย 1 ตัวเสมอ (ทฤษฎีบท 3.2.1) ส่วนค่าที่ซ้ำต้องดู nullity ที่โจทย์บอกมา</div>
+        <ol class="steps">
+          <li><span class="step-t">แยกดูทีละค่า</span> \(\lambda = 2\) ซ้ำ 2 ครั้ง: โจทย์บอก \(\operatorname{nullity}(A - 2I_4) = 2\) → \(\dim E_2 = 2\) <em>เท่ากับ</em>จำนวนครั้งที่ซ้ำพอดี ✓ · \(\lambda = 1\) และ \(\lambda = -1\) ไม่ซ้ำ: ได้เวกเตอร์อิสระคนละ 1 ตัว (ทฤษฎีบท 3.2.1: เวกเตอร์ลักษณะเฉพาะของค่าที่ต่างกันเป็นอิสระเชิงเส้น)</li>
+          <li><span class="step-t">รวมนับ</span> เวกเตอร์อิสระรวมทั้งหมด \(2 + 1 + 1 = 4 = n\) — และทุกกลุ่มอิสระในตัว รวมกันยังอิสระ (ทฤษฎีบท 3.2.5 ข้อ 3) → มีเวกเตอร์ลักษณะเฉพาะอิสระครบ 4 ตัว</li>
+          <li><span class="step-t">ตัดสิน</span> ครบเงื่อนไขของทฤษฎีบท 3.2.3 → เรียงเวกเตอร์ 4 ตัวเป็นหลักของ \(P\) ได้เมทริกซ์ไม่เอกฐาน และ \(D = \operatorname{diag}(2, 2, 1, -1)\) (เรียงตามลำดับหลักของ \(P\))</li>
+        </ol>
+        <div class="verify"><span class="lbl">สรุปคำตอบ:</span> \(A\) <strong>แปลงเป็นทแยงมุมได้</strong> เพราะผลรวมมิติของปริภูมิลักษณะเฉพาะทั้งหมด \(= 2 + 1 + 1 = 4 = n\) (nullity ของค่าซ้ำเท่ากับจำนวนครั้งที่ซ้ำพอดี) — ตรงกับคำตอบท้ายบทของตำรา</div>
+      </div>
+    </article>
+
+    <article class="ex-card">
+      <div class="ex-head"><span class="ex-badge">ตัวอย่าง 3.2.4</span><span class="tag book">จากตำรา</span><span class="tag hard">ยาก</span><span class="ex-title">แปลงเป็นทแยงมุม + หาสูตร \(A^k\)</span></div>
+      <div class="ex-body">
+        <div class="ex-q">จงแปลงเมทริกซ์ \(A = \begin{bmatrix} 7 & 2\\ -4 & 1 \end{bmatrix}\) เป็นเมทริกซ์ทแยงมุม นั่นคือ จงหาเมทริกซ์ไม่เอกฐาน \(P\) และเมทริกซ์ทแยงมุม \(D\) ที่ทำให้ \(A = PDP^{-1}\) พร้อมทั้งหาสูตรสำหรับ \(A^k\) สำหรับทุก ๆ จำนวนเต็มบวก \(k\)</div>
+        <div class="approach"><span class="lbl">อธิบายโจทย์ง่าย ๆ</span> — โจทย์ครบเครื่องของหัวข้อ: หาค่าลักษณะเฉพาะ (สองค่าต่างกัน → diagonalizable ทันที) → หาเวกเตอร์ทีละค่า → ประกอบ \(P, D\) ให้ลำดับจับคู่ถูก → ปิดท้ายด้วย \(A^k = PD^kP^{-1}\) ซึ่ง \(D^k\) แค่ยกกำลังตัวทแยง — นี่คือรางวัลของทั้งบท: คูณเมทริกซ์กำลังสูงได้ในพริบตา</div>
+        <ol class="steps">
+          <li><span class="step-t">ค่าลักษณะเฉพาะ</span> det = \((7 - \lambda)(1 - \lambda) - (2)(-4)\) — กระจาย: \(7 - 8\lambda + \lambda^2\) แล้วลบด้วย \(-8\) คือบวก 8:
+          \[ \det(A - \lambda I_2) = (7 - \lambda)(1 - \lambda) + 8 = \lambda^2 - 8\lambda + 15 = (\lambda - 3)(\lambda - 5) = 0 \;\Longrightarrow\; \lambda = 3, 5 \]
+          สองค่าต่างกัน → แปลงเป็นทแยงมุมได้ทันที (ทฤษฎีบท 3.2.1 + บทแทรก 3.2.4)</li>
+          <li><span class="step-t">\(\lambda = 3\)</span> \(A - 3I_2 = \begin{bmatrix} 4 & 2\\ -4 & -2 \end{bmatrix} \sim \begin{bmatrix} 1 & \tfrac{1}{2}\\ 0 & 0 \end{bmatrix}\) → \(x_1 = -\tfrac{1}{2}x_2\) เลือก \(x_2 = 2\): \(\vec{v}_1 = \begin{bmatrix} -1\\ 2 \end{bmatrix}\) (ฐานของ \(E_3\))</li>
+          <li><span class="step-t">\(\lambda = 5\)</span> \(A - 5I_2 = \begin{bmatrix} 2 & 2\\ -4 & -4 \end{bmatrix} \sim \begin{bmatrix} 1 & 1\\ 0 & 0 \end{bmatrix}\) → \(x_1 = -x_2\) เลือก \(x_2 = 1\): \(\vec{v}_2 = \begin{bmatrix} -1\\ 1 \end{bmatrix}\) (ฐานของ \(E_5\))</li>
+          <li><span class="step-t">ประกอบ \(P, D\) และหา \(P^{-1}\)</span> เรียง \(\vec{v}_1, \vec{v}_2\) เป็นหลัก → ทแยงของ \(D\) คือ 3, 5 ตามลำดับ — det \(P = (-1)(1) - (-1)(2) = 1\) จึงหา inverse ได้:
+          \[ P = \begin{bmatrix} -1 & -1\\ 2 & 1 \end{bmatrix}, \qquad D = \begin{bmatrix} 3 & 0\\ 0 & 5 \end{bmatrix}, \qquad P^{-1} = \begin{bmatrix} 1 & 1\\ -2 & -1 \end{bmatrix} \]</li>
+          <li><span class="step-t">สูตร \(A^k\)</span> เหตุผล: \(A^2 = (PDP^{-1})(PDP^{-1}) = PD^2P^{-1}\) เพราะ \(P^{-1}P = I\) ตรงกลางหักล้าง — ยกกำลัง \(k\) ครั้งได้ \(A^k = PD^kP^{-1}\) โดย \(D^k = \operatorname{diag}(3^k, 5^k)\) คูณต่อกัน:
+          \[ A^k = \begin{bmatrix} -1 & -1\\ 2 & 1 \end{bmatrix}\begin{bmatrix} 3^k & 0\\ 0 & 5^k \end{bmatrix}\begin{bmatrix} 1 & 1\\ -2 & -1 \end{bmatrix} = \begin{bmatrix} -3^k + 2\cdot 5^k & -3^k + 5^k\\ 2\cdot 3^k - 2\cdot 5^k & 2\cdot 3^k - 5^k \end{bmatrix} \]
+          ลอง \(k = 1\): ช่องซ้ายบน \(-3 + 10 = 7\) ✓, ขวาบน \(-3 + 5 = 2\) ✓, ซ้ายล่าง \(6 - 10 = -4\) ✓, ขวาล่าง \(6 - 5 = 1\) ✓ คืน \(A\) ตัวเดิมทุกช่อง</li>
+        </ol>
+        <div class="verify"><span class="lbl">สรุปคำตอบ:</span> \(A = PDP^{-1}\) เมื่อ \(P = \begin{bmatrix} -1 & -1\\ 2 & 1 \end{bmatrix}\), \(D = \begin{bmatrix} 3 & 0\\ 0 & 5 \end{bmatrix}\) และ \(A^k = \begin{bmatrix} -3^k + 2\cdot 5^k & -3^k + 5^k\\ 2\cdot 3^k - 2\cdot 5^k & 2\cdot 3^k - 5^k \end{bmatrix}\) สำหรับทุกจำนวนเต็มบวก \(k\) — ตรงตามตำรา (ตรวจ \(k = 2\): \(A^2 = \begin{bmatrix} 41 & 16\\ -32 & -7 \end{bmatrix}\) เท่ากับการคูณ \(A\) สองรอบตรง ๆ ✓)</div>
+      </div>
+    </article>
+
+    <article class="ex-card">
+      <div class="ex-head"><span class="ex-badge">แบบฝึกหัด 3.2 ข้อ 6</span><span class="tag book">จากตำรา</span><span class="tag hard">ยาก</span><span class="ex-title">หาค่า \(h\) ที่ปรับมิติของปริภูมิลักษณะเฉพาะ</span></div>
+      <div class="ex-body">
+        <div class="ex-q">กำหนดให้
+        \[ A = \begin{bmatrix} 5 & -2 & 6 & -1\\ 0 & 3 & h & 0\\ 0 & 0 & 5 & 4\\ 0 & 0 & 0 & 2 \end{bmatrix} \]
+        จงหาค่าของ \(h\) ที่ทำให้ปริภูมิลักษณะเฉพาะซึ่งสมนัยกับค่าลักษณะเฉพาะ \(\lambda = 5\) (ก) มีมิติเท่ากับ 1 &nbsp; (ข) มีมิติเท่ากับ 2</div>
+        <div class="approach"><span class="lbl">อธิบายโจทย์ง่าย ๆ</span> — โจทย์ย้อนทิศ: ไม่ได้ถามค่าลักษณะเฉพาะ แต่ให้ค่าลักษณะเฉพาะแล้วถาม "ปรับ \(h\) อย่างไรให้ปริภูมิลักษณะเฉพาะกว้างหรือแคบ" — กุญแจอยู่ที่เมทริกซ์เป็น<em>สามเหลี่ยม</em>: อ่านค่าลักษณะเฉพาะจากทแยงได้เลย (5 ปรากฏสองครั้ง = ซ้ำสอง) จากนั้นแก้ \((A - 5I_4)\vec{x} = \vec{0}\) โดยมี \(h\) ปนอยู่ แล้วดูว่า \(h\) ค่าใดทำให้เกิดตัวแปรเสรีเพิ่ม</div>
+        <ol class="steps">
+          <li><span class="step-t">อ่านค่าลักษณะเฉพาะและเขียน \(A - 5I_4\)</span> สามเหลี่ยม → \(\lambda = 5, 3, 5, 2\) (\(\lambda = 5\) ซ้ำ 2 ครั้ง) — ลบ 5 ที่ทแยง:
+          \[ A - 5I_4 = \begin{bmatrix} 0 & -2 & 6 & -1\\ 0 & -2 & h & 0\\ 0 & 0 & 0 & 4\\ 0 & 0 & 0 & -3 \end{bmatrix} \]</li>
+          <li><span class="step-t">อ่านเงื่อนไขทีละแถว</span> แถวที่ 4: \(-3x_4 = 0 \Rightarrow x_4 = 0\) · แถวที่ 3: \(4x_4 = 0\) (ซ้ำข้อมูลเดิม) · แถวที่ 1 (แทน \(x_4 = 0\)): \(-2x_2 + 6x_3 = 0 \Rightarrow x_2 = 3x_3\) · แถวที่ 2: \(-2x_2 + hx_3 = 0\) — แทน \(x_2 = 3x_3\) ลงไป: \((-6 + h)x_3 = 0\) นี่คือสมการที่ตัดสินทุกอย่าง</li>
+          <li><span class="step-t">(ก) มิติ 1 เมื่อ \(h \neq 6\)</span> \((h - 6)x_3 = 0\) โดย \(h - 6 \neq 0\) บังคับ \(x_3 = 0\) → \(x_2 = 0\) → เหลือ \(x_1\) เสรีตัวเดียว เวกเตอร์ฐาน \((1, 0, 0, 0)^T\) → \(\dim E_5 = 1\)</li>
+          <li><span class="step-t">(ข) มิติ 2 เมื่อ \(h = 6\)</span> สมการกลายเป็น \(0 = 0\) — แถวที่ 2 ไม่บังคับอะไรอีก (ซ้ำกับแถวที่ 1) → \(x_3\) เสรี: ให้ \(x_1 = 1, x_3 = 0\) ได้ \((1, 0, 0, 0)^T\); ให้ \(x_3 = 1\) ได้ \((0, 3, 1, 0)^T\) → \(\dim E_5 = 2\) — เท่ากับจำนวนครั้งที่ \(\lambda = 5\) ซ้ำพอดี</li>
+        </ol>
+        <div class="verify"><span class="lbl">สรุปคำตอบ:</span> (ก) \(h \neq 6\) ทำให้ปริภูมิลักษณะเฉพาะของ \(\lambda = 5\) มีมิติ 1 · (ข) \(h = 6\) ทำให้มีมิติ 2 — ตรงกับคำตอบท้ายบทของตำรา</div>
+      </div>
+    </article>
+  </section>
+
+  <section class="block" id="apply">
+    <h2><span class="h2-dot">🌍</span> เอาไปใช้ทำอะไร — โจทย์ประยุกต์</h2>
+
+    <article class="ex-card">
+      <div class="ex-head"><span class="ex-badge">🐛 ประชากรแมลง 2 วัย — ทำนายหลายฤดูด้วย \(A^k\)</span><span class="tag app">ใช้จริง</span><span class="tag mid">กลาง</span><span class="ex-title">ที่ซึ่ง \(A^k = PD^kP^{-1}\) ช่วยประหยัดเวลาจริง</span></div>
+      <div class="ex-body">
+        <div class="ex-q">นักกีฏวิทยาเฝ้าดูแมลงหนึ่งชนิดที่มี 2 วัย: วัยอ่อน \(x_1\) และตัวเต็มวัย \(x_2\) (หน่วย: พันตัว) ต่อหนึ่งฤดู: วัยอ่อนรอดอยู่ครึ่งหนึ่ง (\(\tfrac{1}{2}x_1\)), ตัวเต็มวัยแต่ละตัววางไข่ฟักเป็นวัยอ่อนใหม่ 2 ตัว (\(2x_2\)), วัยอ่อน \(\tfrac{1}{4}\) โตเป็นเต็มวัย (\(\tfrac{1}{4}x_1\)) และตัวเต็มวัยตายหมดหลังวางไข่ ฤดูถัดไปจึงได้
+        \[ \begin{bmatrix} x_1\\ x_2 \end{bmatrix}_{\text{ฤดู}+1} = \begin{bmatrix} \tfrac{1}{2} & 2\\ \tfrac{1}{4} & 0 \end{bmatrix}\begin{bmatrix} x_1\\ x_2 \end{bmatrix} = A\vec{x} \]
+        ปีนี้มีวัยอ่อน 100, เต็มวัย 40 (พันตัว) จงทำนายว่าอีก 10 ฤดู ประชากรเป็นอย่างไร และสัดส่วนวัยจะลงเอยที่เท่าไร</div>
+        <div class="approach"><span class="lbl">อธิบายโจทย์ง่าย ๆ</span> — คำถาม "อีก 10 ฤดู" คือการหา \(A^{10}\vec{x}\) — คูณ \(A\) ซ้ำสิบรอบได้แต่เขียนโปรแกรมไม่ได้มือ — ท่าที่เรามีคือหา eigenpair ของ \(A\) แล้วแตก \(\vec{x}\) เป็นส่วนผสม พอครบ \(k\) ฤดู ส่วนที่มี \(\lambda\) ตัวใหญ่จะเหลือครองเกม สัดส่วนจะล็อกตามทิศเวกเตอร์ลักษณะเฉพาะของค่านั้น</div>
+        <ol class="steps">
+          <li><span class="step-t">หาค่าลักษณะเฉพาะ</span> det = \((\tfrac{1}{2} - \lambda)(0 - \lambda) - (2)(\tfrac{1}{4}) = \lambda^2 - \tfrac{1}{2}\lambda - \tfrac{1}{2}\) — ตั้งเป็นศูนย์ คูณ 2 ทั้งสมการ: \(2\lambda^2 - \lambda - 1 = (\lambda - 1)(2\lambda + 1) = 0 \Rightarrow \lambda = 1, -\tfrac{1}{2}\)</li>
+          <li><span class="step-t">หาเวกเตอร์ลักษณะเฉพาะ</span> \(\lambda = 1\): \(A - I = \begin{bmatrix} -\tfrac{1}{2} & 2\\ \tfrac{1}{4} & -1 \end{bmatrix}\) → แถวล่าง \(\tfrac{1}{4}x_1 - x_2 = 0 \Rightarrow x_1 = 4x_2\) → \(\vec{v}_1 = (4, 1)^T\) · \(\lambda = -\tfrac{1}{2}\): \(A + \tfrac{1}{2}I = \begin{bmatrix} 1 & 2\\ \tfrac{1}{4} & \tfrac{1}{2} \end{bmatrix}\) → \(x_1 + 2x_2 = 0\) → \(\vec{v}_2 = (-2, 1)^T\) (ตรวจ: \(A(4,1)^T = (2 + 2,\; 1)^T = (4, 1)^T\) ✓)</li>
+          <li><span class="step-t">แตก \(\vec{x}_0 = (100, 40)^T\) เป็นส่วนผสม</span> แก้ \(a\vec{v}_1 + b\vec{v}_2 = (100, 40)^T\): \(4a - 2b = 100\), \(a + b = 40\) → แทน \(a = 40 - b\): \(160 - 6b = 100 \Rightarrow b = 10, a = 30\) — เมื่อแตกเป็นส่วนผสมของเวกเตอร์ลักษณะเฉพาะแล้ว ผ่านไป \(k\) ฤดูคือเลิกคูณ \(A\) แล้วยกกำลัง \(k\) ที่สเกลาร์แทน
+          \[ \vec{x}_k = 30(1)^k\begin{bmatrix} 4\\ 1 \end{bmatrix} + 10\left(-\tfrac{1}{2}\right)^k\begin{bmatrix} -2\\ 1 \end{bmatrix} \]</li>
+          <li><span class="step-t">อ่านผลที่ \(k = 10\)</span> \((-\tfrac{1}{2})^{10} = \tfrac{1}{1024} \approx 0.001\) แทบเป็นศูนย์ → \(\vec{x}_{10} \approx 30(4, 1)^T = (120, 30)^T\) — วัยอ่อนราว 120,000 ตัว เต็มวัย 30,000 ตัว รวม 150,000 ตัว สัดส่วน \(4:1\) เป๊ะ (ตรวจด้วยการคูณ \(A\) สิบรอบจริงได้ \((119.98, 30.01)\) ✓)</li>
+        </ol>
+        <div class="verify"><span class="lbl">เห็นไหมว่า...</span> พอแตกด้วย eigenvector แล้ว \(A^{10}\) กลายเป็น "ยกกำลังสองเลข" (\(1^{10}\) กับ \((-\tfrac{1}{2})^{10}\)) — โมเดลประชากรแบบนี้ (Leslie matrix) ใช้จริงในการจัดการประมง แมลงศัตรูพืช และสัตว์ใกล้สูญพันธุ์ โดยค่าลักษณะเฉพาะที่ใหญ่สุดบอก "อัตราโตระยะยาว" และเวกเตอร์ลักษณะเฉพาะของมันบอก "โครงสร้างอายุที่คงตัว" ที่ประชากรจะลงเอยด้วย</div>
+      </div>
+    </article>
+
+    <article class="ex-card">
+      <div class="ex-head"><span class="ex-badge">🌐 PageRank — จัดอันดับเว็บ 3 หน้า</span><span class="tag app">ใช้จริง</span><span class="tag mid">กลาง</span><span class="ex-title">ความสำคัญของหน้าเว็บ = เวกเตอร์ลักษณะเฉพาะของ \(\lambda = 1\)</span></div>
+      <div class="ex-body">
+        <div class="ex-q">เว็บเล็ก ๆ มี 3 หน้า: หน้า A ลิงก์ไป B และ C (หน้าละครึ่งคะแนน), หน้า B ลิงก์ไป C เท่านั้น, หน้า C ลิงก์ไป A เท่านั้น ให้ \(M\) เป็นเมทริกซ์ที่หลักที่ \(j\) คือ "การกระจายคะแนนของหน้า \(j\)"
+        \[ M = \begin{bmatrix} 0 & 0 & 1\\ \tfrac{1}{2} & 0 & 0\\ \tfrac{1}{2} & 1 & 0 \end{bmatrix} \]
+        คะแนนความสำคัญ \(\vec{r} = (r_A, r_B, r_C)^T\) ที่สมดุลคือเวกเตอร์ที่ \(M\vec{r} = \vec{r}\) จงหา \(\vec{r}\) (ให้ผลรวมเท่ากับ 1)</div>
+        <div class="approach"><span class="lbl">อธิบายโจทย์ง่าย ๆ</span> — สมการ \(M\vec{r} = \vec{r}\) อ่านได้ว่า "ถ้ากระจายคะแนนตามลิงก์หนึ่งรอบแล้วคะแนนไม่เปลี่ยน" — นิยามเดียวกับ \(\lambda = 1\) เป๊ะ! งานของเราคือหาเวกเตอร์ลักษณะเฉพาะของ \(M\) สมนัยกับ \(\lambda = 1\) โดยแก้ \((M - I)\vec{r} = \vec{0}\) แบบระบบเอกพันธุ์ธรรมดา</div>
+        <ol class="steps">
+          <li><span class="step-t">ตั้งระบบ \((M - I_3)\vec{r} = \vec{0}\)</span> ลบ 1 ที่ทแยง:
+          \[ \begin{bmatrix} -1 & 0 & 1\\ \tfrac{1}{2} & -1 & 0\\ \tfrac{1}{2} & 1 & -1 \end{bmatrix}\vec{r} = \vec{0} \;\Longrightarrow\; \begin{aligned} -r_A + r_C &= 0\\ \tfrac{1}{2}r_A - r_B &= 0\\ \tfrac{1}{2}r_A + r_B - r_C &= 0 \end{aligned} \]</li>
+          <li><span class="step-t">แก้ระบบ</span> สมการแรกให้ \(r_C = r_A\) · สมการที่สองให้ \(r_B = \tfrac{1}{2}r_A\) · สมการที่สามตรวจ: \(\tfrac{1}{2}r_A + \tfrac{1}{2}r_A = r_A = r_C\) ✓ (ข้อมูลซ้ำ ไม่ขัดแย้ง) → ให้ \(r_A = 2\): \(\vec{r} = (2, 1, 2)^T\)</li>
+          <li><span class="step-t">ปรับให้ผลรวมเป็น 1</span> ผลรวม \(2 + 1 + 2 = 5\) → \(\vec{r} = (\tfrac{2}{5}, \tfrac{1}{5}, \tfrac{2}{5})^T = (0.4, 0.2, 0.4)^T\) — หน้า A กับ C สำคัญเท่ากัน ส่วน B สำคัญครึ่งหนึ่ง (ตรวจ: หน้า A รับคะแนนจาก C เต็ม ๆ = 0.4 ✓, หน้า B รับครึ่งของ A = 0.2 ✓, หน้า C รับ \(\tfrac{1}{2}A + B = 0.2 + 0.2 = 0.4\) ✓)</li>
+        </ol>
+        <div class="verify"><span class="lbl">เห็นไหมว่า...</span> ค่าลักษณะเฉพาะ \(\lambda = 1\) ไม่ใช่แค่โจทย์ในห้องเรียน — PageRank ต้นฉบับของ Google คือการหาเวกเตอร์ลักษณะเฉพาะของ \(\lambda = 1\) ของเมทริกซ์ลิงก์ขนาดพันล้านหลัก และ "ทำไมจึงมี \(\lambda = 1\) เสมอ" ก็เพราะเมทริกซ์แต่ละหลักรวมได้ 1 (คะแนนไม่หายไปไหน) — โจทย์เดียวกับที่คุณเพิ่งทำ แค่คูณด้วยขนาดอินเทอร์เน็ต</div>
+      </div>
+    </article>
+  </section>
+
+  <section class="block" id="recipe">
   <h2><span class="h2-dot">⚡</span> สูตรสำเร็จ — ท่าที่ใช้ทำโจทย์หัวข้อนี้</h2>
   <div class="recipe">
     <div class="recipe-head">🪜 ท่าหลัก: แปลง \(A\) เป็นทแยงมุม</div>

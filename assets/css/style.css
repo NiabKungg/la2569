@@ -261,9 +261,15 @@ html { scroll-padding-top: calc(var(--topbar-h) + 14px); }
 .tag.easy { color: #047857; background: rgba(16, 185, 129, .12); border-color: rgba(16, 185, 129, .35); }
 .tag.hard { color: #be123c; background: rgba(225, 29, 72, .10); border-color: rgba(225, 29, 72, .3); }
 .tag.exam { color: #b91c1c; background: rgba(239, 68, 68, .10); border-color: rgba(239, 68, 68, .35); font-weight: 600; }
+.tag.book { color: #1d4ed8; background: rgba(59, 130, 246, .12); border-color: rgba(59, 130, 246, .35); }
+.tag.app { color: #7c3aed; background: rgba(139, 92, 246, .12); border-color: rgba(139, 92, 246, .35); }
+.tag.mid { color: #a16207; background: rgba(217, 119, 6, .12); border-color: rgba(217, 119, 6, .3); }
 html[data-theme="dark"] .tag.easy { color: #34d399; }
 html[data-theme="dark"] .tag.hard { color: #fb7185; }
 html[data-theme="dark"] .tag.exam { color: #f87171; }
+html[data-theme="dark"] .tag.book { color: #60a5fa; }
+html[data-theme="dark"] .tag.app { color: #a78bfa; }
+html[data-theme="dark"] .tag.mid { color: #fbbf24; }
 .ex-head .ex-title { font-family: 'Prompt', sans-serif; font-weight: 600; }
 .ex-body { padding: 16px 20px; }
 .ex-q {

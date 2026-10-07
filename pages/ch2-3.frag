@@ -15,6 +15,8 @@ page: ch2-3.html
   <a href="#objectives">🎯 จุดประสงค์</a>
   <a href="#lesson">📖 บทเรียน</a>
   <a href="#examples">✏️ ตัวอย่างโจทย์</a>
+  <a href="#textbook">📚 ตัวอย่างจากตำรา</a>
+  <a href="#apply">🌍 การใช้จริง</a>
   <a href="#recipe">⚡ สูตรสำเร็จ</a>
   <a href="#practice">🏋️ โจทย์ซ้อมมือ</a>
 </nav>
@@ -218,7 +220,251 @@ page: ch2-3.html
   </article>
 </section>
 
-<section class="block" id="recipe">
+    <section class="block" id="textbook">
+      <h2><span class="h2-dot">📚</span> ตัวอย่างจากตำรา (พีชคณิต.pdf)</h2>
+      <p class="page-sub">โจทย์ทุกข้อคัดมาตรงจากตำราประกอบการสอน โดยเรียงจากง่ายไปยาก — ใต้โจทย์แต่ละข้อมี "อธิบายโจทย์ง่าย ๆ" ช่วยให้เห็นว่าโจทย์ถามอะไรก่อนลงมือทำ</p>
+
+      <article class="ex-card">
+        <div class="ex-head"><span class="ex-badge">ตัวอย่าง 2.3.1</span><span class="tag book">จากตำรา</span><span class="tag easy">ง่าย</span><span class="ex-title">ผกผันเมทริกซ์ \(2 \times 2\) ด้วยสูตร</span></div>
+        <div class="ex-body">
+          <div class="ex-q">ถ้า \(A = \begin{bmatrix} 2 & 5\\ -3 & -7 \end{bmatrix}\) จงหา \(A^{-1}\)</div>
+          <div class="approach"><span class="lbl">อธิบายโจทย์ง่าย ๆ</span> — โจทย์เสนอเมทริกซ์ \(2 \times 2\) ตรง ๆ ให้หา "ตัวหารกลับ" ทฤษฎีบท 2.3.1 ให้สูตรสำเร็จ: สลับแนวทแยงหลัก เปลี่ยนเครื่องหมายแนวทแยงรอง แล้วหารด้วย \(ad - bc\) — ถ้า \(ad - bc = 0\) จบเกม ไม่มีผกผัน</div>
+          <ol class="steps">
+            <li><span class="step-t">คำนวณ \(ad - bc\) ก่อน</span> \(a = 2, b = 5, c = -3, d = -7\) ได้ \(2(-7) - 5(-3) = -14 + 15 = 1\) — ไม่เป็นศูนย์ แสดงว่า \(A\) มีเมทริกซ์ผกผัน (จุดที่คนพลาด: \(5(-3) = -15\) แต่สูตรลบด้วย จึงกลายเป็น \(+15\))</li>
+            <li><span class="step-t">แทนสูตร</span> สลับแนวทแยงหลัก (\(2 \leftrightarrow -7\) กลายเป็น \(-7\) มาบนซ้าย) เปลี่ยนเครื่องหมายแนวทแยงรอง (\(5 \to -5\), \(-3 \to 3\)) แล้วคูณด้วย \(\tfrac{1}{1}\):
+            \[ A^{-1} = \frac{1}{2(-7) - 5(-3)}\begin{bmatrix} -7 & -5\\ 3 & 2 \end{bmatrix} = \begin{bmatrix} -7 & -5\\ 3 & 2 \end{bmatrix} \]</li>
+            <li><span class="step-t">ตรวจคำตอบ</span> คูณกลับต้องได้เอกลักษณ์: \(\begin{bmatrix} 2 & 5\\ -3 & -7 \end{bmatrix}\begin{bmatrix} -7 & -5\\ 3 & 2 \end{bmatrix} = \begin{bmatrix} -14 + 15 & -10 + 10\\ 21 - 21 & 15 - 14 \end{bmatrix} = \begin{bmatrix} 1 & 0\\ 0 & 1 \end{bmatrix}\) ✓</li>
+          </ol>
+          <div class="verify"><span class="lbl">สรุปคำตอบ:</span> \(A^{-1} = \begin{bmatrix} -7 & -5\\ 3 & 2 \end{bmatrix}\) ตรงตามตำรา — เพราะ \(ad - bc = 1\) เศษส่วนหายไปเฉย ๆ คำตอบเลยดูสะอาดผิดคาด</div>
+        </div>
+      </article>
+
+      <article class="ex-card">
+        <div class="ex-head"><span class="ex-badge">แบบฝึกหัด 2.3 ข้อ 1</span><span class="tag book">จากตำรา</span><span class="tag easy">ง่าย</span><span class="ex-title">ฝึกสูตร \(2 \times 2\) ครบ 4 ข้อ</span></div>
+        <div class="ex-body">
+          <div class="ex-q">จงหาเมทริกซ์ผกผันของ \(2 \times 2\) เมทริกซ์ต่อไปนี้
+          \[ \text{(ก)}\; \begin{bmatrix} 1 & 2\\ -1 & 3 \end{bmatrix} \quad
+          \text{(ข)}\; \begin{bmatrix} 2 & 4\\ 0 & -1 \end{bmatrix} \quad
+          \text{(ค)}\; \begin{bmatrix} 3 & 4\\ 5 & 6 \end{bmatrix} \quad
+          \text{(ง)}\; \begin{bmatrix} 8 & 5\\ -7 & -5 \end{bmatrix} \]</div>
+          <div class="approach"><span class="lbl">อธิบายโจทย์ง่าย ๆ</span> — โจทย์ให้ซ้อมสูตร \(ad - bc\) สี่รอบติดกัน จุดที่ต้องเก็บงานให้ครบคือ (1) คิด \(ad - bc\) ให้ถูกเครื่องหมายทุกครั้ง (2) อย่าลืม "สลับแนวทแยงหลัก–เปลี่ยนเครื่องหมายแนวทแยงรอง" (3) ข้อ (ข) มีช่องศูนย์ ต้องไม่สับสนว่าศูนย์อยู่ตรงไหน</div>
+          <ol class="steps">
+            <li><span class="step-t">(ก)</span> \(\det = 1(3) - 2(-1) = 3 + 2 = 5\) → สลับแนวทแยงหลัก \((1, 3)\), เปลี่ยนเครื่องหมาย \((2, -1)\):
+            \[ \begin{bmatrix} 1 & 2\\ -1 & 3 \end{bmatrix}^{-1} = \frac{1}{5}\begin{bmatrix} 3 & -2\\ 1 & 1 \end{bmatrix} \]</li>
+            <li><span class="step-t">(ข)</span> \(\det = 2(-1) - 4(0) = -2\) → \(\frac{1}{-2}\begin{bmatrix} -1 & -4\\ 0 & 2 \end{bmatrix}\) — สังเกตช่องศูนย์: หลังสลับ/เปลี่ยนเครื่องหมาย ศูนย์ยังอยู่หลังซ้ายเหมือนเดิม (ศูนย์เปลี่ยนเครื่องหมายก็ยังศูนย์)
+            \[ \begin{bmatrix} 2 & 4\\ 0 & -1 \end{bmatrix}^{-1} = -\frac{1}{2}\begin{bmatrix} -1 & -4\\ 0 & 2 \end{bmatrix} \]</li>
+            <li><span class="step-t">(ค)</span> \(\det = 3(6) - 4(5) = 18 - 20 = -2\) → \(\frac{1}{-2}\begin{bmatrix} 6 & -4\\ -5 & 3 \end{bmatrix}\) (คูณเลขหน้าเข้าไปก็ได้ เช่น \(\begin{bmatrix} -3 & 2\\ \tfrac{5}{2} & -\tfrac{3}{2} \end{bmatrix}\) แต่ตำราเก็บในรูปเศษส่วนนำหน้าให้อ่านง่าย)
+            \[ \begin{bmatrix} 3 & 4\\ 5 & 6 \end{bmatrix}^{-1} = -\frac{1}{2}\begin{bmatrix} 6 & -4\\ -5 & 3 \end{bmatrix} \]</li>
+            <li><span class="step-t">(ง)</span> \(\det = 8(-5) - 5(-7) = -40 + 35 = -5\) → \(\frac{1}{-5}\begin{bmatrix} -5 & -5\\ 7 & 8 \end{bmatrix}\) (จุดสะดุด: \(5(-7) = -35\) แล้วลบด้วย จึงกลายเป็นบวก)
+            \[ \begin{bmatrix} 8 & 5\\ -7 & -5 \end{bmatrix}^{-1} = -\frac{1}{5}\begin{bmatrix} -5 & -5\\ 7 & 8 \end{bmatrix} \]</li>
+          </ol>
+          <div class="verify"><span class="lbl">สรุปคำตอบ:</span> (ก) \(\tfrac{1}{5}\begin{bmatrix} 3 & -2\\ 1 & 1 \end{bmatrix}\) · (ข) \(-\tfrac{1}{2}\begin{bmatrix} -1 & -4\\ 0 & 2 \end{bmatrix}\) · (ค) \(-\tfrac{1}{2}\begin{bmatrix} 6 & -4\\ -5 & 3 \end{bmatrix}\) · (ง) \(-\tfrac{1}{5}\begin{bmatrix} -5 & -5\\ 7 & 8 \end{bmatrix}\) — ตรงกับคำตอบท้ายบทของตำราทั้งสี่ข้อ</div>
+        </div>
+      </article>
+
+      <article class="ex-card">
+        <div class="ex-head"><span class="ex-badge">ตัวอย่าง 2.3.2</span><span class="tag book">จากตำรา</span><span class="tag easy">ง่าย</span><span class="ex-title">แก้ระบบด้วย \(\vec{x} = A^{-1}\vec{b}\)</span></div>
+        <div class="ex-body">
+          <div class="ex-q">จงใช้เมทริกซ์ผกผันของเมทริกซ์ \(A = \begin{bmatrix} 2 & 5\\ -3 & -7 \end{bmatrix}\) หาผลเฉลยของระบบเชิงเส้น
+          \[ \begin{aligned} 2x_1 + 5x_2 &= -1\\ -3x_1 - 7x_2 &= 1 \end{aligned} \]</div>
+          <div class="approach"><span class="lbl">อธิบายโจทย์ง่าย ๆ</span> — ระบบนี้คือ \(A\vec{x} = \vec{b}\) เมื่อ \(\vec{b} = \begin{bmatrix} -1\\ 1 \end{bmatrix}\) — พอมี \(A^{-1}\) แล้ว แก้ระบบกลายเป็นการคูณเมทริกซ์รอบเดียว: \(\vec{x} = A^{-1}\vec{b}\) (ทฤษฎีบท 2.3.2) — และเพราะเราเพิ่งหา \(A^{-1}\) ไว้ในตัวอย่าง 2.3.1 ของตำรา ก็หยิบมาแทนได้ทันที</div>
+          <ol class="steps">
+            <li><span class="step-t">เขียนระบบเป็นสมการเมทริกซ์</span> อ่านสัมประสิทธิ์แต่ละสมการมาเรียงเป็นแถว:
+            \[ \begin{bmatrix} 2 & 5\\ -3 & -7 \end{bmatrix}\begin{bmatrix} x_1\\ x_2 \end{bmatrix} = \begin{bmatrix} -1\\ 1 \end{bmatrix} \qquad \text{นั่นคือ } A\vec{x} = \vec{b} \]</li>
+            <li><span class="step-t">คูณด้วย \(A^{-1}\) จากซ้าย</span> \(A^{-1}A\vec{x} = A^{-1}\vec{b}\) → \(I\vec{x} = A^{-1}\vec{b}\) จึงได้ \(\vec{x} = \begin{bmatrix} -7 & -5\\ 3 & 2 \end{bmatrix}\begin{bmatrix} -1\\ 1 \end{bmatrix}\) — คิดทีละช่อง: ช่องบน \((-7)(-1) + (-5)(1) = 7 - 5 = 2\) ช่องล่าง \(3(-1) + 2(1) = -3 + 2 = -1\)</li>
+            <li><span class="step-t">อ่านคำตอบและแทนกลับตรวจ</span> \(\vec{x} = \begin{bmatrix} 2\\ -1 \end{bmatrix}\) — แทนในสมการแรก: \(2(2) + 5(-1) = 4 - 5 = -1\) ✓ สมการที่สอง: \(-3(2) - 7(-1) = -6 + 7 = 1\) ✓ ครบทั้งคู่</li>
+          </ol>
+          <div class="verify"><span class="lbl">สรุปคำตอบ:</span> \(\vec{x} = (2, -1)\) ตรงตามตำรา — จุดขายของวิธีนี้: ถ้าเปลี่ยนฝั่งขวาเป็น \(\vec{b}\) ใหม่ ก็คูณ \(A^{-1}\) กับตัวใหม่ได้เลย ไม่ต้องลดรูประบบใหม่ตั้งแต่ต้น</div>
+        </div>
+      </article>
+
+      <article class="ex-card">
+        <div class="ex-head"><span class="ex-badge">แบบฝึกหัด 2.3 ข้อ 2</span><span class="tag book">จากตำรา</span><span class="tag easy">ง่าย</span><span class="ex-title">แก้ระบบด้วยผกผันที่ได้จากข้อ 1</span></div>
+        <div class="ex-body">
+          <div class="ex-q">โดยอาศัยเมทริกซ์ผกผันที่ได้ในข้อก่อนหน้านี้ จงหาผลเฉลยของระบบเชิงเส้นต่อไปนี้
+          \[ \text{(ก)}\; \begin{aligned} x_1 + 2x_2 &= -4\\ -x_1 + 3x_2 &= 1 \end{aligned} \qquad
+          \text{(ข)}\; \begin{aligned} 8x_1 + 5x_2 &= -9\\ -7x_1 - 5x_2 &= 11 \end{aligned} \]</div>
+          <div class="approach"><span class="lbl">อธิบายโจทย์ง่าย ๆ</span> — โจทย์บอกเคล็ดในตัว: เมทริกซ์สัมประสิทธิ์ของทั้งสองระบบคือข้อ (ก) และ (ง) จากแบบฝึกหัดข้อ 1 ที่เราผกผันไว้แล้ว — เหลือแค่จัดระบบเป็น \(A\vec{x} = \vec{b}\) แล้วคูณ \(A^{-1}\vec{b}\)</div>
+          <ol class="steps">
+            <li><span class="step-t">(ก) จัดรูปแล้วคูณผกผัน</span> \(A = \begin{bmatrix} 1 & 2\\ -1 & 3 \end{bmatrix}\), \(\vec{b} = \begin{bmatrix} -4\\ 1 \end{bmatrix}\), \(A^{-1} = \tfrac{1}{5}\begin{bmatrix} 3 & -2\\ 1 & 1 \end{bmatrix}\):
+            \[ \vec{x} = \frac{1}{5}\begin{bmatrix} 3 & -2\\ 1 & 1 \end{bmatrix}\begin{bmatrix} -4\\ 1 \end{bmatrix} = \frac{1}{5}\begin{bmatrix} -12 - 2\\ -4 + 1 \end{bmatrix} = \begin{bmatrix} -\tfrac{14}{5}\\[2pt] -\tfrac{3}{5} \end{bmatrix} \]</li>
+            <li><span class="step-t">(ก) ตรวจกลับ</span> สมการแรก: \(-\tfrac{14}{5} + 2\left(-\tfrac{3}{5}\right) = -\tfrac{14 + 6}{5} = -4\) ✓ สมการที่สอง: \(\tfrac{14}{5} - \tfrac{9}{5} = 1\) ✓</li>
+            <li><span class="step-t">(ข) จัดรูปแล้วคูณผกผัน</span> \(A = \begin{bmatrix} 8 & 5\\ -7 & -5 \end{bmatrix}\), \(\vec{b} = \begin{bmatrix} -9\\ 11 \end{bmatrix}\), \(A^{-1} = -\tfrac{1}{5}\begin{bmatrix} -5 & -5\\ 7 & 8 \end{bmatrix}\): คูณก่อนแล้วค่อยหาร — \(\begin{bmatrix} -5 & -5\\ 7 & 8 \end{bmatrix}\begin{bmatrix} -9\\ 11 \end{bmatrix} = \begin{bmatrix} 45 - 55\\ -63 + 88 \end{bmatrix} = \begin{bmatrix} -10\\ 25 \end{bmatrix}\) จากนั้นคูณ \(-\tfrac{1}{5}\):
+            \[ \vec{x} = -\frac{1}{5}\begin{bmatrix} -10\\ 25 \end{bmatrix} = \begin{bmatrix} 2\\ -5 \end{bmatrix} \]</li>
+          </ol>
+          <div class="verify"><span class="lbl">สรุปคำตอบ:</span> (ก) \(\left(-\tfrac{14}{5}, -\tfrac{3}{5}\right)\) · (ข) \((2, -5)\) — ตรงกับคำตอบท้ายบทของตำราทั้งสองข้อ</div>
+        </div>
+      </article>
+
+      <article class="ex-card">
+        <div class="ex-head"><span class="ex-badge">ตัวอย่าง 2.3.3</span><span class="tag book">จากตำรา</span><span class="tag easy">ง่าย</span><span class="ex-title">คูณด้วยเมทริกซ์มูลฐาน = ดำเนินการแถวหนึ่งครั้ง</span></div>
+        <div class="ex-body">
+          <div class="ex-q">ให้ \(E_1 = \begin{bmatrix} 1 & 0 & 0\\ 0 & 1 & 0\\ -4 & 0 & 1 \end{bmatrix}\), \(E_2 = \begin{bmatrix} 0 & 1 & 0\\ 1 & 0 & 0\\ 0 & 0 & 1 \end{bmatrix}\), \(E_3 = \begin{bmatrix} 1 & 0 & 0\\ 0 & 1 & 0\\ 0 & 0 & 5 \end{bmatrix}\) และ \(A = \begin{bmatrix} a & b & c\\ d & e & f\\ g & h & i \end{bmatrix}\) จงหา \(E_1 A\), \(E_2 A\) และ \(E_3 A\)</div>
+          <div class="approach"><span class="lbl">อธิบายโจทย์ง่าย ๆ</span> — "เมทริกซ์มูลฐาน" คือเมทริกซ์ที่เกิดจากการดำเนินการแถว<em>หนึ่งครั้ง</em>กับ \(I\) — ความวิเศษของมัน: เอาไปคูณ \(A\) (จากซ้าย) แล้ว \(A\) จะโดนดำเนินการแถว<em>แบบเดียวกันนั้น</em>ทันที ข้อนี้จึงแค่ให้เห็นตาว่าใช่จริง โดยอ่านชื่อการดำเนินการจากตำแหน่งที่ \(E\) ต่างจาก \(I\)</div>
+          <ol class="steps">
+            <li><span class="step-t">\(E_1\): บวก \(-4\) เท่าของแถวที่ 1 ไปที่แถวที่ 3</span> ตำแหน่งที่บอกความต่างจาก \(I\) คือช่อง (3,1) = \(-4\) — แถวที่ 3 ของผลลัพธ์จึงเป็น \(g - 4a,\; h - 4b,\; i - 4c\):
+            \[ E_1 A = \begin{bmatrix} a & b & c\\ d & e & f\\ -4a + g & -4b + h & -4c + i \end{bmatrix} \]</li>
+            <li><span class="step-t">\(E_2\): สลับแถวที่ 1 กับแถวที่ 2</span> ช่อง (1,1) กับ (2,2) ของ \(I\) ถูกสลับเป็น 0 และช่อง (1,2), (2,1) กลายเป็น 1 — ผลลัพธ์จึงสลับแถวของ \(A\):
+            \[ E_2 A = \begin{bmatrix} d & e & f\\ a & b & c\\ g & h & i \end{bmatrix} \]</li>
+            <li><span class="step-t">\(E_3\): คูณแถวที่ 3 ด้วย 5</span> ช่อง (3,3) เปลี่ยนจาก 1 เป็น 5 — แถวที่ 3 ของผลลัพธ์โดนคูณ 5 ทั้งแถว:
+            \[ E_3 A = \begin{bmatrix} a & b & c\\ d & e & f\\ 5g & 5h & 5i \end{bmatrix} \]</li>
+          </ol>
+          <div class="verify"><span class="lbl">สรุปคำตอบ:</span> \(E_1 A, E_2 A, E_3 A\) ตรงตามตำรา — ข้อสรุปสำคัญของตำรา: \(EA\) เท่ากับผลของการดำเนินการแถวมูลฐาน<em>แบบเดียวกับที่สร้าง \(E\) จาก \(I\)</em> ซึ่งเป็นหัวใจที่ทำให้การหา \(A^{-1}\) ด้วย \([A \mid I]\) ใช้งานได้</div>
+        </div>
+      </article>
+
+      <article class="ex-card">
+        <div class="ex-head"><span class="ex-badge">ตัวอย่าง 2.3.5 – 2.3.6</span><span class="tag book">จากตำรา</span><span class="tag mid">กลาง</span><span class="ex-title">หา \(A^{-1}\) ด้วย \([A \mid I_3]\) และสร้าง \(T^{-1}\) จากมัน</span></div>
+        <div class="ex-body">
+          <div class="ex-q"><strong>2.3.5:</strong> จงหาเมทริกซ์ผกผันของเมทริกซ์ \(A = \begin{bmatrix} 1 & 0 & 3\\ 0 & 2 & 0\\ 2 & 0 & 5 \end{bmatrix}\) (ถ้ามี) &nbsp; <strong>2.3.6:</strong> ถ้า \(T\) เป็นการแปลงเชิงเส้นที่มีเมทริกซ์มาตรฐาน \(A\) ตัวเดียวกันนี้ จงหา \(T^{-1}\)</div>
+          <div class="approach"><span class="lbl">อธิบายโจทย์ง่าย ๆ</span> — ข้อ 2.3.5 ใช้ท่ามาตรฐานของหัวข้อนี้: ต่อ \(I_3\) ท้าย \(A\) เป็น \([A \mid I_3]\) แล้วดำเนินการแถวให้ฝั่งซ้ายกลายเป็น \(I\) — ฝั่งขวาที่เหลือจะ "ถูกบังคับ" กลายเป็น \(A^{-1}\) โดยอัตโนมัติ (ถ้าฝั่งซ้ายเกิดแถวล้า แปลว่าไม่มีผกผัน) ส่วนข้อ 2.3.6 แค่ประกาศใช้: \(T^{-1}(\vec{x}) = A^{-1}\vec{x}\)</div>
+          <ol class="steps">
+            <li><span class="step-t">ตั้ง \([A \mid I_3]\) แล้วเคาะหลักที่ 1</span> \(R_3 - 2R_1\) ทีละช่อง: \(2 - 2(1) = 0\), \(0 - 0 = 0\), \(5 - 2(3) = -1\), \(0 - 2(1) = -2\), \(0 - 0 = 0\), \(1 - 0 = 1\) และ \(\tfrac{1}{2}R_2\) ทำตัวนำกลางเป็น 1:
+            \[ \left[\begin{array}{ccc|ccc} 1 & 0 & 3 & 1 & 0 & 0\\ 0 & 2 & 0 & 0 & 1 & 0\\ 2 & 0 & 5 & 0 & 0 & 1 \end{array}\right] \sim \left[\begin{array}{ccc|ccc} 1 & 0 & 3 & 1 & 0 & 0\\ 0 & 1 & 0 & 0 & \tfrac{1}{2} & 0\\ 0 & 0 & -1 & -2 & 0 & 1 \end{array}\right] \]</li>
+            <li><span class="step-t">เคาะหลักที่ 3 แล้วปิดงาน</span> \(R_1 + 3R_3\): ช่องที่สาม \(3 + 3(-1) = 0\), ฝั่งขวา \(1 + 3(-2) = -5\), \(0 + 3(0) = 0\), \(0 + 3(1) = 3\) · และ \((-1)R_3\) ดันตัวนำตัวสุดท้ายเป็น 1:
+            \[ \sim \left[\begin{array}{ccc|ccc} 1 & 0 & 0 & -5 & 0 & 3\\ 0 & 1 & 0 & 0 & \tfrac{1}{2} & 0\\ 0 & 0 & 1 & 2 & 0 & -1 \end{array}\right] \]</li>
+            <li><span class="step-t">อ่าน \(A^{-1}\) และประกาศ \(T^{-1}\)</span> ฝั่งขวาคือคำตอบ:
+            \[ A^{-1} = \begin{bmatrix} -5 & 0 & 3\\ 0 & \tfrac{1}{2} & 0\\ 2 & 0 & -1 \end{bmatrix} \]
+            เพราะฝั่งซ้ายได้ \(I_3\) \(A\) จึงหาผกผันได้ (ทฤษฎีบท 2.3.5) และการแปลง \(T\) หาตัวผกผันได้ โดย \(T^{-1}(\vec{x}) = A^{-1}\vec{x}\) สำหรับทุก \(\vec{x} \in \mathbb{R}^3\)</li>
+            <li><span class="step-t">ตรวจคำตอบ</span> \(\begin{bmatrix} 1 & 0 & 3\\ 0 & 2 & 0\\ 2 & 0 & 5 \end{bmatrix}\begin{bmatrix} -5 & 0 & 3\\ 0 & \tfrac{1}{2} & 0\\ 2 & 0 & -1 \end{bmatrix}\) — ช่อง (1,1): \(-5 + 6 = 1\) ✓ ช่อง (2,2): \(2 \cdot \tfrac{1}{2} = 1\) ✓ ช่อง (3,3): \(6 - 5 = 1\) ✓ และช่องนอกแนวทแยงล้าหมด เช่น (1,3): \(3 - 3 = 0\) ✓ → ได้ \(I_3\) จริง</li>
+          </ol>
+          <div class="verify"><span class="lbl">สรุปคำตอบ:</span> \(A^{-1} = \begin{bmatrix} -5 & 0 & 3\\ 0 & \tfrac{1}{2} & 0\\ 2 & 0 & -1 \end{bmatrix}\) และ \(T^{-1}\) กำหนดโดย \(T^{-1}(\vec{x}) = A^{-1}\vec{x}\) — ตรงตามตำราทั้งสองตัวอย่าง</div>
+        </div>
+      </article>
+
+      <article class="ex-card">
+        <div class="ex-head"><span class="ex-badge">ตัวอย่าง 2.3.4</span><span class="tag book">จากตำรา</span><span class="tag mid">กลาง</span><span class="ex-title">หา \(C\) ให้ \(CA\) เป็นเมทริกซ์ขั้นบันไดลดรูป</span></div>
+        <div class="ex-body">
+          <div class="ex-q">ให้ \(A = \begin{bmatrix} -3 & 0 & 6\\ 2 & 1 & 6 \end{bmatrix}\) จงหาเมทริกซ์ไม่เอกฐาน \(C\) ซึ่งทำให้ \(CA\) เป็นเมทริกซ์ขั้นบันไดลดรูป</div>
+          <div class="approach"><span class="lbl">อธิบายโจทย์ง่าย ๆ</span> — คิดย้อนกลับจากตัวอย่าง 2.3.3: ถ้าลดรูป \(A\) เป็น RREF ด้วยการดำเนินการแถวหลาย ๆ ครั้ง ก็มี "เมทริกซ์มูลฐานรวม" \(C\) ตัวเดียวที่ทำงานแทนทั้งชุด ท่าหามัน: ลดรูป \([A \mid I_2]\) ไปพร้อมกัน พอฝั่งซ้ายถึง RREF ฝั่งขวาจะเป็น \(C\) พอดี</div>
+          <ol class="steps">
+            <li><span class="step-t">ตั้ง \([A \mid I_2]\) แล้วลดรูปฝั่งซ้าย</span> คูณ \(R_1\) ด้วย \(-\tfrac{1}{3}\) เพื่อให้หัวบันไดเป็น 1: ช่องซ้าย \(-3 \to 1\), \(0 \to 0\), \(6 \to -2\) และฝั่งขวา \(1 \to -\tfrac{1}{3}\), \(0 \to 0\)
+            \[ \left[\begin{array}{ccc|cc} -3 & 0 & 6 & 1 & 0\\ 2 & 1 & 6 & 0 & 1 \end{array}\right] \sim \left[\begin{array}{ccc|cc} 1 & 0 & -2 & -\tfrac{1}{3} & 0\\ 2 & 1 & 6 & 0 & 1 \end{array}\right] \]</li>
+            <li><span class="step-t">เคาะช่องแรกของแถวที่ 2</span> \(R_2 - 2R_1\) ทีละช่อง: \(2 - 2(1) = 0\), \(1 - 2(0) = 1\), \(6 - 2(-2) = 10\), \(0 - 2\left(-\tfrac{1}{3}\right) = \tfrac{2}{3}\), \(1 - 2(0) = 1\)
+            \[ \sim \left[\begin{array}{ccc|cc} 1 & 0 & -2 & -\tfrac{1}{3} & 0\\ 0 & 1 & 10 & \tfrac{2}{3} & 1 \end{array}\right] \]</li>
+            <li><span class="step-t">อ่านผลและตรวจ</span> ฝั่งซ้ายเป็น RREF ของ \(A\) แล้ว ฝั่งขวาจึงคือ \(C = \begin{bmatrix} -\tfrac{1}{3} & 0\\ \tfrac{2}{3} & 1 \end{bmatrix}\) — ตรวจโดยคูณกลับ:
+            \[ CA = \begin{bmatrix} -\tfrac{1}{3} & 0\\ \tfrac{2}{3} & 1 \end{bmatrix}\begin{bmatrix} -3 & 0 & 6\\ 2 & 1 & 6 \end{bmatrix} = \begin{bmatrix} 1 & 0 & -2\\ 0 & 1 & 10 \end{bmatrix} \] ✓ (ช่อง (1,1): \(-\tfrac{1}{3}(-3) = 1\) ✓, ช่อง (2,3): \(\tfrac{2}{3}(6) + 6 = 10\) ✓)</li>
+          </ol>
+          <div class="verify"><span class="lbl">สรุปคำตอบ:</span> \(C = \begin{bmatrix} -\tfrac{1}{3} & 0\\ \tfrac{2}{3} & 1 \end{bmatrix}\) ทำให้ \(CA = \begin{bmatrix} 1 & 0 & -2\\ 0 & 1 & 10 \end{bmatrix}\) เป็นเมทริกซ์ขั้นบันไดลดรูป — ตรงตามตำรา</div>
+        </div>
+      </article>
+
+      <article class="ex-card">
+        <div class="ex-head"><span class="ex-badge">ตัวอย่าง 2.3.7</span><span class="tag book">จากตำรา</span><span class="tag mid">กลาง</span><span class="ex-title">ใช้ IMT ตัดสิน: ตัวนำไม่ครบ = ไม่มีผกผัน</span></div>
+        <div class="ex-body">
+          <div class="ex-q">จงใช้ทฤษฎีบทเมทริกซ์หาตัวผกผันได้ (IMT) ตรวจสอบว่าเมทริกซ์
+          \[ A = \begin{bmatrix} 1 & -2 & -1\\ -1 & 5 & 6\\ 5 & -4 & 5 \end{bmatrix} \]
+          มีเมทริกซ์ผกผันหรือไม่ เพราะเหตุใด</div>
+          <div class="approach"><span class="lbl">อธิบายโจทย์ง่าย ๆ</span> — IMT คือ "เช็กลิสต์ 17 ข้อที่จริงพร้อมกันทั้งหมดหรือพังพร้อมกันทั้งหมด" — ไม่ต้องตรวจทั้ง 17 ข้อ แค่หา<em>ข้อเดียว</em>ที่ตรวจง่าย ที่นี่ตำราเลือกข้อ "มีตำแหน่งตัวหลักครบ \(n = 3\) ตำแหน่ง" ด้วยการลดรูปเป็นรูปแบบขั้นบันได ถ้าพังข้อนี้ ทั้ง 17 ข้อพังตาม รวมถึงข้อ "มีเมทริกซ์ผกผัน"</div>
+          <ol class="steps">
+            <li><span class="step-t">ลดรูป \(A\) เป็นรูปแบบขั้นบันได</span> \(R_2 + R_1\) ทีละช่อง: \(-1 + 1 = 0\), \(5 + (-2) = 3\), \(6 + (-1) = 5\) · \(R_3 - 5R_1\): \(5 - 5(1) = 0\), \(-4 - 5(-2) = 6\), \(5 - 5(-1) = 10\) จากนั้น \(R_3 - 2R_2\): \(6 - 2(3) = 0\), \(10 - 2(5) = 0\)
+            \[ A = \begin{bmatrix} 1 & -2 & -1\\ -1 & 5 & 6\\ 5 & -4 & 5 \end{bmatrix} \sim \begin{bmatrix} 1 & -2 & -1\\ 0 & 3 & 5\\ 0 & 0 & 0 \end{bmatrix} \]</li>
+            <li><span class="step-t">นับตำแหน่งตัวหลัก</span> ตัวนำอยู่แค่ 2 ตำแหน่ง (หลัก 1 และ 2) แถวที่ 3 ล้าทั้งแถว — ไม่ครบ \(n = 3\) ตำแหน่ง</li>
+            <li><span class="step-t">สรุปผ่าน IMT</span> ข้อความ "A มีตำแหน่งตัวหลัก \(n\) ตำแหน่ง" ใน IMT เป็นเท็จ → ทุกข้อความที่เหลือเป็นเท็จตามไปด้วย รวมถึงข้อที่ 1 "เมทริกซ์ \(A\) หาเมทริกซ์ผกผันได้" — ดังนั้น \(A\) <strong>ไม่มีเมทริกซ์ผกผัน</strong></li>
+          </ol>
+          <div class="verify"><span class="lbl">สรุปคำตอบ:</span> \(A\) มีตำแหน่งตัวหลักเพียง 2 ตำแหน่ง จึงสรุปตามตำราโดย IMT ว่า \(A\) ไม่มีเมทริกซ์ผกผัน — สังเกตว่าเราไม่ต้องหา \(A^{-1}\) ทั้งก้อนเลย ลดรูปนิดเดียวรู้คำตอบ</div>
+        </div>
+      </article>
+
+      <article class="ex-card">
+        <div class="ex-head"><span class="ex-badge">แบบฝึกหัด 2.3 ข้อ 7</span><span class="tag book">จากตำรา</span><span class="tag hard">ยาก</span><span class="ex-title">หาหลัก/แถวของ \(A^{-1}\) โดยไม่คำนวณทั้งเมทริกซ์</span></div>
+        <div class="ex-body">
+          <div class="ex-q">ถ้า \(A = \begin{bmatrix} -2 & -7 & -9\\ 2 & 5 & 6\\ 1 & 3 & 4 \end{bmatrix}\) โดยไม่คำนวณหลักหรือแถวอื่น ๆ จงหาหลักที่สามและหาแถวที่สองของ \(A^{-1}\)</div>
+          <div class="approach"><span class="lbl">อธิบายโจทย์ง่าย ๆ</span> — กุญแจคือมองชิ้นส่วนของ \(A^{-1}\) ให้ออกว่า "สมการอะไรในตัว": หลักที่ \(j\) ของ \(A^{-1}\) คือ \(A^{-1}\vec{e}_j\) ซึ่งเป็น<em>ผลเฉลยของระบบ \(A\vec{x} = \vec{e}_j\)</em> และแถวที่ \(i\) ของ \(A^{-1}\) คือผลเฉลยของ \(A^{T}\vec{y} = \vec{e}_i\) คว่ำมาวาง — แก้ระบบเล็ก ๆ สองระบบก็จบ ไม่ต้องผกผันทั้งเมทริกซ์</div>
+          <ol class="steps">
+            <li><span class="step-t">หลักที่ 3 ของ \(A^{-1}\): แก้ \(A\vec{x} = \vec{e}_3\)</span> ตั้งเมทริกซ์แต่งเติมแล้วลดรูป: \(R_2 + R_1\) ได้ \(\begin{bmatrix} 0 & -2 & -3 & 1 \end{bmatrix}\), \(R_3 + \tfrac{1}{2}R_1\) ได้ \(\begin{bmatrix} 0 & -\tfrac{1}{2} & -\tfrac{1}{2} & \tfrac{1}{2} \end{bmatrix}\) แล้วกวาดต่อให้เหลือตัวนำเดียวต่อแถว จะได้ผลเฉลยชุดเดียว:
+            \[ \vec{x} = \begin{bmatrix} 3\\ -6\\ 4 \end{bmatrix} \;\Longrightarrow\; \text{หลักที่ 3 ของ } A^{-1} = \begin{bmatrix} 3\\ -6\\ 4 \end{bmatrix} \]</li>
+            <li><span class="step-t">ทำไมมันคือหลักของ \(A^{-1}\)</span> เพราะ \(A(A^{-1}\vec{e}_3) = \vec{e}_3\) — หลักที่ 3 ของ \(A^{-1}\) เมื่อคูณกับ \(A\) ต้องได้ \(\vec{e}_3\) พอดี (คอลัมน์ของผลคูณเมทริกซ์คือเมทริกซ์ซ้ายคูณกับคอลัมน์ของเมทริกซ์ขวา)</li>
+            <li><span class="step-t">แถวที่ 2 ของ \(A^{-1}\): แก้ \(A^{T}\vec{y} = \vec{e}_2\)</span> แถวที่ \(i\) ของ \(A^{-1}\) = \(\vec{e}_i^{T}A^{-1} = \left(A^{-T}\vec{e}_i\right)^{T} = \left((A^{T})^{-1}\vec{e}_i\right)^{T}\) — ตั้ง \(A^{T} = \begin{bmatrix} -2 & 2 & 1\\ -7 & 5 & 3\\ -9 & 6 & 4 \end{bmatrix}\) แล้วแก้ \(A^{T}\vec{y} = \vec{e}_2 = \begin{bmatrix} 0\\ 1\\ 0 \end{bmatrix}\) ได้ \(\vec{y} = \begin{bmatrix} -2\\ 1\\ -6 \end{bmatrix}\) คว่ำกลับเป็นแถว:
+            \[ \text{แถวที่ 2 ของ } A^{-1} = \begin{bmatrix} -2 & 1 & -6 \end{bmatrix} \]</li>
+            <li><span class="step-t">ตรวจกับ \(A^{-1}\) เต็ม</span> ถ้าผกผันทั้งก้อนจะได้ \(A^{-1} = \begin{bmatrix} 2 & 1 & 3\\ -2 & 1 & -6\\ 1 & -1 & 4 \end{bmatrix}\) — หลักที่ 3 คือ \(\begin{bmatrix} 3\\ -6\\ 4 \end{bmatrix}\) ✓ และแถวที่ 2 คือ \(\begin{bmatrix} -2 & 1 & -6 \end{bmatrix}\) ✓ ตรงกับที่หามาแบบชิ้น ๆ</li>
+          </ol>
+          <div class="verify"><span class="lbl">สรุปคำตอบ:</span> หลักที่สามของ \(A^{-1}\) คือ \(\begin{bmatrix} 3\\ -6\\ 4 \end{bmatrix}\) และแถวที่สองคือ \(\begin{bmatrix} -2 & 1 & -6 \end{bmatrix}\) — ตรงกับคำตอบท้ายบทของตำรา</div>
+        </div>
+      </article>
+
+      <article class="ex-card">
+        <div class="ex-head"><span class="ex-badge">ตัวอย่าง 2.3.8</span><span class="tag book">จากตำรา</span><span class="tag hard">ยาก</span><span class="ex-title">หาค่า \(h\) ให้เมทริกซ์มีผกผัน</span></div>
+        <div class="ex-body">
+          <div class="ex-q">จงหาค่าของ \(h\) ซึ่งทำให้เมทริกซ์
+          \[ A = \begin{bmatrix} 1 & -7 & h\\ 2 & 1 & 1\\ 1 & 3 & 2 \end{bmatrix} \]
+          หาเมทริกซ์ผกผันได้</div>
+          <div class="approach"><span class="lbl">อธิบายโจทย์ง่าย ๆ</span> — โจทย์ไม่ให้หา \(A^{-1}\) แต่ถามว่า "จูน \(h\) อย่างไรให้มีผกผัน" ตาม IMT \(A\) มีผกผันก็ต่อเมื่อลดรูปแล้วมีตัวนำครบ 3 ตำแหน่ง — ดังนั้นลดรูป \(A\) โดยเก็บ \(h\) ไว้เป็นตัวอักษร แล้วดูว่าช่องไหนเป็นตัวตัดสิน</div>
+          <ol class="steps">
+            <li><span class="step-t">สลับแถวให้ตัวเลขสวยก่อน</span> \(R_1 \leftrightarrow R_3\) (เอาแถวที่ขึ้นต้นด้วย 1 ไว้บน) แล้วเคาะหลักที่ 1: \(R_2 - 2R_1\) ทีละช่อง \(2 - 2(1) = 0\), \(1 - 2(3) = -5\), \(1 - 2(2) = -3\) และ \(R_3 - R_1\): \(1 - 1 = 0\), \(-7 - 3 = -10\), \(h - 2\)
+            \[ A \sim \begin{bmatrix} 1 & 3 & 2\\ 2 & 1 & 1\\ 1 & -7 & h \end{bmatrix} \sim \begin{bmatrix} 1 & 3 & 2\\ 0 & -5 & -3\\ 0 & -10 & h - 2 \end{bmatrix} \]</li>
+            <li><span class="step-t">เคาะหลักที่ 2 — จุดที่ \(h\) ตัดสิน</span> \(R_3 - 2R_2\): \(-10 - 2(-5) = 0\) ✓ (แหล่งกำเนิดเงื่อนไข), \(h - 2 - 2(-3) = h - 2 + 6 = h + 4\)
+            \[ \sim \begin{bmatrix} 1 & 3 & 2\\ 0 & -5 & -3\\ 0 & 0 & h + 4 \end{bmatrix} \]</li>
+            <li><span class="step-t">อ่านเงื่อนไขผ่าน IMT</span> \(A\) มีเมทริกซ์ผกผัน ก็ต่อเมื่อมีตัวนำครบ 3 ตำแหน่ง นั่นคือหลักที่ 3 ต้องมีตัวนำ ก็ต่อเมื่อ \(h + 4 \neq 0\) — ดังนั้น <strong>\(h \neq -4\)</strong> (ถ้า \(h = -4\) แถวล่างล้าทั้งแถว ตัวนำเหลือ 2 ตำแหน่ง เมทริกซ์เอกฐานทันที)</li>
+          </ol>
+          <div class="verify"><span class="lbl">สรุปคำตอบ:</span> \(A\) หาเมทริกซ์ผกผันได้ ก็ต่อเมื่อ \(h \neq -4\) — ตรงตามตำรา (ตรวจซ้ำด้วยดีเทอร์มิแนนต์: \(\det A = 5(h + 4)\) เป็นศูนย์เมื่อ \(h = -4\) พอดี)</div>
+        </div>
+      </article>
+
+      <article class="ex-card">
+        <div class="ex-head"><span class="ex-badge">แบบฝึกหัด 2.3 ข้อ 3</span><span class="tag book">จากตำรา</span><span class="tag hard">ยาก</span><span class="ex-title">หา \(A^{-1}\) ครั้งเดียว แล้วแก้สี่ระบบพร้อมกัน</span></div>
+        <div class="ex-body">
+          <div class="ex-q">ให้ \(A = \begin{bmatrix} 2 & 5\\ 5 & 12 \end{bmatrix}\), \(\vec{b}_1 = \begin{bmatrix} -1\\ 3 \end{bmatrix}\), \(\vec{b}_2 = \begin{bmatrix} 1\\ -5 \end{bmatrix}\), \(\vec{b}_3 = \begin{bmatrix} 0\\ 4 \end{bmatrix}\) และ \(\vec{b}_4 = \begin{bmatrix} 3\\ 2 \end{bmatrix}\)<br>
+          (ก) จงหา \(A^{-1}\) และใช้ \(A^{-1}\) หาผลเฉลยของสมการเมทริกซ์ \(A\vec{x} = \vec{b}_1\), \(A\vec{x} = \vec{b}_2\), \(A\vec{x} = \vec{b}_3\) และ \(A\vec{x} = \vec{b}_4\)<br>
+          (ข) จงหาผลเฉลยของสมการเมทริกซ์ทั้งสี่โดยใช้การดำเนินการแถวกับเมทริกซ์แต่งเติม \(\left[\begin{array}{c|ccc} A & \vec{b}_1 & \vec{b}_2 & \vec{b}_3 & \vec{b}_4 \end{array}\right]\)</div>
+          <div class="approach"><span class="lbl">อธิบายโจทย์ง่าย ๆ</span> — โจทย์ขายไอเดียหลักของหัวข้อนี้ให้เห็นชัด: เจอ \(A\) ตัวเดิมซ้ำ ๆ กับ \(\vec{b}\) ต่างกัน ลงทุนหา \(A^{-1}\)<em>ครั้งเดียว</em> แล้วแก้ทุกระบบด้วยการคูณ ส่วนข้อ (ข) คือวิธีอีกแบบที่ทำงาน "ขนาน" — ต่อ \(\vec{b}\) ทั้งสี่เป็นหลักเพิ่ม แล้วลดรูปครั้งเดียวได้คำตอบครบทุกหลัก</div>
+          <ol class="steps">
+            <li><span class="step-t">หา \(A^{-1}\) ด้วยสูตร \(2 \times 2\)</span> \(\det A = 2(12) - 5(5) = 24 - 25 = -1\) (ใกล้ศูนย์มากแต่ไม่เป็นศูนย์ — ตัวเลขชุดนี้ถูกออกแบบให้เป๊ะแบบนี้)
+            \[ A^{-1} = \frac{1}{-1}\begin{bmatrix} 12 & -5\\ -5 & 2 \end{bmatrix} = \begin{bmatrix} -12 & 5\\ 5 & -2 \end{bmatrix} \]</li>
+            <li><span class="step-t">แก้ทั้งสี่ระบบด้วยการคูณ \(A^{-1}\vec{b}_i\)</span> คิดทีละช่อง:
+            \[ \vec{x}_1 = \begin{bmatrix} -12 & 5\\ 5 & -2 \end{bmatrix}\begin{bmatrix} -1\\ 3 \end{bmatrix} = \begin{bmatrix} 12 + 15\\ -5 - 6 \end{bmatrix} = \begin{bmatrix} 27\\ -11 \end{bmatrix} \]
+            \[ \vec{x}_2 = \begin{bmatrix} -12(1) + 5(-5)\\ 5(1) - 2(-5) \end{bmatrix} = \begin{bmatrix} -37\\ 15 \end{bmatrix} \qquad
+            \vec{x}_3 = \begin{bmatrix} -12(0) + 5(4)\\ 5(0) - 2(4) \end{bmatrix} = \begin{bmatrix} 20\\ -8 \end{bmatrix} \qquad
+            \vec{x}_4 = \begin{bmatrix} -12(3) + 5(2)\\ 5(3) - 2(2) \end{bmatrix} = \begin{bmatrix} -26\\ 11 \end{bmatrix} \]
+            (ตรวจ \(\vec{x}_1\): \(2(27) + 5(-11) = 54 - 55 = -1\) ✓ และ \(5(27) + 12(-11) = 135 - 132 = 3\) ✓)</li>
+            <li><span class="step-t">(ข) วิธีลดรูปครั้งเดียวจบ</span> ต่อทั้งสี่หลักเข้าด้วยกัน ลดรูปฝั่งซ้ายให้เป็น \(I_2\) (ทุกการดำเนินการแถวกระทำทุกหลักพร้อมกัน):
+            \[ \left[\begin{array}{cc|cccc} 2 & 5 & -1 & 1 & 0 & 3\\ 5 & 12 & 3 & -5 & 4 & 2 \end{array}\right] \sim \left[\begin{array}{cc|cccc} 1 & 0 & 27 & -37 & 20 & -26\\ 0 & 1 & -11 & 15 & -8 & 11 \end{array}\right] \]
+            อ่านคำตอบตามหลัก — ได้ \(\vec{x}_1, \vec{x}_2, \vec{x}_3, \vec{x}_4\) ตรงกับข้อ (ก) ทุกตัว (และหลักขวาสองหลักแรกของกระบวนการก็คือ \(A^{-1}\) ที่เราหาไว้ สังเกตว่าทั้งสองวิธีคือการทำงานเดียวกัน)</li>
+          </ol>
+          <div class="verify"><span class="lbl">สรุปคำตอบ:</span> \(A^{-1} = \begin{bmatrix} -12 & 5\\ 5 & -2 \end{bmatrix}\), \(\vec{x}_1 = \begin{bmatrix} 27\\ -11 \end{bmatrix}\), \(\vec{x}_2 = \begin{bmatrix} -37\\ 15 \end{bmatrix}\), \(\vec{x}_3 = \begin{bmatrix} 20\\ -8 \end{bmatrix}\), \(\vec{x}_4 = \begin{bmatrix} -26\\ 11 \end{bmatrix}\) — ตรงกับคำตอบท้ายบทของตำราทุกตัว</div>
+        </div>
+      </article>
+    </section>
+
+    <section class="block" id="apply">
+      <h2><span class="h2-dot">🌍</span> เอาไปใช้ทำอะไร — โจทย์ประยุกต์</h2>
+
+      <article class="ex-card">
+        <div class="ex-head"><span class="ex-badge">🔐 ถอดรหัสลับแบบเมทริกซ์ (Hill cipher)</span><span class="tag app">ใช้จริง</span><span class="tag mid">กลาง</span><span class="ex-title">เข้ารหัสด้วย \(A\vec{x}\) ถอดรหัสด้วย \(A^{-1}\vec{y}\) — แบบเดียวกันทุกอย่าง</span></div>
+        <div class="ex-body">
+          <div class="ex-q">รหัสลับแบบเมทริกซ์เลขที่ตัวอักษรเป็น 0–25 (A = 0, B = 1, …, Z = 25) เข้ารหัสทีละคู่ด้วย \(A = \begin{bmatrix} 3 & 3\\ 2 & 5 \end{bmatrix}\) คือ \(\vec{c} = A\vec{p} \bmod 26\) ข้อความลับ "OK" เขียนเป็นเวกเตอร์ \(\vec{p} = \begin{bmatrix} 14\\ 10 \end{bmatrix}\) (ก) จงเข้ารหัส "OK" (ข) ผู้รับจะถอดรหัสกลับได้อย่างไร จงพิสูจน์ด้วยการถอด \(\vec{c}\) กลับเป็น "OK"</div>
+          <div class="approach"><span class="lbl">อธิบายโจทย์ง่าย ๆ</span> — เข้ารหัส = คูณเมทริกซ์ \(A\) กับเวกเตอร์ตัวอักษร แล้ว "ทบ" เศษเหลือ 26 (เพราะตัวอักษรมีแค่ 26 ตัว) ส่วนถอดรหัสคือการย้อนกลับ — ซึ่งในโลกเมทริกซ์คือการคูณด้วย \(A^{-1}\) แต่ต้องเป็น \(A^{-1}\) ที่ทำงานในโลก <em>modulo 26</em> ด้วย จึงต้องหาอินเวอร์สของ \(\det A\) ในระบบเศษเหลือ 26</div>
+          <ol class="steps">
+            <li><span class="step-t">(ก) เข้ารหัส: คูณแล้วทบ 26</span> \(A\vec{p} = \begin{bmatrix} 3 & 3\\ 2 & 5 \end{bmatrix}\begin{bmatrix} 14\\ 10 \end{bmatrix} = \begin{bmatrix} 3(14) + 3(10)\\ 2(14) + 5(10) \end{bmatrix} = \begin{bmatrix} 72\\ 78 \end{bmatrix}\) — ทบ 26 (นับวน 0–25): \(72 = 2 \cdot 26 + 20 \to 20\), \(78 = 3 \cdot 26 + 0 \to 0\) ได้ \(\vec{c} = \begin{bmatrix} 20\\ 0 \end{bmatrix}\) ซึ่งคือตัวอักษรที่ 20 = U และ 0 = A → รหัสลับคือ <strong>"UA"</strong></li>
+            <li><span class="step-t">(ข) เตรียม \(A^{-1}\) ในโลก mod 26</span> \(\det A = 3(5) - 3(2) = 9\) — อินเวอร์สของ 9 ใน mod 26 คือ 3 เพราะ \(9 \times 3 = 27 \equiv 1 \pmod{26}\) · สูตร \(2 \times 2\) ยังใช้ได้: \(A^{-1} \equiv 3\begin{bmatrix} 5 & -3\\ -2 & 3 \end{bmatrix} = \begin{bmatrix} 15 & -9\\ -6 & 9 \end{bmatrix} \equiv \begin{bmatrix} 15 & 17\\ 20 & 9 \end{bmatrix} \pmod{26}\) — ตรวจ: \(AA^{-1} \equiv \begin{bmatrix} 105 & 78\\ 130 & 79 \end{bmatrix} \equiv \begin{bmatrix} 1 & 0\\ 0 & 1 \end{bmatrix} \pmod{26}\) ✓ (105 = 4·26 + 1, 78 = 3·26)</li>
+            <li><span class="step-t">(ข) ถอดรหัส</span> \(\vec{p} = A^{-1}\vec{c} \bmod 26 = \begin{bmatrix} 15 & 17\\ 20 & 9 \end{bmatrix}\begin{bmatrix} 20\\ 0 \end{bmatrix} = \begin{bmatrix} 300\\ 400 \end{bmatrix}\) — ทบ 26: \(300 = 11 \cdot 26 + 14 \to 14\), \(400 = 15 \cdot 26 + 10 \to 10\) ได้ \(\begin{bmatrix} 14\\ 10 \end{bmatrix}\) ซึ่งก็คือ "O", "K" — ถอดกลับเป็น "OK" ตรงต้นฉบับ ✓</li>
+          </ol>
+          <div class="verify"><span class="lbl">เห็นไหมว่า...</span> โครงสร้าง "เข้ารหัสด้วย \(A\vec{p}\) ถอดด้วย \(A^{-1}\vec{c}\)" นี้คือ Hill cipher ที่ใช้สอนมาตั้งแต่ยุคก่อนคอมพิวเตอร์ — และมันคือตัวอย่างสุดเป๊ะของหัวข้อนี้: ตราบใดที่ \(A\) มีผกผัน (det ไม่แชร์ตัวประกอบกับ 26) ข้อความก็ย้อนกลับได้ไม่หลง ส่วนถ้าเจอ \(A\) เอกฐาน รหัสจะ "ยุบ" เพราะตัวอักษรต่างกันถูกบีบให้ทับกัน — เมทริกซ์ผกผันจึงไม่ใช่แค่บทเรียน แต่เป็นเงื่อนไขความปลอดภัยจริง</div>
+        </div>
+      </article>
+
+      <article class="ex-card">
+        <div class="ex-head"><span class="ex-badge">🍱 จัดเมนูอาหาร แก้ระบบเดิมซ้ำ ๆ</span><span class="tag app">ใช้จริง</span><span class="tag easy">ง่าย</span><span class="ex-title">ลงทุนหา \(A^{-1}\) ครั้งเดียว แก้ทุกมื้อด้วยการคูณรอบเดียว</span></div>
+        <div class="ex-body">
+          <div class="ex-q">นักโภชนาการออกแบบเมนูจากอาหาร 2 ชนิด: นม 1 แก้ว ให้โปรตีน 8 กรัมและคาร์โบไฮเดรต 12 กรัม ส่วนขนมปัง 1 แผ่น ให้โปรตีน 2 กรัมและคาร์โบไฮเดรต 4 กรัม ให้ \(x_1, x_2\) คือจำนวนแก้วนมและแผ่นขนมปังต่อมื้อ เมทริกซ์สารอาหารคือ \(A = \begin{bmatrix} 8 & 2\\ 12 & 4 \end{bmatrix}\) (แถว = โปรตีน/คาร์โบไฮเดรต) (ก) มื้อเป้าหมาย \(\vec{b}_1 = \begin{bmatrix} 28\\ 44 \end{bmatrix}\) (โปรตีน 28 ก. คาร์บ 44 ก.) ต้องกินนมกับขนมปังกี่หน่วย (ข) มื้อเบา \(\vec{b}_2 = \begin{bmatrix} 18\\ 28 \end{bmatrix}\) ล่ะ</div>
+          <div class="approach"><span class="lbl">อธิบายโจทย์ง่าย ๆ</span> — เมทริกซ์ \(A\) คือ "สูตรอาหาร" ที่คงที่ ส่วน \(\vec{b}\) คือเป้าสารอาหารที่เปลี่ยนไปตามมื้อ — สถานการณ์แบบนี้คือเหตุผลที่มนุษย์ประดิษฐ์ \(A^{-1}\) เลย: ผกผันครั้งเดียว แล้วทุกมื้อใหม่แค่คูณ \(\vec{x} = A^{-1}\vec{b}\) จบในบรรทัดเดียว ไม่ต้องลดรูปใหม่ทุกครั้ง</div>
+          <ol class="steps">
+            <li><span class="step-t">หา \(A^{-1}\) ครั้งเดียว</span> \(\det A = 8(4) - 2(12) = 32 - 24 = 8 \neq 0\) → มีผกผัน:
+            \[ A^{-1} = \frac{1}{8}\begin{bmatrix} 4 & -2\\ -12 & 8 \end{bmatrix} = \begin{bmatrix} \tfrac{1}{2} & -\tfrac{1}{4}\\[2pt] -\tfrac{3}{2} & 1 \end{bmatrix} \]
+            (สังเกตว่ามีเลขลบ — เป็นเรื่องปกติของ \(A^{-1}\) ไม่ได้แปลว่ากินขนมปังติดลบ เพราะเลขลบทำหน้าที่ "หักล้างกัน" ในการคูณ)</li>
+            <li><span class="step-t">(ก) มื้อแรก: คูณ \(A^{-1}\vec{b}_1\)</span>
+            \[ \vec{x} = \begin{bmatrix} \tfrac{1}{2} & -\tfrac{1}{4}\\[2pt] -\tfrac{3}{2} & 1 \end{bmatrix}\begin{bmatrix} 28\\ 44 \end{bmatrix} = \begin{bmatrix} 14 - 11\\ -42 + 44 \end{bmatrix} = \begin{bmatrix} 3\\ 2 \end{bmatrix} \]
+            กินนม 3 แก้ว + ขนมปัง 2 แผ่น — ตรวจ: \(8(3) + 2(2) = 28\) ✓, \(12(3) + 4(2) = 44\) ✓</li>
+            <li><span class="step-t">(ข) มื้อเบา: คูณรอบเดียวจบ</span> ไม่ต้องแตะ \(A\) อีกแล้ว:
+            \[ \vec{x} = \begin{bmatrix} \tfrac{1}{2} & -\tfrac{1}{4}\\[2pt] -\tfrac{3}{2} & 1 \end{bmatrix}\begin{bmatrix} 18\\ 28 \end{bmatrix} = \begin{bmatrix} 9 - 7\\ -27 + 28 \end{bmatrix} = \begin{bmatrix} 2\\ 1 \end{bmatrix} \]
+            นม 2 แก้ว + ขนมปัง 1 แผ่น — ตรวจ: \(16 + 2 = 18\) ✓, \(24 + 4 = 28\) ✓</li>
+          </ol>
+          <div class="verify"><span class="lbl">เห็นไหมว่า...</span> ทุกอุตสาหกรรมที่ "แก้ระบบเดิมกับข้อมูลใหม่วนไปมา" — โภชนาการ การผสมสัดส่วนวัตถุดิบ การจัดพอร์ตการลงทุน วงจรไฟฟ้าที่เปลี่ยนแหล่งจ่าย — ใช้กลยุทธ์เดียวกัน: ผกผันเมทริกซ์สูตรครั้งเดียว แล้วตอบทุกคำถามใหม่ด้วยการคูณรอบเดียว ยิ่งระบบใหญ่ (หลักเยอะ) ยิ่งคุ้ม เพราะการลดรูปทั้งชุดแพงกว่าการคูณเมทริกซ์หลายเท่า</div>
+        </div>
+      </article>
+    </section>
+
+    <section class="block" id="recipe">
   <h2><span class="h2-dot">⚡</span> สูตรสำเร็จ — ท่าที่ใช้ทำโจทย์หัวข้อนี้</h2>
   <div class="recipe">
     <div class="recipe-head">🪜 ท่าหลัก: หา \(A^{-1}\) ด้วยการดำเนินการแถว</div>

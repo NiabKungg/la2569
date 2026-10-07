@@ -14,6 +14,8 @@ page: ch3-3.html
   <a href="#objectives">🎯 จุดประสงค์</a>
   <a href="#lesson">📖 บทเรียน</a>
   <a href="#examples">✏️ ตัวอย่างโจทย์</a>
+  <a href="#textbook">📚 ตัวอย่างจากตำรา</a>
+  <a href="#apply">🌍 การใช้จริง</a>
   <a href="#recipe">⚡ สูตรสำเร็จ</a>
   <a href="#practice">🏋️ โจทย์ซ้อมมือ</a>
 </nav>
@@ -162,7 +164,151 @@ page: ch3-3.html
   </article>
 </section>
 
-<section class="block" id="recipe">
+  <section class="block" id="textbook">
+    <h2><span class="h2-dot">📚</span> ตัวอย่างจากตำรา (พีชคณิต.pdf)</h2>
+    <p class="page-sub">โจทย์ทุกข้อคัดมาตรงจากตำราประกอบการสอน โดยเรียงจากง่ายไปยาก — ใต้โจทย์แต่ละข้อมี "อธิบายโจทย์ง่าย ๆ" ช่วยให้เห็นว่าโจทย์ถามอะไรก่อนลงมือทำ</p>
+
+    <article class="ex-card">
+      <div class="ex-head"><span class="ex-badge">ท่าพิเศษ: ทฤษฎีบท 3.3.1</span><span class="tag book">จากตำรา</span><span class="tag easy">ง่าย</span><span class="ex-title">สูตรผลเฉลยทั่วไปของ \(\vec{x}\,{}' = A\vec{x}\) — จำท่านี้ให้ขึ้นใจ</span></div>
+      <div class="ex-body">
+        <div class="ex-q">ทฤษฎีบท 3.3.1 (ในตำรา): สำหรับระบบสมการเชิงอนุพันธ์ในรูป \(\vec{x}\,{}' = A\vec{x}\) เมื่อ \(A\) เป็นเมทริกซ์จัตุรัสขนาด \(n\) ซึ่งสามารถแปลงเป็นทแยงมุมได้ ถ้า \(\vec{v}_i\) เป็นเวกเตอร์ลักษณะเฉพาะที่สมนัยกับค่าลักษณะเฉพาะ \(\lambda_i\), \(i = 1, 2, \dots, n\) แล้วผลเฉลยของระบบสมการเชิงอนุพันธ์นี้อยู่ในรูป</div>
+        <div class="approach"><span class="lbl">อธิบายโจทย์ง่าย ๆ</span> — การ์ดนี้ไม่ใช่โจทย์ แต่เป็น "ท่าพิเศษ" ที่ตำราสรุปไว้: ทุก eigenpair คู่หนึ่ง \((\lambda_i, \vec{v}_i)\) ให้พจน์หนึ่งพจน์ของคำตอบคือ \(C_ie^{\lambda_i t}\vec{v}_i\) — ผลเฉลยทั่วไปคือผลรวมของทุกพจน์ โดย \(C_i\) เป็นค่าคงตัวที่จะถูกล็อกโดยเงื่อนไขเริ่มต้น (เทียบกับสมการเดี่ยว \(x' = ax\) ที่ผลเฉลยคือ \(x = Ce^{at}\) — ทฤษฎีบทนี้คือรุ่นเวกเตอร์ของมัน)</div>
+        <ol class="steps">
+          <li><span class="step-t">สูตรที่ต้องจำ</span>
+          \[ \vec{x}(t) = C_1e^{\lambda_1 t}\vec{v}_1 + C_2e^{\lambda_2 t}\vec{v}_2 + \cdots + C_ne^{\lambda_n t}\vec{v}_n \qquad (C_1, \dots, C_n \text{ เป็นจำนวนจริง}) \]
+          เงื่อนไขในการใช้: \(A\) แปลงเป็นทแยงมุมได้ (มีเวกเตอร์ลักษณะเฉพาะอิสระครบ \(n\) ตัว)</li>
+          <li><span class="step-t">ทำไมพจน์ \(e^{\lambda t}\vec{v}\) ถึงใช้ได้</span> แทนกลับแล้วเทียบ: ฝั่งซ้าย \(\vec{x}\,{}' = \lambda e^{\lambda t}\vec{v}\) (กฎลูกโซ่: อนุพันธ์ของ \(e^{\lambda t}\) คือ \(\lambda e^{\lambda t}\)) ฝั่งขวา \(A\vec{x} = e^{\lambda t}A\vec{v} = e^{\lambda t}\lambda\vec{v}\) เพราะ \(A\vec{v} = \lambda\vec{v}\) — สองฝั่งตรงกันโดยโครงสร้าง ความรู้ 3.2 จึงจ่ายคืนทันที</li>
+          <li><span class="step-t">ลำดับการทำโจทย์</span> (1) เขียนระบบเป็น \(\vec{x}\,{}' = A\vec{x}\) (2) หา eigenpair ครบ \(n\) คู่ (งานของ 3.2) (3) เขียนผลรวมพจน์ \(C_ie^{\lambda_i t}\vec{v}_i\) (4) ถ้ามีเงื่อนไขเริ่มต้น \(\vec{x}(0)\) ให้แทน \(t = 0\) (ทุก \(e^{\lambda \cdot 0} = 1\)) แก้ระบบเชิงเส้นหา \(C_i\) (5) ตรวจคำตอบที่ \(t = 0\) กับอย่างน้อยหนึ่งสมการ</li>
+          <li><span class="step-t">ระวังจับคู่ผิด</span> \(e^{\lambda_i t}\) ต้องคู่กับ \(\vec{v}_i\) ที่สมนัยกันเท่านั้น — ถ้า \(\lambda\) ซ้ำแต่ได้เวกเตอร์อิสระหลายตัว (เช่น \(\lambda = 2\) ให้ \(\vec{v}_2, \vec{v}_3\)) ให้เขียนพจน์เท่าจำนวนเวกเตอร์โดยใช้ \(e^{2t}\) ซ้ำ</li>
+        </ol>
+        <div class="verify"><span class="lbl">สรุปคำตอบ:</span> จำสั้น ๆ ว่า "eigenpair → พจน์" — ค่าลักษณะเฉพาะขึ้นเป็นเลขชี้กำลังของ \(e\), เวกเตอร์ลักษณะเฉพาะคูณหน้า, ค่าคงตัว \(C\) มาจากเงื่อนไขเริ่มต้น</div>
+      </div>
+    </article>
+
+    <article class="ex-card">
+      <div class="ex-head"><span class="ex-badge">ตัวอย่าง 3.3.1</span><span class="tag book">จากตำรา</span><span class="tag easy">ง่าย</span><span class="ex-title">ผลเฉลยทั่วไปของระบบ \(2 \times 2\)</span></div>
+      <div class="ex-body">
+        <div class="ex-q">จงหาผลเฉลยทั่วไปของระบบสมการเชิงอนุพันธ์
+        \[ \begin{aligned} x_1' &= x_1 - x_2\\ x_2' &= 2x_1 + 4x_2 \end{aligned} \]</div>
+        <div class="approach"><span class="lbl">อธิบายโจทย์ง่าย ๆ</span> — โจทย์ให้ระบบสองสมการแล้วถามหา "คำตอบทั้งตระกูล" (ผลเฉลยทั่วไป) วิธีคือทำตามท่าพิเศษด้านบนทีละขั้น: อ่านสัมประสิทธิ์เป็นเมทริกซ์ \(A\) → หาค่าลักษณะเฉพาะจาก \(\det(A - \lambda I) = 0\) → หาเวกเตอร์ลักษณะเฉพาะทีละค่า → จับคู่เข้าสูตร \(C_1e^{\lambda_1 t}\vec{v}_1 + C_2e^{\lambda_2 t}\vec{v}_2\)</div>
+        <ol class="steps">
+          <li><span class="step-t">รูปเมทริกซ์และสมการลักษณะเฉพาะ</span> ตัวเลขหน้า \(x_1, x_2\) ของแต่ละสมการ = แถวของ \(A\) — det = \((1 - \lambda)(4 - \lambda) - (-1)(2)\) — กระจาย: \(4 - 5\lambda + \lambda^2\) แล้วลบด้วย \(-2\) คือบวก 2:
+          \[ \det(A - \lambda I_2) = (1 - \lambda)(4 - \lambda) + 2 = \lambda^2 - 5\lambda + 6 = (\lambda - 2)(\lambda - 3) = 0 \;\Longrightarrow\; \lambda = 2, 3 \]</li>
+          <li><span class="step-t">เวกเตอร์ลักษณะเฉพาะของ \(\lambda = 2\)</span> ลบ 2 ที่ทแยง → \(\begin{bmatrix} -1 & -1\\ 2 & 2 \end{bmatrix}\) — แถวล่างเป็น \(-2\) เท่าของแถวบน เหลือสมการ \(x_1 + x_2 = 0 \Rightarrow x_1 = -x_2\) เลือก \(x_2 = 1\):
+          \[ E_2 = \operatorname{Span}\left\{ \begin{bmatrix} -1\\ 1 \end{bmatrix} \right\} \]</li>
+          <li><span class="step-t">เวกเตอร์ลักษณะเฉพาะของ \(\lambda = 3\)</span> ลบ 3 ที่ทแยง → \(\begin{bmatrix} -2 & -1\\ 2 & 1 \end{bmatrix}\) — แถวล่างเป็น \(-1\) เท่าของแถวบน เหลือสมการ \(2x_1 + x_2 = 0 \Rightarrow x_2 = -2x_1\) เลือก \(x_1 = -1\) ได้ \(x_2 = 2\) (หรือ \(x_1 = 1, x_2 = -2\) — สเกลาร์เท่ากัน):
+          \[ E_3 = \operatorname{Span}\left\{ \begin{bmatrix} -1\\ 2 \end{bmatrix} \right\} \]</li>
+          <li><span class="step-t">ประกอบผลเฉลยทั่วไป</span> จับคู่ \(\lambda = 2\) กับ \((-1, 1)^T\) และ \(\lambda = 3\) กับ \((-1, 2)^T\) — ตำรายังเขียนอีกรูปด้วย \(P = \begin{bmatrix} -1 & -1\\ 1 & 2 \end{bmatrix}\), \(D = \operatorname{diag}(2, 3)\): \(\vec{x} = P\begin{bmatrix} e^{2t} & 0\\ 0 & e^{3t} \end{bmatrix}P^{-1}\vec{c}\) ซึ่งกระจายแล้วได้รูปเดียวกัน:
+          \[ \begin{bmatrix} x_1\\ x_2 \end{bmatrix} = C_1e^{2t}\begin{bmatrix} -1\\ 1 \end{bmatrix} + C_2e^{3t}\begin{bmatrix} -1\\ 2 \end{bmatrix} \qquad (C_1, C_2 \text{ เป็นจำนวนจริง}) \]</li>
+        </ol>
+        <div class="verify"><span class="lbl">สรุปคำตอบ:</span> \(\vec{x}(t) = C_1e^{2t}(-1, 1)^T + C_2e^{3t}(-1, 2)^T\) — ตรงตามตำรา (ตรวจ: \(A(-1, 1)^T = (-1 - 1,\; -2 + 4)^T = (-2, 2)^T = 2(-1, 1)^T\) ✓ และ \(A(-1, 2)^T = (-1 - 2,\; -2 + 8)^T = (-3, 6)^T = 3(-1, 2)^T\) ✓)</div>
+      </div>
+    </article>
+
+    <article class="ex-card">
+      <div class="ex-head"><span class="ex-badge">แบบฝึกหัด 3.3 ข้อ 1 (ก),(ข)</span><span class="tag book">จากตำรา</span><span class="tag mid">กลาง</span><span class="ex-title">ผลเฉลยทั่วไป — ข้อ ก เจอ \(\lambda = 0\) / ข้อ ข เจอรากอตรภาค</span></div>
+      <div class="ex-body">
+        <div class="ex-q">จงหาผลเฉลยทั่วไปของระบบสมการเชิงอนุพันธ์ต่อไปนี้
+        \[ \text{(ก)}\;\; \begin{aligned} x_1' &= x_1 - x_2\\ x_2' &= -4x_1 + 4x_2 \end{aligned} \qquad\qquad
+        \text{(ข)}\;\; \begin{aligned} x_1' &= 3x_1 + x_2\\ x_2' &= -2x_1 - x_2 \end{aligned} \]</div>
+        <div class="approach"><span class="lbl">อธิบายโจทย์ง่าย ๆ</span> — ท่าเดียวกับตัวอย่าง 3.3.1 สองรอบ แต่ตั้งใจโยนสองสถานการณ์ให้เจอ: ข้อ (ก) แยกตัวประกอบได้ \(\lambda(\lambda - 5)\) จึงมี \(\lambda = 0\) — อย่าตกใจ แค่พจน์ \(e^{0 \cdot t} = 1\) ทำให้เกิด "จุดสมดุลคงตัว" · ข้อ (ข) แยกตัวประกอบด้วยจำนวนตรงไม่ได้ ต้องใช้สูตรกำลังสองได้รากอตรภาค \(\lambda = 1 \pm \sqrt{2}\) — วิธีทำไม่เปลี่ยน เลขเปลี่ยนเท่านั้น</div>
+        <ol class="steps">
+          <li><span class="step-t">(ก) ค่าลักษณะเฉพาะ</span> \(A = \begin{bmatrix} 1 & -1\\ -4 & 4 \end{bmatrix}\) — det = \((1 - \lambda)(4 - \lambda) - (-1)(-4)\) — กระจาย: \(4 - 5\lambda + \lambda^2\) และ \((-1)(-4) = 4\) (ลบคูณลบได้บวก) จึงได้ \(\lambda^2 - 5\lambda + 4 - 4 = \lambda^2 - 5\lambda = \lambda(\lambda - 5) = 0 \Rightarrow \lambda = 0, 5\) (สังเกต \(\det A = 0\) จึงมี \(\lambda = 0\) เสมอ)</li>
+          <li><span class="step-t">(ก) เวกเตอร์ลักษณะเฉพาะ</span> \(\lambda = 5\): \(A - 5I_2 = \begin{bmatrix} -4 & -1\\ -4 & -1 \end{bmatrix}\) → \(4x_1 + x_2 = 0 \Rightarrow x_2 = -4x_1\) → \((1, -4)^T\) · \(\lambda = 0\): \(A - 0I_2 = A\) → \(x_1 - x_2 = 0\) → \((1, 1)^T\) (ตรวจ: \(A(1,1)^T = (0, 0)^T = 0 \cdot (1,1)^T\) ✓ — ทิศที่ถูก "ยุบเป็นศูนย์" = จุดสมดุล):
+          \[ \vec{y} = C_1e^{5t}\begin{bmatrix} 1\\ -4 \end{bmatrix} + C_2e^{0 \cdot t}\begin{bmatrix} 1\\ 1 \end{bmatrix} = C_1e^{5t}\begin{bmatrix} 1\\ -4 \end{bmatrix} + C_2\begin{bmatrix} 1\\ 1 \end{bmatrix} \]</li>
+          <li><span class="step-t">(ข) ค่าลักษณะเฉพาะ</span> \(A = \begin{bmatrix} 3 & 1\\ -2 & -1 \end{bmatrix}\) — trace \(= 3 + (-1) = 2\), det \(= (3)(-1) - (1)(-2) = -3 + 2 = -1\) → \(\lambda^2 - 2\lambda - 1 = 0\) แยกตัวประกอบตรงไม่ได้ ใช้สูตร \(\lambda = \tfrac{2 \pm \sqrt{4 + 4}}{2} = 1 \pm \sqrt{2}\)</li>
+          <li><span class="step-t">(ข) เวกเตอร์ลักษณะเฉพาะ</span> \(\lambda = 1 + \sqrt{2}\): \(A - \lambda I_2 = \begin{bmatrix} 2 - \sqrt{2} & 1\\ -2 & -2 - \sqrt{2} \end{bmatrix}\) — แถวบน: \((2 - \sqrt{2})x_1 + x_2 = 0 \Rightarrow x_2 = (\sqrt{2} - 2)x_1\) → \((1, -2 + \sqrt{2})^T\) · เช่นเดียวกัน \(\lambda = 1 - \sqrt{2}\) ให้ \((1, -2 - \sqrt{2})^T\) (ตรวจตัวเลข: \((2 - 1.414) = 0.586\) และ \(\sqrt{2} - 2 = -0.586\) สอดคล้อง ✓):
+          \[ \vec{y} = C_1e^{(1 + \sqrt{2})t}\begin{bmatrix} 1\\ -2 + \sqrt{2} \end{bmatrix} + C_2e^{(1 - \sqrt{2})t}\begin{bmatrix} 1\\ -2 - \sqrt{2} \end{bmatrix} \]</li>
+        </ol>
+        <div class="verify"><span class="lbl">สรุปคำตอบ:</span> (ก) \(\vec{y} = C_1e^{5t}(1, -4)^T + C_2e^{0 \cdot t}(1, 1)^T\) · (ข) \(\vec{y} = C_1e^{(1 + \sqrt{2})t}(1, -2 + \sqrt{2})^T + C_2e^{(1 - \sqrt{2})t}(1, -2 - \sqrt{2})^T\) — ตรงกับคำตอบท้ายบทของตำรา</div>
+      </div>
+    </article>
+
+    <article class="ex-card">
+      <div class="ex-head"><span class="ex-badge">ตัวอย่าง 3.3.2</span><span class="tag book">จากตำรา</span><span class="tag hard">ยาก</span><span class="ex-title">ผลเฉลยเฉพาะ \(3 \times 3\) จากเงื่อนไขเริ่มต้น</span></div>
+      <div class="ex-body">
+        <div class="ex-q">จงหาผลเฉลยเฉพาะของระบบสมการเชิงอนุพันธ์ \(\vec{x}\,{}' = A\vec{x}\) เมื่อ
+        \[ A = \begin{bmatrix} 5 & -6 & -6\\ -1 & 4 & 2\\ 3 & -6 & -4 \end{bmatrix} \]
+        โดยมีเงื่อนไขเริ่มต้น \(x_1(0) = 4,\; x_2(0) = 2,\; x_3(0) = -1\)</div>
+        <div class="approach"><span class="lbl">อธิบายโจทย์ง่าย ๆ</span> — เมทริกซ์ \(A\) ตัวนี้คือตัวเดียวกับตัวอย่าง 3.2.3 (ก) และ 3.2.5 (ก) ที่เรามี eigenpair ครบแล้ว (ตำราตั้งใจเชื่อมสามข้อนี้): \(\lambda = 1, 2, 2\) กับเวกเตอร์ \((3, -1, 3)^T, (2, 1, 0)^T, (2, 0, 1)^T\) — งานของข้อนี้จึงเริ่มที่ "เขียนผลเฉลยทั่วไป" แล้วแทน \(t = 0\) แก้ระบบ \(3 \times 3\) หาค่า \(C_1, C_2, C_3\) — เทคนิคคือเริ่มจากสมการที่มีตัวแปรน้อยที่สุด</div>
+        <ol class="steps">
+          <li><span class="step-t">ผลเฉลยทั่วไปจาก eigenpair ที่มีอยู่</span> จากตัวอย่าง 3.2.5 (ก): \(D = \operatorname{diag}(1, 2, 2)\), \(P = \begin{bmatrix} 3 & 2 & 2\\ -1 & 1 & 0\\ 3 & 0 & 1 \end{bmatrix}\) — โดยทฤษฎีบท 3.3.1:
+          \[ \begin{bmatrix} x_1\\ x_2\\ x_3 \end{bmatrix} = C_1e^{t}\begin{bmatrix} 3\\ -1\\ 3 \end{bmatrix} + C_2e^{2t}\begin{bmatrix} 2\\ 1\\ 0 \end{bmatrix} + C_3e^{2t}\begin{bmatrix} 2\\ 0\\ 1 \end{bmatrix} \]
+          (สังเกตพจน์สองกับสามมี \(e^{2t}\) เหมือนกัน เพราะสมนัยกับ \(\lambda = 2\) ตัวเดียวกัน)</li>
+          <li><span class="step-t">แทน \(t = 0\) เทียบเงื่อนไขเริ่มต้น</span> ทุก \(e^{\lambda \cdot 0} = 1\) หายหมด เหลือระบบเชิงเส้น \(C_1(3, -1, 3)^T + C_2(2, 1, 0)^T + C_3(2, 0, 1)^T = (4, 2, -1)^T\) เทียบทีละช่อง:
+          \[ \begin{aligned} 3C_1 + 2C_2 + 2C_3 &= 4\\ -C_1 + C_2 &= 2\\ 3C_1 + C_3 &= -1 \end{aligned} \]</li>
+          <li><span class="step-t">แก้ระบบ</span> สมการที่ 2 ให้ \(C_2 = 2 + C_1\) (ย้าย \(-C_1\) ข้ามไปเป็น \(+C_1\)) · สมการที่ 3 ให้ \(C_3 = -1 - 3C_1\) · แทนทั้งคู่ลงสมการที่ 1 (กระจายระวังเครื่องหมาย: \(2(2 + C_1) = 4 + 2C_1\), \(2(-1 - 3C_1) = -2 - 6C_1\)):
+          \[ 3C_1 + 4 + 2C_1 - 2 - 6C_1 = 4 \;\Longrightarrow\; -C_1 + 2 = 4 \;\Longrightarrow\; C_1 = -2 \]
+          ดังนั้น \(C_2 = 2 + (-2) = 0\) และ \(C_3 = -1 - 3(-2) = -1 + 6 = 5\)</li>
+          <li><span class="step-t">ผลเฉลยเฉพาะ</span> พจน์ \(C_2 = 0\) หายไปทั้งพจน์:
+          \[ \begin{bmatrix} x_1\\ x_2\\ x_3 \end{bmatrix} = -2e^{t}\begin{bmatrix} 3\\ -1\\ 3 \end{bmatrix} + 5e^{2t}\begin{bmatrix} 2\\ 0\\ 1 \end{bmatrix} \]</li>
+        </ol>
+        <div class="verify"><span class="lbl">สรุปคำตอบ:</span> \(\vec{x}(t) = -2e^{t}(3, -1, 3)^T + 5e^{2t}(2, 0, 1)^T\) — ตรงตามตำรา (ตรวจ \(t = 0\): \((-6 + 10,\; 2 + 0,\; -6 + 5)^T = (4, 2, -1)^T\) ✓ ตรงเงื่อนไขเริ่มต้นทุกช่อง และตรวจสมการที่ 2 ที่ \(t = 0\): LHS \(x_2'(0) = 2\), RHS \(-4 + 8 - 2 = 2\) ✓)</div>
+      </div>
+    </article>
+
+    <article class="ex-card">
+      <div class="ex-head"><span class="ex-badge">แบบฝึกหัด 3.3 ข้อ 2 (ก)</span><span class="tag book">จากตำรา</span><span class="tag hard">ยาก</span><span class="ex-title">ผลเฉลยเฉพาะ \(3 \times 3\) — ทำเองครบทุกขั้น</span></div>
+      <div class="ex-body">
+        <div class="ex-q">จงหาผลเฉลยเฉพาะของระบบสมการเชิงอนุพันธ์
+        \[ \begin{aligned} x_1' &= x_1 - 3x_2 + 2x_3\\ x_2' &= -x_2\\ x_3' &= -x_2 - 2x_3 \end{aligned} \]
+        เมื่อ \(x_1(0) = -3,\; x_2(0) = 0,\; x_3(0) = 3\)</div>
+        <div class="approach"><span class="lbl">อธิบายโจทย์ง่าย ๆ</span> — โจทย์เต็มรูป: ไม่มีใครให้ eigenpair มาล่วงหน้า ต้องหาเองทั้งหมดแล้วปิดท้ายด้วยเงื่อนไขเริ่มต้น — ข้อดีคือ \(A\) มีหลักแรกเกือบโล่ง (\(x_1\) ไม่ปรากฏในสองสมการล่าง) ทำให้ \(\det(A - \lambda I)\) กระจายตามหลักแรกได้ง่าย</div>
+        <ol class="steps">
+          <li><span class="step-t">รูปเมทริกซ์และค่าลักษณะเฉพาะ</span> \(A = \begin{bmatrix} 1 & -3 & 2\\ 0 & -1 & 0\\ 0 & -1 & -2 \end{bmatrix}\) — กระจายโคแฟกเตอร์ตาม<em>หลักแรก</em> (ช่อง \(2, 3\) ของแถวล่างเป็นศูนย์ จึงเหลือพจน์เดียว):
+          \[ \det(A - \lambda I_3) = (1 - \lambda)\begin{vmatrix} -1 - \lambda & 0\\ -1 & -2 - \lambda \end{vmatrix} = (1 - \lambda)(-1 - \lambda)(-2 - \lambda) = 0 \;\Longrightarrow\; \lambda = 1, -1, -2 \]</li>
+          <li><span class="step-t">เวกเตอร์ลักษณะเฉพาะทีละค่า</span> \(\lambda = 1\): \(A - I_3 = \begin{bmatrix} 0 & -3 & 2\\ 0 & -2 & 0\\ 0 & -1 & -2 \end{bmatrix}\) — แถวกลาง \(-2x_2 = 0 \Rightarrow x_2 = 0\) แล้วแถวล่าง \(-2x_3 = 0 \Rightarrow x_3 = 0\) เหลือ \(x_1\) เสรี → \((1, 0, 0)^T\) · \(\lambda = -2\): \(A + 2I_3 = \begin{bmatrix} 3 & -3 & 2\\ 0 & 1 & 0\\ 0 & -1 & 0 \end{bmatrix}\) — แถวกลาง \(x_2 = 0\) แล้วแถวบน \(3x_1 + 2x_3 = 0 \Rightarrow x_1 = -\tfrac{2}{3}x_3\) เลือก \(x_3 = -3\) (ทำให้เศษส่วนหาย ได้ \(x_1 = 2\)) → \((2, 0, -3)^T\) · \(\lambda = -1\): \(A + I_3 = \begin{bmatrix} 2 & -3 & 2\\ 0 & 0 & 0\\ 0 & -1 & -1 \end{bmatrix}\) — แถวล่าง \(-x_2 - x_3 = 0 \Rightarrow x_2 = -x_3\) แล้วแถวบน \(2x_1 - 3(-x_3) + 2x_3 = 2x_1 + 5x_3 = 0 \Rightarrow x_1 = -\tfrac{5}{2}x_3\) เลือก \(x_3 = 2\) → \((-5, -2, 2)^T\)</li>
+          <li><span class="step-t">ผลเฉลยทั่วไปแล้วแทน \(t = 0\)</span> จับคู่ \(\lambda = 1 \to (1, 0, 0)^T\), \(\lambda = -2 \to (2, 0, -3)^T\), \(\lambda = -1 \to (-5, -2, 2)^T\):
+          \[ \vec{x}(t) = C_1e^{t}\begin{bmatrix} 1\\ 0\\ 0 \end{bmatrix} + C_2e^{-2t}\begin{bmatrix} 2\\ 0\\ -3 \end{bmatrix} + C_3e^{-t}\begin{bmatrix} -5\\ -2\\ 2 \end{bmatrix} \]
+          แทน \(t = 0\) เทียบ \(\vec{x}(0) = (-3, 0, 3)^T\) เทียบทีละช่อง: ช่องกลาง \(-2C_3 = 0 \Rightarrow C_3 = 0\) · ช่องล่าง \(-3C_2 + 2C_3 = 3 \Rightarrow -3C_2 = 3 \Rightarrow C_2 = -1\) · ช่องบน \(C_1 + 2C_2 - 5C_3 = -3 \Rightarrow C_1 - 2 = -3 \Rightarrow C_1 = -1\)</li>
+          <li><span class="step-t">ผลเฉลยเฉพาะ</span> พจน์ \(C_3 = 0\) หายไปทั้งพจน์ แล้วกระจายเป็นสมการสเกลาร์:
+          \[ \vec{x}(t) = -e^{t}\begin{bmatrix} 1\\ 0\\ 0 \end{bmatrix} - e^{-2t}\begin{bmatrix} 2\\ 0\\ -3 \end{bmatrix} \qquad \text{หรือ} \qquad x_1(t) = -e^{t} - 2e^{-2t}, \;\; x_2(t) = 0, \;\; x_3(t) = 3e^{-2t} \]</li>
+        </ol>
+        <div class="verify"><span class="lbl">สรุปคำตอบ:</span> \(\vec{x}(t) = -e^{t}(1, 0, 0)^T - e^{-2t}(2, 0, -3)^T\) โดย \(C_1 = -1, C_2 = -1, C_3 = 0\) — ตรงกับคำตอบท้ายบทของตำรา (ตรวจ \(t = 0\): \((-1 - 2, 0, 3)^T = (-3, 0, 3)^T\) ✓ และสมการที่ 2: LHS \(x_2'(t) = 0\), RHS \(-x_2(t) = 0\) ✓)</div>
+      </div>
+    </article>
+  </section>
+
+  <section class="block" id="apply">
+    <h2><span class="h2-dot">🌍</span> เอาไปใช้ทำอะไร — โจทย์ประยุกต์</h2>
+
+    <article class="ex-card">
+      <div class="ex-head"><span class="ex-badge">🐟 บ่อเพาะพันธุ์ปลา 2 บ่อ — อัตราโตเชื่อมกัน</span><span class="tag app">ใช้จริง</span><span class="tag mid">กลาง</span><span class="ex-title">ระยะยาว ทั้งระบบล็อกอยู่ในทิศเวกเตอร์ลักษณะเฉพาะของ \(\lambda\) ใหญ่สุด</span></div>
+      <div class="ex-body">
+        <div class="ex-q">ฟาร์มมีบ่อเพาะพันธุ์ 2 บ่อเชื่อมกันด้วยรางน้ำ ปลาว่ายข้ามไปมาและช่วยเสริมกัน ทำให้อัตราการเปลี่ยนแปลงของแต่ละบ่อขึ้นกับปริมาณปลาทั้งสองบ่อ (หน่วย: ร้อยตัว) โดยประมาณ
+        \[ \begin{aligned} x_1' &= 3x_1 + x_2\\ x_2' &= x_1 + 3x_2 \end{aligned} \]
+        วันนี้บ่อ 1 มีปลา 10 หน่วย บ่อ 2 มี 2 หน่วย จงหาปริมาณปลาแต่ละบ่อเมื่อเวลา \(t\) ผ่านไป แล้วบอกว่าระยะยาวสองบ่อจะเป็นอย่างไร</div>
+        <div class="approach"><span class="lbl">อธิบายโจทย์ง่าย ๆ</span> — โจทย์ให้ระบบ \(\vec{x}\,{}' = A\vec{x}\) พร้อมเงื่อนไขเริ่มต้น — ทำตามสูตรของหัวข้อนี้ทีเดียวจบ: หา eigenpair ของ \(A\), แตก \(\vec{x}(0)\) เป็นผสมของเวกเตอร์ลักษณะเฉพาะ แล้วอ่านพฤติกรรมระยะยาวจาก \(\lambda\) ที่ใหญ่สุด (พจน์ \(e^{\lambda t}\) ที่ \(\lambda\) ใหญ่จะโตเร็วกว่าจนเหลือครองเกม)</div>
+        <ol class="steps">
+          <li><span class="step-t">หาค่าลักษณะเฉพาะ</span> \(A = \begin{bmatrix} 3 & 1\\ 1 & 3 \end{bmatrix}\) — det = \((3 - \lambda)^2 - 1 = \lambda^2 - 6\lambda + 8 = (\lambda - 2)(\lambda - 4) = 0 \Rightarrow \lambda = 2, 4\)</li>
+          <li><span class="step-t">เวกเตอร์ลักษณะเฉพาะ</span> \(\lambda = 4\): \(A - 4I_2 = \begin{bmatrix} -1 & 1\\ 1 & -1 \end{bmatrix}\) → \(x_1 = x_2\) → \((1, 1)^T\) ("โหมดบวก": สองบ่อโตพร้อมกัน) · \(\lambda = 2\): \(A - 2I_2 = \begin{bmatrix} 1 & 1\\ 1 & 1 \end{bmatrix}\) → \(x_1 = -x_2\) → \((1, -1)^T\) ("โหมดต่าง": สองบ่อแย่งกัน)</li>
+          <li><span class="step-t">แตก \(\vec{x}(0) = (10, 2)^T\) แล้วเขียนผลเฉลย</span> แก้ \(a(1, 1)^T + b(1, -1)^T = (10, 2)^T\): \(a + b = 10\), \(a - b = 2\) → บวกสองสมการ \(2a = 12 \Rightarrow a = 6\), \(b = 4\):
+          \[ \vec{x}(t) = 6e^{4t}\begin{bmatrix} 1\\ 1 \end{bmatrix} + 4e^{2t}\begin{bmatrix} 1\\ -1 \end{bmatrix} \]
+          (ตรวจ \(t = 0\): \(6 + 4 = 10\), \(6 - 4 = 2\) ✓ และแทนกลับสมการแรกที่ \(t = 0\): LHS \(x_1'(0) = 6(4) + 4(2) = 32\), RHS \(3(10) + 2 = 32\) ✓)</li>
+          <li><span class="step-t">อ่านพฤติกรรมระยะยาว</span> พจน์ \(e^{4t}\) โตเร็วกว่า \(e^{2t}\) มาก เมื่อ \(t\) ใหญ่ \(\vec{x}(t) \approx 6e^{4t}(1, 1)^T\) — สัดส่วนปลาสองบ่อเข้าใกล้ \(1:1\) (ที่ \(t = 1\) สัดส่วนแล้วเป็น \(1.20\), ที่ \(t = 2\) เป็น \(1.02\)) และทั้งฟาร์มโตด้วยอัตรา \(e^{4t}\) เท่ากันหมด — "ความต่าง" ระหว่างบ่อ (โหมด \(e^{2t}\)) สัมพัทธ์เล็กลงจนมองแทบไม่เห็น</li>
+        </ol>
+        <div class="verify"><span class="lbl">เห็นไหมว่า...</span> ระบบที่อัตราเติบโตเชื่อมกัน (ประชากรหลายกลุ่ม วงจรไฟฟ้า การแพร่ความร้อนระหว่างจุด) ระยะยาวมักล็อกอยู่ในทิศเวกเตอร์ลักษณะเฉพาะของค่าลักษณะเฉพาะที่ใหญ่สุด — นี่คือเหตุผลที่วิศวกรและนักนิเวศจ่ายเวลาไปกับการหา eigenpair ของ \(\lambda\) สูงสุด เพราะตัวเดียวบอกอนาคตทั้งระบบ</div>
+      </div>
+    </article>
+
+    <article class="ex-card">
+      <div class="ex-head"><span class="ex-badge">💊 ยา 2 ช่อง: ลำไส้ → กระแสเลือด</span><span class="tag app">ใช้จริง</span><span class="tag hard">ยาก</span><span class="ex-title">คำนวณจังหวะยา: ความเข้มพีคเกิดตอนไหน</span></div>
+      <div class="ex-body">
+        <div class="ex-q">หลังกินยาแคปซูล ยาจะอยู่ 2 ช่อง: ในลำไส้ (\(x_1\)) และในกระแสเลือด (\(x_2\)) — ลำไส้ดูดซึมยาเข้าเลือดด้วยอัตราสัมพัทธ์ 2 ต่อชั่วโมง (\(x_1' = -2x_1\)) และเลือดได้รับยาจากลำไส้ \(2x_1\) ขณะที่ไตขับยาออกด้วยอัตรา 1 (\(x_2' = 2x_1 - x_2\)) กินยา 10 หน่วย (เริ่มที่ \(x_1(0) = 10, x_2(0) = 0\)) จงหา \(x_1(t), x_2(t)\) และหาว่าความเข้มยาในเลือดพีคเมื่อใด เท่ากับเท่าไร</div>
+        <div class="approach"><span class="lbl">อธิบายโจทย์ง่าย ๆ</span> — โจทย์สองชั้น: ชั้นแรกแก้ระบบ \(\vec{x}\,{}' = A\vec{x}\) ด้วย eigenpair ตามสูตร (เมทริกซ์เป็นสามเหลี่ยม อ่าน \(\lambda\) จากทแยงได้เลย) ชั้นที่สองคือคำถามจริงของเภสัชกร: "ความเข้มยาในเลือดพีคเมื่อไร" — คือการหาจุดสูงสุดของ \(x_2(t)\) โดยตั้ง \(x_2'(t) = 0\)</div>
+        <ol class="steps">
+          <li><span class="step-t">ค่าลักษณะเฉพาะ</span> \(A = \begin{bmatrix} -2 & 0\\ 2 & -1 \end{bmatrix}\) เป็นเมทริกซ์สามเหลี่ยม → อ่านจากทแยง: \(\lambda = -2, -1\) (สองค่าติดลบแปลว่าทุกอย่างรีดลงสู่ศูนย์ — ยาถูกขับออกหมดในที่สุด สมเหตุสมผล)</li>
+          <li><span class="step-t">เวกเตอร์ลักษณะเฉพาะ</span> \(\lambda = -2\): \(A + 2I_2 = \begin{bmatrix} 0 & 0\\ 2 & 1 \end{bmatrix}\) → \(2x_1 + x_2 = 0 \Rightarrow x_2 = -2x_1\) → \((1, -2)^T\) · \(\lambda = -1\): \(A + I_2 = \begin{bmatrix} -1 & 0\\ 2 & 0 \end{bmatrix}\) → \(x_1 = 0\) → \((0, 1)^T\) (ตรวจ: \(A(1, -2)^T = (-2, 2 + 2)^T = (-2, 4)^T = -2(1, -2)^T\) ✓)</li>
+          <li><span class="step-t">ใส่เงื่อนไขเริ่มต้น \(\vec{x}(0) = (10, 0)^T\)</span> แก้ \(C_1(1, -2)^T + C_2(0, 1)^T = (10, 0)^T\): ช่องบน \(C_1 = 10\) · ช่องล่าง \(-2(10) + C_2 = 0 \Rightarrow C_2 = 20\):
+          \[ \vec{x}(t) = 10e^{-2t}\begin{bmatrix} 1\\ -2 \end{bmatrix} + 20e^{-t}\begin{bmatrix} 0\\ 1 \end{bmatrix} \;\Longrightarrow\; x_1(t) = 10e^{-2t}, \;\; x_2(t) = -20e^{-2t} + 20e^{-t} = 20\left(e^{-t} - e^{-2t}\right) \]</li>
+          <li><span class="step-t">หาจังหวะพีค</span> อนุพันธ์ \(x_2'(t) = -20e^{-t} + 40e^{-2t}\) (อนุพันธ์ของ \(-20e^{-2t}\) คือ \(+40e^{-2t}\) เพราะลบคูณลบ) ตั้งเป็นศูนย์: \(40e^{-2t} = 20e^{-t} \Rightarrow 2e^{-2t} = e^{-t} \Rightarrow 2 = e^{t} \Rightarrow t = \ln 2 \approx 0.69\) ชั่วโมง — แทนกลับ: \(x_2(\ln 2) = 20\left(\tfrac{1}{2} - \tfrac{1}{4}\right) = 5\) หน่วย (ตรวจแทนตัวเลข \(t = 0.693\): \(20(e^{-0.693} - e^{-1.386}) = 20(0.5 - 0.25) = 5\) ✓)</li>
+        </ol>
+        <div class="verify"><span class="lbl">เห็นไหมว่า...</span> สูตรที่เภสัชกรรมใช้จริง (two-compartment model) คือระบบ \(\vec{x}\,{}' = A\vec{x}\) แบบนี้เป๊ะ ๆ แค่มีหลายช่องและค่าอัตราจากข้อมูลจริง — คำถาม "กี่ชั่วโมงยาออกฤทธิ์สูงสุด" "ควรกินซ้ำเมื่อไร" ตอบได้ด้วย eigenpair และการตั้งอนุพันธ์เป็นศูนย์ แบบที่คุณเพิ่งทำ</div>
+      </div>
+    </article>
+  </section>
+
+  <section class="block" id="recipe">
   <h2><span class="h2-dot">⚡</span> สูตรสำเร็จ — ท่าที่ใช้ทำโจทย์หัวข้อนี้</h2>
   <div class="recipe">
     <div class="recipe-head">🪜 ท่าหลัก: แก้ \(\vec{x}\,{}' = A\vec{x}\) ด้วยค่าลักษณะเฉพาะ</div>

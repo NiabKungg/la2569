@@ -14,6 +14,8 @@ page: ch2-4.html
   <a href="#objectives">🎯 จุดประสงค์</a>
   <a href="#lesson">📖 บทเรียน</a>
   <a href="#examples">✏️ ตัวอย่างโจทย์</a>
+  <a href="#textbook">📚 ตัวอย่างจากตำรา</a>
+  <a href="#apply">🌍 การใช้จริง</a>
   <a href="#recipe">⚡ สูตรสำเร็จ</a>
   <a href="#practice">🏋️ โจทย์ซ้อมมือ</a>
 </nav>
@@ -224,7 +226,261 @@ page: ch2-4.html
   </article>
 </section>
 
-<section class="block" id="recipe">
+    <section class="block" id="textbook">
+      <h2><span class="h2-dot">📚</span> ตัวอย่างจากตำรา (พีชคณิต.pdf)</h2>
+      <p class="page-sub">โจทย์ทุกข้อคัดมาตรงจากตำราประกอบการสอน โดยเรียงจากง่ายไปยาก — ใต้โจทย์แต่ละข้อมี "อธิบายโจทย์ง่าย ๆ" ช่วยให้เห็นว่าโจทย์ถามอะไรก่อนลงมือทำ</p>
+
+      <article class="ex-card">
+        <div class="ex-head"><span class="ex-badge">ตัวอย่าง 2.4.3</span><span class="tag book">จากตำรา</span><span class="tag easy">ง่าย</span><span class="ex-title">det ของเมทริกซ์สามเหลี่ยม = คูณแนวทแยง</span></div>
+        <div class="ex-body">
+          <div class="ex-q">จงหาค่าของ
+          \[ \det \begin{bmatrix} -4 & 0 & 0 & 0\\ 0 & 2 & 0 & 0\\ 1 & 2 & -3 & 0\\ -2 & 4 & 2 & -1 \end{bmatrix} \]</div>
+          <div class="approach"><span class="lbl">อธิบายโจทย์ง่าย ๆ</span> — สังเกตรูปร่างก่อนคิดเลข: ทุกช่อง<em>เหนือ</em>แนวทแยงหลักเป็นศูนย์ → เป็นเมทริกซ์สามเหลี่ยม (triangular) ซึ่งมีของฟรีจากบทแทรก 2.4.2: det = ผลคูณของสมาชิกแนวทแยงหลักเท่านั้น ไม่ต้องกระจายโคแฟกเตอร์เลย</div>
+          <ol class="steps">
+            <li><span class="step-t">ทำไมของฟรีถึงจริง</span> ลองกระจายโคแฟกเตอร์ตามแถวที่ 1 ดู: พจน์แรก \(-4 \cdot \det(\text{มิเนอร์})\) มีตัวตั้ง \(-4\) ส่วนพจน์ที่สองและสามมีสัมประสิทธิ์ 0 — พจน์ที่เป็นศูนย์หายไปหมด เหลือแค่ \(-4\) คูณ det ของมิเนอร์ซึ่ง<em>ก็ยังเป็นเมทริกซ์สามเหลี่ยมอีก</em> กระจายซ้ำแบบเดียวกันไปเรื่อย ๆ จนเหลือคูณแนวทแยง</li>
+            <li><span class="step-t">คูณแนวทแยง</span> \(-4 \times 2 \times (-3) \times (-1)\) — คิดเครื่องหมาย: \(-4 \times 2 = -8\), \(-8 \times (-3) = 24\), \(24 \times (-1) = -24\)
+            \[ \det = (-4)(2)(-3)(-1) = -24 \]</li>
+          </ol>
+          <div class="verify"><span class="lbl">สรุปคำตอบ:</span> \(\det = -24\) ตรงตามตำรา — ท่านี้ทำให้เมทริกซ์สามเหลี่ยม (บนหรือล่างก็ได้) เป็นโจทย์ det ที่ง่ายที่สุดในโลก</div>
+        </div>
+      </article>
+
+      <article class="ex-card">
+        <div class="ex-head"><span class="ex-badge">ตัวอย่าง 2.4.1</span><span class="tag book">จากตำรา</span><span class="tag easy">ง่าย</span><span class="ex-title">กระจายโคแฟกเตอร์ตามแถวที่ 1</span></div>
+        <div class="ex-body">
+          <div class="ex-q">ถ้า \(A = \begin{bmatrix} 1 & 5 & 0\\ 0 & -3 & 1\\ 2 & 4 & -1 \end{bmatrix}\) จงหา \(\det A\) โดยกระจายโคแฟกเตอร์ตามแถวที่ 1</div>
+          <div class="approach"><span class="lbl">อธิบายโจทย์ง่าย ๆ</span> — นี่คือโจทย์พื้นฐานของหัวข้อ: สูตร \(\det A = a_{11}C_{11} + a_{12}C_{12} + a_{13}C_{13}\) — แต่ละพจน์ = (สมาชิกแถว 1) × (เครื่องหมายหมุนเวียน \(+,-,+\)) × (det ของมิเนอร์ที่ตัดแถว 1 กับหลัก \(j\) ทิ้ง) — และช่องที่มี 0 จะทำให้พจน์นั้นหายไปทั้งพจน์</div>
+          <ol class="steps">
+            <li><span class="step-t">เขียนสูตรรวม</span>
+            \[ \det A = 1(-1)^{1+1}\det\begin{bmatrix} -3 & 1\\ 4 & -1 \end{bmatrix} + 5(-1)^{1+2}\det\begin{bmatrix} 0 & 1\\ 2 & -1 \end{bmatrix} + 0(-1)^{1+3}\det\begin{bmatrix} 0 & -3\\ 2 & 4 \end{bmatrix} \]
+            พจน์ที่สามมี \(0\) คูณหน้า จึงลบออกได้ทันที (เพราะศูนย์คูณอะไรก็ศูนย์) — เลือกกระจายแถวที่มี 0 เยอะจึงคุ้มที่สุด</li>
+            <li><span class="step-t">คำนวณมิเนอร์ทีละตัว</span> มิเนอร์แรก: \((-3)(-1) - (1)(4) = 3 - 4 = -1\) · มิเนอร์ที่สอง: \(0(-1) - (1)(2) = 0 - 2 = -2\) · พจน์ที่สามหายไปเพราะมี 0 คูณหน้า</li>
+            <li><span class="step-t">รวมพจน์</span> \(1(+1)(-1) + 5(-1)(-2) + 0 = -1 + 10 + 0 = 9\)
+            \[ \det A = -1 + 10 + 0 = 9 \]</li>
+          </ol>
+          <div class="verify"><span class="lbl">สรุปคำตอบ:</span> \(\det A = 9\) ตรงตามตำรา — ค่า 9 นี้จะถูกตำรา "เก็บไว้ใช้ต่อ" ในตัวอย่าง 2.4.2 ด้วย</div>
+        </div>
+      </article>
+
+      <article class="ex-card">
+        <div class="ex-head"><span class="ex-badge">ตัวอย่าง 2.4.5</span><span class="tag book">จากตำรา</span><span class="tag mid">กลาง</span><span class="ex-title">สมบัติแถวทำให้ det เปลี่ยนทำนองเทศน์</span></div>
+        <div class="ex-body">
+          <div class="ex-q">กำหนดให้ \(\det\begin{bmatrix} a & b & c\\ d & e & f\\ g & h & i \end{bmatrix} = 5\) จงหาค่าของ
+          \[ \text{(1)}\; \det\begin{bmatrix} 2a & 2b & 2c\\ g & h & i\\ d & e & f \end{bmatrix} \qquad
+          \text{(2)}\; \det\begin{bmatrix} a & b & c\\ 2a + d & 2b + e & 2c + f\\ 3g & 3h & 3i \end{bmatrix} \]</div>
+          <div class="approach"><span class="lbl">อธิบายโจทย์ง่าย ๆ</span> — โจทย์แจก det หนึ่งตัวแล้วให้ "อ่านสมบัติ" จากรูปร่างเมทริกซ์ใหม่: เห็นแถวไหนโดนคูณ \(k\) ต้องเอา \(k\) ออกมาหน้า det เห็นสลับแถวต้องติดลบ เห็นแถวแบบ "ตัวเอง + \(k\) เท่าของแถวอื่น" ไม่กระทบ det เลย — สมบัติในทฤษฎีบท 2.4.3 และ 2.4.5 ทำงานครบในข้อนี้</div>
+          <ol class="steps">
+            <li><span class="step-t">(1) ดึง 2 ออกจากแถวที่ 1</span> สมาชิกแถวแรกทุกช่องโดนคูณ 2 → \(\det(cR_1) = c\det A\):
+            \[ \det\begin{bmatrix} 2a & 2b & 2c\\ g & h & i\\ d & e & f \end{bmatrix} = 2\det\begin{bmatrix} a & b & c\\ g & h & i\\ d & e & f \end{bmatrix} \]</li>
+            <li><span class="step-t">(1) สลับแถว 2 กับ 3 แล้วรวมคำตอบ</span> การสลับสองแถวทำ det เปลี่ยนเครื่องหมาย (ทฤษฎีบท 2.4.3 ข้อ 2): \(\det\begin{bmatrix} a & b & c\\ g & h & i\\ d & e & f \end{bmatrix} = -\det\begin{bmatrix} a & b & c\\ d & e & f\\ g & h & i \end{bmatrix} = -5\)
+            \[ = 2 \times (-1) \times 5 = -10 \]</li>
+            <li><span class="step-t">(2) เคาะแถวที่สองให้สะอาดก่อน</span> แถวที่สองเป็นแบบ "แถว 1 + แถว 3" — ใช้ \(R_2 - 2R_1\) ซึ่ง<em>ไม่เปลี่ยน det</em> (ทฤษฎีบท 2.4.3 ข้อ 4): แถวใหม่ = \((2a+d, 2b+e, 2c+f) - 2(a, b, c) = (d, e, f)\)
+            \[ \det\begin{bmatrix} a & b & c\\ 2a + d & 2b + e & 2c + f\\ 3g & 3h & 3i \end{bmatrix} = \det\begin{bmatrix} a & b & c\\ d & e & f\\ 3g & 3h & 3i \end{bmatrix} \]</li>
+            <li><span class="step-t">(2) ดึง 3 ออกจากแถวที่ 3</span> \(= 3\det\begin{bmatrix} a & b & c\\ d & e & f\\ g & h & i \end{bmatrix} = 3 \times 5 = 15\)</li>
+          </ol>
+          <div class="verify"><span class="lbl">สรุปคำตอบ:</span> (1) \(-10\) · (2) \(15\) — ตรงตามตำรา (ทดสอบความจริงของกฎด้วยตัวเลขจริงก็ยังตรง: ยกเมทริกซ์ \(\begin{bmatrix} 2 & 3 & 1\\ 1 & 4 & 2\\ 3 & 1 & 2 \end{bmatrix}\) ที่ det = 13 มาแปลงตาม (1) จะได้ det = \(-2 \times 13 = -26\) พอดี)</div>
+        </div>
+      </article>
+
+      <article class="ex-card">
+        <div class="ex-head"><span class="ex-badge">ตัวอย่าง 2.4.6</span><span class="tag book">จากตำรา</span><span class="tag mid">กลาง</span><span class="ex-title">det ของผลคูณ/ทรานสโพส/อินเวอร์ส</span></div>
+        <div class="ex-body">
+          <div class="ex-q">ให้ \(A, B\) และ \(C\) เป็น \(3 \times 3\) เมทริกซ์ซึ่ง \(\det A = 2\), \(\det B = 3\) และ \(\det C = 4\) จงหา \(\det\!\left(2AB^{T}C^{-1}\right)\)</div>
+          <div class="approach"><span class="lbl">อธิบายโจทย์ง่าย ๆ</span> — โจทย์ไม่ให้ตัวเมทริกซ์เลย ให้ det เฉพาะตัว แปลว่าต้อง "แยก det ออกจากกัน" ตามกฎ: det ของผลคูณ = ผลคูณของ det · det\(kA\) = \(k^n\det A\) (อย่าลืมกำลัง \(n\)!) · det\(A^{T}\) = det\(A\) · det\(A^{-1}\) = 1/det\(A\)</div>
+          <ol class="steps">
+            <li><span class="step-t">แยกกฎออกมาทีละชิ้น</span> สำหรับเมทริกซ์ \(3 \times 3\) (\(n = 3\)):
+            \[ \det\!\left(2AB^{T}C^{-1}\right) = 2^{3}\det A \cdot \det B^{T} \cdot \det C^{-1} \]
+            — ตัวเลข 2 ที่คูณหน้าเมทริกซ์ทั้งตัวต้องยกกำลัง \(n = 3\) (เพราะการคูณ 2 กระทบทั้ง 3 แถว แต่ละแถวดึง 2 ออกมาได้ตัวละหนึ่ง)</li>
+            <li><span class="step-t">แทนค่าที่โจทย์ให้</span> \(\det B^{T} = \det B = 3\) (ทรานสโพสไม่เปลี่ยน det) และ \(\det C^{-1} = \tfrac{1}{\det C} = \tfrac{1}{4}\):
+            \[ = 8 \times 2 \times 3 \times \frac{1}{4} = \frac{48}{4} = 12 \]</li>
+          </ol>
+          <div class="verify"><span class="lbl">สรุปคำตอบ:</span> \(\det\!\left(2AB^{T}C^{-1}\right) = 12\) ตรงตามตำรา — กับดักของข้อนี้คือลืมยกกำลัง 3 ของตัว 2 ซึ่งจะได้ \(2 \times 6 / 4 = 3\) ผิดเพี้ยนทันที</div>
+        </div>
+      </article>
+
+      <article class="ex-card">
+        <div class="ex-head"><span class="ex-badge">ตัวอย่าง 2.4.2</span><span class="tag book">จากตำรา</span><span class="tag mid">กลาง</span><span class="ex-title">กระจายซ้ำแถวที่มี 0 เยอะ: det \(5 \times 5\) ในสองก้าว</span></div>
+        <div class="ex-body">
+          <div class="ex-q">ให้
+          \[ A = \begin{bmatrix} 1 & 5 & 8 & 9 & 0\\ 0 & -3 & -5 & 7 & 1\\ 0 & 0 & 1 & 5 & 0\\ 2 & 4 & 2 & 4 & -1\\ 0 & 0 & 0 & -2 & 0 \end{bmatrix} \]
+          จงหา \(\det A\) โดยกระจายโคแฟกเตอร์ตามแถวที่ 5</div>
+          <div class="approach"><span class="lbl">อธิบายโจทย์ง่าย ๆ</span> — det \(5 \times 5\) ตรง ๆ ต้องคิด 120 พจน์ แต่ตำราเลือกแถวที่ 5 ซึ่งมีศูนย์สี่ช่อง เหลือพจน์เดียวคือช่อง \(-2\) → ตกขั้นเป็น det \(4 \times 4\) แล้วยังเลือกแถวที่มี 0 เยอะต่อ (แถวที่ 3) อีกครั้ง → ตกขั้นเป็น \(3 \times 3\) ที่คำนวณไว้แล้วในตัวอย่าง 2.4.1 เป๊ะ ๆ</div>
+          <ol class="steps">
+            <li><span class="step-t">กระจายตามแถวที่ 5</span> แถวที่ 5 คือ \(\begin{bmatrix} 0 & 0 & 0 & -2 & 0 \end{bmatrix}\) มีเฉพาะช่องที่ 4 (\(-2\)) ไม่เป็นศูนย์:
+            \[ \det A = (-2)(-1)^{5+4}\det\begin{bmatrix} 1 & 5 & 8 & 0\\ 0 & -3 & -5 & 1\\ 0 & 0 & 1 & 0\\ 2 & 4 & 2 & -1 \end{bmatrix} \]
+            เครื่องหมาย \((-1)^{9} = -1\) เพราะตำแหน่ง (5,4) รวมเลขคี่</li>
+            <li><span class="step-t">กระจายมิเนอร์ตามแถวที่ 3 ต่อ</span> แถวที่ 3 ของมิเนอร์คือ \(\begin{bmatrix} 0 & 0 & 1 & 0 \end{bmatrix}\) เหลือช่องที่ 3 เท่านั้น และ \((-1)^{3+3} = +1\):
+            \[ \det A = (-2)(-1)(+1)(1)\det\begin{bmatrix} 1 & 5 & 0\\ 0 & -3 & 1\\ 2 & 4 & -1 \end{bmatrix} \]</li>
+            <li><span class="step-t">อ่านมิเนอร์ \(3 \times 3\) จากตัวอย่าง 2.4.1</span> สังเกตว่าเมทริกซ์ \(3 \times 3\) ที่เหลือคือ \(A\) ของตัวอย่าง 2.4.1 เป๊ะ ๆ ทุกช่อง ดังนั้น det = 9 ตามที่คำนวณไว้แล้ว:
+            \[ \det A = 2 \times 9 = 18 \]</li>
+          </ol>
+          <div class="verify"><span class="lbl">สรุปคำตอบ:</span> \(\det A = 18\) ตรงตามตำรา — บทเรียนของข้อนี้: ก่อนจะกระจาย ให้เลือกแถวหรือหลักที่ศูนย์เยอะที่สุดเสมอ งานจะยุบเหลือไม่กี่ตัวเลข</div>
+        </div>
+      </article>
+
+      <article class="ex-card">
+        <div class="ex-head"><span class="ex-badge">ตัวอย่าง 2.4.7 – 2.4.8</span><span class="tag book">จากตำรา</span><span class="tag mid">กลาง</span><span class="ex-title">เมทริกซ์ผูกพันและ \(A^{-1} = \tfrac{1}{\det A}\operatorname{adj} A\)</span></div>
+        <div class="ex-body">
+          <div class="ex-q"><strong>2.4.7:</strong> กำหนดให้ \(A = \begin{bmatrix} -1 & 4 & 1\\ 3 & 0 & 2\\ 2 & 1 & 0 \end{bmatrix}\) จงหา \(\operatorname{adj} A\) &nbsp; <strong>2.4.8:</strong> จงหา \(A^{-1}\) ของเมทริกซ์เดียวกันโดยใช้เมทริกซ์ผูกพัน</div>
+          <div class="approach"><span class="lbl">อธิบายโจทย์ง่าย ๆ</span> — เมทริกซ์ผูกพัน (adjoint) คือ "ตารางโคแฟกเตอร์ทุกช่อง แล้วทรานสโพส" — ทำงานเป็นเกม 9 ช่อง: แต่ละช่องตัดแถว-หลักของตัวเองทิ้ง คำนวณ det \(2 \times 2\) ที่เหลือ ใส่เครื่องหมายหมุนเวียน \(+,-,+\) แล้วเก็บไว้ที่<em>ตำแหน่งสลับกัน</em> จากนั้นข้อ 2.4.8 แค่หารด้วย det A ก็ได้ \(A^{-1}\)</div>
+          <ol class="steps">
+            <li><span class="step-t">คำนวณโคแฟกเตอร์ทีละช่อง</span> \(C_{11} = (+1)\det\begin{bmatrix} 0 & 2\\ 1 & 0 \end{bmatrix} = 0 - 2 = -2\) · \(C_{12} = (-1)\det\begin{bmatrix} 3 & 2\\ 2 & 0 \end{bmatrix} = -(0 - 4) = 4\) · \(C_{13} = (+1)\det\begin{bmatrix} 3 & 0\\ 2 & 1 \end{bmatrix} = 3\) · \(C_{21} = (-1)\det\begin{bmatrix} 4 & 1\\ 1 & 0 \end{bmatrix} = -(0 - 1) = 1\) · \(C_{22} = (+1)\det\begin{bmatrix} -1 & 1\\ 2 & 0 \end{bmatrix} = -2\) · \(C_{23} = (-1)\det\begin{bmatrix} -1 & 4\\ 2 & 1 \end{bmatrix} = -(-1 - 8) = 9\)</li>
+            <li><span class="step-t">โคแฟกเตอร์แถวล่างต่อ</span> \(C_{31} = (+1)\det\begin{bmatrix} 4 & 1\\ 0 & 2 \end{bmatrix} = 8\) · \(C_{32} = (-1)\det\begin{bmatrix} -1 & 1\\ 3 & 2 \end{bmatrix} = -(-2 - 3) = 5\) · \(C_{33} = (+1)\det\begin{bmatrix} -1 & 4\\ 3 & 0 \end{bmatrix} = 0 - 12 = -12\) — จัดเป็นเมทริกซ์โคแฟกเตอร์ \(\begin{bmatrix} -2 & 4 & 3\\ 1 & -2 & 9\\ 8 & 5 & -12 \end{bmatrix}\)</li>
+            <li><span class="step-t">ทรานสโพสได้ adj A</span> สลับแถวกับหลัก:
+            \[ \operatorname{adj} A = \begin{bmatrix} -2 & 4 & 3\\ 1 & -2 & 9\\ 8 & 5 & -12 \end{bmatrix}^{T} = \begin{bmatrix} -2 & 1 & 8\\ 4 & -2 & 5\\ 3 & 9 & -12 \end{bmatrix} \]</li>
+            <li><span class="step-t">หา det A แล้วหาร</span> กระจายตามแถวที่ 1: \(\det A = -1(0 - 2) - 4(0 - 4) + 1(3 - 0) = 2 + 16 + 3 = 21\) — และทฤษฎีบท 2.4.7 รับประกันว่า \(A(\operatorname{adj} A) = (\det A)I = 21I\) ดังนั้น
+            \[ A^{-1} = \frac{1}{\det A}\operatorname{adj} A = \frac{1}{21}\begin{bmatrix} -2 & 1 & 8\\ 4 & -2 & 5\\ 3 & 9 & -12 \end{bmatrix} \]
+            (ตรวจช่อง (1,1) ของ \(A \cdot \tfrac{1}{21}\operatorname{adj} A\): \(\tfrac{1}{21}[(-1)(-2) + 4(4) + 1(3)] = \tfrac{21}{21} = 1\) ✓)</li>
+          </ol>
+          <div class="verify"><span class="lbl">สรุปคำตอบ:</span> \(\operatorname{adj} A = \begin{bmatrix} -2 & 1 & 8\\ 4 & -2 & 5\\ 3 & 9 & -12 \end{bmatrix}\) และ \(A^{-1} = \tfrac{1}{21}\operatorname{adj} A\) — ตรงตามตำราทั้งสองตัวอย่าง (ทางเลือกอื่นคือวิธี \([A \mid I]\) จากหัวข้อ 2.3 ซึ่งได้คำตอบเดียวกัน แต่วิธี adj มีประโยชน์ตอนอยากรู้แค่บางช่อง)</div>
+        </div>
+      </article>
+
+      <article class="ex-card">
+        <div class="ex-head"><span class="ex-badge">ตัวอย่าง 2.4.9</span><span class="tag book">จากตำรา</span><span class="tag mid">กลาง</span><span class="ex-title">กฎของคราเมอร์: แก้ระบบด้วย det</span></div>
+        <div class="ex-body">
+          <div class="ex-q">จงใช้กฎของคราเมอร์หาผลเฉลยของระบบเชิงเส้น
+          \[ \begin{aligned} x_1 - x_2 + 2x_3 &= -2\\ 3x_1 - 2x_2 + 4x_3 &= -5\\ 2x_2 - 5x_3 &= 2 \end{aligned} \]</div>
+          <div class="approach"><span class="lbl">อธิบายโจทย์ง่าย ๆ</span> — กฎของคราเมอร์พูดว่า "ถ้า det \(A \neq 0\) ค่า \(x_i\) = det ของเมทริกซ์ที่เอาหลักที่ \(i\) เปลี่ยนเป็น \(\vec{b}\) หารด้วย det \(A\)" — โจทย์จึงต้องคำนวณ det สี่ตัว: ตัวเดิม กับเวอร์ชันเปลี่ยนหลักทีละหลัก สังเกตด้วยว่าสมการที่สามไม่มี \(x_1\) แถวล่างจึงเริ่มด้วย 0</div>
+          <ol class="steps">
+            <li><span class="step-t">เขียน \(A\) และเมทริกซ์แปลงร่างทั้งสาม</span> \(A = \begin{bmatrix} 1 & -1 & 2\\ 3 & -2 & 4\\ 0 & 2 & -5 \end{bmatrix}\), \(\vec{b} = \begin{bmatrix} -2\\ -5\\ 2 \end{bmatrix}\) แล้วแทนหลักทีละหลักด้วย \(\vec{b}\):
+            \[ A_1 = \begin{bmatrix} -2 & -1 & 2\\ -5 & -2 & 4\\ 2 & 2 & -5 \end{bmatrix}, \quad A_2 = \begin{bmatrix} 1 & -2 & 2\\ 3 & -5 & 4\\ 0 & 2 & -5 \end{bmatrix}, \quad A_3 = \begin{bmatrix} 1 & -1 & -2\\ 3 & -2 & -5\\ 0 & 2 & 2 \end{bmatrix} \]</li>
+            <li><span class="step-t">คำนวณ det ทั้งสี่</span> \(\det A = -1\) · \(\det A_1 = 1\) · \(\det A_2 = -1\) · \(\det A_3 = 0\) (เช่น \(\det A\): กระจายตามหลักที่ 1 ได้ \(1(10 - 8) + 1(-15 - 0) + 2(6 - 0) = 2 - 15 + 12 = -1\) ✓)</li>
+            <li><span class="step-t">หารเป็นคำตอบ</span> \(x_1 = \tfrac{\det A_1}{\det A} = \tfrac{1}{-1} = -1\), \(x_2 = \tfrac{-1}{-1} = 1\), \(x_3 = \tfrac{0}{-1} = 0\)
+            \[ \vec{x} = \begin{bmatrix} -1\\ 1\\ 0 \end{bmatrix} \]</li>
+            <li><span class="step-t">แทนกลับตรวจทุกสมการ</span> สมการที่ 1: \(-1 - 1 + 0 = -2\) ✓ · สมการที่ 2: \(-3 - 2 + 0 = -5\) ✓ · สมการที่ 3: \(2(1) - 5(0) = 2\) ✓ ครบทั้งสาม</li>
+          </ol>
+          <div class="verify"><span class="lbl">สรุปคำตอบ:</span> \(\vec{x} = (-1, 1, 0)\) ตรงตามตำรา — ข้อควรจำ: กฎของคราเมอร์ใช้ได้ต่อเมื่อ \(\det A \neq 0\) และสำหรับระบบจัตุรัสเท่านั้น (มีสมการเท่ากับตัวแปรพอดี)</div>
+        </div>
+      </article>
+
+      <article class="ex-card">
+        <div class="ex-head"><span class="ex-badge">แบบฝึกหัด 2.4 ข้อ 2 (ก, ค)</span><span class="tag book">จากตำรา</span><span class="tag mid">กลาง</span><span class="ex-title">ฝึกคำนวณ det \(3 \times 3\) และ \(4 \times 4\)</span></div>
+        <div class="ex-body">
+          <div class="ex-q">จงหาค่าของ
+          \[ \text{(ก)}\; \det\begin{bmatrix} 1 & -1 & 2\\ 3 & 1 & 1\\ 2 & -1 & 3 \end{bmatrix} \qquad
+          \text{(ค)}\; \det\begin{bmatrix} -1 & -1 & 1 & 0\\ 0 & 1 & 1 & 2\\ 2 & 1 & 1 & 3\\ 1 & 3 & -1 & 2 \end{bmatrix} \]</div>
+          <div class="approach"><span class="lbl">อธิบายโจทย์ง่าย ๆ</span> — สองข้อนี้ฝึกทักษะหลักของหัวข้อ: (ก) กระจาย \(3 \times 3\) ตรง ๆ โดยอย่าพลาดเครื่องหมายลบของพจน์ที่สอง (ค) det \(4 \times 4\) ต้องเลือกแถว/หลักที่มีศูนย์เยอะ — ที่นี่แถวที่ 2 มีศูนย์หนึ่งช่อง และหลักที่ 4 มีศูนย์สองช่อง (ให้ดูทั้งสองมุมเทียบกัน)</div>
+          <ol class="steps">
+            <li><span class="step-t">(ก) กระจายตามแถวที่ 1</span>
+            \[ \det = 1\det\begin{bmatrix} 1 & 1\\ -1 & 3 \end{bmatrix} - (-1)\det\begin{bmatrix} 3 & 1\\ 2 & 3 \end{bmatrix} + 2\det\begin{bmatrix} 3 & 1\\ 2 & -1 \end{bmatrix} \]
+            มิเนอร์แรก \(= 3 + 1 = 4\), ที่สอง \(= 9 - 2 = 7\), ที่สาม \(= -3 - 2 = -5\) — รวม: \(1(4) + 1(7) + 2(-5) = 4 + 7 - 10 = 1\)</li>
+            <li><span class="step-t">(ค) กระจายตามแถวที่ 2 (มีศูนย์ 1 ช่อง)</span> แถวที่ 2 = \(\begin{bmatrix} 0 & 1 & 1 & 2 \end{bmatrix}\) เครื่องหมายตำแหน่งแถวที่ 2 คือ \(-, +, -, +\):
+            \[ \det = 0 + 1\det\begin{bmatrix} -1 & 1 & 0\\ 2 & 1 & 3\\ 1 & -1 & 2 \end{bmatrix} - 1\det\begin{bmatrix} -1 & -1 & 0\\ 2 & 1 & 3\\ 1 & 3 & 2 \end{bmatrix} + 2\det\begin{bmatrix} -1 & -1 & 1\\ 2 & 1 & 1\\ 1 & 3 & -1 \end{bmatrix} \]
+            (พจน์แรกเป็นศูนย์เพราะสมาชิก \(a_{21} = 0\) ตัดทิ้งได้เลย)</li>
+            <li><span class="step-t">(ค) คำนวณมิเนอร์ \(3 \times 3\) ทั้งสามตัว</span> มิเนอร์แรก: \(-1(2 + 3) - 1(4 - 3) + 0 = -5 - 1 = -6\) · มิเนอร์ที่สอง: \(-1(2 - 9) + 1(4 - 3) + 0 = 7 + 1 = 8\) · มิเนอร์ที่สาม: \(-1(-1 - 3) + 1(-2 - 1) + 1(6 - 1) = 4 - 3 + 5 = 6\)</li>
+            <li><span class="step-t">(ค) รวมพจน์พร้อมเครื่องหมายตำแหน่ง</span> แถวที่ 2 ตำแหน่ง (2,1) ติด \(-\), (2,2) ติด \(+\), (2,3) ติด \(-\), (2,4) ติด \(+\) — พจน์แรกเป็นศูนย์เพราะ \(a_{21} = 0\):
+            \[ \det = 0 + 1(-6) - 1(8) + 2(6) = -6 - 8 + 12 = -2 \]</li>
+          </ol>
+          <div class="verify"><span class="lbl">สรุปคำตอบ:</span> (ก) \(\det = 1\) · (ค) \(\det = -2\) — ตรงกับคำตอบท้ายบทของตำรา (ข้อนี้ตำรายังมี (ข) = 0 และ (ง) = −2 เป็นโจทย์เพิ่ม โดย (ข) ไม่ต้องคำนวณเลย เพราะแถวที่ 2 + แถวที่ 3 = 2 × แถวที่ 1 ทำให้ det = 0 ทันที)</div>
+        </div>
+      </article>
+
+      <article class="ex-card">
+        <div class="ex-head"><span class="ex-badge">แบบฝึกหัด 2.4 ข้อ 6</span><span class="tag book">จากตำรา</span><span class="tag mid">กลาง</span><span class="ex-title">ใช้ det ตัดสินว่ามี \(A^{-1}\) หรือไม่</span></div>
+        <div class="ex-body">
+          <div class="ex-q">จงใช้ดีเทอร์มิแนนต์ตรวจสอบว่าเมทริกซ์
+          \[ A = \begin{bmatrix} 0 & 7 & 5 & 4\\ 3 & 8 & 6 & 0\\ 1 & -7 & -5 & 0\\ 2 & 0 & 0 & 8 \end{bmatrix} \]
+          มีเมทริกซ์ผกผันหรือไม่ เพราะเหตุใด</div>
+          <div class="approach"><span class="lbl">อธิบายโจทย์ง่าย ๆ</span> — ทฤษฎีบท 2.4.4 ให้ทางลัดสุด ๆ: \(A\) มีผกผัน ⟺ \(\det A \neq 0\) — คำถามจึงกลายเป็น "det ตัวนี้เป็นศูนย์ไหม" เลือกกระจายหลักที่ 4 (มีศูนย์สองช่อง) แล้วตัดสิน</div>
+          <ol class="steps">
+            <li><span class="step-t">กระจายตามหลักที่ 4</span> หลักที่ 4 = \(\begin{bmatrix} 4\\ 0\\ 0\\ 8 \end{bmatrix}\) เหลือสองพจน์ ตำแหน่ง (1,4) มีเครื่องหมาย \((-1)^{1+4} = -1\) และ (4,4) มี \((+1)\):
+            \[ \det A = -4\det\begin{bmatrix} 3 & 8 & 6\\ 1 & -7 & -5\\ 2 & 0 & 0 \end{bmatrix} + 8\det\begin{bmatrix} 0 & 7 & 5\\ 3 & 8 & 6\\ 1 & -7 & -5 \end{bmatrix} \]</li>
+            <li><span class="step-t">คำนวณมิเนอร์ทั้งสอง</span> มิเนอร์แรก: กระจายตามแถวที่ 3 (มีศูนย์สองช่อง) = \(2\det\begin{bmatrix} 8 & 6\\ -7 & -5 \end{bmatrix} = 2(-40 + 42) = 4\) · มิเนอร์ที่สอง: กระจายตามแถวที่ 1 = \(0 - 7\det\begin{bmatrix} 3 & 6\\ 1 & -5 \end{bmatrix} + 5\det\begin{bmatrix} 3 & 8\\ 1 & -7 \end{bmatrix} = -7(-15 - 6) + 5(-21 - 8) = 147 - 145 = 2\)</li>
+            <li><span class="step-t">รวมและตัดสิน</span> \(\det A = -4(4) + 8(2) = -16 + 16 = 0\) — พอดีเป๊ะ! เพราะ \(\det A = 0\) โดยทฤษฎีบท 2.4.4 \(A\) เป็นเมทริกซ์เอกฐาน <strong>ไม่มีเมทริกซ์ผกผัน</strong></li>
+          </ol>
+          <div class="verify"><span class="lbl">สรุปคำตอบ:</span> \(\det A = 0\) จึงไม่มี \(A^{-1}\) — ตรงกับคำตอบท้ายบทของตำรา (จุดที่น่าสนใจ: สองมิเนอร์ได้ 4 กับ 2 และตัวคูณ \(-4, 8\) ทำให้ล้ากันพอดีเป๊ะ — ค่า det ที่เป็นศูนย์มักมาจากการหักล้างแบบนี้ ไม่ใช่จากการเห็นศูนย์ชัด ๆ ในเมทริกซ์)</div>
+        </div>
+      </article>
+
+      <article class="ex-card">
+        <div class="ex-head"><span class="ex-badge">ตัวอย่าง 2.4.4</span><span class="tag book">จากตำรา</span><span class="tag hard">ยาก</span><span class="ex-title">พหุนามลักษณะเฉพาะ \(\det(A - \lambda I_3)\)</span></div>
+        <div class="ex-body">
+          <div class="ex-q">กำหนดให้ \(A = \begin{bmatrix} 2 & 2 & -1\\ 1 & 3 & -1\\ -1 & -2 & 2 \end{bmatrix}\) จงหา \(\det(A - \lambda I_3)\)</div>
+          <div class="approach"><span class="lbl">อธิบายโจทย์ง่าย ๆ</span> — โจทย์นี้คือ "พ่นทราย" สำหรับบทถัดไป (ค่าลักษณะเฉพาะ): ลบ \(\lambda\) จากแนวทแยงหลัก แล้วคำนวณ det แบบมีตัวอักษร \(\lambda\) ปนอยู่ — ผลลัพธ์คือพหุนามดีกรี 3 เรียกว่าพหุนามลักษณะเฉพาะ เทคนิคคือใช้สูตร Sarrus สำหรับ \(3 \times 3\) แล้วเก็บพจน์ตามยกกำลังของ \(\lambda\)</div>
+          <ol class="steps">
+            <li><span class="step-t">เขียน \(A - \lambda I_3\)</span> ลบ \(\lambda\) เฉพาะแนวทแยงหลัก ช่องอื่นคงเดิม:
+            \[ A - \lambda I_3 = \begin{bmatrix} 2 - \lambda & 2 & -1\\ 1 & 3 - \lambda & -1\\ -1 & -2 & 2 - \lambda \end{bmatrix} \]</li>
+            <li><span class="step-t">ใช้สูตร Sarrus (ทแยงลง − ทแยงขึ้น)</span> กลุ่มบวก: \((2-\lambda)(3-\lambda)(2-\lambda) + 2(-1)(-1) + (-1)(1)(-2) = (2-\lambda)^2(3-\lambda) + 2 + 2\) · กลุ่มลบ: \((-1)(3-\lambda)(-1) + (-2)(-1)(2-\lambda) + (2-\lambda)(1)(2) = (3-\lambda) + 2(2-\lambda) + 2(2-\lambda)\)
+            \[ \det(A - \lambda I_3) = \left[(2-\lambda)^2(3-\lambda) + 2 + 2\right] - \left[(3-\lambda) + 2(2-\lambda) + 2(2-\lambda)\right] \]</li>
+            <li><span class="step-t">เก็บพจน์ทีละขั้น</span> เปิด \((2-\lambda)^2(3-\lambda) = (\lambda^2 - 4\lambda + 4)(3 - \lambda) = -\lambda^3 + 7\lambda^2 - 16\lambda + 12\) (ตรวจ: คูณออกมาช่องบวก \(\lambda^2 \cdot 3 - \lambda^3 = -\lambda^3 + 3\lambda^2\) … รวมทุกพจน์ให้ \(-\lambda^3 + 7\lambda^2 - 16\lambda + 12\)) จากนั้นหักกลุ่มลบ: \(-16\lambda + 12 + 4 - (3 - \lambda) - 2(2-\lambda) - 2(2-\lambda) = -16\lambda + 16 - 3 + \lambda - 4 + 2\lambda - 4 + 2\lambda = -11\lambda + 5\)
+            \[ \det(A - \lambda I_3) = -\lambda^3 + 7\lambda^2 - 11\lambda + 5 \]</li>
+            <li><span class="step-t">ตรวจคำตอบด้วยการแทนค่า</span> แทน \(\lambda = 0\): det \(A\) ต้องเท่ากับค่าคงตัว 5 — คำนวณ det \(A\) ตรง ๆ: \(2(6 - 2) - 2(2 - 1) + (-1)(-2 + 3) = 8 - 2 - 1 = 5\) ✓ และแทน \(\lambda = 1\): พหุนามได้ \(-1 + 7 - 11 + 5 = 0\) ซึ่งตรวจได้ว่า \(\det(A - I_3) = 0\) จริง (แปลว่า \(\lambda = 1\) เป็นค่าลักษณะเฉพาะตัวหนึ่ง)</li>
+          </ol>
+          <div class="verify"><span class="lbl">สรุปคำตอบ:</span> \(\det(A - \lambda I_3) = -\lambda^3 + 7\lambda^2 - 11\lambda + 5\) ตรงตามตำรา — พหุนามนี้จะถูกตั้งเท่ากับศูนย์เพื่อหาค่าลักษณะเฉพาะในบทที่ 5</div>
+        </div>
+      </article>
+
+      <article class="ex-card">
+        <div class="ex-head"><span class="ex-badge">แบบฝึกหัด 2.4 ข้อ 7</span><span class="tag book">จากตำรา</span><span class="tag hard">ยาก</span><span class="ex-title">det ของผลคูณหลายร่าง หกคำถามติด</span></div>
+        <div class="ex-body">
+          <div class="ex-q">ให้ \(A, B, C\) เป็น \(4 \times 4\) เมทริกซ์ซึ่ง \(\det A = -2\), \(\det B = 0.5\) และ \(\det C = -1\) จงหา<br>
+          (ก) \(\det(A^{T}B)\) &nbsp; (ข) \(\det(-2CB)\) &nbsp; (ค) \(\det(B^{-1}AB)\) &nbsp; (ง) \(\det(B^{-1}A^{T}C)\) &nbsp; (จ) \(\det(-ABC^{T})\) &nbsp; (ฉ) \(\det\!\left((2A)^{-1}B^{-1}\right)\)</div>
+          <div class="approach"><span class="lbl">อธิบายโจทย์ง่าย ๆ</span> — โจทย์ชุดเดียวกับตัวอย่าง 2.4.6 แต่ยิง 6 นัดติด อาวุธเดิมคือ 4 กฎ: det\(XY\) = det\(X\)det\(Y\) · det\(kX\) = \(k^4\)det\(X\) (จำนวนแถว \(n = 4\)) · det\(X^{T}\) = det\(X\) · det\(X^{-1}\) = 1/det\(X\) — และสำหรับคำถามที่มี "det ผลคูณสามตัว" ให้แยกทีละตัวแล้วคูณกัน</div>
+          <ol class="steps">
+            <li><span class="step-t">(ก) และ (ข): กฎพื้นฐาน</span> (ก) \(\det(A^{T}B) = \det A^{T}\det B = (-2)(0.5) = -1\) · (ข) สเกลาร์ \(-2\) บนเมทริกซ์ \(4 \times 4\) ต้องยกกำลัง 4: \(\det(-2CB) = (-2)^4 \det C \det B = 16(-1)(0.5) = -8\)</li>
+            <li><span class="step-t">(ค) และ (ง): อินเวอร์สมาเยือน</span> (ค) \(\det(B^{-1}AB) = \det B^{-1}\det A\det B = \tfrac{1}{0.5}(-2)(0.5) = -2\) — สังเกตว่า \(\det B^{-1}\det B = 1\) ตัดกันหมด เหลือ det A เป๊ะ ๆ (สมบัติ "คูณกลับไปมาไม่เปลี่ยน det") · (ง) \(\det(B^{-1}A^{T}C) = \tfrac{1}{0.5}(-2)(-1) = 4\)</li>
+            <li><span class="step-t">(จ) สเกลาร์ลบติดสินค้า</span> \(\det(-ABC^{T}) = (-1)^4\det A\det B\det C^{T} = (1)(-2)(0.5)(-1) = 1\) — จุดที่คนพลาด: เครื่องหมายลบหน้าเมทริกซ์คือคูณ \(-1\) ทั้งตัว ต้องยกกำลัง 4 ได้ \(+1\) แล้วจึงคูณกับ det ที่กำลังลบอยู่แล้วสองตัว</li>
+            <li><span class="step-t">(ฉ) อินเวอร์สของสเกลาร์</span> \(\det\!\left((2A)^{-1}\right) = \tfrac{1}{\det(2A)} = \tfrac{1}{2^4\det A} = \tfrac{1}{16(-2)} = -\tfrac{1}{32}\) ดังนั้น
+            \[ \det\!\left((2A)^{-1}B^{-1}\right) = \left(-\frac{1}{32}\right)\left(\frac{1}{0.5}\right) = -\frac{1}{32} \times 2 = -\frac{1}{16} \]</li>
+          </ol>
+          <div class="verify"><span class="lbl">สรุปคำตอบ:</span> (ก) \(-1\) · (ข) \(-8\) · (ค) \(-2\) · (ง) \(4\) · (จ) \(1\) · (ฉ) \(-\tfrac{1}{16}\) — ตรงกับคำตอบท้ายบทของตำราครบทั้งหกข้อ</div>
+        </div>
+      </article>
+
+      <article class="ex-card">
+        <div class="ex-head"><span class="ex-badge">แบบฝึกหัด 2.4 ข้อ 9 (ก)</span><span class="tag book">จากตำรา</span><span class="tag hard">ยาก</span><span class="ex-title">กฎของคราเมอร์กับคำตอบเศษส่วน</span></div>
+        <div class="ex-body">
+          <div class="ex-q">จงใช้กฎของคราเมอร์หาผลเฉลยของระบบเชิงเส้น
+          \[ \begin{aligned} 2x_1 - x_2 + 2x_3 &= 11\\ 3x_1 - 2x_2 - x_3 &= -1\\ x_1 + 2x_2 - x_3 &= -3 \end{aligned} \]</div>
+          <div class="approach"><span class="lbl">อธิบายโจทย์ง่าย ๆ</span> — ท่าเดียวกับตัวอย่าง 2.4.9: หา det \(A\) ก่อน (ต้องไม่เป็นศูนย์) แล้วเปลี่ยนหลักทีละหลักเป็น \(\vec{b}\) หา det ใหม่ แล้วหาร — คราวนี้คำตอบออกเศษส่วน เพราะ det ตัวหารคือ 22 ซึ่งไม่ลงตัวกับตัวเศษ</div>
+          <ol class="steps">
+            <li><span class="step-t">หา det A ก่อน</span> \(A = \begin{bmatrix} 2 & -1 & 2\\ 3 & -2 & -1\\ 1 & 2 & -1 \end{bmatrix}\) กระจายตามแถวที่ 1: \(2\det\begin{bmatrix} -2 & -1\\ 2 & -1 \end{bmatrix} + 1\det\begin{bmatrix} 3 & -1\\ 1 & -1 \end{bmatrix} + 2\det\begin{bmatrix} 3 & -2\\ 1 & 2 \end{bmatrix} = 2(2 + 2) + 1(-3 + 1) + 2(6 + 2) = 8 - 2 + 16 = 22\)</li>
+            <li><span class="step-t">สร้าง \(A_1, A_2, A_3\) แล้วหา det</span> แทนหลักทีละหลักด้วย \(\vec{b} = \begin{bmatrix} 11\\ -1\\ -3 \end{bmatrix}\) — เช่น \(\det A_1\): กระจายตามแถวที่ 1 ของ \(A_1 = \begin{bmatrix} 11 & -1 & 2\\ -1 & -2 & -1\\ -3 & 2 & -1 \end{bmatrix}\) ได้ \(11\det\begin{bmatrix} -2 & -1\\ 2 & -1 \end{bmatrix} + 1\det\begin{bmatrix} -1 & -1\\ -3 & -1 \end{bmatrix} + 2\det\begin{bmatrix} -1 & -2\\ -3 & 2 \end{bmatrix} = 11(4) + 1(1 - 3) + 2(-2 - 6) = 44 - 2 - 16 = 26\) · ทำเช่นเดียวกันได้ \(\det A_2 = 2\) · \(\det A_3 = 96\)</li>
+            <li><span class="step-t">หารเป็นคำตอบ</span>
+            \[ x_1 = \frac{26}{22} = \frac{13}{11} \qquad x_2 = \frac{2}{22} = \frac{1}{11} \qquad x_3 = \frac{96}{22} = \frac{48}{11} \]
+            (ตรวจสมการแรก: \(2\left(\tfrac{13}{11}\right) - \tfrac{1}{11} + 2\left(\tfrac{48}{11}\right) = \tfrac{26 - 1 + 96}{11} = \tfrac{121}{11} = 11\) ✓)</li>
+          </ol>
+          <div class="verify"><span class="lbl">สรุปคำตอบ:</span> \(\vec{x} = \left(\tfrac{13}{11}, \tfrac{1}{11}, \tfrac{48}{11}\right)\) — ตรงกับคำตอบท้ายบทของตำรา</div>
+        </div>
+      </article>
+    </section>
+
+    <section class="block" id="apply">
+      <h2><span class="h2-dot">🌍</span> เอาไปใช้ทำอะไร — โจทย์ประยุกต์</h2>
+
+      <article class="ex-card">
+        <div class="ex-head"><span class="ex-badge">📐 ยืดภาพในโปรแกรมกราฟิก</span><span class="tag app">ใช้จริง</span><span class="tag easy">ง่าย</span><span class="ex-title">det = ตัวคูณพื้นที่ (และเครื่องหมายบอกการกลับด้าน)</span></div>
+        <div class="ex-body">
+          <div class="ex-q">นักออกแบบกราฟิกยืดรูปสี่เหลี่ยมจัตุรัสขนาด \(1 \times 1\) (มุมที่ \((0,0), (1,0), (0,1), (1,1)\)) ด้วยการแปลงเมทริกซ์ \(A = \begin{bmatrix} 3 & 1\\ 1 & 2 \end{bmatrix}\) (ก) จุดมุมทั้งสี่จะไปอยู่ที่ไหน รูปใหม่เป็นรูปอะไร (ข) พื้นที่ใหม่เป็นเท่าไร (ค) ถ้าเปลี่ยนไปใช้เมทริกซ์ \(B = \begin{bmatrix} 2 & 1\\ 4 & 2 \end{bmatrix}\) จะเกิดอะไรขึ้น</div>
+          <div class="approach"><span class="lbl">อธิบายโจทย์ง่าย ๆ</span> — หลักการสำคัญของ det: การแปลงเมทริกซ์ \(2 \times 2\) ทำให้ทุกวงเวกเตอร์ "พื้นที่โตขึ้นเท่ากับ \(|\det A|\)" เสมอ — ดังนั้นแทนที่จะไล่คำนวณพื้นที่รูปสี่เหลี่ยมด้านขนาน เราแค่คิด det ตัวเดียวจบ</div>
+          <ol class="steps">
+            <li><span class="step-t">(ก) ยิงจุดมุมผ่าน \(A\)</span> \(A\begin{bmatrix} 1\\ 0 \end{bmatrix} = \begin{bmatrix} 3\\ 1 \end{bmatrix}\) (หลักที่ 1 ของ \(A\)) และ \(A\begin{bmatrix} 0\\ 1 \end{bmatrix} = \begin{bmatrix} 1\\ 2 \end{bmatrix}\) (หลักที่ 2) — จุดมุมใหม่คือ \((0,0), (3,1), (1,2), (4,3)\) เป็น<em>สี่เหลี่ยมด้านขนาน</em> (จุดที่สี่ = ผลบวกของสองเวกเตอร์ข้างต้น)</li>
+            <li><span class="step-t">(ข) คำนวณ det แล้วจบ</span> \(\det A = 3(2) - 1(1) = 5\) → พื้นที่ใหม่ = \(|\det A| \times\) พื้นที่เดิม \(= 5 \times 1 = 5\) ตารางหน่วย — และเพราะ det เป็นบวก รูปไม่ถูก "พับกลับด้าน" (มุมขวายังหมุนทางเดิม)</li>
+            <li><span class="step-t">(ค) เมทริกซ์ที่ det = 0</span> \(\det B = 2(2) - 1(4) = 0\) — จุดมุมใหม่คือ \((0,0), (2,4), (1,2), (3,6)\) ซึ่งทั้งหมดนอนบนเส้นตรง \(y = 2x\) เดียวกัน! สี่เหลี่ยมถูก<em>บีบแบนเป็นเส้น</em> พื้นที่เหลือ 0 และข้อมูลทิศทางหนึ่งมิติสูญหายไปโดยพลการ ย้อนกลับไม่ได้</li>
+          </ol>
+          <div class="verify"><span class="lbl">เห็นไหมว่า...</span> det ในสายตานักกราฟิกส์คือ "ปุ่มคูณพื้นที่/ปริมาตร" — โปรแกรมยืดรูป 3D ก็คูณ det ในสามมิติ (ปริมาตร) และถ้าวัตถุถูกทรานส์ฟอร์มด้วยเมทริกซ์ที่ det = 0 โมเดลจะพังทันทีเพราะถูกบีบแบน — นักพัฒนาเกมเลยตรวจ det ก่อนทุกครั้งที่โหลดข้อมูลแอนิเมชัน</div>
+        </div>
+      </article>
+
+      <article class="ex-card">
+        <div class="ex-head"><span class="ex-badge">🚨 เซ็นเซอร์คู่ที่ทำให้ข้อมูลสูญ</span><span class="tag app">ใช้จริง</span><span class="tag mid">กลาง</span><span class="ex-title">\(\det A = 0\) = ย้อนอ่านค่าจริงไม่ได้</span></div>
+        <div class="ex-body">
+          <div class="ex-q">ระบบวัดอุณหภูมิสองจุด (\(x_1, x_2\)) ใช้เซ็นเซอร์ 2 ตัว: ตัวแรกอ่าน \(x_1 + x_2\) และตัวที่สองอ่าน \(2x_1 + 2x_2\) คือ \(\begin{bmatrix} y_1\\ y_2 \end{bmatrix} = \begin{bmatrix} 1 & 1\\ 2 & 2 \end{bmatrix}\begin{bmatrix} x_1\\ x_2 \end{bmatrix}\) (ก) เมื่อวันหนึ่งเซ็นเซอร์รายงาน \((y_1, y_2) = (3, 6)\) จะสรุปอุณหภูมิจริงได้ไหม (ข) วิศวกรเสนอเปลี่ยนเซ็นเซอร์ที่สองเป็นอ่าน \(x_1 - x_2\) แทน จะช่วยได้จริงไหม ถ้าอ่านได้ \((y_1, y_2) = (5, 1)\) อุณหภูมิจริงคือเท่าไร</div>
+          <div class="approach"><span class="lbl">อธิบายโจทย์ง่าย ๆ</span> — คำถาม "อ่านค่าแล้วย้อนหาค่าจริงได้ไหม" = "เมทริกซ์ \(A\) มีผกผันไหม" = "\(\det A\) เป็นศูนย์ไหม" — ข้อนี้ให้เห็นสองฝั่ง: ฝั่ง det = 0 (ข้อมูลสูญ) กับฝั่ง det ≠ 0 (คืนค่าได้ชุดเดียว)</div>
+          <ol class="steps">
+            <li><span class="step-t">(ก) ตรวจ det ก่อนเสมอ</span> \(\det\begin{bmatrix} 1 & 1\\ 2 & 2 \end{bmatrix} = 1(2) - 1(2) = 0\) — เมทริกซ์เอกฐาน แปลว่าระบบ \(A\vec{x} = \vec{y}\) ไม่มีผลเฉลยชุดเดียว</li>
+            <li><span class="step-t">(ก) เห็นปัญหาด้วยตา</span> สังเกตว่าแถวที่สองคือแถวแรกคูณ 2 — เซ็นเซอร์ตัวที่สองไม่ได้บอกอะไรใหม่เลย! ค่า \((3, 6)\) มาจาก \((x_1, x_2) = (1, 2)\) ก็ได้ \((2, 1)\) ก็ได้ \((3, 0)\) ก็ได้ (ตรวจ: \(1+2 = 3, 2+4 = 6\) ✓ · \(2+1 = 3, 4+2 = 6\) ✓ · \(3+0 = 3, 6+0 = 6\) ✓) — อุณหภูมิจริง<em>สรุปไม่ได้</em> ข้อมูลสูญตลอดกาล</li>
+            <li><span class="step-t">(ข) เมทริกซ์ใหม่มี det ไม่เป็นศูนย์</span> \(\det\begin{bmatrix} 1 & 1\\ 1 & -1 \end{bmatrix} = 1(-1) - 1(1) = -2 \neq 0\) → มีผกผัน อ่านค่าย้อนได้ชุดเดียว — สมการ \(x_1 + x_2 = 5\), \(x_1 - x_2 = 1\) บวกกันได้ \(2x_1 = 6 \to x_1 = 3\) และแทนกลับ \(x_2 = 2\)
+            \[ \vec{x} = \begin{bmatrix} 3\\ 2 \end{bmatrix} \]
+            (ตรวจ: \(3 + 2 = 5\) ✓ และ \(3 - 2 = 1\) ✓)</li>
+          </ol>
+          <div class="verify"><span class="lbl">เห็นไหมว่า...</span> การเช็ก \(\det A \neq 0\) ในห้องเรียน ในโลกจริงคือการรับประกันว่า "เครื่องมือวัดชุดนี้กู้คืนข้อมูลจริงได้" — ใช้กับเซ็นเซอร์ ระบบถ่ายภาพ CT ที่ย้อนความหนาแน่นจากภาพฉาย และระบบกรองสัญญาณ — และเมื่อ det เข้าใกล้ศูนย์ (ไม่ใช่เป็นศูนย์เป๊ะ) ระบบยังใช้ได้แต่สัญญาณรบกวนเล็ก ๆ จะถูกขยายจนคำตอบเพี้ยนหนัก ซึ่งเป็นหัวข้อสำคัญต่อในวิชาคณิตศาสตร์เชิงตัวเลข</div>
+        </div>
+      </article>
+    </section>
+
+    <section class="block" id="recipe">
   <h2><span class="h2-dot">⚡</span> สูตรสำเร็จ — ท่าที่ใช้ทำโจทย์หัวข้อนี้</h2>
   <div class="recipe">
     <div class="recipe-head">🪜 ท่าหลัก: หา det ของเมทริกซ์จัตุรัสขนาดใหญ่</div>

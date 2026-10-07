@@ -15,6 +15,8 @@ page: ch3-1.html
   <a href="#objectives">🎯 จุดประสงค์</a>
   <a href="#lesson">📖 บทเรียน</a>
   <a href="#examples">✏️ ตัวอย่างโจทย์</a>
+  <a href="#textbook">📚 ตัวอย่างจากตำรา</a>
+  <a href="#apply">🌍 การใช้จริง</a>
   <a href="#recipe">⚡ สูตรสำเร็จ</a>
   <a href="#practice">🏋️ โจทย์ซ้อมมือ</a>
 </nav>
@@ -195,7 +197,211 @@ page: ch3-1.html
   </article>
 </section>
 
-<section class="block" id="recipe">
+  <section class="block" id="textbook">
+    <h2><span class="h2-dot">📚</span> ตัวอย่างจากตำรา (พีชคณิต.pdf)</h2>
+    <p class="page-sub">โจทย์ทุกข้อคัดมาตรงจากตำราประกอบการสอน โดยเรียงจากง่ายไปยาก — ใต้โจทย์แต่ละข้อมี "อธิบายโจทย์ง่าย ๆ" ช่วยให้เห็นว่าโจทย์ถามอะไรก่อนลงมือทำ</p>
+
+    <article class="ex-card">
+      <div class="ex-head"><span class="ex-badge">ตัวอย่าง 3.1.1</span><span class="tag book">จากตำรา</span><span class="tag easy">ง่าย</span><span class="ex-title">ตรวจว่า \(\vec{x} \in H\) แล้วหาเวกเตอร์พิกัด \([\vec{x}]_B\)</span></div>
+      <div class="ex-body">
+        <div class="ex-q">ให้ \(\vec{v}_1 = \begin{bmatrix} 1\\ -1\\ 1\\ -1 \end{bmatrix}\), \(\;\vec{v}_2 = \begin{bmatrix} 2\\ 3\\ -4\\ 1 \end{bmatrix}\), \(\;\vec{x} = \begin{bmatrix} 0\\ -5\\ 6\\ 3 \end{bmatrix}\) และ \(B = \{\vec{v}_1, \vec{v}_2\}\) ดังนั้น \(B\) เป็นฐานหลักสำหรับ \(H = \operatorname{Span}\{\vec{v}_1, \vec{v}_2\}\) จงตรวจสอบว่า \(\vec{x} \in H\) หรือไม่ ถ้าอยู่ จงหาเวกเตอร์พิกัดของ \(\vec{x}\) สัมพัทธ์กับฐานหลัก \(B\)
+        <p class="small">หมายเหตุ: โจทย์ในตำราพิมพ์ช่องสุดท้ายของ \(\vec{x}\) เป็น \(3\) แต่เมทริกซ์แต่งเติมใน "วิธีทำ" ของตำราเองใช้ \(-3\) — และมีเพียง \(-3\) เท่านั้นที่สอดคล้องกับคำตอบ \([\vec{x}]_B = (2, -1)^T\) เพราะ \(2\vec{v}_1 - \vec{v}_2 = (0, -5, 6, -3)^T\) (ถ้าใช้ \(3\) ระบบจะขัดแย้งแก้ไม่ได้) เราจึงคำนวณด้วย \(-3\) ตามวิธีทำของตำรา</p></div>
+        <div class="approach"><span class="lbl">อธิบายโจทย์ง่าย ๆ</span> — โจทย์ให้เวกเตอร์สองตัวที่เป็นฐานหลักของ \(H\) แล้วถามสองชั้น: ชั้นแรก "\(\vec{x}\) อยู่ใน \(H\) ได้ไหม" ชั้นที่สอง "ถ้าอยู่ ต้องผสม \(\vec{v}_1\) กับ \(\vec{v}_2\) กี่หน่วยจึงได้ \(\vec{x}\)" เครื่องมือตอบคือบทแทรก 1.3.2: ตั้งสมการเวกเตอร์ \(c_1\vec{v}_1 + c_2\vec{v}_2 = \vec{x}\) แล้วลดรูปเมทริกซ์แต่งเติม — ถ้าระบบมีผลเฉลยแปลว่า \(\vec{x} \in H\) โดยอัตโนมัติ และค่า \(c_1, c_2\) ที่ได้ก็คือพิกัดนั่นเอง</div>
+        <ol class="steps">
+          <li><span class="step-t">เขียนเมทริกซ์แต่งเติม</span> สมการเวกเตอร์ \(c_1\vec{v}_1 + c_2\vec{v}_2 = \vec{x}\) กลายเป็นระบบ 4 สมการ 2 ตัวแปร — เรียง \(\vec{v}_1, \vec{v}_2\) เป็นสองหลักซ้าย และ \(\vec{x}\) เป็นหลักขวาสุด:
+          \[ \begin{bmatrix} \vec{v}_1 & \vec{v}_2 & \mid & \vec{x} \end{bmatrix} = \begin{bmatrix} 1 & 2 & 0\\ -1 & 3 & -5\\ 1 & -4 & 6\\ -1 & 1 & -3 \end{bmatrix} \]
+          (แต่ละแถวมาจากช่องที่ \(i\) ของเวกเตอร์ทั้งสาม เช่น แถวที่ 2: \(-1, 3, -5\))</li>
+          <li><span class="step-t">กวาดหลักที่ 1 ให้เหลือตัวนำเดียว</span> ใช้แถวบนเป็นตัวตั้ง: \(R_2 + R_1\) (ช่องแรก \(-1 + 1 = 0\), ช่องสอง \(3 + 2 = 5\), ช่องสาม \(-5 + 0 = -5\)) · \(R_3 - R_1\) (\(1 - 1 = 0\), \(-4 - 2 = -6\), \(6 - 0 = 6\)) · \(R_4 + R_1\) (\(-1 + 1 = 0\), \(1 + 2 = 3\), \(-3 + 0 = -3\)):
+          \[ \sim \begin{bmatrix} 1 & 2 & 0\\ 0 & 5 & -5\\ 0 & -6 & 6\\ 0 & 3 & -3 \end{bmatrix} \]</li>
+          <li><span class="step-t">ปรับมาตราแล้วกวาดหลักที่ 2</span> หาร \(R_2\) ด้วย 5 ได้ \(\begin{bmatrix} 0 & 1 & -1 \end{bmatrix}\) (เพราะ \(5 \div 5 = 1\), \(-5 \div 5 = -1\)) แล้ว: \(R_3 + 6R_2\) (\(-6 + 6(1) = 0\), \(6 + 6(-1) = 0\)) · \(R_4 - 3R_2\) (\(3 - 3 = 0\), \(-3 - 3(-1) = 0\)) — สองแถวล่างล้าเป็นแถวศูนย์ (ไม่ขัดแย้ง ดีแล้ว) · และ \(R_1 - 2R_2\) (\(2 - 2(1) = 0\), \(0 - 2(-1) = 2\)):
+          \[ \sim \begin{bmatrix} 1 & 0 & 2\\ 0 & 1 & -1\\ 0 & 0 & 0\\ 0 & 0 & 0 \end{bmatrix} \;\Longrightarrow\; c_1 = 2, \;\; c_2 = -1 \]</li>
+          <li><span class="step-t">สรุป</span> ระบบมีผลเฉลย → \(\vec{x} \in H\) โดย \(\vec{x} = 2\vec{v}_1 + (-1)\vec{v}_2\) — ตรวจแทนกลับช่องที่ 3: \(2(1) - (-4) = 2 + 4 = 6\) ✓ ตรงกับ \(\vec{x}\) ช่องที่ 3 พอดี</li>
+        </ol>
+        <div class="verify"><span class="lbl">สรุปคำตอบ:</span> \(\vec{x} \in H\) และ \([\vec{x}]_B = \begin{bmatrix} 2\\ -1 \end{bmatrix}\) — ตรงตามตำรา (ตรวจเต็ม: \(2\vec{v}_1 - \vec{v}_2 = (2-2,\; -2-3,\; 2+4,\; -2-1)^T = (0, -5, 6, -3)^T\) ✓)</div>
+      </div>
+    </article>
+
+    <article class="ex-card">
+      <div class="ex-head"><span class="ex-badge">ตัวอย่าง 3.1.2</span><span class="tag book">จากตำรา</span><span class="tag easy">ง่าย</span><span class="ex-title">หา \([T]_{C \leftarrow B}\) จากการรวมเชิงเส้นที่กำหนด</span></div>
+      <div class="ex-body">
+        <div class="ex-q">ให้ \(B = \{\vec{v}_1, \vec{v}_2\}\) เป็นฐานหลักสำหรับ \(\mathbb{R}^2\) และ \(C = \{\vec{w}_1, \vec{w}_2, \vec{w}_3\}\) เป็นฐานหลักสำหรับ \(\mathbb{R}^3\) ถ้า \(T: \mathbb{R}^2 \to \mathbb{R}^3\) เป็นการแปลงเชิงเส้นซึ่ง
+        \[ T(\vec{v}_1) = 3\vec{w}_1 - \vec{w}_2 + 5\vec{w}_3 \qquad \text{และ} \qquad T(\vec{v}_2) = \vec{w}_2 - 4\vec{w}_3 \]
+        จงหาเมทริกซ์สำหรับ \(T\) สัมพัทธ์กับฐานหลัก \(B\) และ \(C\)</div>
+        <div class="approach"><span class="lbl">อธิบายโจทย์ง่าย ๆ</span> — โจทย์ถามหา \([T]_{C \leftarrow B}\) ซึ่งตามนิยามมีหลักที่ \(j\) เป็นเวกเตอร์พิกัด \([T(\vec{v}_j)]_C\) — และโจทย์ให้ \(T(\vec{v}_j)\) มาในรูปผสมของ \(\vec{w}_1, \vec{w}_2, \vec{w}_3\) อยู่แล้ว แปลว่าสัมประสิทธิ์ที่เห็นคือพิกัดที่ต้องการเลย งานจึงมีแค่สองขั้น: อ่านตัวเลขหน้า \(\vec{w}_j\) ทีละสมการ (พจน์ที่ไม่ปรากฏนับเป็น 0) แล้วเรียงเวกเตอร์พิกัดเป็นหลักของเมทริกซ์</div>
+        <ol class="steps">
+          <li><span class="step-t">อ่านพิกัดของ \(T(\vec{v}_1)\)</span> จาก \(T(\vec{v}_1) = 3\vec{w}_1 - \vec{w}_2 + 5\vec{w}_3\): หน้า \(\vec{w}_1\) มี 3, หน้า \(\vec{w}_2\) มี \(-1\), หน้า \(\vec{w}_3\) มี 5:
+          \[ [T(\vec{v}_1)]_C = \begin{bmatrix} 3\\ -1\\ 5 \end{bmatrix} \]</li>
+          <li><span class="step-t">อ่านพิกัดของ \(T(\vec{v}_2)\)</span> จาก \(T(\vec{v}_2) = \vec{w}_2 - 4\vec{w}_3\): หน้า \(\vec{w}_1\) <em>ไม่มีพจน์เลย</em> → ถือเป็น 0 (จุดที่ต้องระวังที่สุดของข้อนี้), หน้า \(\vec{w}_2\) มี 1, หน้า \(\vec{w}_3\) มี \(-4\):
+          \[ [T(\vec{v}_2)]_C = \begin{bmatrix} 0\\ 1\\ -4 \end{bmatrix} \]</li>
+          <li><span class="step-t">เรียงเป็นหลักของเมทริกซ์</span> หลักที่ 1 คือ \([T(\vec{v}_1)]_C\) หลักที่ 2 คือ \([T(\vec{v}_2)]_C\) — ขนาดเมทริกซ์คือ \(3 \times 2\) เพราะจำนวนแถวมาจาก \(C\) (3 เวกเตอร์) และจำนวนหลักมาจาก \(B\) (2 เวกเตอร์)</li>
+        </ol>
+        <div class="verify"><span class="lbl">สรุปคำตอบ:</span> \([T]_{C \leftarrow B} = \begin{bmatrix} 3 & 0\\ -1 & 1\\ 5 & -4 \end{bmatrix}\) — ตรงตามตำรา</div>
+      </div>
+    </article>
+
+    <article class="ex-card">
+      <div class="ex-head"><span class="ex-badge">ตัวอย่าง 3.1.3</span><span class="tag book">จากตำรา</span><span class="tag easy">ง่าย</span><span class="ex-title">ใช้ \([T]_B\) หา \(T\) ของการรวมเชิงเส้น</span></div>
+      <div class="ex-body">
+        <div class="ex-q">ให้ \(B = \{\vec{v}_1, \vec{v}_2, \vec{v}_3\}\) เป็นฐานหลักสำหรับ \(\mathbb{R}^3\) และ \(T: \mathbb{R}^3 \to \mathbb{R}^3\) เป็นการแปลงเชิงเส้นซึ่งมี
+        \[ [T]_B = \begin{bmatrix} 1 & -1 & 3\\ -4 & 1 & 5\\ 0 & 0 & -2 \end{bmatrix} \]
+        จงหา \(T(2\vec{v}_1 + \vec{v}_2 - \vec{v}_3)\)</div>
+        <div class="approach"><span class="lbl">อธิบายโจทย์ง่าย ๆ</span> — โจทย์ให้ "เมทริกซ์ของ \(T\) ในฐานหลัก \(B\)" แล้วถามหาภาพของเวกเตอร์ที่เขียนเป็นผสมของ \(\vec{v}_j\) อยู่แล้ว — ตัวเลขหน้า \(\vec{v}_1, \vec{v}_2, \vec{v}_3\) คือพิกัด \((2, 1, -1)^T\) ฉะนั้นทำงานทั้งหมดในโลกพิกัด: เอาพิกัดมาคูณกับ \([T]_B\) ผลที่ได้เป็นพิกัดของคำตอบ แล้วค่อยแปลกลับเป็นการรวมเชิงเส้นของ \(\vec{v}_j\) (ไม่ต้องรู้ว่า \(\vec{v}_j\) ตัวจริงหน้าตาเป็นอย่างไรเลย)</div>
+        <ol class="steps">
+          <li><span class="step-t">เขียนพิกัดแล้วคูณกับ \([T]_B\)</span> เวกเตอร์ \(2\vec{v}_1 + \vec{v}_2 - \vec{v}_3\) มีพิกัด \((2, 1, -1)^T\) — คูณทีละแถว (แถวที่ \(i\) · เวกเตอร์): แถวบน \(1(2) + (-1)(1) + 3(-1) = 2 - 1 - 3 = -2\) · แถวกลาง \(-4(2) + 1(1) + 5(-1) = -8 + 1 - 5 = -12\) · แถวล่าง \(0(2) + 0(1) + (-2)(-1) = 2\) (ลบคูณลบได้บวก):
+          \[ [T(2\vec{v}_1 + \vec{v}_2 - \vec{v}_3)]_B = \begin{bmatrix} 1 & -1 & 3\\ -4 & 1 & 5\\ 0 & 0 & -2 \end{bmatrix}\begin{bmatrix} 2\\ 1\\ -1 \end{bmatrix} = \begin{bmatrix} -2\\ -12\\ 2 \end{bmatrix} \]</li>
+          <li><span class="step-t">แปลกลับเป็นเวกเตอร์จริง</span> พิกัดเทียบ \(B\) คือสัมประสิทธิ์หน้า \(\vec{v}_j\): ช่องแรก \(-2\) → "\(\vec{v}_1\) จำนวน \(-2\) หน่วย" (คือหักออก 2 หน่วย), ช่องกลาง \(-12\) → หัก \(\vec{v}_2\) 12 หน่วย, ช่องล่าง \(2\) → บวก \(\vec{v}_3\) 2 หน่วย</li>
+        </ol>
+        <div class="verify"><span class="lbl">สรุปคำตอบ:</span> \(T(2\vec{v}_1 + \vec{v}_2 - \vec{v}_3) = -2\vec{v}_1 - 12\vec{v}_2 + 2\vec{v}_3\) — ตรงตามตำรา</div>
+      </div>
+    </article>
+
+    <article class="ex-card">
+      <div class="ex-head"><span class="ex-badge">แบบฝึกหัด 3.1 ข้อ 1 ก,ข</span><span class="tag book">จากตำรา</span><span class="tag easy">ง่าย</span><span class="ex-title">หาเวกเตอร์พิกัด (ข้อ ข มีเศษส่วน)</span></div>
+      <div class="ex-body">
+        <div class="ex-q">กำหนดเวกเตอร์ \(\vec{b}_1, \vec{b}_2\) และ \(\vec{x}\) ถ้า \(H\) เป็นปริภูมิย่อยที่มีฐานหลักเป็น \(B = \{\vec{b}_1, \vec{b}_2\}\) และ \(\vec{x} \in H\) จงหาเวกเตอร์พิกัดของ \(\vec{x}\) สัมพัทธ์กับฐานหลัก \(B\)
+        \[ \text{(ก)}\;\; \vec{b}_1 = \begin{bmatrix} 1\\ -4 \end{bmatrix}, \;\vec{b}_2 = \begin{bmatrix} -2\\ 7 \end{bmatrix}, \;\vec{x} = \begin{bmatrix} -3\\ 7 \end{bmatrix} \qquad
+        \text{(ข)}\;\; \vec{b}_1 = \begin{bmatrix} 2\\ 1 \end{bmatrix}, \;\vec{b}_2 = \begin{bmatrix} -3\\ 4 \end{bmatrix}, \;\vec{x} = \begin{bmatrix} 3\\ -5 \end{bmatrix} \]</div>
+        <div class="approach"><span class="lbl">อธิบายโจทย์ง่าย ๆ</span> — ท่าเดียวกับตัวอย่าง 3.1.1 แต่เล็กลงเหลือ \(\mathbb{R}^2\): แก้สมการ \(c_1\vec{b}_1 + c_2\vec{b}_2 = \vec{x}\) โดยลดรูปเมทริกซ์แต่งเติม \(2 \times 3\) — ข้อ (ก) คำตอบออกจำนวนเต็ม ส่วนข้อ (ข) จะออกเศษส่วน (ตัวเลขตั้งใจวางแบบนั้น) ให้คุ้นมือกับคำตอบที่ไม่สวยก่อนสอบ</div>
+        <ol class="steps">
+          <li><span class="step-t">(ก) ลดรูป</span> ตั้ง \(\begin{bmatrix} 1 & -2 & -3\\ -4 & 7 & 7 \end{bmatrix}\) ใช้ \(R_2 + 4R_1\) (ช่องแรก \(-4 + 4 = 0\), ช่องกลาง \(7 + 4(-2) = -1\), ช่องขวา \(7 + 4(-3) = -5\)):
+          \[ \begin{bmatrix} 1 & -2 & -3\\ 0 & -1 & -5 \end{bmatrix} \;\Longrightarrow\; -c_2 = -5 \Rightarrow c_2 = 5, \;\; c_1 = -3 + 2(5) = 7 \]
+          ตรวจ: \(7(1, -4)^T + 5(-2, 7)^T = (7 - 10,\; -28 + 35)^T = (-3, 7)^T\) ✓</li>
+          <li><span class="step-t">(ข) ลดรูป</span> ตั้ง \(\begin{bmatrix} 2 & -3 & 3\\ 1 & 4 & -5 \end{bmatrix}\) สลับแถวให้เริ่มด้วย 1 แล้วใช้ \(R_2 - 2R_1\) (ช่องแรก \(2 - 2 = 0\), ช่องกลาง \(-3 - 8 = -11\), ช่องขวา \(3 + 10 = 13\)):
+          \[ \begin{bmatrix} 1 & 4 & -5\\ 0 & -11 & 13 \end{bmatrix} \;\Longrightarrow\; c_2 = -\tfrac{13}{11}, \;\; c_1 = -5 - 4\left(-\tfrac{13}{11}\right) = \tfrac{-55 + 52}{11} = -\tfrac{3}{11} \]</li>
+        </ol>
+        <div class="verify"><span class="lbl">สรุปคำตอบ:</span> (ก) \([\vec{x}]_B = \begin{bmatrix} 7\\ 5 \end{bmatrix}\) · (ข) \([\vec{x}]_B = \begin{bmatrix} -3/11\\ -13/11 \end{bmatrix}\) — ตรงกับคำตอบท้ายบทของตำรา</div>
+      </div>
+    </article>
+
+    <article class="ex-card">
+      <div class="ex-head"><span class="ex-badge">ตัวอย่าง 3.1.4</span><span class="tag book">จากตำรา</span><span class="tag mid">กลาง</span><span class="ex-title">เมทริกซ์เปลี่ยนพิกัดจากฐานมาตรฐานไป \(B'\)</span></div>
+      <div class="ex-body">
+        <div class="ex-q">จงแสดงว่า \(B' = \left\{ \begin{bmatrix} 1\\ 1\\ 1 \end{bmatrix}, \begin{bmatrix} 1\\ 1\\ 0 \end{bmatrix}, \begin{bmatrix} 1\\ 0\\ 0 \end{bmatrix} \right\}\) เป็นฐานหลักสำหรับ \(\mathbb{R}^3\) และจงหาเมทริกซ์การเปลี่ยนพิกัดจากฐานหลักมาตรฐาน \(B = \{\vec{e}_1, \vec{e}_2, \vec{e}_3\}\) ไป \(B'\) พร้อมทั้งหา \([\vec{x}]_{B'}\) เมื่อ \(\vec{x} = \begin{bmatrix} 1\\ 2\\ -1 \end{bmatrix}\)</div>
+        <div class="approach"><span class="lbl">อธิบายโจทย์ง่าย ๆ</span> — สองงาน: (1) พิสูจน์ว่า \(B'\) เป็นฐานหลัก — ใน \(\mathbb{R}^3\) เร็วสุดคือคิด det ของเมทริกซ์ที่เรียงเวกเตอร์เป็นหลัก ถ้าไม่ศูนย์ก็ผ่าน (2) หา \(P_{B \to B'}\) ซึ่งหลักที่ \(j\) คือพิกัดของ \(\vec{e}_j\) เทียบ \(B'\) — ต้องเขียน \(\vec{e}_1, \vec{e}_2, \vec{e}_3\) เป็นผสมของเวกเตอร์ \(B'\) ทีละตัว แล้วปิดท้ายด้วย \([\vec{x}]_{B'} = P_{B \to B'}[\vec{x}]_B\)</div>
+        <ol class="steps">
+          <li><span class="step-t">ตรวจฐานหลักด้วย det</span> ให้ \(A = \begin{bmatrix} 1 & 1 & 1\\ 1 & 1 & 0\\ 1 & 0 & 0 \end{bmatrix}\) (เรียง \(\vec{v}_1, \vec{v}_2, \vec{v}_3\) เป็นหลัก) กระจายโคแฟกเตอร์ตามแถวที่ 1 (เครื่องหมายสลับ \(+\, -\, +\)): \(1(1 \cdot 0 - 0 \cdot 0) - 1(1 \cdot 0 - 0 \cdot 1) + 1(1 \cdot 0 - 1 \cdot 1) = 0 - 0 + (-1) = -1\) ได้ \(\det A = -1 \neq 0\) → \(A\) ไม่เอกฐาน → \(B'\) เป็นฐานหลักสำหรับ \(\mathbb{R}^3\) (<em>เพราะ</em>สามเวกเตอร์อิสระเชิงเส้นในพื้นที่ 3 มิติแผ่ทั่วพอดี)</li>
+          <li><span class="step-t">เขียน \(\vec{e}_j\) เป็นผสมของ \(B'\)</span> ให้ \(\vec{v}_1 = (1,1,1)^T\), \(\vec{v}_2 = (1,1,0)^T\), \(\vec{v}_3 = (1,0,0)^T\) แล้วแก้ทีละตัว (สังเกตว่าการผสม \(a\vec{v}_1 + b\vec{v}_2 + c\vec{v}_3 = (a + b + c,\; a + b,\; a)^T\) ช่องล่างมีแต่ \(a\) จึงไล่ค่าจากล่างขึ้นบนได้เร็ว):
+          \[ \vec{e}_1 = 0\,\vec{v}_1 + 0\,\vec{v}_2 + 1\,\vec{v}_3, \qquad \vec{e}_2 = 0\,\vec{v}_1 + 1\,\vec{v}_2 + (-1)\vec{v}_3, \qquad \vec{e}_3 = 1\,\vec{v}_1 + (-1)\vec{v}_2 + 0\,\vec{v}_3 \]
+          (เช่น ตรวจ \(\vec{e}_2\): \((1,1,0)^T - (1,0,0)^T = (0,1,0)^T\) ✓)</li>
+          <li><span class="step-t">เรียงพิกัดเป็นหลักของ \(P\)</span> หลักที่ \(j\) คือ \([\vec{e}_j]_{B'}\):
+          \[ P_{B \to B'} = \begin{bmatrix} 0 & 0 & 1\\ 0 & 1 & -1\\ 1 & -1 & 0 \end{bmatrix} \]</li>
+          <li><span class="step-t">แปลงพิกัดของ \(\vec{x}\)</span> เห็นชัดว่า \(\vec{x} = 1\vec{e}_1 + 2\vec{e}_2 + (-1)\vec{e}_3\) จึงได้ \([\vec{x}]_B = (1, 2, -1)^T\) แล้วคูณ (แถวบน: \(0(1) + 0(2) + 1(-1) = -1\) · แถวกลาง: \(0(1) + 1(2) + (-1)(-1) = 3\) · แถวล่าง: \(1(1) + (-1)(2) + 0(-1) = -1\)):
+          \[ [\vec{x}]_{B'} = P_{B \to B'}[\vec{x}]_B = \begin{bmatrix} 0 & 0 & 1\\ 0 & 1 & -1\\ 1 & -1 & 0 \end{bmatrix}\begin{bmatrix} 1\\ 2\\ -1 \end{bmatrix} = \begin{bmatrix} -1\\ 3\\ -1 \end{bmatrix} \]</li>
+        </ol>
+        <div class="verify"><span class="lbl">สรุปคำตอบ:</span> \(P_{B \to B'} = \begin{bmatrix} 0 & 0 & 1\\ 0 & 1 & -1\\ 1 & -1 & 0 \end{bmatrix}\) และ \([\vec{x}]_{B'} = \begin{bmatrix} -1\\ 3\\ -1 \end{bmatrix}\) — ตรงตามตำรา (ตรวจ: \(-\vec{v}_1 + 3\vec{v}_2 - \vec{v}_3 = (-1+3-1,\; -1+3,\; -1)^T = (1, 2, -1)^T\) ✓)</div>
+      </div>
+    </article>
+
+    <article class="ex-card">
+      <div class="ex-head"><span class="ex-badge">แบบฝึกหัด 3.1 ข้อ 3</span><span class="tag book">จากตำรา</span><span class="tag mid">กลาง</span><span class="ex-title">เมทริกซ์เปลี่ยนพิกัด \(P_{B \to C}\) จากข้อมูลการรวมเชิงเส้น</span></div>
+      <div class="ex-body">
+        <div class="ex-q">ให้ \(B = \{\vec{v}_1, \vec{v}_2\}\) และ \(C = \{\vec{w}_1, \vec{w}_2\}\) เป็นฐานหลักสำหรับ \(\mathbb{R}^2\) โดยที่ \(\vec{v}_1 = 4\vec{w}_1 - \vec{w}_2\) และ \(\vec{v}_2 = -6\vec{w}_1 + \vec{w}_2\) จงหาเมทริกซ์ของการเปลี่ยนพิกัดจาก \(B\) ไป \(C\) และถ้า \([\vec{x}]_B = \begin{bmatrix} 3\\ 1 \end{bmatrix}\) จงหา \([\vec{x}]_C\)</div>
+        <div class="approach"><span class="lbl">อธิบายโจทย์ง่าย ๆ</span> — \(P_{B \to C}\) ตามนิยามมีหลักที่ \(j\) คือ \([\vec{v}_j]_C\) — และโจทย์ให้ \(\vec{v}_1, \vec{v}_2\) เขียนในรูปของ \(\vec{w}_1, \vec{w}_2\) มาแล้ว พิกัดจึงอ่านตรง ๆ ได้เลย (เหมือนตัวอย่าง 3.1.2 แต่เป็นการเปลี่ยนพิกัด) จากนั้น \([\vec{x}]_C\) คือแค่คูณเมทริกซ์ \(2 \times 2\) กับเวกเตอร์</div>
+        <ol class="steps">
+          <li><span class="step-t">อ่านพิกัดมาเรียงเป็นหลัก</span> จาก \(\vec{v}_1 = 4\vec{w}_1 + (-1)\vec{w}_2\) ได้ \([\vec{v}_1]_C = (4, -1)^T\) และจาก \(\vec{v}_2 = -6\vec{w}_1 + 1\vec{w}_2\) ได้ \([\vec{v}_2]_C = (-6, 1)^T\):
+          \[ P_{B \to C} = \begin{bmatrix} 4 & -6\\ -1 & 1 \end{bmatrix} \]</li>
+          <li><span class="step-t">คูณหา \([\vec{x}]_C\)</span> ใช้สูตร \([\vec{x}]_C = P_{B \to C}[\vec{x}]_B\) — ช่องบน \(4(3) + (-6)(1) = 12 - 6 = 6\), ช่องล่าง \((-1)(3) + 1(1) = -2\):
+          \[ [\vec{x}]_C = \begin{bmatrix} 4 & -6\\ -1 & 1 \end{bmatrix}\begin{bmatrix} 3\\ 1 \end{bmatrix} = \begin{bmatrix} 6\\ -2 \end{bmatrix} \]</li>
+          <li><span class="step-t">เข้าใจความหมาย</span> \([\vec{x}]_B = (3, 1)^T\) แปลว่า \(\vec{x} = 3\vec{v}_1 + \vec{v}_2 = 3(4\vec{w}_1 - \vec{w}_2) + (-6\vec{w}_1 + \vec{w}_2) = (12 - 6)\vec{w}_1 + (-3 + 1)\vec{w}_2 = 6\vec{w}_1 - 2\vec{w}_2\) — ตรงกับ \([\vec{x}]_C = (6, -2)^T\) พอดี (<em>เพราะ</em>การเปลี่ยนพิกัดแค่เปลี่ยน "สูตรผสม" ตัวเวกเตอร์ \(\vec{x}\) เดิมไม่ขยับ)</li>
+        </ol>
+        <div class="verify"><span class="lbl">สรุปคำตอบ:</span> \(P_{B \to C} = \begin{bmatrix} 4 & -6\\ -1 & 1 \end{bmatrix}\) และ \([\vec{x}]_C = \begin{bmatrix} 6\\ -2 \end{bmatrix}\) — ตรงกับคำตอบท้ายบทของตำรา</div>
+      </div>
+    </article>
+
+    <article class="ex-card">
+      <div class="ex-head"><span class="ex-badge">แบบฝึกหัด 3.1 ข้อ 6 (ก)</span><span class="tag book">จากตำรา</span><span class="tag mid">กลาง</span><span class="ex-title">หา \([T]_{C \leftarrow B}\) เมื่อโจทย์ให้สูตรของ \(T\)</span></div>
+      <div class="ex-body">
+        <div class="ex-q">ให้ \(T: \mathbb{R}^2 \to \mathbb{R}^2\) เป็นการแปลงเชิงเส้น ซึ่งกำหนดโดย \(T(x_1, x_2) = (x_1 + 2x_2,\; 2x_1 - 3x_2)\) จงหาเมทริกซ์สำหรับ \(T\) สัมพัทธ์กับฐานหลัก \(B\) และ \(C\) เมื่อ
+        \[ B = \left\{ \begin{bmatrix} 1\\ 0 \end{bmatrix}, \begin{bmatrix} 0\\ 1 \end{bmatrix} \right\} \qquad \text{และ} \qquad C = \left\{ \begin{bmatrix} 2\\ 1 \end{bmatrix}, \begin{bmatrix} -1\\ 0 \end{bmatrix} \right\} \]</div>
+        <div class="approach"><span class="lbl">อธิบายโจทย์ง่าย ๆ</span> — คราวนี้โจทย์ไม่ได้ให้ \(T(\vec{v}_j)\) ในรูปผสมสำเร็จ แต่ให้ "สูตร" ของ \(T\) มาแทน — ขั้นตอนจึงเพิ่มมาหนึ่งจังหวะ: แทน \(\vec{e}_1, \vec{e}_2\) ลงสูตรเพื่อหาภาพ \(T(\vec{e}_1), T(\vec{e}_2)\) ก่อน (ฐานหลัก \(B\) เป็นมาตรฐานพอดี) แล้วจึงแปลงแต่ละภาพเป็นพิกัดเทียบ \(C\) ด้วยการแก้สมการเวกเตอร์เล็ก ๆ สองตัว</div>
+        <ol class="steps">
+          <li><span class="step-t">หาภาพจากสูตร</span> \(T(\vec{e}_1) = T(1, 0) = (1 + 0,\; 2 - 0) = (1, 2)\) และ \(T(\vec{e}_2) = T(0, 1) = (0 + 2,\; 0 - 3) = (2, -3)\)</li>
+          <li><span class="step-t">แปลง \(T(\vec{e}_1) = (1, 2)^T\) เป็นพิกัดเทียบ \(C\)</span> แก้ \(c_1\begin{bmatrix} 2\\ 1 \end{bmatrix} + c_2\begin{bmatrix} -1\\ 0 \end{bmatrix} = \begin{bmatrix} 1\\ 2 \end{bmatrix}\) — แถวล่างบอก \(c_1 = 2\) ทันที (เพราะ \(\vec{w}_2\) ไม่มีส่วนล่าง) แล้วแถวบน \(2(2) - c_2 = 1 \Rightarrow c_2 = 3\):
+          \[ [T(\vec{e}_1)]_C = \begin{bmatrix} 2\\ 3 \end{bmatrix} \]</li>
+          <li><span class="step-t">แปลง \(T(\vec{e}_2) = (2, -3)^T\)</span> แถวล่างให้ \(c_1 = -3\) แล้วแถวบน \(2(-3) - c_2 = 2 \Rightarrow c_2 = -8\):
+          \[ [T(\vec{e}_2)]_C = \begin{bmatrix} -3\\ -8 \end{bmatrix} \]</li>
+          <li><span class="step-t">เรียงเป็นหลัก</span> หลักที่ 1 คือ \([T(\vec{e}_1)]_C\) หลักที่ 2 คือ \([T(\vec{e}_2)]_C\)</li>
+        </ol>
+        <div class="verify"><span class="lbl">สรุปคำตอบ:</span> \([T]_{C \leftarrow B} = \begin{bmatrix} 2 & -3\\ 3 & -8 \end{bmatrix}\) — ตรงกับคำตอบท้ายบทของตำรา</div>
+      </div>
+    </article>
+
+    <article class="ex-card">
+      <div class="ex-head"><span class="ex-badge">แบบฝึกหัด 3.1 ข้อ 9</span><span class="tag book">จากตำรา</span><span class="tag easy">ง่าย</span><span class="ex-title">ท่าเดียวกับตัวอย่าง 3.1.3 — ลองทำเอง</span></div>
+      <div class="ex-body">
+        <div class="ex-q">ให้ \(B = \{\vec{v}_1, \vec{v}_2, \vec{v}_3\}\) เป็นฐานหลักสำหรับ \(\mathbb{R}^3\) และ \(T: \mathbb{R}^3 \to \mathbb{R}^3\) เป็นการแปลงเชิงเส้นซึ่งมี
+        \[ [T]_B = \begin{bmatrix} 0 & 3 & 1\\ 1 & 1 & 2\\ 1 & 0 & -1 \end{bmatrix} \]
+        จงหา \(T(\vec{v}_1 + 2\vec{v}_2 - 3\vec{v}_3)\)</div>
+        <div class="approach"><span class="lbl">อธิบายโจทย์ง่าย ๆ</span> — ท่าเดียวกับตัวอย่าง 3.1.3 เป๊ะ: พิกัดของ \(\vec{v}_1 + 2\vec{v}_2 - 3\vec{v}_3\) คือ \((1, 2, -3)^T\) → คูณกับ \([T]_B\) → แปลกลับเป็นการรวมเชิงเส้นของ \(\vec{v}_j\)</div>
+        <ol class="steps">
+          <li><span class="step-t">คูณเมทริกซ์กับพิกัด</span> แถวบน \(0(1) + 3(2) + 1(-3) = 6 - 3 = 3\) · แถวกลาง \(1(1) + 1(2) + 2(-3) = 3 - 6 = -3\) · แถวล่าง \(1(1) + 0(2) + (-1)(-3) = 1 + 3 = 4\):
+          \[ [T(\vec{v}_1 + 2\vec{v}_2 - 3\vec{v}_3)]_B = \begin{bmatrix} 0 & 3 & 1\\ 1 & 1 & 2\\ 1 & 0 & -1 \end{bmatrix}\begin{bmatrix} 1\\ 2\\ -3 \end{bmatrix} = \begin{bmatrix} 3\\ -3\\ 4 \end{bmatrix} \]</li>
+        </ol>
+        <div class="verify"><span class="lbl">สรุปคำตอบ:</span> \(T(\vec{v}_1 + 2\vec{v}_2 - 3\vec{v}_3) = 3\vec{v}_1 - 3\vec{v}_2 + 4\vec{v}_3\) — ตรงกับคำตอบท้ายบทของตำรา</div>
+      </div>
+    </article>
+
+    <article class="ex-card">
+      <div class="ex-head"><span class="ex-badge">ตัวอย่าง 3.1.5</span><span class="tag book">จากตำรา</span><span class="tag hard">ยาก</span><span class="ex-title">หา \([T]_{B'} = P^{-1}[T]_B P\) — เมทริกซ์คูณสามตัว</span></div>
+      <div class="ex-body">
+        <div class="ex-q">ให้ \(T: \mathbb{R}^3 \to \mathbb{R}^3\) เป็นการแปลงเชิงเส้นที่มีเมทริกซ์มาตรฐานเป็น
+        \[ \begin{bmatrix} 1 & 3 & 3\\ -3 & -5 & -3\\ 3 & 3 & 1 \end{bmatrix} \]
+        จงหา \([T]_{B'}\) โดยที่ \(B' = \left\{ \begin{bmatrix} 1\\ -1\\ 1 \end{bmatrix}, \begin{bmatrix} -1\\ 1\\ 0 \end{bmatrix}, \begin{bmatrix} -1\\ 0\\ 1 \end{bmatrix} \right\}\)</div>
+        <div class="approach"><span class="lbl">อธิบายโจทย์ง่าย ๆ</span> — โจทย์ถามว่า "การแปลงเดิม ถ้าเปลี่ยนไปวัดด้วยฐานหลัก \(B'\) เมทริกซ์จะหน้าตาเป็นอย่างไร" ใช้บทแทรก 3.1.4: \([T]_{B'} = P^{-1}[T]_B P\) เมื่อ \(P = P_{B' \to B}\) — ในข้อนี้ฐานหลักเดิมคือมาตรฐาน จึงเขียน \(P\) ได้ทันทีโดยเรียงเวกเตอร์ \(B'\) เป็นหลัก (ไม่ต้องแก้สมการ) หา inverse ของ \(P\) แล้วคูณสามตัวจากขวาไปซ้ายทีละคู่</div>
+        <ol class="steps">
+          <li><span class="step-t">เขียน \(P_{B' \to B}\) และหา inverse</span> เรียงเวกเตอร์ \(B'\) เป็นหลัก: \(P = \begin{bmatrix} 1 & -1 & -1\\ -1 & 1 & 0\\ 1 & 0 & 1 \end{bmatrix}\) — คิด det ด้วยโคแฟกเตอร์แถวที่ 1: \(1(1 \cdot 1 - 0 \cdot 0) - (-1)((-1)(1) - 0 \cdot 1) + (-1)((-1)(0) - 1 \cdot 1) = 1 - 1 + 1 = 1\) จึงหา inverse ได้ (สลับทแยง เปลี่ยนเครื่องหมายตัวนอก หารด้วย det = 1):
+          \[ P^{-1} = P_{B \to B'} = \begin{bmatrix} 1 & 1 & 1\\ 1 & 2 & 1\\ -1 & -1 & 0 \end{bmatrix} \]
+          (ตรวจ: \(P P^{-1}\) ช่องซ้ายบน = \(1(1) + (-1)(1) + (-1)(-1) = 1\) ✓ ช่องกลางบน = \(1(1) + (-1)(2) + (-1)(-1) = 0\) ✓)</li>
+          <li><span class="step-t">คูณ \(AP\) ก่อน (จากขวาไปซ้าย)</span> หลักที่ \(j\) ของ \(AP\) คือ \(A\vec{v}_j\): หลักแรก \(A(1, -1, 1)^T = (1 - 3 + 3,\; -3 + 5 - 3,\; 3 - 3 + 1)^T = (1, -1, 1)^T\), หลักสอง \(A(-1, 1, 0)^T = (-1 + 3,\; 3 - 5,\; -3 + 3)^T = (2, -2, 0)^T\), หลักสาม \(A(-1, 0, 1)^T = (-1 + 3,\; 3 - 3,\; -3 + 1)^T = (2, 0, -2)^T\):
+          \[ AP = \begin{bmatrix} 1 & 2 & 2\\ -1 & -2 & 0\\ 1 & 0 & -2 \end{bmatrix} \]</li>
+          <li><span class="step-t">แล้วคูณ \(P^{-1}(AP)\)</span> เช่น ช่องแรก = (แถวบนของ \(P^{-1}\)) · (หลักแรกของ \(AP\)) = \(1(1) + 1(-1) + 1(1) = 1\) · ช่องที่สองแถวบน = \(1(2) + 1(-2) + 1(0) = 0\) · ทำครบทั้ง 9 ช่อง:
+          \[ [T]_{B'} = \begin{bmatrix} 1 & 1 & 1\\ 1 & 2 & 1\\ -1 & -1 & 0 \end{bmatrix}\begin{bmatrix} 1 & 2 & 2\\ -1 & -2 & 0\\ 1 & 0 & -2 \end{bmatrix} = \begin{bmatrix} 1 & 0 & 0\\ 0 & -2 & 0\\ 0 & 0 & -2 \end{bmatrix} \]</li>
+          <li><span class="step-t">ตีความ</span> คำตอบออกมาเป็น<em>เมทริกซ์ทแยงมุม</em> — ไม่ใช่เรื่องบังเอิญ: เวกเตอร์ของ \(B'\) แต่ละตัวถูก \(T\) ส่งไปยืดสเกลตัวเอง (\(A\vec{v}_1 = 1 \cdot \vec{v}_1\), \(A\vec{v}_2 = -2\vec{v}_2\), \(A\vec{v}_3 = -2\vec{v}_3\)) ค่าบนทแยง \(1, -2, -2\) จึงคือ<em>ค่าลักษณะเฉพาะ</em>ของ \(A\) — สะพานไปหัวข้อ 3.2 พอดี</li>
+        </ol>
+        <div class="verify"><span class="lbl">สรุปคำตอบ:</span> \([T]_{B'} = \begin{bmatrix} 1 & 0 & 0\\ 0 & -2 & 0\\ 0 & 0 & -2 \end{bmatrix} = \operatorname{diag}(1, -2, -2)\) — ตรงตามตำรา</div>
+      </div>
+    </article>
+  </section>
+
+  <section class="block" id="apply">
+    <h2><span class="h2-dot">🌍</span> เอาไปใช้ทำอะไร — โจทย์ประยุกต์</h2>
+
+    <article class="ex-card">
+      <div class="ex-head"><span class="ex-badge">🎮 เกมไอโซเมทริก: พิกัดโลก → พิกัดกระเบื้อง</span><span class="tag app">ใช้จริง</span><span class="tag easy">ง่าย</span><span class="ex-title">เอนจินเกมเก็บตำแหน่งด้วย \([\vec{x}]_{B'}\) ไม่ใช่พิกัดจอ</span></div>
+      <div class="ex-body">
+        <div class="ex-q">เกมแนวไอโซเมทริก (มองแผนที่เฉียง 45°) ใช้กระเบื้องเรียงแนวทแยง มีแกนกระเบื้อง \(\vec{u} = (1, 1)\) (ทิศลงขวาล่าง) และ \(\vec{v} = (1, -1)\) (ทิศขึ้นขวา) ให้ \(B' = \{\vec{u}, \vec{v}\}\) ฮีโร่ยืนที่ตำแหน่งโลก \(\vec{x} = (5, 3)\) จงหาพิกัดกระเบื้อง \([\vec{x}]_{B'}\) ที่เอนจินใช้วาดภาพ</div>
+        <div class="approach"><span class="lbl">อธิบายโจทย์ง่าย ๆ</span> — เกมวาดฉากโดยนับ "ก้าวตามกระเบื้อง" ไม่ใช่นับเมตรตามแกนจอ คำถามจึงกลายเป็นโจทย์พิกัดเป๊ะ ๆ: เขียน \((5, 3)\) เป็น \(c_1\vec{u} + c_2\vec{v}\) ได้ไหม คำตอบ \((c_1, c_2)\) คือ \([\vec{x}]_{B'}\) — ใช้เมทริกซ์เปลี่ยนพิกัด \(P_{\mathcal{E} \to B'} = (P_{B' \to \mathcal{E}})^{-1}\) ตามตัวอย่าง 3.1.4</div>
+        <ol class="steps">
+          <li><span class="step-t">เขียน \(P_{B' \to \mathcal{E}}\) แล้ว invert</span> เรียง \(\vec{u}, \vec{v}\) เป็นหลัก: \(P_{B' \to \mathcal{E}} = \begin{bmatrix} 1 & 1\\ 1 & -1 \end{bmatrix}\) — det \(= (1)(-1) - (1)(1) = -2\) ใช้สูตร inverse \(2 \times 2\) (สลับทแยง เปลี่ยนเครื่องหมายตัวนอก หารด้วย det):
+          \[ P_{\mathcal{E} \to B'} = \frac{1}{-2}\begin{bmatrix} -1 & -1\\ -1 & 1 \end{bmatrix} = \frac{1}{2}\begin{bmatrix} 1 & 1\\ 1 & -1 \end{bmatrix} \]</li>
+          <li><span class="step-t">คูณหาพิกัดกระเบื้อง</span> ช่องบน \(\tfrac{1}{2}(5 + 3) = 4\), ช่องล่าง \(\tfrac{1}{2}(5 - 3) = 1\):
+          \[ [\vec{x}]_{B'} = \frac{1}{2}\begin{bmatrix} 1 & 1\\ 1 & -1 \end{bmatrix}\begin{bmatrix} 5\\ 3 \end{bmatrix} = \begin{bmatrix} 4\\ 1 \end{bmatrix} \]</li>
+          <li><span class="step-t">ตรวจและตีความ</span> \(4\vec{u} + 1\vec{v} = (4 + 1,\; 4 - 1) = (5, 3)\) ✓ — แปลว่าฮีโร่ยืน "4 ก้าวตามทิศ \(\vec{u}\) แล้วขยับ 1 ก้าวตามทิศ \(\vec{v}\)" เอนจินจึงวาดสไปรต์ที่กระเบื้องช่อง (4, 1) และคำนวณการเดินชนกันด้วยเลขคู่นี้ (ส่วนคะแนนระยะทางในโลกใช้พิกัดจอ)</li>
+        </ol>
+        <div class="verify"><span class="lbl">เห็นไหมว่า...</span> เกมทุกประเภทที่มีแกนพิเศษ (ไอโซเมทริก, แผนที่ hex, โลก 3 มิติในเกมบินได้) ต้องพก "เมทริกซ์เปลี่ยนพิกัด" แปลไปมาระหว่างระบบพิกัดตลอดเวลา — ท่า \(P_{\mathcal{E} \to B'} = (P_{B' \to \mathcal{E}})^{-1}\) ที่ฝึกในหัวข้อนี้ คือโค้ดจริงในเอนจินเกม</div>
+      </div>
+    </article>
+
+    <article class="ex-card">
+      <div class="ex-head"><span class="ex-badge">🪞 โหมดกระจกเงาในเกม</span><span class="tag app">ใช้จริง</span><span class="tag mid">กลาง</span><span class="ex-title">การแปลงเดียวกัน คนละฐานหลัก — เมทริกซ์เปลี่ยนหน้าตา</span></div>
+      <div class="ex-body">
+        <div class="ex-q">เกมมีกลไก "โลกกระจก" ที่พลิกฉากสะท้อนข้ามเส้นพื้น: \(T(x_1, x_2) = (x_1, -x_2)\) เมทริกซ์มาตรฐานคือ \(A = \begin{bmatrix} 1 & 0\\ 0 & -1 \end{bmatrix}\) ส่วนตัวแก้ไขด่าน (level editor) ใช้พิกัดกระเบื้องทแยง \(B' = \{\vec{u}, \vec{v}\} = \{(1, 1), (1, -1)\}\) จงหา \([T]_{B'}\) แล้วบอกว่าในภาษาของตัวแก้ไขด่าน "การสะท้อน" หน้าตาเป็นอย่างไร</div>
+        <div class="approach"><span class="lbl">อธิบายโจทย์ง่าย ๆ</span> — การสะท้อนเดิมตัวเดิม แต่เปลี่ยนไปวัดด้วยแกนทแยง — ใช้บทแทรก 3.1.4: \([T]_{B'} = P^{-1}AP\) เมื่อ \(P = P_{B' \to \mathcal{E}} = \begin{bmatrix} 1 & 1\\ 1 & -1 \end{bmatrix}\) (เรียงเวกเตอร์ \(B'\) เป็นหลัก) คำตอบจะบอกว่าเครื่องมือแก้ไขด่านควรอธิบายปุ่ม "สะท้อน" ว่าทำอะไรกับพิกัดกระเบื้อง</div>
+        <ol class="steps">
+          <li><span class="step-t">หา \(P^{-1}\)</span> det \(P = (1)(-1) - (1)(1) = -2\):
+          \[ P^{-1} = \frac{1}{-2}\begin{bmatrix} -1 & -1\\ -1 & 1 \end{bmatrix} = \frac{1}{2}\begin{bmatrix} 1 & 1\\ 1 & -1 \end{bmatrix} \]</li>
+          <li><span class="step-t">คูณ \(AP\) ก่อน</span> หลักแรก \(A(1, 1)^T = (1, -1)^T\), หลักสอง \(A(1, -1)^T = (1, 1)^T\):
+          \[ AP = \begin{bmatrix} 1 & 0\\ 0 & -1 \end{bmatrix}\begin{bmatrix} 1 & 1\\ 1 & -1 \end{bmatrix} = \begin{bmatrix} 1 & 1\\ -1 & 1 \end{bmatrix} \]</li>
+          <li><span class="step-t">แล้วคูณ \(P^{-1}(AP)\)</span> ช่องบนซ้าย = \(\tfrac{1}{2}(1, 1) \cdot (1, -1) = 0\) · บนขวา = \(\tfrac{1}{2}(1, 1) \cdot (1, 1) = 1\) · ล่างซ้าย = \(\tfrac{1}{2}(1, -1) \cdot (1, -1) = 1\) · ล่างขวา = \(\tfrac{1}{2}(1, -1) \cdot (1, 1) = 0\):
+          \[ [T]_{B'} = \frac{1}{2}\begin{bmatrix} 1 & 1\\ 1 & -1 \end{bmatrix}\begin{bmatrix} 1 & 1\\ -1 & 1 \end{bmatrix} = \begin{bmatrix} 0 & 1\\ 1 & 0 \end{bmatrix} \]</li>
+          <li><span class="step-t">ทดลองกับของจริง</span> สไปรต์ที่พิกัดกระเบื้อง \((2, 1)\) อยู่ที่โลก \((3, 1)\) — สะท้อนแล้วไปโลก \((3, -1)\) ซึ่งเป็นพิกัดกระเบื้อง \((1, 2)\) — ดูที่ \([T]_{B'}\): \(\begin{bmatrix} 0 & 1\\ 1 & 0 \end{bmatrix}\begin{bmatrix} 2\\ 1 \end{bmatrix} = \begin{bmatrix} 1\\ 2 \end{bmatrix}\) ✓ ตรงพอดี</li>
+        </ol>
+        <div class="verify"><span class="lbl">เห็นไหมว่า...</span> การแปลงเดียวกันเป๊ะ ๆ อาจดู "ยาก" ในฐานหลักหนึ่ง (เมทริกซ์มี 4 ช่องไม่ศูนย์) แต่ง่ายเหลือเชื่อในอีกฐานหลัก (แค่สลับสองเลข!) — นี่คือแนวคิดหลักของการเปลี่ยนฐานหลัก และเป็นเหตุผลว่าทำไมหัวข้อถัดไป (3.2) จึงพยายามหาฐานหลักที่ทำให้เมทริกซ์เป็นทแยงมุม</div>
+      </div>
+    </article>
+  </section>
+
+  <section class="block" id="recipe">
   <h2><span class="h2-dot">⚡</span> สูตรสำเร็จ — ท่าที่ใช้ทำโจทย์หัวข้อนี้</h2>
   <div class="recipe">
     <div class="recipe-head">🪜 ท่าหลัก: หา \([\vec{x}]_B\) และเปลี่ยนฐานหลัก</div>

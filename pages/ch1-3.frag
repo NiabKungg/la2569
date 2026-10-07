@@ -14,6 +14,8 @@ page: ch1-3.html
   <a href="#objectives">🎯 จุดประสงค์</a>
   <a href="#lesson">📖 บทเรียน</a>
   <a href="#examples">✏️ ตัวอย่างโจทย์</a>
+  <a href="#textbook">📚 ตัวอย่างจากตำรา</a>
+  <a href="#apply">🌍 การใช้จริง</a>
   <a href="#recipe">⚡ สูตรสำเร็จ</a>
   <a href="#practice">🏋️ โจทย์ซ้อมมือ</a>
 </nav>
@@ -243,6 +245,271 @@ page: ch1-3.html
         <li><span class="step-t">(ค) \(DC\): ขนาด \(3\times 2\) คูณ \(2\times 3\)</span> จำนวนหลักของ \(D\) (2) = จำนวนแถวของ \(C\) (2) → <strong>คูณได้</strong> และผลลัพธ์มีขนาด \(3\times 3\) (ไม่เท่า \(CD\) ที่เป็น \(2\times2\) อีกแล้ว — เห็นภาพว่าทำไม \(CD \neq DC\) เป็นเรื่องปกติ เพราะทั้งขนาดยังต่างกันตั้งแต่รูปร่างเลย แม้แต่ละช่องจะคิดแบบเดียวกันก็ตาม)</li>
       </ol>
       <div class="verify"><span class="lbl">ตรวจคำตอบ (ข):</span> เช็กสมาชิกแถว 1 หลัก 1 ของ \(CD\) ด้วยวิธีแถว–หลัก: แถว 1 ของ \(C\) คือ \((1, 2, -1)\) จุดกับหลัก 1 ของ \(D\) คือ \((1, 0, 2)\) → \(1 + 0 - 2 = -1\) ✓ ตรงกัน — สรุปเต็ม ๆ: (ก) \(AB = \begin{bmatrix} 2 & 1\\ 4 & 3 \end{bmatrix} \neq BA = \begin{bmatrix} 3 & 4\\ 1 & 2 \end{bmatrix}\), (ข) \(CD = \begin{bmatrix} -1 & 2\\ 5 & 4 \end{bmatrix}\), (ค) \(DC\) คูณได้เพราะขนาดตรงเงื่อนไข แต่ผลลัพธ์เป็น \(3\times 3\) ต่างจาก \(CD\)</div>
+    </div>
+  </article>
+</section>
+
+<section class="block" id="textbook">
+  <h2><span class="h2-dot">📚</span> ตัวอย่างจากตำรา (พีชคณิต.pdf)</h2>
+  <p class="page-sub">โจทย์ทุกข้อคัดมาตรงจากตำราประกอบการสอน โดยเรียงจากง่ายไปยาก — ใต้โจทย์แต่ละข้อมี "อธิบายโจทย์ง่าย ๆ" ช่วยให้เห็นว่าโจทย์ถามอะไรก่อนลงมือทำ</p>
+
+  <article class="ex-card">
+    <div class="ex-head"><span class="ex-badge">ตัวอย่าง 1.3.4</span><span class="tag book">จากตำรา</span><span class="tag easy">ง่าย</span><span class="ex-title">\(A\vec{x}\) คือการรวมเชิงเส้นของหลักของ \(A\)</span></div>
+    <div class="ex-body">
+      <div class="ex-q">1. \(\begin{bmatrix} 3 & 0\\ -1 & 2\\ 1 & -1 \end{bmatrix} \begin{bmatrix} 1\\ 2 \end{bmatrix} = 1\begin{bmatrix} 3\\ -1\\ 1 \end{bmatrix} + 2\begin{bmatrix} 0\\ 2\\ -1 \end{bmatrix} = \begin{bmatrix} 3\\ 3\\ -1 \end{bmatrix}\)
+      &nbsp;&nbsp; 2. \(x_1\begin{bmatrix} 1\\ 2\\ 1 \end{bmatrix} + x_2\begin{bmatrix} 1\\ 1\\ 0 \end{bmatrix} + x_3\begin{bmatrix} 4\\ -1\\ 3 \end{bmatrix} = \begin{bmatrix} 1 & 1 & 4\\ 2 & 1 & -1\\ 1 & 0 & 3 \end{bmatrix}\begin{bmatrix} x_1\\ x_2\\ x_3 \end{bmatrix}\)</div>
+      <div class="approach"><span class="lbl">อธิบายโจทย์ง่าย ๆ</span> — ตำราใช้สองตัวอย่างสั้น ๆ ประกาศนิยามผลคูณ \(A\vec{x}\): มันคือการเอา "สมาชิกของ \(\vec{x}\)" ไปเป็นน้ำหนักของ "หลักของ \(A\)" ทีละหลัก — ข้อ 1 แทนค่าจริงให้ดู ข้อ 2 ย้อนกลับ: การรวมเชิงเส้นของเวกเตอร์ 3 ตัวพับเป็นการคูณเมทริกซ์ได้เสมอ</div>
+      <ol class="steps">
+        <li><span class="step-t">ข้อ 1: ใช้น้ำหนักจาก \(\vec{x}\)</span> \(\vec{x} = (1, 2)^T\) จึงหนักหลักที่ 1 แค่ 1 เท่าและหลักที่ 2 สองเท่า: \(2(0) = 0\), \(2(2) = 4\), \(2(-1) = -2\) แล้วบวกตำแหน่งต่อตำแหน่ง \(3+0 = 3\), \(-1+4 = 3\), \(1-2 = -1\) — ผลลัพธ์ 3 ช่องเพราะ \(A\) มี 3 แถว</li>
+        <li><span class="step-t">ข้อ 2: พับเวกเตอร์เป็นหลัก</span> เวกเตอร์แต่ละตัวที่ถูกคูณด้วย \(x_1, x_2, x_3\) วางเรียงเป็นหลักของเมทริกซ์ (อ่านจากบนลงล่าง) แล้ว \(\vec{x}\) วางเป็นเวกเตอร์หลักขวา — สมการทั้งสองข้างมีความหมายเดียวกันโดยนิยามของ \(A\vec{x}\)</li>
+        <li><span class="step-t">ทำไมเรื่องนี้สำคัญ</span> มันเชื่อมสองคำถามให้เป็นคำถามเดียว: "\(\vec{b}\) เป็นการรวมเชิงเส้นของหลักของ \(A\) ได้ไหม" = "สมการ \(A\vec{x} = \vec{b}\) มีผลเฉลยไหม" = "ระบบเชิงเส้นที่เมทริกซ์แต่งเติม \(\begin{bmatrix} A \mid \vec{b} \end{bmatrix}\) ต้องกันไหม" (บทแทรก 1.3.3)</li>
+      </ol>
+      <div class="verify"><span class="lbl">สรุปคำตอบ:</span> \(A\vec{x} = x_1(\text{หลัก 1}) + x_2(\text{หลัก 2}) + \cdots + x_n(\text{หลัก } n)\) — นิยามเดียวอ่านได้ทั้งสองทิศทางตามที่ตำราโชว์ไว้</div>
+    </div>
+  </article>
+
+  <article class="ex-card">
+    <div class="ex-head"><span class="ex-badge">ตัวอย่าง 1.3.7</span><span class="tag book">จากตำรา</span><span class="tag easy">ง่าย</span><span class="ex-title">คูณเมทริกซ์แบบหลักต่อหลัก</span></div>
+    <div class="ex-body">
+      <div class="ex-q">กำหนดให้ \(A = \begin{bmatrix} 2 & 3\\ 1 & -1 \end{bmatrix}\) และ \(B = \begin{bmatrix} 1 & 0 & -2\\ 3 & 4 & 1 \end{bmatrix}\) จะได้ว่า
+      \[ AB = \begin{bmatrix} 1 & 0 & -2\\ 3 & 4 & 1 \end{bmatrix}\text{แต่ละหลัก} = \begin{bmatrix} 11 & 12 & -1\\ -2 & -4 & -3 \end{bmatrix} \]</div>
+      <div class="approach"><span class="lbl">อธิบายโจทย์ง่าย ๆ</span> — โจทย์ให้ \(A\) ขนาด \(2\times 2\) กับ \(B\) ขนาด \(2\times 3\) แล้วโชว์ว่า \(AB\) ทำได้ (จำนวนหลักของ \(A\) = 2 เท่ากับจำนวนแถวของ \(B\) = 2) และผลลัพธ์เป็น \(2\times 3\) — หัวใจอยู่ที่ทำทีละหลักของ \(B\): หลักที่ \(k\) ของ \(AB\) คือ \(A\vec{b}_k\)</div>
+      <ol class="steps">
+        <li><span class="step-t">หลักที่ 1 ของ \(AB\): หา \(A\begin{bmatrix} 1\\ 3 \end{bmatrix}\)</span> \(1\begin{bmatrix} 2\\ 1 \end{bmatrix} + 3\begin{bmatrix} 3\\ -1 \end{bmatrix} = \begin{bmatrix} 2+9\\ 1-3 \end{bmatrix} = \begin{bmatrix} 11\\ -2 \end{bmatrix}\) — น้ำหนัก 1 กับ 3 คือสมาชิกของหลักแรกของ \(B\) พอดี</li>
+        <li><span class="step-t">หลักที่ 2: \(A\begin{bmatrix} 0\\ 4 \end{bmatrix}\)</span> \(0\begin{bmatrix} 2\\ 1 \end{bmatrix} + 4\begin{bmatrix} 3\\ -1 \end{bmatrix} = \begin{bmatrix} 0+12\\ 0-4 \end{bmatrix} = \begin{bmatrix} 12\\ -4 \end{bmatrix}\) (ศูนย์คูณอะไรก็ศูนย์ ค่าทั้งหมดจึงมาจากหลักที่สองของ \(B\) ล้วน ๆ)</li>
+        <li><span class="step-t">หลักที่ 3: \(A\begin{bmatrix} -2\\ 1 \end{bmatrix}\)</span> \((-2)\begin{bmatrix} 2\\ 1 \end{bmatrix} + 1\begin{bmatrix} 3\\ -1 \end{bmatrix} = \begin{bmatrix} -4+3\\ -2-1 \end{bmatrix} = \begin{bmatrix} -1\\ -3 \end{bmatrix}\) — เอาสามหลักมาวางเรียงกันได้ \(AB\)</li>
+        <li><span class="step-t">เช็กด้วยสูตรแถว–หลัก</span> ช่องแรก \(11 = 2(1) + 3(3)\) (แถวที่ 1 ของ \(A\) จุดกับหลักที่ 1 ของ \(B\)) · ช่องกลางแถวบน \(12 = 2(0) + 3(4)\) · ช่องท้าย \(-1 = 2(-2) + 3(1)\) ✓ สองวิธีให้ผลเดียวกันเสมอ</li>
+      </ol>
+      <div class="verify"><span class="lbl">สรุปคำตอบ:</span> \(AB = \begin{bmatrix} 11 & 12 & -1\\ -2 & -4 & -3 \end{bmatrix}\) ขนาด \(2\times 3\) — จำไว้: "หลักซ้าย = แถวขวา" จึงคูณได้ และผลลัพธ์รับขนาดจาก "แถวซ้าย × หลักขวา"</div>
+    </div>
+  </article>
+
+  <article class="ex-card">
+    <div class="ex-head"><span class="ex-badge">ตัวอย่าง 1.3.9</span><span class="tag book">จากตำรา</span><span class="tag easy">ง่าย</span><span class="ex-title">เมทริกซ์สลับเปลี่ยน (transpose)</span></div>
+    <div class="ex-body">
+      <div class="ex-q">ถ้า \(A = \begin{bmatrix} 1 & 4\\ -2 & 3 \end{bmatrix}\) และ \(B = \begin{bmatrix} -5 & 2\\ 1 & -3\\ -1 & 2 \end{bmatrix}\) จะได้ว่า
+      \[ A^{T} = \begin{bmatrix} 1 & -2\\ 4 & 3 \end{bmatrix} \qquad B^{T} = \begin{bmatrix} -5 & 1 & -1\\ 2 & -3 & 2 \end{bmatrix} \]</div>
+      <div class="approach"><span class="lbl">อธิบายโจทย์ง่าย ๆ</span> — transpose คือการ "สลับแถวเป็นหลัก": แถวที่ \(i\) ของเมทริกซ์เดิมกลายเป็นหลักที่ \(i\) ของเมทริกซ์ใหม่ — เมทริกซ์ \(m\times n\) จึงกลายเป็น \(n\times m\) สังเกต \(B\) ขนาด \(3\times 2\) พอ transpose แล้วกลายเป็น \(2\times 3\) พอดี</div>
+      <ol class="steps">
+        <li><span class="step-t">หา \(A^{T}\) ทีละแถว</span> แถวแรกของ \(A\) คือ \((1, 4)\) กลายเป็นหลักแรกของ \(A^{T}\) · แถวที่สอง \((-2, 3)\) กลายเป็นหลักที่สอง — จึงได้ \(A^{T} = \begin{bmatrix} 1 & -2\\ 4 & 3 \end{bmatrix}\) (ช่องทแยงมุม \(1, 3\) อยู่ที่เดิม เพราะตำแหน่งแถว = หลัก)</li>
+        <li><span class="step-t">หา \(B^{T}\) ทีละหลัก</span> หลักแรกของ \(B\) คือ \((-5, 1, -1)\) เมื่อสลับเป็นแถว มันจะเป็น<em>แถวแรก</em>ของ \(B^{T}\) — และหลักที่สอง \((2, -3, 2)\) เป็นแถวที่สอง จึงได้ \(B^{T} = \begin{bmatrix} -5 & 1 & -1\\ 2 & -3 & 2 \end{bmatrix}\) ขนาด \(2\times 3\) ตามที่ตำราโชว์</li>
+        <li><span class="step-t">สมบัติที่จะใช้บ่อย</span> \((A^{T})^{T} = A\) (สลับกลับไปกลับมาได้เดิม) และสำคัญสุด \((AB)^{T} = B^{T}A^{T}\) — transpose ของผลคูณต้อง<em>กลับลำดับ</em>การคูณ จะได้ฝึกใช้ในแบบฝึกหัดข้อ 8 ด้านล่าง</li>
+      </ol>
+      <div class="verify"><span class="lbl">สรุปคำตอบ:</span> \(A^{T} = \begin{bmatrix} 1 & -2\\ 4 & 3 \end{bmatrix}\) และ \(B^{T} = \begin{bmatrix} -5 & 1 & -1\\ 2 & -3 & 2 \end{bmatrix}\) — ตรงตามตำรา และจำท่าง่าย ๆ ว่า "แถวกลายเป็นหลัก, หลักกลายเป็นแถว, ขนาดพลิกกลับด้าน"</div>
+    </div>
+  </article>
+
+  <article class="ex-card">
+    <div class="ex-head"><span class="ex-badge">ตัวอย่าง 1.3.2</span><span class="tag book">จากตำรา</span><span class="tag easy">ง่าย</span><span class="ex-title">Span หน้าตาเป็นอย่างไร (3 กรณี)</span></div>
+    <div class="ex-body">
+      <div class="ex-q">1. \(\operatorname{Span}\left\{ \begin{bmatrix} 2\\ -1\\ 3 \end{bmatrix} \right\} = \left\{ c\begin{bmatrix} 2\\ -1\\ 3 \end{bmatrix} : c \in \mathbb{R} \right\}\)
+      &nbsp;&nbsp; 2. \(\operatorname{Span}\left\{ \begin{bmatrix} 2\\ 1\\ 1 \end{bmatrix}, \begin{bmatrix} 1\\ 3\\ 2 \end{bmatrix} \right\} = \left\{ c_1\begin{bmatrix} 2\\ 1\\ 1 \end{bmatrix} + c_2\begin{bmatrix} 1\\ 3\\ 2 \end{bmatrix} : c_1, c_2 \in \mathbb{R} \right\}\) และ \(\begin{bmatrix} 1\\ -7\\ -4 \end{bmatrix} \in \operatorname{Span}\left\{ \begin{bmatrix} 2\\ 1\\ 1 \end{bmatrix}, \begin{bmatrix} 1\\ 3\\ 2 \end{bmatrix} \right\}\)
+      &nbsp;&nbsp; 3. \(\operatorname{Span}\left\{ \begin{bmatrix} 1\\ 0\\ 0 \end{bmatrix}, \begin{bmatrix} 0\\ 1\\ 0 \end{bmatrix}, \begin{bmatrix} 0\\ 0\\ 1 \end{bmatrix} \right\} = \mathbb{R}^3\)</div>
+      <div class="approach"><span class="lbl">อธิบายโจทย์ง่าย ๆ</span> — ตำราจัด Span มาให้เห็นสาม "ขนาด" ที่เป็นไปได้: เวกเตอร์ตัวเดียวแผ่เป็น<em>เส้นตรง</em> สองตัว (ที่ไม่สัดส่วนกัน) แผ่เป็น<em>ระนาบ</em> สามตัวที่เหมาะเจาะแผ่<em>ทั้งปริภูมิ</em> \(\mathbb{R}^3\) — และเสริมด้วยข้อเท็จจริงว่า \(\vec{b}\) ใด ๆ ที่ "เข้าถึงได้" ก็อยู่ใน Span นั้น</div>
+      <ol class="steps">
+        <li><span class="step-t">กรณี 1: เวกเตอร์เดียว = เส้นตรงผ่านจุดกำเนิด</span> \(\operatorname{Span}\{\vec{v}\} = \{c\vec{v} : c \in \mathbb{R}\}\) คือชุดจุดทั้งหมดบนเส้นที่ลากจากจุดกำเนิดไปตามทิศ \(\vec{v} = (2, -1, 3)^T\) — เปลี่ยน \(c\) คือ "เดินไป–กลับ" ตามเส้นนั้น ไปไกลแค่ไหนก็ได้ แต่ห้ามเบี่ยงเบนจากเส้น</li>
+        <li><span class="step-t">กรณี 2: สองเวกเตอร์ = ระนาบผ่านจุดกำเนิด</span> \(\vec{v}_1 = (2, 1, 1)^T\) กับ \(\vec{v}_2 = (1, 3, 2)^T\) ไม่สัดส่วนกัน (เพราะไม่มี \(c\) ที่ \((2,1,1) = c(1,3,2)\)) การรวมเชิงเส้น \(c_1\vec{v}_1 + c_2\vec{v}_2\) จึงกวาดได้ทั้งระนาบ · และจากตัวอย่าง 1.3.1 เรารู้ว่า \(\vec{b} = (1, -7, -4)^T = 2\vec{v}_1 - 3\vec{v}_2\) จึงอยู่ใน Span นี้ด้วย — จุดอยู่บนระนาบพอดี</li>
+        <li><span class="step-t">กรณี 3: สามเวกเตอร์มาตรฐาน = ทั้ง \(\mathbb{R}^3\)</span> \(\vec{e}_1, \vec{e}_2, \vec{e}_3\) คือทิศ "ขวา, ขึ้น, ออกหน้า" — เวกเตอร์ใด ๆ \((a, b, c)^T\) เขียนเป็น \(a\vec{e}_1 + b\vec{e}_2 + c\vec{e}_3\) ได้ทันที (ตัวมันเองนั่นแหละ) จึงแผ่ทั่ว \(\mathbb{R}^3\) พอดีไม่เกินไม่ขาด</li>
+      </ol>
+      <div class="verify"><span class="lbl">สรุปคำตอบ:</span> Span เปลี่ยนขนาดตามจำนวนและความ "ไม่ซ้ำทิศ" ของเวกเตอร์: เส้นตรง → ระนาบ → ทั้งปริภูมิ — และเวกเตอร์ใดอยู่ใน Span ก็ต่อเมื่อมันเป็นการรวมเชิงเส้นของเวกเตอร์ชุดนั้นได้ (บทแทรก 1.3.2)</div>
+    </div>
+  </article>
+
+  <article class="ex-card">
+    <div class="ex-head"><span class="ex-badge">ตัวอย่าง 1.3.1</span><span class="tag book">จากตำรา</span><span class="tag mid">กลาง</span><span class="ex-title">\(\vec{b}\) เป็นการรวมเชิงเส้นของ \(\vec{v}_1, \vec{v}_2\) หรือไม่</span></div>
+    <div class="ex-body">
+      <div class="ex-q">กำหนดให้ \(\vec{v}_1 = \begin{bmatrix} 2\\ 1\\ 1 \end{bmatrix},\; \vec{v}_2 = \begin{bmatrix} 1\\ 3\\ 2 \end{bmatrix}\) และ \(\vec{b} = \begin{bmatrix} 1\\ -7\\ -4 \end{bmatrix}\) จงพิจารณาว่าเวกเตอร์ \(\vec{b}\) เป็นการรวมเชิงเส้นของเวกเตอร์ \(\vec{v}_1\) และ \(\vec{v}_2\) หรือไม่ นั่นคือ จงพิจารณาว่ามีจำนวนจริง \(x_1\) และ \(x_2\) ซึ่งทำให้ \(x_1\vec{v}_1 + x_2\vec{v}_2 = \vec{b}\) หรือไม่</div>
+      <div class="approach"><span class="lbl">อธิบายโจทย์ง่าย ๆ</span> — โจทย์ถามว่า "มีน้ำหนัก \(x_1, x_2\) ที่ผสม \(\vec{v}_1, \vec{v}_2\) แล้วได้ \(\vec{b}\) พอดีไหม" — วิธีตำราคือเขียนสมการเวกเตอร์ออกมาทีละช่อง จะได้ระบบเชิงเส้น 3 สมการ 2 ตัวแปร แล้วลดรูปดูว่าต้องกันไหม (บทแทรก 1.3.1 รับประกันว่าเป็นคำถามเดียวกัน)</div>
+      <ol class="steps">
+        <li><span class="step-t">เขียนสมการเวกเตอร์เป็นระบบเชิงเส้น</span> \(x_1\vec{v}_1 + x_2\vec{v}_2 = \vec{b}\) เมื่อบวกแบบตำแหน่งต่อตำแหน่งให้สมการทีละบรรทัด
+        \[ \begin{aligned} 2x_1 + x_2 &= 1\\ x_1 + 3x_2 &= -7\\ x_1 + 2x_2 &= -4 \end{aligned} \]</li>
+        <li><span class="step-t">ลดรูปเมทริกซ์แต่งเติม \(\begin{bmatrix} \vec{v}_1 & \vec{v}_2 & \vec{b} \end{bmatrix}\)</span> สลับ \(R_{13}\) ให้แถวบนเริ่มด้วย 1 (คำนวณสวยกว่า) แล้วกวาด: \(R_2 - R_1\): \(0, 1, -3\) · \(R_3 - 2R_1\): \(0, -3, 9\) · จากนั้น \(R_3 + 3R_2\): \(0, 0, 0\)
+        \[ \begin{bmatrix} 2 & 1 & 1\\ 1 & 3 & -7\\ 1 & 2 & -4 \end{bmatrix} \sim \begin{bmatrix} 1 & 2 & -4\\ 1 & 3 & -7\\ 2 & 1 & 1 \end{bmatrix} \xrightarrow{\substack{R_2 - R_1\\ R_3 - 2R_1}} \begin{bmatrix} 1 & 2 & -4\\ 0 & 1 & -3\\ 0 & -3 & 9 \end{bmatrix} \xrightarrow{\;R_3 + 3R_2\;} \begin{bmatrix} 1 & 2 & -4\\ 0 & 1 & -3\\ 0 & 0 & 0 \end{bmatrix} \]
+        (แถวที่ 3 ใหม่หลัง \(R_3 - 2R_1\): \(2 - 2(1) = 0,\; 1 - 2(2) = -3,\; 1 - 2(-4) = 9\) — แล้ว \(R_3 + 3R_2\): \(-3 + 3(1) = 0,\; 9 + 3(-3) = 0\) → ล้าทั้งแถว)</li>
+        <li><span class="step-t">ตัดสินและหาน้ำหนัก</span> แถวสุดท้ายล้าเป็น \(0 = 0\) ไม่ขัดแย้ง → ระบบมีผลเฉลย → \(\vec{b}\) <em>เป็น</em>การรวมเชิงเส้นของ \(\vec{v}_1, \vec{v}_2\) · จากแถวที่ 2: \(x_2 = -3\) · แทนขึ้นแถวที่ 1: \(x_1 + 2(-3) = -4\) → \(x_1 = 2\) — ตำราตรวจย้ำโดยลดรูปต่อจน RREF ได้ \(x_1 = 2, x_2 = -3\) เช่นกัน</li>
+        <li><span class="step-t">เขียนคำตอบและตรวจ</span> \(\vec{b} = 2\vec{v}_1 + (-3)\vec{v}_2\) — ตรวจทีละช่อง: \(2(2) - 3(1) = 1\) ✓, \(2(1) - 3(3) = -7\) ✓, \(2(1) - 3(2) = -4\) ✓ ตรงกับ \(\vec{b}\) ทุกช่อง</li>
+      </ol>
+      <div class="verify"><span class="lbl">สรุปคำตอบ:</span> \(\vec{b} = 2\vec{v}_1 - 3\vec{v}_2\) — \(\vec{b}\) เป็นการรวมเชิงเส้นของ \(\vec{v}_1\) และ \(\vec{v}_2\) ด้วยน้ำหนัก \(2\) กับ \(-3\) ตามตำรา (หมายเหตุของตำรา: ถ้าอยาก "เขียน" คำตอบ ให้ลดรูปต่อจนรูปแบบขั้นบันไดลดรูปแล้วอ่านน้ำหนักจากหลักขวาสุด)</div>
+    </div>
+  </article>
+
+  <article class="ex-card">
+    <div class="ex-head"><span class="ex-badge">ตัวอย่าง 1.3.8</span><span class="tag book">จากตำรา</span><span class="tag mid">กลาง</span><span class="ex-title">\(AB \neq BA\) และข้อสังเกต \(AB = 0\) ไม่ได้แปลว่ามีตัวใดเป็น 0</span></div>
+    <div class="ex-body">
+      <div class="ex-q">ให้ \(A = \begin{bmatrix} 1 & 0\\ -2 & 1 \end{bmatrix}\) และ \(B = \begin{bmatrix} 4 & -1\\ 3 & -2 \end{bmatrix}\) จะได้ว่า
+      \[ AB = \begin{bmatrix} 4 & -1\\ -5 & 0 \end{bmatrix} \qquad BA = \begin{bmatrix} 6 & -1\\ 7 & -2 \end{bmatrix} \]
+      ดังนั้น \(AB \neq BA\)
+      ข้อสังเกต: โดยทั่วไป \(AB\) อาจไม่เท่ากับ \(BA\) และถ้า \(AB = 0\) แล้วเราก็สรุปไม่ได้ว่า \(A = 0\) หรือ \(B = 0\) เช่น เมื่อ \(A = \begin{bmatrix} 1 & 0\\ 0 & 0 \end{bmatrix}\) และ \(B = \begin{bmatrix} 0 & 0\\ 1 & 0 \end{bmatrix}\) จะได้ \(AB = \begin{bmatrix} 0 & 0\\ 0 & 0 \end{bmatrix}\)</div>
+      <div class="approach"><span class="lbl">อธิบายโจทย์ง่าย ๆ</span> — ตำราคูณ \(A\) กับ \(B\) ทั้งสองทิศเพื่อ "เห็นกับตา" ว่าการคูณเมทริกซ์สลับที่ไม่ได้ แล้วเตือนเพิ่มว่า "ผลคูณเป็นศูนย์" ก็ไม่บังคับให้ตัวใดตัวหนึ่งศูนย์ — สองข้อสรุปนี้คือกับดักข้อสอบคลาสสิก</div>
+      <ol class="steps">
+        <li><span class="step-t">หา \(AB\) ทีละช่อง (แถวของ \(A\) จุดกับหลักของ \(B\))</span> ช่องซ้ายบน \(1(4) + 0(3) = 4\) · ขวาบน \(1(-1) + 0(-2) = -1\) · ซ้ายล่าง \(-2(4) + 1(3) = -5\) · ขวาล่าง \(-2(-1) + 1(-2) = 2 - 2 = 0\) — ได้ \(AB = \begin{bmatrix} 4 & -1\\ -5 & 0 \end{bmatrix}\)</li>
+        <li><span class="step-t">หา \(BA\) (สลับที่!)</span> ช่องซ้ายบน \(4(1) + (-1)(-2) = 4 + 2 = 6\) · ขวาบน \(4(0) + (-1)(1) = -1\) · ซ้ายล่าง \(3(1) + (-2)(-2) = 7\) · ขวาล่าง \(3(0) + (-2)(1) = -2\) — ได้ \(BA = \begin{bmatrix} 6 & -1\\ 7 & -2 \end{bmatrix}\) (จุดที่ต่างชัด: ช่องซ้ายบน \(4\) กับ \(6\))</li>
+        <li><span class="step-t">เทียบและสรุป</span> \(AB \neq BA\) — เพราะการคูณเมทริกซ์คือการ "จุดแถวกับหลัก" การสลับที่เท่ากับจุดคนละคู่ ผลจึงต่างกันโดยธรรมชาติ (ยกเว้นกรณีพิเศษ เช่น คูณกับ \(I\) หรือกำลังของเมทริกซ์เดียวกัน)</li>
+        <li><span class="step-t">ข้อสังเกต \(AB = 0\)</span> ลอง \(A = \begin{bmatrix} 1 & 0\\ 0 & 0 \end{bmatrix}\), \(B = \begin{bmatrix} 0 & 0\\ 1 & 0 \end{bmatrix}\): ทุกช่องของ \(AB\) คือแถวของ \(A\) จุดกับหลักของ \(B\) แต่ละหลักของ \(B\) มีศูนย์ทับช่องสำคัญของแถว \(A\) พอดี จึงได้ \(AB = \begin{bmatrix} 0 & 0\\ 0 & 0 \end{bmatrix}\) ทั้งที่ \(A \neq 0\) และ \(B \neq 0\) — นี่คือเหตุผลที่ "หารด้วยเมทริกซ์" ต้องระวัง</li>
+      </ol>
+      <div class="verify"><span class="lbl">สรุปคำตอบ:</span> \(AB = \begin{bmatrix} 4 & -1\\ -5 & 0 \end{bmatrix} \neq BA = \begin{bmatrix} 6 & -1\\ 7 & -2 \end{bmatrix}\) — การคูณเมทริกซ์ไม่มีสมบัติการสลับที่ และ \(AB = 0\) ไม่จำเป็นต้องมีตัวประกอบเป็นศูนย์</div>
+    </div>
+  </article>
+
+  <article class="ex-card">
+    <div class="ex-head"><span class="ex-badge">ตัวอย่าง 1.3.3</span><span class="tag book">จากตำรา</span><span class="tag mid">กลาง</span><span class="ex-title">\(\vec{b}\) ไม่อยู่ใน \(\operatorname{Span}\{\vec{v}_1, \vec{v}_2\}\)</span></div>
+    <div class="ex-body">
+      <div class="ex-q">กำหนดให้ \(\vec{v}_1 = \begin{bmatrix} -1\\ 2\\ 3 \end{bmatrix}\) และ \(\vec{v}_2 = \begin{bmatrix} 2\\ -3\\ 5 \end{bmatrix}\) จงพิจารณาว่าเวกเตอร์ \(\vec{b} = \begin{bmatrix} 1\\ 1\\ -3 \end{bmatrix}\) อยู่ในเซต \(\operatorname{Span}\{\vec{v}_1, \vec{v}_2\}\) หรือไม่</div>
+      <div class="approach"><span class="lbl">อธิบายโจทย์ง่าย ๆ</span> — โจทย์ถามว่า "\(\vec{b}\) ผสมจาก \(\vec{v}_1, \vec{v}_2\) ได้ไหม" โดยบทแทรก 1.3.2 บอกว่าเท่ากับถามว่าระบบที่มีเมทริกซ์แต่งเติม \(\begin{bmatrix} \vec{v}_1 & \vec{v}_2 & \vec{b} \end{bmatrix}\) ต้องกันหรือไม่ — เวกเตอร์มี 3 ช่องแต่ตัวผสมมีแค่ 2 ตัว จึงอาจ "ถึงจุด" ไม่ครบ</div>
+      <ol class="steps">
+        <li><span class="step-t">เขียนเมทริกซ์แต่งเติมแล้วกวาดหลักที่ 1</span> ใช้ \(R_2 + 2R_1\): \(2+2(-1) = 0\), \(-3+2(2) = 1\), \(1+2(1) = 3\) · และ \(R_3 + 3R_1\): \(3+3(-1) = 0\), \(5+3(2) = 11\), \(-3+3(1) = 0\) — ใช้เครื่องหมายบวกเพราะช่องแรกของแถวที่ 1 เป็น \(-1\) อยู่แล้ว เอาสองเท่าและสามเท่าของมันไปบวกจึงกลบค่า \(2\) กับ \(3\) ในแถวล่างพอดี
+        \[ \begin{bmatrix} -1 & 2 & 1\\ 2 & -3 & 1\\ 3 & 5 & -3 \end{bmatrix} \xrightarrow{\substack{R_2 + 2R_1\\ R_3 + 3R_1}} \begin{bmatrix} -1 & 2 & 1\\ 0 & 1 & 3\\ 0 & 11 & 0 \end{bmatrix} \]</li>
+        <li><span class="step-t">กวาดหลักที่ 2: \(R_3 - 11R_2\)</span> แถวที่ 3 ใหม่: \(0,\; 11 - 11(1) = 0,\; 0 - 11(3) = -33\)
+        \[ \sim \begin{bmatrix} -1 & 2 & 1\\ 0 & 1 & 3\\ 0 & 0 & -33 \end{bmatrix} \]</li>
+        <li><span class="step-t">ตัดสินด้วยทฤษฎีบท 1.2.2</span> แถวสุดท้ายเป็น \(\begin{bmatrix} 0 & 0 & -33 \end{bmatrix}\) — หลักขวาสุด<em>เป็น</em>หลักตัวหลัก สมนัยกับ \(0 = -33\) ซึ่งขัดแย้ง (ไม่มีน้ำหนัก \((x_1, x_2)\) ใดทำให้จริงได้) ระบบจึงไม่มีผลเฉลย</li>
+        <li><span class="step-t">ตีความเรขาคณิต</span> \(\vec{v}_1, \vec{v}_2\) แผ่เป็น<em>ระนาบ</em>บางระนาบผ่านจุดกำเนิดใน \(\mathbb{R}^3\) และ \(\vec{b}\) ลอยอยู่<em>นอกระนาบ</em>นั้น — การรวมเชิงเส้นของสองเวกเตอร์เดินได้เฉพาะบนระนาบ จึงพุ่งออกไปถึง \(\vec{b}\) ไม่ได้</li>
+      </ol>
+      <div class="verify"><span class="lbl">สรุปคำตอบ:</span> \(\vec{b}\) <strong>ไม่อยู่</strong>ใน \(\operatorname{Span}\{\vec{v}_1, \vec{v}_2\}\) — เพราะระบบที่สมนัยกับ \(\begin{bmatrix} \vec{v}_1 & \vec{v}_2 & \vec{b} \end{bmatrix}\) ไม่ต้องกัน (เกิดแถว \(0 = -33\))</div>
+    </div>
+  </article>
+
+  <article class="ex-card">
+    <div class="ex-head"><span class="ex-badge">แบบฝึกหัด 1.3 ข้อ 1 ก,ข</span><span class="tag book">จากตำรา</span><span class="tag mid">กลาง</span><span class="ex-title">\(\vec{b}\) อยู่ใน \(\operatorname{Span}\{\vec{v}_1, \vec{v}_2\}\) หรือไม่ (เลือก 2 ข้อจากตำรา)</span></div>
+    <div class="ex-body">
+      <div class="ex-q">(ก) \(\vec{v}_1 = \begin{bmatrix} 1\\ -1\\ 0 \end{bmatrix},\; \vec{v}_2 = \begin{bmatrix} -2\\ 1\\ 2 \end{bmatrix},\; \vec{b} = \begin{bmatrix} -1\\ -1\\ 4 \end{bmatrix}\) &nbsp;&nbsp;
+      (ข) \(\vec{v}_1 = \begin{bmatrix} -3\\ 4\\ 0 \end{bmatrix},\; \vec{v}_2 = \begin{bmatrix} 6\\ -1\\ 5 \end{bmatrix},\; \vec{b} = \begin{bmatrix} 1\\ -7\\ -5 \end{bmatrix}\) — จงพิจารณาว่าเวกเตอร์ \(\vec{b}\) อยู่ในเซต \(\operatorname{Span}\{\vec{v}_1, \vec{v}_2\}\) หรือไม่ เพราะเหตุใด</div>
+      <div class="approach"><span class="lbl">อธิบายโจทย์ง่าย ๆ</span> — ท่าเดิม: วาง \(\vec{v}_1, \vec{v}_2, \vec{b}\) เรียงเป็นหลักแล้วลดรูป — ต้องกัน = อยู่ใน Span, เกิดแถว \(0 = b \neq 0\) = ไม่อยู่ สองข้อนี้เจตนาให้ตอบต่างกันเพื่อฝึกอ่านทั้งสองกรณี</div>
+      <ol class="steps">
+        <li><span class="step-t">(ก) ลดรูป \(\begin{bmatrix} \vec{v}_1 & \vec{v}_2 & \vec{b} \end{bmatrix}\)</span> ใช้ \(R_2 + R_1\): \(-1+1 = 0,\; 1+(-2) = -1,\; -1+(-1) = -2\) แล้วจึงกวาดหลักที่ 2 ต่อ
+        \[ \begin{bmatrix} 1 & -2 & -1\\ -1 & 1 & -1\\ 0 & 2 & 4 \end{bmatrix} \xrightarrow{\;R_2 + R_1\;} \begin{bmatrix} 1 & -2 & -1\\ 0 & -1 & -2\\ 0 & 2 & 4 \end{bmatrix} \xrightarrow{\;R_3 + 2R_2\;} \begin{bmatrix} 1 & -2 & -1\\ 0 & -1 & -2\\ 0 & 0 & 0 \end{bmatrix} \]
+        (แถวที่ 3 ไม่ต้องกวาดหลักที่ 1 เพราะเป็น 0 อยู่แล้ว — ใช้หลักที่ 2 กวาดด้วย \(R_3 + 2R_2\): \(2 + 2(-1) = 0\), \(4 + 2(-2) = 0\) → ล้าทั้งแถว)</li>
+        <li><span class="step-t">(ก) ต้องกัน → อยู่ใน Span</span> ไม่มีแถวขัดแย้ง ระบบมีผลเฉลย — จากแถวที่ 2: \(-x_2 = -2\) → \(x_2 = 2\) · แทนแถวที่ 1: \(x_1 - 2(2) = -1\) → \(x_1 = 3\) — ตรวจ: \(3(1, -1, 0) + 2(-2, 1, 2) = (3-4, -3+2, 0+4) = (-1, -1, 4)\) ✓ ดังนั้น \(\vec{b} = 3\vec{v}_1 + 2\vec{v}_2\) <em>อยู่</em>ใน Span</li>
+        <li><span class="step-t">(ข) ลดรูป \(\begin{bmatrix} \vec{v}_1 & \vec{v}_2 & \vec{b} \end{bmatrix}\)</span> แถวที่ 3 เริ่มด้วย 0 อยู่แล้ว ใช้ \(R_2 + \tfrac{4}{3}R_1\) เพื่อกำจัด \(4\): แถวที่ 2 ใหม่ \(0,\; -1 + \tfrac{4}{3}(-1) = -\tfrac{7}{3},\; -7 + \tfrac{4}{3}(1) = -\tfrac{17}{3}\) — หรือคิดง่ายกว่าด้วยการสังเกตตัวแปรที่สาม: แถวที่ 3 บอก \(5x_2 = -5\) โดยตรง!
+        \[ \begin{bmatrix} -3 & 6 & 1\\ 4 & -1 & -7\\ 0 & 5 & -5 \end{bmatrix} \;\Longrightarrow\; \text{แถวที่ 3: } 5x_2 = -5 \;\Longrightarrow\; x_2 = -1 \]</li>
+        <li><span class="step-t">(ข) แทนกลับแล้วพบขัดแย้ง</span> แถวที่ 1: \(-3x_1 + 6(-1) = 1\) → \(-3x_1 = 7\) → \(x_1 = -\tfrac{7}{3}\) · เช็กกับแถวที่ 2: \(4\left(-\tfrac{7}{3}\right) - (-1) = -\tfrac{28}{3} + 1 = -\tfrac{25}{3} \neq -7\) — ค่า \(x_1\) ที่แก้แล้วจริงทั้งสองสมการพร้อมกันไม่มีอยู่จริง (ลดรูปเต็ม ๆ จะได้แถว \(\begin{bmatrix} 0 & 0 & \text{ไม่ศูนย์} \end{bmatrix}\)) → <em>ไม่อยู่</em>ใน Span</li>
+      </ol>
+      <div class="verify"><span class="lbl">สรุปคำตอบ:</span> (ก) \(\vec{b} = 3\vec{v}_1 + 2\vec{v}_2\) จึง<em>อยู่</em>ใน \(\operatorname{Span}\{\vec{v}_1, \vec{v}_2\}\) · (ข) ระบบไม่ต้องกัน จึง<em>ไม่อยู่</em>ใน \(\operatorname{Span}\{\vec{v}_1, \vec{v}_2\}\) — ตรงกับคำตอบท้ายบทของตำรา ((ก) อยู่, (ข) ไม่อยู่)</div>
+    </div>
+  </article>
+
+  <article class="ex-card">
+    <div class="ex-head"><span class="ex-badge">ตัวอย่าง 1.3.6</span><span class="tag book">จากตำรา</span><span class="tag mid">กลาง</span><span class="ex-title">เซตของเวกเตอร์แผ่ทั่ว \(\mathbb{R}^3\) หรือไม่</span></div>
+    <div class="ex-body">
+      <div class="ex-q">กำหนดให้ \(\vec{v}_1 = \begin{bmatrix} 1\\ 0\\ -1 \end{bmatrix},\; \vec{v}_2 = \begin{bmatrix} -1\\ 3\\ 7 \end{bmatrix}\) และ \(\vec{v}_3 = \begin{bmatrix} 3\\ -2\\ -2 \end{bmatrix}\) จงพิจารณาว่าเซต \(\{\vec{v}_1, \vec{v}_2, \vec{v}_3\}\) แผ่ทั่ว \(\mathbb{R}^3\) หรือไม่ เพราะเหตุใด</div>
+      <div class="approach"><span class="lbl">อธิบายโจทย์ง่าย ๆ</span> — "แผ่ทั่ว \(\mathbb{R}^3\)" แปลว่าเวกเตอร์ใน \(\mathbb{R}^3\) <em>ทุก</em>ตัวต้องเป็นการรวมเชิงเส้นของสามตัวนี้ได้ — โดยทฤษฎีบท 1.3.4 ตรวจง่าย ๆ ว่า: เรียงเป็นหลักของ \(A\) ลดรูปถึงรูปแบบขั้นบันได แล้วดูว่ามีตำแหน่งตัวหลักครบ<em>ทุกแถว</em>หรือไม่ (ไม่ต้องมี \(\vec{b}\) เพราะถามถึงทุก \(\vec{b}\))</div>
+      <ol class="steps">
+        <li><span class="step-t">เขียน \(A = \begin{bmatrix} \vec{v}_1 & \vec{v}_2 & \vec{v}_3 \end{bmatrix}\) แล้วกวาดหลักที่ 1: \(R_3 + R_1\)</span> แถวที่ 3 ใหม่: \(-1 + 1 = 0\), \(7 + (-1) = 6\), \(-2 + 3 = 1\) — ใช้เครื่องหมายบวกเพราะช่องแรกของแถวที่ 3 เป็น \(-1\)
+        \[ A = \begin{bmatrix} 1 & -1 & 3\\ 0 & 3 & -2\\ -1 & 7 & -2 \end{bmatrix} \xrightarrow{\;R_3 + R_1\;} \begin{bmatrix} 1 & -1 & 3\\ 0 & 3 & -2\\ 0 & 6 & 1 \end{bmatrix} \]</li>
+        <li><span class="step-t">กวาดหลักที่ 2: \(R_3 - 2R_2\)</span> แถวที่ 3 ใหม่: \(0,\; 6 - 2(3) = 0,\; 1 - 2(-2) = 1 + 4 = 5\) — หลักที่ 2 ล้าพอดีเพราะแถวที่ 3 ใหม่มี \(6\) ซึ่งเป็น "2 เท่า" ของ \(3\)
+        \[ \sim \begin{bmatrix} 1 & -1 & 3\\ 0 & 3 & -2\\ 0 & 0 & 5 \end{bmatrix} \]</li>
+        <li><span class="step-t">นับตำแหน่งตัวหลักแล้วสรุป</span> ตัวนำ \(1, 3, 5\) อยู่แถวที่ 1, 2 และ 3 — \(A\) มีตำแหน่งตัวหลักใน<em>ทุกแถว</em>ครบสามแถว จึงตอบโดยทฤษฎีบท 1.3.4 ว่าหลักของ \(A\) แผ่ทั่ว \(\mathbb{R}^3\) — เพราะไม่ว่า \(\vec{b}\) จะเป็นตัวไหน ลดรูป \(\begin{bmatrix} A \mid \vec{b} \end{bmatrix}\) แล้วก็ไม่มีทางเกิดแถว \(0 = b \neq 0\) อีกแล้ว (ทุกแถวมีตัวนำของตัวเอง)</li>
+      </ol>
+      <div class="verify"><span class="lbl">สรุปคำตอบ:</span> เซต \(\{\vec{v}_1, \vec{v}_2, \vec{v}_3\}\) <strong>แผ่ทั่ว \(\mathbb{R}^3\)</strong> เพราะเมทริกซ์ที่เวกเตอร์เรียงเป็นหลักมีตำแหน่งตัวหลักครบทุกแถว (ตามทฤษฎีบท 1.3.4) — จึงเปลี่ยนคำถาม "แผ่ทั่วไหม" เป็นการนับบันไดที่นับได้กับทุกโจทย์</div>
+    </div>
+  </article>
+
+  <article class="ex-card">
+    <div class="ex-head"><span class="ex-badge">แบบฝึกหัด 1.3 ข้อ 4 ก,ข</span><span class="tag book">จากตำรา</span><span class="tag mid">กลาง</span><span class="ex-title">แผ่ทั่ว \(\mathbb{R}^3\) หรือไม่ (ก = ไม่, ข = แผ่)</span></div>
+    <div class="ex-body">
+      <div class="ex-q">จงพิจารณาว่าเซตของเวกเตอร์หรือหลักของเมทริกซ์ที่กำหนดให้ต่อไปนี้แผ่ทั่ว \(\mathbb{R}^3\) หรือไม่ เพราะเหตุใด
+      \[ \text{(ก)}\; \left\{ \begin{bmatrix} 2\\ 0\\ -1 \end{bmatrix}, \begin{bmatrix} 0\\ 5\\ 0 \end{bmatrix} \right\} \qquad
+      \text{(ข)}\; \left\{ \begin{bmatrix} 1\\ 0\\ -2 \end{bmatrix}, \begin{bmatrix} 2\\ 4\\ 0 \end{bmatrix}, \begin{bmatrix} 0\\ 0\\ -3 \end{bmatrix} \right\} \]</div>
+      <div class="approach"><span class="lbl">อธิบายโจทย์ง่าย ๆ</span> — ข้อ (ก) ตอบได้ทันทีโดยไม่คำนวณ (สังเกตจำนวนเวกเตอร์) ส่วนข้อ (ข) ต้องลดรูปนับตำแหน่งตัวหลัก — สองข้อรวมกันคือสองหน้าของเหรียญเดียวกัน: แผ่ทั่ว = ตัวนำครบทุกแถว</div>
+      <ol class="steps">
+        <li><span class="step-t">(ก) ไม่แผ่ทั่ว — ตอบจากจำนวนเวกเตอร์</span> มีเวกเตอร์แค่ <em>2</em> ตัวใน \(\mathbb{R}^3\) เมื่อวางเป็นหลัก เมทริกซ์จะขนาด \(3\times 2\) มีตัวนำได้มากที่สุด 2 ตัว (เท่ากับจำนวนหลัก) — แถวไหนก็ตามไม่มีตัวนำจะ "โดนปล่อยว่าง" เสมอ จึงมีตำแหน่งตัวหลักไม่ครบทุกแถว → โดยทฤษฎีบท 1.3.4 <em>ไม่แผ่ทั่ว</em> \(\mathbb{R}^3\) (เรขาคณิต: เวกเตอร์ 2 ตัวแผ่ได้มากที่สุดระนาบเดียว ไม่พอเต็มสามมิติ)</li>
+        <li><span class="step-t">(ข) เรียงเป็นหลักแล้วลดรูป: \(R_3 + 2R_1\)</span> แถวที่ 3 ใหม่: \(-2 + 2(1) = 0\), \(0 + 2(2) = 4\), \(-3 + 2(0) = -3\)
+        \[ A = \begin{bmatrix} 1 & 2 & 0\\ 0 & 4 & 0\\ -2 & 0 & -3 \end{bmatrix} \xrightarrow{\;R_3 + 2R_1\;} \begin{bmatrix} 1 & 2 & 0\\ 0 & 4 & 0\\ 0 & 4 & -3 \end{bmatrix} \]</li>
+        <li><span class="step-t">(ข) กวาดต่อ: \(R_3 - R_2\)</span> แถวที่ 3 ใหม่: \(0,\; 4 - 4 = 0,\; -3 - 0 = -3\) — ได้ตัวนำที่สามในแถวที่ 3
+        \[ \sim \begin{bmatrix} 1 & 2 & 0\\ 0 & 4 & 0\\ 0 & 0 & -3 \end{bmatrix} \]
+        ตัวนำ \(1, 4, -3\) อยู่แถวที่ 1, 2, 3 ครบทุกแถว → โดยทฤษฎีบท 1.3.4 หลักของ \(A\) <em>แผ่ทั่ว</em> \(\mathbb{R}^3\) (และเพราะไม่มีแถวล้า สมการ \(A\vec{x} = \vec{b}\) จะมีผลเฉลยกับ \(\vec{b}\) ทุกตัว)</li>
+      </ol>
+      <div class="verify"><span class="lbl">สรุปคำตอบ:</span> (ก) ไม่แผ่ทั่ว \(\mathbb{R}^3\) (มีเวกเตอร์ 2 ตัว ไม่พอตำแหน่งตัวหลัก 3 แถว) · (ข) แผ่ทั่ว \(\mathbb{R}^3\) (ตัวนำครบทุกแถวหลังลดรูป) — ตรงกับคำตอบท้ายบทของตำรา ((ก) ไม่แผ่ทั่ว, (ข) แผ่ทั่ว)</div>
+    </div>
+  </article>
+
+  <article class="ex-card">
+    <div class="ex-head"><span class="ex-badge">แบบฝึกหัด 1.3 ข้อ 2 ก,ข</span><span class="tag book">จากตำรา</span><span class="tag mid">กลาง</span><span class="ex-title">หา \(h\) ให้ \(\vec{b}\) อยู่บนระนาบที่แผ่โดย \(\vec{v}_1, \vec{v}_2\)</span></div>
+    <div class="ex-body">
+      <div class="ex-q">(ก) \(\vec{v}_1 = \begin{bmatrix} 1\\ 4\\ -2 \end{bmatrix},\; \vec{v}_2 = \begin{bmatrix} -2\\ -3\\ 7 \end{bmatrix},\; \vec{b} = \begin{bmatrix} 4\\ 1\\ h \end{bmatrix}\) &nbsp;&nbsp;
+      (ข) \(\vec{v}_1 = \begin{bmatrix} -3\\ 1\\ 8 \end{bmatrix},\; \vec{v}_2 = \begin{bmatrix} 1\\ 0\\ -2 \end{bmatrix},\; \vec{b} = \begin{bmatrix} h\\ -5\\ -3 \end{bmatrix}\) — จงหาค่าของ \(h\) ที่ทำให้ \(\vec{b}\) อยู่บนระนาบซึ่งแผ่ทั่วโดย \(\vec{v}_1\) และ \(\vec{v}_2\)</div>
+      <div class="approach"><span class="lbl">อธิบายโจทย์ง่าย ๆ</span> — "อยู่บนระนาบที่แผ่โดย \(\vec{v}_1, \vec{v}_2\)" = "อยู่ใน Span" = "ระบบ \(\begin{bmatrix} \vec{v}_1 & \vec{v}_2 & \vec{b} \end{bmatrix}\) ต้องกัน" — คราวนี้ \(h\) ซ่อนอยู่ใน \(\vec{b}\) จึงลดรูปโดยเก็บ \(h\) เป็นสัญลักษณ์ แถวสุดท้ายจะบังคับให้ \(h\) เป็นค่าใดค่าหนึ่ง</div>
+      <ol class="steps">
+        <li><span class="step-t">(ก) แก้สองแถวบนที่ไม่มี \(h\) ก่อน</span> จากแถวที่ 1: \(x_1 - 2x_2 = 4\) · แถวที่ 2: \(4x_1 - 3x_2 = 1\) — คูณแถวแรกด้วย 4 ได้ \(4x_1 - 8x_2 = 16\) แล้วลบ: \((-3 + 8)x_2 = 1 - 16\) → \(5x_2 = -15\) → \(x_2 = -3\) → \(x_1 = 4 + 2(-3) = -2\)
+        \[ \begin{bmatrix} 1 & -2 & 4\\ 4 & -3 & 1\\ -2 & 7 & h \end{bmatrix} \xrightarrow{\substack{R_2 - 4R_1\\ R_3 + 2R_1}} \begin{bmatrix} 1 & -2 & 4\\ 0 & 5 & -15\\ 0 & 3 & h + 8 \end{bmatrix} \xrightarrow{\;R_3 - \tfrac{3}{5}R_2\;} \begin{bmatrix} 1 & -2 & 4\\ 0 & 5 & -15\\ 0 & 0 & h + 17 \end{bmatrix} \]
+        (แถวที่ 3 ใหม่: \(h + 8 - \tfrac{3}{5}(-15) = h + 8 + 9 = h + 17\))</li>
+        <li><span class="step-t">(ก) ต้องกัน ⇔ แถวสุดท้ายล้า</span> ระบบต้องกัน ก็ต่อเมื่อ \(h + 17 = 0\) → \(h = -17\) (เพราะถ้า \(h \neq -17\) จะได้แถว \(0 = h + 17 \neq 0\) ขัดแย้ง) — ตรวจ: \(x_1\vec{v}_1 + x_2\vec{v}_2\) ช่องล่าง \(-2(-2) + 7(-3) = 4 - 21 = -17\) ✓</li>
+        <li><span class="step-t">(ข) แถวที่ 2 ให้ \(x_1\) ฟรี ๆ</span> แถวที่ 2: \(x_1 + 0x_2 = -5\) → \(x_1 = -5\) · แถวที่ 3: \(8x_1 - 2x_2 = -3\) → \(-40 - 2x_2 = -3\) → \(-2x_2 = 37\) → \(x_2 = -\tfrac{37}{2} = -18.5\)
+        \[ \begin{bmatrix} -3 & 1 & h\\ 1 & 0 & -5\\ 8 & -2 & -3 \end{bmatrix} \;\Longrightarrow\; x_1 = -5,\; x_2 = -\tfrac{37}{2} \]</li>
+        <li><span class="step-t">(ข) แทนกลับแถวที่ 1 หา \(h\)</span> \(-3(-5) + 1\left(-\tfrac{37}{2}\right) = 15 - \tfrac{37}{2} = \tfrac{30 - 37}{2} = -\tfrac{7}{2} = -3.5\) → \(h = -3.5\) — เพราะ \(\vec{b}\) จะอยู่บนระนาบก็ต่อเมื่อสามแถวจริงพร้อมกัน และสองแถวล่างกำหนด \(x_1, x_2\) ให้ตายตัวแล้ว \(h\) จึงถูกบังคับค่าเดียว</li>
+      </ol>
+      <div class="verify"><span class="lbl">สรุปคำตอบ:</span> (ก) \(h = -17\) · (ข) \(h = -3.5\) — ตรงกับคำตอบท้ายบทของตำรา (และการหารด้วยเศษส่วนเก็บเป็นทศนิยมได้ แต่เศษส่วนแม่นกว่า)</div>
+    </div>
+  </article>
+
+  <article class="ex-card">
+    <div class="ex-head"><span class="ex-badge">แบบฝึกหัด 1.3 ข้อ 8</span><span class="tag book">จากตำรา</span><span class="tag hard">ยาก</span><span class="ex-title">หา 6 ผลคูณ: \(AB, BA, (AB)^{T}, A^{T}B^{T}, CA, C^{T}B\)</span></div>
+    <div class="ex-body">
+      <div class="ex-q">กำหนดให้ \(A = \begin{bmatrix} 1 & -2\\ 2 & 1 \end{bmatrix},\; B = \begin{bmatrix} -4 & 1\\ 0 & -1 \end{bmatrix}\) และ \(C = \begin{bmatrix} -1 & 2 & 3\\ 1 & -2 & 0 \end{bmatrix}\) จงหา \(AB,\; BA,\; (AB)^{T},\; A^{T}B^{T},\; CA\) และ \(C^{T}B\)</div>
+      <div class="approach"><span class="lbl">อธิบายโจทย์ง่าย ๆ</span> — โจทย์วางแบบฝึกหัดรวมท่าทั้งหมดของการคูณเมทริกซ์: คูณตรง คูณสลับที่ คูณหลัง transpose และที่แอบซ่อนอยู่คือ \(CA\) ซึ่ง<em>คูณไม่ได้</em>เพราะขนาดไม่ตรง — ข้อนี้ฝึกให้เช็ก "จำนวนหลักซ้าย = จำนวนแถวขวา" ก่อนลงมือทุกครั้ง</div>
+      <ol class="steps">
+        <li><span class="step-t">หา \(AB\)</span> ช่องซ้ายบน \(1(-4) + (-2)(0) = -4\) · ขวาบน \(1(1) + (-2)(-1) = 1 + 2 = 3\) · ซ้ายล่าง \(2(-4) + 1(0) = -8\) · ขวาล่าง \(2(1) + 1(-1) = 1\)
+        \[ AB = \begin{bmatrix} -4 & 3\\ -8 & 1 \end{bmatrix} \]</li>
+        <li><span class="step-t">หา \(BA\) (สลับที่)</span> ช่องซ้ายบน \(-4(1) + 1(2) = -2\) · ขวาบน \(-4(-2) + 1(1) = 9\) · ซ้ายล่าง \(0(1) + (-1)(2) = -2\) · ขวาล่าง \(0(-2) + (-1)(1) = -1\)
+        \[ BA = \begin{bmatrix} -2 & 9\\ -2 & -1 \end{bmatrix} \neq AB \]</li>
+        <li><span class="step-t">หา \((AB)^{T}\) และ \(A^{T}B^{T}\)</span> \((AB)^{T}\) = สลับแถวหลักของ \(AB\): \(\begin{bmatrix} -4 & -8\\ 3 & 1 \end{bmatrix}\) · \(A^{T}B^{T}\): transpose ก่อนแล้วคูณ (ลำดับกลับอยู่ในตัวสมบัติ) ได้ \(\begin{bmatrix} -2 & -2\\ 9 & -1 \end{bmatrix}\) — สังเกตว่า \(A^{T}B^{T} = (BA)^{T}\) ตามทฤษฎีบท 1.3.6 ข้อ 4 (สัมประสิทธิ์ \(9\) ย้ายไปมุมขวาบนพอดี)</li>
+        <li><span class="step-t">เช็ก \(CA\) — คูณไม่ได้!</span> \(C\) ขนาด \(2\times 3\) มี <strong>3 หลัก</strong> แต่ \(A\) ขนาด \(2\times 2\) มี <strong>2 แถว</strong> — จำนวนกลางไม่เท่ากัน \(CA\) จึง<em>ไม่มีความหมาย</em> (ถ้าอยากคูณให้ได้ ต้องสลับเป็น \(AC\) ซึ่งได้ผลลัพธ์ \(2\times 3\)) — นี่คือข้อสอบที่วัดว่า "เช็กขนาดก่อนคูณ" หรือเปล่า</li>
+        <li><span class="step-t">หา \(C^{T}B\)</span> \(C^{T} = \begin{bmatrix} -1 & 1\\ 2 & -2\\ 3 & 0 \end{bmatrix}\) (ขนาด \(3\times 2\)) คูณ \(B\) (ขนาด \(2\times 2\)) ได้ \(3\times 2\) · แถวแรก: \(-1(-4) + 1(0) = 4\), \(-1(1) + 1(-1) = -2\) · แถวที่สอง: \(2(-4) + (-2)(0) = -8\), \(2(1) + (-2)(-1) = 4\) · แถวที่สาม: \(3(-4) + 0 = -12\), \(3(1) + 0(-1) = 3\)
+        \[ C^{T}B = \begin{bmatrix} 4 & -2\\ -8 & 4\\ -12 & 3 \end{bmatrix} \]</li>
+      </ol>
+      <div class="verify"><span class="lbl">สรุปคำตอบ:</span> \(AB = \begin{bmatrix} -4 & 3\\ -8 & 1 \end{bmatrix}\), \(BA = \begin{bmatrix} -2 & 9\\ -2 & -1 \end{bmatrix}\), \((AB)^{T} = \begin{bmatrix} -4 & -8\\ 3 & 1 \end{bmatrix}\), \(A^{T}B^{T} = \begin{bmatrix} -2 & -2\\ 9 & -1 \end{bmatrix}\), \(CA\) คูณไม่ได้ (ขนาดไม่ตรง), \(C^{T}B = \begin{bmatrix} 4 & -2\\ -8 & 4\\ -12 & 3 \end{bmatrix}\) — ทุกช่องตรวจย้ำด้วยการคำนวณช่องต่อช่องแล้ว</div>
+    </div>
+  </article>
+
+  <article class="ex-card">
+    <div class="ex-head"><span class="ex-badge">ตัวอย่าง 1.3.5</span><span class="tag book">จากตำรา</span><span class="tag hard">ยาก</span><span class="ex-title">เงื่อนไขบน \(b_1, b_2, b_3\) ที่ทำให้ \(A\vec{x} = \vec{b}\) มีผลเฉลย</span></div>
+    <div class="ex-body">
+      <div class="ex-q">กำหนดให้ \(A = \begin{bmatrix} 1 & 0 & 5\\ -2 & 1 & -6\\ 0 & 2 & 8 \end{bmatrix}\) และ \(\vec{b} = \begin{bmatrix} b_1\\ b_2\\ b_3 \end{bmatrix}\) จงพิจารณาว่าสมการเมทริกซ์ \(A\vec{x} = \vec{b}\) มีผลเฉลยสำหรับทุก ๆ เวกเตอร์ \(\vec{b}\) หรือไม่ ถ้าไม่ จงหาเงื่อนไขบน \(b_1, b_2\) และ \(b_3\) ซึ่งทำให้สมการนี้มีผลเฉลย</div>
+      <div class="approach"><span class="lbl">อธิบายโจทย์ง่าย ๆ</span> — โจทย์ถามสองชั้น: (1) "\(\vec{b}\) ใด ๆ ก็แก้ได้ไหม" (2) ถ้าไม่ ต้องมีเงื่อนไขอย่างไรถึงแก้ได้ — ท่าคือลดรูป \(\begin{bmatrix} A \mid \vec{b} \end{bmatrix}\) โดยให้ \(b_1, b_2, b_3\) เป็น "ตัวอักษร" อยู่ตลอด (อย่าแทนตัวเลข) แถวสุดท้ายที่ได้จะกลายเป็นสมการเงื่อนไขโดยอัตโนมัติ</div>
+      <ol class="steps">
+        <li><span class="step-t">กวาดหลักที่ 1: \(R_2 + 2R_1\)</span> แถวที่ 2 ใหม่: \(-2 + 2(1) = 0\), \(1 + 2(0) = 1\), \(-6 + 2(5) = 4\), \(b_2 + 2b_1\) — ช่องขวาก็ถูกแตะด้วย เพราะการดำเนินการแถวทำกับ<em>ทุกช่อง</em>ของแถว
+        \[ \begin{bmatrix} 1 & 0 & 5 & b_1\\ -2 & 1 & -6 & b_2\\ 0 & 2 & 8 & b_3 \end{bmatrix} \xrightarrow{\;R_2 + 2R_1\;} \begin{bmatrix} 1 & 0 & 5 & b_1\\ 0 & 1 & 4 & 2b_1 + b_2\\ 0 & 2 & 8 & b_3 \end{bmatrix} \]</li>
+        <li><span class="step-t">กวาดหลักที่ 2: \(R_3 - 2R_2\)</span> แถวที่ 3 ใหม่: \(0,\; 2 - 2(1) = 0,\; 8 - 2(4) = 0,\; b_3 - 2(2b_1 + b_2)\) — ฝั่งตัวแปรล้าหมด (หลักที่ 3 จะไม่มีตัวนำ) เหลือแต่นิพจน์ที่มี \(b\)
+        \[ \sim \begin{bmatrix} 1 & 0 & 5 & b_1\\ 0 & 1 & 4 & 2b_1 + b_2\\ 0 & 0 & 0 & -4b_1 - 2b_2 + b_3 \end{bmatrix} \]</li>
+        <li><span class="step-t">ตัดสินว่าแก้ได้ทุก \(\vec{b}\) หรือไม่</span> แถวสุดท้ายจะเป็นแถวขัดแย้ง \(\begin{bmatrix} 0 & 0 & 0 & \text{ไม่ศูนย์} \end{bmatrix}\) เมื่อ \(-4b_1 - 2b_2 + b_3 \neq 0\) — ตัวอย่างเช่น \(\vec{b} = (1, 1, 1)\) ให้ \(-4 - 2 + 1 = -5 \neq 0\) จึงแก้ไม่ได้ ดังนั้น \(A\vec{x} = \vec{b}\) <em>ไม่</em>มีผลเฉลยสำหรับทุก \(\vec{b}\) (เพราะ \(A\) ไม่มีตำแหน่งตัวหลักในทุกแถว — แถวที่ 3 ไม่มีตัวนำ)</li>
+        <li><span class="step-t">เงื่อนไขที่ทำให้มีผลเฉลย</span> โดยทฤษฎีบท 1.2.2 มีผลเฉลย ก็ต่อเมื่อแถวสุดท้ายล้าเป็น \(0 = 0\) นั่นคือ
+        \[ -4b_1 - 2b_2 + b_3 = 0 \]
+        (เช่น \(\vec{b} = (1, 1, 6)\) ผ่านเงื่อนไข \(-4 - 2 + 6 = 0\) จึงแก้ได้ · \(\vec{b} = (1, 0, 0)\) ไม่ผ่าน \(-4 \neq 0\) จึงแก้ไม่ได้) — เรขาคณิต: หลักของ \(A\) แผ่ได้เพียงระนาบ \(-4b_1 - 2b_2 + b_3 = 0\) เท่านั้น</li>
+      </ol>
+      <div class="verify"><span class="lbl">สรุปคำตอบ:</span> สมการ \(A\vec{x} = \vec{b}\) ไม่มีผลเฉลยสำหรับทุก \(\vec{b}\) และมีผลเฉลย ก็ต่อเมื่อ \(-4b_1 - 2b_2 + b_3 = 0\) — ตรงกับตำราทุกขั้น</div>
+    </div>
+  </article>
+</section>
+
+<section class="block" id="apply">
+  <h2><span class="h2-dot">🌍</span> เอาไปใช้ทำอะไร — โจทย์ประยุกต์</h2>
+
+  <article class="ex-card">
+    <div class="ex-head"><span class="ex-badge">🍹 สูตรผสมน้ำผลไม้</span><span class="tag app">ใช้จริง</span><span class="tag easy">ง่าย</span><span class="ex-title">การผสมสูตร = การรวมเชิงเส้น โดยตรงเลย</span></div>
+    <div class="ex-body">
+      <div class="ex-q">ร้านน้ำผลไม้วัด "โปรไฟล์รสชาติ" ของน้ำเป็นเวกเตอร์ (ความหวาน, ความเปรี้ยว) ได้ว่า น้ำส้มคั้น = \((7, 3)^T\) และน้ำมะนาว = \((2, 8)^T\) ทีมพัฒนาเมนูอยากได้น้ำผสมรสชาติ \((30, 20)^T\) จงหาว่าต้องใช้น้ำส้ม \(a\) ส่วน ผสมกับน้ำมะนาว \(b\) ส่วน (ที่ทำให้ \(a(7, 3) + b(2, 8) = (30, 20)\))</div>
+      <div class="approach"><span class="lbl">อธิบายโจทย์ง่าย ๆ</span> — โจทย์คือการรวมเชิงเส้นเป๊ะ ๆ: หา "น้ำหนัก" \(a, b\) ที่ผสมสองรสชาติพื้นฐานให้ได้เป้าหมายพอดี — เขียนออกมาทีละช่องก็ได้ระบบ 2 สมการ 2 ตัวแปร แก้ด้วยการลดรูปเมทริกซ์แต่งเติมตามปกติ</div>
+      <ol class="steps">
+        <li><span class="step-t">เขียนเมทริกซ์แต่งเติม \(\begin{bmatrix} \vec{v}_1 & \vec{v}_2 & \vec{b} \end{bmatrix}\)</span> น้ำส้มเป็นหลักแรก น้ำมะนาวเป็นหลักที่สอง เป้าหมายรสชาติต่อท้าย
+        \[ \begin{bmatrix} 7 & 2 & 30\\ 3 & 8 & 20 \end{bmatrix} \]</li>
+        <li><span class="step-t">กำจัด \(a\) จากแถวล่าง</span> ใช้ \(R_2 - \tfrac{3}{7}R_1\) หรือคิดแบบ "ทำให้ตัวส่วนเท่ากัน" ด้วยการคูณแถว: คูณแถวบนด้วย 3 ได้ \(21a + 6b = 90\), คูณแถวล่างด้วย 7 ได้ \(21a + 56b = 140\) แล้วลบกัน: \(50b = 50\) → \(b = 1\) — ต้องใช้น้ำมะนาว 1 ส่วน</li>
+        <li><span class="step-t">แทนกลับหา \(a\)</span> จากสมการแรก \(7a + 2(1) = 30\) → \(7a = 28\) → \(a = 4\) — ต้องใช้น้ำส้ม 4 ส่วน (สูตรผสมคือ 4 ส่วนส้มต่อ 1 ส่วนมะนาว)</li>
+        <li><span class="step-t">ตรวจกับเป้าหมาย</span> ความหวาน: \(4(7) + 1(2) = 28 + 2 = 30\) ✓ · ความเปรี้ยว: \(4(3) + 1(8) = 12 + 8 = 20\) ✓ ตรงเป้าทั้งสองช่อง</li>
+      </ol>
+      <div class="verify"><span class="lbl">เห็นไหมว่า...</span> การ "คิดสูตรใหม่จากสูตรเก่า" ในอุตสาหกรรมอาหาร สี น้ำหอม หรือการผสมโทนสีในกราฟิกคอมพิวเตอร์ ล้วนเป็นการรวมเชิงเส้น — และเครื่องมือตอบ "ต้องใส่ส่วนผสมละเท่าไร" ก็คือเมทริกซ์แต่งเติม \(\begin{bmatrix} \vec{v}_1 & \vec{v}_2 & \vec{b} \end{bmatrix}\) ที่เราลดรูปกันอยู่ทุกวันนี้</div>
+    </div>
+  </article>
+
+  <article class="ex-card">
+    <div class="ex-head"><span class="ex-badge">🗺️ แผนที่และ GPS</span><span class="tag app">ใช้จริง</span><span class="tag mid">กลาง</span><span class="ex-title">Span ตัดสินว่า "จุดนี้เข้าถึงได้ไหม"</span></div>
+    <div class="ex-body">
+      <div class="ex-q">รถส่งของของโครงการหนึ่งวิ่งได้เฉพาะถนนในเขตที่เรียงตัวทิศทางเดียวกัน คือทิศเวกเตอร์ \((2, 1)^T\) (บนแผนที่กริด: ขวา 2 หน่วย ขึ้น 1 หน่วย) จุดที่รถวิ่งไปถึงได้ทั้งหมดคือ \(\operatorname{Span}\{(2, 1)^T\}\) — จงตรวจว่าจุดจัดส่ง \((3, 1)^T\) รถเข้าถึงได้หรือไม่ และถ้าเปิดถนนใหม่ทิศ \((0, 1)^T\) เพิ่มอีกสาย จะเป็นอย่างไร</div>
+      <div class="approach"><span class="lbl">อธิบายโจทย์ง่าย ๆ</span> — คำถาม "เข้าถึงได้ไหม" แปลเป็นภาษาคณิตคือ "มี \(t\) ที่ทำให้ \(t(2, 1) = (3, 1)\) ไหม" — คือการตรวจว่า \(\vec{b}\) อยู่ใน Span หรือไม่ และกรณีที่แถมทิศใหม่มาคือการดูว่า Span กว้างขึ้นพอถึงทุกจุดหรือยัง</div>
+      <ol class="steps">
+        <li><span class="step-t">ตั้งสมการแล้วพบความขัดแย้ง</span> \(t(2, 1) = (3, 1)\) ให้สองสมการ: \(2t = 3\) (→ \(t = 1.5\)) และ \(t = 1\) — แทน \(t = 1\) กลับสมการแรกได้ \(2 \neq 3\) ขัดแย้ง → ไม่มี \(t\) ทำให้จริง → \((3, 1)^T\) <em>ไม่อยู่</em>ใน \(\operatorname{Span}\{(2, 1)^T)\}\) รถเข้าไม่ถึง (รถไปได้เฉพาะจุด \((2t, t)\) เช่น \((2, 1), (4, 2)\) ซึ่งพลาด \((3, 1)\) ไป)</li>
+        <li><span class="step-t">เปิดถนนใหม่ทิศ \((0, 1)^T\)</span> ตอนนี้จุดเข้าถึงได้คือ \(\operatorname{Span}\{(2, 1)^T, (0, 1)^T\}\) — สองเวกเตอร์นี้ไม่สัดส่วนกัน (ไม่มี \(c\) ที่ \((2,1) = c(0,1)\) เพราะฝั่งซ้ายมีช่องแรก 2) จึงแผ่เป็น<em>ทั้ง \(\mathbb{R}^2\)</em> ไม่ใช่แค่เส้น</li>
+        <li><span class="step-t">ลองไปจุดเดิม \((3, 1)^T\)</span> หา \(c_1, c_2\) ที่ \(c_1(2, 1) + c_2(0, 1) = (3, 1)\): แถวแรก \(2c_1 = 3\) → \(c_1 = 1.5\) · แถวที่สอง \(1.5(1) + c_2 = 1\) → \(c_2 = -0.5\) — ตรวจ: \(1.5(2, 1) - 0.5(0, 1) = (3, 1.5 - 0.5) = (3, 1)\) ✓ เข้าถึงได้แล้ว (ถอยหลังบนถนนใหม่ครึ่งหน่วยก็ถึง)</li>
+      </ol>
+      <div class="verify"><span class="lbl">เห็นไหมว่า...</span> GPS นำทางคุณโดยอาศัยหลักเดียวกันนี้: ตำแหน่งบนโลกถูกคำนวณจากการรวมเชิงเส้นของสัญญาณจากดาวเทียมหลายดวง ถ้าดาวเทียมที่ใช้มีทิศทาง "ซ้ำกัน" เกินไป Span จะแคบและพิกัดจะเบี่ยงเบน — ระบบจึงเลือกดาวเทียมที่กระจายทิศกันมากที่สุด เหมือนการเปิดถนนทิศใหม่ในข้อนี้</div>
     </div>
   </article>
 </section>

@@ -34,6 +34,8 @@
   <a href="#objectives">🎯 จุดประสงค์</a>
   <a href="#lesson">📖 บทเรียน</a>
   <a href="#examples">✏️ ตัวอย่างโจทย์</a>
+  <a href="#textbook">📚 ตัวอย่างจากตำรา</a>
+  <a href="#apply">🌍 การใช้จริง</a>
   <a href="#recipe">⚡ สูตรสำเร็จ</a>
   <a href="#practice">🏋️ โจทย์ซ้อมมือ</a>
 </nav>
@@ -247,7 +249,254 @@
   </article>
 </section>
 
-<section class="block" id="recipe">
+    <section class="block" id="textbook">
+      <h2><span class="h2-dot">📚</span> ตัวอย่างจากตำรา (พีชคณิต.pdf)</h2>
+      <p class="page-sub">โจทย์ทุกข้อคัดมาตรงจากตำราประกอบการสอน โดยเรียงจากง่ายไปยาก — ใต้โจทย์แต่ละข้อมี "อธิบายโจทย์ง่าย ๆ" ช่วยให้เห็นว่าโจทย์ถามอะไรก่อนลงมือทำ</p>
+
+      <article class="ex-card">
+        <div class="ex-head"><span class="ex-badge">ตัวอย่าง 2.1.3</span><span class="tag book">จากตำรา</span><span class="tag easy">ง่าย</span><span class="ex-title">การหดตัวและการเปลี่ยนขนาด \(T(\vec{x}) = r\vec{x}\) เป็นเชิงเส้น</span></div>
+        <div class="ex-body">
+          <div class="ex-q">ให้ \(r\) เป็นจำนวนจริงบวก กำหนด \(T : \mathbb{R}^2 \to \mathbb{R}^2\) โดย \(T(\vec{x}) = r\vec{x}\) สำหรับทุกเวกเตอร์ \(\vec{x} \in \mathbb{R}^2\) (เรียก \(T\) ว่า<em>การหดตัว</em> (contraction) เมื่อ \(0 &lt; r &lt; 1\) และเรียกว่า<em>การเปลี่ยนขนาด</em> (dilation) เมื่อ \(r &gt; 1\)) จงแสดงว่า \(T\) เป็นการแปลงเชิงเส้น</div>
+          <div class="approach"><span class="lbl">อธิบายโจทย์ง่าย ๆ</span> — โจทย์ให้ฟังก์ชันง่ายสุดในโลก "เอาทุกอย่างคูณ \(r\)" แล้วให้พิสูจน์ว่าเชิงเส้น วิธีตรวจมีข้อเดียวคือนิยาม: ต้องจริงทั้งสองสมบัติ "รวมก่อนแปลง = แปลงแล้วรวม" และ "สเกลก่อนแปลง = แปลงแล้วสเกล" — และเพราะ \(T\) ทำงานแค่ "คูณ \(r\)" การพิสูจน์จึงเป็นแค่กฎการแจกแจงของการคูณจำนวนจริง</div>
+          <ol class="steps">
+            <li><span class="step-t">ตรวจสมบัติการบวก</span> ให้ \(\vec{x}, \vec{y} \in \mathbb{R}^2\) ใด ๆ: \(T(\vec{x} + \vec{y}) = r(\vec{x} + \vec{y}) = r\vec{x} + r\vec{y} = T(\vec{x}) + T(\vec{y})\) ✓ — ขั้นกลาง \(r(\vec{x}+\vec{y}) = r\vec{x} + r\vec{y}\) คือกฎการแจกแจง \(r(a+b) = ra + rb\) ที่ใช้ได้กับเวกเตอร์แบบตำแหน่งต่อตำแหน่ง</li>
+            <li><span class="step-t">ตรวจสมบัติสเกลาร์</span> ให้ \(c \in \mathbb{R}\): \(T(c\vec{x}) = r(c\vec{x}) = (rc)\vec{x} = (cr)\vec{x} = c(r\vec{x}) = c\,T(\vec{x})\) ✓ — จุดเดียวที่ต้องระวังคือการสลับที่ \(rc = cr\) ซึ่งทำได้เพราะ \(r, c\) เป็นแค่จำนวนจริงธรรมดา</li>
+            <li><span class="step-t">สรุป</span> จริงทั้งสองสมบัติ → \(T\) เป็นการแปลงเชิงเส้น (เมื่อ \(r = 0.5\) ทุกจุดบนระนาบถูกดึงเข้าหาจุดกำเนิดครึ่งหนึ่ง — ภาพทั้งรูป "หด" ลง แต่รูปร่างไม่บิด)</li>
+          </ol>
+          <div class="verify"><span class="lbl">สรุปคำตอบ:</span> \(T(\vec{x}) = r\vec{x}\) (เป็นการแปลงเมทริกซ์) เป็นการแปลงเชิงเส้นเสมอสำหรับทุก \(r\) — โดยเฉพาะการหดตัวเมื่อ \(0 &lt; r &lt; 1\) และการเปลี่ยนขนาดเมื่อ \(r &gt; 1\) ตามตำรา</div>
+        </div>
+      </article>
+
+      <article class="ex-card">
+        <div class="ex-head"><span class="ex-badge">ตัวอย่าง 2.1.2</span><span class="tag book">จากตำรา</span><span class="tag easy">ง่าย</span><span class="ex-title">ฟังก์ชันที่ไม่เป็นการแปลงเชิงเส้น</span></div>
+        <div class="ex-body">
+          <div class="ex-q">แสดงว่าฟังก์ชันต่อไปนี้ไม่เป็นการแปลงเชิงเส้น<br>
+          (ก) \(T(x_1) = \sin x_1\) &nbsp;&nbsp;
+          (ข) \(T\!\begin{pmatrix}\begin{bmatrix} x_1\\ x_2 \end{bmatrix}\end{pmatrix} = \dfrac{1 - e^{x_1}}{x_1 + 3x_2}\) &nbsp;&nbsp;
+          (ค) \(T\!\begin{pmatrix}\begin{bmatrix} x_1\\ x_2 \end{bmatrix}\end{pmatrix} = x_1^2 + x_2^2\)</div>
+          <div class="approach"><span class="lbl">อธิบายโจทย์ง่าย ๆ</span> — โจทย์สั่งให้ "พิสูจน์ว่าพัง" ไม่ใช่แค่บอกผ่าน ๆ วิธีคือหาตัวเลขคู่หนึ่งที่ทำให้นิยามเชิงเส้น<em>ล้มเหลวต่อหน้าต่อตา</em>เพียงครั้งเดียวพอ — เพราะนิยามต้องจริง "ทุกเวกเตอร์" ตัวอย่างต้านหนึ่งชุดจึงเพียงพอ ยุทธศาสตร์: มักใช้สมบัติสเกลาร์ \(T(c\vec{x}) = cT(\vec{x})\) หรือสมบัติการบวก โดยเลือกค่าที่คำนวณง่ายและผลต่างเห็นชัด</div>
+          <ol class="steps">
+            <li><span class="step-t">(ก) สมบัติสเกลาร์พัง</span> ใช้ \(c = \tfrac{1}{6}\), \(\vec{x} = \pi\): ฝั่งซ้าย \(\sin\!\left(\tfrac{\pi}{6}\right) = \tfrac{1}{2}\) แต่ฝั่งขวา \(\tfrac{1}{6}\sin \pi = \tfrac{1}{6}(0) = 0\) — เพราะ \(\tfrac{1}{2} \neq 0\) สมบัติ \(T(c\vec{x}) = cT(\vec{x})\) ล้มเหลว จึงไม่เป็นการแปลงเชิงเส้น (สาเหตุเชิงลึก: เส้นไซน์โค้ง ไม่ใช่เส้นตรงผ่านจุดกำเนิด)</li>
+            <li><span class="step-t">(ข) สมบัติการบวกพัง</span> สังเกตว่า \(\begin{bmatrix} 0\\ 2 \end{bmatrix} = \begin{bmatrix} -1\\ 1 \end{bmatrix} + \begin{bmatrix} 1\\ 1 \end{bmatrix}\) — คำนวณทีละชิ้น: \(T\!\begin{pmatrix}\begin{bmatrix} 0\\ 2 \end{bmatrix}\end{pmatrix} = \dfrac{1 - e^{0}}{0 + 6} = \dfrac{0}{6} = 0\) แต่ \(T\!\begin{pmatrix}\begin{bmatrix} -1\\ 1 \end{bmatrix}\end{pmatrix} + T\!\begin{pmatrix}\begin{bmatrix} 1\\ 1 \end{bmatrix}\end{pmatrix} = \dfrac{1 - e^{-1}}{2} + \dfrac{1 - e}{4} = \dfrac{3 - 2e^{-1} - e}{4} \approx -0.11 \neq 0\) — เพราะ \(e^{x_1}\) โค้ง และตัวส่วน \(x_1 + 3x_2\) ก็ "ผสม" ตัวแปรไว้กัน ทำให้บวกแยกกันไม่ได้ จึงไม่เชิงเส้น</li>
+            <li><span class="step-t">(ค) สมบัติสเกลาร์พัง</span> ใช้ \(\vec{x} = \begin{bmatrix} 0\\ 1 \end{bmatrix}\), \(c = 2\): \(T(2\vec{x}) = T(0, 2) = 0^2 + 2^2 = 4\) แต่ \(2T(\vec{x}) = 2(0^2 + 1^2) = 2\) — เพราะ \(4 \neq 2\) จึงไม่เป็นการแปลงเชิงเส้น (จำง่าย ๆ: ยกกำลังสองแล้ว "คูณสองเท่า" ไม่เป็นไปตามกัน เพราะ \(2^2 = 4\) ไม่ใช่ \(2 \times 1^2\))</li>
+          </ol>
+          <div class="verify"><span class="lbl">สรุปคำตอบ:</span> ทั้งสามฟังก์ชันไม่เป็นการแปลงเชิงเส้น — (ก) เพราะ \(\sin(\tfrac{\pi}{6}) = \tfrac{1}{2} \neq \tfrac{1}{6}\sin\pi = 0\) · (ข) เพราะ \(T\!\left(\begin{bmatrix} 0\\ 2 \end{bmatrix}\right) = 0\) แต่ \(T\!\left(\begin{bmatrix} -1\\ 1 \end{bmatrix}\right) + T\!\left(\begin{bmatrix} 1\\ 1 \end{bmatrix}\right) \neq 0\) · (ค) เพราะ \(T(0,2) = 4 \neq 2T(0,1) = 2\) ตรงตามตำรา</div>
+        </div>
+      </article>
+
+      <article class="ex-card">
+        <div class="ex-head"><span class="ex-badge">ตัวอย่าง 2.1.7</span><span class="tag book">จากตำรา</span><span class="tag easy">ง่าย</span><span class="ex-title">เมทริกซ์มาตรฐานของ \(T(\vec{x}) = r\vec{x}\)</span></div>
+        <div class="ex-body">
+          <div class="ex-q">จงหาเมทริกซ์มาตรฐานสำหรับการแปลงเชิงเส้น \(T(\vec{x}) = r\vec{x}\) สำหรับทุกเวกเตอร์ \(\vec{x} \in \mathbb{R}^2\) และ \(r\) เป็นจำนวนจริงบวก</div>
+          <div class="approach"><span class="lbl">อธิบายโจทย์ง่าย ๆ</span> — ทฤษฎีบท 2.1.2 บอกสูตรลับ: เมทริกซ์มาตรฐานก็คือ "เอา \(T(\vec{e}_1), T(\vec{e}_2)\) มาเรียงเป็นหลัก" — โจทย์ข้อนี้จึงแค่ให้แทนค่าเวกเตอร์ฐานมาตรฐาน \(\vec{e}_1 = \begin{bmatrix} 1\\ 0 \end{bmatrix}\), \(\vec{e}_2 = \begin{bmatrix} 0\\ 1 \end{bmatrix}\) ลงใน \(T(\vec{x}) = r\vec{x}\)</div>
+          <ol class="steps">
+            <li><span class="step-t">หาภาพของเวกเตอร์ฐาน</span> \(T(\vec{e}_1) = r\vec{e}_1 = \begin{bmatrix} r\\ 0 \end{bmatrix}\) และ \(T(\vec{e}_2) = r\vec{e}_2 = \begin{bmatrix} 0\\ r \end{bmatrix}\) — การคูณ \(r\) กับเวกเตอร์ฐานแค่ "ปรับขนาด" แต่ละช่อง ตำแหน่งศูนย์ก็ยังเป็นศูนย์</li>
+            <li><span class="step-t">เรียงภาพเป็นหลักของ \(A\)</span> เอา \(T(\vec{e}_1)\) เป็นหลักที่ 1 และ \(T(\vec{e}_2)\) เป็นหลักที่ 2:
+            \[ A = \begin{bmatrix} T(\vec{e}_1) & T(\vec{e}_2) \end{bmatrix} = \begin{bmatrix} r & 0\\ 0 & r \end{bmatrix} \]
+            (เมทริกซ์นี้คือ \(rI_2\) — แนวทแยงเท่ากับ \(r\) ที่เหลือเป็นศูนย์ ตรงความรู้สึก "ขยายเท่า ๆ กันทุกทิศ")</li>
+          </ol>
+          <div class="verify"><span class="lbl">สรุปคำตอบ:</span> \(A = \begin{bmatrix} r & 0\\ 0 & r \end{bmatrix}\) เป็นเมทริกซ์มาตรฐานของการแปลงเชิงเส้น \(T\) ตามตำรา — ตรวจได้: \(A\vec{x} = r\vec{x}\) สำหรับทุก \(\vec{x}\) ✓</div>
+        </div>
+      </article>
+
+      <article class="ex-card">
+        <div class="ex-head"><span class="ex-badge">ตัวอย่าง 2.1.1</span><span class="tag book">จากตำรา</span><span class="tag mid">กลาง</span><span class="ex-title">คำนวณ \(T(\vec{u})\), ย้อนหา \(\vec{x}\) และตรวจเรนจ์ของ \(T\)</span></div>
+        <div class="ex-body">
+          <div class="ex-q">ให้ \(A = \begin{bmatrix} -1 & 7\\ 1 & -3\\ 3 & 5 \end{bmatrix}\), \(\vec{u} = \begin{bmatrix} 1\\ -2 \end{bmatrix}\), \(\vec{b} = \begin{bmatrix} -5\\ 3\\ 2 \end{bmatrix}\), \(\vec{c} = \begin{bmatrix} 1\\ 3\\ -2 \end{bmatrix}\) และกำหนดการแปลงเมทริกซ์ \(T : \mathbb{R}^2 \to \mathbb{R}^3\) โดย \(T(\vec{x}) = A\vec{x}\) นั่นคือ \(T\!\begin{pmatrix}\begin{bmatrix} x_1\\ x_2 \end{bmatrix}\end{pmatrix} = \begin{bmatrix} -x_1 + 7x_2\\ x_1 - 3x_2\\ 3x_1 + 5x_2 \end{bmatrix}\)<br>
+          (ก) จงหา \(T(\vec{u})\) &nbsp; (ข) จงหาเวกเตอร์ \(\vec{x}\) ซึ่ง \(T(\vec{x}) = \vec{b}\) &nbsp; (ค) เวกเตอร์ \(\vec{x}\) ที่ได้ในข้อ (ข) มีเพียงเวกเตอร์เดียวหรือไม่ &nbsp; (ง) จงพิจารณาว่า \(\vec{c}\) อยู่ในเรนจ์ของ \(T\) หรือไม่ เพราะเหตุใด</div>
+          <div class="approach"><span class="lbl">อธิบายโจทย์ง่าย ๆ</span> — โจทย์เดินครบทั้งสามทิศทางของการแปลงเมทริกซ์: (ก) เดินหน้า — แทน \(\vec{u}\) ลงในสูตร (ข) เดินถอยหลัง — หาตัวตั้งต้นที่ส่งไป \(\vec{b}\) ซึ่งก็คือแก้ระบบ \(A\vec{x} = \vec{b}\) ด้วยการลดรูปเมทริกซ์แต่งเติม (ค) ถามต่อว่าคำตอบซ้ำได้ไหม = ดูว่ามีตัวแปรเสรีไหม (ง) ถามว่า \(\vec{c}\) "ส่งถึงไหม" = ลองแก้ \(A\vec{x} = \vec{c}\) แล้วดูว่าต้องกันหรือไม่</div>
+          <ol class="steps">
+            <li><span class="step-t">(ก) แทนค่า \(\vec{u}\) ลงในสูตร</span> คิดทีละช่อง: ช่องแรก \(-1 + 7(-2) = -1 - 14 = -15\) ช่องที่สอง \(1 - 3(-2) = 1 + 6 = 7\) ช่องที่สาม \(3(1) + 5(-2) = 3 - 10 = -7\) (จุดที่มักผิด: ลบคูณลบได้บวกในช่องที่สอง แต่ \(5(-2)\) เป็นลบ)
+            \[ T(\vec{u}) = T\!\begin{pmatrix}\begin{bmatrix} 1\\ -2 \end{bmatrix}\end{pmatrix} = \begin{bmatrix} -1 + 7(-2)\\ 1 - 3(-2)\\ 3(1) + 5(-2) \end{bmatrix} = \begin{bmatrix} -15\\ 7\\ -7 \end{bmatrix} \]</li>
+            <li><span class="step-t">(ข) ลดรูปเมทริกซ์แต่งเติม \([A \mid \vec{b}]\)</span> สลับ \(R_1 \leftrightarrow R_2\) ให้หัวบันไดเป็น 1 แล้วเคาะ: \(R_2 + R_1\) ได้ \(\begin{bmatrix} 0 & 4 & -2 \end{bmatrix}\), \(R_3 - 3R_1\) ได้ \(\begin{bmatrix} 0 & 14 & -7 \end{bmatrix}\) (คิดทีละช่อง: \(-1 + 1 = 0\), \(7 + (-3) = 4\), \(-5 + 3 = -2\) และ \(3 - 3(1) = 0\), \(5 - 3(-3) = 14\), \(2 - 3(3) = -7\)) จากนั้น \(\tfrac{1}{4}R_2\) แล้ว \(R_3 - 14R_2\) เคาะแถวล่างให้ล้า \(0 = 0\) และ \(R_1 + 3R_2\) เคาะเหนือตัวนำ
+            \[ [A \mid \vec{b}] = \begin{bmatrix} -1 & 7 & -5\\ 1 & -3 & 3\\ 3 & 5 & 2 \end{bmatrix} \sim \begin{bmatrix} 1 & 0 & \tfrac{3}{2}\\ 0 & 1 & -\tfrac{1}{2}\\ 0 & 0 & 0 \end{bmatrix} \;\Longrightarrow\; \vec{x} = \begin{bmatrix} \tfrac{3}{2}\\[2pt] -\tfrac{1}{2} \end{bmatrix} \]</li>
+            <li><span class="step-t">(ค) นับตัวแปรเสรี</span> จากรูปแบบขั้นบันไดลดรูป ตัวนำอยู่ครบทั้ง 2 หลัก ไม่มีตัวแปรเสรี เวกเตอร์ \(\vec{x}\) ที่ได้จึงมี<em>เพียงเวกเตอร์เดียว</em> — ตรวจ: \(A\begin{bmatrix} 3/2\\ -1/2 \end{bmatrix} = \begin{bmatrix} -\tfrac{3}{2} - \tfrac{7}{2}\\ \tfrac{3}{2} + \tfrac{3}{2}\\ \tfrac{9}{2} - \tfrac{5}{2} \end{bmatrix} = \begin{bmatrix} -5\\ 3\\ 2 \end{bmatrix} = \vec{b}\) ✓</li>
+            <li><span class="step-t">(ง) ตรวจว่า \(A\vec{x} = \vec{c}\) มีผลเฉลยไหม</span> \(\vec{c}\) อยู่ในเรนจ์ของ \(T\) ก็ต่อเมื่อระบบต้องกัน — ลดรูป \([A \mid \vec{c}]\): \(R_2 + R_1\) ได้ \(\begin{bmatrix} 0 & 4 & 4 \end{bmatrix}\), \(R_3 + 3R_1\) ได้ \(\begin{bmatrix} 0 & 26 & 1 \end{bmatrix}\) แล้ว \(R_3 - \tfrac{26}{4}R_2\) ได้ \(\begin{bmatrix} 0 & 0 & -25 \end{bmatrix}\)
+            \[ [A \mid \vec{c}] \sim \begin{bmatrix} -1 & 7 & 1\\ 0 & 4 & 4\\ 0 & 0 & -25 \end{bmatrix} \]
+            แถวสุดท้ายสมนัยกับ \(0 = -25\) ซึ่งเป็นข้อขัดแย้ง ระบบจึงไม่มีผลเฉลย (โดยทฤษฎีบท 1.2.2) ส่งผลให้ \(\vec{c}\) <strong>ไม่อยู่ในเรนจ์ของ \(T\)</strong></li>
+          </ol>
+          <div class="verify"><span class="lbl">สรุปคำตอบ:</span> (ก) \(T(\vec{u}) = (-15, 7, -7)\) · (ข) \(\vec{x} = \left(\tfrac{3}{2}, -\tfrac{1}{2}\right)\) · (ค) มีเพียงเวกเตอร์เดียว (ไม่มีตัวแปรเสรี) · (ง) \(\vec{c}\) ไม่อยู่ในเรนจ์ของ \(T\) เพราะ \(A\vec{x} = \vec{c}\) ไม่ต้องกัน — ตรงทุกข้อตามตำรา</div>
+        </div>
+      </article>
+
+      <article class="ex-card">
+        <div class="ex-head"><span class="ex-badge">ตัวอย่าง 2.1.4 – 2.1.5</span><span class="tag book">จากตำรา</span><span class="tag mid">กลาง</span><span class="ex-title">ใช้ความเชิงเส้นหาภาพของการรวมเชิงเส้น</span></div>
+        <div class="ex-body">
+          <div class="ex-q"><strong>ตัวอย่าง 2.1.4:</strong> ให้ \(T : \mathbb{R}^2 \to \mathbb{R}^2\) เป็นการแปลงเชิงเส้นซึ่ง \(T(\vec{u}) = \begin{bmatrix} 1\\ 2 \end{bmatrix}\) และ \(T(\vec{v}) = \begin{bmatrix} 2\\ 5 \end{bmatrix}\) จงหา \(T(2\vec{u})\) และ \(T(3\vec{u} - \vec{v})\)<br>
+          <strong>ตัวอย่าง 2.1.5:</strong> ให้ \(\vec{e}_1 = \begin{bmatrix} 1\\ 0 \end{bmatrix}\), \(\vec{e}_2 = \begin{bmatrix} 0\\ 1 \end{bmatrix}\), \(\vec{y}_1 = \begin{bmatrix} 1\\ 0\\ 2 \end{bmatrix}\), \(\vec{y}_2 = \begin{bmatrix} 0\\ 1\\ 1 \end{bmatrix}\) และ \(T : \mathbb{R}^2 \to \mathbb{R}^3\) เป็นการแปลงเชิงเส้นซึ่ง \(T(\vec{e}_1) = \vec{y}_1\) และ \(T(\vec{e}_2) = \vec{y}_2\) จงหาภาพของ \(\begin{bmatrix} 3\\ 2 \end{bmatrix}\) และ \(\begin{bmatrix} x_1\\ x_2 \end{bmatrix}\) ภายใต้ \(T\)</div>
+          <div class="approach"><span class="lbl">อธิบายโจทย์ง่าย ๆ</span> — สองข้อนี้สอนท่าเดียวกัน: เรา<em>ไม่รู้</em>สูตรของ \(T\) แต่รู้ภาพของบางเวกเตอร์ พอโจทย์บอกว่า \(T\) เชิงเส้น เราก็มีสิทธิ์ฉีก \(T(c\vec{u} + d\vec{v}) = cT(\vec{u}) + dT(\vec{v})\) — ข้อ 2.1.4 ฉีกที่ \(\vec{u}, \vec{v}\) ตรง ๆ ส่วนข้อ 2.1.5 ต้องเขียน \(\vec{x}\) เป็นการรวมเชิงเส้นของ \(\vec{e}_1, \vec{e}_2\) ก่อน (ซึ่งง่ายมาก: \(\begin{bmatrix} x_1\\ x_2 \end{bmatrix} = x_1\vec{e}_1 + x_2\vec{e}_2\))</div>
+          <ol class="steps">
+            <li><span class="step-t">2.1.4: ดึงสเกลาร์ออกแล้วกระจาย</span> \(T(2\vec{u}) = 2T(\vec{u}) = 2\begin{bmatrix} 1\\ 2 \end{bmatrix} = \begin{bmatrix} 2\\ 4 \end{bmatrix}\) (คูณทีละช่อง) และ \(T(3\vec{u} - \vec{v}) = 3T(\vec{u}) - T(\vec{v}) = 3\begin{bmatrix} 1\\ 2 \end{bmatrix} - \begin{bmatrix} 2\\ 5 \end{bmatrix} = \begin{bmatrix} 3-2\\ 6-5 \end{bmatrix} = \begin{bmatrix} 1\\ 1 \end{bmatrix}\) — ระวังอย่าลืมกระจายเครื่องหมายลบของ \(-\vec{v}\)</li>
+            <li><span class="step-t">2.1.5: เขียนเวกเตอร์เป็นรวมเชิงเส้นของ \(\vec{e}_1, \vec{e}_2\)</span> \(\begin{bmatrix} 3\\ 2 \end{bmatrix} = 3\vec{e}_1 + 2\vec{e}_2\) และ \(\begin{bmatrix} x_1\\ x_2 \end{bmatrix} = x_1\vec{e}_1 + x_2\vec{e}_2\) (อ่านน้ำหนักตรงจากช่องของเวกเตอร์ — เพราะ \(\vec{e}_1, \vec{e}_2\) คือเวกเตอร์ฐานมาตรฐาน)</li>
+            <li><span class="step-t">2.1.5: ดึง \(T\) เข้าไปแล้วแทนภาพที่รู้</span>
+            \[ T\!\begin{pmatrix}\begin{bmatrix} 3\\ 2 \end{bmatrix}\end{pmatrix} = T(3\vec{e}_1 + 2\vec{e}_2) = 3T(\vec{e}_1) + 2T(\vec{e}_2) = 3\vec{y}_1 + 2\vec{y}_2 = \begin{bmatrix} 3\\ 0\\ 6 \end{bmatrix} + \begin{bmatrix} 0\\ 2\\ 2 \end{bmatrix} = \begin{bmatrix} 3\\ 2\\ 8 \end{bmatrix} \]
+            และแบบทั่วไป \(T\!\begin{pmatrix}\begin{bmatrix} x_1\\ x_2 \end{bmatrix}\end{pmatrix} = x_1\vec{y}_1 + x_2\vec{y}_2 = \begin{bmatrix} x_1\\ x_2\\ 2x_1 + x_2 \end{bmatrix}\) — ซึ่งเท่ากับการคูณเมทริกซ์มาตรฐาน \(\begin{bmatrix} 1 & 0\\ 0 & 1\\ 2 & 1 \end{bmatrix}\begin{bmatrix} x_1\\ x_2 \end{bmatrix}\) (หลักของ \(A\) คือ \(\vec{y}_1, \vec{y}_2\) พอดี — หมายเหตุ: ตำราพิมพ์ช่องแรกเป็น "\(x_1 + x_2\)" ซึ่งเป็นคำพิมพ์ผิด เพราะ \(x_1\vec{y}_1 + x_2\vec{y}_2\) ช่องแรกคือ \(x_1(1) + x_2(0) = x_1\) และเมทริกซ์มาตรฐานของตำราเองก็ให้ช่องแรกเป็น \(x_1\) เช่นกัน ลองตรวจกับข้อ (ก): ถ้าช่องแรกเป็น \(x_1 + x_2\) แล้ว \(T(3, 2)\) ต้องได้ 5 ไม่ใช่ 3)</li>
+          </ol>
+          <div class="verify"><span class="lbl">สรุปคำตอบ:</span> 2.1.4: \(T(2\vec{u}) = (2, 4)\) และ \(T(3\vec{u} - \vec{v}) = (1, 1)\) · 2.1.5: ภาพของ \(\begin{bmatrix} 3\\ 2 \end{bmatrix}\) คือ \(\begin{bmatrix} 3\\ 2\\ 8 \end{bmatrix}\) และ \(T(x_1, x_2) = (x_1,\; x_2,\; 2x_1 + x_2)\) — ตรงตามตำราทุกช่อง (ช่องแรกตำราพิมพ์ \(x_1 + x_2\) เกินมา ดูหมายเหตุในขั้นที่ 3)</div>
+        </div>
+      </article>
+
+      <article class="ex-card">
+        <div class="ex-head"><span class="ex-badge">ตัวอย่าง 2.1.8</span><span class="tag book">จากตำรา</span><span class="tag mid">กลาง</span><span class="ex-title">แสดงความเป็นเชิงเส้นด้วยเมทริกซ์มาตรฐาน \(4 \times 3\)</span></div>
+        <div class="ex-body">
+          <div class="ex-q">กำหนด \(T : \mathbb{R}^3 \to \mathbb{R}^4\) โดย \(T(x_1, x_2, x_3) = (x_1 + x_2,\; x_2 + 2x_3,\; 0,\; x_2)\) จงแสดงว่า \(T\) เป็นการแปลงเชิงเส้น พร้อมทั้งหาเมทริกซ์มาตรฐาน \(A\) สำหรับ \(T\)</div>
+          <div class="approach"><span class="lbl">อธิบายโจทย์ง่าย ๆ</span> — โจทย์ให้สูตร \(T\) มา 4 ช่อง ให้พิสูจน์เชิงเส้นและหาเมทริกซ์ประจำตัว ทางลัดของตำรา: เขียนผลลัพธ์เป็น "\(x_1(\text{เวกเตอร์}) + x_2(\text{เวกเตอร์}) + x_3(\text{เวกเตอร์})\)" ให้ได้ก่อน — พอเขียนได้ก็กลายเป็น \(A\vec{x}\) ทันที และทุกการแปลงเมทริกซ์เชิงเส้นโดยทฤษฎีบท 2.1.1 จบในบรรทัดเดียว</div>
+          <ol class="steps">
+            <li><span class="step-t">แยกสูตรตามตัวแปร</span> เก็บพจน์ของ \(x_1, x_2, x_3\) ออกมาเป็นเวกเตอร์สัมประสิทธิ์: \(x_1\) โผล่แค่ช่องแรก (สัมประสิทธิ์ 1) · \(x_2\) โผล่ 3 ช่อง (ช่องแรก 1, ช่องที่สอง 1, ช่องที่สี่ 1) · \(x_3\) โผล่ช่องที่สอง (สัมประสิทธิ์ 2)
+            \[ T(\vec{x}) = x_1\begin{bmatrix} 1\\ 0\\ 0\\ 0 \end{bmatrix} + x_2\begin{bmatrix} 1\\ 1\\ 0\\ 1 \end{bmatrix} + x_3\begin{bmatrix} 0\\ 2\\ 0\\ 0 \end{bmatrix} = \begin{bmatrix} 1 & 1 & 0\\ 0 & 1 & 2\\ 0 & 0 & 0\\ 0 & 1 & 0 \end{bmatrix}\begin{bmatrix} x_1\\ x_2\\ x_3 \end{bmatrix} \]</li>
+            <li><span class="step-t">สรุปความเชิงเส้น</span> เพราะ \(T(\vec{x}) = A\vec{x}\) เป็น<em>การแปลงเมทริกซ์</em> จึงสรุปโดยทฤษฎีบท 2.1.1 ได้ว่า \(T\) เป็นการแปลงเชิงเส้น — ไม่ต้องตรวจสอบสองสมบัติทีละอันให้เสียเวลา</li>
+            <li><span class="step-t">อ่านเมทริกซ์มาตรฐาน</span> หลักที่ \(j\) ของ \(A\) คือเวกเตอร์สัมประสิทธิ์ของ \(x_j\) จึงได้
+            \[ A = \begin{bmatrix} 1 & 1 & 0\\ 0 & 1 & 2\\ 0 & 0 & 0\\ 0 & 1 & 0 \end{bmatrix} \]
+            (สังเกตแถวที่ 3 เป็นศูนย์ทั้งแถว เพราะช่องที่ 3 ของผลลัพธ์คือค่า 0 ตลอด — เป็นเรื่องปกติ ไม่ได้แปลว่าทำผิด)</li>
+          </ol>
+          <div class="verify"><span class="lbl">สรุปคำตอบ:</span> \(T\) เป็นการแปลงเชิงเส้น (เพราะเป็นการแปลงเมทริกซ์) โดยมีเมทริกซ์มาตรฐาน \(A = \begin{bmatrix} 1 & 1 & 0\\ 0 & 1 & 2\\ 0 & 0 & 0\\ 0 & 1 & 0 \end{bmatrix}\) ตรงตามตำรา — ทดลองแทน: แถวที่ 2 ของ \(A\vec{x}\) คือ \(0\cdot x_1 + 1\cdot x_2 + 2x_3 = x_2 + 2x_3\) ✓</div>
+        </div>
+      </article>
+
+      <article class="ex-card">
+        <div class="ex-head"><span class="ex-badge">แบบฝึกหัด 2.1 ข้อ 4</span><span class="tag book">จากตำรา</span><span class="tag mid">กลาง</span><span class="ex-title">แสดงว่าฟังก์ชันไม่เป็นการแปลงเชิงเส้น</span></div>
+        <div class="ex-body">
+          <div class="ex-q">จงแสดงว่าฟังก์ชันต่อไปนี้ไม่เป็นการแปลงเชิงเส้น<br>
+          (ก) \(T\!\begin{pmatrix}\begin{bmatrix} x_1\\ x_2 \end{bmatrix}\end{pmatrix} = \begin{bmatrix} 2x_1 - 3x_2\\ x_2 + 4 \end{bmatrix}\) &nbsp;&nbsp;
+          (ข) \(T\!\begin{pmatrix}\begin{bmatrix} x_1\\ x_2 \end{bmatrix}\end{pmatrix} = |x_1| + |x_2|\)</div>
+          <div class="approach"><span class="lbl">อธิบายโจทย์ง่าย ๆ</span> — ทั้งสองข้อต้องพิสูจน์ด้วยตัวอย่างต้านเพียงชุดเดียว เคล็ดลับจำ: ฟังก์ชันที่มี "ค่าคงตัวบวกเข้าไปในสูตร" มักพังที่ \(T(\vec{0})\) ทันที ส่วนฟังก์ชันที่มี "ค่าสัมบูรณ์" มักพังที่การบวกหรือสเกลด้วยเลขลบ เพราะ \(|-x| \neq -|x|\)</div>
+          <ol class="steps">
+            <li><span class="step-t">(ก) ทดสอบด้วยเวกเตอร์ศูนย์</span> \(T(\vec{0}) = T(0, 0) = \begin{bmatrix} 2(0) - 3(0)\\ 0 + 4 \end{bmatrix} = \begin{bmatrix} 0\\ 4 \end{bmatrix} \neq \vec{0}\) — แต่ทุกการแปลงเชิงเส้นต้องได้ \(T(\vec{0}) = \vec{0}\) เสมอ (เพราะ \(T(\vec{0}) = T(0\cdot\vec{0}) = 0\cdot T(\vec{0}) = \vec{0}\)) ช่องที่สองมีค่าคงตัว 4 ติดมา จึงพิสูจน์จบในบรรทัดเดียวว่าไม่เชิงเส้น</li>
+            <li><span class="step-t">(ข) ทดสอบสมบัติการบวก</span> \(T(\vec{0}) = 0\) ผ่าน จึงต้องใช้ตัวอย่างต้านอื่น — ให้ \(\vec{u} = \begin{bmatrix} -1\\ 0 \end{bmatrix}\), \(\vec{v} = \begin{bmatrix} 1\\ 0 \end{bmatrix}\) ได้ \(T(\vec{u}) = |-1| + 0 = 1\) และ \(T(\vec{v}) = 1 + 0 = 1\) รวมกัน \(T(\vec{u}) + T(\vec{v}) = 2\) แต่ \(\vec{u} + \vec{v} = \vec{0}\) ทำให้ \(T(\vec{u} + \vec{v}) = T(\vec{0}) = 0 \neq 2\) — สมบัติการบวกล้มเหลว จึงไม่เป็นการแปลงเชิงเส้น (สาเหตุ: ค่าสัมบูรณ์ "เก็บ" เครื่องหมายลบทิ้ง ทำให้เวกเตอร์ตรงข้ามกันมาบวกแล้วไม่ล้าเป็นศูนย์)</li>
+          </ol>
+          <div class="verify"><span class="lbl">สรุปคำตอบ:</span> (ก) ไม่เชิงเส้น เพราะ \(T(\vec{0}) = (0, 4) \neq \vec{0}\) · (ข) ไม่เชิงเส้น เพราะ \(T(-1, 0) + T(1, 0) = 2 \neq T(0, 0) = 0\) — ตัวอย่างต้านชุดเดียวพอสำหรับการปฏิเสธ</div>
+        </div>
+      </article>
+
+      <article class="ex-card">
+        <div class="ex-head"><span class="ex-badge">ตัวอย่าง 2.1.9</span><span class="tag book">จากตำรา</span><span class="tag mid">กลาง</span><span class="ex-title">ลดรูปแล้วนับตัวหลัก: 1-1 และทั่วถึงพร้อมกัน</span></div>
+        <div class="ex-body">
+          <div class="ex-q">จงตรวจสอบว่าการแปลงเชิงเส้นที่มีเมทริกซ์มาตรฐานเป็น
+          \[ A = \begin{bmatrix} 1 & -2 & 1\\ 2 & 0 & 2\\ -3 & 6 & 3 \end{bmatrix} \]
+          มีสมบัติทั่วถึงหรือมีสมบัติ 1-1 หรือไม่ เพราะเหตุใด</div>
+          <div class="approach"><span class="lbl">อธิบายโจทย์ง่าย ๆ</span> — โจทย์ไม่ได้ขอหา \(T\) หรือหาภาพ แต่ถาม "คุณภาพ" ของการแปลง วิธีมาตรฐานคือลดรูป \(A\) เป็นรูปแบบขั้นบันไดแล้ว<em>นับตำแหน่งตัวหลัก</em>: ตัวนำครบทุกหลัก → 1-1 ครบทุกแถว → ทั่วถึง (บทแทรก 2.1.4) — เหมือนเช็กอาการผู้ป่วยด้วยการกดตามช่องทีละจุด</div>
+          <ol class="steps">
+            <li><span class="step-t">ลดรูปจนได้รูปแบบขั้นบันได</span> หัวบันไดแรกเป็น 1 อยู่แล้ว ใช้เคาะสองแถวล่างพร้อมกัน: \(R_2 - 2R_1\) ทีละช่อง \(2 - 2(1) = 0\), \(0 - 2(-2) = 4\), \(2 - 2(1) = 0\) · \(R_3 + 3R_1\) ทีละช่อง \(-3 + 3(1) = 0\), \(6 + 3(-2) = 0\), \(3 + 3(1) = 6\)
+            \[ A = \begin{bmatrix} 1 & -2 & 1\\ 2 & 0 & 2\\ -3 & 6 & 3 \end{bmatrix} \sim \begin{bmatrix} 1 & -2 & 1\\ 0 & 4 & 0\\ 0 & 0 & 6 \end{bmatrix} \]</li>
+            <li><span class="step-t">นับตำแหน่งตัวหลัก</span> ตัวนำ \(1, 4, 6\) วางเรียงเป็นบันไดพอดี: อยู่ครบ<em>ทั้ง 3 หลัก</em> (หลัก 1, 2, 3) และครบ<em>ทั้ง 3 แถว</em> — ไม่มีหลักไร้ตัวนำ ไม่มีแถวล้า</li>
+            <li><span class="step-t">สรุปโดยบทแทรก 2.1.4</span> ตัวนำครบทุกหลัก → หลักของ \(A\) อิสระเชิงเส้น → \(T\) มีสมบัติ <strong>1-1</strong> และตัวนำครบทุกแถว → หลักของ \(A\) แผ่ทั่ว \(\mathbb{R}^3\) → \(T\) มีสมบัติ<strong>ทั่วถึง</strong> — ทั้งสองสมบัติพร้อมกันได้เพราะ \(A\) จัตุรัสและตัวนำเต็มจำนวน 3 ตำแหน่ง</li>
+          </ol>
+          <div class="verify"><span class="lbl">สรุปคำตอบ:</span> \(A\) มีตำแหน่งตัวหลักในทุกหลักและในทุกแถว จึงสรุปตามตำราว่า \(T\) มีสมบัติ 1-1 และมีสมบัติทั่วถึง</div>
+        </div>
+      </article>
+
+      <article class="ex-card">
+        <div class="ex-head"><span class="ex-badge">ตัวอย่าง 2.1.10 – 2.1.11</span><span class="tag book">จากตำรา</span><span class="tag mid">กลาง</span><span class="ex-title">1-1 แต่ไม่ทั่วถึง และคำถาม "มีอยู่จริงไหม"</span></div>
+        <div class="ex-body">
+          <div class="ex-q"><strong>ตัวอย่าง 2.1.10:</strong> จงตรวจสอบว่าการแปลงเชิงเส้นในตัวอย่าง 2.1.8 (\(T : \mathbb{R}^3 \to \mathbb{R}^4\), \(T(x_1, x_2, x_3) = (x_1 + x_2,\; x_2 + 2x_3,\; 0,\; x_2)\)) มีสมบัติทั่วถึงหรือมีสมบัติ 1-1 หรือไม่ เพราะเหตุใด<br>
+          <strong>ตัวอย่าง 2.1.11:</strong> จงพิจารณาว่ามีการแปลงเชิงเส้น \(T : \mathbb{R}^3 \to \mathbb{R}^5\) ซึ่งมีสมบัติทั่วถึงหรือไม่ เพราะเหตุใด</div>
+          <div class="approach"><span class="lbl">อธิบายโจทย์ง่าย ๆ</span> — สองข้อนี้ใช้หลักการเดียวกันคือ "นับเพดานตัวนำ" — ข้อ 2.1.10 ลดรูปเมทริกซ์มาตรฐานที่ได้จากข้อ 2.1.8 แล้วดูว่าตัวนำขาดที่ไหน ส่วนข้อ 2.1.11 ไม่ต้องลดรูปเลย เพราะแค่ดูขนาดเมทริกซ์ \(5 \times 3\) ก็บอกได้ทันทีว่าตัวนำมีได้ไม่เกิน 3 ตำแหน่ง ซึ่งไม่มีทางครบ 5 แถว</div>
+          <ol class="steps">
+            <li><span class="step-t">2.1.10: ลดรูป \(A\) จนเป็นรูปแบบขั้นบันได</span> สลับ \(R_3 \leftrightarrow R_4\) เพื่อยกแถวที่มีเลขขึ้นมาก่อน แล้ว \(R_3 - R_2\) ทีละช่อง: \(0 - 0 = 0\), \(1 - 1 = 0\), \(0 - 2 = -2\)
+            \[ A = \begin{bmatrix} 1 & 1 & 0\\ 0 & 1 & 2\\ 0 & 0 & 0\\ 0 & 1 & 0 \end{bmatrix} \sim \begin{bmatrix} 1 & 1 & 0\\ 0 & 1 & 2\\ 0 & 0 & -2\\ 0 & 0 & 0 \end{bmatrix} \]</li>
+            <li><span class="step-t">2.1.10: อ่านผลและสรุป</span> ตัวนำ \(1, 1, -2\) อยู่ครบ<em>ทั้ง 3 หลัก</em> → \(T\) มีสมบัติ <strong>1-1</strong> แต่แถวสุดท้ายล้า (ไม่มีตัวนำครบ 4 แถว) → \(T\) <strong>ไม่มีสมบัติทั่วถึง</strong> — เหตุผลที่เป็นแบบนี้: \(\mathbb{R}^3\) มี "วัตถุ" แค่ 3 มิติ ส่งไปคลุม \(\mathbb{R}^4\) ทั้งคนทึบไม่ได้ แต่ไม่มีทางชนกันเองเพราะหลักอิสระครบ</li>
+            <li><span class="step-t">2.1.11: นับเพดานจากขนาดเมทริกซ์</span> เมทริกซ์มาตรฐานของ \(T : \mathbb{R}^3 \to \mathbb{R}^5\) มีมิติ \(5 \times 3\) ตำแหน่งตัวหลักจึงมีได้<em>ไม่เกิน 3 ตำแหน่ง</em> (หนึ่งหลักให้หนึ่งตัวนำ) แต่การจะทั่วถึงต้องมีตัวนำครบทั้ง 5 แถว — \(3 &lt; 5\) เป็นไปไม่ได้ จึง<em>ไม่มีการแปลงเชิงเส้น \(T : \mathbb{R}^3 \to \mathbb{R}^5\) ซึ่งมีสมบัติทั่วถึง</em>เด็ดขาด ไม่ต้องลองหาตัวอย่างเลย</li>
+          </ol>
+          <div class="verify"><span class="lbl">สรุปคำตอบ:</span> 2.1.10: \(A\) มีตำแหน่งตัวหลักในทุกหลักแต่ไม่มีในแถวสุดท้าย → \(T\) 1-1 แต่ไม่ทั่วถึง · 2.1.11: \(A\) ขนาด \(5 \times 3\) มีตัวนำได้ไม่เกิน 3 ตำแหน่ง &lt; 5 แถว → ไม่มี \(T : \mathbb{R}^3 \to \mathbb{R}^5\) ที่ทั่วถึง — ตรงตามตำรา</div>
+        </div>
+      </article>
+
+      <article class="ex-card">
+        <div class="ex-head"><span class="ex-badge">ตัวอย่าง 2.1.6</span><span class="tag book">จากตำรา</span><span class="tag hard">ยาก</span><span class="ex-title">หาสูตร \(T\) ทั้งหมดจากค่าที่กำหนด 2 จุด</span></div>
+        <div class="ex-body">
+          <div class="ex-q">ให้ \(T : \mathbb{R}^2 \to \mathbb{R}^3\) เป็นการแปลงเชิงเส้นซึ่ง
+          \[ T\!\begin{pmatrix}\begin{bmatrix} 4\\ 1 \end{bmatrix}\end{pmatrix} = \begin{bmatrix} 2\\ 1\\ -1 \end{bmatrix} \qquad \text{และ} \qquad T\!\begin{pmatrix}\begin{bmatrix} 3\\ 1 \end{bmatrix}\end{pmatrix} = \begin{bmatrix} 4\\ -2\\ 1 \end{bmatrix} \]
+          จงหา \(T\!\begin{pmatrix}\begin{bmatrix} x_1\\ x_2 \end{bmatrix}\end{pmatrix}\) สำหรับทุกเวกเตอร์ \(\begin{bmatrix} x_1\\ x_2 \end{bmatrix} \in \mathbb{R}^2\)</div>
+          <div class="approach"><span class="lbl">อธิบายโจทย์ง่าย ๆ</span> — โจทย์แอบซ่อนสูตรของ \(T\) ไว้ แล้วโยนภาพของเวกเตอร์สองตัวมาให้ แผนของตำรามีสองชั้น: (1) เขียน \(\begin{bmatrix} x_1\\ x_2 \end{bmatrix}\) เป็นการรวมเชิงเส้นของ \(\begin{bmatrix} 4\\ 1 \end{bmatrix}\) กับ \(\begin{bmatrix} 3\\ 1 \end{bmatrix}\) (ทำได้เพราะเวกเตอร์คู่นี้ไม่ขนานกัน) (2) ค่อย ๆ "ดึง \(T\) เข้าไป" ในการรวมเชิงเส้นด้วยความเชิงเส้น ซึ่งเรารู้ภาพครบทั้งสองชิ้นแล้ว</div>
+          <ol class="steps">
+            <li><span class="step-t">แก้หาน้ำหนัก \(c_1, c_2\)</span> ตั้ง \(\begin{bmatrix} x_1\\ x_2 \end{bmatrix} = c_1\begin{bmatrix} 4\\ 1 \end{bmatrix} + c_2\begin{bmatrix} 3\\ 1 \end{bmatrix}\) เขียนเมทริกซ์แต่งเติมแล้วลดรูป: \(R_1 - 3R_2\) ได้ \(\begin{bmatrix} 1 & 0 & x_1 - 3x_2 \end{bmatrix}\) (คิด: \(4 - 3(1) = 1\), \(3 - 3(1) = 0\)) และ \(R_2 - R_1\) เคาะใต้ตัวนำ
+            \[ \begin{bmatrix} 4 & 3 & x_1\\ 1 & 1 & x_2 \end{bmatrix} \sim \begin{bmatrix} 1 & 0 & x_1 - 3x_2\\ 0 & 1 & -x_1 + 4x_2 \end{bmatrix} \;\Longrightarrow\; \begin{bmatrix} x_1\\ x_2 \end{bmatrix} = (x_1 - 3x_2)\begin{bmatrix} 4\\ 1 \end{bmatrix} + (-x_1 + 4x_2)\begin{bmatrix} 3\\ 1 \end{bmatrix} \]</li>
+            <li><span class="step-t">ดึง \(T\) เข้าไปในการรวมเชิงเส้น</span> เพราะ \(T\) เชิงเส้น:
+            \[ T\!\begin{pmatrix}\begin{bmatrix} x_1\\ x_2 \end{bmatrix}\end{pmatrix} = (x_1 - 3x_2)\,T\!\begin{pmatrix}\begin{bmatrix} 4\\ 1 \end{bmatrix}\end{pmatrix} + (-x_1 + 4x_2)\,T\!\begin{pmatrix}\begin{bmatrix} 3\\ 1 \end{bmatrix}\end{pmatrix} \]</li>
+            <li><span class="step-t">แทนภาพที่โจทย์ให้แล้วรวมพจน์</span> คูณสเกลาร์เข้าเวกเตอร์ทีละช่อง แล้วรวมพจน์ \(x_1\) และ \(x_2\) แยกกัน เช่น ช่องแรก \(2(x_1 - 3x_2) + 4(-x_1 + 4x_2) = 2x_1 - 6x_2 - 4x_1 + 16x_2 = -2x_1 + 10x_2\)
+            \[ = (x_1 - 3x_2)\begin{bmatrix} 2\\ 1\\ -1 \end{bmatrix} + (-x_1 + 4x_2)\begin{bmatrix} 4\\ -2\\ 1 \end{bmatrix} = \begin{bmatrix} -2x_1 + 10x_2\\ 3x_1 - 11x_2\\ -2x_1 + 7x_2 \end{bmatrix} \]
+            (ช่องที่สอง: \(1(x_1 - 3x_2) + (-2)(-x_1 + 4x_2) = x_1 - 3x_2 + 2x_1 - 8x_2 = 3x_1 - 11x_2\) · ช่องที่สาม: \(-1(x_1 - 3x_2) + 1(-x_1 + 4x_2) = -2x_1 + 7x_2\))</li>
+            <li><span class="step-t">เขียนเป็นเมทริกซ์มาตรฐาน</span> รวมพจน์ตาม \(x_1, x_2\) เป็นหลัก:
+            \[ T\!\begin{pmatrix}\begin{bmatrix} x_1\\ x_2 \end{bmatrix}\end{pmatrix} = \begin{bmatrix} -2 & 10\\ 3 & -11\\ -2 & 7 \end{bmatrix}\begin{bmatrix} x_1\\ x_2 \end{bmatrix} \]
+            ตรวจกับสองจุดที่โจทย์ให้: \(A\begin{bmatrix} 4\\ 1 \end{bmatrix} = \begin{bmatrix} -8+10\\ 12-11\\ -8+7 \end{bmatrix} = \begin{bmatrix} 2\\ 1\\ -1 \end{bmatrix}\) ✓ และ \(A\begin{bmatrix} 3\\ 1 \end{bmatrix} = \begin{bmatrix} -6+10\\ 9-11\\ -6+7 \end{bmatrix} = \begin{bmatrix} 4\\ -2\\ 1 \end{bmatrix}\) ✓</li>
+          </ol>
+          <div class="verify"><span class="lbl">สรุปคำตอบ:</span> \(T\!\begin{pmatrix}\begin{bmatrix} x_1\\ x_2 \end{bmatrix}\end{pmatrix} = \begin{bmatrix} -2x_1 + 10x_2\\ 3x_1 - 11x_2\\ -2x_1 + 7x_2 \end{bmatrix} = \begin{bmatrix} -2 & 10\\ 3 & -11\\ -2 & 7 \end{bmatrix}\begin{bmatrix} x_1\\ x_2 \end{bmatrix}\) ตรงตามตำรา — เมทริกซ์นี้คือเมทริกซ์มาตรฐานของ \(T\) ในตัว</div>
+        </div>
+      </article>
+
+      <article class="ex-card">
+        <div class="ex-head"><span class="ex-badge">แบบฝึกหัด 2.1 ข้อ 6</span><span class="tag book">จากตำรา</span><span class="tag hard">ยาก</span><span class="ex-title">สามคำถาม "มีหรือไม่มี" — ตอบด้วยการนับเพดานตัวนำ</span></div>
+        <div class="ex-body">
+          <div class="ex-q">จงพิจารณาว่าข้อความต่อไปนี้เป็นไปได้หรือไม่ พร้อมอธิบายเหตุผลหรือยกตัวอย่างประกอบ<br>
+          (ก) มีการแปลงเชิงเส้น \(T : \mathbb{R}^6 \to \mathbb{R}^4\) ซึ่งมีสมบัติหนึ่งต่อหนึ่ง<br>
+          (ข) มีการแปลงเชิงเส้น \(T : \mathbb{R}^5 \to \mathbb{R}^8\) ซึ่งมีสมบัติทั่วถึง<br>
+          (ค) มีการแปลงเชิงเส้น \(T : \mathbb{R}^3 \to \mathbb{R}^3\) ซึ่งมีสมบัติหนึ่งต่อหนึ่ง แต่ไม่มีสมบัติทั่วถึง</div>
+          <div class="approach"><span class="lbl">อธิบายโจทย์ง่าย ๆ</span> — สามข้อนี้ไม่ต้องหาตัวอย่าง ใช้การนับล้วน ๆ: เมทริกซ์ \(m \times n\) มีตำแหน่งตัวหลักได้ไม่เกิน \(\min(m, n)\) ตำแหน่ง — ถ้าสมบัติที่ต้องการ (1-1 ต้องตัวนำครบทุกหลัก / ทั่วถึงต้องครบทุกแถว) เกินเพดานนี้ ก็ตอบ "ไม่มี" ได้ทันทีโดยไม่ต้องลองสร้าง (ข้อสังเกต: ข้อนี้ไม่ปรากฏเฉลยในท้ายบทของตำรา แต่ตอบได้แน่นอนจากการนับตำแหน่งตัวหลัก)</div>
+          <ol class="steps">
+            <li><span class="step-t">(ก) ไม่มี</span> เมทริกซ์มาตรฐานของ \(T : \mathbb{R}^6 \to \mathbb{R}^4\) มีขนาด \(4 \times 6\) (แถว = ปลายทาง, หลัก = ต้นทาง) ตัวนำมีได้ไม่เกิน 4 ตำแหน่ง แต่ความเป็น 1-1 ต้องการตัวนำ<em>ครบทั้ง 6 หลัก</em> — เพราะถ้ามีหลักไร้ตัวนำ ตัวแปรนั้นกลายเป็นตัวแปรเสรี ระบบ \(A\vec{x} = \vec{0}\) จะมีผลเฉลยนอกเหนือจากผลเฉลยชัด ทำให้มี \(\vec{x} \neq \vec{0}\) ที่ \(T(\vec{x}) = \vec{0} = T(\vec{0})\) ขัดนิยาม 1-1 โดยตรง จึง<em>สร้างไม่ได้เสมอ</em></li>
+            <li><span class="step-t">(ข) ไม่มี</span> เมทริกซ์มาตรฐานของ \(T : \mathbb{R}^5 \to \mathbb{R}^8\) มีขนาด \(8 \times 5\) ตัวนำมีได้ไม่เกิน 5 ตำแหน่ง แต่ความเป็นทั่วถึงต้องการตัวนำ<em>ครบทั้ง 8 แถว</em> (เพื่อให้ระบบ \(A\vec{x} = \vec{b}\) ต้องกันสำหรับทุก \(\vec{b} \in \mathbb{R}^8\)) — \(5 &lt; 8\) จึง<em>สร้างไม่ได้เสมอ</em> เวกเตอร์จาก \(\mathbb{R}^5\) มีแค่ 5 ทิศทาง แผ่ไม่พอ 8 มิติ</li>
+            <li><span class="step-t">(ค) ไม่มี</span> \(T : \mathbb{R}^3 \to \mathbb{R}^3\) มีเมทริกซ์มาตรฐานจัตุรัส \(3 \times 3\) — ถ้า \(T\) 1-1 แสดงว่ามีตัวนำครบ 3 หลัก ซึ่ง 3 ตัวนำจะอยู่ครบ 3 แถวพอดี (ตัวนำหนึ่งตัวครองหนึ่งแถว แถวล้าเกิดได้ต่อเมื่อตัวนำไม่ครบ) จึง<em>ต้อง</em>ทั่วถึงไปด้วย ขัดกับ "ไม่ทั่วถึง" ทันที — สำหรับกรณีจัตุรัส \(T : \mathbb{R}^n \to \mathbb{R}^n\): 1-1 ⟺ ทั่วถึง เสมอ จึงไม่มีทางได้แค่อย่างใดอย่างหนึ่ง</li>
+          </ol>
+          <div class="verify"><span class="lbl">สรุปคำตอบ:</span> (ก) ไม่มี (เพดานตัวนำ 4 &lt; 6 หลัก) · (ข) ไม่มี (เพดานตัวนำ 5 &lt; 8 แถว) · (ค) ไม่มี (กรณีจัตุรัส 1-1 ⟺ ทั่วถึง) — สรุปจำง่าย: "ส่งจากมิติใหญ่ไปเล็กแบบ 1-1 ไม่ได้, จากเล็กไปใหญ่แบบทั่วถึงไม่ได้, จัตุรัสต้องได้คู่กัน"</div>
+        </div>
+      </article>
+
+      <article class="ex-card">
+        <div class="ex-head"><span class="ex-badge">แบบฝึกหัด 2.1 ข้อ 7 (ก)</span><span class="tag book">จากตำรา</span><span class="tag hard">ยาก</span><span class="ex-title">สร้างสูตร \(T\) และเมทริกซ์มาตรฐานจากภาพ 2 จุด</span></div>
+        <div class="ex-body">
+          <div class="ex-q">จงหาสูตรของการแปลงเชิงเส้น \(T\) ซึ่งสอดคล้องเงื่อนไขต่อไปนี้ และหาเมทริกซ์มาตรฐาน \(A\) สำหรับ \(T\) พร้อมทั้งพิจารณาว่า \(T\) มีสมบัติทั่วถึงหรือมีสมบัติหนึ่งต่อหนึ่งหรือไม่ เพราะเหตุใด
+          \[ T : \mathbb{R}^2 \to \mathbb{R}^2, \quad T\!\begin{pmatrix}\begin{bmatrix} 1\\ 3 \end{bmatrix}\end{pmatrix} = \begin{bmatrix} 1\\ 1 \end{bmatrix} \quad \text{และ} \quad T\!\begin{pmatrix}\begin{bmatrix} 1\\ 1 \end{bmatrix}\end{pmatrix} = \begin{bmatrix} 0\\ 1 \end{bmatrix} \]</div>
+          <div class="approach"><span class="lbl">อธิบายโจทย์ง่าย ๆ</span> — เหมือนตัวอย่าง 2.1.6 เป๊ะ: แยก \(\begin{bmatrix} x_1\\ x_2 \end{bmatrix}\) เป็นรวมเชิงเส้นของเวกเตอร์ที่รู้ภาพ ดึง \(T\) เข้าไป แล้วอ่านสัมประสิทธิ์เป็นเมทริกซ์มาตรฐาน — ปิดท้ายด้วยการตรวจ 1-1/ทั่วถึง ซึ่งทำได้เร็วผ่านดีเทอร์มิแนนต์ของ \(A\) (ไม่เป็นศูนย์ = ตัวนำครบทั้งหลักและแถว)</div>
+          <ol class="steps">
+            <li><span class="step-t">แยก \(\begin{bmatrix} x_1\\ x_2 \end{bmatrix}\) เป็นรวมเชิงเส้น</span> ตั้งเมทริกซ์แต่งเติมแล้วลดรูป: \(R_1 - R_2\) ให้ \(\begin{bmatrix} 1 & 0 & x_1 - x_2 \end{bmatrix}\) และแถวล่างคง \(\begin{bmatrix} 1 & 1 & x_2 \end{bmatrix}\) จัดรูปให้ตัวนำเป็น 1
+            \[ \begin{bmatrix} 1 & 1 & x_1\\ 3 & 1 & x_2 \end{bmatrix} \sim \begin{bmatrix} 1 & 0 & \tfrac{x_2 - x_1}{2}\\[2pt] 0 & 1 & \tfrac{3x_1 - x_2}{2} \end{bmatrix} \;\Longrightarrow\; \begin{bmatrix} x_1\\ x_2 \end{bmatrix} = \frac{x_2 - x_1}{2}\begin{bmatrix} 1\\ 3 \end{bmatrix} + \frac{3x_1 - x_2}{2}\begin{bmatrix} 1\\ 1 \end{bmatrix} \]
+            (ตรวจด้วย \(\begin{bmatrix} 1\\ 3 \end{bmatrix}\): น้ำหนัก \(\tfrac{3-1}{2} = 1\) และ \(\tfrac{3-3}{2} = 0\) ✓)</li>
+            <li><span class="step-t">ดึง \(T\) เข้าไปและรวมพจน์</span> \(T(\vec{x}) = \tfrac{x_2 - x_1}{2}\,T\!\begin{pmatrix}\begin{bmatrix} 1\\ 3 \end{bmatrix}\end{pmatrix} + \tfrac{3x_1 - x_2}{2}\,T\!\begin{pmatrix}\begin{bmatrix} 1\\ 1 \end{bmatrix}\end{pmatrix} = \tfrac{x_2 - x_1}{2}\begin{bmatrix} 1\\ 1 \end{bmatrix} + \tfrac{3x_1 - x_2}{2}\begin{bmatrix} 0\\ 1 \end{bmatrix}\) — รวมช่องแรก: \(\tfrac{x_2 - x_1}{2}\) · ช่องที่สอง: \(\tfrac{x_2 - x_1}{2} + \tfrac{3x_1 - x_2}{2} = \tfrac{2x_1}{2} = x_1\)
+            \[ T(\vec{x}) = \begin{bmatrix} \tfrac{-x_1 + x_2}{2}\\[2pt] x_1 \end{bmatrix} = \begin{bmatrix} -0.5 & 0.5\\ 1 & 0 \end{bmatrix}\begin{bmatrix} x_1\\ x_2 \end{bmatrix} \]</li>
+            <li><span class="step-t">ตรวจกับสองจุดและตัดสินสมบัติ</span> แทน \(\begin{bmatrix} 1\\ 3 \end{bmatrix}\): \(\tfrac{-1+3}{2} = 1\), \(1\) → \((1, 1)\) ✓ แทน \(\begin{bmatrix} 1\\ 1 \end{bmatrix}\): \(\tfrac{-1+1}{2} = 0\), \(1\) → \((0, 1)\) ✓ · ดีเทอร์มิแนนต์ \(\det A = (-0.5)(0) - (0.5)(1) = -0.5 \neq 0\) → \(A\) มีตัวนำครบทั้ง 2 หลักและ 2 แถว → \(T\) มีสมบัติ <strong>1-1 และทั่วถึง</strong> \(\mathbb{R}^2\)</li>
+          </ol>
+          <div class="verify"><span class="lbl">สรุปคำตอบ:</span> \(T(x_1, x_2) = \left(\tfrac{x_2 - x_1}{2},\; x_1\right)\) โดยมีเมทริกซ์มาตรฐาน \(A = \begin{bmatrix} -0.5 & 0.5\\ 1 & 0 \end{bmatrix}\) ซึ่ง \(T\) มีสมบัติ 1-1 และทั่วถึง — ตรงกับคำตอบท้ายบทของตำราทุกตัว</div>
+        </div>
+      </article>
+    </section>
+
+    <section class="block" id="apply">
+      <h2><span class="h2-dot">🌍</span> เอาไปใช้ทำอะไร — โจทย์ประยุกต์</h2>
+
+      <article class="ex-card">
+        <div class="ex-head"><span class="ex-badge">🎮 หมุน–ขยายตัวละครในเกม</span><span class="tag app">ใช้จริง</span><span class="tag easy">ง่าย</span><span class="ex-title">การหมุนและขยายในเกม 3D คือเมทริกซ์มาตรฐานล้วน ๆ</span></div>
+        <div class="ex-body">
+          <div class="ex-q">ตัวละครในเกม 2D ยืนอยู่ตำแหน่ง \((3, 1)\) ผู้เล่นกดปุ่ม "หมุน 90° ทวนเข็มนาฬิกา" แล้วตามด้วย "ขยายขนาด 2 เท่า" โดยรู้ว่าการหมุน 90° ทวนเข็มมีเมทริกซ์ \(R = \begin{bmatrix} 0 & -1\\ 1 & 0 \end{bmatrix}\) และการขยาย 2 เท่ามีเมทริกซ์ \(S = \begin{bmatrix} 2 & 0\\ 0 & 2 \end{bmatrix}\) จงหาตำแหน่งใหม่ของตัวละคร</div>
+          <div class="approach"><span class="lbl">อธิบายโจทย์ง่าย ๆ</span> — โจทย์แจกเมทริกซ์มาให้พร้อมใช้แล้ว หน้าที่เราคือคูณเวกเตอร์ตำแหน่ง \(\begin{bmatrix} 3\\ 1 \end{bmatrix}\) ผ่านสองการแปลงตามลำดับ (หมุนก่อนแล้วขยาย) และจะได้เห็นด้วยว่าสองขั้นตอนนี้สามารถ "หลอมรวม" เป็นเมทริกซ์เดียวได้</div>
+          <ol class="steps">
+            <li><span class="step-t">หมุน 90° ทวนเข็ม</span> คูณ \(R\) กับตำแหน่ง ทีละช่อง: ช่องบน \(0(3) + (-1)(1) = -1\) ช่องล่าง \(1(3) + 0(1) = 3\)
+            \[ R\begin{bmatrix} 3\\ 1 \end{bmatrix} = \begin{bmatrix} 0 & -1\\ 1 & 0 \end{bmatrix}\begin{bmatrix} 3\\ 1 \end{bmatrix} = \begin{bmatrix} -1\\ 3 \end{bmatrix} \]
+            (เช็กความรู้สึก: จุด \((3,1)\) ที่อยู่ฝั่งขวาล่างเอียง หมุน 90° แล้วควรไปฝั่งซ้ายบน คือ \((-1, 3)\) ✓)</li>
+            <li><span class="step-t">ขยาย 2 เท่า</span> คูณ \(S\) กับผลลัพธ์: \(\begin{bmatrix} 2 & 0\\ 0 & 2 \end{bmatrix}\begin{bmatrix} -1\\ 3 \end{bmatrix} = \begin{bmatrix} -2\\ 6 \end{bmatrix}\) — นี่คือ <em>dilation</em> แบบ \(T(\vec{x}) = r\vec{x}\) ที่ \(r = 2\) ในตัวอย่าง 2.1.3 เป๊ะ ๆ (คูณทุกช่องด้วย 2)</li>
+            <li><span class="step-t">รวมสองขั้นเป็นเมทริกซ์เดียว</span> เอา \(S\) คูณ \(R\) เข้าด้วยกันได้ \(SR = \begin{bmatrix} 0 & -2\\ 2 & 0 \end{bmatrix}\) แล้วลองตรวจ: \(SR\begin{bmatrix} 3\\ 1 \end{bmatrix} = \begin{bmatrix} -2\\ 6 \end{bmatrix}\) ตรงกับคำตอบสองขั้นพอดี — เกมเอนจินจึง "กวาด" เมทริกซ์รวมนี้คูณกับทุกจุดของโมเดลครั้งเดียวจบ แทนที่จะคูณทีละขั้นสองรอบ</li>
+          </ol>
+          <div class="verify"><span class="lbl">เห็นไหมว่า...</span> ทุกครั้งที่ตัวละครในเกมหมุน ย่อ ขยาย หรือเอียง ที่จริงคือการคูณเวกเตอร์ตำแหน่งด้วย<em>เมทริกซ์มาตรฐาน</em>แบบที่เราเรียนในหัวข้อนี้ — การ์ดจอคำนวณการคูณแบบนี้หลายสิบล้านครั้งต่อวินาที เพื่อให้ทุกออบเจกต์บนจอ "ยืนถูกที่" ตลอดเวลา</div>
+        </div>
+      </article>
+
+      <article class="ex-card">
+        <div class="ex-head"><span class="ex-badge">🖼️ ฟิลเตอร์แต่งรูปในแอปกล้อง</span><span class="tag app">ใช้จริง</span><span class="tag mid">กลาง</span><span class="ex-title">พิกเซลคือเวกเตอร์ใน \(\mathbb{R}^3\) — บางฟิลเตอร์เชิงเส้น บางตัวไม่ใช่</span></div>
+        <div class="ex-body">
+          <div class="ex-q">แอปกล้องเก็บสีของแต่ละพิกเซลเป็นเวกเตอร์ \(\vec{p} = \begin{bmatrix} R\\ G\\ B \end{bmatrix} \in \mathbb{R}^3\) เช่น พิกเซลหนึ่งมีค่า \(\begin{bmatrix} 200\\ 150\\ 100 \end{bmatrix}\) (ก) ฟิลเตอร์ "ลดแสง 40%" ทำงานโดย \(T(\vec{p}) = 0.6\,\vec{p}\) จงหาสีใหม่ และอธิบายว่าทำไมฟิลเตอร์นี้เป็นการแปลงเชิงเส้น (ข) ฟิลเตอร์ "กลับสี" (negative) กำหนดโดย \(T(\vec{p}) = \begin{bmatrix} 255\\ 255\\ 255 \end{bmatrix} - \vec{p}\) ฟิลเตอร์นี้เป็นการแปลงเชิงเส้นหรือไม่ เพราะเหตุใด</div>
+          <div class="approach"><span class="lbl">อธิบายโจทย์ง่าย ๆ</span> — โจทย์แบ่งเป็นสองกรณีให้เทียบกัน: (ก) ฟิลเตอร์ที่ "คูณสเกลาร์" ล้วน ซึ่งตรงกับการหดตัว (contraction, \(r = 0.6\)) ในตัวอย่าง 2.1.3 ที่พิสูจน์แล้วว่าเชิงเส้น (ข) ฟิลเตอร์ที่ "คูณแล้วบวกค่าคงที่" — ต้องระวัง เพราะค่าคงที่มักทำให้พังที่จุดเดียวคือ \(T(\vec{0})\)</div>
+          <ol class="steps">
+            <li><span class="step-t">(ก) คำนวณสีใหม่</span> คูณ 0.6 เข้าทุกช่อง: \(0.6(200) = 120\), \(0.6(150) = 90\), \(0.6(100) = 60\)
+            \[ T\!\begin{pmatrix}\begin{bmatrix} 200\\ 150\\ 100 \end{bmatrix}\end{pmatrix} = \begin{bmatrix} 120\\ 90\\ 60 \end{bmatrix} \]
+            สีเข้มลงแต่สัดส่วน R:G:B ยังเดิม (200:150:100 = 120:90:60) — เพราะการคูณสเกลาร์ไม่เปลี่ยนทิศทางของเวกเตอร์ เปลี่ยนแค่ความยาว</li>
+            <li><span class="step-t">(ก) เหตุผลที่เชิงเส้น</span> \(T(\vec{p}) = 0.6\vec{p}\) เป็นการแปลงเมทริกซ์ (เมทริกซ์มาตรฐานคือ \(0.6I_3\)) จึงเชิงเส้นโดยทฤษฎีบท 2.1.1 — สอดคล้องกับตัวอย่าง 2.1.3 ที่พิสูจน์ไว้: สมบัติการบวกและการคูณสเกลาร์ผ่านครบ เพราะกฎการแจกแจงของการคูณ</li>
+            <li><span class="step-t">(ข) ทดสอบฟิลเตอร์กลับสี</span> แทนพิกเซลดำ \(\vec{0} = \begin{bmatrix} 0\\ 0\\ 0 \end{bmatrix}\): \(T(\vec{0}) = \begin{bmatrix} 255\\ 255\\ 255 \end{bmatrix} - \vec{0} = \begin{bmatrix} 255\\ 255\\ 255 \end{bmatrix} \neq \vec{0}\) — แต่ทุกการแปลงเชิงเส้นต้องให้ \(T(\vec{0}) = \vec{0}\) เสมอ (ทฤษฎีบท 2.1.1) ดังนั้นฟิลเตอร์กลับสี<em>ไม่เป็น</em>การแปลงเชิงเส้น ตั้งแต่พิกเซลแรกที่ทดสอบ</li>
+          </ol>
+          <div class="verify"><span class="lbl">เห็นไหมว่า...</span> แอปกล้องในมือถือเราต้องแต่งรูปทีละหลายสิบล้านพิกเซล — ฟิลเตอร์ที่เป็น "เชิงเส้น" (คูณสเกลาร์/เมทริกซ์) รวมหลาย ๆ อันเป็นเมทริกซ์เดียวแล้วคูณครั้งเดียวจบ ทำให้เร็วมากบน GPU ส่วนฟิลเตอร์แบบ "กลับสี" ที่มีค่าคงที่ 255 ต้องคำนวณแยกขั้นบวกคงที่เพิ่ม ต้นทุนจริงต่างกัน — นี่คือเหตุผลที่วิศวกรกราฟิกส์สนใจว่าฟังก์ชันไหน "เชิงเส้น" ไหม ไม่ใช่แค่คำถามในห้องเรียน</div>
+        </div>
+      </article>
+    </section>
+
+    <section class="block" id="recipe">
   <h2><span class="h2-dot">⚡</span> สูตรสำเร็จ — ท่าที่ใช้ทำโจทย์หัวข้อนี้</h2>
   <div class="recipe">
     <div class="recipe-head">🪜 ท่าหลัก: หาเมทริกซ์มาตรฐานของการแปลงเชิงเส้น</div>

@@ -34,6 +34,8 @@
   <a href="#objectives">🎯 จุดประสงค์</a>
   <a href="#lesson">📖 บทเรียน</a>
   <a href="#examples">✏️ ตัวอย่างโจทย์</a>
+  <a href="#textbook">📚 ตัวอย่างจากตำรา</a>
+  <a href="#apply">🌍 การใช้จริง</a>
   <a href="#recipe">⚡ สูตรสำเร็จ</a>
   <a href="#practice">🏋️ โจทย์ซ้อมมือ</a>
 </nav>
@@ -154,6 +156,206 @@
         <li><span class="step-t">สรุป</span> ต้องการทั้งสองเงื่อนไขพร้อมกัน (เป็น "และ") เงื่อนไข \(k &gt; 4\) ครอบคลุม \(k &gt; -1\) ไปในตัว → คำตอบคือ \(k &gt; 4\) (เมื่อ \(k = 4\) ได้ \(\det = 0\) จึงมี \(\lambda = 0\) → บวกกึ่งแน่นอนเท่านั้น; \(k &lt; 4\) ผลคูณค่าลักษณะเฉพาะติดลบ → เครื่องหมายต่างกัน → ไม่แน่นอน)</li>
       </ol>
       <div class="verify"><span class="lbl">ตรวจคำตอบ:</span> \(k = 5\): \(\lambda^2 - 6\lambda + 1\) มี \(\det = 5 - 4 = 1 &gt; 0\), trace \(= 1 + 5 = 6 &gt; 0\) → ทั้งคู่บวก ✓ จริงตามคำตอบ / \(k = 4\): \(\lambda^2 - 5\lambda + 0 = \lambda(\lambda - 5)\) → \(\lambda = 0\) ปน → กึ่งแน่นอน ✓ (ตรงขอบเพอร์เฟกต์) — <strong>สรุป:</strong> \(Q\) บวกแน่นอน ก็ต่อเมื่อ \(k &gt; 4\)</div>
+    </div>
+  </article>
+</section>
+
+<section class="block" id="textbook">
+  <h2><span class="h2-dot">📚</span> ตัวอย่างจากตำรา (พีชคณิต.pdf)</h2>
+  <p class="page-sub">โจทย์ทุกข้อคัดมาตรงจากตำราประกอบการสอน โดยเรียงจากง่ายไปยาก — ใต้โจทย์แต่ละข้อมี "อธิบายโจทย์ง่าย ๆ" ช่วยให้เห็นว่าโจทย์ถามอะไรก่อนลงมือทำ</p>
+
+  <article class="ex-card">
+    <div class="ex-head"><span class="ex-badge">ตัวอย่าง 4.5.1</span><span class="tag book">จากตำรา</span><span class="tag easy">ง่าย</span><span class="ex-title">คำนวณ \(\vec{x}^TA\vec{x}\) ให้ออกมาเป็นรูปแบบกำลังสอง</span></div>
+    <div class="ex-body">
+      <div class="ex-q">ให้ \(\vec{x} = \begin{bmatrix} x_1\\ x_2 \end{bmatrix}\) จงหา \(\vec{x}^TA\vec{x}\) สำหรับเมทริกซ์ \(A\) ต่อไปนี้<br>
+      (ก) \(A = \begin{bmatrix} 2 &amp; 0\\ 0 &amp; -3 \end{bmatrix}\) &nbsp;&nbsp;&nbsp;&nbsp;
+      (ข) \(A = \begin{bmatrix} 3 &amp; -2\\ -2 &amp; 1 \end{bmatrix}\)</div>
+      <div class="approach"><span class="lbl">อธิบายโจทย์ง่าย ๆ</span> — โจทย์แค่อยากให้เห็นว่า "เมทริกซ์คูณเวกเตอร์สองข้าง" ยุบกลับเป็นพหุนามกำลังสองธรรมดา: คูณแถว × หลัก × คอลัมน์ทีละช่องแล้วรวม — ข้อ (ก) ทแยงเลยไม่มีพจน์ไขว้ ข้อ (ข) มีช่องนอกทแยงจึงโผล่พจน์ \(x_1x_2\) มาให้เห็น</div>
+      <ol class="steps">
+        <li><span class="step-t">(ก) คูณตามลำดับ \(\vec{x}^T\) แล้ว \(A\) แล้ว \(\vec{x}\)</span> \(\vec{x}^TA = \begin{bmatrix} x_1 &amp; x_2 \end{bmatrix}\begin{bmatrix} 2 &amp; 0\\ 0 &amp; -3 \end{bmatrix} = \begin{bmatrix} 2x_1 &amp; -3x_2 \end{bmatrix}\) แล้วคูณต่อด้วย \(\begin{bmatrix} x_1\\ x_2 \end{bmatrix}\): \(2x_1 \cdot x_1 + (-3x_2) \cdot x_2\)
+        \[ \vec{x}^TA\vec{x} = \begin{bmatrix} x_1 &amp; x_2 \end{bmatrix}\begin{bmatrix} 2 &amp; 0\\ 0 &amp; -3 \end{bmatrix}\begin{bmatrix} x_1\\ x_2 \end{bmatrix} = 2x_1^2 - 3x_2^2 \]</li>
+        <li><span class="step-t">(ข) ระวังพจน์ไขว้</span> \(\vec{x}^TA = \begin{bmatrix} 3x_1 - 2x_2 &amp; -2x_1 + x_2 \end{bmatrix}\) คูณต่อด้วย \(\vec{x}\): \((3x_1 - 2x_2)x_1 + (-2x_1 + x_2)x_2 = 3x_1^2 - 2x_1x_2 - 2x_1x_2 + x_2^2\) — พจน์ไขว้มาจากสองทาง (ช่องบนขวาและช่องล่างซ้าย) จึงได้สัมประสิทธิ์รวม \(-4\)
+        \[ \vec{x}^TA\vec{x} = 3x_1^2 - 4x_1x_2 + x_2^2 \]</li>
+      </ol>
+      <div class="verify"><span class="lbl">สรุปคำตอบ:</span> (ก) \(\vec{x}^TA\vec{x} = 2x_1^2 - 3x_2^2\) · (ข) \(\vec{x}^TA\vec{x} = 3x_1^2 - 4x_1x_2 + x_2^2\) — ตรงตามตำรา (ลองแทน \(\vec{x} = (1, 1)\): ข้อ (ข) ได้ \(3 - 4 + 1 = 0\) และตรงกับ \(A\vec{x} = (1, -1)\), \(\vec{x}\cdot(A\vec{x}) = 1 - 1 = 0\) ✓)</div>
+    </div>
+  </article>
+
+  <article class="ex-card">
+    <div class="ex-head"><span class="ex-badge">ตัวอย่าง 4.5.2</span><span class="tag book">จากตำรา</span><span class="tag easy">ง่าย</span><span class="ex-title">หาเมทริกซ์ของรูปแบบกำลังสอง — เดินย้อนทิศ</span></div>
+    <div class="ex-body">
+      <div class="ex-q">ให้ \(Q(\vec{x}) = 3x_1^2 - 5x_2^2 + x_3^2 - 2x_1x_2 + x_2x_3\) สำหรับทุก \(\vec{x} \in \mathbb{R}^3\) จงแสดงว่า \(Q\) เป็นรูปแบบกำลังสอง พร้อมทั้งหาเมทริกซ์ของรูปแบบกำลังสอง \(Q\)</div>
+      <div class="approach"><span class="lbl">อธิบายโจทย์ง่าย ๆ</span> — ข้อก่อนเปลี่ยนเมทริกซ์เป็นพหุนาม ข้อนี้เดินย้อนกลับ: จากพหุนามไปหาเมทริกซ์สมมาตร \(A\) ที่ทำให้ \(Q = \vec{x}^TA\vec{x}\) — กฎจำง่าย: สัมประสิทธิ์กำลังสองลงทแยงหลักตรง ๆ ส่วนสัมประสิทธิ์ไขว้ \(cx_ix_j\) ต้อง<em>หารสอง</em>ก่อนค่อยลงสองช่องสมมาตร (เพราะเวลาคูณกลับมันจะโผล่สองรอบ)</div>
+      <ol class="steps">
+        <li><span class="step-t">ตั้งเมทริกซ์สมมาตรทั่วไป</span> ให้ \(A = \begin{bmatrix} a &amp; d &amp; e\\ d &amp; b &amp; f\\ e &amp; f &amp; c \end{bmatrix}\) (สมมาตร: ช่องกระจกเท่ากัน) เมื่อกระจาย \(\vec{x}^TA\vec{x}\) จะได้ \(ax_1^2 + bx_2^2 + cx_3^2 + 2dx_1x_2 + 2ex_1x_3 + 2fx_2x_3\) — พจน์ไขว้มีตัว 2 นำหน้าเสมอ</li>
+        <li><span class="step-t">เทียบสัมประสิทธิ์ทีละพจน์</span> กำลังสอง: \(a = 3\), \(b = -5\), \(c = 1\) · ไขว้: \(2d = -2 → d = -1\), \(2e = 0 → e = 0\), \(2f = 1 → f = \tfrac12\) — สังเกต \(x_2x_3\) มีสัมประสิทธิ์ 1 ตัวส่วนจึงลงเมทริกซ์แค่ \(\tfrac12\) ต่อช่อง</li>
+        <li><span class="step-t">ประกอบเมทริกซ์</span>
+        \[ A = \begin{bmatrix} 3 &amp; -1 &amp; 0\\ -1 &amp; -5 &amp; \tfrac12\\ 0 &amp; \tfrac12 &amp; 1 \end{bmatrix} \]</li>
+      </ol>
+      <div class="verify"><span class="lbl">สรุปคำตอบ:</span> \(Q\) เป็นรูปแบบกำลังสอง (เพราะเขียนใหม่ได้เป็น \(\vec{x}^TA\vec{x}\) เมื่อ \(A\) สมมาตร) โดย \(A = \begin{bmatrix} 3 &amp; -1 &amp; 0\\ -1 &amp; -5 &amp; \tfrac12\\ 0 &amp; \tfrac12 &amp; 1 \end{bmatrix}\) — ตรงตามตำรา (ข้อผิดที่พบบ่อย: ใส่ \(-2\) ลงช่อง (1,2) แล้วพอคูณกลับกลายเป็น \(-4x_1x_2\) มากไปสองเท่า)</div>
+    </div>
+  </article>
+
+  <article class="ex-card">
+    <div class="ex-head"><span class="ex-badge">แบบฝึกหัด 4.5 ข้อ 2 ก,ง</span><span class="tag book">จากตำรา</span><span class="tag easy">ง่าย</span><span class="ex-title">ฝึกหาเมทริกซ์ของ \(Q\) อีกสองตัว</span></div>
+    <div class="ex-body">
+      <div class="ex-q">จงแสดงว่า \(Q\) เป็นรูปแบบกำลังสอง พร้อมทั้งหาเมทริกซ์ของรูปแบบกำลังสอง \(Q\)<br>
+      (ก) \(Q(x_1, x_2) = -5x_1^2 - 2x_2^2 + 4x_1x_2\) &nbsp;&nbsp;&nbsp;&nbsp;
+      (ง) \(Q(x_1, x_2) = x_1x_2\)</div>
+      <div class="approach"><span class="lbl">อธิบายโจทย์ง่าย ๆ</span> — ท่าเดิมจากตัวอย่าง 4.5.2 แบบย่อ: กำลังสองลงทแยงหลัก, ไขว้หารสองลงสองช่อง — ข้อ (ง) พิเศษตรงที่<em>ไม่มีพจน์กำลังสองเลย</em> เมทริกซ์ทแยงหลักจึงเป็นศูนย์หมด เหลือแต่พจน์ไขว้ล้วน</div>
+      <ol class="steps">
+        <li><span class="step-t">(ก) เทียบสัมประสิทธิ์</span> ทแยง: \(-5, -2\) · ไขว้: \(4x_1x_2\) หารสองได้ \(2\) → ช่อง (1,2) และ (2,1) คือ 2
+        \[ A = \begin{bmatrix} -5 &amp; 2\\ 2 &amp; -2 \end{bmatrix} \]</li>
+        <li><span class="step-t">(ง) เทียบสัมประสิทธิ์</span> ไม่มี \(x_1^2, x_2^2\) → ทแยงหลักเป็นศูนย์ · ไขว้ \(1 \cdot x_1x_2\) หารสองได้ \(\tfrac12\)
+        \[ A = \begin{bmatrix} 0 &amp; \tfrac12\\[2pt] \tfrac12 &amp; 0 \end{bmatrix} \]</li>
+      </ol>
+      <div class="verify"><span class="lbl">สรุปคำตอบ:</span> (ก) \(A = \begin{bmatrix} -5 &amp; 2\\ 2 &amp; -2 \end{bmatrix}\) · (ง) \(A = \begin{bmatrix} 0 &amp; \tfrac12\\ \tfrac12 &amp; 0 \end{bmatrix}\) — ตรงคำตอบท้ายบททั้งสองข้อ (ตรวจด้วย numpy แล้ว: แทน \(\vec{x} = (0.9, -1.2)\) ทั้งสองเมทริกซ์ให้ค่า \(Q\) ตรงกับพหุนามเป๊ะ)</div>
+    </div>
+  </article>
+
+  <article class="ex-card">
+    <div class="ex-head"><span class="ex-badge">แบบฝึกหัด 4.5 ข้อ 3 ก,ง</span><span class="tag book">จากตำรา</span><span class="tag mid">กลาง</span><span class="ex-title">จำแนก definiteness + เปลี่ยนตัวแปรกำจัดพจน์ไขว้</span></div>
+    <div class="ex-body">
+      <div class="ex-q">จงพิจารณาว่ารูปแบบกำลังสอง \(Q\) ในข้อ 2. เป็นบวกแน่นอน เป็นลบแน่นอน หรือไม่แน่นอน และจงเปลี่ยนตัวแปร \(\vec{x} = P\vec{y}\) ซึ่งทำให้ \(Q\) ไม่มีพจน์ผลคูณไขว้<br>
+      (ก) ข้อ 2(ก): \(Q = -5x_1^2 - 2x_2^2 + 4x_1x_2\) &nbsp;&nbsp;&nbsp;&nbsp;
+      (ง) ข้อ 2(ง): \(Q = x_1x_2\)</div>
+      <div class="approach"><span class="lbl">อธิบายโจทย์ง่าย ๆ</span> — สองงานต่อเนื่อง: จำแนกเครื่องหมายด้วยค่าลักษณะเฉพาะ (ทฤษฎีบท 4.5.2) แล้วหา \(P\) เชิงตั้งฉากปรกติจากเวกเตอร์ลักษณะเฉพาะหนึ่งหน่วย เพื่อเปลี่ยนตัวแปรให้ \(Q = \lambda_1y_1^2 + \lambda_2y_2^2\) ไม่มีพจน์ไขว้ — ระวังเรียงลำดับหลักของ \(P\) ให้ตรงกับ \(\lambda\) ในคำตอบ</div>
+      <ol class="steps">
+        <li><span class="step-t">(ก) ค่าลักษณะเฉพาะของ \(A = \begin{bmatrix} -5 &amp; 2\\ 2 &amp; -2 \end{bmatrix}\)</span> \(\lambda^2 + 7\lambda + 6 = (\lambda + 1)(\lambda + 6) = 0\) ได้ \(\lambda = -1, -6\) — <em>ลบทั้งคู่</em> → <strong>ลบแน่นอน</strong> (แปลว่า \(Q(\vec{x}) &lt; 0\) ทุก \(\vec{x} \neq \vec{0}\))</li>
+        <li><span class="step-t">(ก) หา \(P\)</span> \(\lambda = -1\): \(A + I = \begin{bmatrix} -4 &amp; 2\\ 2 &amp; -1 \end{bmatrix}\) สมการ \(-4x_1 + 2x_2 = 0\) → \((1, 2)\) · \(\lambda = -6\): \(A + 6I = \begin{bmatrix} 1 &amp; 2\\ 2 &amp; 4 \end{bmatrix}\) สมการ \(x_1 + 2x_2 = 0\) → \((-2, 1)\) ทั้งคู่ยาว \(\sqrt5\)
+        \[ P = \frac{1}{\sqrt{5}}\begin{bmatrix} 1 &amp; -2\\ 2 &amp; 1 \end{bmatrix} \qquad \Longrightarrow \qquad Q = -y_1^2 - 6y_2^2 \]</li>
+        <li><span class="step-t">(ง) ค่าลักษณะเฉพาะของ \(A = \begin{bmatrix} 0 &amp; \tfrac12\\ \tfrac12 &amp; 0 \end{bmatrix}\)</span> \(\lambda^2 - \tfrac14 = 0\) ได้ \(\lambda = \tfrac12, -\tfrac12\) — <em>บวกและลบ</em> → <strong>ไม่แน่นอน</strong> (เช่น \(Q(1, 1) = 1 &gt; 0\) แต่ \(Q(1, -1) = -1 &lt; 0\))</li>
+        <li><span class="step-t">(ง) หา \(P\)</span> \(\lambda = \tfrac12\): \((A - \tfrac12 I)\vec{x} = \begin{bmatrix} -\tfrac12 &amp; \tfrac12\\ \tfrac12 &amp; -\tfrac12 \end{bmatrix}\vec{x} = \vec{0}\) → \((1, 1)\) · \(\lambda = -\tfrac12\): \((A + \tfrac12 I)\vec{x} = \begin{bmatrix} \tfrac12 &amp; \tfrac12\\ \tfrac12 &amp; \tfrac12 \end{bmatrix}\vec{x} = \vec{0}\) → \((-1, 1)\) ทั้งคู่ยาว \(\sqrt2\)
+        \[ P = \frac{1}{\sqrt{2}}\begin{bmatrix} 1 &amp; -1\\ 1 &amp; 1 \end{bmatrix} \qquad \Longrightarrow \qquad Q = \frac{1}{2}y_1^2 - \frac{1}{2}y_2^2 \]</li>
+      </ol>
+      <div class="verify"><span class="lbl">สรุปคำตอบ:</span> (ก) ลบแน่นอน \(\lambda = -1, -6\), \(P = \tfrac{1}{\sqrt5}\begin{bmatrix} 1 &amp; -2\\ 2 &amp; 1 \end{bmatrix}\), \(Q = -y_1^2 - 6y_2^2\) · (ง) ไม่แน่นอน \(\lambda = \tfrac12, -\tfrac12\), \(P = \tfrac{1}{\sqrt2}\begin{bmatrix} 1 &amp; -1\\ 1 &amp; 1 \end{bmatrix}\), \(Q = \tfrac12y_1^2 - \tfrac12y_2^2\) — ตรงคำตอบท้ายบททุกตัว</div>
+    </div>
+  </article>
+
+  <article class="ex-card">
+    <div class="ex-head"><span class="ex-badge">ตัวอย่าง 4.5.3</span><span class="tag book">จากตำรา</span><span class="tag mid">กลาง</span><span class="ex-title">กำจัดพจน์ไขว้แล้วเห็นว่าเป็นวงรี</span></div>
+    <div class="ex-body">
+      <div class="ex-q">ให้ \(Q(x_1, x_2) = 3x_1^2 + 6x_2^2 - 4x_1x_2\) เป็นรูปแบบกำลังสอง จงเปลี่ยนตัวแปร \(\vec{x} = P\vec{y}\) ซึ่งทำให้ \(Q\) ไม่มีพจน์ผลคูณไขว้ พร้อมทั้งร่างกราฟของความสัมพันธ์ \(3x_1^2 + 6x_2^2 - 4x_1x_2 = 14\) อย่างคร่าว ๆ</div>
+      <div class="approach"><span class="lbl">อธิบายโจทย์ง่าย ๆ</span> — เส้นโค้งที่มีพจน์ \(x_1x_2\) แปลว่ารูปเอียงเทียบแกน เราอยากหมุนแกนพิกัด (ด้วย \(\vec{x} = P\vec{y}\)) ไปตามทิศที่เส้นโค้งตั้งตรงจนพจน์ไขว้หายไป — วิธีคือแปลงทแยงมุมเชิงตั้งฉากเมทริกซ์ของ \(Q\) แล้วแกนใหม่คือเวกเตอร์ลักษณะเฉพาะ จากนั้นอ่านชนิดเส้นโค้งจากสัมประสิทธิ์ \(\lambda\)</div>
+      <ol class="steps">
+        <li><span class="step-t">เมทริกซ์และค่าลักษณะเฉพาะ</span> \(A = \begin{bmatrix} 3 &amp; -2\\ -2 &amp; 6 \end{bmatrix}\) (ไขว้ \(-4\) หารสอง) \(\det(A - \lambda I_2) = \lambda^2 - 9\lambda + 14 = (\lambda - 2)(\lambda - 7) = 0\) ได้ \(\lambda = 2, 7\)</li>
+        <li><span class="step-t">เวกเตอร์ลักษณะเฉพาะ</span> \(\lambda = 2\): \(A - 2I = \begin{bmatrix} 1 &amp; -2\\ -2 &amp; 4 \end{bmatrix}\) ให้ \(x_1 - 2x_2 = 0\) → \((2, 1)\) · \(\lambda = 7\): \(A - 7I = \begin{bmatrix} -4 &amp; -2\\ -2 &amp; -1 \end{bmatrix}\) ให้ \(2x_1 + x_2 = 0\) → \((1, -2)\) — จุดกัน: \(2(1) + 1(-2) = 0\) ✓ ตั้งฉากกันเองตามทฤษฎีบท 4.4.1 ทั้งคู่ยาว \(\sqrt5\)</li>
+        <li><span class="step-t">เปลี่ยนตัวแปร</span> \(P = \tfrac{1}{\sqrt5}\begin{bmatrix} 2 &amp; 1\\ 1 &amp; -2 \end{bmatrix}\), \(D = \operatorname{diag}(2, 7)\) ทำให้ \(\vec{x}^TA\vec{x} = \vec{y}^TD\vec{y}\)
+        \[ Q = 2y_1^2 + 7y_2^2 \]</li>
+        <li><span class="step-t">อ่านกราฟ</span> ความสัมพันธ์กลายเป็น \(2y_1^2 + 7y_2^2 = 14\) หรือ \(\tfrac{y_1^2}{7} + \tfrac{y_2^2}{2} = 1\) — สัมประสิทธิ์บวกทั้งคู่ จึงเป็น<em>วงรี</em>กึ่งแกน \(\sqrt7\) ตามแกน \(y_1\) และ \(\sqrt2\) ตามแกน \(y_2\) (หมุนเทียบแกนเดิมตามทิศ \((2, 1)\) และ \((1, -2)\))</li>
+      </ol>
+      <div class="verify"><span class="lbl">สรุปคำตอบ:</span> \(\vec{x} = P\vec{y}\) เมื่อ \(P = \tfrac{1}{\sqrt5}\begin{bmatrix} 2 &amp; 1\\ 1 &amp; -2 \end{bmatrix}\) ทำให้ได้ \(2y_1^2 + 7y_2^2 = 14\) กราฟเป็นวงรี — ตรงตามตำรา (ตรวจด้วย numpy แล้ว: \(A(2,1)^T = (4, 2) = 2(2,1)\) ✓ และ \(A(1,-2)^T = (3 - 2(-2),\; -2 - 12) = (7, -14) = 7(1,-2)\) ✓)</div>
+    </div>
+  </article>
+
+  <article class="ex-card">
+    <div class="ex-head"><span class="ex-badge">ตัวอย่าง 4.5.6</span><span class="tag book">จากตำรา</span><span class="tag mid">กลาง</span><span class="ex-title">จำแนกบวกแน่นอน / ลบแน่นอน / ไม่แน่นอน</span></div>
+    <div class="ex-body">
+      <div class="ex-q">จงพิจารณาว่ารูปแบบกำลังสอง \(Q\) ต่อไปนี้เป็นบวกแน่นอน เป็นลบแน่นอน หรือไม่แน่นอน<br>
+      (ก) \(Q(x_1, x_2) = 3x_1^2 + 6x_2^2 - 4x_1x_2\) &nbsp;&nbsp;&nbsp;&nbsp;
+      (ข) \(Q(x_1, x_2, x_3) = x_1^2 + 3x_2^2 + x_3^2 + 2x_1x_2 + 6x_1x_3 + 2x_2x_3\)</div>
+      <div class="approach"><span class="lbl">อธิบายโจทย์ง่าย ๆ</span> — ไม่ต้องแทนค่าเวกเตอร์หลายจุดให้เสียเวลา — ตามทฤษฎีบท 4.5.2 แค่รู้ค่าลักษณะเฉพาะของเมทริกซ์ของ \(Q\) ก็ตัดสินได้ทันที: บวกหมด = บวกแน่นอน, ลบหมด = ลบแน่นอน, ปนทั้งบวกและลบ = ไม่แน่นอน (เพราะหลังเปลี่ยนตัวแปร \(Q = \lambda_1y_1^2 + \cdots\) แต่ละพจน์มีเครื่องหมายตาม \(\lambda\) ล้วน ๆ)</div>
+      <ol class="steps">
+        <li><span class="step-t">(ก) ใช้ผลจากตัวอย่าง 4.5.3</span> เมทริกซ์ \(A = \begin{bmatrix} 3 &amp; -2\\ -2 &amp; 6 \end{bmatrix}\) มีค่าลักษณะเฉพาะ \(\lambda = 2, 7\) — ทั้งคู่เป็นบวก (\(&gt; 0\)) ดังนั้น \(Q\) เป็น<em>บวกแน่นอน</em> (หลังเปลี่ยนตัวแปร \(Q = 2y_1^2 + 7y_2^2\) เป็นบวกทุกพจน์เมื่อ \(\vec{y} \neq \vec{0}\))</li>
+        <li><span class="step-t">(ข) หาเมทริกซ์</span> กำลังสอง \(1, 3, 1\) ลงทแยง · ไขว้หารสอง: \(2x_1x_2 → 1\), \(6x_1x_3 → 3\), \(2x_2x_3 → 1\)
+        \[ A = \begin{bmatrix} 1 &amp; 1 &amp; 3\\ 1 &amp; 3 &amp; 1\\ 3 &amp; 1 &amp; 1 \end{bmatrix} \]</li>
+        <li><span class="step-t">(ข) ค่าลักษณะเฉพาะ</span> \(\det(A - \lambda I_3) = -(\lambda + 2)(\lambda - 2)(\lambda - 5) = 0\) ได้ \(\lambda = -2, 2, 5\) — มีทั้งบวก (\(2, 5\)) และลบ (\(-2\)) ดังนั้น \(Q\) เป็น<em>ไม่แน่นอน</em> (ยืนยันได้ด้วยจุดจริง: เวกเตอร์ลักษณะเฉพาะทิศของ \(\lambda = -2\) ทำให้ \(Q = -2\|\vec{x}\|^2 &lt; 0\) แต่ \(Q(1, 0, 0) = 1 &gt; 0\))</li>
+      </ol>
+      <div class="verify"><span class="lbl">สรุปคำตอบ:</span> (ก) บวกแน่นอน (\(\lambda = 2, 7 &gt; 0\)) · (ข) ไม่แน่นอน (\(\lambda = -2, 2, 5\) ปนเครื่องหมาย) — ตรงตามตำรา (ตรวจด้วย numpy แล้วค่าลักษณะเฉพาะของเมทริกซ์ (ข) คือ \(-2, 2, 5\) เป๊ะ)</div>
+    </div>
+  </article>
+
+  <article class="ex-card">
+    <div class="ex-head"><span class="ex-badge">ตัวอย่าง 4.5.4</span><span class="tag book">จากตำรา</span><span class="tag hard">ยาก</span><span class="ex-title">เส้นโค้งที่มีพจน์เชิงเส้น — ออกมาเป็นพาราโบลา</span></div>
+    <div class="ex-body">
+      <div class="ex-q">จงเปลี่ยนตัวแปร \(\vec{x} = P\vec{y}\) ซึ่งทำให้ความสัมพันธ์ \(x_1^2 + 4x_2^2 + 4x_1x_2 + 4\sqrt{5}\,x_1 + 3\sqrt{5}\,x_2 = 0\) ไม่มีพจน์ผลคูณไขว้ พร้อมทั้งร่างกราฟของความสัมพันธ์นี้อย่างคร่าว ๆ</div>
+      <div class="approach"><span class="lbl">อธิบายโจทย์ง่าย ๆ</span> — ข้อนี้ยากกว่า 4.5.3 เพราะมีพจน์เชิงเส้น \(4\sqrt5\,x_1 + 3\sqrt5\,x_2\) ปนอยู่ด้วย ทางแก้คือจัดการทีละก้อน: ก้อนกำลังสอง + ไขว้จัดด้วยการแปลงทแยงมุมเชิงตั้งฉาก (\(\vec{x} = P\vec{y}\) แบบเดิม) แล้วพจน์เชิงเส้นก็ต้องตามไปเปลี่ยนด้วยโดยคูณแถวของ \(P^T\) — สัมประสิทธิ์ที่เป็น \(\sqrt5\) เลือกมาให้ตัดกับตัวส่วน \(\sqrt5\) ของ \(P\) พอดี</div>
+      <ol class="steps">
+        <li><span class="step-t">จัดก้อนกำลังสอง</span> \(Q = x_1^2 + 4x_2^2 + 4x_1x_2\) มีเมทริกซ์ \(A = \begin{bmatrix} 1 &amp; 2\\ 2 &amp; 4 \end{bmatrix}\) \(\det(A - \lambda I) = \lambda^2 - 5\lambda = \lambda(\lambda - 5) = 0\) ได้ \(\lambda = 0, 5\) · \(\lambda = 0\): \(x_1 + 2x_2 = 0\) → \((-2, 1)\) · \(\lambda = 5\): \(x_1 - \tfrac12x_2 = 0\) → \((1, 2)\) ทั้งคู่ยาว \(\sqrt5\)
+        \[ D = \begin{bmatrix} 0 &amp; 0\\ 0 &amp; 5 \end{bmatrix}, \qquad P = \begin{bmatrix} -\tfrac{2}{\sqrt5} &amp; \tfrac{1}{\sqrt5}\\[2pt] \tfrac{1}{\sqrt5} &amp; \tfrac{2}{\sqrt5} \end{bmatrix} \]</li>
+        <li><span class="step-t">เปลี่ยนพจน์เชิงเส้นตาม</span> \((4\sqrt5,\; 3\sqrt5)\,\vec{x} = (4\sqrt5,\; 3\sqrt5)\,P\vec{y}\) — คูณทีละหลัก: หลักแรก \(4\sqrt5(-\tfrac{2}{\sqrt5}) + 3\sqrt5(\tfrac{1}{\sqrt5}) = -8 + 3 = -5\) · หลักที่สอง \(4\sqrt5(\tfrac{1}{\sqrt5}) + 3\sqrt5(\tfrac{2}{\sqrt5}) = 4 + 6 = 10\)</li>
+        <li><span class="step-t">ประกอบความสัมพันธ์ใหม่</span> ก้อนกำลังสองให้ \(0\cdot y_1^2 + 5y_2^2\) ก้อนเชิงเส้นให้ \(-5y_1 + 10y_2\)
+        \[ 5y_2^2 - 5y_1 + 10y_2 = 0 \]</li>
+        <li><span class="step-t">อ่านกราฟ</span> ไม่มีพจน์ \(y_1^2\) (เพราะ \(\lambda = 0\)) แต่มี \(y_1\) เชิงเส้น — สมการแบบ \(y_2^2 = y_1 - 2y_2\) เปิดไปทาง \(y_1\) จึงเป็น<em>พาราโบลา</em> (เทียบกับ 4.5.3 ที่ \(\lambda\) บวกทั้งคู่ได้วงรี: ตอน \(\lambda\) มีศูนย์ปน ชนิดเส้นโค้งเปลี่ยนไป)</li>
+      </ol>
+      <div class="verify"><span class="lbl">สรุปคำตอบ:</span> เปลี่ยนตัวแปรด้วย \(P = \begin{bmatrix} -\tfrac{2}{\sqrt5} &amp; \tfrac{1}{\sqrt5}\\ \tfrac{1}{\sqrt5} &amp; \tfrac{2}{\sqrt5} \end{bmatrix}\) ได้ \(5y_2^2 - 5y_1 + 10y_2 = 0\) กราฟเป็นพาราโบลา — ตรงตามตำรา (ตรวจด้วย numpy แล้ว: \(\lambda = 0, 5\) และพจน์เชิงเส้นใหม่คือ \((-5, 10)\) เป๊ะ)</div>
+    </div>
+  </article>
+
+  <article class="ex-card">
+    <div class="ex-head"><span class="ex-badge">ตัวอย่าง 4.5.5</span><span class="tag book">จากตำรา</span><span class="tag hard">ยาก</span><span class="ex-title">สามตัวแปร + \(\lambda\) ซ้ำ + กราม-ชมิดต์ — จัดเต็มทุกท่า</span></div>
+    <div class="ex-body">
+      <div class="ex-q">จงเปลี่ยนตัวแปร \(\vec{x} = P\vec{y}\) ซึ่งทำให้ความสัมพันธ์ \(2x_1^2 + 2x_2^2 + 2x_3^2 + 2x_1x_2 + 2x_1x_3 - 2x_2x_3 + 24x_1 + 12x_2 + 12x_3 - 12 = 0\) ไม่มีพจน์ผลคูณไขว้</div>
+      <div class="approach"><span class="lbl">อธิบายโจทย์ง่าย ๆ</span> — โจทย์รวมทุกท่าที่เรียนมาในข้อเดียว: เมทริกซ์ 3×3, ค่าลักษณะเฉพาะซ้ำ (\(\lambda = 3\) ซ้ำสองครั้ง) ที่ฐานหลักดิบไม่ตั้งฉากกันจึงต้องใช้กราม-ชมิดต์ภายในกลุ่ม แล้วปิดด้วยการเปลี่ยนพจน์เชิงเส้น — เดินทีละก้อนตามสูตรเดิมทุกอย่าง แค่ยาวขึ้น</div>
+      <ol class="steps">
+        <li><span class="step-t">เมทริกซ์และค่าลักษณะเฉพาะ</span> \(Q\) ก้อนกำลังสองมีเมทริกซ์ \(A = \begin{bmatrix} 2 &amp; 1 &amp; 1\\ 1 &amp; 2 &amp; -1\\ 1 &amp; -1 &amp; 2 \end{bmatrix}\) \(\det(A - \lambda I_3) = -\lambda(\lambda - 3)^2 = 0\) ได้ \(\lambda = 0, 3, 3\)</li>
+        <li><span class="step-t">กลุ่ม \(\lambda = 0\)</span> ลดรูป \(A \sim \begin{bmatrix} 1 &amp; 0 &amp; 1\\ 0 &amp; 1 &amp; -1\\ 0 &amp; 0 &amp; 0 \end{bmatrix}\) ได้ \(x_1 = -x_3\), \(x_2 = x_3\) → เวกเตอร์ \((-1, 1, 1)\) ยาว \(\sqrt3\) → \(\tfrac{1}{\sqrt3}(-1, 1, 1)\)</li>
+        <li><span class="step-t">กลุ่ม \(\lambda = 3\): ฐานหลักดิบไม่ตั้งฉาก</span> ลดรูป \(A - 3I \sim \begin{bmatrix} 1 &amp; -1 &amp; -1\\ 0 &amp; 0 &amp; 0\\ 0 &amp; 0 &amp; 0 \end{bmatrix}\) ได้ \(x_1 = x_2 + x_3\) → ฐานหลัก \(\vec{x}_1 = (1, 1, 0)\), \(\vec{x}_2 = (1, 0, 1)\) — จุดกันได้ \(1 \neq 0\) จึงใช้กราม-ชมิดต์: \(\vec{v}_2 = \vec{x}_2 - \tfrac{\vec{x}_2\cdot\vec{v}_1}{\vec{v}_1\cdot\vec{v}_1}\vec{v}_1 = (1, 0, 1) - \tfrac12(1, 1, 0) = (\tfrac12, -\tfrac12, 1)\) คูณ 2 ได้ \((1, -1, 2)\) ยาว \(\sqrt6\) → \(\tfrac{1}{\sqrt6}(1, -1, 2)\) (ตรวจ: \((1,1,0)\cdot(1,-1,2) = 0\) ✓)</li>
+        <li><span class="step-t">ประกอบ \(P\) และเปลี่ยนทั้งสมการ</span>
+        \[ D = \begin{bmatrix} 0 &amp; 0 &amp; 0\\ 0 &amp; 3 &amp; 0\\ 0 &amp; 0 &amp; 3 \end{bmatrix}, \qquad P = \begin{bmatrix} -\tfrac{1}{\sqrt3} &amp; \tfrac{1}{\sqrt2} &amp; \tfrac{1}{\sqrt6}\\[2pt] \tfrac{1}{\sqrt3} &amp; \tfrac{1}{\sqrt2} &amp; -\tfrac{1}{\sqrt6}\\[2pt] \tfrac{1}{\sqrt3} &amp; 0 &amp; \tfrac{2}{\sqrt6} \end{bmatrix} \]
+        พจน์เชิงเส้น \((24, 12, 12)\,\vec{x}\) กลายเป็น \((24, 12, 12)\,P\vec{y}\): หลักแรก \(\tfrac{1}{\sqrt3}(-24 + 12 + 12) = 0\) · หลักที่สอง \(\tfrac{1}{\sqrt2}(24 + 12 + 0) = \tfrac{36}{\sqrt2} = 18\sqrt2\) · หลักที่สาม \(\tfrac{1}{\sqrt6}(24 - 12 + 24) = \tfrac{36}{\sqrt6} = 6\sqrt6\)</li>
+        <li><span class="step-t">ประกอบสมการใหม่</span> \(3y_2^2 + 3y_3^2 + 18\sqrt2\,y_2 + 6\sqrt6\,y_3 - 12 = 0\) หารทุกพจน์ด้วย 3 ให้สวย
+        \[ y_2^2 + y_3^2 + 6\sqrt{2}\,y_2 + 2\sqrt{6}\,y_3 - 4 = 0 \]
+        (ไม่มี \(y_1\) ทั้งกำลังสองและเชิงเส้น — เพราะ \(\lambda = 0\) ทำให้แกนแรกหายไป สมการกลายเป็นวงกลมในระนาบ \(y_2\)-\(y_3\))</li>
+      </ol>
+      <div class="verify"><span class="lbl">สรุปคำตอบ:</span> \(\lambda = 0, 3, 3\) และเปลี่ยนตัวแปรด้วย \(P\) ด้านบนได้ \(y_2^2 + y_3^2 + 6\sqrt2\,y_2 + 2\sqrt6\,y_3 - 4 = 0\) — ตรงตามตำรา (ตรวจด้วย numpy แล้ว: ค่าลักษณะเฉพาะของ \(A\) คือ \(0, 3, 3\) และพจน์เชิงเส้นใหม่คือ \((0, 18\sqrt2, 6\sqrt6)\) เป๊ะ)</div>
+    </div>
+  </article>
+
+  <article class="ex-card">
+    <div class="ex-head"><span class="ex-badge">แบบฝึกหัด 4.5 ข้อ 5 ก,ข,ค</span><span class="tag book">จากตำรา</span><span class="tag hard">ยาก</span><span class="ex-title">หาค่า \(k\) ทั้งหมดที่ทำให้ \(Q\) บวกแน่นอน</span></div>
+    <div class="ex-body">
+      <div class="ex-q">จงหาค่าของ \(k\) ทั้งหมดที่ทำให้รูปแบบกำลังสองต่อไปนี้เป็นบวกแน่นอน<br>
+      (ก) \(Q(x_1, x_2) = x_1^2 + kx_2^2 - 4x_1x_2\) &nbsp;&nbsp;&nbsp;&nbsp;
+      (ข) \(Q(x_1, x_2, x_3) = 5x_1^2 + 2x_2^2 + kx_3^2 + 4x_1x_2 - 2x_1x_3 - 2x_2x_3\) &nbsp;&nbsp;&nbsp;&nbsp;
+      (ค) \(Q(x_1, x_2, x_3) = 3x_1^2 + x_2^2 + 2x_3^2 + 2x_1x_3 + 2kx_2x_3\)</div>
+      <div class="approach"><span class="lbl">อธิบายโจทย์ง่าย ๆ</span> — ตัวแปร \(k\) อยู่ในเมทริกซ์ หาค่าลักษณะเฉพาะตรง ๆ จะยุ่งมาก เคล็ดลับคือใช้<em>เกณฑ์นำของซิลเวสเตอร์</em>: รูปแบบกำลังสองเป็นบวกแน่นอน ก็ต่อเมื่อตัวกระทำย่อยนำ (มุมบนซ้าย 1×1, 2×2, 3×3) มีดีเทอร์มิแนนต์เป็นบวกทั้งหมด — คำนวณ det ที่มี \(k\) แล้วแก้อสมการไปเรื่อย ๆ</div>
+      <ol class="steps">
+        <li><span class="step-t">(ก) เมทริกซ์ \(2\times2\)</span> \(A = \begin{bmatrix} 1 &amp; -2\\ -2 &amp; k \end{bmatrix}\): ตัวนำ 1×1 คือ \(1 &gt; 0\) ✓ · ตัวนำ 2×2 คือ \(\det A = 1\cdot k - (-2)(-2) = k - 4\) (ระวังลบคูณลบได้บวก) ต้อง &gt; 0
+        \[ k - 4 &gt; 0 \;\Longleftrightarrow\; k &gt; 4 \]</li>
+        <li><span class="step-t">(ข) ตัวนำ 2×2 และ 3×3</span> \(A = \begin{bmatrix} 5 &amp; 2 &amp; -1\\ 2 &amp; 2 &amp; -1\\ -1 &amp; -1 &amp; k \end{bmatrix}\): ตัวนำ 1×1: \(5 &gt; 0\) ✓ · ตัวนำ 2×2: \(\begin{vmatrix} 5 &amp; 2\\ 2 &amp; 2 \end{vmatrix} = 10 - 4 = 6 &gt; 0\) ✓ · ตัวนำ 3×3: กระจายตามแถวแรก \(\det A = 5(2k - 1) - 2(2k - 1) + (-1)(-2 + 2) = 5(2k-1) - 2(2k-1) = 3(2k - 1) = 6k - 3\)
+        \[ 6k - 3 &gt; 0 \;\Longleftrightarrow\; k &gt; \tfrac12 \]
+        (หมายเหตุ: คำตอบท้ายบทพิมพ์ \(k &gt; 2\) แต่การตรวจด้วย numpy ยืนยันว่าที่ \(k = 1\) ค่าลักษณะเฉพาะทุกตัวเป็นบวกจริง (เล็กสุด \(\approx 0.365\)) ดังนั้นเงื่อนไขที่ถูกต้องและแคบที่สุดคือ \(k &gt; \tfrac12\))</li>
+        <li><span class="step-t">(ค) ตัวนำทั้งสาม</span> \(A = \begin{bmatrix} 3 &amp; 0 &amp; 1\\ 0 &amp; 1 &amp; k\\ 1 &amp; k &amp; 2 \end{bmatrix}\): ตัวนำ 1×1: \(3 &gt; 0\) ✓ · ตัวนำ 2×2: \(\begin{vmatrix} 3 &amp; 0\\ 0 &amp; 1 \end{vmatrix} = 3 &gt; 0\) ✓ · ตัวนำ 3×3: \(\det A = 3(2 - k^2) - 0 + 1(0 - 1) = 6 - 3k^2 - 1 = 5 - 3k^2\)
+        \[ 5 - 3k^2 &gt; 0 \;\Longleftrightarrow\; k^2 &lt; \tfrac53 \]
+        (หมายเหตุ: คำตอบท้ายบทพิมพ์ \(k^2 \leq 1\) ซึ่งเป็นเพียงช่วงย่อย — ตรวจด้วย numpy แล้วที่ \(k = 1.2\) (\(k^2 = 1.44\)) ยังบวกแน่นอนจริง (ค่าลักษณะเฉพาะเล็กสุด \(\approx 0.084\)) และขอบจริงคือ \(k^2 = \tfrac53 \approx 1.67\) ที่ det เป็นศูนย์ ดังนั้นคำตอบที่ถูกต้องคือ \(k^2 &lt; \tfrac53\); ที่ \(k^2 = \tfrac53\) เป็นบวกกึ่งแน่นอน จึงใช้เครื่องหมาย &lt; เคร่งครัด)</li>
+      </ol>
+      <div class="verify"><span class="lbl">สรุปคำตอบ:</span> (ก) \(k &gt; 4\) · (ข) \(k &gt; \tfrac12\) · (ค) \(k^2 &lt; \tfrac53\) — ข้อ (ก) ตรงคำตอบท้ายบท ส่วน (ข) และ (ค) ตำราให้ \(k &gt; 2\) และ \(k^2 \leq 1\) ซึ่งไม่ตรงการคำนวณ (numpy ตรวจแล้วทั้งสองจุด) จึงใช้ค่าที่คำนวณได้พร้อมหมายเหตุตามด้านบน</div>
+    </div>
+  </article>
+</section>
+
+<section class="block" id="apply">
+  <h2><span class="h2-dot">🌍</span> เอาไปใช้ทำอะไร — โจทย์ประยุกต์</h2>
+
+  <article class="ex-card">
+    <div class="ex-head"><span class="ex-badge">🛰️ วงโคจรดาวเทียม</span><span class="tag app">ใช้จริง</span><span class="tag mid">กลาง</span><span class="ex-title">อ่านชนิดวงโคจรจากค่าลักษณะเฉพาะ — วงรีในแกนที่หมุนแล้ว</span></div>
+    <div class="ex-body">
+      <div class="ex-q">สถานีติดตามดาวเทียมแปลงข้อมูลการสังเกตเป็นความสัมพันธ์ในระนาบการโคจรได้ \(x^2 + xy + y^2 = 3\) (หน่วย: พันกิโลเมตร) พจน์ \(xy\) ทำให้เส้นโค้งเอียงเทียบแกนพิกัด จงเปลี่ยนตัวแปรด้วยการหมุนแกนที่เหมาะสม แล้วตอบว่าวงโคจรนี้ชนิดใด (วงกลม/วงรี/พาราโบลา/ไฮเปอร์โบลา) และมีระยะไกลสุด-ใกล้สุดจากศูนย์กลางเท่าไร</div>
+      <div class="approach"><span class="lbl">อธิบายโจทย์ง่าย ๆ</span> — วิศวกรวงโคจรไม่ได้สนใจแกน \(x, y\) ที่เราวาดสมมติขึ้น แต่สนใจ "แกนเอียงของวงโคจรเอง" — การเปลี่ยนตัวแปร \(\vec{x} = P\vec{y}\) ที่หาจาก eigenvector คือการหมุนแกนพิกัดไปทับแกนจริงของวงโคจร จากนั้นค่าลักษณะเฉพาะจะบอกชนิดของเส้นโค้งทันที</div>
+      <ol class="steps">
+        <li><span class="step-t">เมทริกซ์และค่าลักษณะเฉพาะ</span> ก้อนกำลังสอง \(x^2 + xy + y^2\) มีเมทริกซ์ \(A = \begin{bmatrix} 1 &amp; \tfrac12\\[2pt] \tfrac12 &amp; 1 \end{bmatrix}\) \(\det(A - \lambda I) = (1 - \lambda)^2 - \tfrac14 = 0\) ได้ \(\lambda = 1 \pm \tfrac12\) คือ \(\tfrac12\) กับ \(\tfrac32\) — <em>บวกทั้งคู่</em> จึงรู้แล้วว่าเป็นวงรี (ถ้าเครื่องอ่านวงโคจรได้เครื่องหมายปนจะเป็นไฮเปอร์โบลา = วงโคจรหลุดพ้น)</li>
+        <li><span class="step-t">แกนใหม่จาก eigenvector</span> \(\lambda = \tfrac12\): \(x + y = 0\) → \(\tfrac{1}{\sqrt2}(1, -1)\) · \(\lambda = \tfrac32\): \(x = y\) → \(\tfrac{1}{\sqrt2}(1, 1)\) จึงได้ \(P = \tfrac{1}{\sqrt2}\begin{bmatrix} 1 &amp; 1\\ -1 &amp; 1 \end{bmatrix}\) (หมุนแกน 45°) และความสัมพันธ์กลายเป็น
+        \[ \frac{1}{2}y_1^2 + \frac{3}{2}y_2^2 = 3 \;\Longleftrightarrow\; \frac{y_1^2}{6} + \frac{y_2^2}{2} = 1 \]</li>
+        <li><span class="step-t">อ่านระยะไกลสุด-ใกล้สุด</span> วงรีมีกึ่งแกน \(\sqrt6 \approx 2.45\) พัน กม. ตามแกน \(y_1\) (ทิศ \((1, -1)\)) และ \(\sqrt2 \approx 1.41\) พัน กม. ตามแกน \(y_2\) (ทิศ \((1, 1)\)) — จุดไกลสุดจากศูนย์กลาง (apogee) อยู่ที่ราว 2,450 กม. ในทิศเฉียงลง และใกล้สุด (perigee) ราว 1,410 กม. ในทิศเฉียงขึ้น โดยที่ไม่ต้องวาดกราฟเลยสักจุด</li>
+      </ol>
+      <div class="verify"><span class="lbl">เห็นไหมว่า...</span> ทฤษฎีบทแกนมุขสำคัญ (4.5.1) ที่บอกว่า "เปลี่ยนตัวแปรแล้วพจน์ไขว้หายเสมอ" คือเหตุผลที่นักดาราศาสตร์ ผู้ควบคุมดาวเทียม และซอฟต์แวร์จำลองวงโคจรสามารถ "อ่านชนิดและขนาดวงโคจร" จากสมการเดียวได้ทันที — ค่าลักษณะเฉพาะบอกชนิด เวกเตอร์ลักษณะเฉพาะบอกทิศแกน</div>
+    </div>
+  </article>
+
+  <article class="ex-card">
+    <div class="ex-head"><span class="ex-badge">📈 กำไรสูงสุดของร้านค้า</span><span class="tag app">ใช้จริง</span><span class="tag easy">ง่าย</span><span class="ex-title">จุดสูงสุดหาได้จาก "เมทริกซ์เฮสเซียนเป็นลบแน่นอน"</span></div>
+    <div class="ex-body">
+      <div class="ex-q">ร้านหนึ่งขายสินค้าสองชนิด ตั้งราคา \(x\) และ \(y\) บาท (เหนือต้นทุน) แบบจำลองกำไรรายวันคือ \(P(x, y) = 10x + 8y - x^2 - y^2 - xy\) (หน่วย: ร้อยบาท) จงหาจุดราคาที่ทำให้กำไรสูงสุด พร้อมยืนยันด้วยเมทริกซ์เฮสเซียน (ผ่านค่าลักษณะเฉพาะ) ว่าเป็นจุด<em>สูงสุด</em>จริง ไม่ใช่จุดต่ำสุดหรืออานม้า</div>
+      <div class="approach"><span class="lbl">อธิบายโจทย์ง่าย ๆ</span> — จุดสูงสุด-ต่ำสุดของฟังก์ชันหลายตัวแปรหาได้จาก "อนุพันธ์อันดับหนึ่งเป็นศูนย์" แต่การยืนยันว่าเป็นสูงสุดหรือต่ำสุดต้องดู<em>ความโค้ง</em> ซึ่งเก็บอยู่ในเมทริกซ์เฮสเซียน (เมทริกซ์ของอนุพันธ์อันดับสอง) — นี่คือรูปแบบกำลังสองที่เราเรียนทั้งหัวข้อ: บวกแน่นอน = โค้งขึ้น = ต่ำสุด, ลบแน่นอน = โค้งลง = สูงสุด</div>
+      <ol class="steps">
+        <li><span class="step-t">หาจุดวิกฤต</span> อนุพันธ์เท่ากับศูนย์ทั้งสองทาง: \(\tfrac{\partial P}{\partial x} = 10 - 2x - y = 0\) และ \(\tfrac{\partial P}{\partial y} = 8 - x - 2y = 0\) จากสมการแรก \(y = 10 - 2x\) แทนลงสอง: \(8 - x - 2(10 - 2x) = 0 → 3x - 12 = 0 → x = 4\), \(y = 2\) — ผู้จัดการร้านควรตั้งส่วนเพิ่ม 4 บาทกับสินค้าตัวแรก และ 2 บาทกับตัวที่สอง</li>
+        <li><span class="step-t">เมทริกซ์เฮสเซียน</span> อนุพันธ์อันดับสอง: \(P_{xx} = -2\), \(P_{yy} = -2\), \(P_{xy} = -1\)
+        \[ H = \begin{bmatrix} -2 &amp; -1\\ -1 &amp; -2 \end{bmatrix} \]</li>
+        <li><span class="step-t">ตัดสินด้วยค่าลักษณะเฉพาะ</span> \(\det(H - \lambda I) = (-2 - \lambda)^2 - 1 = 0\) ได้ \(\lambda = -1, -3\) — <em>ลบทั้งคู่</em> → \(H\) ลบแน่นอน (ทฤษฎีบท 4.5.2) → ฟังก์ชันโค้งลงทุกทิศ จุดวิกฤตที่ \((4, 2)\) จึงเป็น<em>จุดสูงสุดสัมบูรณ์</em>แน่นอน ไม่ใช่อานม้า (อานม้าจะได้ \(\lambda\) ปนเครื่องหมาย)</li>
+        <li><span class="step-t">คำนวณกำไรสูงสุด</span> \(P(4, 2) = 10(4) + 8(2) - 16 - 4 - 8 = 40 + 16 - 28 = 28\) ร้อยบาท = 2,800 บาทต่อวัน</li>
+      </ol>
+      <div class="verify"><span class="lbl">เห็นไหมว่า...</span> การจำแนก definiteness ที่ฝึกในหัวข้อนี้ คือเครื่องมือมาตรฐานของเศรษฐศาสตร์ (จุดกำไรสูงสุด/ต้นทุนต่ำสุด) และแมชชีนเลิร์นนิ่ง (ทดสอบว่าจุดที่ gradient เป็นศูนย์เป็นหุบเขาหรืออานม้า) — ทุกครั้งที่เห็นคำว่า "เฮสเซียนเป็นบวกแน่นอน" ในตำรา optimization นั่นคือทฤษฎีบท 4.5.2 ที่เราเพิ่งใช้</div>
     </div>
   </article>
 </section>

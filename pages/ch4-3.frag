@@ -14,6 +14,8 @@ page: ch4-3.html
   <a href="#objectives">🎯 จุดประสงค์</a>
   <a href="#lesson">📖 บทเรียน</a>
   <a href="#examples">✏️ ตัวอย่างโจทย์</a>
+  <a href="#textbook">📚 ตัวอย่างจากตำรา</a>
+  <a href="#apply">🌍 การใช้จริง</a>
   <a href="#recipe">⚡ สูตรสำเร็จ</a>
   <a href="#practice">🏋️ โจทย์ซ้อมมือ</a>
 </nav>
@@ -142,6 +144,200 @@ page: ch4-3.html
         <li><span class="step-t">เชื่อมโยง</span> ระยะทางนี้คือ \(\|\vec{b} - A\hat{x}\|\) น้อยที่สุด — ระบบ \(A\vec{x} = \vec{b}\) ไม่มีผลเฉลยจริง (เพราะ \((1,3)^T\) ไม่เป็นสัดส่วนกับ \((1,2)^T\) — ถ้าเป็นผลเฉลยจะต้องมี \(x\) ที่ทำให้ \(x(1,2)^T = (1,3)^T\) แต่ช่องแรกบอก \(x = 1\) ช่องสองบอก \(x = \tfrac32\) ขัดกัน) แต่มีผลเฉลยกำลังสองน้อยสุดที่ทำให้พลาดเพียง \(\tfrac{\sqrt{5}}{5}\) — <strong>สรุปคำตอบ:</strong> \(\operatorname{dist}(\vec{b}, \operatorname{Col} A) = \tfrac{\sqrt5}{5}\)</li>
       </ol>
       <div class="verify"><span class="lbl">ตรวจคำตอบ:</span> \((-\tfrac25, \tfrac15)^T\cdot(1,2)^T = -\tfrac25 + \tfrac25 = 0\) ✓</div>
+    </div>
+  </article>
+</section>
+
+<section class="block" id="textbook">
+  <h2><span class="h2-dot">📚</span> ตัวอย่างจากตำรา (พีชคณิต.pdf)</h2>
+  <p class="page-sub">โจทย์ทุกข้อคัดมาตรงจากตำราประกอบการสอน โดยเรียงจากง่ายไปยาก — ใต้โจทย์แต่ละข้อมี "อธิบายโจทย์ง่าย ๆ" ช่วยให้เห็นว่าโจทย์ถามอะไรก่อนลงมือทำ</p>
+
+  <article class="ex-card">
+    <div class="ex-head"><span class="ex-badge">ตัวอย่าง 4.3.1</span><span class="tag book">จากตำรา</span><span class="tag easy">ง่าย</span><span class="ex-title">การประมาณที่ดีสุด (best approximation) ของ \(\vec{y}\) โดยเวกเตอร์ใน \(H\)</span></div>
+    <div class="ex-body">
+      <div class="ex-q">จงหาการประมาณที่ดีสุดของ \(\vec{y} = \begin{bmatrix} 1\\ 2\\ 3 \end{bmatrix}\) โดยเวกเตอร์ในปริภูมิย่อย \(H = \operatorname{Span}\{\vec{u}_1, \vec{u}_2\}\) เมื่อ \(\vec{u}_1 = \begin{bmatrix} 2\\ 5\\ -1 \end{bmatrix}\) และ \(\vec{u}_2 = \begin{bmatrix} 2\\ -1\\ -1 \end{bmatrix}\)</div>
+      <div class="approach"><span class="lbl">อธิบายโจทย์ง่าย ๆ</span> — "การประมาณที่ดีสุด" คือจุดบนปริภูมิย่อย \(H\) ที่ใกล้ \(\vec{y}\) ที่สุด ซึ่งก็คือเงา \(\operatorname{proj}_H \vec{y}\) นั่นเอง — เช็กก่อนว่าฐานหลักตั้งฉากกัน แล้วหาน้ำหนักทีละตัวด้วยสูตรจุดเศษหารจุดส่วน (เหมือน 4.1 ที่เคยทำ) จบเลย</div>
+      <ol class="steps">
+        <li><span class="step-t">เช็กว่าฐานหลักตั้งฉาก</span> \(\vec{u}_1\cdot\vec{u}_2 = 2(2) + 5(-1) + (-1)(-1) = 4 - 5 + 1 = 0\) ✓ จึงใช้สูตรฉายบนฐานหลักเชิงตั้งฉากได้ทันที</li>
+        <li><span class="step-t">น้ำหนักตัวแรก</span> เศษ \(\vec{y}\cdot\vec{u}_1 = 1(2) + 2(5) + 3(-1) = 2 + 10 - 3 = 9\) ส่วน \(\vec{u}_1\cdot\vec{u}_1 = 4 + 25 + 1 = 30\) ได้ \(\tfrac{9}{30}\)</li>
+        <li><span class="step-t">น้ำหนักตัวที่สอง</span> เศษ \(\vec{y}\cdot\vec{u}_2 = 1(2) + 2(-1) + 3(-1) = 2 - 2 - 3 = -3\) ส่วน \(\vec{u}_2\cdot\vec{u}_2 = 4 + 1 + 1 = 6\) ได้ \(\tfrac{-3}{6} = -\tfrac36\)
+        \[ \hat{y} = \operatorname{proj}_H \vec{y} = \frac{9}{30}\vec{u}_1 - \frac{3}{6}\vec{u}_2 = \frac{3}{10}\begin{bmatrix} 2\\ 5\\ -1 \end{bmatrix} - \frac{1}{2}\begin{bmatrix} 2\\ -1\\ -1 \end{bmatrix} = \begin{bmatrix} \tfrac35 - 1\\[2pt] \tfrac32 + \tfrac12\\[2pt] -\tfrac3{10} + \tfrac12 \end{bmatrix} = \begin{bmatrix} -\tfrac25\\[2pt] 2\\[2pt] \tfrac15 \end{bmatrix} \]</li>
+      </ol>
+      <div class="verify"><span class="lbl">สรุปคำตอบ:</span> \(\hat{y} = \tfrac{9}{30}\vec{u}_1 - \tfrac{3}{6}\vec{u}_2 = \begin{bmatrix} -\tfrac25\\ 2\\ \tfrac15 \end{bmatrix}\) เป็นการประมาณที่ดีสุดของ \(\vec{y}\) โดยเวกเตอร์ใน \(H\) — ตรงตามตำรา (ตรวจ: \((\vec{y} - \hat{y})\cdot\vec{u}_1 = (\tfrac75, 0, \tfrac{14}5)\cdot(2,5,-1) = \tfrac{14}5 + 0 - \tfrac{14}5 = 0\) ✓ ตั้งฉากกับฐานหลักพอดี)</div>
+    </div>
+  </article>
+
+  <article class="ex-card">
+    <div class="ex-head"><span class="ex-badge">ตัวอย่าง 4.3.2</span><span class="tag book">จากตำรา</span><span class="tag easy">ง่าย</span><span class="ex-title">ผลเฉลยกำลังสองน้อยสุดเมื่อหลักของ \(A\) ตั้งฉากกัน</span></div>
+    <div class="ex-body">
+      <div class="ex-q">จงหาผลเฉลยกำลังสองน้อยสุดของระบบเชิงเส้น \(A\vec{x} = \vec{b}\) เมื่อ \(A = \begin{bmatrix} 1 &amp; -6\\ 1 &amp; -2\\ 1 &amp; 1\\ 1 &amp; 7 \end{bmatrix}\) และ \(\vec{b} = \begin{bmatrix} -1\\ 2\\ 1\\ 6 \end{bmatrix}\)</div>
+      <div class="approach"><span class="lbl">อธิบายโจทย์ง่าย ๆ</span> — ระบบ 4 สมการ 2 ตัวแปรแบบนี้ส่วนใหญ่แก้ตรง ๆ ไม่ได้ (เวกเตอร์ \(\vec{b}\) ไม่อยู่ใน \(\operatorname{Col} A\)) แต่สังเกตดี ๆ: ผลรวมของหลักที่สองคือ \(-6-2+1+7 = 0\) แปลว่าหลักทั้งสอง<em>ตั้งฉากกัน</em> — ได้สิทธิ์ใช้ทางลัด: \(\vec{b}\) ก็ฉายลงหลักแต่ละตัวแยกกันได้เลย แล้วอ่าน \(\hat{x}\) จากน้ำหนัก</div>
+      <ol class="steps">
+        <li><span class="step-t">เช็กความตั้งฉากของหลัก</span> ให้ \(\vec{u}_1 = (1, 1, 1, 1)\), \(\vec{u}_2 = (-6, -2, 1, 7)\): \(\vec{u}_1\cdot\vec{u}_2 = 1 - 6 - 2 + 1 + 7\)... คูณทีละคู่: \(1(-6) + 1(-2) + 1(1) + 1(7) = -6 - 2 + 1 + 7 = 0\) ✓ จึงเป็นฐานหลักเชิงตั้งฉากของ \(\operatorname{Col} A\)</li>
+        <li><span class="step-t">ฉาย \(\vec{b}\) ลงแต่ละหลัก</span> น้ำหนักตัวแรก: \(\vec{b}\cdot\vec{u}_1 = -1 + 2 + 1 + 6 = 8\), \(\vec{u}_1\cdot\vec{u}_1 = 4\) → \(2\) · น้ำหนักตัวที่สอง: \(\vec{b}\cdot\vec{u}_2 = (-1)(-6) + 2(-2) + 1(1) + 6(7) = 6 - 4 + 1 + 42 = 45\), \(\vec{u}_2\cdot\vec{u}_2 = 36 + 4 + 1 + 49 = 90\) → \(\tfrac{45}{90} = \tfrac12\)
+        \[ \hat{b} = 2\vec{u}_1 + \frac{1}{2}\vec{u}_2 \]</li>
+        <li><span class="step-t">อ่าน \(\hat{x}\) จากน้ำหนัก</span> เมื่อ \(\hat{b} = A\hat{x}\) อยู่แล้วในรูป "2 เท่าของหลักแรก + \(\tfrac12\) เท่าของหลักที่สอง" น้ำหนักเหล่านี้ก็คือสมาชิกของ \(\hat{x}\) โดยตรง — นี่คือเหตุผลที่บทแทรก 4.3.2 ให้ตอบจบแบบนี้
+        \[ \hat{x} = \begin{bmatrix} 2\\ \tfrac12 \end{bmatrix} \]</li>
+      </ol>
+      <div class="verify"><span class="lbl">สรุปคำตอบ:</span> \(\hat{x} = \begin{bmatrix} 2\\ \tfrac12 \end{bmatrix}\) เป็นผลเฉลยกำลังสองน้อยสุดของ \(A\vec{x} = \vec{b}\) — ตรงตามตำรา (ตรวจ: \(\vec{b} - A\hat{x} = (-1,2,1,6) - (2-3, 2-1, 2+\tfrac12, 2+\tfrac72) = (0, 1, -\tfrac32, -\tfrac52)\) จุดกับหลักทั้งสองได้ \(0 + 2 - \tfrac32 - \tfrac52 = 0\) ✓)</div>
+    </div>
+  </article>
+
+  <article class="ex-card">
+    <div class="ex-head"><span class="ex-badge">ตัวอย่าง 4.3.5</span><span class="tag book">จากตำรา</span><span class="tag easy">ง่าย</span><span class="ex-title">ค่าคลาดเคลื่อนกำลังสองน้อยสุด \(\|\vec{b} - A\hat{x}\| = \sqrt{11}\)</span></div>
+    <div class="ex-body">
+      <div class="ex-q">จากตัวอย่าง 4.3.3 ที่ได้ \(A = \begin{bmatrix} -1 &amp; 2\\ 2 &amp; -3\\ -1 &amp; 3 \end{bmatrix}\), \(\vec{b} = \begin{bmatrix} 4\\ 1\\ 2 \end{bmatrix}\) และผลเฉลยกำลังสองน้อยสุด \(\hat{x} = \begin{bmatrix} 3\\ 2 \end{bmatrix}\) เรามี
+      \[ \vec{b} - A\hat{x} = \begin{bmatrix} 4\\ 1\\ 2 \end{bmatrix} - \begin{bmatrix} -1 &amp; 2\\ 2 &amp; -3\\ -1 &amp; 3 \end{bmatrix}\begin{bmatrix} 3\\ 2 \end{bmatrix} = \begin{bmatrix} 4\\ 1\\ 2 \end{bmatrix} - \begin{bmatrix} 1\\ 0\\ 3 \end{bmatrix} = \begin{bmatrix} 3\\ 1\\ -1 \end{bmatrix} \]
+      ทำให้ได้ว่าค่าคลาดเคลื่อนกำลังสองน้อยสุดของการประมาณคือ \(\|\vec{b} - A\hat{x}\| = \sqrt{11}\)</div>
+      <div class="approach"><span class="lbl">อธิบายโจทย์ง่าย ๆ</span> — ข้อนี้คือ "วัดว่าพลาดเท่าไร" หลังจากได้ \(\hat{x}\) มาแล้ว: คูณ \(A\) กลับเพื่อดูว่าโมเดลทำนายได้เวกเตอร์อะไร (\(A\hat{x}\)), ลบกับของจริง (\(\vec{b}\)), แล้ววัดความยาวของความต่าง — เลขที่ได้คือความผิดพลาดที่<em>เล็กที่สุดเท่าที่จะเป็นได้</em>สำหรับเมทริกซ์ \(A\) นี้</div>
+      <ol class="steps">
+        <li><span class="step-t">คูณ \(A\hat{x}\) ทีละแถว</span> แถวที่ 1: \((-1)(3) + (2)(2) = -3 + 4 = 1\) · แถวที่ 2: \((2)(3) + (-3)(2) = 6 - 6 = 0\) · แถวที่ 3: \((-1)(3) + (3)(2) = -3 + 6 = 3\)
+        \[ A\hat{x} = \begin{bmatrix} 1\\ 0\\ 3 \end{bmatrix} \]</li>
+        <li><span class="step-t">ลบหาเศษตกค้าง</span> ลบตำแหน่งต่อตำแหน่ง: \((4, 1, 2) - (1, 0, 3) = (3, 1, -1)\) — เวกเตอร์นี้คือ "ส่วนของ \(\vec{b}\) ที่โมเดลจับไม่ได้" และมัน<em>ต้องตั้งฉากกับหลักของ \(A\) ทุกหลัก</em>เสมอ: \((3,1,-1)\cdot(-1,2,-1) = -3 + 2 + 1 = 0\) ✓ และ \((3,1,-1)\cdot(2,-3,3) = 6 - 3 - 3 = 0\) ✓ (ใช้เป็นตัวตรวจว่า \(\hat{x}\) ถูกต้องได้เสมอ)</li>
+        <li><span class="step-t">วัดความยาว</span> \(3^2 + 1^2 + (-1)^2 = 9 + 1 + 1 = 11\) จึงได้
+        \[ \|\vec{b} - A\hat{x}\| = \sqrt{11} \]</li>
+      </ol>
+      <div class="verify"><span class="lbl">สรุปคำตอบ:</span> \(\vec{b} - A\hat{x} = (3, 1, -1)\) และค่าคลาดเคลื่อนกำลังสองน้อยสุดคือ \(\|\vec{b} - A\hat{x}\| = \sqrt{11}\) — ตรงตามตำราทุกตัว (ตรวจด้วย numpy แล้ว: \(A(3, 2)^T = (1, 0, 3)^T\) ✓ และ \(\|(3,1,-1)\| = \sqrt{11}\) ✓)</div>
+    </div>
+  </article>
+
+  <article class="ex-card">
+    <div class="ex-head"><span class="ex-badge">ตัวอย่าง 4.3.3</span><span class="tag book">จากตำรา</span><span class="tag mid">กลาง</span><span class="ex-title">สมการปรกติ \(A^TA\hat{x} = A^T\vec{b}\) — ท่าหลักของ least squares</span></div>
+    <div class="ex-body">
+      <div class="ex-q">จงหาผลเฉลยกำลังสองน้อยสุดของระบบเชิงเส้น \(A\vec{x} = \vec{b}\) เมื่อ \(A = \begin{bmatrix} -1 &amp; 2\\ 2 &amp; -3\\ -1 &amp; 3 \end{bmatrix}\) และ \(\vec{b} = \begin{bmatrix} 4\\ 1\\ 2 \end{bmatrix}\)</div>
+      <div class="approach"><span class="lbl">อธิบายโจทย์ง่าย ๆ</span> — คราวนี้หลักของ \(A\) ไม่ตั้งฉากกัน (จุดกันได้ \(-2 - 6 + 3 = -5\)) ทางลัดของ 4.3.2 ใช้ไม่ได้ จึงต้องใช้ท่าหลักที่ใช้ได้เสมอ: สร้าง<em>สมการปรกติ</em> \(A^TA\hat{x} = A^T\vec{b}\) — เปลี่ยนระบบ 3 สมการที่ไม่มีผลเฉลย ให้เป็นระบบ 2 สมการ 2 ตัวแปรที่แก้ได้ชุดเดียว</div>
+      <ol class="steps">
+        <li><span class="step-t">คำนวณ \(A^TA\)</span> ช่องทแยงคือความยาวกำลังสองของหลัก: \((1, 1)\) จากหลักแรก \((-1)^2 + 2^2 + (-1)^2 = 1 + 4 + 1 = 6\), \((2, 2)\) จากหลักที่สอง \(4 + 9 + 9 = 22\) · ช่องนอกทแยงคือผลคูณจุดของสองหลัก: \((-1)(2) + (2)(-3) + (-1)(3) = -2 - 6 - 3 = -11\)
+        \[ A^TA = \begin{bmatrix} -1 &amp; 2 &amp; -1\\ 2 &amp; -3 &amp; 3 \end{bmatrix}\begin{bmatrix} -1 &amp; 2\\ 2 &amp; -3\\ -1 &amp; 3 \end{bmatrix} = \begin{bmatrix} 6 &amp; -11\\ -11 &amp; 22 \end{bmatrix} \]</li>
+        <li><span class="step-t">คำนวณ \(A^T\vec{b}\)</span> \((-1)(4) + (2)(1) + (-1)(2) = -4 + 2 - 2 = -4\) และ \((2)(4) + (-3)(1) + (3)(2) = 8 - 3 + 6 = 11\)
+        \[ A^T\vec{b} = \begin{bmatrix} -4\\ 11 \end{bmatrix} \]</li>
+        <li><span class="step-t">แก้สมการปรกติด้วย inverse 2×2</span> \(\det(A^TA) = 6(22) - (-11)(-11) = 132 - 121 = 11\) (ไม่เป็นศูนย์ จึงมีผลเฉลยชุดเดียว) inverse คือ \(\tfrac{1}{11}\begin{bmatrix} 22 &amp; 11\\ 11 &amp; 6 \end{bmatrix}\) (สลับทแยงหลัก เปลี่ยนเครื่องหมายนอกทแยง)
+        \[ \hat{x} = \frac{1}{11}\begin{bmatrix} 22 &amp; 11\\ 11 &amp; 6 \end{bmatrix}\begin{bmatrix} -4\\ 11 \end{bmatrix} = \frac{1}{11}\begin{bmatrix} -88 + 121\\ -44 + 66 \end{bmatrix} = \frac{1}{11}\begin{bmatrix} 33\\ 22 \end{bmatrix} = \begin{bmatrix} 3\\ 2 \end{bmatrix} \]</li>
+      </ol>
+      <div class="verify"><span class="lbl">สรุปคำตอบ:</span> \(\hat{x} = \begin{bmatrix} 3\\ 2 \end{bmatrix}\) เป็นผลเฉลยกำลังสองน้อยสุด — ตรงตามตำรา (ตรวจด้วย numpy แล้วตรงเป๊ะ: \(A^TA = \begin{bmatrix} 6 &amp; -11\\ -11 &amp; 22 \end{bmatrix}\), \(A^T\vec{b} = (-4, 11)^T\), ผลเฉลย \((3, 2)^T\))</div>
+    </div>
+  </article>
+
+  <article class="ex-card">
+    <div class="ex-head"><span class="ex-badge">ตัวอย่าง 4.3.4</span><span class="tag book">จากตำรา</span><span class="tag mid">กลาง</span><span class="ex-title">เมื่อผลเฉลยกำลังสองน้อยสุดมีหลายชุด</span></div>
+    <div class="ex-body">
+      <div class="ex-q">จงหาผลเฉลยกำลังสองน้อยสุดของระบบเชิงเส้น \(A\vec{x} = \vec{b}\) เมื่อ \(A = \begin{bmatrix} 1 &amp; 1 &amp; 0\\ 1 &amp; 1 &amp; 0\\ 1 &amp; 0 &amp; 1\\ 1 &amp; 0 &amp; 1 \end{bmatrix}\) และ \(\vec{b} = \begin{bmatrix} 1\\ 3\\ 8\\ 2 \end{bmatrix}\)</div>
+      <div class="approach"><span class="lbl">อธิบายโจทย์ง่าย ๆ</span> — ท่าเดิม: สร้างสมการปรกติ แต่คราวนี้จุดเด็มซ่อนอยู่: หลักแรกกับหลักที่สองของ \(A\) เหมือนกันครึ่งหนึ่ง ทำให้ \(A^TA\) เอกฐานไม่ได้ → ผลเฉลยไม่ชุดเดียว ต้องลดรูปแล้วเขียนเป็นผลเฉลยทั่วไปมีตัวแปรเสรี — เหมือนตอนแก้ระบบเชิงเส้นธรรมดาเป๊ะ ๆ</div>
+      <ol class="steps">
+        <li><span class="step-t">สร้างสมการปรกติ</span> \(A^TA\): หลักทั้งสามคือ \((1,1,1,1), (1,1,0,0), (0,0,1,1)\) → ช่องทแยง \(4, 2, 2\) · หลัก 1 จุดหลัก 2 = \(1+1 = 2\) · หลัก 1 จุดหลัก 3 = \(1+1 = 2\) · หลัก 2 จุดหลัก 3 = \(0\)
+        \[ A^TA = \begin{bmatrix} 4 &amp; 2 &amp; 2\\ 2 &amp; 2 &amp; 0\\ 2 &amp; 0 &amp; 2 \end{bmatrix}, \qquad A^T\vec{b} = \begin{bmatrix} 1+3+8+2\\ 1+3\\ 8+2 \end{bmatrix} = \begin{bmatrix} 14\\ 4\\ 10 \end{bmatrix} \]</li>
+        <li><span class="step-t">ลดรูปเมทริกซ์แต่งเติม</span>
+        \[ \begin{bmatrix} 4 &amp; 2 &amp; 2 &amp; 14\\ 2 &amp; 2 &amp; 0 &amp; 4\\ 2 &amp; 0 &amp; 2 &amp; 10 \end{bmatrix} \sim \begin{bmatrix} 1 &amp; 0 &amp; 1 &amp; 5\\ 0 &amp; 1 &amp; -1 &amp; -3\\ 0 &amp; 0 &amp; 0 &amp; 0 \end{bmatrix} \]
+        แถวสุดท้ายล้าเป็น \(0 = 0\) (ตามคาด เพราะ \(A^TA\) เอกฐานไม่ได้) เหลือสองสมการ: \(x_1 + x_3 = 5\) และ \(x_2 - x_3 = -3\)</li>
+        <li><span class="step-t">เขียนผลเฉลยทั่วไป</span> ให้ \(x_3\) เป็นตัวแปรเสรี: \(x_1 = 5 - x_3\), \(x_2 = -3 + x_3\)
+        \[ \hat{x} = \begin{bmatrix} 5\\ -3\\ 0 \end{bmatrix} + x_3\begin{bmatrix} -1\\ 1\\ 1 \end{bmatrix} \qquad (x_3 \in \mathbb{R}) \]</li>
+      </ol>
+      <div class="verify"><span class="lbl">สรุปคำตอบ:</span> ผลเฉลยกำลังสองน้อยสุดไม่ชุดเดียว: \(\hat{x} = \begin{bmatrix} 5\\ -3\\ 0 \end{bmatrix} + x_3\begin{bmatrix} -1\\ 1\\ 1 \end{bmatrix}\) — ตรงตามตำรา (เช่น เลือก \(x_3 = \tfrac83\) ได้ \(\hat{x} = (\tfrac73, -\tfrac13, \tfrac83)\) ซึ่งตรงกับค่าที่ numpy คำนวณด้วย least squares พอดี ✓ และทุกชุดให้ \(\|\vec{b} - A\hat{x}\|\) เท่ากันหมด)</div>
+    </div>
+  </article>
+
+  <article class="ex-card">
+    <div class="ex-head"><span class="ex-badge">ตัวอย่าง 4.3.6</span><span class="tag book">จากตำรา</span><span class="tag mid">กลาง</span><span class="ex-title">เส้นกำลังสองน้อยสุด (least-squares line) จากจุดข้อมูล</span></div>
+    <div class="ex-body">
+      <div class="ex-q">จงหาเส้นกำลังสองน้อยสุดของจุดข้อมูล \((0, 1), (1, 1), (2, 2), (3, 2)\)</div>
+      <div class="approach"><span class="lbl">อธิบายโจทย์ง่าย ๆ</span> — จุดสี่จุดนี้ไม่เรียงเป็นเส้นตรงพอดี จึงไม่มีเส้นที่ผ่านทุกจุด โจทย์จึงขอเส้น \(y = \beta_0 + \beta_1 x\) ที่ "ผิดพลาดน้อยที่สุด" — ทางโจทย์มาตรฐาน: เขียนระบบ \(\beta_0 + \beta_1 x_i = y_i\) 4 สมการ 2 ตัวแปร (ไม่มีผลเฉลย) แล้วแก้ด้วย least squares นั่นเอง</div>
+      <ol class="steps">
+        <li><span class="step-t">สร้าง \(A\) และ \(\vec{b}\) จากจุด</span> หลักแรกเป็น 1 ทั้งหมด (เพราะสัมประสิทธิ์ของ \(\beta_0\) คือ 1 เสมอ) หลักที่สองคือค่า \(x_i\) ของแต่ละจุด
+        \[ A = \begin{bmatrix} 1 &amp; 0\\ 1 &amp; 1\\ 1 &amp; 2\\ 1 &amp; 3 \end{bmatrix}, \qquad \vec{b} = \begin{bmatrix} 1\\ 1\\ 2\\ 2 \end{bmatrix} \]</li>
+        <li><span class="step-t">สร้างสมการปรกติ</span> \(A^TA = \begin{bmatrix} 4 &amp; 6\\ 6 &amp; 14 \end{bmatrix}\) (ทแยง: จำนวนจุด 4 กับ \(\sum x_i^2 = 0+1+4+9 = 14\); นอกทแยง: \(\sum x_i = 0+1+2+3 = 6\)) และ \(A^T\vec{b} = \begin{bmatrix} \sum y_i\\ \sum x_iy_i \end{bmatrix} = \begin{bmatrix} 6\\ 11 \end{bmatrix}\) (จาก \(0 + 1 + 4 + 6 = 11\))
+        \[ \begin{bmatrix} 4 &amp; 6\\ 6 &amp; 14 \end{bmatrix}\begin{bmatrix} \beta_0\\ \beta_1 \end{bmatrix} = \begin{bmatrix} 6\\ 11 \end{bmatrix} \]</li>
+        <li><span class="step-t">แก้หา \(\hat{\beta}\)</span> \(\det = 4(14) - 6(6) = 56 - 36 = 20\)
+        \[ \hat{\beta} = \frac{1}{20}\begin{bmatrix} 14 &amp; -6\\ -6 &amp; 4 \end{bmatrix}\begin{bmatrix} 6\\ 11 \end{bmatrix} = \frac{1}{20}\begin{bmatrix} 84 - 66\\ -36 + 44 \end{bmatrix} = \frac{1}{20}\begin{bmatrix} 18\\ 8 \end{bmatrix} = \begin{bmatrix} 0.9\\ 0.4 \end{bmatrix} \]</li>
+      </ol>
+      <div class="verify"><span class="lbl">สรุปคำตอบ:</span> เส้นกำลังสองน้อยสุดคือ \(y = 0.9 + 0.4x\) — ตรงตามตำรา (ลองแทน: ที่ \(x = 0, 1, 2, 3\) เส้นทำนาย \(0.9, 1.3, 1.7, 2.1\) ใกล้จุดจริง \((1, 1, 2, 2)\) และเศษตกค้าง \((-0.1, 0.3, 0.3, -0.1)\) ผลรวมเป็นศูนย์ ✓)</div>
+    </div>
+  </article>
+
+  <article class="ex-card">
+    <div class="ex-head"><span class="ex-badge">แบบฝึกหัด 4.3 ข้อ 1 ก,ข</span><span class="tag book">จากตำรา</span><span class="tag mid">กลาง</span><span class="ex-title">ฉาย \(\vec{y}\) ลงบน \(H = \operatorname{Span}\{\vec{u}_1, \vec{u}_2\}\) ใน \(\mathbb{R}^4\)</span></div>
+    <div class="ex-body">
+      <div class="ex-q">จงหาการประมาณที่ดีสุดของ \(\vec{y}\) โดยเวกเตอร์ใน \(H = \operatorname{Span}\{\vec{u}_1, \vec{u}_2\}\) เมื่อ<br>
+      (ก) \(\vec{u}_1 = \begin{bmatrix} 3\\ 1\\ -1\\ 1 \end{bmatrix}, \vec{u}_2 = \begin{bmatrix} 1\\ -1\\ 1\\ -1 \end{bmatrix}, \vec{y} = \begin{bmatrix} 3\\ 1\\ 5\\ 1 \end{bmatrix}\) &nbsp;&nbsp;&nbsp;&nbsp;
+      (ข) \(\vec{u}_1 = \begin{bmatrix} 1\\ -2\\ -1\\ 2 \end{bmatrix}, \vec{u}_2 = \begin{bmatrix} -4\\ 1\\ 0\\ 3 \end{bmatrix}, \vec{y} = \begin{bmatrix} 3\\ -1\\ 1\\ 13 \end{bmatrix}\)</div>
+      <div class="approach"><span class="lbl">อธิบายโจทย์ง่าย ๆ</span> — ท่าเดียวกับตัวอย่าง 4.3.1 แต่ขยับขึ้น \(\mathbb{R}^4\): เช็ก \(\vec{u}_1\cdot\vec{u}_2 = 0\) ก่อน แล้วหาสองน้ำหนัก — ทั้งสองข้อโจทย์เลือกเลขมาให้น้ำหนักลงตัวสวยงาม</div>
+      <ol class="steps">
+        <li><span class="step-t">(ก) เช็กและหาน้ำหนัก</span> \(\vec{u}_1\cdot\vec{u}_2 = 3 - 1 - 1 - 1 = 0\) ✓ · \(\vec{y}\cdot\vec{u}_1 = 9 + 1 - 5 + 1 = 6\), \(\vec{u}_1\cdot\vec{u}_1 = 9+1+1+1 = 12\) → \(\tfrac{6}{12} = \tfrac12\) · \(\vec{y}\cdot\vec{u}_2 = 3 - 1 + 5 - 1 = 6\), \(\vec{u}_2\cdot\vec{u}_2 = 4\) → \(\tfrac64 = \tfrac32\)
+        \[ \hat{y} = \frac{1}{2}\vec{u}_1 + \frac{3}{2}\vec{u}_2 \]</li>
+        <li><span class="step-t">(ข) เช็กและหาน้ำหนัก</span> \(\vec{u}_1\cdot\vec{u}_2 = -4 - 2 - 0 + 6 = 0\) ✓ · \(\vec{y}\cdot\vec{u}_1 = 3 + 2 - 1 + 26 = 30\), \(\vec{u}_1\cdot\vec{u}_1 = 1+4+1+4 = 10\) → \(3\) · \(\vec{y}\cdot\vec{u}_2 = -12 - 1 + 0 + 39 = 26\), \(\vec{u}_2\cdot\vec{u}_2 = 16+1+0+9 = 26\) → \(1\)
+        \[ \hat{y} = 3\vec{u}_1 + \vec{u}_2 \]</li>
+      </ol>
+      <div class="verify"><span class="lbl">สรุปคำตอบ:</span> (ก) \(\hat{y} = \tfrac12\vec{u}_1 + \tfrac32\vec{u}_2\) · (ข) \(\hat{y} = 3\vec{u}_1 + \vec{u}_2\) — ตรงคำตอบท้ายบททั้งสองข้อ (ตรวจ (ข): \(\hat{y} = 3(1,-2,-1,2) + (-4,1,0,3) = (-1, -5, -3, 9)\) และส่วนเติมเต็ม \(\vec{y} - \hat{y} = (4, 4, 4, 4)\) จุดกับ \(\vec{u}_1\) ได้ \(4 - 8 - 4 + 8 = 0\) ✓ จุดกับ \(\vec{u}_2\) ได้ \(-16 + 4 + 0 + 12 = 0\) ✓)</div>
+    </div>
+  </article>
+
+  <article class="ex-card">
+    <div class="ex-head"><span class="ex-badge">แบบฝึกหัด 4.3 ข้อ 2</span><span class="tag book">จากตำรา</span><span class="tag mid">กลาง</span><span class="ex-title">ระยะทางจาก \(\vec{y}\) ไปยังปริภูมิย่อย \(H\)</span></div>
+    <div class="ex-body">
+      <div class="ex-q">จงหาระยะทางจาก \(\vec{y} = \begin{bmatrix} 5\\ -9\\ 5 \end{bmatrix}\) ไปยังปริภูมิย่อย \(H = \operatorname{Span} \left\{ \begin{bmatrix} -3\\ -5\\ 1 \end{bmatrix}, \begin{bmatrix} -3\\ 2\\ 1 \end{bmatrix} \right\}\)</div>
+      <div class="approach"><span class="lbl">อธิบายโจทย์ง่าย ๆ</span> — "ระยะทางจากจุดไปปริภูมิย่อย" = ความยาวของส่วนเติมเต็ม \(\|\vec{y} - \hat{y}\|\) — ฉาย \(\vec{y}\) ลง \(H\) ก่อน (เช็กว่าฐานหลักตั้งฉากก่อน!) แล้ววัดระยะจาก \(\vec{y}\) ไปเงา นี่คือจุดใกล้สุดบน \(H\) ตามทฤษฎีบทการประมาณที่ดีสุด</div>
+      <ol class="steps">
+        <li><span class="step-t">เช็กฐานหลัก</span> \((-3, -5, 1)\cdot(-3, 2, 1) = 9 - 10 + 1 = 0\) ✓ ตั้งฉากกัน ใช้สูตรฉายได้เลย</li>
+        <li><span class="step-t">หาน้ำหนักและเงา \(\hat{y}\)</span> \(\vec{y}\cdot\vec{u}_1 = -15 + 45 + 5 = 35\), \(\vec{u}_1\cdot\vec{u}_1 = 9 + 25 + 1 = 35\) → \(1\) · \(\vec{y}\cdot\vec{u}_2 = -15 - 18 + 5 = -28\), \(\vec{u}_2\cdot\vec{u}_2 = 9 + 4 + 1 = 14\) → \(-2\)
+        \[ \hat{y} = \vec{u}_1 - 2\vec{u}_2 = (-3, -5, 1) + (6, -4, -2) = (3, -9, -1) \]</li>
+        <li><span class="step-t">วัดระยะ \(\|\vec{y} - \hat{y}\|\)</span> \(\vec{y} - \hat{y} = (5, -9, 5) - (3, -9, -1) = (2, 0, 6)\) ยกกำลังสองรวม \(4 + 0 + 36 = 40\)
+        \[ \operatorname{dist}(\vec{y}, H) = \sqrt{40} = 2\sqrt{10} \]</li>
+      </ol>
+      <div class="verify"><span class="lbl">สรุปคำตอบ:</span> ระยะทางจาก \(\vec{y}\) ไปยัง \(H\) คือ \(2\sqrt{10}\) — ตรงคำตอบท้ายบท (ตรวจ: \((2, 0, 6)\cdot(-3,-5,1) = -6 + 0 + 6 = 0\) ✓ และ \((2, 0, 6)\cdot(-3,2,1) = -6 + 0 + 6 = 0\) ✓ ส่วนเติมเต็มตั้งฉากกับ \(H\) จริง)</div>
+    </div>
+  </article>
+
+  <article class="ex-card">
+    <div class="ex-head"><span class="ex-badge">แบบฝึกหัด 4.3 ข้อ 5 ก,ข</span><span class="tag book">จากตำรา</span><span class="tag mid">กลาง</span><span class="ex-title">เส้นกำลังสองน้อยสุด — ฝึกสร้างสมการปรกติเอง</span></div>
+    <div class="ex-body">
+      <div class="ex-q">จงหาเส้นกำลังสองน้อยสุดของจุดข้อมูลต่อไปนี้<br>
+      (ก) \((1, 0), (2, 1), (4, 2), (5, 3)\) &nbsp;&nbsp;&nbsp;&nbsp;
+      (ข) \((-3, 8), (-1, 5), (1, 3), (3, 0)\)</div>
+      <div class="approach"><span class="lbl">อธิบายโจทย์ง่าย ๆ</span> — ท่าเดียวกับตัวอย่าง 4.3.6 ย่อได้เป็นสูตรรวดเดียว: สมการปรกติของเส้นตรงคือ \(\begin{bmatrix} n &amp; \sum x_i\\ \sum x_i &amp; \sum x_i^2 \end{bmatrix}\begin{bmatrix} \beta_0\\ \beta_1 \end{bmatrix} = \begin{bmatrix} \sum y_i\\ \sum x_iy_i \end{bmatrix}\) — เก็บผลรวม 5 ตัวแล้วแก้ 2×2 จบ</div>
+      <ol class="steps">
+        <li><span class="step-t">(ก) เก็บผลรวม</span> \(n = 4\), \(\sum x_i = 1+2+4+5 = 12\), \(\sum x_i^2 = 1+4+16+25 = 46\), \(\sum y_i = 0+1+2+3 = 6\), \(\sum x_iy_i = 0+2+8+15 = 25\)
+        \[ \begin{bmatrix} 4 &amp; 12\\ 12 &amp; 46 \end{bmatrix}\begin{bmatrix} \beta_0\\ \beta_1 \end{bmatrix} = \begin{bmatrix} 6\\ 25 \end{bmatrix} \]</li>
+        <li><span class="step-t">(ก) แก้</span> \(\det = 4(46) - 12^2 = 184 - 144 = 40\) · \(\beta_0 = \tfrac{46(6) - 12(25)}{40} = \tfrac{276 - 300}{40} = \tfrac{-24}{40} = -0.6\) · \(\beta_1 = \tfrac{-12(6) + 4(25)}{40} = \tfrac{-72 + 100}{40} = \tfrac{28}{40} = 0.7\)
+        \[ \hat{y} = -0.6 + 0.7x \]</li>
+        <li><span class="step-t">(ข) เก็บผลรวมแล้วแก้</span> \(\sum x_i = -3-1+1+3 = 0\) (สมมาตรพอดี!), \(\sum x_i^2 = 9+1+1+9 = 20\), \(\sum y_i = 8+5+3+0 = 16\), \(\sum x_iy_i = -24-5+3+0 = -26\) — สมการปรกติเป็นทแยง แก้แยกได้ทันที: \(4\beta_0 = 16 → \beta_0 = 4\), \(20\beta_1 = -26 → \beta_1 = -1.3\)
+        \[ \hat{y} = 4 - 1.3x \]</li>
+      </ol>
+      <div class="verify"><span class="lbl">สรุปคำตอบ:</span> (ก) \(\hat{\beta} = \begin{bmatrix} -0.6\\ 0.7 \end{bmatrix}\), เส้น \(y = -0.6 + 0.7x\) · (ข) \(\hat{\beta} = \begin{bmatrix} 4\\ -1.3 \end{bmatrix}\), เส้น \(y = 4 - 1.3x\) — ตรงคำตอบท้ายบททั้งสองข้อ</div>
+    </div>
+  </article>
+</section>
+
+<section class="block" id="apply">
+  <h2><span class="h2-dot">🌍</span> เอาไปใช้ทำอะไร — โจทย์ประยุกต์</h2>
+
+  <article class="ex-card">
+    <div class="ex-head"><span class="ex-badge">🏪 ราคาโปรโมชันกับยอดขาย</span><span class="tag app">ใช้จริง</span><span class="tag easy">ง่าย</span><span class="ex-title">เส้นถดถอยจริง — ลดราคาอีก 1 บาท ขายได้เพิ่มกี่แก้ว</span></div>
+    <div class="ex-body">
+      <div class="ex-q">ร้านกาแฟทดลองตั้งราคากาแฟแก้วละ 1, 2, 3, 4 บาทในส่วนลดพิเศษ 4 สัปดาห์ แล้ววัดยอดขายได้ 10, 8, 7, 5 แก้วต่อวัน (ข้อมูลจริงย่อส่วน: จุด \((1, 10), (2, 8), (3, 7), (4, 5)\)) จงหาเส้นกำลังสองน้อยสุด \(y = \beta_0 + \beta_1 x\) และใช้ทำนายยอดขายเมื่อราคา 5 บาท</div>
+      <div class="approach"><span class="lbl">อธิบายโจทย์ง่าย ๆ</span> — เจ้าของร้านอยากรู้ "ความชันของตลาด": ราคาขึ้นอีก 1 บาท ยอดขายลดกี่แก้ว จุดข้อมูล 4 จุดไม่เรียงเป็นเส้นพอดี (มีสัญญาณรบกวนจากปัจจัยอื่น) จึงใช้ least squares หาเส้นที่ผิดพลาดน้อยสุด — สัมประสิทธิ์ \(\beta_1\) ที่ได้คือคำตอบของคำถามนี้</div>
+      <ol class="steps">
+        <li><span class="step-t">เก็บผลรวมทั้งห้า</span> \(\sum x_i = 1+2+3+4 = 10\), \(\sum x_i^2 = 1+4+9+16 = 30\), \(\sum y_i = 10+8+7+5 = 30\), \(\sum x_iy_i = 10+16+21+20 = 67\), \(n = 4\)
+        \[ \begin{bmatrix} 4 &amp; 10\\ 10 &amp; 30 \end{bmatrix}\begin{bmatrix} \beta_0\\ \beta_1 \end{bmatrix} = \begin{bmatrix} 30\\ 67 \end{bmatrix} \]</li>
+        <li><span class="step-t">แก้สมการปรกติ</span> \(\det = 4(30) - 10^2 = 120 - 100 = 20\) · \(\beta_0 = \tfrac{30(30) - 10(67)}{20} = \tfrac{900 - 670}{20} = \tfrac{230}{20} = 11.5\) · \(\beta_1 = \tfrac{-10(30) + 4(67)}{20} = \tfrac{-300 + 268}{20} = \tfrac{-32}{20} = -1.6\)
+        \[ \hat{y} = 11.5 - 1.6x \]</li>
+        <li><span class="step-t">ใช้เส้นทำนาย</span> ที่ราคา \(x = 5\) บาท: \(\hat{y} = 11.5 - 1.6(5) = 11.5 - 8 = 3.5\) แก้วต่อวัน — เจ้าของร้านเห็นทันทีว่าทุก ๆ การขึ้นราคา 1 บาท ยอดขายหายไปราว 1.6 แก้ว จึงคำนวณจุดคุ้มทุนได้โดยไม่ต้องทดลองขายเพิ่ม</li>
+      </ol>
+      <div class="verify"><span class="lbl">เห็นไหมว่า...</span> "เส้นกำลังสองน้อยสุด" ที่ฝึกในหัวข้อนี้ คือเครื่องมือเดียวกับที่ฝ่ายการตลาด นักเศรษฐศาสตร์ และแอปวิเคราะห์ข้อมูลใช้ทุกวัน (linear regression) — ต่างแค่จำนวนจุดข้อมูลเป็นล้านจุด แต่หัวใจยังคือสมการปรกติ \(A^TA\hat{\beta} = A^T\vec{b}\) เดิม</div>
+    </div>
+  </article>
+
+  <article class="ex-card">
+    <div class="ex-head"><span class="ex-badge">🚕 ค่าแท็กซี่ตามระยะทาง</span><span class="tag app">ใช้จริง</span><span class="tag mid">กลาง</span><span class="ex-title">ถอดโครงสร้างราคา: ค่าเริ่มต้น + อัตราต่อกิโลเมตร</span></div>
+    <div class="ex-body">
+      <div class="ex-q">บันทึกการเดินทางแท็กซี่ 4 เที่ยว: ระยะทาง 1, 3, 5, 7 กิโลเมตร คิดค่าโดยสารได้ 35, 55, 80, 100 บาท (จุด \((1, 35), (3, 55), (5, 80), (7, 100)\)) สมมติค่าโดยสารเป็นเชิงเส้น \(y = \beta_0 + \beta_1 x\) จงหาค่าเริ่มต้น (\(\beta_0\)) และอัตราต่อกิโลเมตร (\(\beta_1\)) ที่ดีที่สุด พร้อมทำนายค่าโดยสารระยะ 10 กิโลเมตร</div>
+      <div class="approach"><span class="lbl">อธิบายโจทย์ง่าย ๆ</span> — มิเตอร์แท็กซี่มีโครงสร้างจริงสองชั้น: "ค่าขึ้นรถ" ที่จ่ายตั้งแต่ 0 เมตร กับ "ค่าต่อกิโลเมตร" — โจทย์คือถอดสองตัวเลขนี้ออกจากใบเสร็จ เมื่อข้อมูลจริงมีเศษเหลื่อมเล็กน้อย เราจึงใช้ least squares ให้เส้นตรงจูนเข้ากับข้อมูลดีที่สุด</div>
+      <ol class="steps">
+        <li><span class="step-t">เก็บผลรวม</span> \(\sum x_i = 1+3+5+7 = 16\), \(\sum x_i^2 = 1+9+25+49 = 84\), \(\sum y_i = 35+55+80+100 = 270\), \(\sum x_iy_i = 35 + 165 + 400 + 700 = 1300\), \(n = 4\)
+        \[ \begin{bmatrix} 4 &amp; 16\\ 16 &amp; 84 \end{bmatrix}\begin{bmatrix} \beta_0\\ \beta_1 \end{bmatrix} = \begin{bmatrix} 270\\ 1300 \end{bmatrix} \]</li>
+        <li><span class="step-t">แก้สมการปรกติ</span> \(\det = 4(84) - 16^2 = 336 - 256 = 80\) · \(\beta_0 = \tfrac{84(270) - 16(1300)}{80} = \tfrac{22680 - 20800}{80} = \tfrac{1880}{80} = 23.5\) · \(\beta_1 = \tfrac{-16(270) + 4(1300)}{80} = \tfrac{-4320 + 5200}{80} = \tfrac{880}{80} = 11\)
+        \[ \hat{y} = 23.5 + 11x \]</li>
+        <li><span class="step-t">อ่านโครงสร้างและทำนาย</span> ค่าเริ่มต้น 23.50 บาท อัตรา 11 บาทต่อกิโลเมตร — ระยะ 10 กม. ควรจ่าย \(23.5 + 11(10) = 133.5\) บาท และตรวจย้อนกลับกับข้อมูลเดิม: ที่ 5 กม. ทำนาย 78.5 บาท เทียบจริง 80 บาท คลาดแค่ 1.50 บาท (เศษจากค่าทางด่วนหรือการจราจร ซึ่งเส้นตรงเดียวจับไม่ได้ — least squares เลือกกระจายความคลาดเคลื่อนนี้ให้น้อยที่สุดให้เอง)</li>
+      </ol>
+      <div class="verify"><span class="lbl">เห็นไหมว่า...</span> การ "ถอดสมการราคา" จากใบเสร็จ 4 ใบ คือสิ่งเดียวกับที่แอปเรียกรถ สายการบิน และระบบโลจิสติกส์ทำกับข้อมูลนับล้านเที่ยว — สมการปรกติ 2×2 ที่เราคิดด้วยมือนี่แหละคือเครื่องยนต์ของเขา แค่รันบนคอมพิวเตอร์เร็วกว่า</div>
     </div>
   </article>
 </section>
