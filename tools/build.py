@@ -52,6 +52,7 @@ TEMPLATE = """<!DOCTYPE html>
 <script src="assets/katex/katex.min.js"></script>
 <script src="assets/katex/auto-render.min.js"></script>
 <script src="assets/js/main.js"></script>
+{extra_scripts}
 </body>
 </html>
 """
@@ -80,8 +81,12 @@ def build() -> None:
         body_attrs = f' data-ch="{meta["ch"]}"' if meta.get("ch") else ""
         body_attrs += f' data-section="{meta["section"]}"' if meta.get("section") else ""
         body_attrs += f' data-page="{meta["page"]}"' if meta.get("page") else ""
+        extra_scripts = ""
+        if meta.get("tts"):
+            body_attrs += ' data-tts="1"'
+            extra_scripts = '<script src="assets/js/tts.js"></script>'
         out = ROOT / meta["page"]
-        out.write_text(TEMPLATE.format(title=meta["title"], body_attrs=body_attrs, content=content), encoding="utf-8")
+        out.write_text(TEMPLATE.format(title=meta["title"], body_attrs=body_attrs, content=content, extra_scripts=extra_scripts), encoding="utf-8")
         print(f"built {out.name}  ({len(content):,} chars content)")
     print(f"done: {len(frags)} pages")
 

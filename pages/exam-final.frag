@@ -3,6 +3,7 @@ title: ติว Final — แนวข้อสอบปลายภาค
 ch: 6
 section: F
 page: exam-final.html
+tts: 1
 -->
 
     <div class="crumb">ติวสอบพิเศษ · แนวข้อสอบจริง</div>
