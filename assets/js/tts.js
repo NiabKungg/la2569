@@ -146,9 +146,11 @@
     state.stopped = false; state.playing = true; state.paused = false;
     state.target = target; state.label = label;
     state.chunks = chunkText(text); state.idx = 0;
-    markReading(target);
-    if (typeof target.scrollIntoView === 'function') {
-      try { target.scrollIntoView({ behavior: 'smooth', block: 'start' }); } catch (e) { /* เลื่อนไม่ได้ก็อ่านต่อ */ }
+    /* หัวข้อย่อย h3: target เป็น container แยก — ใช้ h3 ต้นทางเป็นจุดไฮไลต์/เลื่อนจอ */
+    const anchor = target.__anchor || target;
+    markReading(anchor);
+    if (typeof anchor.scrollIntoView === 'function') {
+      try { anchor.scrollIntoView({ behavior: 'smooth', block: 'start' }); } catch (e) { /* เลื่อนไม่ได้ก็อ่านต่อ */ }
     }
     setStatus('กำลังอ่าน: ' + label);
     el.pauseBtn.textContent = '⏸ พัก';
@@ -197,7 +199,7 @@
   function markReading(t) { clearReading(); t.classList.add('tts-reading'); }
   function clearReading() { document.querySelectorAll('.tts-reading').forEach((n) => n.classList.remove('tts-reading')); }
 
-  /* ---------- ปุ่ม 🔊 หน้า section/การ์ด ---------- */
+  /* ---------- ปุ่ม 🔊 หน้า section/หัวข้อย่อย/การ์ด ---------- */
   function makeBtn(target, label, cls) {
     const b = document.createElement('button');
     b.type = 'button';
@@ -211,12 +213,31 @@
     });
     return b;
   }
+  /* เนื้อหาของหัวข้อย่อย h3 = ทุก node ถัดจาก h3 จนถึง h2/h3 ถัดไป (หรือจบ section) */
+  function subsectionContent(h3) {
+    const box = document.createElement('div');
+    let node = h3.nextElementSibling;
+    while (node && !/^H[123]$/.test(node.tagName)) {
+      box.appendChild(node.cloneNode(true));
+      node = node.nextElementSibling;
+    }
+    const head = document.createElement('h3');
+    head.textContent = h3.textContent;
+    box.prepend(head);
+    return box;
+  }
   function injectButtons() {
     document.querySelectorAll('main .block[id]').forEach((sec) => {
       const h2 = sec.querySelector('h2');
       if (!h2) return;
       const name = h2.textContent.replace(EMOJI_RE, '').trim().slice(0, 60);
       h2.appendChild(makeBtn(sec, name, 'tts-sec'));
+      /* ปุ่มระดับหัวข้อย่อย h3 — อ่านเฉพาะท่อนของหัวข้อนั้น ไม่รวมทั้ง section */
+      sec.querySelectorAll('h3').forEach((h3) => {
+        const box = subsectionContent(h3);
+        box.__anchor = h3;
+        h3.appendChild(makeBtn(box, h3.textContent.replace(EMOJI_RE, '').trim().slice(0, 60), 'tts-sub'));
+      });
     });
     document.querySelectorAll('main .ex-card, main .pr-card').forEach((card) => {
       const head = card.querySelector('.ex-head, .pr-head');

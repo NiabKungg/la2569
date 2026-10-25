@@ -3,6 +3,7 @@ title: 4.5 รูปแบบกำลังสอง
 ch: 4
 section: 4.5
 page: ch4-5.html
+tts: 1
 -->
 
 <div class="crumb">บทที่ 4 · เรขาคณิตเชิงเส้นและฐานหลักเชิงตั้งฉาก</div>

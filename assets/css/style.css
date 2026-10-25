@@ -628,3 +628,8 @@ html[data-theme="dark"] .btn-danger { color: #fb7185; }
 html[data-theme="dark"] .tts-hint { color: #fbbf24; }
 html[data-theme="dark"] .tts-bar { box-shadow: 0 10px 32px rgba(0, 0, 0, .55); }
 @media print { .tts-bar, .tts-btn { display: none !important; } }
+h3 .tts-btn, .tts-btn.tts-sub {
+  font-size: .66rem; padding: 1px 8px; opacity: .85; margin-left: .5rem;
+}
+h3 .tts-btn:hover { opacity: 1; }
+.tts-reading h3:first-child, h3.tts-reading { color: var(--acc-ink); }
