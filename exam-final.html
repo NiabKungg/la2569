@@ -123,7 +123,37 @@
     <section class="block" id="examples">
       <h2><span class="h2-dot">✏️</span> ตัวอย่างแนวข้อสอบ 1–7 (เลขสมมติ สไตล์เดียวกับข้อสอบจริง)</h2>
 
-      <article class="ex-card">
+        <figure class="fig">
+    <svg viewBox="0 0 480 250" role="img" aria-label="ผังขั้นตอนการทำโจทย์ eigen ตั้งแต่อ่านเมทริกซ์จนหา A^k">
+      <defs><marker id="mE1" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" class="mka"/></marker></defs>
+      <rect x="12" y="30" width="140" height="62" rx="11" class="fsoft" stroke="var(--border)"/>
+      <rect x="170" y="30" width="140" height="62" rx="11" class="fsoft" stroke="var(--border)"/>
+      <rect x="328" y="30" width="140" height="62" rx="11" class="fsoft" stroke="var(--border)"/>
+      <rect x="328" y="158" width="140" height="62" rx="11" class="fsoft" stroke="var(--border)"/>
+      <rect x="170" y="158" width="140" height="62" rx="11" class="fsoft" stroke="var(--border)"/>
+      <rect x="12" y="158" width="140" height="62" rx="11" class="fsoft" stroke="var(--border)"/>
+      <text x="82" y="55" text-anchor="middle" class="big">1) อ่าน A</text>
+      <text x="82" y="76" text-anchor="middle" class="mut small">สมมาตร? สามเหลี่ยม?</text>
+      <text x="240" y="55" text-anchor="middle" class="big">2) det(A − λI) = 0</text>
+      <text x="240" y="76" text-anchor="middle" class="mut small">สมการลักษณะเฉพาะ</text>
+      <text x="398" y="55" text-anchor="middle" class="big">3) แยกตัวประกอบ</text>
+      <text x="398" y="76" text-anchor="middle" class="mut small">ได้ λ ทั้งหมด (รากซ้ำ?)</text>
+      <text x="398" y="183" text-anchor="middle" class="big">4) แก้ (A − λI)x = 0</text>
+      <text x="398" y="204" text-anchor="middle" class="mut small">ฐานของ E_λ (นับ dim)</text>
+      <text x="240" y="183" text-anchor="middle" class="big">5) เรียง P และ D</text>
+      <text x="240" y="204" text-anchor="middle" class="mut small">P = เวกเตอร์, D = λ จับคู่</text>
+      <text x="82" y="183" text-anchor="middle" class="big">6) ปิดท้าย Aᵏ</text>
+      <text x="82" y="204" text-anchor="middle" class="mut small">Aᵏ = PDᵏP⁻¹</text>
+      <path class="ax" d="M152 61H166" marker-end="url(#mE1)"/>
+      <path class="ax" d="M310 61H324" marker-end="url(#mE1)"/>
+      <path class="ax" d="M398 92V154" marker-end="url(#mE1)"/>
+      <path class="ax" d="M328 189H314" marker-end="url(#mE1)"/>
+      <path class="ax" d="M170 189H156" marker-end="url(#mE1)"/>
+      <text x="240" y="240" text-anchor="middle" class="mut small">ค่าซ้ำ → นับ dim E_λ ต้อง = จำนวนครั้งที่ซ้ำ ก่อนตัดสิน diagonalizable</text>
+    </svg>
+    <figcaption>ผังทางเดินสำหรับแนว 1 (ทั้ง 3×3 และ 4×4): เดินตามกล่อง 1 → 6 ไม่ต้องคิดนอกกรอบ — จุดชี้ขาดคือกล่อง 4: ค่าลักษณะเฉพาะที่<strong>ซ้ำ</strong>ต้องกลับไปนับจำนวนตัวแปรเสรีของ \((A-\lambda I)\vec{x} = \vec{0}\) ว่าได้เวกเตอร์อิสระครบจำนวนครั้งที่ซ้ำหรือไม่ ครบ → เรียง \(P, D\) จบด้วย \(A^k = PD^kP^{-1}\) ไม่ครบ → ตอบว่าแปลงเป็นทแยงมุมไม่ได้ พร้อมเหตุผล</figcaption>
+  </figure>
+<article class="ex-card">
         <div class="ex-head"><span class="ex-badge">แนว 1ก</span><span class="tag exam">แนวข้อสอบจริง</span><span class="ex-title">หาค่า/เวกเตอร์ลักษณะเฉพาะของเมทริกซ์ \(3\times 3\) — โจทย์ให้แค่เมทริกซ์</span></div>
         <div class="ex-body">
           <div class="ex-q">ให้ \(A = \begin{bmatrix} 1 & -2 & 2\\ -1 & 1 & 1\\ -1 & -2 & 4 \end{bmatrix}\)
@@ -265,7 +295,36 @@
             ตัวส่วน \(\sqrt{2}\sqrt{6} = \sqrt{12} = \sqrt{4\cdot 3} = 2\sqrt{3}\) (แยกกำลังสองสมบูรณ์ 4 ออกมา)
             ตัดเศษส่วน \(\tfrac{3}{2\sqrt{3}}\) คูณบนล่างด้วย \(\tfrac{\sqrt{3}}{\sqrt{3}}\) ได้ \(\tfrac{3\sqrt{3}}{2 \cdot 3} = \tfrac{\sqrt{3}}{2}\) — เจอค่ามาตรฐาน \(\cos\tfrac{\pi}{6} = \tfrac{\sqrt{3}}{2}\) จึงตอบ \(\theta = \tfrac{\pi}{6}\) (เท่ากับ \(30^\circ\))</li>
           </ol>
-          <div class="verify"><span class="lbl">ตรวจคำตอบ:</span> มุม \(\pi/6 = 30^\circ\) อยู่ใน \([0, \pi]\) ✓ และ \(\cos(\pi/6) = \sqrt{3}/2\) เป็นค่ามาตรฐานที่ควรจำ: \(\cos 0 = 1,\; \cos \pi/6 = \tfrac{\sqrt{3}}{2},\; \cos \pi/4 = \tfrac{\sqrt{2}}{2},\; \cos \pi/3 = \tfrac{1}{2},\; \cos \pi/2 = 0\) — จำตารางนี้ไปสอบเลย</div>
+                <figure class="fig">
+        <svg viewBox="0 0 480 300" role="img" aria-label="สามเหลี่ยม ABC ในสามมิติ มุมฉากที่จุด A ระหว่างเวกเตอร์ AB และ AC">
+          <defs><marker id="mE2" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" class="mka"/></marker>
+          <marker id="mE2b" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" class="mk1"/></marker>
+          <marker id="mE2r" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" class="mk2"/></marker></defs>
+          <path class="ax" d="M87.7 254.8 80 259" marker-end="url(#mE2)"/>
+          <path class="ax" d="M312.3 254.8 320 259" marker-end="url(#mE2)"/>
+          <path class="ax" d="M200 190V124" marker-end="url(#mE2)"/>
+          <polygon class="fsoft" points="200,204 296.6,214 44,128"/>
+          <path class="thin1" d="M200 204 296.6 214 44 128Z"/>
+          <path class="vec1" d="M200 204 296.6 214" marker-end="url(#mE2b)"/>
+          <path class="vec2" d="M200 204 44 128" marker-end="url(#mE2r)"/>
+          <path class="ra" d="M209.9 205 201 200.7 191 199.6"/>
+          <circle cx="200" cy="204" r="3.5" class="pt"/>
+          <circle cx="296.6" cy="214" r="3.5" class="pt"/>
+          <circle cx="44" cy="128" r="3.5" class="pt"/>
+          <text x="188" y="184" text-anchor="end" class="mut">O</text>
+          <text x="210" y="226" class="big">A(1, 1, 1)</text>
+          <text x="300" y="236" class="big">B(3, 2, 3)</text>
+          <text x="16" y="110" class="big">C(2, −3, 2)</text>
+          <text x="258" y="200" class="t1 small">AB = (2, 1, 2)</text>
+          <text x="96" y="152" text-anchor="end" class="t2 small">AC = (1, −4, 1)</text>
+          <text x="150" y="232" text-anchor="end" class="t2 small">มุมฉากที่ A</text>
+          <text x="80" y="274" text-anchor="middle" class="mut small">x</text>
+          <text x="326" y="274" text-anchor="middle" class="mut small">y</text>
+          <text x="212" y="118" class="mut small">z</text>
+        </svg>
+        <figcaption>รูปจริงของแนว 2 (ก): เวกเตอร์ \(\vec{AB} = (2,1,2)^T\) (น้ำเงิน) กับ \(\vec{AC} = (1,-4,1)^T\) (แดง) แยกออกจากจุด \(A\) และจุดของมุมฉาก (สัญลักษณ์) อยู่ที่ \(A\) พอดี เพราะ \(\vec{AB}\cdot\vec{AC} = 2-4+2 = 0\) — ยืนยันด้วยพีทาโกรัส \(9 + 18 = 27 = \|\vec{BC}\|^2\) ส่วน (ข) หามุมของ \(\vec{u} = (1,1,0)^T\), \(\vec{v} = (1,2,1)^T\) ด้วยสูตร \(\cos\theta\) ได้ \(\tfrac{\sqrt3}{2} \Rightarrow \theta = \tfrac{\pi}{6}\)</figcaption>
+      </figure>
+<div class="verify"><span class="lbl">ตรวจคำตอบ:</span> มุม \(\pi/6 = 30^\circ\) อยู่ใน \([0, \pi]\) ✓ และ \(\cos(\pi/6) = \sqrt{3}/2\) เป็นค่ามาตรฐานที่ควรจำ: \(\cos 0 = 1,\; \cos \pi/6 = \tfrac{\sqrt{3}}{2},\; \cos \pi/4 = \tfrac{\sqrt{2}}{2},\; \cos \pi/3 = \tfrac{1}{2},\; \cos \pi/2 = 0\) — จำตารางนี้ไปสอบเลย</div>
         </div>
       </article>
 
@@ -308,7 +367,38 @@
             แล้วทำเป็นเศษเดียว \(\tfrac{5\sqrt{2} - 2}{2\sqrt{3}}\) คูณบนล่างด้วย \(\tfrac{\sqrt{3}}{\sqrt{3}}\) ได้ \(\tfrac{5\sqrt{6} - 2\sqrt{3}}{6}\) (เช็กตัวเลข: \(5\sqrt{6} \approx 12.25\), \(2\sqrt{3} \approx 3.46\), ต่างกัน \(\approx 8.79\), หาร 6 ได้ \(\approx 1.46\))
             สรุปประโยคเต็ม: ระยะจาก \(P\) ถึงระนาบ \(x + y + z = 4\) คือ \(\tfrac{5\sqrt{6} - 2\sqrt{3}}{6} \approx 1.46\) หน่วย</li>
           </ol>
-          <div class="verify"><span class="lbl">ตรวจคำตอบ:</span> \(\|\vec{OP}\|^2 = \tfrac{25}{4} + \tfrac{25}{4} + \tfrac{50}{4} = 25\) ✓ และ \(-z/\|\vec{OP}\| = \tfrac{5\sqrt{2}/2}{5} = \tfrac{\sqrt{2}}{2} = \cos\tfrac{\pi}{4}\) ✓ จุด \(A, B, C\) ทุกจุดอิ่ม \(x + y + z = 4\) ✓ ค่าระยะเป็นบวกเสมอ — ถ้าได้ลบแปลว่าลืม absolute value</div>
+                <figure class="fig">
+        <svg viewBox="0 0 500 300" role="img" aria-label="กรวยรอบแกนลบ z มุม 45 องศา ระนาบ x+y+z=4 ผ่าน A B C และจุด P ใต้ระนาบ">
+          <defs><marker id="mE3" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" class="mka"/></marker>
+          <marker id="mE3b" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" class="mk1"/></marker></defs>
+          <polygon class="fsoft" points="134.6,144.9 303.8,175.7 250,14"/>
+          <path class="thin1" d="M134.6 144.9 303.8 175.7 250 14Z"/>
+          <path class="aux" d="M250 118 355.7 229.2M250 118 144.3 190.7"/>
+          <polyline class="aux" points="148.0,233.7 163.8,246.1 185.5,256.0 211.5,262.8 240.2,266.0 269.5,265.3 297.5,260.9 322.3,253.0 342.2,242.2 355.7,229.2 362.1,214.8 360.8,200.2 352.0,186.2 336.2,173.8 314.5,163.8 288.5,157.1 259.8,153.9 230.5,154.5 202.5,158.9 177.7,166.8 157.8,177.7 144.3,190.7 137.9,205.0 139.2,219.7 148.0,233.7"/>
+          <path class="ax" d="M250 118 123.3 152.2" marker-end="url(#mE3)"/>
+          <path class="ax" d="M250 118 309.2 191.2" marker-end="url(#mE3)"/>
+          <path class="ax" d="M250 118V8" marker-end="url(#mE3)"/>
+          <path class="aux" d="M250 118V288"/>
+          <path class="vec1" d="M250 118 211.5 262.8" marker-end="url(#mE3b)"/>
+          <path class="ang" d="M227.5 157A45 45 0 0 0 250 163"/>
+          <path class="aux" d="M211.5 262.8 224.5 266.9"/>
+          <circle cx="211.5" cy="262.8" r="3.5" class="pt1"/>
+          <text x="256" y="284" class="mut small">แกน −z</text>
+          <text x="208" y="176" text-anchor="end" class="mut small">π/4</text>
+          <text x="128" y="140" text-anchor="end" class="big">A(4, 0, 0)</text>
+          <text x="310" y="182" class="big">B(0, 4, 0)</text>
+          <text x="258" y="18" class="big">C(0, 0, 4)</text>
+          <text x="222" y="292" text-anchor="end" class="t1">P (2.5, 2.5, −3.54)</text>
+          <text x="256" y="212" class="t2 small">‖OP‖ = 5</text>
+          <text x="497" y="272" text-anchor="end" class="mut small">วงกลมรัศมี 3.54 ที่ z = −3.54</text>
+          <text x="196" y="120" text-anchor="end" class="t2 small">ระนาบ x + y + z = 4</text>
+          <text x="110" y="158" text-anchor="end" class="mut small">x</text>
+          <text x="316" y="198" class="mut small">y</text>
+          <text x="244" y="26" text-anchor="end" class="mut small">z</text>
+        </svg>
+        <figcaption>รูปประกอบแนว 3 ที่ช่วยให้ข้อนี้ง่ายขึ้นมาก: \(\vec{OP}\) (น้ำเงิน) ยาว 5 และทำมุม \(\pi/4\) กับแกน \(-z\) (เส้นประดิ่ง) — จุด \(P\) จึงอยู่บนวงกลมรัศมี \(5\sin\frac{\pi}{4} = 3.54\) ที่ความสูง \(z = -5\cos\frac{\pi}{4} = -3.54\) (เส้นประ) ส่วนระนาบผ่าน \(A, B, C\) คือ \(x+y+z = 4\) (สามเหลี่ยมโปร่งแสง) — เส้นสั้นจาก \(P\) คือระยะตั้งฉากถึงระนาบ \(d = \tfrac{5\sqrt6 - 2\sqrt3}{6} \approx 1.46\) ตามเฉลย (มุมมองหมุนเล็กน้อยเพื่อให้เห็นทุกจุด)</figcaption>
+      </figure>
+<div class="verify"><span class="lbl">ตรวจคำตอบ:</span> \(\|\vec{OP}\|^2 = \tfrac{25}{4} + \tfrac{25}{4} + \tfrac{50}{4} = 25\) ✓ และ \(-z/\|\vec{OP}\| = \tfrac{5\sqrt{2}/2}{5} = \tfrac{\sqrt{2}}{2} = \cos\tfrac{\pi}{4}\) ✓ จุด \(A, B, C\) ทุกจุดอิ่ม \(x + y + z = 4\) ✓ ค่าระยะเป็นบวกเสมอ — ถ้าได้ลบแปลว่าลืม absolute value</div>
         </div>
       </article>
 
@@ -337,7 +427,36 @@
             ทำไมหารได้: หารเวกเตอร์ด้วยจำนวนบวกจะรักษาทิศเดิมไว้ แต่ความยาวหารตาม — หารด้วยความยาวตัวเองจึงเหลือยาว 1 พอดี
             ตัดเศษส่วนทีละช่อง: \(\tfrac{3}{2\sqrt{3}}\) คูณบนล่างด้วย \(\tfrac{\sqrt{3}}{\sqrt{3}}\) ได้ \(\tfrac{3\sqrt{3}}{2 \cdot 3} = \tfrac{\sqrt{3}}{2}\) · \(\tfrac{\sqrt{3}}{2\sqrt{3}} = \tfrac{1}{2}\) (ตัด \(\sqrt{3}\) ทิ้ง) · ช่องสุดท้าย \(\tfrac{0}{2\sqrt{3}} = 0\)</li>
           </ol>
-          <div class="verify"><span class="lbl">ตรวจคำตอบ:</span> ความยาว = \(\sqrt{\tfrac{3}{4} + \tfrac{1}{4}} = 1\) ✓ (unit vector ต้องยาว 1 เสมอ — เช็กนี้ทุกครั้งจะไม่มีทางพลาด)</div>
+                <figure class="fig">
+        <svg viewBox="0 0 480 300" role="img" aria-label="u และ v ทำมุม 60 องศา ผลบวก u+v และเวกเตอร์หนึ่งหน่วยบนวงกลมหน่วย">
+          <defs><marker id="mE4" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" class="mka"/></marker>
+          <marker id="mE4b" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" class="mk1"/></marker>
+          <marker id="mE4r" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" class="mk2"/></marker>
+          <marker id="mE4y" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="currentColor"/></marker></defs>
+          <circle cx="85" cy="204" r="80" class="thin1"/>
+          <path class="ax" d="M30 204H365" marker-end="url(#mE4)"/>
+          <path class="ax" d="M85 292V36" marker-end="url(#mE4)"/>
+          <path class="aux" d="M325 65.4V204"/>
+          <text x="165" y="222" text-anchor="middle" class="mut small">1</text>
+          <text x="245" y="222" text-anchor="middle" class="mut small">2</text>
+          <text x="325" y="222" text-anchor="middle" class="mut small">3</text>
+          <text x="77" y="70" text-anchor="end" class="mut small">√3</text>
+          <text x="358" y="222" text-anchor="middle" class="mut">x</text>
+          <text x="76" y="34" text-anchor="end" class="mut">y</text>
+          <path class="ang" d="M125 204A40 40 0 0 0 105 169.4"/>
+          <text x="133" y="180" class="mut small">π/3</text>
+          <path class="vec1" d="M85 204 245 204" marker-end="url(#mE4b)"/>
+          <path class="vec2" d="M85 204 165 65.4" marker-end="url(#mE4r)"/>
+          <path d="M85 204 325 65.4" stroke="currentColor" stroke-width="2.4" fill="none" marker-end="url(#mE4y)"/>
+          <path class="vec2" d="M85 204 154.3 164" marker-end="url(#mE4r)"/>
+          <text x="250" y="198" class="t1">u = (2, 0, 0)</text>
+          <text x="172" y="58" class="t2">v = (1, √3, 0)</text>
+          <text x="332" y="60" class="big">u + v = (3, √3, 0)</text>
+          <text x="82" y="128" text-anchor="end" class="t2 small">(√3/2, 1/2) ยาว 1</text>
+        </svg>
+        <figcaption>แนว 4 เห็นภาพเดียวจบ: \(\vec{u}\) กับ \(\vec{v}\) ยาวเท่ากัน 2 หน่วยและทำมุม \(\pi/3\) (ส่วนโค้ง) — \(\vec{u}+\vec{v}\) (ดำ) จึงเป็นเส้นทแยงของสี่เหลี่ยมขนมเปียกปูน ชี้ทิศ \(30^\circ\) พอดี — เวกเตอร์หนึ่งหน่วยที่ต้องการ (แดงสั้น) คือ \(\vec{u}+\vec{v}\) หารด้วย \(2\sqrt3\) ซึ่งตกบนวงกลมหน่วยที่ \((\tfrac{\sqrt3}{2}, \tfrac12, 0)^T\) พอดีตามเฉลย</figcaption>
+      </figure>
+<div class="verify"><span class="lbl">ตรวจคำตอบ:</span> ความยาว = \(\sqrt{\tfrac{3}{4} + \tfrac{1}{4}} = 1\) ✓ (unit vector ต้องยาว 1 เสมอ — เช็กนี้ทุกครั้งจะไม่มีทางพลาด)</div>
         </div>
       </article>
 
@@ -365,7 +484,31 @@
             ทีละพจน์ (เครื่องหมาย \(+, -, +\) ตามแถวที่ 1): \(1\cdot(3 - 1) = 2\) · พจน์สอง \(-2\cdot(0 - 2) = -2 \times (-2) = +4\) (ลบคูณลบได้บวก — จุดพลาดคลาสสิก) · พจน์สามหายเพราะตัวยืน 0
             ได้คำตอบเดิม 6 เพราะ \(|(\vec{u}\times\vec{v})\cdot\vec{w}| = |\det|\) เสมอ</li>
           </ol>
-          <div class="verify"><span class="lbl">ตรวจคำตอบ:</span> \((\vec{u}\times\vec{v})\cdot\vec{u} = 2 - 2 + 0 = 0\) ✓ และ \((\vec{u}\times\vec{v})\cdot\vec{v} = 0 - 1 + 1 = 0\) ✓ — cross product ต้องตั้งฉากกับทั้งสองเวกเตอร์ตั้งต้น ถ้าไม่ 0 แปลว่าคิด cross product พลาด</div>
+                <figure class="fig">
+        <svg viewBox="0 0 500 300" role="img" aria-label="กล่องด้านขนานฐาน u v และ w เอียงขึ้น พร้อมเวกเตอร์ตั้งฉาก n และสูง h">
+          <defs><marker id="mE5" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" class="mka"/></marker>
+          <marker id="mE5b" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" class="mk1"/></marker>
+          <marker id="mE5r" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" class="mk2"/></marker>
+          <marker id="mE5g" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" class="mk3"/></marker>
+          <marker id="mE5y" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="currentColor"/></marker></defs>
+          <polygon class="fsoft" points="200,200 197.3,257 216,224 237.3,194"/>
+          <path class="vec1" d="M200 200 197.3 257" marker-end="url(#mE5b)"/>
+          <path class="vec2" d="M200 200 218.7 205" marker-end="url(#mE5r)"/>
+          <path d="M200 200 138.7 135" stroke="currentColor" stroke-width="2.4" fill="none" marker-end="url(#mE5y)"/>
+          <path class="aux" d="M197.3 257 216 224M218.7 205 216 224M197.3 257 136 153.6M138.7 135 136 153.6M218.7 205 157.4 115.7M138.7 135 157.4 115.7M216 224 154.7 216.6M136 153.6 154.7 216.6M157.4 115.7 154.7 216.6"/>
+          <path class="vec3" d="M200 200 101.3 162.5" marker-end="url(#mE5g)"/>
+          <path class="aux" d="M138.7 135 237.3 194"/>
+          <circle cx="237.3" cy="194" r="3" class="pt"/>
+          <text x="204" y="266" class="t1 small">u = (1, 2, 0)</text>
+          <text x="226" y="198" class="t2 small">v = (0, 1, 1)</text>
+          <text x="132" y="124" text-anchor="end" class="big">w = (2, 1, 3)</text>
+          <text x="96" y="178" text-anchor="end" class="t3 small">n = (2, −1, 1)</text>
+          <text x="196" y="158" class="mut small">สูง h = 6/√6</text>
+          <text x="250" y="290" text-anchor="middle" class="t1">ปริมาตร = พื้นที่ฐาน ‖u×v‖ × สูง h = |(u×v)·w| = 6</text>
+        </svg>
+        <figcaption>ภาพของ scalar triple product (แนว 5): \(\vec{u}\), \(\vec{v}\) กางเป็นฐานสี่เหลี่ยมด้านขนาน (โปร่งแสง) — \(\vec{u}\times\vec{v} = (2,-1,1)^T\) (เขียว) ตั้งฉากกับฐานและยาวเท่ากับพื้นที่ฐาน — \(\vec{w}\) (ดำ) เอียงขึ้นจากฐาน เส้นประจากปลาย \(\vec{w}\) ลงฐานคือส่วนสูง \(h = \|(\vec{u}\times\vec{v})\cdot\vec{w}\|/\|\vec{u}\times\vec{v}\|\) — ปริมาตร = ฐาน × สูง = \(|(\vec{u}\times\vec{v})\cdot\vec{w}| = 6\) ลูกบาศก์หน่วย (มุมมองหมุนเล็กน้อยให้เห็นทุกเส้น)</figcaption>
+      </figure>
+<div class="verify"><span class="lbl">ตรวจคำตอบ:</span> \((\vec{u}\times\vec{v})\cdot\vec{u} = 2 - 2 + 0 = 0\) ✓ และ \((\vec{u}\times\vec{v})\cdot\vec{v} = 0 - 1 + 1 = 0\) ✓ — cross product ต้องตั้งฉากกับทั้งสองเวกเตอร์ตั้งต้น ถ้าไม่ 0 แปลว่าคิด cross product พลาด</div>
         </div>
       </article>
 
@@ -397,7 +540,29 @@
             \[ 5x^2 + 9x + 7 = 3(x^2 + x + 1) - 2(2x^2 - x + 2) + 2(3x^2 + 2x + 4) \]
             ประโยคเต็ม: "\(q(x)\) เขียนเป็นการรวมเชิงเส้นของ \(p_1, p_2, p_3\) ได้ โดยน้ำหนัก \((3, -2, 2)\) ซึ่งเป็นชุดเดียว (เพราะตัวหลักครบ 3 หลัก ตัวแปรไม่เสรี)"</li>
           </ol>
-          <div class="verify"><span class="lbl">ตรวจคำตอบ:</span> เช็กทีละสัมประสิทธิ์: \(x^2\): \(3 - 4 + 6 = 5\) ✓, \(x\): \(3 + 2 + 4 = 9\) ✓, ค่าคงตัว: \(3 - 4 + 8 = 7\) ✓ (ถ้าระบบไม่ต้องกัน คำตอบคือ "เขียนไม่ได้ เพราะ \(q \notin \operatorname{Span}\{p_1, p_2, p_3\}\)" — อ่านโจทย์ให้ดีว่าถาม "ถ้าเป็นไปได้" ไว้ไหม)</div>
+                <figure class="fig">
+        <svg viewBox="0 0 480 320" role="img" aria-label="กราฟพหุนาม q และเส้นผลรวมเชิงเส้นสามเส้นที่ผสมกันได้ q">
+          <defs><marker id="mE6" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" class="mka"/></marker></defs>
+          <path class="grid" d="M40 78H388M40 126H388M40 174H388M40 222H388M130 30V290M268 30V290"/>
+          <path class="ax" d="M25 238H400" marker-end="url(#mE6)"/>
+          <path class="ax" d="M184 305V20" marker-end="url(#mE6)"/>
+          <text x="130" y="254" text-anchor="middle" class="mut small">−0.6</text>
+          <text x="392" y="254" text-anchor="middle" class="mut small">x</text>
+          <text x="176" y="32" text-anchor="end" class="mut small">y</text>
+          <text x="176" y="242" text-anchor="end" class="mut small">0</text>
+          <polyline class="thin1" points="40.0,191.0 50.5,196.8 61.0,202.0 71.5,206.5 82.0,210.4 92.5,213.6 103.0,216.2 113.5,218.1 124.0,219.3 134.5,219.9 145.0,219.9 155.5,219.2 166.0,217.8 176.5,215.8 187.0,213.2 197.5,209.9 208.0,205.9 218.5,201.3 229.0,196.0 239.5,190.1 250.0,183.5 260.5,176.3 271.0,168.4 281.5,159.8 292.0,150.6"/>
+          <polyline class="thin2" points="40.0,377.5 50.5,364.1 61.0,351.6 71.5,340.0 82.0,329.2 92.5,319.3 103.0,310.3 113.5,302.2 124.0,294.9 134.5,288.5 145.0,282.9 155.5,278.3 166.0,274.5 176.5,271.6 187.0,269.5 197.5,268.3 208.0,268.0 218.5,268.6 229.0,270.0 239.5,272.3 250.0,275.5 260.5,279.5 271.0,284.4 281.5,290.2 292.0,296.9"/>
+          <polyline class="thin3" points="40.0,102.3 50.5,115.9 61.0,128.1 71.5,139.0 82.0,148.6 92.5,156.9 103.0,163.9 113.5,169.6 124.0,174.0 134.5,177.1 145.0,178.9 155.5,179.3 166.0,178.5 176.5,176.3 187.0,172.9 197.5,168.1 208.0,162.1 218.5,154.7 229.0,146.0 239.5,136.0 250.0,124.7 260.5,112.1 271.0,98.2 281.5,83.0 292.0,66.5"/>
+          <polyline class="vec1" points="40.0,194.8 50.5,200.8 61.0,205.7 71.5,209.5 82.0,212.2 92.5,213.9 103.0,214.4 113.5,213.9 124.0,212.2 134.5,209.5 145.0,205.7 155.5,200.8 166.0,194.8 176.5,187.7 187.0,179.6 197.5,170.3 208.0,160.0 218.5,148.5 229.0,136.0 239.5,122.4 250.0,107.7 260.5,91.9 271.0,75.0 281.5,57.1 292.0,38.0" stroke="currentColor"/>
+          <text x="296" y="34" class="big">q(x) = 5x² + 9x + 7</text>
+          <text x="296" y="146" class="t1 small">3p₁ = 3x² + 3x + 3</text>
+          <text x="296" y="292" class="t2 small">−2p₂</text>
+          <text x="296" y="50" class="t3 small">2p₃</text>
+          <text x="240" y="312" text-anchor="middle" class="mut small">3p₁ − 2p₂ + 2p₃ = q ทุกค่า x — เทียบสัมประสิทธิ์: x²: 3−4+6 = 5, x: 3+2+4 = 9, คงตัว: 3−4+8 = 7</text>
+        </svg>
+        <figcaption>แนว 6 ในภาพกราฟ: เส้นฐานสามเส้น (เส้นประ \(3p_1\) น้ำเงิน, \(-2p_2\) แดง, \(2p_3\) เขียว — น้ำหนัก \((3,-2,2)\) จากการแก้ระบบ) เมื่อบวกกันตำแหน่งต่อตำแหน่งได้เส้นเป้าหมาย \(q(x) = 5x^2+9x+7\) (เส้นทึบ) ทุกค่า \(x\) — "ผลรวมเชิงเส้นของพหุนาม" จึงเห็นเป็นการผสมเส้นโค้งแทนการจำสูตร</figcaption>
+      </figure>
+<div class="verify"><span class="lbl">ตรวจคำตอบ:</span> เช็กทีละสัมประสิทธิ์: \(x^2\): \(3 - 4 + 6 = 5\) ✓, \(x\): \(3 + 2 + 4 = 9\) ✓, ค่าคงตัว: \(3 - 4 + 8 = 7\) ✓ (ถ้าระบบไม่ต้องกัน คำตอบคือ "เขียนไม่ได้ เพราะ \(q \notin \operatorname{Span}\{p_1, p_2, p_3\}\)" — อ่านโจทย์ให้ดีว่าถาม "ถ้าเป็นไปได้" ไว้ไหม)</div>
         </div>
       </article>
 
@@ -441,7 +606,46 @@
             คำตอบที่ถูกต้อง: <strong>"ไม่สามารถประมาณได้อย่างน่าเชื่อถือ เพราะ \(x = 8\) อยู่นอกช่วงของข้อมูลที่ใช้สร้างเส้นตรง"</strong>
             — อย่าเพิ่งเขียน \(82.6 - 8.7(8) = 13\) แล้วจบข้อ เพราะนั่นไม่ใช่สิ่งที่โจทย์ถาม (ถ้าอยากพูดถึงเลข 13 ให้เขียนว่า "ถ้าบังคับใช้สมการต่อจะได้ราว 13 คะแนน ซึ่งไม่มีฐานข้อมูลรองรับ" เท่านั้น)</li>
           </ol>
-          <div class="verify"><span class="lbl">ตรวจคำตอบ:</span> เศษตกค้าง \(\vec{b} - A\hat{\vec{x}} = (-0.6,\; 0.1,\; 1.8,\; -1.5,\; 0.2)\) ผลรวม \(= 0\) ✓ (สมบัติของเส้นกำลังสองน้อยสุด) และเศษตกค้างต้องตั้งฉากกับหลักของ \(A\) เสมอ — ถ้าผลรวมไม่เป็น 0 แสดงว่าคำนวณ \(a, b\) พลาด</div>
+                <figure class="fig">
+        <svg viewBox="0 0 500 310" role="img" aria-label="กราฟซ้อมแปดจุด เส้นถดถอย และบริเวณนอกช่วงข้อมูลที่ห้ามทำนาย">
+          <defs><marker id="mE7" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" class="mka"/></marker></defs>
+          <rect x="257" y="25" width="240" height="249" class="f2" fill-opacity=".35"/>
+          <path class="grid" d="M25 55H497M25 115H497M25 175H497M25 235H497M95 25V274M150 25V274M205 25V274M310 25V274M365 25V274M420 25V274"/>
+          <path class="ax" d="M20 274H499" marker-end="url(#mE7)"/>
+          <path class="ax" d="M40 285V18" marker-end="url(#mE7)"/>
+          <text x="41" y="296" text-anchor="middle" class="mut small">0</text>
+          <text x="95" y="296" text-anchor="middle" class="mut small">1</text>
+          <text x="149" y="296" text-anchor="middle" class="mut small">2</text>
+          <text x="203" y="296" text-anchor="middle" class="mut small">3</text>
+          <text x="257" y="296" text-anchor="middle" class="mut small">4</text>
+          <text x="311" y="296" text-anchor="middle" class="mut small">5</text>
+          <text x="365" y="296" text-anchor="middle" class="mut small">6</text>
+          <text x="419" y="296" text-anchor="middle" class="mut small">7</text>
+          <text x="473" y="296" text-anchor="middle" class="mut small">8</text>
+          <text x="18" y="60" text-anchor="end" class="mut small">80</text>
+          <text x="18" y="120" text-anchor="end" class="mut small">60</text>
+          <text x="18" y="180" text-anchor="end" class="mut small">40</text>
+          <text x="18" y="240" text-anchor="end" class="mut small">20</text>
+          <text x="492" y="292" text-anchor="middle" class="mut">x</text>
+          <text x="30" y="16" text-anchor="end" class="mut">y</text>
+          <path class="aux" d="M257 25V274"/>
+          <text x="263" y="40" class="mut small">ข้อมูลถึงแค่ x = 4</text>
+          <path class="vec1" d="M30.4 42 473.2 256"/>
+          <text x="120" y="60" class="t1">ŷ = 82.6 − 8.7x</text>
+          <circle cx="41.2" cy="49" r="4" class="pt"/>
+          <circle cx="95.2" cy="73" r="4" class="pt"/>
+          <circle cx="149.2" cy="94" r="4" class="pt"/>
+          <circle cx="203.2" cy="130" r="4" class="pt"/>
+          <circle cx="257.2" cy="151" r="4" class="pt"/>
+          <circle cx="473.2" cy="256" r="4.5" class="pt2"/>
+          <text x="377" y="80" text-anchor="middle" class="t2 small">โซนนอกช่วงข้อมูล</text>
+          <text x="377" y="98" text-anchor="middle" class="t2 small">ห้ามใช้เส้นนี้สรุป</text>
+          <text x="468" y="242" text-anchor="end" class="t2 small">ถ้าบังคับเส้น: y ≈ 13 (?)</text>
+          <text x="149" y="118" class="mut small">ข้อมูลจริง 5 จุด</text>
+        </svg>
+        <figcaption>แนว 7 ครบทั้งกับดัก: จุดดำ 5 จุดคือข้อมูลจริง \(x \in [0,4]\), เส้นน้ำเงิน \(\hat{y} = 82.6 - 8.7x\) จากสมการปรกติ — ทางขวาของเส้นประ (พื้นที่แรเงาแดง) คือโซน<em>นอกช่วงข้อมูล</em>: ข้อ (ง) ถาม \(x = 8\) คำตอบที่ได้คะแนนต้องเป็น "ประมาณไม่ได้อย่างน่าเชื่อถือ" (วงกลมโปร่ง \(y \approx 13\) เป็นแค่ค่าที่ได้ถ้าบังคับใช้เส้นต่อ ซึ่งไม่มีข้อมูลรองรับ) — ส่วน (ข) \(x = 2.5\) อยู่ในช่วง ใช้ได้: \(\hat{y}(2.5) \approx 61\) คะแนน</figcaption>
+      </figure>
+<div class="verify"><span class="lbl">ตรวจคำตอบ:</span> เศษตกค้าง \(\vec{b} - A\hat{\vec{x}} = (-0.6,\; 0.1,\; 1.8,\; -1.5,\; 0.2)\) ผลรวม \(= 0\) ✓ (สมบัติของเส้นกำลังสองน้อยสุด) และเศษตกค้างต้องตั้งฉากกับหลักของ \(A\) เสมอ — ถ้าผลรวมไม่เป็น 0 แสดงว่าคำนวณ \(a, b\) พลาด</div>
         </div>
       </article>
     </section>

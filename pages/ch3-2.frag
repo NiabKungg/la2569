@@ -53,6 +53,43 @@ tts: 1
     <p><strong>ท่าหา eigenvector:</strong> \(A\vec{v} = \lambda\vec{v} \Leftrightarrow (A - \lambda I)\vec{v} = \vec{0}\) — เวกเตอร์ลักษณะเฉพาะคือผลเฉลยไม่ชัดของระบบเอกพันธุ์นี้</p>
   </div>
 
+  <figure class="fig">
+    <svg viewBox="0 0 480 300" role="img" aria-label="เวกเตอร์ v = (2,1) เมื่อถูก A คูณ อาจถูกยืด หด หรือกลับด้าน แล้วแต่ค่า lambda">
+      <defs>
+        <marker id="m1a" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" class="mka"/></marker>
+        <marker id="m1b" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" class="mk1"/></marker>
+        <marker id="m1r" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" class="mk2"/></marker>
+      </defs>
+      <path class="grid" d="M25 20V280M65 20V280M105 20V280M145 20V280M225 20V280M265 20V280M305 20V280M345 20V280M385 20V280M425 20V280M465 20V280M25 20H465M25 60H465M25 100H465M25 140H465M25 220H465M25 260H465"/>
+      <path class="ax" d="M25 180H470" marker-end="url(#m1a)"/>
+      <path class="ax" d="M185 285V14" marker-end="url(#m1a)"/>
+      <path class="aux" d="M265 140V180M185 140H265M425 20V180M185 20H425M65 240V180M65 240H185"/>
+      <path class="vec1" d="M185 180 265 140" marker-end="url(#m1b)"/>
+      <path class="vec2" d="M185 180 425 20" marker-end="url(#m1r)"/>
+      <path class="vec2" d="M185 180 225 160" marker-end="url(#m1r)"/>
+      <path class="vec2" d="M185 180 65 240" marker-end="url(#m1r)"/>
+      <text x="25" y="198" text-anchor="middle" class="mut small">−4</text>
+      <text x="58" y="198" text-anchor="end" class="mut small">−3</text>
+      <text x="105" y="198" text-anchor="middle" class="mut small">−2</text>
+      <text x="265" y="198" text-anchor="middle" class="mut small">2</text>
+      <text x="345" y="198" text-anchor="middle" class="mut small">4</text>
+      <text x="425" y="198" text-anchor="middle" class="mut small">6</text>
+      <text x="177" y="264" text-anchor="end" class="mut small">−2</text>
+      <text x="177" y="252" text-anchor="end" class="mut small">−1.5</text>
+      <text x="177" y="144" text-anchor="end" class="mut small">1</text>
+      <text x="177" y="104" text-anchor="end" class="mut small">2</text>
+      <text x="177" y="64" text-anchor="end" class="mut small">3</text>
+      <text x="177" y="24" text-anchor="end" class="mut small">4</text>
+      <text x="468" y="197" text-anchor="middle" class="mut">x₁</text>
+      <text x="176" y="12" text-anchor="end" class="mut">x₂</text>
+      <text x="272" y="134" class="t1">v = (2, 1)</text>
+      <text x="400" y="26" text-anchor="end" class="t2">3v = (6, 3)  (λ = 3)</text>
+      <text x="238" y="172" class="t2">0.5v  (λ = 0.5)</text>
+      <text x="65" y="262" text-anchor="middle" class="t2">−1.5v  (λ = −1.5)</text>
+    </svg>
+    <figcaption>ภาพเดียว เห็นครบ 3 กรณีของนิยาม \(A\vec{v} = \lambda\vec{v}\): เมื่อ \(A\) กระทำกับ \(\vec{v} = (2, 1)^T\) ผลลัพธ์ \(\lambda = 3\) <strong>ยืด</strong>เป็น 3 เท่า, \(\lambda = 0.5\) <strong>หด</strong>เหลือครึ่งเดียว และ \(\lambda = -1.5\) <strong>กลับด้าน</strong>พร้อมยืด — ทุกกรณี \(A\vec{v}\) ยังอยู่ "เส้นเดียวกัน" กับ \(\vec{v}\) (ทิศเดิมหรือสวนทาง) นี่คือลักษณะเฉพาะที่ eigenvector ต้องมี</figcaption>
+  </figure>
+
   <h3>2) สมการลักษณะเฉพาะ (characteristic equation)</h3>
   <div class="box box-thm">
     <div class="box-title">⭐ หัวใจของหัวข้อ</div>
@@ -82,6 +119,42 @@ tts: 1
     <p>โดย: <strong>หลักของ \(P\) = eigenvectors</strong> (เรียงลำดับใดก็ได้) และ <strong>สมาชิกทแยงของ \(D\) = ค่าลักษณะเฉพาะที่สมนัยกันตามลำดับ</strong> — ลำดับหลักของ \(P\) กับทแยงของ \(D\) ต้องตรงกัน!</p>
     <p>และผลด้านการคำนวณ: \(\;A^k = PD^kP^{-1}\) โดย \(D^k\) แค่ยกกำลังตัวทแยง — หัวใจของการนำไปใช้</p>
   </div>
+
+  <figure class="fig">
+    <svg viewBox="0 0 480 300" role="img" aria-label="A ยืดวงกลมหน่วยเป็นวงรีที่แกนอยู่บน eigenvector เมื่อเปลี่ยนไปมองบนกริดใหม่ วงรีจะอยู่ตรงแกน ยืด 3 และ 5 เท่า">
+      <defs>
+        <marker id="m5a" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" class="mka"/></marker>
+        <marker id="m5b" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" class="mk1"/></marker>
+        <marker id="m5g" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" class="mk3"/></marker>
+        <clipPath id="cp5"><rect x="252" y="26" width="226" height="254"/></clipPath>
+      </defs>
+      <text x="125" y="16" text-anchor="middle" class="big">ฐานเดิม: A บิด + ยืด</text>
+      <text x="365" y="16" text-anchor="middle" class="big">ฐานใหม่: เหลือแค่ยืด</text>
+      <path class="grid" d="M13 27V273M41 27V273M69 27V273M97 27V273M153 27V273M181 27V273M209 27V273M237 27V273M13 38H237M13 66H237M13 94H237M13 122H237M13 178H237M13 206H237M13 234H237M13 262H237"/>
+      <path class="ax" d="M8 150H240" marker-end="url(#m5a)"/>
+      <path class="ax" d="M125 288V34" marker-end="url(#m5a)"/>
+      <text x="234" y="166" text-anchor="end" class="mut small">x₁</text>
+      <text x="118" y="44" text-anchor="end" class="mut small">x₂</text>
+      <polyline class="thin1" points="153,150 149.2,136 139,125.8 125,122 111,125.8 100.8,136 97,150 100.8,164 111,174.2 125,178 139,174.2 149.2,164 153,150"/>
+      <polyline class="vec2" points="87.4,74.9 63.1,51.8 43,35.4 28.4,26.9 20.5,26.7 19.7,34.9 26,51 39.1,73.8 58.1,101.8 81.6,133.1 108,165.6 135.7,197 162.6,225.1 186.9,248.2 207,264.6 221.6,273.1 229.5,273.3 230.3,265.1 224,249 210.9,226.2 191.9,198.2 168.4,166.9 142,134.4 114.3,103 87.4,74.9"/>
+      <text x="125" y="112" text-anchor="middle" class="t1 small">วงกลมหน่วย</text>
+      <g clip-path="url(#cp5)">
+        <path class="grid" d="M468.6 266.1 286.4 84M443.6 216 261.4 33.9M481.1 291.2 299 109M431 191 248.9 8.8M442.4 285 327.2 54.6M402.8 245.4 287.6 15M462.2 304.8 347 74.4M383 225.6 267.8 -4.8M482 324.6 366.8 94.2M363.2 205.8 248 -24.6"/>
+      </g>
+      <path class="thin1" d="M415 250 315 50"/>
+      <path class="thin3" d="M474 259 256 41"/>
+      <polyline class="vec2" points="327.4,74.9 303.1,51.8 283,35.4 268.4,26.9 260.5,26.7 259.7,34.9 266,51 279.1,73.8 298.1,101.8 321.6,133.1 348,165.6 375.7,197 402.6,225.1 426.9,248.2 447,264.6 461.6,273.1 469.5,273.3 470.3,265.1 464,249 450.9,226.2 431.9,198.2 408.4,166.9 382,134.4 354.3,103 327.4,74.9"/>
+      <path class="vec1" d="M365 150 352.5 125" marker-end="url(#m5b)"/>
+      <path class="vec3" d="M365 150 345.2 130.2" marker-end="url(#m5g)"/>
+      <circle cx="327.4" cy="74.9" r="3" class="pt1"/>
+      <circle cx="266" cy="51" r="3" class="pt3"/>
+      <text x="358" y="128" class="t1 small">u₁</text>
+      <text x="338" y="142" text-anchor="end" class="t3 small">u₂</text>
+      <text x="334" y="70" class="t1 small">3u₁ (λ=3)</text>
+      <text x="274" y="44" class="t3 small">5u₂ (λ=5)</text>
+    </svg>
+    <figcaption>ภาพหัวใจของการแปลงเป็นทแยงมุม (โจทย์แบบตัวอย่าง 3.2.4 ที่ \(A = \begin{bmatrix} 7 &amp; 2\\ -4 &amp; 1 \end{bmatrix}\), \(\lambda = 3, 5\)): ซ้าย — \(A\) ไม่ได้แค่ยืดวงกลมหน่วย แต่<strong>บิด</strong>เป็นวงรีเอียง ขวา — เมื่อเปลี่ยนไปใช้กริดใหม่ที่ทำจาก eigenvector \(\vec{u}_1, \vec{u}_2\) วงรีจะ<em>ตรงแกน</em>พอดี: \(A\) ยืดตามเส้น \(\lambda = 3\) ด้วย \(3\vec{u}_1\) และตามเส้น \(\lambda = 5\) ด้วย \(5\vec{u}_2\) — นั่นคือ \(D = \operatorname{diag}(3, 5)\) ในมุมมองของ \(P\) (จุดสีแดง = ปลายแกนวงรี)</figcaption>
+  </figure>
   <div class="box box-idea">
     <div class="box-title">💡 เช็กลิสต์ตัดสินว่า diagonalizable หรือไม่</div>
     <p>1. หาค่าลักษณะเฉพาะทั้งหมด (แยกพจน์จากพหุนาม)</p>
@@ -193,6 +266,47 @@ tts: 1
         <li><span class="step-t">ตัดสิน</span> ได้เวกเตอร์ลักษณะเฉพาะอิสระเพียง 1 ตัว &lt; 2 → ไม่มีเวกเตอร์พอสร้าง \(P\) ไม่เอกฐาน → <strong>\(A\) แปลงเป็นทแยงมุมไม่ได้</strong> — <em>เพราะ</em>เงื่อนไขของทฤษฎีบท 3.2.3 ต้องการ eigenvector อิสระครบ \(n = 2\) ตัว แต่ที่นี่ \(\lambda = 3\) ซ้ำ 2 ครั้งแทนที่จะให้ \(\dim E_3 = 2\) กลับให้แค่ \(\dim E_3 = 1\) เก็บเวกเตอร์ไม่ครบ ตัดสิ้นเชิง</li>
         <li><span class="step-t">ต่อยอด (ความเข้าใจ)</span> \(2\times2\) ที่มี \(\lambda\) ซ้ำจะ diagonalizable ได้<em>ก็ต่อเมื่อ</em> \(A = \lambda I\) เท่านั้น — เหตุผล: ถ้ามีตัวนอกทแยงอย่างน้อย 1 ตัว (เช่น เลข 1 ช่องขวาบนของข้อนี้) ระบบ \((A - \lambda I)\vec{x} = \vec{0}\) จะบังคับ \(x_2 = 0\) ทำให้ \(E_\lambda\) เหลือมิติ 1 เสมอ ส่วนถ้า \(A = \lambda I\) ล้วน ๆ ทุกเวกเตอร์ที่ไม่ศูนย์จะเป็น eigenvector จึงได้ครบ 2 ตัวสบาย</li>
       </ol>
+      <figure class="fig">
+        <svg viewBox="0 0 520 340" role="img" aria-label="การเลื่อนปลอม ๆ (shear) ของ A ที่ทุกทิศถูกบิด นอกจากแกน x">
+          <defs>
+            <marker id="m6a" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" class="mka"/></marker>
+            <marker id="m6b" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" class="mk1"/></marker>
+            <marker id="m6r" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" class="mk2"/></marker>
+          </defs>
+          <path class="grid" d="M51 51V303M93 51V303M135 51V303M219 51V303M261 51V303M303 51V303M345 51V303M387 51V303M429 51V303M51 51H513M51 93H513M51 135H513M51 219H513M51 261H513M51 303H513"/>
+          <path class="ax" d="M45 177H508" marker-end="url(#m6a)"/>
+          <path class="ax" d="M177 315V36" marker-end="url(#m6a)"/>
+          <text x="93" y="195" text-anchor="middle" class="mut small">−2</text>
+          <text x="219" y="195" text-anchor="middle" class="mut small">1</text>
+          <text x="261" y="195" text-anchor="middle" class="mut small">2</text>
+          <text x="345" y="195" text-anchor="middle" class="mut small">4</text>
+          <text x="429" y="195" text-anchor="middle" class="mut small">6</text>
+          <text x="169" y="55" text-anchor="end" class="mut small">3</text>
+          <text x="169" y="97" text-anchor="end" class="mut small">2</text>
+          <text x="169" y="265" text-anchor="end" class="mut small">−2</text>
+          <text x="500" y="195" text-anchor="middle" class="mut">x₁</text>
+          <text x="168" y="30" text-anchor="end" class="mut">x₂</text>
+          <polyline class="thin1" points="219,177 217.6,166.1 213.4,156 206.7,147.3 198,140.6 187.9,136.4 177,135 166.1,136.4 156,140.6 147.3,147.3 140.6,156 136.4,166.1 135,177 136.4,187.9 140.6,198 147.3,206.7 156,213.4 166.1,217.6 177,219 187.9,217.6 198,213.4 206.7,206.7 213.4,198 217.6,187.9 219,177"/>
+          <polyline class="vec2" points="303,177 309.6,144.4 307.1,114 295.8,87.9 276.4,67.9 250.2,55.3 219,51 185,55.3 150.4,67.9 117.6,87.9 88.9,114 66.2,144.4 51,177 44.4,209.6 46.9,240 58.2,266.1 77.6,286.1 103.8,298.7 135,303 169,298.7 203.6,286.1 236.4,266.1 265.1,240 287.8,209.6 303,177"/>
+          <path class="aux" d="M219 51V177M177 51H219"/>
+          <path class="vec1" d="M177 177 219 177" marker-end="url(#m6b)"/>
+          <path class="vec1" d="M177 177 177 135" marker-end="url(#m6b)"/>
+          <path class="vec1" d="M177 177 207 207" marker-end="url(#m6b)"/>
+          <path class="vec2" d="M177 177 303 177" marker-end="url(#m6r)"/>
+          <path class="vec2" d="M177 177 219 51" marker-end="url(#m6r)"/>
+          <path class="vec2" d="M177 177 236.4 266.1" marker-end="url(#m6r)"/>
+          <text x="226" y="168" class="t1">e₁</text>
+          <text x="352" y="168" class="t2">Ae₁ = 3e₁</text>
+          <text x="185" y="126" class="t1">e₂</text>
+          <text x="226" y="46" class="t2">Ae₂ = (1, 3)</text>
+          <text x="166" y="216" text-anchor="end" class="t1">v</text>
+          <text x="245" y="272" class="t2">Av = (1.41, −2.12)</text>
+          <text x="352" y="96" class="mut small">คงทิศอย่างเดียว: E₃ = แกน x₁</text>
+          <text x="40" y="328" class="t1 small">วงกลมหน่วย</text>
+          <text x="400" y="290" text-anchor="middle" class="t2 small">ภาพ A(วงกลมหน่วย)</text>
+        </svg>
+        <figcaption>\(A = \begin{bmatrix} 3 &amp; 1\\ 0 &amp; 3 \end{bmatrix}\) ทำกับทุกเวกเตอร์บนวงกลมหน่วย (สีน้ำเงิน) ได้วงรี (สีแดง) — เวกเตอร์เกือบทุกทิศถูก<em>บิด</em>ไปทิศใหม่ (เช่น \(\vec{e}_2 \to (1, 3)^T\)) มีเพียงแกน \(x_1\) เส้นเดียวที่คงทิศ (\(E_3 = \operatorname{Span}\{(1,0)^T\}\), \(\dim = 1\)) — ทิศที่ "ไม่ถูกบิด" มีไม่พอ 2 ทิศ จึงไม่มีฐานของ eigenvector ครบ และ \(A\) แปลงเป็นทแยงมุมไม่ได้ ตรงกับเฉลยข้างบน</figcaption>
+      </figure>
     </div>
   </article>
 </section>
@@ -253,6 +367,45 @@ tts: 1
           <li><span class="step-t">\(\lambda = 9\): แก้ \((A - 9I_2)\vec{x} = \vec{0}\)</span> ลบ 9 ที่ทแยง → \(\begin{bmatrix} -6 & 2\\ 3 & -1 \end{bmatrix}\) — แถวล่างเป็น \(-\tfrac{1}{2}\) เท่าของแถวบน เหลือสมการ \(x_1 - \tfrac{1}{3}x_2 = 0 \Rightarrow x_1 = \tfrac{1}{3}x_2\) เลือก \(x_2 = 3\) ได้ \(\begin{bmatrix} 1\\ 3 \end{bmatrix}\) (คูณ 3 เพื่อกำจัดเศษส่วน — ยังเป็นเวกเตอร์ลักษณะเฉพาะเพราะคูณสเกลาร์ได้เสมอ):
           \[ E_9 = \operatorname{Nul}(A - 9I_2) = \operatorname{Span}\left\{ \begin{bmatrix} 1\\ 3 \end{bmatrix} \right\} \]</li>
         </ol>
+        <figure class="fig">
+          <svg viewBox="0 0 430 545" role="img" aria-label="เส้นตรงสองเส้นของปริภูมิลักษณะเฉพาะ E2 ทิศ (-2,1) และ E9 ทิศ (1,3) ผ่านจุดกำเนิด พร้อม Av ของแต่ละทิศ">
+            <defs>
+              <marker id="m2a" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" class="mka"/></marker>
+              <marker id="m2b" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" class="mk1"/></marker>
+              <marker id="m2r" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" class="mk2"/></marker>
+            </defs>
+            <path class="grid" d="M45 30V530M85 30V530M125 30V530M165 30V530M205 30V530M285 30V530M325 30V530M365 30V530M405 30V530M45 50H405M45 90H405M45 130H405M45 170H405M45 210H405M45 250H405M45 290H405M45 330H405M45 370H405M45 410H405M45 490H405M45 530H405"/>
+            <path class="ax" d="M40 450H414" marker-end="url(#m2a)"/>
+            <path class="ax" d="M245 534V20" marker-end="url(#m2a)"/>
+            <text x="85" y="468" text-anchor="middle" class="mut small">−4</text>
+            <text x="165" y="468" text-anchor="middle" class="mut small">−2</text>
+            <text x="325" y="468" text-anchor="middle" class="mut small">2</text>
+            <text x="365" y="468" text-anchor="middle" class="mut small">3</text>
+            <text x="236" y="374" text-anchor="end" class="mut small">2</text>
+            <text x="236" y="294" text-anchor="end" class="mut small">4</text>
+            <text x="236" y="214" text-anchor="end" class="mut small">6</text>
+            <text x="236" y="134" text-anchor="end" class="mut small">8</text>
+            <text x="236" y="98" text-anchor="end" class="mut small">9</text>
+            <text x="236" y="54" text-anchor="end" class="mut small">10</text>
+            <text x="418" y="468" text-anchor="middle" class="mut">x₁</text>
+            <text x="236" y="16" text-anchor="end" class="mut">x₂</text>
+            <text x="234" y="468" text-anchor="end" class="mut">O</text>
+            <path class="thin2" d="M373 514 153 404"/>
+            <path class="thin3" d="M223 516 377 54"/>
+            <path class="aux" d="M85 370V450M245 370H85M365 90V450M245 90H365"/>
+            <path class="vec1" d="M245 450 165 410" marker-end="url(#m2b)"/>
+            <path class="vec2" d="M245 450 85 370" marker-end="url(#m2r)"/>
+            <path class="vec1" d="M245 450 258.3 370" marker-end="url(#m2b)"/>
+            <path class="vec2" d="M245 450 365 90" marker-end="url(#m2r)"/>
+            <text x="152" y="430" text-anchor="end" class="t1">v₁ = (−2, 1)</text>
+            <text x="18" y="352" class="t2">Av₁ = 2v₁ = (−4, 2)</text>
+            <text x="275" y="398" class="t1">v₂ = (1/3, 1)</text>
+            <text x="300" y="180" text-anchor="end" class="t2">Av₂ = 9v₂ = (3, 9)</text>
+            <text x="330" y="522" text-anchor="middle" class="t2">E₂ (λ = 2)</text>
+            <text x="360" y="40" text-anchor="middle" class="t3">E₉ (λ = 9)</text>
+          </svg>
+          <figcaption>ปริภูมิลักษณะเฉพาะไม่ใช่เวกเตอร์เดียว แต่เป็น<strong>เส้นตรงทั้งเส้น</strong>ผ่านจุดกำเนิด: เส้น \(E_2\) ทิศ \((-2, 1)^T\) (แดงเอียงลง) กับ \(E_9\) ทิศ \((1, 3)^T\) (เขียวชัน) — จุดสำคัญ: \(A\) ยืดทุกเวกเตอร์บน \(E_2\) ด้วย 2 เท่า (\((-2,1) \to (-4,2)\)) และทุกเวกเตอร์บน \(E_9\) ด้วย 9 เท่า (\((\tfrac13, 1) \to (3, 9)\)) ทิศไหนก็ได้บนเส้นนั้น ไม่ใช่แค่ตัวที่วาดให้</figcaption>
+        </figure>
         <div class="verify"><span class="lbl">สรุปคำตอบ:</span> \(\lambda^2 - 11\lambda + 18 = 0 \Rightarrow \lambda = 2, 9\) · ฐานหลัก: \(\lambda = 2\): \(\left\{ \begin{bmatrix} -2\\ 1 \end{bmatrix} \right\}\) · \(\lambda = 9\): \(\left\{ \begin{bmatrix} 1\\ 3 \end{bmatrix} \right\}\) (ตำราเขียนรูป \(\left\{ \begin{bmatrix} 1/3\\ 1 \end{bmatrix} \right\}\) ซึ่งเท่ากันเพราะเป็นสเกลาร์เท่ากัน) — ตรงตามตำรา</div>
       </div>
     </article>
@@ -309,6 +462,36 @@ tts: 1
           \[ \sim \begin{bmatrix} 1 & 0 & -\tfrac{1}{2}\\ 0 & 1 & -\tfrac{1}{2}\\ 0 & 0 & 0 \end{bmatrix} \;\Longrightarrow\; x_1 = \tfrac{1}{2}x_3, \;\; x_2 = \tfrac{1}{2}x_3 \;\Longrightarrow\; E_2 = \operatorname{Span}\left\{ \begin{bmatrix} 1\\ 1\\ 2 \end{bmatrix} \right\} \]
           <strong>สังเกต: \(\dim E_2 = 1\)</strong> — ค่าลักษณะเฉพาะซ้ำสองครั้งแต่ได้เวกเตอร์อิสระแค่ตัวเดียว (ต่างจากข้อ (ก) ที่ได้สองตัว)</li>
         </ol>
+        <figure class="fig">
+          <svg viewBox="0 0 480 322" role="img" aria-label="ภาพสามมิติของตัวอย่าง 3.2.3 ข: ปริภูมิลักษณะเฉพาะมีแค่สองเส้น รวมเวกเตอร์อิสระได้แค่ 2 จาก 3 จึงทแยงมุมไม่ได้">
+            <defs>
+              <marker id="m4a" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" class="mka"/></marker>
+              <marker id="m4b" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" class="mk1"/></marker>
+              <marker id="m4g" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" class="mk3"/></marker>
+            </defs>
+            <path class="aux" d="M255 210 292 189M255 210 218 189M255 210V236"/>
+            <path class="thin1" d="M282.6 257.8 212.3 136"/>
+            <path class="thin3" d="M255 241.9V160.7"/>
+            <path class="ax" d="M255 210 95 300" marker-end="url(#m4a)"/>
+            <path class="ax" d="M255 210 415 300" marker-end="url(#m4a)"/>
+            <path class="ax" d="M255 210V36" marker-end="url(#m4a)"/>
+            <path class="vec1" d="M255 210 205 123" marker-end="url(#m4b)"/>
+            <path class="vec3" d="M255 210 255 152" marker-end="url(#m4g)"/>
+            <text x="199" y="252" text-anchor="middle" class="mut small">1</text>
+            <text x="148" y="281" text-anchor="middle" class="mut small">2</text>
+            <text x="311" y="252" text-anchor="middle" class="mut small">1</text>
+            <text x="361" y="281" text-anchor="middle" class="mut small">2</text>
+            <text x="263" y="98" class="mut small">2</text>
+            <text x="92" y="317" text-anchor="middle" class="mut">x</text>
+            <text x="422" y="317" text-anchor="middle" class="mut">y</text>
+            <text x="266" y="32" class="mut">z</text>
+            <text x="197" y="112" text-anchor="end" class="t1">w₁ = (1, 0, 2), λ = 1</text>
+            <text x="263" y="148" class="t3">w₂ = (1, 1, 2), λ = 2</text>
+            <text x="292" y="264" class="t1 small">E₁</text>
+            <text x="264" y="238" class="t3 small">E₂</text>
+          </svg>
+          <figcaption>เมทริกซ์ข้อ (ข) มีพหุนามลักษณะเฉพาะ<em>เหมือนกันเป๊ะ</em>กับข้อ (ก) แต่ภาพต่างกันคนละแบบ: ทั้ง \(E_1\) (น้ำเงิน) และ \(E_2\) (เขียว) เป็น<strong>เส้นตรงเส้นเดียว</strong>เท่านั้น — \(\lambda = 2\) ซ้ำ 2 ครั้งแต่ \(\dim E_2 = 1\) เก็บเวกเตอร์อิสระได้แค่ \(1 + 1 = 2 &lt; 3\) ทิศ สร้าง \(P\) ไม่เอกฐานไม่ได้ จึงแปลงเป็นทแยงมุมไม่ได้ (ดูต่อที่ตัวอย่าง 3.2.5 (ข))</figcaption>
+        </figure>
         <div class="verify"><span class="lbl">สรุปคำตอบ:</span> \(\lambda = 1, 2, 2\) · ฐานหลัก: \(\lambda = 1\): \(\left\{ \begin{bmatrix} 1\\ 0\\ 2 \end{bmatrix} \right\}\) · \(\lambda = 2\): \(\left\{ \begin{bmatrix} 1\\ 1\\ 2 \end{bmatrix} \right\}\) — <em>หมายเหตุ:</em> ตำราพิมพ์ฐานหลักของ \(\lambda = 2\) เป็น \(\begin{bmatrix} -1\\ 1\\ 2 \end{bmatrix}\) เพราะ RREF ในตำราได้ช่อง \((1, 3)\) เป็น \(+\tfrac{1}{2}\) ซึ่งคำนวณผิดเครื่องหมาย (RREF ที่ถูกต้องแถวแรกเป็น \(-\tfrac{1}{2}\) ตามขั้นตอนด้านบน) — ตรวจด้วยการคูณจริง: \(A(1,1,2)^T = (2, 2, 4)^T = 2(1,1,2)^T\) ✓ ขณะที่ \(A(-1,1,2)^T = (-4, -2, 0)^T \neq 2(-1,1,2)^T\) จึงใช้ฐานหลัก \((1, 1, 2)^T\) ตามที่คำนวณได้ถูกต้อง</div>
       </div>
     </article>
@@ -324,6 +507,43 @@ tts: 1
           \[ P = \begin{bmatrix} 3 & 2 & 2\\ -1 & 1 & 0\\ 3 & 0 & 1 \end{bmatrix}, \qquad D = \begin{bmatrix} 1 & 0 & 0\\ 0 & 2 & 0\\ 0 & 0 & 2 \end{bmatrix} \]</li>
           <li><span class="step-t">ตรวจ \(AP = PD\)</span> หลักแรกของ \(PD\) คือ \(1 \cdot (3, -1, 3)^T = (3, -1, 3)^T\) และ \(A(3, -1, 3)^T = (3, -1, 3)^T\) ✓ · หลักสอง \(2 \cdot (2, 1, 0)^T = (4, 2, 0)^T\) และ \(A(2, 1, 0)^T = (4, 2, 0)^T\) ✓ · หลักสาม \(2 \cdot (2, 0, 1)^T = (4, 0, 2)^T\) และ \(A(2, 0, 1)^T = (4, 0, 2)^T\) ✓ — สองข้างตรงกันทุกหลัก จึงได้ \(A = PDP^{-1}\)</li>
         </ol>
+        <figure class="fig">
+          <svg viewBox="0 0 480 315" role="img" aria-label="ภาพสามมิติ: เวกเตอร์ลักษณะเฉพาะสามตัวของตัวอย่าง 3.2.3 ก คือเส้น E1 และระนาบ E2 ที่ทำให้แปลงเป็นทแยงมุมได้">
+            <defs>
+              <marker id="m3a" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" class="mka"/></marker>
+              <marker id="m3b" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" class="mk1"/></marker>
+              <marker id="m3r" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" class="mk2"/></marker>
+              <marker id="m3g" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" class="mk3"/></marker>
+            </defs>
+            <polygon class="f2" points="327.5,146 275.8,235.7 181.2,235.7 233,146" fill-opacity=".45"/>
+            <path class="thin2" d="M327.5 146 275.8 235.7 181.2 235.7 233 146Z"/>
+            <path class="aux" d="M260 185 300 162M260 185 220 162M260 185 260 231"/>
+            <path class="thin1" d="M137.5 114.3 368.1 247.4"/>
+            <path class="ax" d="M260 185 113 270" marker-end="url(#m3a)"/>
+            <path class="ax" d="M260 185 407 270" marker-end="url(#m3a)"/>
+            <path class="ax" d="M260 185V35" marker-end="url(#m3a)"/>
+            <path class="vec1" d="M260 185 80 81" marker-end="url(#m3b)"/>
+            <path class="vec2" d="M260 185 215 263" marker-end="url(#m3r)"/>
+            <path class="vec3" d="M260 185 170 185" marker-end="url(#m3g)"/>
+            <text x="209" y="224" text-anchor="middle" class="mut small">1</text>
+            <text x="164" y="250" text-anchor="middle" class="mut small">2</text>
+            <text x="119" y="276" text-anchor="middle" class="mut small">3</text>
+            <text x="311" y="224" text-anchor="middle" class="mut small">1</text>
+            <text x="356" y="250" text-anchor="middle" class="mut small">2</text>
+            <text x="401" y="276" text-anchor="middle" class="mut small">3</text>
+            <text x="268" y="137" class="mut small">1</text>
+            <text x="268" y="85" class="mut small">2</text>
+            <text x="100" y="285" text-anchor="middle" class="mut">x</text>
+            <text x="420" y="285" text-anchor="middle" class="mut">y</text>
+            <text x="272" y="30" class="mut">z</text>
+            <text x="16" y="68" class="t1">v₁ = (3, −1, 3), λ = 1</text>
+            <text x="215" y="285" text-anchor="middle" class="t2">v₂ = (2, 1, 0)</text>
+            <text x="162" y="178" text-anchor="end" class="t3">v₃ = (2, 0, 1)</text>
+            <text x="170" y="150" text-anchor="middle" class="t1">E₁</text>
+            <text x="335" y="140" class="t2 small">E₂ (λ = 2) : ระนาบ</text>
+          </svg>
+          <figcaption>\(\lambda = 2\) ซ้ำ 2 ครั้งแต่ให้ <strong>ระนาบทั้งระนาบ</strong> \(E_2 = \operatorname{Span}\{(2,1,0)^T, (2,0,1)^T\}\) (แดงโปร่งแสง — \(\dim E_2 = 2\) ครบจำนวนครั้งที่ซ้ำ) ส่วน \(\lambda = 1\) ให้เส้น \(E_1\) ทิศ \((3,-1,3)^T\) (น้ำเงิน) — รวมได้เวกเตอร์อิสระ \(1 + 2 = 3\) ตัวครบ \(n = 3\) จึงแปลงเป็นทแยงมุมได้ (ดูต่อที่ตัวอย่าง 3.2.5 (ก))</figcaption>
+        </figure>
         <div class="verify"><span class="lbl">สรุปคำตอบ:</span> \(A\) แปลงเป็นทแยงมุมได้ เพราะผลรวมมิติของปริภูมิลักษณะเฉพาะ \(= 1 + 2 = 3 = n\) โดย \(A = PDP^{-1}\) เมื่อ \(P = \begin{bmatrix} 3 & 2 & 2\\ -1 & 1 & 0\\ 3 & 0 & 1 \end{bmatrix}\), \(D = \operatorname{diag}(1, 2, 2)\) — ตรงตามตำรา</div>
       </div>
     </article>
@@ -405,6 +625,42 @@ tts: 1
           \[ A^k = \begin{bmatrix} -1 & -1\\ 2 & 1 \end{bmatrix}\begin{bmatrix} 3^k & 0\\ 0 & 5^k \end{bmatrix}\begin{bmatrix} 1 & 1\\ -2 & -1 \end{bmatrix} = \begin{bmatrix} -3^k + 2\cdot 5^k & -3^k + 5^k\\ 2\cdot 3^k - 2\cdot 5^k & 2\cdot 3^k - 5^k \end{bmatrix} \]
           ลอง \(k = 1\): ช่องซ้ายบน \(-3 + 10 = 7\) ✓, ขวาบน \(-3 + 5 = 2\) ✓, ซ้ายล่าง \(6 - 10 = -4\) ✓, ขวาล่าง \(6 - 5 = 1\) ✓ คืน \(A\) ตัวเดิมทุกช่อง</li>
         </ol>
+        <figure class="fig">
+          <svg viewBox="0 0 500 308" role="img" aria-label="วิถีของ x, Ax, A2x ที่ค่อย ๆ เอนเข้าหาเส้น eigenvector ของ lambda ที่มีค่าสัมบูรณ์มากที่สุด">
+            <defs>
+              <marker id="m7a" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" class="mka"/></marker>
+              <marker id="m7b" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" class="mk1"/></marker>
+              <marker id="m7r" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" class="mk2"/></marker>
+            </defs>
+            <path class="grid" d="M25 20V272M89 20V272M217 20V272M281 20V272M345 20V272M409 20V272M473 20V272M25 30H475M25 158H475M25 222H475"/>
+            <path class="ax" d="M20 94H486" marker-end="url(#m7a)"/>
+            <path class="ax" d="M153 282V12" marker-end="url(#m7a)"/>
+            <text x="25" y="112" text-anchor="middle" class="mut small">−8</text>
+            <text x="89" y="112" text-anchor="middle" class="mut small">−4</text>
+            <text x="217" y="112" text-anchor="middle" class="mut small">4</text>
+            <text x="281" y="112" text-anchor="middle" class="mut small">8</text>
+            <text x="345" y="112" text-anchor="middle" class="mut small">12</text>
+            <text x="409" y="112" text-anchor="middle" class="mut small">16</text>
+            <text x="145" y="226" text-anchor="end" class="mut small">−8</text>
+            <text x="145" y="162" text-anchor="end" class="mut small">−4</text>
+            <text x="145" y="34" text-anchor="end" class="mut small">4</text>
+            <text x="480" y="112" text-anchor="middle" class="mut">x₁</text>
+            <text x="145" y="10" text-anchor="end" class="mut">x₂</text>
+            <text x="145" y="110" text-anchor="end" class="mut">O</text>
+            <path class="thin1" d="M111.4 10.8 191.4 170.8"/>
+            <path class="thin3" d="M61.8 2.8 247.4 188.4"/>
+            <path class="vec1" d="M153 94 185 78" marker-end="url(#m7b)"/>
+            <path class="vec2" d="M153 94 409 206" marker-end="url(#m7r)"/>
+            <path class="aux" d="M409 206 490 269" marker-end="url(#m7a)"/>
+            <text x="104" y="18" text-anchor="end" class="t1">E₃ (λ = 3)</text>
+            <text x="256" y="196" class="t3">E₅ (λ = 5)</text>
+            <text x="191" y="72" class="t1">x₀ = (2, 1)</text>
+            <text x="300" y="228" class="t2">x₁ = Ax₀ = (16, −7)</text>
+            <text x="492" y="284" text-anchor="end" class="mut small">x₂ = (98, −71) →</text>
+            <text x="250" y="302" text-anchor="middle" class="mut small">ยิ่งยกกำลังมาก ทิศของ xₖ ยิ่งเอนเข้าเส้น λ = 5 เพราะ 5ᵏ โตเร็วกว่า 3ᵏ</text>
+          </svg>
+          <figcaption>ทำไม \(A^k = PD^kP^{-1}\) ถึงทำงาน: วาด \(\vec{x}_0 = (2,1)^T\) (น้ำเงิน) แล้วคูณ \(A\) ซ้ำ — \(\vec{x}_1 = (16,-7)^T\) (แดง) เริ่มเอนเข้าหาเส้น \(E_5\), \(\vec{x}_2 = (98,-71)^T\) (เส้นประ ต่อนอกภาพ) เข้าใกล้เส้น \(E_5\) มากขึ้น เพราะเมื่อแตก \(\vec{x}_0 = 3\vec{v}_1 - 5\vec{v}_2\) แล้ว \(A^k\vec{x}_0 = 3^k(3)\vec{v}_1 - 5^k(5)\vec{v}_2\) — พจน์ \(5^k\) กลืน \(3^k\) ไปเอง โดยไม่ต้องคูณเมทริกซ์สักรอบ</figcaption>
+        </figure>
         <div class="verify"><span class="lbl">สรุปคำตอบ:</span> \(A = PDP^{-1}\) เมื่อ \(P = \begin{bmatrix} -1 & -1\\ 2 & 1 \end{bmatrix}\), \(D = \begin{bmatrix} 3 & 0\\ 0 & 5 \end{bmatrix}\) และ \(A^k = \begin{bmatrix} -3^k + 2\cdot 5^k & -3^k + 5^k\\ 2\cdot 3^k - 2\cdot 5^k & 2\cdot 3^k - 5^k \end{bmatrix}\) สำหรับทุกจำนวนเต็มบวก \(k\) — ตรงตามตำรา (ตรวจ \(k = 2\): \(A^2 = \begin{bmatrix} 41 & 16\\ -32 & -7 \end{bmatrix}\) เท่ากับการคูณ \(A\) สองรอบตรง ๆ ✓)</div>
       </div>
     </article>
@@ -445,6 +701,48 @@ tts: 1
           \[ \vec{x}_k = 30(1)^k\begin{bmatrix} 4\\ 1 \end{bmatrix} + 10\left(-\tfrac{1}{2}\right)^k\begin{bmatrix} -2\\ 1 \end{bmatrix} \]</li>
           <li><span class="step-t">อ่านผลที่ \(k = 10\)</span> \((-\tfrac{1}{2})^{10} = \tfrac{1}{1024} \approx 0.001\) แทบเป็นศูนย์ → \(\vec{x}_{10} \approx 30(4, 1)^T = (120, 30)^T\) — วัยอ่อนราว 120,000 ตัว เต็มวัย 30,000 ตัว รวม 150,000 ตัว สัดส่วน \(4:1\) เป๊ะ (ตรวจด้วยการคูณ \(A\) สิบรอบจริงได้ \((119.98, 30.01)\) ✓)</li>
         </ol>
+        <figure class="fig">
+          <svg viewBox="0 0 460 260" role="img" aria-label="วิถีประชากร x0 ถึง x6 สลับซ้ายขวาแล้วลู่เข้าหาเส้นทิศ eigenvector 4,1">
+            <defs>
+              <marker id="m8a" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" class="mka"/></marker>
+            </defs>
+            <path class="grid" d="M84.5 30V230M179.5 30V230M274.5 30V230M369.5 30V230M18 58.5H436M18 106H436M18 153.5H436M18 201H436"/>
+            <text x="84.5" y="219" text-anchor="middle" class="mut small">10</text>
+            <text x="179.5" y="219" text-anchor="middle" class="mut small">11</text>
+            <text x="274.5" y="219" text-anchor="middle" class="mut small">12</text>
+            <text x="369.5" y="219" text-anchor="middle" class="mut small">13</text>
+            <text x="14" y="205" class="mut small">2.5</text>
+            <text x="14" y="157.5" class="mut small">3</text>
+            <text x="14" y="110" class="mut small">3.5</text>
+            <text x="14" y="62.5" class="mut small">4</text>
+            <text x="436" y="238" text-anchor="end" class="mut small">x₁ ÷ 10 (พันตัว)</text>
+            <text x="14" y="26" class="mut small">x₂ ÷ 10</text>
+            <path class="thin1" d="M18 217.6 436 113.1"/>
+            <text x="352" y="100" class="t1 small">ทิศ v₁ = (4, 1)</text>
+            <path class="aux" d="M84.5 58.5 369.5 201" marker-end="url(#m8a)"/>
+            <path class="aux" d="M369.5 201 227 129.8" marker-end="url(#m8a)"/>
+            <path class="aux" d="M227 129.8 298.2 165.4" marker-end="url(#m8a)"/>
+            <path class="aux" d="M298.2 165.4 262.6 147.6" marker-end="url(#m8a)"/>
+            <path class="aux" d="M262.6 147.6 280.4 156.4" marker-end="url(#m8a)"/>
+            <path class="aux" d="M280.4 156.4 271.6 152" marker-end="url(#m8a)"/>
+            <circle cx="84.5" cy="58.5" r="3.2" class="pt1"/>
+            <circle cx="369.5" cy="201" r="3.2" class="pt1"/>
+            <circle cx="227" cy="129.8" r="3.2" class="pt1"/>
+            <circle cx="298.2" cy="165.4" r="3.2" class="pt1"/>
+            <circle cx="262.6" cy="147.6" r="3.2" class="pt1"/>
+            <circle cx="280.4" cy="156.4" r="3.2" class="pt1"/>
+            <circle cx="271.6" cy="152" r="3.2" class="pt1"/>
+            <text x="84.5" y="46" text-anchor="middle" class="mut small">k=0</text>
+            <text x="377" y="214" class="mut small">k=1</text>
+            <text x="219" y="118" text-anchor="end" class="mut small">k=2</text>
+            <text x="306" y="178" class="mut small">k=3</text>
+            <text x="270" y="144" class="mut small">k=4</text>
+            <text x="272" y="172" text-anchor="end" class="mut small">k=5</text>
+            <text x="262" y="142" text-anchor="end" class="mut small">k=6</text>
+            <text x="230" y="245" text-anchor="middle" class="t3 small">k → ∞ : xₖ → (120, 30) อยู่บนเส้น v₁ พอดี — สัดส่วน 4 : 1</text>
+          </svg>
+          <figcaption>วิถีจริงของประชากร \(\vec{x}_k = 30(1)^k(4,1)^T + 10(-\tfrac12)^k(-2,1)^T\) (หน่วยย่อ 10 เท่าเพื่อดูง่าย): จุด \(k = 0, 1, 2, \dots\) สลับข้างเส้น \(v_1 = (4,1)^T\) ไปมา (เพราะ \((-\tfrac12)^k\) สลับเครื่องหมาย) แต่แรงสั่นนั้นจืดลงเร็ว — ประชากรลู่เข้าสู่ทิศ eigenvector ของ \(\lambda = 1\) จนสัดส่วนวัยอ่อน : เต็มวัย = 4 : 1 คงที่ ตรงกับคำตอบ \(\vec{x}_{10} \approx (120, 30)\)</figcaption>
+        </figure>
         <div class="verify"><span class="lbl">เห็นไหมว่า...</span> พอแตกด้วย eigenvector แล้ว \(A^{10}\) กลายเป็น "ยกกำลังสองเลข" (\(1^{10}\) กับ \((-\tfrac{1}{2})^{10}\)) — โมเดลประชากรแบบนี้ (Leslie matrix) ใช้จริงในการจัดการประมง แมลงศัตรูพืช และสัตว์ใกล้สูญพันธุ์ โดยค่าลักษณะเฉพาะที่ใหญ่สุดบอก "อัตราโตระยะยาว" และเวกเตอร์ลักษณะเฉพาะของมันบอก "โครงสร้างอายุที่คงตัว" ที่ประชากรจะลงเอยด้วย</div>
       </div>
     </article>

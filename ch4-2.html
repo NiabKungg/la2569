@@ -113,6 +113,40 @@
         \[ \vec{x} = x_3\begin{bmatrix} 1\\ -1\\ 1 \end{bmatrix} \;\Longrightarrow\; \text{ฐานหลักสำหรับ } H^\perp = \left\{ \begin{bmatrix} 1\\ -1\\ 1 \end{bmatrix} \right\} \]
         (เลือก \(x_3 = 1\) ให้ได้เวกเตอร์ไม่ศูนย์ที่ง่ายที่สุด — และเพราะมีตัวแปรเสรีตัวเดียว ฐานหลักจึงมีเวกเตอร์เดียว) \(\dim H + \dim H^\perp = 2 + 1 = 3\) ✓ สมดุลตามสูตร \(\dim H + \dim H^\perp = n = 3\)</li>
       </ol>
+      <figure class="fig">
+        <svg viewBox="0 0 480 330" role="img" aria-label="ระนาบ H กับเวกเตอร์แนวฉาก n ที่ตั้งฉากกับทุกเวกเตอร์ในระนาบ">
+          <defs>
+            <marker id="m22a" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" class="mka"/></marker>
+            <marker id="m22b" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" class="mk1"/></marker>
+            <marker id="m22r" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" class="mk2"/></marker>
+            <marker id="m22g" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" class="mk3"/></marker>
+          </defs>
+          <path class="aux" d="M240 190 276 169M240 190 204 169M240 190V216"/>
+          <polygon class="f1" points="213,174.4 213,127.6 280.5,166.6 280.5,244.6" fill-opacity=".45"/>
+          <path class="thin1" d="M213 174.4 213 127.6 280.5 166.6 280.5 244.6Z"/>
+          <path class="ax" d="M240 190 105 268" marker-end="url(#m22a)"/>
+          <path class="ax" d="M240 190 375 268" marker-end="url(#m22a)"/>
+          <path class="ax" d="M240 190V60" marker-end="url(#m22a)"/>
+          <path class="vec2" d="M240 190 240 242" marker-end="url(#m22r)"/>
+          <path class="vec3" d="M240 190 285 190" marker-end="url(#m22g)"/>
+          <path class="vec1" d="M240 190 149.9 138" marker-end="url(#m22b)"/>
+          <path class="ra" d="M240 199 232.2 194.5 232.2 185.5"/>
+          <text x="188" y="228" text-anchor="middle" class="mut small">1</text>
+          <text x="143" y="254" text-anchor="middle" class="mut small">2</text>
+          <text x="292" y="228" text-anchor="middle" class="mut small">1</text>
+          <text x="337" y="254" text-anchor="middle" class="mut small">2</text>
+          <text x="248" y="142" class="mut small">1</text>
+          <text x="248" y="90" class="mut small">2</text>
+          <text x="97" y="280" text-anchor="middle" class="mut">x</text>
+          <text x="383" y="280" text-anchor="middle" class="mut">y</text>
+          <text x="250" y="56" class="mut">z</text>
+          <text x="263" y="216" text-anchor="middle" class="t1 big">H</text>
+          <text x="144" y="128" text-anchor="end" class="t1">n = (1, −1, 1)</text>
+          <text x="248" y="256" class="t2 small">a = (1, 1, 0)</text>
+          <text x="292" y="184" class="t3 small">b = (0, 1, 1)</text>
+        </svg>
+        <figcaption>\(H^\perp\) คือ "ทุกทิศที่ตั้งฉากกับระนาบ": เวกเตอร์ \(\vec{n} = (1,-1,1)^T\) (น้ำเงิน) ตั้งฉากกับทั้ง \((1,1,0)^T\) และ \((0,1,1)^T\) (ตรวจด้วยผลคูณจุดได้ 0 ทั้งคู่) จึงตั้งฉากกับ<em>ทุก</em>เวกเตอร์ในระนาบ \(H\) — เพราะ \(\dim H = 2\) ใน \(\mathbb{R}^3\) ทิศที่ตั้งฉากเหลือให้หาอีกแค่ทิศเดียว ฐานหลักของ \(H^\perp\) จึงมีแค่ \(\{(1,-1,1)^T\}\)</figcaption>
+      </figure>
       <div class="verify"><span class="lbl">ตรวจคำตอบ:</span> \((1,-1,1)\cdot(1,1,0) = 0\) ✓ และ \((1,-1,1)\cdot(0,1,1) = 0\) ✓</div>
     </div>
   </article>
@@ -130,6 +164,45 @@
         <li><span class="step-t">ส่วนเติมเต็ม</span> ลบแบบตำแหน่งต่อตำแหน่ง โดยเติมตัวส่วนร่วมก่อน (เพราะ \(\vec{y}\) เป็นจำนวนเต็มแต่ \(\hat{y}\) เป็นเศษส่วน): ช่องบน \(5 - \tfrac95 = \tfrac{25}{5} - \tfrac95 = \tfrac{16}{5}\), ช่องล่าง \(0 - \tfrac{12}{5} = -\tfrac{12}{5}\)
         \[ \vec{z} = \vec{y} - \hat{y} = \begin{bmatrix} 16/5\\ -12/5 \end{bmatrix} \]</li>
       </ol>
+      <figure class="fig">
+        <svg viewBox="0 0 480 460" role="img" aria-label="การแยก y เป็นส่วนฉายยิ้มบนเส้นตรงและส่วนเติมเต็ม z ที่ตั้งฉากกับเส้น">
+          <defs>
+            <marker id="m21a" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" class="mka"/></marker>
+            <marker id="m21g" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" class="mk3"/></marker>
+            <marker id="m21r" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" class="mk2"/></marker>
+            <marker id="m21y" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="currentColor"/></marker>
+          </defs>
+          <path class="grid" d="M25 28V434M83 28V434M199 28V434M257 28V434M315 28V434M373 28V434M431 28V434M25 57H431M25 115H431M25 173H431M25 231H431M25 341.2H431M25 399.2H431"/>
+          <path class="ax" d="M20 283.2H445" marker-end="url(#m21a)"/>
+          <path class="ax" d="M141 440V20" marker-end="url(#m21a)"/>
+          <text x="83" y="301" text-anchor="middle" class="mut small">−1</text>
+          <text x="199" y="301" text-anchor="middle" class="mut small">1</text>
+          <text x="257" y="301" text-anchor="middle" class="mut small">2</text>
+          <text x="315" y="301" text-anchor="middle" class="mut small">3</text>
+          <text x="373" y="301" text-anchor="middle" class="mut small">4</text>
+          <text x="431" y="301" text-anchor="middle" class="mut small">5</text>
+          <text x="133" y="403.2" text-anchor="end" class="mut small">−2</text>
+          <text x="133" y="345.2" text-anchor="end" class="mut small">−1</text>
+          <text x="133" y="235" text-anchor="end" class="mut small">1</text>
+          <text x="133" y="177" text-anchor="end" class="mut small">2</text>
+          <text x="133" y="119" text-anchor="end" class="mut small">3</text>
+          <text x="133" y="61" text-anchor="end" class="mut small">4</text>
+          <text x="443" y="301" text-anchor="middle" class="mut">x₁</text>
+          <text x="131" y="18" text-anchor="end" class="mut">x₂</text>
+          <path class="thin1" d="M37.6 422.4 324.7 39.6"/>
+          <text x="330" y="34" class="t1 small">เส้น Span{(3, 4)}</text>
+          <path class="aux" d="M245.4 144 431 283.2"/>
+          <path d="M141 283.2 431 283.2" stroke="currentColor" stroke-width="2.2" fill="none" marker-end="url(#m21y)"/>
+          <path class="vec3" d="M141 283.2 245.4 144" marker-end="url(#m21g)"/>
+          <path class="vec2" d="M141 283.2 326.6 422.4" marker-end="url(#m21r)"/>
+          <path class="ra" d="M251.4 136 259.4 142 253.4 150"/>
+          <text x="425" y="272" text-anchor="end" class="big">y = (5, 0)</text>
+          <text x="252" y="140" class="t3">ŷ = (9/5, 12/5)</text>
+          <text x="333" y="430" class="t2">z = (16/5, −12/5)</text>
+          <text x="66" y="372" text-anchor="middle" class="mut small">ŷ ⊥ z : y = ŷ + z</text>
+        </svg>
+        <figcaption>ภาพหัวใจของทั้งบทที่ 4 กับค่าจริงในตัวอย่างนี้: \(\vec{y} = (5, 0)^T\) ถูกแยกเป็น \(\hat{y} = (\tfrac95, \tfrac{12}{5})^T\) (เขียว) จุดที่<em>ใกล้ที่สุด</em>บนเส้น \(\operatorname{Span}\{(3,4)^T\}\) กับส่วนเติมเต็ม \(\vec{z} = (\tfrac{16}{5}, -\tfrac{12}{5})^T\) (แดง) ที่ตั้งฉากกับเส้น (สัญลักษณ์มุมฉากที่ปลาย \(\hat{y}\)) — เส้นประแดงขนาน \(\vec{z}\) ทำให้เห็นว่า \(\vec{y} = \hat{y} + \vec{z}\) จบสามเหลี่ยมพอดี</figcaption>
+      </figure>
       <div class="verify"><span class="lbl">ตรวจคำตอบ:</span> \(\vec{z}\cdot\vec{u} = \tfrac{16}{5}(3) + \left(-\tfrac{12}{5}\right)(4) = \tfrac{48}{5} - \tfrac{48}{5} = 0\) ✓ และ \(\hat{y} + \vec{z} = \left(\tfrac95 + \tfrac{16}{5},\; \tfrac{12}{5} - \tfrac{12}{5}\right) = (5, 0) = \vec{y}\) ✓ — <strong>สรุปคำตอบ:</strong> \(\hat{y} = \left(\tfrac95, \tfrac{12}{5}\right)^T\) และ \(\vec{z} = \left(\tfrac{16}{5}, -\tfrac{12}{5}\right)^T\)</div>
     </div>
   </article>
@@ -165,6 +238,45 @@
         \[ \vec{v}_2 = \vec{x}_2 - \frac{\vec{x}_2\cdot\vec{v}_1}{\vec{v}_1\cdot\vec{v}_1}\vec{v}_1 = \begin{bmatrix} 1\\ 2\\ -3 \end{bmatrix} - \frac{1 + 4 + 0}{5}\begin{bmatrix} 1\\ 2\\ 0 \end{bmatrix} = \begin{bmatrix} 1\\ 2\\ -3 \end{bmatrix} - \begin{bmatrix} 1\\ 2\\ 0 \end{bmatrix} = \begin{bmatrix} 0\\ 0\\ -3 \end{bmatrix} \]</li>
         <li><span class="step-t">สรุป</span> \(\left\{ (1,2,0)^T, (0,0,-3)^T \right\}\) เป็นฐานหลักเชิงตั้งฉากสำหรับ \(H\) — <strong>สรุปพร้อมเหตุผล:</strong> ตั้งฉากกันเพราะ \((1,2,0)\cdot(0,0,-3) = 0 + 0 + 0 = 0\) ✓ และเป็นฐานหลักของ \(H\) ได้เพราะกราม-ชมิดต์ไม่เปลี่ยน span (ลบไปด้วยส่วนที่อยู่ใน span เดิมเท่านั้น) และเวกเตอร์ไม่ศูนย์ทั้งคู่จึงอิสระเชิงเส้น</li>
       </ol>
+      <figure class="fig">
+        <svg viewBox="0 0 520 300" role="img" aria-label="กรามชมิดต์สองภาพ ก่อนและหลัง ตัดส่วนที่ขนานออกให้เหลือเวกเตอร์ตั้งฉาก">
+          <defs>
+            <marker id="m23a" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" class="mka"/></marker>
+            <marker id="m23b" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" class="mk1"/></marker>
+            <marker id="m23r" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" class="mk2"/></marker>
+            <marker id="m23g" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" class="mk3"/></marker>
+          </defs>
+          <text x="150" y="20" text-anchor="middle" class="big">ก่อน: x₁, x₂ เอนเข้าหากัน</text>
+          <text x="370" y="20" text-anchor="middle" class="big">หลัง: v₂ = x₂ − x₁ ตั้งฉาก x₁</text>
+          <path class="ax" d="M46 220H254" marker-end="url(#m23a)"/>
+          <path class="ax" d="M150 160 46 220" marker-end="url(#m23a)"/>
+          <path class="ax" d="M150 160 254 220" marker-end="url(#m23a)"/>
+          <path class="ax" d="M150 160V62" marker-end="url(#m23a)"/>
+          <path class="aux" d="M150 160 180 143M150 160 115.4 140M150 160V200"/>
+          <path class="vec1" d="M150 160 184.6 220" marker-end="url(#m23b)"/>
+          <path class="vec2" d="M150 160 184.6 100" marker-end="url(#m23r)"/>
+          <path class="aux" d="M184.6 220V100"/>
+          <text x="192" y="164" class="t2 small">(0, 0, −3)</text>
+          <text x="192" y="88" class="t2 small">x₂ = (1, 2, −3)</text>
+          <text x="130" y="248" text-anchor="middle" class="t1 small">x₁ = (1, 2, 0)</text>
+          <text x="42" y="236" text-anchor="middle" class="mut small">x</text>
+          <text x="264" y="214" text-anchor="middle" class="mut small">y</text>
+          <text x="160" y="58" class="mut small">z</text>
+          <path class="ax" d="M370 160 266 220" marker-end="url(#m23a)"/>
+          <path class="ax" d="M370 160 474 220" marker-end="url(#m23a)"/>
+          <path class="ax" d="M370 160V62" marker-end="url(#m23a)"/>
+          <path class="aux" d="M370 160 400 143M370 160 335.4 140M370 160V200"/>
+          <path class="vec1" d="M370 160 404.6 220" marker-end="url(#m23b)"/>
+          <path class="vec3" d="M370 160 370 280" marker-end="url(#m23g)"/>
+          <text x="404" y="248" text-anchor="middle" class="t1 small">x₁ = (1, 2, 0)</text>
+          <text x="378" y="272" class="t3 small">v₂ = (0, 0, −3)</text>
+          <text x="256" y="240" text-anchor="middle" class="mut small">x</text>
+          <text x="482" y="236" text-anchor="middle" class="mut small">y</text>
+          <text x="380" y="58" class="mut small">z</text>
+          <text x="260" y="292" text-anchor="middle" class="mut small">เงาของ x₂ บน x₁ คือ x₁ พอดี (x₂·x₁ = 5 = x₁·x₁) — ตัดทิ้งได้ทั้งชิ้น เหลือ v₂ ที่ชี้ตรง −z ล้วน ๆ</text>
+        </svg>
+        <figcaption>ภาพสองชั้นของกราม-ชมิดต์ (ค่าจริงจากข้อนี้): ซ้าย — \(\vec{x}_1 = (1,2,0)^T\) กับ \(\vec{x}_2 = (1,2,-3)^T\) เอนไปทางทิศเดียวกันด้านบน เห็นเส้นประแนวตั้ง \((0,0,-3)^T\) ที่เชื่อมปลายทั้งสอง ขวา — เมื่อลบเงาของ \(\vec{x}_2\) บน \(\vec{x}_1\) ทิ้ง (เงา = \(\vec{x}_1\) พอดี) เหลือ \(\vec{v}_2 = (0,0,-3)^T\) (เขียว) ที่ตั้งฉากกับ \(\vec{v}_1\) โดยอัตโนมัติ และ \(\operatorname{Span}\{\vec{v}_1, \vec{v}_2\} = \operatorname{Span}\{\vec{x}_1, \vec{x}_2\} = H\) เท่าเดิม</figcaption>
+      </figure>
     </div>
   </article>
 
@@ -201,6 +313,35 @@
         \[ R = \begin{bmatrix} \tfrac{1}{\sqrt{2}} & \tfrac{1}{\sqrt{2}} & 0\\[4pt] \tfrac{1}{\sqrt{6}} & -\tfrac{1}{\sqrt{6}} & \tfrac{2}{\sqrt{6}} \end{bmatrix}\begin{bmatrix} 1 & 1\\ 1 & 0\\ 0 & 1 \end{bmatrix} = \begin{bmatrix} \tfrac{2}{\sqrt{2}} & \tfrac{1}{\sqrt{2}}\\[4pt] 0 & \tfrac{3}{\sqrt{6}} \end{bmatrix} = \begin{bmatrix} \sqrt{2} & \tfrac{1}{\sqrt{2}}\\[4pt] 0 & \sqrt{\tfrac{3}{2}} \end{bmatrix} \]
         (ช่อง (2,2): \(\vec{q}_2\cdot\vec{x}_2 = \tfrac{1}{\sqrt6}(1) + \left(-\tfrac{1}{\sqrt6}\right)(0) + \tfrac{2}{\sqrt6}(1) = \tfrac{3}{\sqrt6}\) และ \(\tfrac{3}{\sqrt6} = \sqrt{\tfrac32}\) เพราะยกกำลังสองแล้วเท่ากัน \(\left(\tfrac{3}{\sqrt6}\right)^2 = \tfrac96 = \tfrac32\) ทั้งคู่เป็นบวก) เป็นสามเหลี่ยมบน ทแยงเป็นบวก ✓</li>
       </ol>
+      <figure class="fig">
+        <svg viewBox="0 0 500 310" role="img" aria-label="QR คือการจัดคอลัมน์ของ A ให้เป็นหน่วยตั้งฉาก q1 พร้อมส่วนตั้งฉากที่ถูกเก็บใน R">
+          <defs>
+            <marker id="m24a" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" class="mka"/></marker>
+            <marker id="m24b" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" class="mk1"/></marker>
+            <marker id="m24r" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" class="mk2"/></marker>
+            <marker id="m24g" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" class="mk3"/></marker>
+          </defs>
+          <path class="aux" d="M250 180 285 160M250 180 266 171"/>
+          <path class="thin3" d="M250 134V272"/>
+          <path class="ax" d="M250 180 135 246" marker-end="url(#m24a)"/>
+          <path class="ax" d="M250 180 365 246" marker-end="url(#m24a)"/>
+          <path class="ax" d="M250 180V75" marker-end="url(#m24a)"/>
+          <path class="vec1" d="M250 180 250 226" marker-end="url(#m24b)"/>
+          <path class="vec3" d="M250 180 250 212.5" marker-end="url(#m24g)"/>
+          <path class="vec2" d="M250 180 210.2 157" marker-end="url(#m24r)"/>
+          <path class="aux" d="M210.2 157 250 203"/>
+          <path class="ra" d="M250 195 244.8 189 244.8 197"/>
+          <text x="258" y="236" class="t1 small">x₁ = (1, 1, 0) = √2·q₁</text>
+          <text x="258" y="212" class="t3 small">q₁ = x₁/√2</text>
+          <text x="204" y="148" text-anchor="end" class="t2 small">x₂ = (1, 0, 1)</text>
+          <text x="196" y="190" text-anchor="end" class="t2 small">√(3/2)·q₂ = (1/2, −1/2, 1)</text>
+          <text x="124" y="262" text-anchor="middle" class="mut">x</text>
+          <text x="372" y="262" text-anchor="middle" class="mut">y</text>
+          <text x="258" y="72" class="mut">z</text>
+          <text x="240" y="296" text-anchor="middle" class="mut small">คอลัมน์ของ Q = ทิศเดิมของ A จัดให้ตั้งฉาก·ยาว 1 — ความยาวที่ตัดออกคือค่าใน R</text>
+        </svg>
+        <figcaption>ภาพของ \(A = QR\) กับค่าจริงของข้อนี้: คอลัมน์แรก \(\vec{x}_1 = (1,1,0)^T\) กลายเป็น \(\vec{q}_1 = \vec{x}_1/\sqrt2\) (ทิศเดิม ยาว 1 — เขียวบนเส้นเดียวกับน้ำเงิน) ส่วนคอลัมน์สอง \(\vec{x}_2\) ถูกแยกเป็น \(\tfrac{1}{\sqrt2}\vec{q}_1 + \sqrt{\tfrac32}\vec{q}_2\) — เส้นประคือส่วนที่ตั้งฉากกับ \(\vec{q}_1\) (สัญลักษณ์มุมฉาก) ซึ่งเป็นทิศของ \(\vec{q}_2\); ความยาวสองท่อนนั้น (\(\tfrac{1}{\sqrt2}\) กับ \(\sqrt{\tfrac32}\)) คือค่าที่ปรากฏในเมทริกซ์ \(R\) พอดี</figcaption>
+      </figure>
       <div class="verify"><span class="lbl">ตรวจคำตอบ:</span> \(QR\) หลักแรก: \(\sqrt{2}\,\vec{q}_1 = (1,1,0)^T = \vec{x}_1\) ✓ หลักที่สอง: \(\tfrac{1}{\sqrt{2}}\vec{q}_1 + \sqrt{\tfrac{3}{2}}\,\vec{q}_2 = (\tfrac12 + \tfrac12,\; \tfrac12 - \tfrac12,\; 0 + 1)^T = (1, 0, 1)^T = \vec{x}_2\) ✓ — <strong>สรุป:</strong> ได้ \(A = QR\) ตามเมทริกซ์ \(Q, R\) ด้านบน ซึ่งตอบโจทย์เพราะ \(QR = A\) ทุกช่อง</div>
     </div>
   </article>
@@ -308,6 +449,45 @@
         \[ \vec{z} = \begin{bmatrix} \tfrac52\\[2pt] 0\\[2pt] \tfrac52 \end{bmatrix} \]</li>
         <li><span class="step-t">ตรวจว่า \(\vec{z} \in H^\perp\)</span> \(\vec{z}\cdot\vec{u}_1 = \tfrac52(-1) + 0(2) + \tfrac52(1) = 0\) ✓ \(\vec{z}\cdot\vec{u}_2 = \tfrac52(1) + 0(1) + \tfrac52(-1) = 0\) ✓ — ตั้งฉากกับฐานหลักทั้งสอง จึงตั้งฉากกับทุกเวกเตอร์ใน \(H\) (ทฤษฎีบท 4.2.1)</li>
       </ol>
+      <figure class="fig">
+        <svg viewBox="0 0 500 320" role="img" aria-label="การฉาย y บนระนาบ H ได้ยิ้ม และส่วนเติมเต็ม z ตั้งฉากระนาบ">
+          <defs>
+            <marker id="m25a" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" class="mka"/></marker>
+            <marker id="m25b" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" class="mk1"/></marker>
+            <marker id="m25r" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" class="mk2"/></marker>
+            <marker id="m25g" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" class="mk3"/></marker>
+            <marker id="m25y" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="currentColor"/></marker>
+          </defs>
+          <path class="aux" d="M250 175 284.6 155M250 175 215.4 155M250 175V215"/>
+          <polygon class="f1" points="192.9,208 327.9,234 327.9,130 192.9,104" fill-opacity=".45"/>
+          <path class="thin1" d="M192.9 208 327.9 234 327.9 130 192.9 104Z"/>
+          <path class="ax" d="M250 175 150 232" marker-end="url(#m25a)"/>
+          <path class="ax" d="M250 175 350 232" marker-end="url(#m25a)"/>
+          <path class="ax" d="M250 175V68" marker-end="url(#m25a)"/>
+          <path class="vec1" d="M250 175 353.9 155" marker-end="url(#m25b)"/>
+          <path class="vec2" d="M250 175 250 255" marker-end="url(#m25r)"/>
+          <path d="M250 175 146.1 75" stroke="currentColor" stroke-width="2.4" fill="none" marker-end="url(#m25y)"/>
+          <path class="vec3" d="M250 175 232.7 125" marker-end="url(#m25g)"/>
+          <path class="vec2" d="M232.7 125 146.1 75" marker-end="url(#m25r)"/>
+          <path class="ra" d="M224.9 120.5 233.7 118.8 241.5 123.3"/>
+          <text x="208" y="207" text-anchor="middle" class="mut small">1</text>
+          <text x="174" y="227" text-anchor="middle" class="mut small">2</text>
+          <text x="291" y="207" text-anchor="middle" class="mut small">1</text>
+          <text x="326" y="227" text-anchor="middle" class="mut small">2</text>
+          <text x="258" y="139" class="mut small">1</text>
+          <text x="258" y="99" class="mut small">2</text>
+          <text x="142" y="250" text-anchor="middle" class="mut">x</text>
+          <text x="358" y="250" text-anchor="middle" class="mut">y</text>
+          <text x="262" y="66" class="mut">z</text>
+          <text x="298" y="190" text-anchor="middle" class="t1 big">H</text>
+          <text x="140" y="68" text-anchor="end" class="big">y = (2, −1, 3)</text>
+          <text x="244" y="96" class="t3 small">ŷ = (−1/2, −1, 1/2) บน H</text>
+          <text x="60" y="120" class="t2 small">z = (5/2, 0, 5/2)</text>
+          <text x="358" y="150" class="t1 small">u₁ = (−1, 2, 1)</text>
+          <text x="256" y="266" class="t2 small">u₂ = (1, 1, −1)</text>
+        </svg>
+        <figcaption>การฉายบน<em>ระนาบ</em>ด้วยค่าจริงของตัวอย่าง 4.2.4: \(\vec{y}\) (ดำ) ไม่อยู่ในระนาบ \(H\) — จุดบนระนาบที่ใกล้ \(\vec{y}\) ที่สุดคือ \(\hat{y} = -\tfrac16\vec{u}_1 - \tfrac23\vec{u}_2 = (-\tfrac12, -1, \tfrac12)^T\) (เขียว) และเส้นตรงจาก \(\hat{y}\) ถึง \(\vec{y}\) คือ \(\vec{z} = (\tfrac52, 0, \tfrac52)^T\) (แดง) ที่ตั้งฉากกับระนาบทั้งระนาบ (สังเกตสัญลักษณ์มุมฉาก) — ระยะ \(\|\vec{z}\|\) คือระยะทางจาก \(\vec{y}\) ถึง \(H\) ซึ่งจะกลายเป็นหัวใจของ least squares ในหัวข้อ 4.3</figcaption>
+      </figure>
       <div class="verify"><span class="lbl">สรุปคำตอบ:</span> \(\vec{y} = \hat{y} + \vec{z}\) เมื่อ \(\hat{y} = -\tfrac16\vec{u}_1 - \tfrac23\vec{u}_2 = \begin{bmatrix} -\tfrac12\\ -1\\ \tfrac12 \end{bmatrix} \in H\) และ \(\vec{z} = \begin{bmatrix} \tfrac52\\ 0\\ \tfrac52 \end{bmatrix} \in H^\perp\) — ตรงตามตำรา</div>
     </div>
   </article>

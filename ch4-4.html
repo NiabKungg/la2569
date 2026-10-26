@@ -86,6 +86,32 @@
     <p>แต่ละพจน์ \(\vec{u}_i\vec{u}_i^T\) เป็นเมทริกซ์จัตุรัสแรงก์ 1 ที่ "ฉายลงทิศ \(\vec{u}_i\)" — การแยกเชิงสเปกตรัมจึงเป็นการอธิบาย \(A\) ว่ายืดแต่ละทิศหลักเท่าไร</p>
   </div>
 
+  <figure class="fig">
+    <svg viewBox="0 0 480 300" role="img" aria-label="เมทริกซ์สมมาตรยืดวงกลมหน่วยเป็นวงรีที่แกนอยู่บน eigenvector ที่ตั้งฉากกันพอดี">
+      <defs>
+        <marker id="m41a" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" class="mka"/></marker>
+      </defs>
+      <path class="grid" d="M44 26V274M72 26V274M100 26V274M128 26V274M156 26V274M184 26V274M212 26V274M268 26V274M296 26V274M324 26V274M352 26V274M380 26V274M408 26V274M436 26V274M37 38H443M37 66H443M37 94H443M37 122H443M37 178H443M37 206H443M37 234H443M37 262H443"/>
+      <path class="ax" d="M15 150H465" marker-end="url(#m41a)"/>
+      <path class="ax" d="M240 285V15" marker-end="url(#m41a)"/>
+      <text x="456" y="166" text-anchor="middle" class="mut">x₁</text>
+      <text x="230" y="14" text-anchor="end" class="mut">x₂</text>
+      <path class="thin1" d="M446 47 34 253"/>
+      <path class="thin3" d="M305 19.5 175 280.5"/>
+      <path class="ra" d="M248.9 145.5 244.4 136.6 235.5 141.1"/>
+      <polyline class="thin1" points="268,150 264.2,136 254,125.8 240,122 226,125.8 215.8,136 212,150 215.8,164 226,174.2 240,178 254,174.2 264.2,164 268,150"/>
+      <polyline class="vec2" points="440.4,49.8 423.8,33.8 394.7,25.7 355.1,26 307.6,34.8 255.6,51.5 202.4,74.9 151.9,103.4 107.3,135 71.8,167.7 47.7,199.2 36.8,227.3 39.6,250.2 56.2,266.2 85.3,274.3 124.9,274 172.4,265.2 224.4,248.5 277.6,225.1 328.1,196.6 372.7,165 408.2,132.3 432.3,100.8 443.2,72.7 440.4,49.8"/>
+      <circle cx="440.4" cy="49.8" r="3.5" class="pt1"/>
+      <circle cx="202.4" cy="74.9" r="3.5" class="pt3"/>
+      <text x="200" y="166" text-anchor="end" class="t1 small">วงกลมหน่วย</text>
+      <text x="48" y="40" class="t2 small">ภาพ A(วงกลมหน่วย) = วงรี</text>
+      <text x="452" y="38" text-anchor="end" class="t1 small">ทิศ u₁ (λ = 8) → ยืด 8 เท่า</text>
+      <text x="150" y="296" text-anchor="middle" class="t3 small">ทิศ u₂ (λ = 3) → ยืด 3 เท่า</text>
+      <text x="196" y="66" text-anchor="end" class="t3 small">3u₂</text>
+    </svg>
+    <figcaption>หัวใจของทฤษฎีบทเชิงสเปกตรัม ด้วยค่าจริงของ \(A = \begin{bmatrix} 7 &amp; 2\\ 2 &amp; 4 \end{bmatrix}\) (ตัวอย่าง 4.4.5): \(A\) ยืดวงกลมหน่วยเป็นวงรีที่แกนอยู่บน eigenvector \(\vec{u}_1 = \tfrac15\sqrt5(2,1)^T\) กับ \(\vec{u}_2 = \tfrac15\sqrt5(-1,2)^T\) — จุดสำคัญที่ต่างจาก 3.2: สองทิศนี้<strong>ตั้งฉากกันพอดี</strong> (สัญลักษณ์มุมฉากที่จุดกำเนิด) เสมอ เพราะ \(A\) สมมาตร — ความยาวแกนวงรี 8 กับ 3 คือค่าใน \(D = \operatorname{diag}(8,3)\) และทิศ \(\vec{u}_1, \vec{u}_2\) คือหลักของ \(P\)</figcaption>
+  </figure>
+
   <div class="box box-warn">
     <div class="box-title">⚠️ จุดต่างจาก 3.2 และจุดพลาดบ่อย</div>
     <p>• ใน 3.2 เราใช้ \(P\) ใดก็ได้ที่ไม่เอกฐาน แต่ในหัวข้อนี้ \(P\) ต้องเป็น<strong>เชิงตั้งฉากปรกติ</strong> (หลักยาว 1 + ตั้งฉากกัน) จึงจะได้ \(A = PDP^T\)</p>
@@ -113,6 +139,32 @@
         \[ A = 3\vec{u}_1\vec{u}_1^T + (-1)\vec{u}_2\vec{u}_2^T = 3\begin{bmatrix} 1/2 & -1/2\\ -1/2 & 1/2 \end{bmatrix} - \begin{bmatrix} 1/2 & 1/2\\ 1/2 & 1/2 \end{bmatrix} = \begin{bmatrix} 3/2 - 1/2 & -3/2 - 1/2\\ -3/2 - 1/2 & 3/2 - 1/2 \end{bmatrix} = \begin{bmatrix} 1 & -2\\ -2 & 1 \end{bmatrix} \;\checkmark \]
         (เช่น ช่องขวาบน: \(3(-\tfrac12) - \tfrac12 = -\tfrac32 - \tfrac12 = -2\) ตรงกับ \(A\) ต้นทาง — <strong>สรุป:</strong> ได้ \(A = PDP^T\) และการแยกเชิงสเปกตรัมตรงตามด้านบน)</li>
       </ol>
+      <figure class="fig">
+        <svg viewBox="0 0 420 300" role="img" aria-label="lambda ติดลบ ทำให้วงกลมถูกยืดตามแกนหนึ่งแล้วพลิกสะท้อน">
+          <defs>
+            <marker id="m43a" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" class="mka"/></marker>
+          </defs>
+          <path class="grid" d="M114 30V270M162 30V270M258 30V270M306 30V270M30 102H390M30 54H390M30 198H390M30 246H390"/>
+          <path class="ax" d="M15 150H405" marker-end="url(#m43a)"/>
+          <path class="ax" d="M210 290V15" marker-end="url(#m43a)"/>
+          <text x="398" y="166" text-anchor="middle" class="mut">x₁</text>
+          <text x="200" y="14" text-anchor="end" class="mut">x₂</text>
+          <path class="thin1" d="M325.4 34.6 94.6 265.4"/>
+          <path class="thin3" d="M298.7 61.3 121.3 238.7"/>
+          <path class="ra" d="M217.8 142.2 210 134.4 202.2 142.2"/>
+          <polyline class="thin1" points="258,150 251.6,126 234,108.4 210,102 186,108.4 168.4,126 162,150 168.4,174 186,191.6 210,198 234,191.6 251.6,174 258,150"/>
+          <polyline class="vec2" points="311.8,251.8 299.6,257.1 281.2,255.2 258,246 231.5,230.3 203.6,209.1 176.1,183.9 150.9,156.4 129.7,128.5 114,102 104.8,78.8 102.9,60.4 108.2,48.2 120.4,42.9 138.8,44.8 162,54 188.5,69.7 216.4,90.9 243.9,116.1 269.1,143.6 290.3,171.5 306,198 315.2,221.2 317.1,239.6 311.8,251.8"/>
+          <circle cx="311.8" cy="251.8" r="3.5" class="pt1"/>
+          <circle cx="176.1" cy="183.9" r="3.5" class="pt3"/>
+          <text x="318" y="262" class="t1 small">3u₁</text>
+          <text x="168" y="196" text-anchor="end" class="t3 small">−u₂ (โดนพลิก!)</text>
+          <text x="332" y="30" text-anchor="end" class="t1 small">u₁ (λ = 3)</text>
+          <text x="115" y="252" text-anchor="end" class="t3 small">u₂ (λ = −1)</text>
+          <text x="210" y="284" text-anchor="middle" class="t1 small">วงกลมหน่วย</text>
+          <text x="336" y="286" class="t2 small">ภาพ A</text>
+        </svg>
+        <figcaption>ค่าลักษณะเฉพาะ<em>ติดลบ</em>ให้ภาพเพิ่มเป็น "การพลิก": \(A = \begin{bmatrix} 1 &amp; -2\\ -2 &amp; 1 \end{bmatrix}\) (ตัวอย่าง 1) ยืดทิศ \(\vec{u}_1 = \tfrac{1}{\sqrt2}(1,-1)^T\) ด้วย 3 แต่ยืดทิศ \(\vec{u}_2 = \tfrac{1}{\sqrt2}(1,1)^T\) ด้วย \(-1\) — จุดบนวงกลมหน่วยตกที่ \(-\vec{u}_2\) (จุดเขียว) แทนที่จะเป็น \(\vec{u}_2\) วงรีจึงถูกพลิกสะท้อนข้ามแกน \(\vec{u}_1\) ไปด้วย — สองแกนยังตั้งฉากกันพอดี (มุมฉากที่จุดกำเนิด) ตามสัญญาของเมทริกซ์สมมาตร</figcaption>
+      </figure>
     </div>
   </article>
 
@@ -204,6 +256,34 @@
         \[ D = \begin{bmatrix} -1 &amp; 0 &amp; 0\\ 0 &amp; -4 &amp; 0\\ 0 &amp; 0 &amp; 5 \end{bmatrix}, \qquad P = \begin{bmatrix} 0 &amp; -1 &amp; 2\\ -1 &amp; 1 &amp; 1\\ 1 &amp; 1 &amp; 1 \end{bmatrix}, \qquad A = PDP^{-1} \]
         ตรวจตั้งฉากกันเอง: \((0,-1,1)\cdot(-1,1,1) = 0 - 1 + 1 = 0\) ✓, \((0,-1,1)\cdot(2,1,1) = 0 - 1 + 1 = 0\) ✓, \((-1,1,1)\cdot(2,1,1) = -2 + 1 + 1 = 0\) ✓ — นี่คือของขวัญของเมทริกซ์สมมาตร ทำให้ขั้นถัดไป (ตัวอย่าง 4.4.3) แปลงเป็น \(A = PDP^T\) ได้ทันที</li>
       </ol>
+      <figure class="fig">
+        <svg viewBox="0 0 500 320" role="img" aria-label="เวกเตอร์ลักษณะเฉพาะสามตัวของเมทริกซ์สมมาตรในสามมิติ ตั้งฉากกันทุกคู่">
+          <defs>
+            <marker id="m42a" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" class="mka"/></marker>
+            <marker id="m42b" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" class="mk1"/></marker>
+            <marker id="m42r" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" class="mk2"/></marker>
+            <marker id="m42g" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" class="mk3"/></marker>
+          </defs>
+          <path class="aux" d="M250 170 285 150M250 170 215 150M250 170V188"/>
+          <path class="thin1" d="M307.7 270 192.3 70"/>
+          <path class="thin2" d="M134.4 236.7 365.6 103.3"/>
+          <path class="thin3" d="M307.7 136.6 192.3 203.4"/>
+          <path class="ax" d="M250 170 150 226" marker-end="url(#m42a)"/>
+          <path class="ax" d="M250 170 350 226" marker-end="url(#m42a)"/>
+          <path class="ax" d="M250 170V56" marker-end="url(#m42a)"/>
+          <path class="vec1" d="M250 170 210.2 101" marker-end="url(#m42b)"/>
+          <path class="vec2" d="M250 170 329.7 124" marker-end="url(#m42r)"/>
+          <path class="vec3" d="M250 170 210.2 193" marker-end="url(#m42g)"/>
+          <text x="200" y="92" text-anchor="end" class="t1">v₁ = (0, −1, 1), λ = −1</text>
+          <text x="336" y="142" class="t2">v₂ = (−1, 1, 1), λ = −4</text>
+          <text x="216" y="208" class="t3">v₃ = (2, 1, 1), λ = 5</text>
+          <text x="142" y="240" text-anchor="middle" class="mut">x</text>
+          <text x="358" y="240" text-anchor="middle" class="mut">y</text>
+          <text x="258" y="52" class="mut">z</text>
+          <text x="250" y="306" text-anchor="middle" class="mut small">ทุกคู่จุดกันได้ 0 → ตั้งฉากกันเอง (ทฤษฎีบท 4.4.1) จึงปรับหนึ่งหน่วยแล้วเรียงเป็น P ได้เลย</text>
+        </svg>
+        <figcaption>เวกเตอร์ลักษณะเฉพาะทั้งสามของตัวอย่าง 4.4.2 (เส้นประ = เส้นตรงทั้งเส้นของแต่ละทิศ): \((0,-1,1)^T\), \((-1,1,1)^T\), \((2,1,1)^T\) ชี้กระจายออกจากกันคนละทิศ และจุดกันเป็นศูนย์ทุกคู่ตามทฤษฎีบท 4.4.1 — เพราะ \(A\) สมมาตร จึงไม่ต้องกราม-ชมิดต์เลย ปรับหนึ่งหน่วยด้วย \(\sqrt2, \sqrt3, \sqrt6\) แล้วเรียงเป็นหลักของ \(P\) เชิงตั้งฉากปรกติได้ทันที (ต่อในตัวอย่าง 4.4.3)</figcaption>
+      </figure>
       <div class="verify"><span class="lbl">สรุปคำตอบ:</span> \(A = PDP^{-1}\) ตามเมทริกซ์ด้านบน — ตรงตามตำรา (ตรวจ \(\lambda = 5\): \(A(2,1,1)^T = (4+3+3, 6-1, 6-1) = (10, 5, 5) = 5(2,1,1)\) ✓)</div>
     </div>
   </article>

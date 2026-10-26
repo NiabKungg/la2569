@@ -49,6 +49,40 @@ tts: 1
     <p>• <strong>เวกเตอร์หนึ่งหน่วย</strong>ทิศเดียวกับ \(\vec{v} \neq \vec{0}\) คือ \(\dfrac{\vec{v}}{\|\vec{v}\|}\) (ทิศตรงข้ามคือ \(-\dfrac{\vec{v}}{\|\vec{v}\|}\))</p>
   </div>
 
+  <figure class="fig">
+    <svg viewBox="0 0 480 300" role="img" aria-label="เรขาคณิตของผลคูณจุด: เวกเตอร์ u v มุม theta และส่วนฉายของ u บน v">
+      <defs>
+        <marker id="m41a" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" class="mka"/></marker>
+        <marker id="m41b" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" class="mk1"/></marker>
+        <marker id="m41r" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" class="mk2"/></marker>
+        <marker id="m41g" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" class="mk3"/></marker>
+      </defs>
+      <path class="grid" d="M80 78V262M240 78V262M320 78V262M400 78V262M40 78H440M40 158H440"/>
+      <path class="ax" d="M30 238H452" marker-end="url(#m41a)"/>
+      <path class="ax" d="M160 275V32" marker-end="url(#m41a)"/>
+      <text x="80" y="256" text-anchor="middle" class="mut small">−1</text>
+      <text x="240" y="256" text-anchor="middle" class="mut small">1</text>
+      <text x="320" y="256" text-anchor="middle" class="mut small">2</text>
+      <text x="400" y="256" text-anchor="middle" class="mut small">3</text>
+      <text x="152" y="162" text-anchor="end" class="mut small">1</text>
+      <text x="152" y="82" text-anchor="end" class="mut small">2</text>
+      <text x="448" y="256" text-anchor="middle" class="mut">x₁</text>
+      <text x="150" y="30" text-anchor="end" class="mut">x₂</text>
+      <path class="vec2" d="M160 238 80 78" marker-end="url(#m41r)"/>
+      <path class="vec1" d="M160 238 400 78" marker-end="url(#m41b)"/>
+      <path class="aux" d="M80 78 178.5 225.7"/>
+      <path class="vec3" d="M160 238 178.5 225.7" marker-end="url(#m41g)"/>
+      <path class="ra" d="M186 220.7 191 228.2 183.5 233.2"/>
+      <path class="ang" d="M193.3 215.8A40 40 0 0 0 142.1 202.2"/>
+      <text x="180" y="182" class="mut small">θ ≈ 83°</text>
+      <text x="406" y="72" class="t1">v = (3, 2)</text>
+      <text x="74" y="66" text-anchor="middle" class="t2">u = (−1, 2)</text>
+      <text x="250" y="276" text-anchor="middle" class="t3 small">ส่วนฉายของ u บน v = (1/13)v</text>
+      <text x="240" y="46" text-anchor="middle" class="mut">u·v = 1</text>
+    </svg>
+    <figcaption>ผลคูณจุดคือ "เรขาคณิตของมุม": จากตัวอย่าง 1 ด้านล่าง \(\vec{u} = (-1,2)^T\), \(\vec{v} = (3,2)^T\) ทำมุม \(\theta \approx 83^\circ\) เพราะ \(\cos\theta = \tfrac{\vec{u}\cdot\vec{v}}{\|\vec{u}\|\,\|\vec{v}\|} = \tfrac{1}{\sqrt{65}}\) — เส้นประแดงลากจากปลาย \(\vec{u}\) ลงมาตั้งฉากกับเส้นของ \(\vec{v}\) คือส่วนฉาย \(\tfrac{\vec{u}\cdot\vec{v}}{\vec{v}\cdot\vec{v}}\vec{v} = \tfrac{1}{13}\vec{v}\) (เขียว) ที่จะกลายเป็นเครื่องมือหลักของ 4.2</figcaption>
+  </figure>
+
   <h3>2) ความตั้งฉากและเซตเชิงตั้งฉาก</h3>
   <div class="box box-def">
     <div class="box-title">📐 นิยาม — ตั้งฉาก / เซตเชิงตั้งฉาก / เซตเชิงตั้งฉากปรกติ</div>
@@ -56,6 +90,41 @@ tts: 1
     <p>• <strong>เซตเชิงตั้งฉาก</strong> (orthogonal set) = เซตของเวกเตอร์ไม่ศูนย์ที่จับคู่กันตั้งฉากทุกคู่ (\(\vec{u}_i\cdot\vec{u}_j = 0\) เมื่อ \(i \neq j\))</p>
     <p>• <strong>เซตเชิงตั้งฉากปรกติ</strong> (orthonormal set) = เซตเชิงตั้งฉากที่ทุกตัวยาว 1 หน่วย</p>
   </div>
+
+  <figure class="fig">
+    <svg viewBox="0 0 480 260" role="img" aria-label="เทียบสองคู่เวกเตอร์ คู่ที่ผลคูณจุดไม่เป็นศูนย์กับคู่ที่ตั้งฉากกัน">
+      <defs>
+        <marker id="m42a" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" class="mka"/></marker>
+        <marker id="m42b" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" class="mk1"/></marker>
+        <marker id="m42r" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" class="mk2"/></marker>
+        <marker id="m42g" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" class="mk3"/></marker>
+      </defs>
+      <text x="148" y="22" text-anchor="middle" class="big">u·v ≠ 0</text>
+      <text x="362" y="22" text-anchor="middle" class="big">u·v = 0</text>
+      <path class="ax" d="M40 190H252" marker-end="url(#m42a)"/>
+      <path class="ax" d="M130 222V48" marker-end="url(#m42a)"/>
+      <path class="vec1" d="M130 190 244 114" marker-end="url(#m42b)"/>
+      <path class="vec2" d="M130 190 92 114" marker-end="url(#m42r)"/>
+      <path class="ang" d="M150 176.7A24 24 0 0 0 119.3 168.5"/>
+      <text x="152" y="160" class="mut small">θ ≈ 83°</text>
+      <text x="252" y="132" text-anchor="middle" class="t1">v</text>
+      <text x="86" y="106" text-anchor="middle" class="t2">u</text>
+      <text x="246" y="206" text-anchor="middle" class="mut small">x₁</text>
+      <text x="121" y="44" text-anchor="end" class="mut small">x₂</text>
+      <text x="148" y="248" text-anchor="middle" class="t2 small">u·v = 1 ≠ 0 → ไม่ตั้งฉาก</text>
+      <path class="ax" d="M272 190H472" marker-end="url(#m42a)"/>
+      <path class="ax" d="M360 222V48" marker-end="url(#m42a)"/>
+      <path class="vec1" d="M360 190 436 152" marker-end="url(#m42b)"/>
+      <path class="vec3" d="M360 190 322 114" marker-end="url(#m42g)"/>
+      <path class="ra" d="M368.9 185.5 364.5 176.6 355.5 181.1"/>
+      <text x="436" y="140" text-anchor="end" class="t1">p = (2, 1)</text>
+      <text x="316" y="106" text-anchor="end" class="t3">q = (−1, 2)</text>
+      <text x="466" y="206" text-anchor="middle" class="mut small">x₁</text>
+      <text x="351" y="44" text-anchor="end" class="mut small">x₂</text>
+      <text x="362" y="248" text-anchor="middle" class="t3 small">p·q = 0 → ตั้งฉาก (สัญลักษณ์มุมฉาก)</text>
+    </svg>
+    <figcaption>นิยาม "ตั้งฉาก" คือ \(\vec{u}\cdot\vec{v} = 0\) ล้วน ๆ: ซ้าย — คู่ \(\vec{u}, \vec{v}\) จากตัวอย่าง 1 ได้ \(\vec{u}\cdot\vec{v} = 1\) จึงเอนไปทางเดียวกันเล็กน้อย (\(\theta \approx 83^\circ \ne 90^\circ\)) ขวา — คู่ \(\vec{p} = (2,1)^T, \vec{q} = (-1,2)^T\) จุดกันได้ \(2(-1) + 1(2) = 0\) พอดี จึงตั้งฉากกันจริง (สังเกตสัญลักษณ์มุมฉากที่จุดกำเนิด)</figcaption>
+  </figure>
   <div class="box box-thm">
     <div class="box-title">⭐ ทฤษฎีบท 4.1.2 และ 4.1.3 — หัวใจของฐานหลักเชิงตั้งฉาก</div>
     <p>• ทฤษฎีบท 4.1.2: เซตเชิงตั้งฉากเป็น<strong>เซตอิสระเชิงเส้น</strong>เสมอ จึงเป็นฐานหลักสำหรับ span ของมัน (<strong>ฐานหลักเชิงตั้งฉาก</strong>)</p>
@@ -187,6 +256,28 @@ tts: 1
         <li><span class="step-t">เวกเตอร์สามหน่วยทิศตรงข้าม</span> ใช้สูตร \(-k\,\vec{v}/\|\vec{v}\|\) เมื่อ \(k = 3\) และ \(\|\vec{v}\| = 3\) ตัวสเกลาร์จึงเป็น \(-3 \cdot \tfrac13 = -1\) พอดี เหลือเพียงสลับเครื่องหมายทุกช่อง (บวกเป็นลบ ลบเป็นบวก)
         \[ -\frac{3}{3}\begin{bmatrix} 1\\ 0\\ -2\\ 2 \end{bmatrix} = \begin{bmatrix} -1\\ 0\\ 2\\ -2 \end{bmatrix} \]</li>
       </ol>
+      <figure class="fig">
+        <svg viewBox="0 0 460 280" role="img" aria-label="วงกลมหน่วยประกอบการทำเวกเตอร์หนึ่งหน่วยของ v ใน R4 โดยใช้สองส่วนประกอบแรก">
+          <defs>
+            <marker id="m45a" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" class="mka"/></marker>
+            <marker id="m45b" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" class="mk1"/></marker>
+            <marker id="m45g" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" class="mk3"/></marker>
+          </defs>
+          <circle cx="150" cy="130" r="90" class="thin1"/>
+          <path class="ax" d="M40 130H268" marker-end="url(#m45a)"/>
+          <path class="ax" d="M150 242V18" marker-end="url(#m45a)"/>
+          <text x="240" y="148" text-anchor="middle" class="mut small">1</text>
+          <text x="60" y="148" text-anchor="middle" class="mut small">−1</text>
+          <text x="163" y="50" class="mut small">1</text>
+          <text x="163" y="216" class="mut small">−1</text>
+          <path class="vec1" d="M150 130 240 130" marker-end="url(#m45b)"/>
+          <path class="vec3" d="M150 130 180 130" marker-end="url(#m45g)"/>
+          <text x="246" y="124" class="t1 small">(1, 0) = เงา 2 มิติแรกของ v</text>
+          <text x="184" y="108" class="t3 small">เงาของ v/‖v‖ = (1/3, 0)</text>
+          <text x="230" y="266" text-anchor="middle" class="mut small">‖v‖ = 3 → v/‖v‖ = (1/3, 0, −2/3, 2/3) ยาว 1 หน่วยพอดี</text>
+        </svg>
+        <figcaption>\(\vec{v} = (1, 0, -2, 2)\) อยู่ใน \(\mathbb{R}^4\) วาดตรง ๆ ไม่ได้ จึงใช้ภาพประกอบ: มองเฉพาะสองส่วนประกอบแรก — เงาของ \(\vec{v}\) คือ \((1, 0)\) (น้ำเงิน) และเงาของ \(\vec{v}/\|\vec{v}\| = (\tfrac13, 0, -\tfrac23, \tfrac23)\) คือ \((\tfrac13, 0)\) (เขียว) ที่ตกบนวงกลมหน่วย — ใน \(\mathbb{R}^4\) จริง ๆ เวกเตอร์ \(\tfrac13(1,0,-2,2)\) มีความยาว \(\tfrac13 \cdot 3 = 1\) พอดีตามเฉลย</figcaption>
+      </figure>
       <div class="verify"><span class="lbl">สรุปคำตอบ:</span> เวกเตอร์หนึ่งหน่วยทิศเดียวกับ \(\vec{v}\) คือ \(\left(\tfrac13, 0, -\tfrac23, \tfrac23\right)\) และเวกเตอร์สามหน่วยทิศตรงข้ามคือ \((-1, 0, 2, -2)\) — ตรงตามตำรา (ตรวจ: \(\|-\vec{v}\| = |-1| \cdot 3 = 3\) ✓)</div>
     </div>
   </article>
@@ -202,6 +293,42 @@ tts: 1
         ทุกพจน์บวกกับพจน์ลบหักกันเป็นศูนย์พอดี — จึงเป็น<em>เซตเชิงตั้งฉาก</em>ตามตำรา</li>
         <li><span class="step-t">ยกระดับเป็นฐานหลักเชิงตั้งฉาก</span> ทฤษฎีบท 4.1.2 บอกว่าเซตเชิงตั้งฉากของเวกเตอร์ไม่ศูนย์<em>อิสระเชิงเส้นเสมอ</em> (ไม่ต้องพิสูจน์ซ้ำ!) — ที่นี่มี 3 เวกเตอร์อิสระใน \(\mathbb{R}^3\) ซึ่งมีมิติ 3 จึงครบจำนวนเท่ากับฐานหลักพอดี สรุปได้ว่า \(S\) เป็น<em>ฐานหลักเชิงตั้งฉาก</em>สำหรับ \(\mathbb{R}^3\) ทั้งที่ไม่ได้ลดรูปอะไรเลย</li>
       </ol>
+      <figure class="fig">
+        <svg viewBox="0 0 460 280" role="img" aria-label="เวกเตอร์สามตัวของเซตเชิงตั้งฉากในสามมิติ ตั้งฉากกันทุกคู่">
+          <defs>
+            <marker id="m43a" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" class="mka"/></marker>
+            <marker id="m43b" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" class="mk1"/></marker>
+            <marker id="m43r" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" class="mk2"/></marker>
+            <marker id="m43g" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" class="mk3"/></marker>
+          </defs>
+          <path class="aux" d="M230 200 261.2 182M230 200 198.8 182M230 200V220"/>
+          <path class="thin1" d="M307.9 245 120.9 137"/>
+          <path class="thin2" d="M185 278 269.8 131"/>
+          <path class="thin3" d="M193.6 263 344.3 2"/>
+          <path class="ax" d="M230 200 126 260" marker-end="url(#m43a)"/>
+          <path class="ax" d="M230 200 334 260" marker-end="url(#m43a)"/>
+          <path class="ax" d="M230 200V96" marker-end="url(#m43a)"/>
+          <path class="vec1" d="M230 200 126.1 140" marker-end="url(#m43b)"/>
+          <path class="vec2" d="M230 200 264.6 140" marker-end="url(#m43r)"/>
+          <path class="vec3" d="M230 200 333.9 20" marker-end="url(#m43g)"/>
+          <text x="190" y="232" text-anchor="middle" class="mut small">1</text>
+          <text x="155" y="252" text-anchor="middle" class="mut small">2</text>
+          <text x="270" y="232" text-anchor="middle" class="mut small">1</text>
+          <text x="305" y="252" text-anchor="middle" class="mut small">2</text>
+          <text x="238" y="164" class="mut small">1</text>
+          <text x="238" y="124" class="mut small">2</text>
+          <text x="118" y="272" text-anchor="middle" class="mut">x</text>
+          <text x="342" y="272" text-anchor="middle" class="mut">y</text>
+          <text x="240" y="92" class="mut">z</text>
+          <text x="238" y="214" class="mut">O</text>
+          <text x="120" y="132" text-anchor="end" class="t1">u₁ = (1, −2, 1)</text>
+          <text x="282" y="124" class="t2">u₂ = (0, 1, 2)</text>
+          <text x="340" y="24" class="t3">u₃ = (−5, −2, 1)</text>
+          <text x="30" y="34" class="mut small">u₁·u₂ = 0</text>
+          <text x="30" y="52" class="mut small">u₁·u₃ = u₂·u₃ = 0</text>
+        </svg>
+        <figcaption>ภาพสามมิติของ \(S\) จากตัวอย่าง 4.1.2: เวกเตอร์สามตัวชี้ออกจากกันคนละทิศ (เส้นประ = เส้นตรงทั้งเส้นของแต่ละทิศ) และทุกคู่ตั้งฉากกันเพราะผลคูณจุดเป็นศูนย์ทั้งสามคู่ — เพราะตั้งฉากกัน ทั้งสามจึงอิสระเชิงเส้นอัตโนมัติ (ทฤษฎีบท 4.1.2) และเป็นฐานหลักเชิงตั้งฉากของ \(\mathbb{R}^3\) ทันที</figcaption>
+      </figure>
       <div class="verify"><span class="lbl">สรุปคำตอบ:</span> \(S\) เป็นเซตเชิงตั้งฉากเพราะผลคูณจุดทุกคู่เป็น 0 ✓ และเป็นฐานหลักเชิงตั้งฉากของ \(\mathbb{R}^3\) เพราะเซตเชิงตั้งฉากอิสระเชิงเส้นเสมอ (ทฤษฎีบท 4.1.2) และมี 3 ตัวพอดีกับมิติของ \(\mathbb{R}^3\)</div>
     </div>
   </article>
@@ -234,6 +361,30 @@ tts: 1
         <li><span class="step-t">น้ำหนักตัวที่ 3</span> เศษ \(\vec{y}\cdot\vec{u}_3 = 3(-5) + (-1)(-2) + 1(1) = -15 + 2 + 1 = -12\) ส่วน \(\vec{u}_3\cdot\vec{u}_3 = (-5)^2 + (-2)^2 + 1^2 = 30\) ได้ \(\tfrac{-12}{30} = -\tfrac{2}{5}\) (ตัดทอนด้วย 6)
         \[ \vec{y} = \frac{6}{6}\vec{u}_1 + \frac{1}{5}\vec{u}_2 - \frac{2}{5}\vec{u}_3 = \vec{u}_1 + \frac{1}{5}\vec{u}_2 - \frac{2}{5}\vec{u}_3 \]</li>
       </ol>
+      <figure class="fig">
+        <svg viewBox="0 0 480 300" role="img" aria-label="การแตก y เป็นผลรวมตามเวกเตอร์ฐานหลักเชิงตั้งฉากสามตัว เป็นกล่องด้านขนาน">
+          <defs>
+            <marker id="m44b" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" class="mk1"/></marker>
+            <marker id="m44r" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" class="mk2"/></marker>
+            <marker id="m44g" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" class="mk3"/></marker>
+            <marker id="m44y" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="currentColor"/></marker>
+          </defs>
+          <path class="thin2" d="M250 170 258.3 155.6"/>
+          <path class="thin3" d="M250 170 200.1 256.4"/>
+          <path class="thin1" d="M258.3 155.6 133.6 83.6"/>
+          <path class="thin1" d="M200.1 256.4 83.7 170"/>
+          <path class="vec1" d="M250 170 125.3 98" marker-end="url(#m44b)"/>
+          <path class="vec3" d="M125.3 98 133.6 83.6" marker-end="url(#m44g)"/>
+          <path class="vec2" d="M133.6 83.6 83.7 170" marker-end="url(#m44r)"/>
+          <path d="M250 170 83.7 170" stroke="currentColor" stroke-width="2.2" fill="none" stroke-dasharray="2 3" marker-end="url(#m44y)"/>
+          <text x="92" y="160" class="big">y = (3, −1, 1)</text>
+          <text x="119" y="92" text-anchor="end" class="t1">1·u₁ = (1, −2, 1)</text>
+          <text x="265" y="150" class="t2 small">(1/5)·u₂ = (0, 0.2, 0.4)</text>
+          <text x="206" y="266" class="t3 small">−(2/5)·u₃ = (2, 0.8, −0.4)</text>
+          <text x="240" y="292" text-anchor="middle" class="mut small">เดินตามลูกศร 3 ท่อน (น้ำเงิน → เขียว → แดง) ได้ y พอดี — เพราะฐานหลักตั้งฉากกัน กล่องจึงเป็นมุมฉากทุกมุม</text>
+        </svg>
+        <figcaption>ภาพของทฤษฎีบท 4.1.3 กับ \(\vec{y} = (3,-1,1)^T\): การรวมเชิงเส้น \(\vec{y} = 1\cdot\vec{u}_1 + \tfrac15\vec{u}_2 - \tfrac25\vec{u}_3\) คือการ "เดิน" ตามเวกเตอร์ทีละท่อน (น้ำเงิน \(\to\) เขียว \(\to\) แดง) จนถึงปลาย \(\vec{y}\) (เส้นประดำ) — ของขวัญของฐานหลักเชิงตั้งฉากคือน้ำหนักแต่ละตัวหาได้ด้วย \(\tfrac{\vec{y}\cdot\vec{u}_i}{\vec{u}_i\cdot\vec{u}_i}\) แยกกันทีละตัว โดยไม่ต้องแก้ระบบสมการเลย</figcaption>
+      </figure>
       <div class="verify"><span class="lbl">สรุปคำตอบ:</span> \(\vec{y} = \vec{u}_1 + \tfrac{1}{5}\vec{u}_2 - \tfrac{2}{5}\vec{u}_3\) — ตรงตามตำรา (ตรวจ: \((1, -2, 1) + (0, \tfrac15, \tfrac25) - \tfrac25(-5, -2, 1) = (1+0+2,\; -2+\tfrac15+\tfrac45,\; 1+\tfrac25-\tfrac25) = (3, -1, 1)\) ✓)</div>
     </div>
   </article>

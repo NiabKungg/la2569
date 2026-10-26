@@ -107,6 +107,40 @@ tts: 1
         \[ \vec{y} - \hat{y} = \begin{bmatrix} 7/5\\ 0\\ 14/5 \end{bmatrix}, \qquad \operatorname{dist}(\vec{y}, H) = \sqrt{\tfrac{49}{25} + 0 + \tfrac{196}{25}} = \frac{\sqrt{245}}{5} = \frac{7\sqrt{5}}{5} \]
         — <strong>สรุปคำตอบ:</strong> \(\hat{y} = (-\tfrac25, 2, \tfrac15)^T\) และ \(\operatorname{dist}(\vec{y}, H) = \tfrac{7\sqrt5}{5}\)</li>
       </ol>
+      <figure class="fig">
+        <svg viewBox="0 0 500 330" role="img" aria-label="ภาพสามมิติของการประมาณที่ดีสุด จุด y นอกระนาบ H เงายิ้มบนระนาบคือจุดใกล้สุด">
+          <defs>
+            <marker id="m32a" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" class="mka"/></marker>
+            <marker id="m32b" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" class="mk1"/></marker>
+            <marker id="m32r" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" class="mk2"/></marker>
+            <marker id="m32g" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" class="mk3"/></marker>
+            <marker id="m32y" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="currentColor"/></marker>
+          </defs>
+          <path class="aux" d="M240 160 260.8 148M240 160 219.2 148M240 160V175"/>
+          <polygon class="f1" points="247.8,74.5 321.8,202.8 240,250 166,121.8" fill-opacity=".45"/>
+          <path class="thin1" d="M247.8 74.5 321.8 202.8 240 250 166 121.8Z"/>
+          <path class="ax" d="M240 160 166 203" marker-end="url(#m32a)"/>
+          <path class="ax" d="M240 160 314 203" marker-end="url(#m32a)"/>
+          <path class="ax" d="M240 160V86" marker-end="url(#m32a)"/>
+          <path class="vec1" d="M240 160 317.9 295" marker-end="url(#m32b)"/>
+          <path class="vec2" d="M240 160 162.1 205" marker-end="url(#m32r)"/>
+          <path d="M240 160 266 115" stroke="currentColor" stroke-width="2.4" fill="none" marker-end="url(#m32y)"/>
+          <path class="vec3" d="M240 160 302.4 178" marker-end="url(#m32g)"/>
+          <path class="vec2" d="M302.4 178 266 115" marker-end="url(#m32r)"/>
+          <path class="aux" d="M266 115 240 250"/>
+          <text x="272" y="106" class="big">y = (1, 2, 3)</text>
+          <text x="310" y="184" class="t3 small">ŷ = (−2/5, 2, 1/5)</text>
+          <text x="196" y="140" text-anchor="end" class="t2 small">y − ŷ = (7/5, 0, 14/5) ⊥ H</text>
+          <text x="324" y="302" class="t1 small">u₁ = (2, 5, −1)</text>
+          <text x="154" y="212" text-anchor="end" class="t2 small">u₂ = (2, −1, −1)</text>
+          <text x="255" y="182" text-anchor="middle" class="t1 big">H</text>
+          <text x="232" y="264" text-anchor="end" class="mut small">จุดอื่นบน H ไกลกว่าเสมอ</text>
+          <text x="118" y="240" text-anchor="middle" class="mut small">x</text>
+          <text x="322" y="240" text-anchor="middle" class="mut small">y</text>
+          <text x="228" y="90" text-anchor="end" class="mut small">z</text>
+        </svg>
+        <figcaption>ภาพหัวใจของ "การประมาณที่ดีสุด" กับค่าจริงในตัวอย่างนี้: \(\vec{y}\) (ดำ) ลอยอยู่เหนือระนาบ \(H\) — จุดบนระนาบที่ใกล้ที่สุดคือเงา \(\hat{y} = \tfrac{3}{10}\vec{u}_1 - \tfrac12\vec{u}_2\) (เขียว) และเส้นตรง \(\vec{y} - \hat{y} = (\tfrac75, 0, \tfrac{14}{5})^T\) (แดง) ตั้งฉากกับระนาบทั้งระนาบ — เส้นประไปจุดอื่นบน \(H\) ยาวกว่าเสมอ ทฤษฎีบทการประมาณที่ดีสุดจึงการันตีว่า \(\hat{y}\) ชนะ และ \(\operatorname{dist}(\vec{y}, H) = \|\vec{y} - \hat{y}\| = \tfrac{7\sqrt5}{5}\) ตามเฉลย</figcaption>
+      </figure>
       <div class="verify"><span class="lbl">ตรวจคำตอบ:</span> \((\vec{y}-\hat{y})\cdot\vec{u}_1 = \tfrac{14}{5} - \tfrac{14}{5} = 0\) ✓ และ \((\vec{y}-\hat{y})\cdot\vec{u}_2 = \tfrac{14}{5} - \tfrac{14}{5} = 0\) ✓ (เศษตกค้างตั้งฉากกับฐานหลักทุกตัว = สมบัติของการฉาย)</div>
     </div>
   </article>
@@ -144,6 +178,37 @@ tts: 1
         \[ \vec{b} - \hat{b} = \begin{bmatrix} -2/5\\ 1/5 \end{bmatrix}, \qquad \operatorname{dist}(\vec{b}, \operatorname{Col} A) = \sqrt{\tfrac4{25} + \tfrac1{25}} = \sqrt{\tfrac5{25}} = \frac{\sqrt{5}}{5} \]</li>
         <li><span class="step-t">เชื่อมโยง</span> ระยะทางนี้คือ \(\|\vec{b} - A\hat{x}\|\) น้อยที่สุด — ระบบ \(A\vec{x} = \vec{b}\) ไม่มีผลเฉลยจริง (เพราะ \((1,3)^T\) ไม่เป็นสัดส่วนกับ \((1,2)^T\) — ถ้าเป็นผลเฉลยจะต้องมี \(x\) ที่ทำให้ \(x(1,2)^T = (1,3)^T\) แต่ช่องแรกบอก \(x = 1\) ช่องสองบอก \(x = \tfrac32\) ขัดกัน) แต่มีผลเฉลยกำลังสองน้อยสุดที่ทำให้พลาดเพียง \(\tfrac{\sqrt{5}}{5}\) — <strong>สรุปคำตอบ:</strong> \(\operatorname{dist}(\vec{b}, \operatorname{Col} A) = \tfrac{\sqrt5}{5}\)</li>
       </ol>
+      <figure class="fig">
+        <svg viewBox="0 0 460 330" role="img" aria-label="จุด b นอกเส้น Col A ส่วนฉาย b-hat คือจุดใกล้สุด และ b ลบ b-hat ตั้งฉากกับเส้น">
+          <defs>
+            <marker id="m31a" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" class="mka"/></marker>
+            <marker id="m31g" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" class="mk3"/></marker>
+            <marker id="m31r" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" class="mk2"/></marker>
+            <marker id="m31y" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="currentColor"/></marker>
+          </defs>
+          <path class="grid" d="M142 22V326M222 22V326M62 214H360M62 134H360M62 54H360"/>
+          <path class="ax" d="M40 294H370" marker-end="url(#m31a)"/>
+          <path class="ax" d="M62 325V16" marker-end="url(#m31a)"/>
+          <text x="142" y="312" text-anchor="middle" class="mut small">1</text>
+          <text x="222" y="312" text-anchor="middle" class="mut small">2</text>
+          <text x="54" y="218" text-anchor="end" class="mut small">1</text>
+          <text x="54" y="138" text-anchor="end" class="mut small">2</text>
+          <text x="54" y="58" text-anchor="end" class="mut small">3</text>
+          <text x="362" y="312" text-anchor="middle" class="mut">x₁</text>
+          <text x="52" y="14" text-anchor="end" class="mut">x₂</text>
+          <path class="thin1" d="M46 326 182 54"/>
+          <text x="58" y="324" class="t1 small">เส้น Col A = Span{(1, 2)}</text>
+          <path d="M62 294 142 54" stroke="currentColor" stroke-width="2.4" fill="none" marker-end="url(#m31y)"/>
+          <path class="vec3" d="M62 294 174 70" marker-end="url(#m31g)"/>
+          <path class="vec2" d="M174 70 142 54" marker-end="url(#m31r)"/>
+          <path class="ra" d="M178 62 170 58 166 66"/>
+          <text x="136" y="42" text-anchor="middle" class="big">b = (1, 3)</text>
+          <text x="182" y="88" class="t3 small">b̂ = (7/5, 14/5)</text>
+          <text x="210" y="52" class="t2 small">b − b̂ = (−2/5, 1/5)</text>
+          <text x="206" y="150" class="mut small">dist(b, Col A) = √5/5</text>
+        </svg>
+        <figcaption>เมื่อ \(\operatorname{Col} A\) เป็นเส้นตรง (ตัวอย่าง 4): จุดบนเส้นที่<em>ใกล้</em> \(\vec{b} = (1,3)^T\) ที่สุดคือเงา \(\hat{b} = \tfrac75(1,2)^T = (\tfrac75, \tfrac{14}{5})^T\) (เขียว) — เส้นสั้น ๆ จาก \(\hat{b}\) ไป \(\vec{b}\) (แดง) ตั้งฉากกับเส้นพอดี (สัญลักษณ์มุมฉาก) และความยาว \(\tfrac{\sqrt5}{5}\) คือระยะทางจาก \(\vec{b}\) ถึง \(\operatorname{Col} A\) ซึ่งเท่ากับ \(\|\vec{b} - A\hat{x}\|\) น้อยที่สุดของระบบ \(A\vec{x} = \vec{b}\)</figcaption>
+      </figure>
       <div class="verify"><span class="lbl">ตรวจคำตอบ:</span> \((-\tfrac25, \tfrac15)^T\cdot(1,2)^T = -\tfrac25 + \tfrac25 = 0\) ✓</div>
     </div>
   </article>
@@ -233,6 +298,35 @@ tts: 1
         <li><span class="step-t">เขียนผลเฉลยทั่วไป</span> ให้ \(x_3\) เป็นตัวแปรเสรี: \(x_1 = 5 - x_3\), \(x_2 = -3 + x_3\)
         \[ \hat{x} = \begin{bmatrix} 5\\ -3\\ 0 \end{bmatrix} + x_3\begin{bmatrix} -1\\ 1\\ 1 \end{bmatrix} \qquad (x_3 \in \mathbb{R}) \]</li>
       </ol>
+      <figure class="fig">
+        <svg viewBox="0 0 520 260" role="img" aria-label="แผนภาพ เมื่อผลเฉลยกำลังสองน้อยสุดมีหลายชุด ทุกชุดให้ Ax-hat ตัวเดียวกันและระยะเท่ากัน">
+          <defs>
+            <marker id="m33a" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" class="mka"/></marker>
+          </defs>
+          <text x="130" y="24" text-anchor="middle" class="big">ฝั่ง x̂: ผลเฉลยน้อยสุดเป็นเส้น</text>
+          <text x="395" y="24" text-anchor="middle" class="big">ฝั่ง Ax̂: ภาพเป็นจุดเดียว</text>
+          <path class="thin1" d="M40 200 220 80"/>
+          <circle cx="70" cy="180" r="4" class="pt1"/>
+          <circle cx="130" cy="140" r="4" class="pt1"/>
+          <circle cx="190" cy="100" r="4" class="pt1"/>
+          <text x="58" y="176" text-anchor="end" class="mut small">x̂₁</text>
+          <text x="118" y="136" text-anchor="end" class="mut small">x̂₂</text>
+          <text x="178" y="96" text-anchor="end" class="mut small">x̂₃</text>
+          <text x="130" y="232" text-anchor="middle" class="t1 small">x̂ = (5, −3, 0) + t(−1, 1, 1),  t ∈ R</text>
+          <path class="aux" d="M190 100 382 162" marker-end="url(#m33a)"/>
+          <path class="aux" d="M130 140 378 164" marker-end="url(#m33a)"/>
+          <path class="aux" d="M70 180 374 166" marker-end="url(#m33a)"/>
+          <polygon class="fsoft" points="310,193 480,127 480,139 310,205"/>
+          <path class="ax" d="M310 199 480 133"/>
+          <circle cx="390" cy="168" r="4.5" class="pt3"/>
+          <path d="M390 168 390 78" stroke="currentColor" stroke-width="2.2" fill="none" marker-end="url(#m33a)"/>
+          <path class="ra" d="M390 159 398.5 155.9 398.5 164.9"/>
+          <text x="390" y="66" text-anchor="middle" class="big">b</text>
+          <text x="378" y="188" text-anchor="end" class="t3 small">ŷ = Ax̂ จุดเดียว</text>
+          <text x="380" y="120" text-anchor="end" class="t2 small">‖b − Ax̂‖ เท่ากันทุกชุด</text>
+        </svg>
+        <figcaption>ทำไมผลเฉลยน้อยสุดจึงมีได้หลายชุดแต่คำตอบ "ไม่ต่าง": ซ้าย — จากตัวอย่าง 4.3.4 ได้ \(\hat{x} = (5,-3,0)^T + t(-1,1,1)^T\) เป็น<em>เส้น</em>ของผลเฉลย ขวา — ไม่ว่าเลือก \(t\) เท่าไร \(A\hat{x}\) ตกลงจุดเดียวกันหมดคือ \(\hat{y}\) (เขียว) เพราะส่วนต่างของ \(\hat{x}\) สองจุดโดน \(\operatorname{Nul} A\) กลืนหาย — ดังนั้น \(\vec{b} - A\hat{x}\) ตัวเดิม ระยะ \(\|\vec{b} - A\hat{x}\|\) เท่ากันทุกชุด ตรงตามเฉลยที่บอกว่าทุกชุดให้ค่าเท่ากัน</figcaption>
+      </figure>
       <div class="verify"><span class="lbl">สรุปคำตอบ:</span> ผลเฉลยกำลังสองน้อยสุดไม่ชุดเดียว: \(\hat{x} = \begin{bmatrix} 5\\ -3\\ 0 \end{bmatrix} + x_3\begin{bmatrix} -1\\ 1\\ 1 \end{bmatrix}\) — ตรงตามตำรา (เช่น เลือก \(x_3 = \tfrac83\) ได้ \(\hat{x} = (\tfrac73, -\tfrac13, \tfrac83)\) ซึ่งตรงกับค่าที่ numpy คำนวณด้วย least squares พอดี ✓ และทุกชุดให้ \(\|\vec{b} - A\hat{x}\|\) เท่ากันหมด)</div>
     </div>
   </article>
@@ -250,6 +344,42 @@ tts: 1
         <li><span class="step-t">แก้หา \(\hat{\beta}\)</span> \(\det = 4(14) - 6(6) = 56 - 36 = 20\)
         \[ \hat{\beta} = \frac{1}{20}\begin{bmatrix} 14 &amp; -6\\ -6 &amp; 4 \end{bmatrix}\begin{bmatrix} 6\\ 11 \end{bmatrix} = \frac{1}{20}\begin{bmatrix} 84 - 66\\ -36 + 44 \end{bmatrix} = \frac{1}{20}\begin{bmatrix} 18\\ 8 \end{bmatrix} = \begin{bmatrix} 0.9\\ 0.4 \end{bmatrix} \]</li>
       </ol>
+      <figure class="fig">
+        <svg viewBox="0 0 500 316" role="img" aria-label="กราฟจริงของเส้นกำลังสองน้อยสุด y = 0.9 + 0.4x กับข้อมูลสี่จุดและเศษตกค้าง">
+          <defs>
+            <marker id="m34a" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" class="mka"/></marker>
+          </defs>
+          <path class="grid" d="M191 30V268M306 30V268M421 30V268M30 248H470M30 198H470M30 148H470M30 98H470M30 48H470"/>
+          <path class="ax" d="M25 268H478" marker-end="url(#m34a)"/>
+          <path class="ax" d="M76 296V22" marker-end="url(#m34a)"/>
+          <text x="191" y="286" text-anchor="middle" class="mut small">1</text>
+          <text x="306" y="286" text-anchor="middle" class="mut small">2</text>
+          <text x="421" y="286" text-anchor="middle" class="mut small">3</text>
+          <text x="68" y="202" text-anchor="end" class="mut small">1</text>
+          <text x="68" y="152" text-anchor="end" class="mut small">1.5</text>
+          <text x="68" y="102" text-anchor="end" class="mut small">2</text>
+          <text x="68" y="52" text-anchor="end" class="mut small">2.5</text>
+          <text x="472" y="286" text-anchor="middle" class="mut">x</text>
+          <text x="66" y="20" text-anchor="end" class="mut">y</text>
+          <path class="vec1" d="M41.5 220 478.5 68"/>
+          <text x="300" y="70" class="t1">เส้น y = 0.9 + 0.4x</text>
+          <path class="aux" d="M76 198V208M191 198V168M306 98V128M421 98V88"/>
+          <circle cx="76" cy="198" r="4" class="pt"/>
+          <circle cx="191" cy="198" r="4" class="pt"/>
+          <circle cx="306" cy="98" r="4" class="pt"/>
+          <circle cx="421" cy="98" r="4" class="pt"/>
+          <text x="64" y="190" text-anchor="end" class="mut small">(0, 1)</text>
+          <text x="191" y="216" text-anchor="middle" class="mut small">(1, 1)</text>
+          <text x="306" y="88" text-anchor="middle" class="mut small">(2, 2)</text>
+          <text x="421" y="82" text-anchor="middle" class="mut small">(3, 2)</text>
+          <text x="84" y="207" class="mut small">+0.1</text>
+          <text x="199" y="186" class="mut small">−0.3</text>
+          <text x="314" y="116" class="mut small">+0.3</text>
+          <text x="431" y="114" class="mut small">−0.1</text>
+          <text x="250" y="308" text-anchor="middle" class="mut small">เศษตกค้าง (+0.1, −0.3, +0.3, −0.1) ผลรวมเป็นศูนย์ — เส้นจึง "ทาสมดุล" พอดี</text>
+        </svg>
+        <figcaption>กราฟจริงของตัวอย่าง 4.3.6: จุดข้อมูล 4 จุด (จุดดำ) ไม่เรียงเส้นตรง — เส้นกำลังสองน้อยสุด \(y = 0.9 + 0.4x\) (น้ำเงิน) ทำให้เศษตกค้างแนวตั้ง (เส้นประ) มีผลรวมกำลังสองน้อยที่สุด: สองจุดในอยู่เหนือเส้น +0.3 สองจุดอยู่ใต้เส้น −0.1 รวมกำลังสองได้ 0.2 น้อยกว่าที่เส้นอื่นจะให้ — เศษบวกลบหักกันเป็นศูนย์เสมอเมื่อคอลัมน์ 1 อยู่ใน \(A\) จึงใช้ตรวจคำตอบได้</figcaption>
+      </figure>
       <div class="verify"><span class="lbl">สรุปคำตอบ:</span> เส้นกำลังสองน้อยสุดคือ \(y = 0.9 + 0.4x\) — ตรงตามตำรา (ลองแทน: ที่ \(x = 0, 1, 2, 3\) เส้นทำนาย \(0.9, 1.3, 1.7, 2.1\) ใกล้จุดจริง \((1, 1, 2, 2)\) และเศษตกค้าง \((-0.1, 0.3, 0.3, -0.1)\) ผลรวมเป็นศูนย์ ✓)</div>
     </div>
   </article>
