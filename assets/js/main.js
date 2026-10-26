@@ -56,6 +56,7 @@ const SITE = {
     {
       ch: 6, color: '#ef4444', title: 'ติวสอบตามแนวข้อสอบจริง', en: 'Exam Prep',
       sections: [
+        { no: 'C', file: 'final-cram.html', title: 'ติวด่วน Final — เริ่มจากศูนย์ อ่านตามลำดับความสำคัญ', practice: 0, disp: '🚀 ติวด่วน Final' },
         { no: 'M', file: 'exam-midterm.html', title: 'ติว Midterm — แนวข้อสอบกลางภาค', practice: 8, disp: '🎓 ติว Midterm' },
         { no: 'F', file: 'exam-final.html', title: 'ติว Final — แนวข้อสอบปลายภาค', practice: 8, disp: '🎓 ติว Final' },
       ],
