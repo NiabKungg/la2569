@@ -3,6 +3,7 @@ title: 3.1 เมทริกซ์สำหรับการแปลงเช
 ch: 3
 section: 3.1
 page: ch3-1.html
+tts: 1
 -->
 
 <div class="crumb">บทที่ 3 · ค่าลักษณะเฉพาะและเวกเตอร์ลักษณะเฉพาะ</div>
@@ -36,6 +37,28 @@ page: ch3-1.html
 <section class="block" id="lesson">
   <h2><span class="h2-dot">📖</span> บทเรียน</h2>
 
+  <div class="box box-idea">
+    <div class="box-title">🗺️ ที่มาที่ไปของหัวข้อนี้ — ทำไมต้องเรียน และมันสำคัญยังไง</div>
+    <p><strong>ที่มา (เรามาจากไหน):</strong> ตั้งแต่บทที่ 2 เราใช้ "เมทริกซ์มาตรฐาน" ทำงานแทนการแปลงเชิงเส้น — มันนับทุกอย่างด้วยแกน \(x_1, x_2\) (ตะวันออก-เหนือ) ซึ่งสะดวกดี แต่<em>ไม่ใช่ทางเลือกเดียว</em> และบางปัญหามันก็เป็น "ทางเลือกที่แย่ที่สุด" เสียด้วย เหมือนการบอกทางในเมืองโบราณที่ถนนเฉียง ๆ ด้วยพิกัดทิศเหนือ-ตะวันออก: ได้คำตอบจริง แต่เลขเละเหลือเกิน</p>
+    <p><strong>แรงบันดาลใจ (ถ้าเลือกไม้บรรทัดใหม่ได้ล่ะ?):</strong> หัวข้อนี้ตอบ 3 คำถามต่อเนื่องกัน —</p>
+    <p>① เวกเตอร์จุดเดียวกัน ถ้าเปลี่ยน "ไม้บรรทัด" (ฐานหลัก) เป็นชุดเอียง ๆ จะต้องเขียนตัวเลขใหม่ยังไง (เวกเตอร์พิกัด \([\vec{x}]_B\))<br>
+    ② เมทริกซ์ของการแปลง \(T\) จะเปลี่ยนหน้าตาตามไม้บรรทัดที่เลือกหรือไม่ (\([T]_{C \leftarrow B}\))<br>
+    ③ ถ้ามีสองภาษา (สองฐานหลัก) จะแปลกันข้ามฐานยังไง (\(P_{B \to B'}\))</p>
+    <p><strong>ที่ไป (จะพาเราไปที่ไหน):</strong> เมื่อแปลข้ามฐานหลักได้ เราจะ<em>เลือก</em>ฐานหลักที่ฉลาดที่สุด — ฐานหลักที่ทำให้การแปลงซับซ้อนเหลือแค่ "ยืดตามแกน" ธรรมดา เมทริกซ์กลายเป็นทแยงมุม นั่นคือหัวข้อ 3.2 (การแปลงเป็นทแยงมุม) ซึ่งเป็นกุญแจของการคำนวณ \(A^k\) และการวิเคราะห์ข้อมูล</p>
+    <p><strong>สำคัญยังไงในชีวิตจริง:</strong> ทุกครั้งที่เล่นเกม 3 มิติ โลกในเกมถูกเก็บพิกัดหนึ่งแบบ แต่กล้องมองจากอีกมุม โปรแกรมต้อง<em>เปลี่ยนพิกัดจากระบบโลกไประบบกล้อง</em>ทุกเฟรม 60 ครั้งต่อวินาที — นั่นคือ \(P_{B \to B'}\) ล้วน ๆ · แอปแผนที่แปลระหว่างพิกัด GPS (องศาลอยบนทรงกลม) กับพิกัดเมตรบนกระดาษทุกครั้งที่บอกทาง · วิศวกรหุ่นยนต์แปลระหว่างพิกัด "โลก" กับพิกัด "แขนกล" แต่ละข้อต่อ · นักวิทยาข้อมูลหมุนแกนข้อมูลไปวางบนแกนที่สำคัญที่สุด (PCA) — ทั้งหมดคือหัวข้อนี้ในเวอร์ชันจริง</p>
+  </div>
+
+  <div class="box box-def">
+    <div class="box-title">📖 ศัพท์ที่ต้องใช้ในหัวข้อนี้ — อ่านผ่อน ๆ เป็นเรื่องเล่า (ไม่ต้องท่อง)</div>
+    <p><strong>เวกเตอร์</strong> = ลูกศรที่บอก "ทิศ + ระยะ" จากจุดกำเนิด เช่น \((5, 3)\) คือ "ไปทาง \(x_1\) 5 ก้าว แล้วทาง \(x_2\) อีก 3 ก้าว"</p>
+    <p><strong>ฐานหลัก (basis)</strong> = ชุด "ไม้บรรทัดมาตรฐาน" ของพื้นที่ — เวกเตอร์ตั้งต้นกี่อันก็ได้ ขอให้คุณสมบัติครบ 2 ข้อ: <strong>อิสระเชิงเส้น</strong> (ไม้บรรทัดไม่มีชิ้นไหน "ซ้ำทิศ" กับชิ้นอื่น — ไม่อย่างนั้นจะมีชิ้นเกินจำเป็น) และ <strong>แผ่ทั่ว</strong> (ไม้บรรทัดชุดนี้ผสมกันแล้วไปถึง<em>ทุกจุด</em>ของพื้นที่ได้ — ไม่อย่างนั้นจะมีจุดที่ไปไม่ถึง) — ฐานหลักมาตรฐาน \(\vec{e}_1 = (1,0)^T, \vec{e}_2 = (0,1)^T\) ที่เราใช้มาตลอด ก็เป็นฐานหลักหนึ่งในหลาย ๆ แบบเท่านั้น</p>
+    <p><strong>เวกเตอร์พิกัด \([\vec{x}]_B\)</strong> = "สูตรอาหาร" ของจุด \(\vec{x}\) เมื่อวัดด้วยไม้บรรทัดชุด \(B\): บอกว่าต้องใช้ \(\vec{v}_1\) กี่หน่วย, \(\vec{v}_2\) กี่หน่วย ผสมกันจึงได้ \(\vec{x}\) พอดี — จุดเดียวกันมีได้หลายสูตร (ต่างกันตามไม้บรรทัดที่ใช้) แต่ในไม้บรรทัดชุดเดียวมีสูตรเดียวเท่านั้น</p>
+    <p><strong>เมทริกซ์มาตรฐาน \([T]_{\mathcal{E}}\)</strong> (จาก 2.1) = สมุดจดว่า "ฐานหลักมาตรฐานแต่ละตัวถูก \(T\) พาไปตกที่ไหน" — หลักที่ 1 จดปลายทางของ \(\vec{e}_1\), หลักที่ 2 จดของ \(\vec{e}_2\) เพราะจุดอื่นเดินตามฐานหลักอยู่แล้ว จดแค่นี้ก็จบ</p>
+    <p><strong>\([T]_{C \leftarrow B}\)</strong> = สมุดจดแบบเดียวกัน แต่เปลี่ยนภาษา: จดปลายทางของฐานหลัก \(B\) ใน<em>หน่วยของฐานหลัก \(C\)</em> — เหมือนพจนานุกรมที่หัวกระดาษเป็นคำ \(B\) และเนื้อความเป็นคำ \(C\)</p>
+    <p><strong>\(P_{B \to B'}\) เมทริกซ์เปลี่ยนพิกัด</strong> = พจนานุกรมระหว่างสำนวน: รับ "สูตรผสมแบบ \(B\)" ไปคืน "สูตรผสมแบบ \(B'\)" ของจุดเดียวกัน — ตัวจุดไม่ขยับแม้แต่นิด มีแค่คำอธิบายที่เปลี่ยนไป (ลูกศรชี้ \(B \to B'\) อ่านว่า "จาก \(B\) ไป \(B'\)" เสมอ)</p>
+    <p><strong>เมทริกซ์ทแยงมุม</strong> = เมทริกซ์ในรูปง่ายที่สุด: เหลือแต่เลข "ยืดกี่เท่า" บนแกน ไม่มีการบิดข้ามแกนเลย — เป้าหมายปลายทางของหัวข้อนี้และ 3.2</p>
+  </div>
+
   <h3>1) เวกเตอร์พิกัด (coordinate vector)</h3>
   <div class="box box-def">
     <div class="box-title">📐 นิยาม — เวกเตอร์พิกัด</div>
@@ -50,7 +73,40 @@ page: ch3-1.html
     <p>\([\vec{x}]_B\) คือตัวเลข<em>สูตร</em>ของ \(\vec{x}\) เมื่อวัดด้วยหน่วย \(\vec{v}_1, \dots, \vec{v}_p\) แทนหน่วยมาตรฐาน \(\vec{e}_1, \dots, \vec{e}_n\)
     เช่น \(\vec{x} = (5, 3)\) คือ \(\vec{x} = 5\vec{e}_1 + 3\vec{e}_2\) เมื่อวัดด้วยฐานมาตรฐาน แต่ถ้าฐานหลักเป็น \(B = \{(1,0), (1,1)\}\) จะได้ \(\vec{x} = 2(1,0) + 3(1,1)\) ดังนั้น \([\vec{x}]_B = (2,3)^T\) — เวกเตอร์<em>ตัวเดียวกัน</em> แค่คนละสูตร</p>
     <p><strong>ท่าหา \([\vec{x}]_B\):</strong> แก้สมการเวกเตอร์ \(c_1\vec{v}_1 + \cdots + c_n\vec{v}_n = \vec{x}\) — คือการลดรูปเมทริกซ์แต่งเติม \(\begin{bmatrix} \vec{v}_1 & \cdots & \vec{v}_n \mid \vec{x} \end{bmatrix}\) แบบเดียวกับบทที่ 1</p>
+    <p><strong>อุปมาที่อยู่บ้าน:</strong> บอกตำแหน่งบ้านเพื่อนได้หลายแบบ — "ละติจูด 13.7 องศา" หรือ "จากสถานี BTS ไปทางตะวันออก 300 เมตร" หรือ "หลังตลาดใหญ่ติดซอยสาม" — บ้านหลังเดิม<em>ไม่ได้ย้าย</em> ต่างแค่ "ภาษาที่ใช้บอก" · การเปลี่ยนฐานหลักคือครูแปลภาษาที่แปลคำอธิบายพวกนี้ให้กันอย่างแม่นยำ (ไม่ใช่คำตอบกะด้วยสายตา)</p>
   </div>
+
+  <figure class="fig">
+    <svg viewBox="0 0 460 340" role="img" aria-label="เวกเตอร์ x = (0,-1) ตัวเดียวกัน เขียนได้เป็น 2 เท่าของ v1 ลบ v2 เมื่อวัดด้วยฐานหลัก B">
+      <defs>
+        <marker id="m31a" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" class="mka"/></marker>
+        <marker id="m31b" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" class="mk1"/></marker>
+        <marker id="m31g" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" class="mk3"/></marker>
+        <clipPath id="cf1"><rect x="0" y="0" width="460" height="340"/></clipPath>
+      </defs>
+      <g clip-path="url(#cf1)">
+        <path class="thin1" d="M30 438.8 282 60.8M86 382.8 338 4.8M142 326.8 394 -51.2M198 270.8 450 -107.2"/>
+        <path class="thin3" d="M-14.8 489.2 220.4 254M97.2 321.2 332.4 86M209.2 153.2 444.4 -82"/>
+      </g>
+      <path class="ax" d="M30 231.6H445" marker-end="url(#m31a)"/>
+      <path class="ax" d="M186.8 330V12" marker-end="url(#m31a)"/>
+      <text x="440" y="250" text-anchor="middle" class="mut small">x₁</text>
+      <text x="176" y="16" text-anchor="end" class="mut small">x₂</text>
+      <path class="vec1" d="M186.8 231.6 242.8 175.6" marker-end="url(#m31b)"/>
+      <path class="vec3" d="M186.8 231.6 298.8 63.6" marker-end="url(#m31g)"/>
+      <path class="thin1" d="M186.8 231.6 298.8 119.6"/>
+      <path class="thin2" d="M298.8 119.6 186.8 287.6"/>
+      <path d="M186.8 231.6 186.8 287.6" stroke="currentColor" stroke-width="2.4" fill="none" marker-end="url(#m31a)"/>
+      <circle cx="186.8" cy="287.6" r="3.5" class="pt"/>
+      <text x="250" y="176" class="t1">v₁ = (1, 1)</text>
+      <text x="306" y="58" class="t3">v₂ = (2, 3)</text>
+      <text x="306" y="118" class="t1 small">ไล่ 2 หน่วยตาม v₁</text>
+      <text x="250" y="212" class="t3 small">แล้วหัก v₂ 1 หน่วย</text>
+      <text x="196" y="304" class="big">x = (0, −1) = 2v₁ − v₂</text>
+      <text x="196" y="322" class="mut small">[x]_B = (2, −1) — เวกเตอร์ตัวเดิม คนละสูตรผสม</text>
+    </svg>
+    <figcaption>หัวใจของ "เวกเตอร์พิกัด" จากตัวอย่าง 1 ด้านล่าง: เวกเตอร์ \(\vec{x} = (0,-1)^T\) ตัวเดิม<em>ไม่ขยับไปไหน</em> แต่เมื่อเปลี่ยนไม้บรรทัดจากฐานมาตรฐานมาเป็น \(B = \{(1,1)^T, (2,3)^T\}\) (กริดเอียงเส้นประ) สูตรผสมเปลี่ยนไป: เดิน 2 หน่วยตาม \(\vec{v}_1\) แล้วหัก \(\vec{v}_2\) 1 หน่วยก็มาถึง \(\vec{x}\) พอดี — \([\vec{x}]_B = (2,-1)^T\) จึงเป็น "คำแปล" ไม่ใช่เวกเตอร์ใหม่</figcaption>
+  </figure>
 
   <h3>2) เมทริกซ์สำหรับ \(T\) สัมพัทธ์กับฐานหลัก</h3>
   <div class="box box-def">
@@ -64,6 +120,42 @@ page: ch3-1.html
     <div class="box-title">💡 เทียบกับเมทริกซ์มาตรฐานจาก 2.1</div>
     <p>เมทริกซ์มาตรฐานของ \(T\) ก็คือ \([T]_{\mathcal{E}}\) เมื่อ \(\mathcal{E}\) = ฐานหลักมาตรฐาน เพราะ \([T(\vec{e}_j)]_{\mathcal{E}} = T(\vec{e}_j)\) พอดี — ทุกอย่างใน 2.1 เป็นกรณีเฉพาะของนิยามนี้</p>
   </div>
+
+  <figure class="fig">
+    <svg viewBox="0 0 580 310" role="img" aria-label="เมทริกซ์มาตรฐานคือจดว่า e1 และ e2 ถูก T พาไปอยู่ที่ไหน สี่เหลี่ยมหน่วยกลายเป็นสี่เหลี่ยมด้านขนาน">
+      <defs>
+        <marker id="m32a" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" class="mka"/></marker>
+        <marker id="m32b" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" class="mk1"/></marker>
+        <marker id="m32g" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" class="mk3"/></marker>
+      </defs>
+      <text x="150" y="18" text-anchor="middle" class="big">ก่อน: สี่เหลี่ยมหน่วย + ฐานมาตรฐาน</text>
+      <text x="445" y="18" text-anchor="middle" class="big">หลัง: T บิดเป็นสี่เหลี่ยมด้านขนาน</text>
+      <path class="ax" d="M60 150H215" marker-end="url(#m32a)"/>
+      <path class="ax" d="M110 195V35" marker-end="url(#m32a)"/>
+      <text x="210" y="166" text-anchor="middle" class="mut small">x₁</text>
+      <text x="100" y="32" text-anchor="end" class="mut small">x₂</text>
+      <text x="190" y="166" text-anchor="middle" class="mut small">1</text>
+      <text x="98" y="76" text-anchor="end" class="mut small">1</text>
+      <polygon class="f1" points="110,150 190,150 190,70 110,70"/>
+      <path class="thin1" d="M110 150 190,150 190 70 110 70Z"/>
+      <path class="vec1" d="M110 150 190 150" marker-end="url(#m32b)"/>
+      <path class="vec3" d="M110 150 110 70" marker-end="url(#m32g)"/>
+      <text x="196" y="144" class="t1 small">e₁</text>
+      <text x="118" y="62" class="t3 small">e₂</text>
+      <path class="ax" d="M310 148H560" marker-end="url(#m32a)"/>
+      <path class="ax" d="M352.5 290V40" marker-end="url(#m32a)"/>
+      <text x="552" y="164" text-anchor="middle" class="mut small">x₁</text>
+      <text x="342" y="38" text-anchor="end" class="mut small">x₂</text>
+      <polygon class="f2" points="352.5,148 397.5,58 487.5,193 442.5,283"/>
+      <path class="thin2" d="M352.5 148 397.5 58 487.5 193 442.5 283Z"/>
+      <path class="vec1" d="M352.5 148 397.5 58" marker-end="url(#m32b)"/>
+      <path class="vec3" d="M352.5 148 442.5 283" marker-end="url(#m32g)"/>
+      <text x="403" y="52" class="t1 small">T(e₁) = (1, 2)</text>
+      <text x="450" y="292" class="t3 small">T(e₂) = (2, −3)</text>
+    </svg>
+    <figcaption>เมทริกซ์มาตรฐานของ \(T(x_1, x_2) = (x_1 + 2x_2,\; 2x_1 - 3x_2)^T\) (จากแบบฝึกหัด ข้อ 6) คือการ "จดสมุด" ว่าฐานมาตรฐานถูกพาไปอยู่ที่ไหน: \(T(\vec{e}_1) = (1,2)^T\) กับ \(T(\vec{e}_2) = (2,-3)^T\) — เอาสองภาพนี้<em>เรียงเป็นหลัก</em>ของเมทริกซ์ก็จบ และทั้งสี่เหลี่ยมหน่วยจะถูกบิดเป็นสี่เหลี่ยมด้านขนานที่มีมุมตรงข้ามเป็น \(T(\vec{e}_1) + T(\vec{e}_2) = (3,-1)^T\) ตามภาพขวา</figcaption>
+  </figure>
+
   <div class="box box-thm">
     <div class="box-title">⭐ ทฤษฎีบท 3.1.1 และบทแทรก 3.1.2</div>
     <p>• การประกอบ \(T \circ S\) เป็นการแปลงเชิงเส้น และ \([T \circ S]_{D \leftarrow B} = [T]_{D \leftarrow C}[S]_{C \leftarrow B}\) (เมื่อฐานหลักจับคู่กันถูกต้อง)</p>
@@ -84,6 +176,39 @@ page: ch3-1.html
     \[ P_{\mathcal{E} \to B'} = \begin{bmatrix} \vec{v}_1 & \vec{v}_2 & \cdots & \vec{v}_n \end{bmatrix} \quad \text{(เรียงเวกเตอร์ฐานหลักเป็นหลักเลย)} \]
     <p>และ \(P_{B' \to \mathcal{E}} = P_{\mathcal{E} \to B'}^{-1}\) — ท่า: เขียนเวกเตอร์ฐานหลักเรียงเป็นหลัก แล้วหา inverse ก็ได้ทิศตรงข้าม</p>
   </div>
+
+  <figure class="fig">
+    <svg viewBox="0 0 480 330" role="img" aria-label="เวกเตอร์ x = (5,3) จุดเดิมบนกริดมาตรฐาน แต่บนกริดฐาน B เดิน 2 หน่วยตาม b1 แล้ว 3 หน่วยตาม b2">
+      <defs>
+        <marker id="m33a" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" class="mka"/></marker>
+        <marker id="m33b" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" class="mk1"/></marker>
+        <marker id="m33g" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" class="mk3"/></marker>
+        <clipPath id="cf3"><rect x="0" y="0" width="480" height="330"/></clipPath>
+      </defs>
+      <path class="grid" d="M129.2 20V300M191.2 20V300M253.2 20V300M315.2 20V300M377.2 20V300M20 191.2H464M20 129.2H464M20 67.2H464"/>
+      <g clip-path="url(#cf3)">
+        <path class="thin1" d="M79.6 302.8 340 42.4M141.6 302.8 402 42.4M203.6 302.8 464 42.4M265.6 302.8 526 42.4M327.6 302.8 588 42.4"/>
+        <path class="thin1" d="M79.6 191.2 464 191.2M141.6 129.2 526 129.2M203.6 67.2 588 67.2"/>
+      </g>
+      <path class="ax" d="M30 253.2H468" marker-end="url(#m33a)"/>
+      <path class="ax" d="M67.2 320V15" marker-end="url(#m33a)"/>
+      <text x="460" y="271" text-anchor="middle" class="mut small">x₁</text>
+      <text x="56" y="18" text-anchor="end" class="mut small">x₂</text>
+      <path class="vec1" d="M67.2 253.2 129.2 253.2" marker-end="url(#m33b)"/>
+      <path class="vec3" d="M67.2 253.2 129.2 191.2" marker-end="url(#m33g)"/>
+      <path class="thin1" d="M67.2 253.2 191.2 253.2"/>
+      <path class="thin3" d="M191.2 253.2 377.2 67.2"/>
+      <path d="M67.2 253.2 377.2 67.2" stroke="currentColor" stroke-width="2.4" fill="none" marker-end="url(#m33a)"/>
+      <circle cx="377.2" cy="67.2" r="3.5" class="pt"/>
+      <text x="126" y="244" text-anchor="end" class="t1 small">b₁ = (1, 0)</text>
+      <text x="60" y="180" text-anchor="end" class="t3 small">b₂ = (1, 1)</text>
+      <text x="191.2" y="270" text-anchor="middle" class="t1 small">ไล่ 2 หน่วยตาม b₁</text>
+      <text x="290" y="150" class="t3 small">แล้ว 3 หน่วยตาม b₂</text>
+      <text x="384" y="58" class="big">x = (5, 3)</text>
+      <text x="384" y="44" class="t1 small">[x]_B = (2, 3)</text>
+    </svg>
+    <figcaption>เมทริกซ์เปลี่ยนพิกัดจากตัวอย่างด้านล่าง (\(B = \{(1,0)^T, (1,1)^T\}\), \(\vec{x} = (5,3)^T\)): จุด \(\vec{x}\) <em>ตัวเดิมไม่ขยับ</em> — กริดมาตรฐาน (เส้นทึบเทา) บอกว่า \((5, 3)\) แต่กริดฐานหลัก \(B\) (เส้นประน้ำเงิน เอียงตาม \(\vec{b}_2\)) บอกว่า \((2, 3)\) เพราะเดิน 2 หน่วยตาม \(\vec{b}_1\) แล้ว 3 หน่วยตาม \(\vec{b}_2\) ก็มาถึงจุดเดียวกัน — \(P_{\mathcal{E} \to B}\) คือเครื่องแปลระหว่างสองสำนวนนี้</figcaption>
+  </figure>
 
   <div class="box box-thm">
     <div class="box-title">⭐ บทแทรก 3.1.4 — เปลี่ยนเมทริกซ์ของ \(T\) ระหว่างฐานหลัก</div>
@@ -192,6 +317,32 @@ page: ch3-1.html
         \[ [T]_{B'} = P^{-1}(AP) = \begin{bmatrix} 1 & 1 & 1\\ 1 & 2 & 1\\ -1 & -1 & 0 \end{bmatrix}\begin{bmatrix} 1 & 2 & 2\\ -1 & -2 & 0\\ 1 & 0 & -2 \end{bmatrix} = \begin{bmatrix} 1 & 0 & 0\\ 0 & -2 & 0\\ 0 & 0 & -2 \end{bmatrix} \]</li>
         <li><span class="step-t">ตีความ</span> ในฐานหลัก \(B'\) การแปลง \(T\) ดูง่ายขึ้นมาก — เป็น<strong>เมทริกซ์ทแยงมุม</strong>! <em>เพราะ</em>เวกเตอร์แต่ละตัวของ \(B'\) ถูก \(T\) ส่งไปยืดสเกลตัวเอง (จะพิสูจน์ในขั้นตรวจคำตอบด้านล่าง) เมื่อทุกเวกเตอร์ฐานหลักเป็นทิศ "พิเศษ" แบบนี้ เมทริกซ์ของ \(T\) ในฐานหลักนั้นเหลือแค่เลขยืดบนทแยง (และค่าทแยง \(1, -2, -2\) ก็คือค่าลักษณะเฉพาะของ \(A\) ซึ่งจะเป็นหัวข้อหลักของ 3.2)</li>
       </ol>
+      <figure class="fig">
+        <svg viewBox="0 0 440 240" role="img" aria-label="บนกริดฐาน B prime การแปลง T แค่ยืด u สองเท่าและ v สามเท่า เมทริกซ์จึงเป็นทแยงมุม">
+          <defs>
+            <marker id="m34a" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" class="mka"/></marker>
+            <marker id="m34b" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" class="mk1"/></marker>
+            <marker id="m34r" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" class="mk2"/></marker>
+            <marker id="m34g" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" class="mk3"/></marker>
+            <clipPath id="cf4"><rect x="0" y="0" width="440" height="240"/></clipPath>
+          </defs>
+          <g clip-path="url(#cf4)">
+            <path class="thin3" d="M-14.8 194.4 226 74M41.2 138.4 282 18M97.2 82.4 338 -38"/>
+            <path class="thin1" d="M-160.4 334.4 97.2 76.8M63.6 222.4 321.2 -35.2"/>
+          </g>
+          <path class="vec2" d="M30 200 142 88" marker-end="url(#m34r)"/>
+          <path class="vec2" d="M30 200 366 32" marker-end="url(#m34r)"/>
+          <path class="vec1" d="M30 200 86 144" marker-end="url(#m34b)"/>
+          <path class="vec3" d="M30 200 142 144" marker-end="url(#m34g)"/>
+          <circle cx="86" cy="144" r="3.5" class="pt1"/>
+          <circle cx="142" cy="144" r="3.5" class="pt3"/>
+          <text x="78" y="128" text-anchor="end" class="t1 small">u = (1, 1)</text>
+          <text x="110" y="68" text-anchor="middle" class="t2 small">T(u) = 2u</text>
+          <text x="150" y="152" class="t3 small">v = (2, 1)</text>
+          <text x="360" y="18" text-anchor="middle" class="t2 small">T(v) = 3v</text>
+        </svg>
+        <figcaption>ทำไมการเปลี่ยนฐานหลักถึงทำให้เมทริกซ์ "ง่าย" — ดูจากโจทย์ซ้อมข้อ 5 ด้านล่าง (\(A = \begin{bmatrix} 4 & -2\\ 1 & 1 \end{bmatrix}\), \(B' = \{(1,1)^T, (2,1)^T\}\)): \(\vec{u} = (1,1)^T\) ถูก \(T\) พาไป \((2,2)^T = 2\vec{u}\) (ยืดตัวเอง 2 เท่า) และ \(\vec{v} = (2,1)^T\) ถูกพาไป \((6,3)^T = 3\vec{v}\) (ยืดตัวเอง 3 เท่า) — เมื่อเวกเตอร์ฐานหลักทุกตัว "ไม่หนีไปไหน" ในฐานหลักนั้นเมทริกซ์เหลือแค่เลขยืดบนทแยง: \([T]_{B'} = \operatorname{diag}(2, 3)\) — และนี่คือแนวคิดเดียวกับที่ตัวอย่าง 5 (3 มิติ) ทำให้ได้ \(\operatorname{diag}(1, -2, -2)\) ซึ่งเป็นสะพานไปหัวข้อ 3.2</figcaption>
+      </figure>
       <div class="verify"><span class="lbl">ตรวจคำตอบ:</span> \(A\vec{v}_1 = A(1,-1,1)^T = (1-3+3,\; -3+5-3,\; 3-3+1)^T = (1, -1, 1)^T = 1\cdot\vec{v}_1\) ✓ (แถวบน: \(1(1) + 3(-1) + 3(1) = 1\) ฯลฯ) และ \(A\vec{v}_2 = A(-1,1,0)^T = (-1+3,\; 3-5,\; -3+3)^T = (2, -2, 0)^T = -2\vec{v}_2\) ✓ ตรงกับทแยงของ \([T]_{B'}\) — สรุป: \([T]_{B'} = \operatorname{diag}(1, -2, -2)\) คือการแปลงเดียวกันกับ \(A\) แต่มองผ่านฐานหลัก \(B'\) แล้วเหลือแค่การยืดตามทิศของเวกเตอร์ฐานหลัก</div>
     </div>
   </article>
@@ -397,6 +548,23 @@ page: ch3-1.html
           <li><span class="step-t">ทดลองกับของจริง</span> สไปรต์ที่พิกัดกระเบื้อง \((2, 1)\) อยู่ที่โลก \((3, 1)\) — สะท้อนแล้วไปโลก \((3, -1)\) ซึ่งเป็นพิกัดกระเบื้อง \((1, 2)\) — ดูที่ \([T]_{B'}\): \(\begin{bmatrix} 0 & 1\\ 1 & 0 \end{bmatrix}\begin{bmatrix} 2\\ 1 \end{bmatrix} = \begin{bmatrix} 1\\ 2 \end{bmatrix}\) ✓ ตรงพอดี</li>
         </ol>
         <div class="verify"><span class="lbl">เห็นไหมว่า...</span> การแปลงเดียวกันเป๊ะ ๆ อาจดู "ยาก" ในฐานหลักหนึ่ง (เมทริกซ์มี 4 ช่องไม่ศูนย์) แต่ง่ายเหลือเชื่อในอีกฐานหลัก (แค่สลับสองเลข!) — นี่คือแนวคิดหลักของการเปลี่ยนฐานหลัก และเป็นเหตุผลว่าทำไมหัวข้อถัดไป (3.2) จึงพยายามหาฐานหลักที่ทำให้เมทริกซ์เป็นทแยงมุม</div>
+      </div>
+    </article>
+
+    <article class="ex-card">
+      <div class="ex-head"><span class="ex-badge">📍 แอปนำทาง: พิกัดโลก → พิกัดตามถนน</span><span class="tag app">ใช้จริง</span><span class="tag easy">ง่าย</span><span class="ex-title">GPS บอกพิกัดโลก แต่แอปพูดภาษา "ถนน" — ต้องแปลตลอดเวลา</span></div>
+      <div class="ex-body">
+        <div class="ex-q">GPS วัดได้ว่ารถอยู่ตำแหน่งโลก \(\vec{x} = (300, 400)^T\) เมตร (จากจุดตั้งต้น วัดแนวตะวันออก-เหนือ) ถนนสายหลักวิ่งทิศ \(\vec{u} = (0.6, 0.8)^T\) (ยาว 1 หน่วยพอดี) และทิศ<em>ตั้งฉาก</em>ออกจากถนนคือ \(\vec{v} = (-0.8, 0.6)^T\) — ให้ \(B' = \{\vec{u}, \vec{v}\}\) จงหา \([\vec{x}]_{B'}\) (แอปจะพูดว่า "คุณอยู่บนถนน ห่างจากจุดตั้งต้น 500 เมตร") แล้วทำเหมือนกันกับ \(\vec{y} = (150, 400)^T\)</div>
+        <div class="approach"><span class="lbl">อธิบายโจทย์ง่าย ๆ</span> — นี่คือโจทย์เปลี่ยนพิกัดจาก \(\mathcal{E}\) ไป \(B'\) ตามตัวอย่าง 3.1.4 แต่มีของขวัญ: \(\vec{u}\) กับ \(\vec{v}\) ตั้งฉากกันและยาว 1 ทั้งคู่ (เซตเชิงตั้งฉากปรกติ — จะเจอเต็ม ๆ ในบทที่ 4) ทำให้พิกัดหาได้ด้วยผลคูณจุดรอบเดียว: \(c_1 = \vec{x}\cdot\vec{u}\), \(c_2 = \vec{x}\cdot\vec{v}\) โดยไม่ต้องลดรูปเมทริกซ์เลย (คำตอบที่ได้มีความหมายตรงตัว: \(c_1\) = ระยะตามถนน, \(c_2\) = ระยะเยื้องออกจากถนน)</div>
+        <ol class="steps">
+          <li><span class="step-t">พิกัดของ \(\vec{x} = (300, 400)^T\)</span> คูณด้วยแต่ละแกน: \(c_1 = \vec{x}\cdot\vec{u} = 300(0.6) + 400(0.8) = 180 + 320 = 500\) · \(c_2 = \vec{x}\cdot\vec{v} = 300(-0.8) + 400(0.6) = -240 + 240 = 0\):
+          \[ [\vec{x}]_{B'} = \begin{bmatrix} 500\\ 0 \end{bmatrix} \]</li>
+          <li><span class="step-t">อ่านความหมาย</span> \(c_1 = 500\) เมตร = ระยะตามแนวถนนจากจุดตั้งต้น · \(c_2 = 0\) = เยื้องออกจากถนนเป็นศูนย์ — รถวิ่ง<em>บนถนนพอดี</em> แอปจึงแสดง "คุณอยู่บนเส้นทาง" ต่อให้ผู้ใช้</li>
+          <li><span class="step-t">พิกัดของ \(\vec{y} = (150, 400)^T\)</span> ทำเหมือนเดิม: \(c_1 = 150(0.6) + 400(0.8) = 90 + 320 = 410\) · \(c_2 = 150(-0.8) + 400(0.6) = -120 + 240 = 120\):
+          \[ [\vec{y}]_{B'} = \begin{bmatrix} 410\\ 120 \end{bmatrix} \]</li>
+          <li><span class="step-t">อ่านความหมายและตรวจ</span> \(\vec{y}\) อยู่ "410 เมตรตามถนน และเยื้องออกจากถนน 120 เมตร" — ตรวจแทนกลับ: \(410\vec{u} + 120\vec{v} = 410(0.6, 0.8)^T + 120(-0.8, 0.6)^T = (246 - 96,\; 328 + 72)^T = (150, 400)^T\) ✓ ได้ \(\vec{y}\) ตัวเดิมพอดี</li>
+        </ol>
+        <div class="verify"><span class="lbl">เห็นไหมว่า...</span> แอปนำทางที่คุณใช้ทุกวันแปลพิกัดกันตลอดเวลา: ดาวเทียมพูดภาษา "พิกัดโลก" (ละติจูด-ลองจิจูด บนทรงกลมจริง ๆ) แต่ปอดของแอปคือภาษา "ถนนและเลน" ทุกอัปเดตตำแหน่ง 1 วินาที มีการคูณเมทริกซ์เปลี่ยนพิกัดหลายครั้ง — หัวข้อ 3.1 คือเครื่องยนต์เบื้องหลังเสียง "ใน 200 เมตรให้เลี้ยวขวา" ที่คุณได้ยิน และเมื่อฐานหลักตั้งฉากกัน (เหมือนข้อนี้) การหาพิกัดจะเร็วขึ้นเยอะ — เคล็ดลับนี้จะเปิดเผยเต็มรูปแบบในบทที่ 4</div>
       </div>
     </article>
   </section>
