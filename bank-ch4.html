@@ -940,6 +940,293 @@
 
 </section>
 
+<section class="block" id="set-4-3">
+  <h2>แบบฝึกหัด 4.3 — ปัญหากำลังสองน้อยสุด</h2>
+  <p class="page-sub">โจทย์คำต่อคำจากตำรา · คำตอบท้ายบทครบทุกข้อ (เทียบแล้วทุกข้อ)</p>
+  <table class="tbl">
+    <tr><th>ข้อ</th><th>เนื้อหาสั้น</th><th>การ์ด</th></tr>
+    <tr><td>1</td><td>การประมาณที่ดีสุด (best approximation)</td><td><a href="#p-4-3-1ก">ก</a> <a href="#p-4-3-1ข">ข</a></td></tr>
+    <tr><td>2</td><td>ระยะจาก y ถึง H</td><td><a href="#p-4-3-2">ข้อ 2</a></td></tr>
+    <tr><td>3</td><td>ผลเฉลยกำลังสองน้อยสุด (A มีหลักตั้งฉาก)</td><td><a href="#p-4-3-3ก">ก</a> <a href="#p-4-3-3ข">ข</a> <a href="#p-4-3-3ค">ค</a> <a href="#p-4-3-3ง">ง</a></td></tr>
+    <tr><td>4</td><td>LS + ค่าคลาดเคลื่อนกำลังสองน้อยสุด</td><td><a href="#p-4-3-4ก">ก</a> <a href="#p-4-3-4ข">ข</a> <a href="#p-4-3-4ค">ค</a> <a href="#p-4-3-4ง">ง</a></td></tr>
+    <tr><td>5</td><td>เส้นกำลังสองน้อยสุด (แนวข้อสอบ ⑥)</td><td><a href="#p-4-3-5ก">ก</a> <a href="#p-4-3-5ข">ข</a> <a href="#p-4-3-5ค">ค</a> <a href="#p-4-3-5ง">ง</a></td></tr>
+  </table>
+
+  <article class="pr-card" id="p-4-3-1ก" data-pkey="pTB-4-3-1ก">
+    <div class="pr-head"><span class="pr-num">แบบฝึกหัด 4.3 ข้อ 1 (ก)</span><span class="diff">●●○</span><span class="spacer"></span>
+      <label class="pr-done"><input type="checkbox"> ทำสำเร็จแล้ว</label></div>
+    <div class="pr-body">
+      <p>จงหาการประมาณที่ดีสุดของ \(\vec{y}\) โดยเวกเตอร์ใน \(H = \mathrm{Span}\{\vec{u}_1, \vec{u}_2\}\) เมื่อ \(\vec{u}_1 = \begin{bmatrix} 3\\ 1\\ -1\\ 1 \end{bmatrix}, \vec{u}_2 = \begin{bmatrix} 1\\ -1\\ 1\\ -1 \end{bmatrix}, \vec{y} = \begin{bmatrix} 3\\ 1\\ 5\\ 1 \end{bmatrix}\)</p>
+      <p class="tagline">มีบทเรียนประกอบ: <a href="ch4-3.html">หน้า 4.3</a></p>
+    </div>
+    <details class="hint"><summary>คำใบ้</summary><div class="hint-body">เช็กก่อนว่า \(\vec{u}_1\cdot\vec{u}_2 = 0\) → ใช้สูตรฉายบนฐานหลักเชิงตั้งฉากได้เลย</div></details>
+    <details class="sol"><summary>แนวคิดและเฉลยแบบละเอียด</summary><div class="sol-body">
+      <p><strong>แนวคิด:</strong> การประมาณที่ดีสุด = การฉาย \(\hat{\vec{y}} = \mathrm{proj}_H\vec{y}\) — จุดบน H ที่ใกล้ y ที่สุด (ทฤษฎีบท 4.3.1)</p>
+      <ol class="steps">
+        <li><span class="step-t">เช็กฐานหลักเชิงตั้งฉาก</span> \(\vec{u}_1\cdot\vec{u}_2 = 3-1-1-1 = 0\) ✓ → ใช้สูตรเทอมต่อเทอมได้ทันที</li>
+        <li><span class="step-t">สัมประสิทธิ์เทอมแรก</span> \(\vec{y}\cdot\vec{u}_1 = 9+1-5+1 = 6\), \(\lVert\vec{u}_1\rVert^2 = 12\) → \(\frac{6}{12} = \frac{1}{2}\)</li>
+        <li><span class="step-t">สัมประสิทธิ์เทอมที่สอง</span> \(\vec{y}\cdot\vec{u}_2 = 3-1+5-1 = 6\), \(\lVert\vec{u}_2\rVert^2 = 4\) → \(\frac{6}{4} = \frac{3}{2}\)</li>
+        <li><span class="step-t">ประกอบ</span> \(\hat{\vec{y}} = \frac{1}{2}(3,1,-1,1) + \frac{3}{2}(1,-1,1,-1) = \begin{bmatrix} 3/2+3/2\\ 1/2-3/2\\ -1/2+3/2\\ 1/2-3/2 \end{bmatrix} = \begin{bmatrix} 3\\ -1\\ 1\\ -1 \end{bmatrix}\)</li>
+        <li><span class="step-t">ตรวจคำตอบ</span> \(\vec{y}-\hat{\vec{y}} = (0,2,4,0)\) จุดกับ \(\vec{u}_1\): \(0+2-4+0 = 0\) ✓ กับ \(\vec{u}_2\): \(0-2+4+0 = 0\) ✓ — <strong>สรุป:</strong> \(\hat{\vec{y}} = \frac{1}{2}\vec{u}_1 + \frac{3}{2}\vec{u}_2 = (3,-1,1,-1)\)</li>
+      </ol>
+    </div></details>
+  </article>
+
+  <article class="pr-card" id="p-4-3-1ข" data-pkey="pTB-4-3-1ข">
+    <div class="pr-head"><span class="pr-num">แบบฝึกหัด 4.3 ข้อ 1 (ข)</span><span class="diff">●●○</span><span class="spacer"></span>
+      <label class="pr-done"><input type="checkbox"> ทำสำเร็จแล้ว</label></div>
+    <div class="pr-body">
+      <p>จงหาการประมาณที่ดีสุดของ \(\vec{y}\) โดยเวกเตอร์ใน \(H = \mathrm{Span}\{\vec{u}_1, \vec{u}_2\}\) เมื่อ \(\vec{u}_1 = \begin{bmatrix} 1\\ -2\\ -1\\ 2 \end{bmatrix}, \vec{u}_2 = \begin{bmatrix} -4\\ 1\\ 0\\ 3 \end{bmatrix}, \vec{y} = \begin{bmatrix} 3\\ -1\\ 1\\ 13 \end{bmatrix}\)</p>
+      <p class="tagline">มีบทเรียนประกอบ: <a href="ch4-3.html">หน้า 4.3</a></p>
+    </div>
+    <details class="hint"><summary>คำใบ้</summary><div class="hint-body">สูตรเดิม — \(\vec{y}\cdot\vec{u}_2\) จะได้พอดีกับ \(\lVert\vec{u}_2\rVert^2\) ทำให้สัมประสิทธิ์สวย</div></details>
+    <details class="sol"><summary>แนวคิดและเฉลยแบบละเอียด</summary><div class="sol-body">
+      <p><strong>แนวคิด:</strong> เหมือน (ก) — เช็กตั้งฉาก แล้วหาสองสัมประสิทธิ์</p>
+      <ol class="steps">
+        <li><span class="step-t">เช็กฐานหลักเชิงตั้งฉาก</span> \(\vec{u}_1\cdot\vec{u}_2 = -4-2+0+6 = 0\) ✓</li>
+        <li><span class="step-t">สัมประสิทธิ์เทอมแรก</span> \(\vec{y}\cdot\vec{u}_1 = 3+2-1+26 = 30\), \(\lVert\vec{u}_1\rVert^2 = 10\) → \(\frac{30}{10} = 3\)</li>
+        <li><span class="step-t">สัมประสิทธิ์เทอมที่สอง</span> \(\vec{y}\cdot\vec{u}_2 = -12-1+0+39 = 26\), \(\lVert\vec{u}_2\rVert^2 = 26\) → \(1\)</li>
+        <li><span class="step-t">ประกอบ</span> \(\hat{\vec{y}} = 3(1,-2,-1,2) + (-4,1,0,3) = (-1, -5, -3, 9)\)</li>
+        <li><span class="step-t">ตรวจคำตอบ</span> \(\vec{y}-\hat{\vec{y}} = (4, 4, 4, 4)\) ตั้งฉากกับ \(\vec{u}_1\) (\(4-8-4+8 = 0\) ✓) และ \(\vec{u}_2\) (\(-16+4+0+12 = 0\) ✓) — <strong>สรุป:</strong> \(\hat{\vec{y}} = 3\vec{u}_1 + \vec{u}_2 = (-1,-5,-3,9)\) (ตรงคำตอบท้ายบท)</li>
+      </ol>
+    </div></details>
+  </article>
+
+  <article class="pr-card" id="p-4-3-2" data-pkey="pTB-4-3-2">
+    <div class="pr-head"><span class="pr-num">แบบฝึกหัด 4.3 ข้อ 2</span><span class="tag exam">🎯 แนว ①</span><span class="diff">●●○</span><span class="spacer"></span>
+      <label class="pr-done"><input type="checkbox"> ทำสำเร็จแล้ว</label></div>
+    <div class="pr-body">
+      <p>จงหาระยะทางจาก \(\vec{y} = \begin{bmatrix} 5\\ -9\\ 5 \end{bmatrix}\) ไปยังปริภูมิย่อย \(H = \mathrm{Span}\left\{\begin{bmatrix} -3\\ -5\\ 1 \end{bmatrix}, \begin{bmatrix} -3\\ 2\\ 1 \end{bmatrix}\right\}\)</p>
+      <p class="tagline">มีบทเรียนประกอบ: <a href="ch4-3.html">หน้า 4.3</a></p>
+    </div>
+    <details class="hint"><summary>คำใบ้</summary><div class="hint-body">ระยะ = \(\lVert\vec{y}-\hat{\vec{y}}\rVert\) โดย \(\hat{\vec{y}} = \mathrm{proj}_H\vec{y}\) — เช็กฐานหลักตั้งฉากกันก่อน</div></details>
+    <details class="sol"><summary>แนวคิดและเฉลยแบบละเอียด</summary><div class="sol-body">
+      <p><strong>แนวคิด:</strong> จุดบน H ที่ใกล้ y ที่สุดคือฉาย \(\hat{\vec{y}}\) — ระยะ = ความยาวของส่วนเติมเต็มเชิงตั้งฉาก (โครงเดียวกับแนวข้อสอบ ① หาระยะจากจุดถึงระนาบ)</p>
+      <ol class="steps">
+        <li><span class="step-t">เช็กฐานหลักเชิงตั้งฉาก</span> \(\vec{u}_1\cdot\vec{u}_2 = 9-10+1 = 0\) ✓ ใช้สูตรตรง</li>
+        <li><span class="step-t">ฉายตาม u₁</span> \(\vec{y}\cdot\vec{u}_1 = -15+45+5 = 35\), \(\lVert\vec{u}_1\rVert^2 = 35\) → \(1\) → เทอม \(= \vec{u}_1\)</li>
+        <li><span class="step-t">ฉายตาม u₂</span> \(\vec{y}\cdot\vec{u}_2 = -15-18+5 = -28\), \(\lVert\vec{u}_2\rVert^2 = 14\) → \(-2\) → เทอม \(= -2\vec{u}_2\)</li>
+        <li><span class="step-t">ประกอบแล้วหาส่วนต่าง</span> \(\hat{\vec{y}} = \vec{u}_1 - 2\vec{u}_2 = (3, -9, -1)\); \(\vec{z} = \vec{y}-\hat{\vec{y}} = (2, 0, 6)\)</li>
+        <li><span class="step-t">ตรวจคำตอบ</span> \(\lVert\vec{z}\rVert = \sqrt{40} = 2\sqrt{10}\) ✓ (ตรงคำตอบท้ายบท) และ \(\vec{z}\cdot\vec{u}_1 = -6+0+6 = 0\) ✓ — <strong>สรุป:</strong> ระยะทาง = \(2\sqrt{10}\)</li>
+      </ol>
+    </div></details>
+  </article>
+
+  <article class="pr-card" id="p-4-3-3ก" data-pkey="pTB-4-3-3ก">
+    <div class="pr-head"><span class="pr-num">แบบฝึกหัด 4.3 ข้อ 3 (ก)</span><span class="diff">●●○</span><span class="spacer"></span>
+      <label class="pr-done"><input type="checkbox"> ทำสำเร็จแล้ว</label></div>
+    <div class="pr-body">
+      <p>จงหาผลเฉลยกำลังสองน้อยสุดของระบบเชิงเส้น \(A\vec{x} = \vec{b}\) เมื่อ A เป็นเมทริกซ์เชิงตั้งฉากในแต่ละข้อต่อไปนี้: \(A = \begin{bmatrix} 1 & 5\\ 3 & 1\\ -2 & 4 \end{bmatrix}\), \(\vec{b} = \begin{bmatrix} 4\\ -2\\ -3 \end{bmatrix}\)</p>
+    </div>
+    <details class="hint"><summary>คำใบ้</summary><div class="hint-body">"A เชิงตั้งฉาก" = หลักของ A ตั้งฉากกัน → \(\hat{\vec{x}} = \left(\frac{\vec{b}\cdot\vec{a}_1}{\lVert\vec{a}_1\rVert^2}, \frac{\vec{b}\cdot\vec{a}_2}{\lVert\vec{a}_2\rVert^2}\right)\) ตรง ๆ ไม่ต้องแก้สมการปรกติ</div></details>
+    <details class="sol"><summary>แนวคิดและเฉลยแบบละเอียด</summary><div class="sol-body">
+      <p><strong>แนวคิด:</strong> ผลเฉลย LS คือพิกัดของ \(\hat{\vec{b}} = \mathrm{proj}_{\mathrm{Col}A}\vec{b}\) บนหลักของ A — หลักตั้งฉากกัน สูตรอิสราทีละหลัก</p>
+      <ol class="steps">
+        <li><span class="step-t">เช็กหลักตั้งฉาก</span> \(\vec{a}_1\cdot\vec{a}_2 = 5+3-8 = 0\) ✓</li>
+        <li><span class="step-t">สัมประสิทธิ์หลักที่ 1</span> \(\vec{b}\cdot\vec{a}_1 = 4-6+6 = 4\), \(\lVert\vec{a}_1\rVert^2 = 14\) → \(\hat{x}_1 = \frac{2}{7}\)</li>
+        <li><span class="step-t">สัมประสิทธิ์หลักที่ 2</span> \(\vec{b}\cdot\vec{a}_2 = 20-2-12 = 6\), \(\lVert\vec{a}_2\rVert^2 = 42\) → \(\hat{x}_2 = \frac{1}{7}\)</li>
+        <li><span class="step-t">ตรวจคำตอบ</span> \(A^TA = \mathrm{diag}(14, 42)\), \(A^T\vec{b} = (4, 6)\) → เหมือนกัน ✓ — <strong>สรุป:</strong> \(\hat{\vec{x}} = \left(\frac{2}{7}, \frac{1}{7}\right)\) (ตรงคำตอบท้ายบท)</li>
+      </ol>
+    </div></details>
+  </article>
+
+  <article class="pr-card" id="p-4-3-3ข" data-pkey="pTB-4-3-3ข">
+    <div class="pr-head"><span class="pr-num">แบบฝึกหัด 4.3 ข้อ 3 (ข)</span><span class="diff">●●○</span><span class="spacer"></span>
+      <label class="pr-done"><input type="checkbox"> ทำสำเร็จแล้ว</label></div>
+    <div class="pr-body">
+      <p>จงหาผลเฉลยกำลังสองน้อยสุดของ \(A\vec{x} = \vec{b}\) เมื่อ \(A = \begin{bmatrix} 1 & 3\\ -2 & 0\\ 3 & -1 \end{bmatrix}\), \(\vec{b} = \begin{bmatrix} 2\\ -1\\ 4 \end{bmatrix}\)</p>
+    </div>
+    <details class="hint"><summary>คำใบ้</summary><div class="hint-body">หลักตั้งฉาก: \(3+0-3 = 0\) ✓ — สูตรเดิม</div></details>
+    <details class="sol"><summary>แนวคิดและเฉลยแบบละเอียด</summary><div class="sol-body">
+      <p><strong>แนวคิด:</strong> เหมือน (ก) — ทีละหลัก</p>
+      <ol class="steps">
+        <li><span class="step-t">สัมประสิทธิ์หลักที่ 1</span> \(\vec{b}\cdot\vec{a}_1 = 2+2+12 = 16\), \(\lVert\vec{a}_1\rVert^2 = 14\) → \(\hat{x}_1 = \frac{8}{7}\)</li>
+        <li><span class="step-t">สัมประสิทธิ์หลักที่ 2</span> \(\vec{b}\cdot\vec{a}_2 = 6+0-4 = 2\), \(\lVert\vec{a}_2\rVert^2 = 10\) → \(\hat{x}_2 = \frac{1}{5}\)</li>
+        <li><span class="step-t">ตรวจคำตอบ</span> \(A^T\vec{b} = (16, 2)\), \(A^TA = \mathrm{diag}(14, 10)\) ✓ — <strong>สรุป:</strong> \(\hat{\vec{x}} = \left(\frac{8}{7}, \frac{1}{5}\right)\) (ตรงคำตอบท้ายบท)</li>
+      </ol>
+    </div></details>
+  </article>
+
+  <article class="pr-card" id="p-4-3-3ค" data-pkey="pTB-4-3-3ค">
+    <div class="pr-head"><span class="pr-num">แบบฝึกหัด 4.3 ข้อ 3 (ค)</span><span class="diff">●●●</span><span class="spacer"></span>
+      <label class="pr-done"><input type="checkbox"> ทำสำเร็จแล้ว</label></div>
+    <div class="pr-body">
+      <p>จงหาผลเฉลยกำลังสองน้อยสุดของ \(A\vec{x} = \vec{b}\) เมื่อ \(A = \begin{bmatrix} 1 & 1 & 0\\ 1 & 0 & -1\\ 0 & 1 & 1\\ -1 & 1 & -1 \end{bmatrix}\), \(\vec{b} = \begin{bmatrix} 2\\ 5\\ 6\\ 6 \end{bmatrix}\)</p>
+    </div>
+    <details class="hint"><summary>คำใบ้</summary><div class="hint-body">3 หลัก 4 แถว — เช็กตั้งฉาก 3 คู่ (ทุกคู่ = 0) และทุก \(\lVert\vec{a}_i\rVert^2 = 3\) พอดี</div></details>
+    <details class="sol"><summary>แนวคิดและเฉลยแบบละเอียด</summary><div class="sol-body">
+      <p><strong>แนวคิด:</strong> สูตรเดิมขยาย 3 เทอม — จุดสวย: ตัวหารทุกตัวเท่ากับ 3</p>
+      <ol class="steps">
+        <li><span class="step-t">เช็กหลักตั้งฉาก</span> \(\vec{a}_1\cdot\vec{a}_2 = 1+0+0-1 = 0\) ✓, \(\vec{a}_1\cdot\vec{a}_3 = 0-1+0+1 = 0\) ✓, \(\vec{a}_2\cdot\vec{a}_3 = 0+0+1-1 = 0\) ✓</li>
+        <li><span class="step-t">สัมประสิทธิ์ 3 ตัว</span> \(\vec{b}\cdot\vec{a}_1 = 2+5+0-6 = 1\) → \(\frac{1}{3}\); \(\vec{b}\cdot\vec{a}_2 = 2+0+6+6 = 14\) → \(\frac{14}{3}\); \(\vec{b}\cdot\vec{a}_3 = 0-5+6-6 = -5\) → \(-\frac{5}{3}\)</li>
+        <li><span class="step-t">ตรวจคำตอบ</span> residual \(\vec{b} - \hat{\vec{b}}\) ตั้งฉากกับหลักทุกตัว (ตรวจกับ \(\vec{a}_1\): จุดแล้ว = 0 ✓) — <strong>สรุป:</strong> \(\hat{\vec{x}} = \left(\frac{1}{3}, \frac{14}{3}, -\frac{5}{3}\right)\) (ตรงคำตอบท้ายบท)</li>
+      </ol>
+    </div></details>
+  </article>
+
+  <article class="pr-card" id="p-4-3-3ง" data-pkey="pTB-4-3-3ง">
+    <div class="pr-head"><span class="pr-num">แบบฝึกหัด 4.3 ข้อ 3 (ง)</span><span class="diff">●●●</span><span class="spacer"></span>
+      <label class="pr-done"><input type="checkbox"> ทำสำเร็จแล้ว</label></div>
+    <div class="pr-body">
+      <p>จงหาผลเฉลยกำลังสองน้อยสุดของ \(A\vec{x} = \vec{b}\) เมื่อ \(A = \begin{bmatrix} 4 & 0 & 1\\ 1 & -5 & 1\\ 6 & 1 & 0\\ 1 & -1 & -5 \end{bmatrix}\), \(\vec{b} = \begin{bmatrix} 9\\ 0\\ 0\\ 0 \end{bmatrix}\)</p>
+    </div>
+    <details class="hint"><summary>คำใบ้</summary><div class="hint-body">b มีเฉพาะ 9 ที่แถวแรก → ผลคูณจุดใช้แค่ช่องแรกของหลัก: 4, 0, 1</div></details>
+    <details class="sol"><summary>แนวคิดและเฉลยแบบละเอียด</summary><div class="sol-body">
+      <p><strong>แนวคิด:</strong> สูตรเดิม 3 เทอม — โจทย์ตั้งใจให้ b = 9e₁ ทำให้คำนวณเบา</p>
+      <ol class="steps">
+        <li><span class="step-t">เช็กหลักตั้งฉาก</span> \(\vec{a}_1\cdot\vec{a}_2 = 0-5+6-1 = 0\) ✓, \(\vec{a}_1\cdot\vec{a}_3 = 4+1+0-5 = 0\) ✓, \(\vec{a}_2\cdot\vec{a}_3 = 0-5+0+5 = 0\) ✓</li>
+        <li><span class="step-t">สัมประสิทธิ์ 3 ตัว</span> \(\vec{b}\cdot\vec{a}_1 = 36\), \(\lVert\vec{a}_1\rVert^2 = 54\) → \(\hat{x}_1 = \frac{2}{3}\); \(\vec{b}\cdot\vec{a}_2 = 0\) → \(\hat{x}_2 = 0\); \(\vec{b}\cdot\vec{a}_3 = 9\), \(\lVert\vec{a}_3\rVert^2 = 27\) → \(\hat{x}_3 = \frac{1}{3}\)</li>
+        <li><span class="step-t">ตรวจคำตอบ</span> residual ตั้งฉากกับหลักทุกตัว (จุดกับ \(\vec{a}_1\): \((9,0,0,0) - \hat{\vec{b}}\) → 0 ✓) — <strong>สรุป:</strong> \(\hat{\vec{x}} = \left(\frac{2}{3}, 0, \frac{1}{3}\right)\)</li>
+      </ol>
+    </div></details>
+  </article>
+
+  <article class="pr-card" id="p-4-3-4ก" data-pkey="pTB-4-3-4ก">
+    <div class="pr-head"><span class="pr-num">แบบฝึกหัด 4.3 ข้อ 4 (ก)</span><span class="tag exam">🎯 แนว ⑥</span><span class="diff">●●○</span><span class="spacer"></span>
+      <label class="pr-done"><input type="checkbox"> ทำสำเร็จแล้ว</label></div>
+    <div class="pr-body">
+      <p>จงหาผลเฉลยกำลังสองน้อยสุดของระบบเชิงเส้น \(A\vec{x} = \vec{b}\) พร้อมทั้งหาค่าคลาดเคลื่อนกำลังสองน้อยสุดของการประมาณ เมื่อ \(A = \begin{bmatrix} 2 & 1\\ -2 & 0\\ 2 & 3 \end{bmatrix}\), \(\vec{b} = \begin{bmatrix} -5\\ 8\\ 1 \end{bmatrix}\)</p>
+    </div>
+    <details class="hint"><summary>คำใบ้</summary><div class="hint-body">หลักไม่ตั้งฉากกัน → แก้สมการปรกติ \(A^TA\hat{\vec{x}} = A^T\vec{b}\) แล้วค่าคลาดเคลื่อน = \(\lVert\vec{b}-A\hat{\vec{x}}\rVert^2\)</div></details>
+    <details class="sol"><summary>แนวคิดและเฉลยแบบละเอียด</summary><div class="sol-body">
+      <p><strong>แนวคิด:</strong> ขั้นมาตรฐาน least squares ทั่วไป: สมการปรกติ → แก้ → แทนกลับหา residual</p>
+      <ol class="steps">
+        <li><span class="step-t">สร้าง AᵀA</span> \(\vec{a}_1 = (2,-2,2)\), \(\vec{a}_2 = (1,0,3)\): \(A^TA = \begin{bmatrix} 12 & 8\\ 8 & 10 \end{bmatrix}\) (เช่น \(a_1\cdot a_2 = 2-0+6 = 8\))</li>
+        <li><span class="step-t">แก้สมการปรกติ</span> \(A^T\vec{b} = (-24, -2)\) det \(= 56\) → \(\hat{x}_1 = \frac{(-24)(10)-(8)(-2)}{56} = -4\), \(\hat{x}_2 = \frac{(12)(-2)-(8)(-24)}{56} = 3\)</li>
+        <li><span class="step-t">หา residual</span> \(A\hat{\vec{x}} = (-5, 8, 1) = \vec{b}\)! residual = \(\vec{0}\) → ค่าคลาดเคลื่อน = 0</li>
+        <li><span class="step-t">ตรวจคำตอบ</span> แปลว่าระบบมีผลเฉลยจริงอยู่แล้ว (ผ่านเป๊ะ) — LS solution = ผลเฉลยจริง ✓ — <strong>สรุป:</strong> \(\hat{\vec{x}} = (-4,3)\), ค่าคลาดเคลื่อน² = \(0\) (ตรงคำตอบท้ายบท)</li>
+      </ol>
+    </div></details>
+  </article>
+
+  <article class="pr-card" id="p-4-3-4ข" data-pkey="pTB-4-3-4ข">
+    <div class="pr-head"><span class="pr-num">แบบฝึกหัด 4.3 ข้อ 4 (ข)</span><span class="tag exam">🎯 แนว ⑥</span><span class="diff">●●○</span><span class="spacer"></span>
+      <label class="pr-done"><input type="checkbox"> ทำสำเร็จแล้ว</label></div>
+    <div class="pr-body">
+      <p>จงหาผลเฉลยกำลังสองน้อยสุดพร้อมค่าคลาดเคลื่อนกำลังสองน้อยสุด เมื่อ \(A = \begin{bmatrix} 1 & -2\\ 2 & -1\\ 0 & 1 \end{bmatrix}\), \(\vec{b} = \begin{bmatrix} 3\\ -1\\ 5 \end{bmatrix}\)</p>
+    </div>
+    <details class="hint"><summary>คำใบ้</summary><div class="hint-body">สมการปรกติ: \(A^TA = \begin{bmatrix} 5 & -4\\ -4 & 6 \end{bmatrix}\), \(A^T\vec{b} = (1, 0)\)</div></details>
+    <details class="sol"><summary>แนวคิดและเฉลยแบบละเอียด</summary><div class="sol-body">
+      <p><strong>แนวคิด:</strong> ขั้นมาตรฐานเดิม — ระวังสัมประสิทธิ์ติดลบใน AᵀA</p>
+      <ol class="steps">
+        <li><span class="step-t">สมการปรกติ</span> \(A^TA = \begin{bmatrix} 5 & -4\\ -4 & 6 \end{bmatrix}\), \(A^T\vec{b} = (1, 0)\) → \(5x_1-4x_2 = 1\), \(-4x_1+6x_2 = 0\)</li>
+        <li><span class="step-t">แก้</span> \(x_1 = \frac{3}{2}x_2\) → \(\frac{7}{2}x_2 = 1\) → \(\hat{x}_2 = \frac{2}{7}\), \(\hat{x}_1 = \frac{3}{7}\)</li>
+        <li><span class="step-t">residual + ค่าคลาดเคลื่อน</span> \(A\hat{\vec{x}} = \frac{1}{7}(-1, 4, 2)\); \(\vec{b}-A\hat{\vec{x}} = \frac{11}{7}(2, -1, 3)\); ค่าคลาดเคลื่อน² \(= \frac{121}{49}\cdot 14 = \frac{242}{7}\)</li>
+        <li><span class="step-t">ตรวจคำตอบ</span> residual ตั้งฉากกับหลักทั้งสอง (\(22-22 = 0\) ✓, \(-44+11+33 = 0\) ✓) — <strong>สรุป:</strong> \(\hat{\vec{x}} = \left(\frac{3}{7}, \frac{2}{7}\right)\), ค่าคลาดเคลื่อน² = \(\frac{242}{7}\)</li>
+      </ol>
+    </div></details>
+  </article>
+
+  <article class="pr-card" id="p-4-3-4ค" data-pkey="pTB-4-3-4ค">
+    <div class="pr-head"><span class="pr-num">แบบฝึกหัด 4.3 ข้อ 4 (ค)</span><span class="tag exam">🎯 แนว ⑥</span><span class="diff">●●●</span><span class="spacer"></span>
+      <label class="pr-done"><input type="checkbox"> ทำสำเร็จแล้ว</label></div>
+    <div class="pr-body">
+      <p>จงหาผลเฉลยกำลังสองน้อยสุดพร้อมค่าคลาดเคลื่อนกำลังสองน้อยสุด เมื่อ \(A = \begin{bmatrix} 1 & 1 & 1\\ 1 & 0 & 1\\ 1 & 1 & 0\\ 0 & 1 & 1 \end{bmatrix}\), \(\vec{b} = \begin{bmatrix} 0\\ 1\\ -1\\ -2 \end{bmatrix}\)</p>
+    </div>
+    <details class="hint"><summary>คำใบ้</summary><div class="hint-body">เมทริกซ์สมมาตรสวย: \(A^TA = \begin{bmatrix} 3 & 2 & 2\\ 2 & 3 & 2\\ 2 & 2 & 3 \end{bmatrix}\) — กลอุบาย: ลบสมการคู่อันดับกัน</div></details>
+    <details class="sol"><summary>แนวคิดและเฉลยแบบละเอียด</summary><div class="sol-body">
+      <p><strong>แนวคิด:</strong> 3 ตัวแปร — ลบสมการทำให้ระบบเป็นเชิงเส้นง่าย ๆ ทั้งที่ดูหนา</p>
+      <ol class="steps">
+        <li><span class="step-t">สมการปรกติ</span> \(A^T\vec{b} = (0, -3, -1)\) → 3 สมการ: \(3x_1+2x_2+2x_3 = 0\); \(2x_1+3x_2+2x_3 = -3\); \(2x_1+2x_2+3x_3 = -1\)</li>
+        <li><span class="step-t">ลบสมการคู่กัน</span> (1)−(2): \(x_1-x_2 = 3\); (1)−(3): \(x_1-x_3 = 1\) → \(x_2 = x_1-3\), \(x_3 = x_1-1\)</li>
+        <li><span class="step-t">แทนสมการแรก</span> \(3x_1+2(x_1-3)+2(x_1-1) = 0\) → \(7x_1 = 8\) → \(\hat{\vec{x}} = \left(\frac{8}{7}, -\frac{13}{7}, \frac{1}{7}\right)\)</li>
+        <li><span class="step-t">residual + ค่าคลาดเคลื่อน</span> \(A\hat{\vec{x}} = \frac{1}{7}(-4, 9, -5, -12)\); \(\vec{b}-A\hat{\vec{x}} = \frac{1}{7}(4, -2, -2, -2)\); ค่าคลาดเคลื่อน² \(= \frac{28}{49} = \frac{4}{7}\)</li>
+        <li><span class="step-t">ตรวจคำตอบ</span> residual ตั้งฉากกับ \(\vec{a}_1\): \(\frac{1}{7}(4-2-2) = 0\) ✓ — <strong>สรุป:</strong> \(\hat{\vec{x}} = \left(\frac{8}{7}, -\frac{13}{7}, \frac{1}{7}\right)\), ค่าคลาดเคลื่อน² = \(\frac{4}{7}\) (ตรงคำตอบท้ายบท)</li>
+      </ol>
+    </div></details>
+  </article>
+
+  <article class="pr-card" id="p-4-3-4ง" data-pkey="pTB-4-3-4ง">
+    <div class="pr-head"><span class="pr-num">แบบฝึกหัด 4.3 ข้อ 4 (ง)</span><span class="tag exam">🎯 แนว ⑥</span><span class="diff">●●●</span><span class="spacer"></span>
+      <label class="pr-done"><input type="checkbox"> ทำสำเร็จแล้ว</label></div>
+    <div class="pr-body">
+      <p>จงหาผลเฉลยกำลังสองน้อยสุดพร้อมค่าคลาดเคลื่อนกำลังสองน้อยสุด เมื่อ \(A = \begin{bmatrix} 1 & 1 & 0\\ 1 & 1 & 0\\ 1 & 1 & 0\\ 1 & 0 & 1\\ 1 & 0 & 1\\ 1 & 0 & 1 \end{bmatrix}\), \(\vec{b} = \begin{bmatrix} 7\\ 2\\ 3\\ 6\\ 5\\ 4 \end{bmatrix}\)</p>
+    </div>
+    <details class="hint"><summary>คำใบ้</summary><div class="hint-body">หลักที่ 3 = หลักที่ 1 − หลักที่ 2 → rank 2 ใน 3 ตัวแปร → LS solution อนันต์ชุด ตอบเป็นพารามิเตอร์</div></details>
+    <details class="sol"><summary>แนวคิดและเฉลยแบบละเอียด</summary><div class="sol-body">
+      <p><strong>แนวคิด:</strong> โจทย์พิเศษ: A ไม่เต็มอันดับ → AᵀA เอกฐาน → LS solution มีอนันต์ชุด (residual เท่ากันหมด) ตอบเป็นเวกเตอร์ + ตัวแปรเสรี</p>
+      <ol class="steps">
+        <li><span class="step-t">สมการปรกติ</span> \(A^TA = \begin{bmatrix} 6 & 3 & 3\\ 3 & 3 & 0\\ 3 & 0 & 3 \end{bmatrix}\), \(A^T\vec{b} = (27, 12, 15)\)</li>
+        <li><span class="step-t">แก้</span> สมการ 2: \(x_1+x_2 = 4\); สมการ 3: \(x_1+x_3 = 5\); สมการ 1 แทนแล้วได้ \(27 = 27\) จริงเสมอ → ให้ \(x_1 = t\): \(\hat{\vec{x}} = (t, 4-t, 5-t)\)</li>
+        <li><span class="step-t">รูปคำตอบท้ายบท</span> \(\hat{\vec{x}} = (0,4,5) + t(1,-1,-1)\) หรือจุด \(t=-1\): \(\hat{\vec{x}} = (-1, 5, 6) + t\,(1, -1, -1)\) — ทุก t ให้ residual เดียวกัน</li>
+        <li><span class="step-t">ค่าคลาดเคลื่อน</span> \(A\hat{\vec{x}}\) ไม่ขึ้นกับ t: แถวแรก 3 แถวได้ 4, แถวหลัง 3 แถวได้ 5 → \(\vec{b}-A\hat{\vec{x}} = (3, -2, -1, 1, 0, -1)\) → ค่าคลาดเคลื่อน² \(= 16\) (ระยะ = 4)</li>
+        <li><span class="step-t">ตรวจคำตอบ</span> ที่ \(t=-1\): \(\hat{\vec{x}} = (-1,5,6)\) ตรงรูปคำตอบท้ายบท \((-1,5,6)+x_3(1,-1,-1)\) ✓ — <strong>สรุป:</strong> \(\hat{\vec{x}} = (-1,5,6) + t(1,-1,-1)\), ค่าคลาดเคลื่อน² = 16</li>
+      </ol>
+    </div></details>
+  </article>
+
+  <article class="pr-card" id="p-4-3-5ก" data-pkey="pTB-4-3-5ก">
+    <div class="pr-head"><span class="pr-num">แบบฝึกหัด 4.3 ข้อ 5 (ก)</span><span class="tag exam">🎯 แนว ⑥</span><span class="diff">●●○</span><span class="spacer"></span>
+      <label class="pr-done"><input type="checkbox"> ทำสำเร็จแล้ว</label></div>
+    <div class="pr-body">
+      <p>จงหาเส้นกำลังสองน้อยสุดของจุดข้อมูล \((1, 0), (2, 1), (4, 2), (5, 3)\)</p>
+      <p class="tagline">มีบทเรียนประกอบ: <a href="ch4-3.html">หน้า 4.3</a></p>
+    </div>
+    <details class="hint"><summary>คำใบ้</summary><div class="hint-body">เส้น \(y = \beta_0+\beta_1x\) ↔ LS ที่มีแถวที่ \(i\) ของ X คือ \((1, x_i)\) และ \(\vec{b}\) = ค่า y</div></details>
+    <details class="sol"><summary>แนวคิดและเฉลยแบบละเอียด</summary><div class="sol-body">
+      <p><strong>แนวคิด:</strong> "เส้น LS" = ผลเฉลยกำลังสองน้อยสุดของระบบที่ไม่มีทางตรงเป๊ะ (นี่คือโครงเดียวกับแนวข้อสอบ ⑥ บทความ)</p>
+      <ol class="steps">
+        <li><span class="step-t">สร้างระบบ</span> \(X = \begin{bmatrix} 1 & 1\\ 1 & 2\\ 1 & 4\\ 1 & 5 \end{bmatrix}\), \(\vec{y} = (0, 1, 2, 3)\) — แต่ละจุดให้สมการ \(\beta_0+\beta_1x_i = y_i\)</li>
+        <li><span class="step-t">สมการปรกติ</span> \(X^TX = \begin{bmatrix} 4 & 12\\ 12 & 46 \end{bmatrix}\) (\(\sum x^2 = 46\)), \(X^T\vec{y} = (6, 25)\) (\(\sum xy = 25\))</li>
+        <li><span class="step-t">แก้</span> det \(= 40\) → \(\beta_1 = \frac{4(25)-12(6)}{40} = 0.7\), \(\beta_0 = \frac{46(6)-12(25)}{40} = -0.6\)</li>
+        <li><span class="step-t">ตรวจคำตอบ</span> ทำนายที่ x = 1, 2, 4, 5 ได้ 0.1, 0.8, 2.2, 2.9 เทียบ 0, 1, 2, 3 — ใกล้และสมดุล ✓ — <strong>สรุป:</strong> \(\vec{\beta} = (-0.6, 0.7)\), เส้น \(y = -0.6+0.7x\) (ตรงคำตอบท้ายบท)</li>
+      </ol>
+    </div></details>
+  </article>
+
+  <article class="pr-card" id="p-4-3-5ข" data-pkey="pTB-4-3-5ข">
+    <div class="pr-head"><span class="pr-num">แบบฝึกหัด 4.3 ข้อ 5 (ข)</span><span class="tag exam">🎯 แนว ⑥</span><span class="diff">●●○</span><span class="spacer"></span>
+      <label class="pr-done"><input type="checkbox"> ทำสำเร็จแล้ว</label></div>
+    <div class="pr-body">
+      <p>จงหาเส้นกำลังสองน้อยสุดของจุดข้อมูล \((-3, 8), (-1, 5), (1, 3), (3, 0)\)</p>
+    </div>
+    <details class="hint"><summary>คำใบ้</summary><div class="hint-body">\(\sum x_i = 0\) พอดี → \(X^TX\) เป็นทแยงมุม → แก้แยกช่องได้เลย</div></details>
+    <details class="sol"><summary>แนวคิดและเฉลยแบบละเอียด</summary><div class="sol-body">
+      <p><strong>แนวคิด:</strong> สูตรเดิม — เมื่อ x สมดุลรอบศูนย์ ระบบแยกอิสรา</p>
+      <ol class="steps">
+        <li><span class="step-t">สมการปรกติ</span> \(\sum x = 0\), \(\sum x^2 = 20\), \(\sum y = 16\), \(\sum xy = -26\) → \(X^TX = \begin{bmatrix} 4 & 0\\ 0 & 20 \end{bmatrix}\), \(X^T\vec{y} = (16, -26)\)</li>
+        <li><span class="step-t">แก้</span> \(\beta_0 = \frac{16}{4} = 4\), \(\beta_1 = \frac{-26}{20} = -1.3\) — ทแยงจึงแก้แยกช่อง ไม่ต้อง inverse</li>
+        <li><span class="step-t">ตรวจคำตอบ</span> เส้น \(y = 4-1.3x\): ที่ x = −3 ได้ 7.9 (จริง 8), ที่ x = 3 ได้ 0.1 (จริง 0) ✓ — <strong>สรุป:</strong> \(\vec{\beta} = (4, -1.3)\), เส้น \(y = 4-1.3x\) (ตรงคำตอบท้ายบท)</li>
+      </ol>
+    </div></details>
+  </article>
+
+  <article class="pr-card" id="p-4-3-5ค" data-pkey="pTB-4-3-5ค">
+    <div class="pr-head"><span class="pr-num">แบบฝึกหัด 4.3 ข้อ 5 (ค)</span><span class="tag exam">🎯 แนว ⑥</span><span class="diff">●●○</span><span class="spacer"></span>
+      <label class="pr-done"><input type="checkbox"> ทำสำเร็จแล้ว</label></div>
+    <div class="pr-body">
+      <p>จงหาเส้นกำลังสองน้อยสุดของจุดข้อมูล \((1, 1), (2, 4), (3, 6), (4, 9)\)</p>
+    </div>
+    <details class="hint"><summary>คำใบ้</summary><div class="hint-body">สูตรรวม: \(\beta_1 = \frac{n\sum xy - \sum x\sum y}{n\sum x^2 - (\sum x)^2}\), \(\beta_0 = \bar{y}-\beta_1\bar{x}\)</div></details>
+    <details class="sol"><summary>แนวคิดและเฉลยแบบละเอียด</summary><div class="sol-body">
+      <p><strong>แนวคิด:</strong> ข้อมูลเกือบเส้นตรง (\(y \approx 2.5x\)) — เส้น LS จะออกมาใกล้ ๆ นั้น</p>
+      <ol class="steps">
+        <li><span class="step-t">รวมพจน์</span> \(\sum x = 10\), \(\sum y = 20\), \(\sum xy = 63\), \(\sum x^2 = 30\)</li>
+        <li><span class="step-t">แก้สมการปรกติ</span> det \(= 20\) → \(\beta_1 = \frac{4(63)-10(20)}{20} = \frac{52}{20} = \frac{13}{5} = 2.6\), \(\beta_0 = \frac{30(20)-10(63)}{20} = -\frac{3}{2} = -1.5\)</li>
+        <li><span class="step-t">ตรวจคำตอบ</span> ทำนาย 1.1, 3.7, 6.3, 8.9 เทียบ 1, 4, 6, 9 — residual สลับบวกลบพอดี ✓ — <strong>สรุป:</strong> \(\vec{\beta} = (-1.5, 2.6)\), เส้น \(y = -1.5+2.6x\) (ตรงคำตอบท้ายบท)</li>
+      </ol>
+    </div></details>
+  </article>
+
+  <article class="pr-card" id="p-4-3-5ง" data-pkey="pTB-4-3-5ง">
+    <div class="pr-head"><span class="pr-num">แบบฝึกหัด 4.3 ข้อ 5 (ง)</span><span class="tag exam">🎯 แนว ⑥</span><span class="diff">●●○</span><span class="spacer"></span>
+      <label class="pr-done"><input type="checkbox"> ทำสำเร็จแล้ว</label></div>
+    <div class="pr-body">
+      <p>จงหาเส้นกำลังสองน้อยสุดของจุดข้อมูล \((0, 0), (1, 1), (2, 3), (3, 8)\)</p>
+    </div>
+    <details class="hint"><summary>คำใบ้</summary><div class="hint-body">ข้อมูลโค้งขึ้นชัด (0→1→3→8) — เส้นตรง LS จะไปไม่ค่อยถึงปลายทั้งสอง</div></details>
+    <details class="sol"><summary>แนวคิดและเฉลยแบบละเอียด</summary><div class="sol-body">
+      <p><strong>แนวคิด:</strong> สูตรเดิม — ข้อนี้สอนว่าข้อมูลโค้ง เส้น LS ก็หาได้ แต่มันคือ "เส้นตรงที่ดีที่สุดเท่าที่จะทำได้" เท่านั้น</p>
+      <ol class="steps">
+        <li><span class="step-t">รวมพจน์</span> \(\sum x = 6\), \(\sum y = 12\), \(\sum xy = 31\), \(\sum x^2 = 14\)</li>
+        <li><span class="step-t">แก้สมการปรกติ</span> det \(= 20\) → \(\beta_1 = \frac{4(31)-6(12)}{20} = \frac{13}{5} = 2.6\), \(\beta_0 = \frac{14(12)-6(31)}{20} = -\frac{9}{10} = -0.9\)</li>
+        <li><span class="step-t">ตรวจคำตอบ + เชื่อมข้อสอบ</span> ทำนาย −0.9, 1.7, 4.3, 6.9 เทียบ 0, 1, 3, 8 — ปลายบนหลุด 1.1 (เส้นตรงตามโค้งไม่ทัน) ✓ — <strong>สรุป:</strong> \(\vec{\beta} = (-0.9, 2.6)\), เส้น \(y = -0.9+2.6x\) (ตรงคำตอบท้ายบท) — จำไว้: ข้อสอบชอบต่อด้วย "ใช้เส้นนี้ทำนายที่ x นอกช่วงได้ไหม" → ตอบ <strong>ไม่ควร</strong> (extrapolation)</li>
+      </ol>
+    </div></details>
+  </article>
+
+</section>
+
 
 
 

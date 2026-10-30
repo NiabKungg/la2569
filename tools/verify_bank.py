@@ -94,6 +94,12 @@ MATH_CHECKS = {
     "pTB-4-2-10ก", "pTB-4-2-10ข",
     "pTB-4-2-11",
     "pTB-4-2-12ก", "pTB-4-2-12ข",
+    # แบบฝึกหัด 4.3
+    "pTB-4-3-1ก", "pTB-4-3-1ข",
+    "pTB-4-3-2",
+    "pTB-4-3-3ก", "pTB-4-3-3ข", "pTB-4-3-3ค", "pTB-4-3-3ง",
+    "pTB-4-3-4ก", "pTB-4-3-4ข", "pTB-4-3-4ค", "pTB-4-3-4ง",
+    "pTB-4-3-5ก", "pTB-4-3-5ข", "pTB-4-3-5ค", "pTB-4-3-5ง",
 }
 
 def math_checks_for(pkeys):
@@ -294,6 +300,61 @@ _u1, _u2 = _u1/np.linalg.norm(_u1), _u2 - (_u2@_u1)*_u1; _u2 = _u2/np.linalg.nor
 _yy = _rng42.normal(size=5)
 UU = np.column_stack([_u1, _u2])
 check("4.2 ข12 (UUᵀ)y = Σ(y·uᵢ)uᵢ", np.allclose((UU @ UU.T) @ _yy, (_yy@_u1)*_u1 + (_yy@_u2)*_u2))
+
+# ---------------- แบบฝึกหัด 4.3 ----------------
+# ข้อ 1 best approximation
+for tag, (u1, u2, y, ey) in {
+    "ก": ((3, 1, -1, 1), (1, -1, 1, -1), (3, 1, 5, 1), (3, -1, 1, -1)),
+    "ข": ((1, -2, -1, 2), (-4, 1, 0, 3), (3, -1, 1, 13), (-1, -5, -3, 9)),
+}.items():
+    u1, u2, y = map(lambda t: np.array(t, float), (u1, u2, y))
+    yhat = (y @ u1 / (u1 @ u1)) * u1 + (y @ u2 / (u2 @ u2)) * u2
+    check(f"4.3 ข1{tag} ฐานตั้งฉาก + ŷ = {ey}", np.isclose(u1 @ u2, 0) and np.allclose(yhat, ey))
+# ข้อ 2 ระยะ
+u1 = np.array([-3., -5, 1]); u2 = np.array([-3., 2, 1]); y43 = np.array([5., -9, 5])
+yhat = (y43 @ u1 / (u1 @ u1)) * u1 + (y43 @ u2 / (u2 @ u2)) * u2
+check("4.3 ข2 ŷ=(3,−9,−1), ระยะ 2√10",
+      np.allclose(yhat, [3, -9, -1]) and np.isclose(np.linalg.norm(y43 - yhat), 2 * np.sqrt(10)))
+# ข้อ 3 LS ด้วยหลักตั้งฉาก
+sets343 = {
+    "ก": ([[1, 5], [3, 1], [-2, 4]], (4, -2, -3), (2/7, 1/7)),
+    "ข": ([[1, 3], [-2, 0], [3, -1]], (2, -1, 4), (8/7, 1/5)),
+    "ค": ([[1, 1, 0], [1, 0, -1], [0, 1, 1], [-1, 1, -1]], (2, 5, 6, 6), (1/3, 14/3, -5/3)),
+    "ง": ([[4, 0, 1], [1, -5, 1], [6, 1, 0], [1, -1, -5]], (9, 0, 0, 0), (2/3, 0, 1/3)),
+}
+for tag, (A, b, ex) in sets343.items():
+    A = np.array(A, float); b = np.array(b, float)
+    orth = np.allclose(A.T @ A - np.diag(np.diag(A.T @ A)), 0)
+    xh = np.linalg.solve(A.T @ A, A.T @ b)
+    check(f"4.3 ข3{tag} หลักตั้งฉาก + x̂ = {[round(float(v), 6) for v in ex]}", orth and np.allclose(xh, ex))
+# ข้อ 4 LS + ค่าคลาดเคลื่อน
+sets443 = {
+    "ก": ([[2, 1], [-2, 0], [2, 3]], (-5, 8, 1), (-4, 3), 0),
+    "ข": ([[1, -2], [2, -1], [0, 1]], (3, -1, 5), (3/7, 2/7), 242/7),
+    "ค": ([[1, 1, 1], [1, 0, 1], [1, 1, 0], [0, 1, 1]], (0, 1, -1, -2), (8/7, -13/7, 1/7), 4/7),
+}
+for tag, (A, b, ex, eerr2) in sets443.items():
+    A = np.array(A, float); b = np.array(b, float)
+    xh = np.linalg.solve(A.T @ A, A.T @ b)
+    err2 = float(np.sum((b - A @ xh) ** 2))
+    check(f"4.3 ข4{tag} x̂ = {[round(float(v), 6) for v in ex]}, คลาดเคลื่อน² = {eerr2}",
+          np.allclose(xh, ex) and np.isclose(err2, eerr2))
+A = np.array([[1., 1, 0]] * 3 + [[1., 0, 1]] * 3); b = np.array([7., 2, 3, 6, 5, 4])
+t = np.float64(-1.0); xh = np.array([t, 4 - t, 5 - t])
+check("4.3 ข4ง อนันต์ชุด: (−1,5,6)+t(1,−1,−1) เป็น LS sol + คลาดเคลื่อน² = 16",
+      np.allclose(A.T @ A @ xh, A.T @ b) and np.isclose(float(np.sum((b - A @ xh) ** 2)), 16)
+      and np.linalg.matrix_rank(A.T @ A) == 2)
+# ข้อ 5 เส้น LS
+lines43 = {
+    "ก": ([(1, 0), (2, 1), (4, 2), (5, 3)], (-3/5, 7/10)),
+    "ข": ([(-3, 8), (-1, 5), (1, 3), (3, 0)], (4, -13/10)),
+    "ค": ([(1, 1), (2, 4), (3, 6), (4, 9)], (-3/2, 13/5)),
+    "ง": ([(0, 0), (1, 1), (2, 3), (3, 8)], (-9/10, 13/5)),
+}
+for tag, (pp, ebeta) in lines43.items():
+    X = np.array([[1, x] for x, _ in pp], float); yv = np.array([y for _, y in pp], float)
+    beta = np.linalg.solve(X.T @ X, X.T @ yv)
+    check(f"4.3 ข5{tag} β = {[round(float(v), 6) for v in ebeta]}", np.allclose(beta, ebeta))
 
 # ---------------------------------------------------------------- สรุป
 fails = [n for n, c in ok if not c]
