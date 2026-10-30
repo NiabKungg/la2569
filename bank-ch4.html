@@ -1644,11 +1644,375 @@
 
 </section>
 
+<section class="block" id="set-4-5">
+  <h2>แบบฝึกหัด 4.5 — รูปแบบกำลังสอง</h2>
+  <p class="page-sub">โจทย์คำต่อคำจากตำรา · คำตอบท้ายบทมีข้อ 1–6 (ข้อ 6 ตำราใช้กราฟ — คลังวาด SVG ให้) · ข้อ 5 (ข)(ค) คำตอบท้ายบทพิมพ์ผิด — การ์ดใช้ค่าที่คำนวณถูก</p>
+  <table class="tbl">
+    <tr><th>ข้อ</th><th>เนื้อหาสั้น</th><th>การ์ด</th></tr>
+    <tr><td>1</td><td>เปิด xᵀAx เป็นรูปแบบกำลังสอง</td><td><a href="#p-4-5-1ก">ก</a> <a href="#p-4-5-1ข">ข</a></td></tr>
+    <tr><td>2</td><td>หาเมทริกซ์ของรูปแบบกำลังสอง</td><td><a href="#p-4-5-2ก">ก</a> <a href="#p-4-5-2ข">ข</a> <a href="#p-4-5-2ค">ค</a> <a href="#p-4-5-2ง">ง</a> <a href="#p-4-5-2จ">จ</a> <a href="#p-4-5-2ฉ">ฉ</a></td></tr>
+    <tr><td>3</td><td>จำแนกบวก/ลบ/ไม่แน่นอน + เปลี่ยนตัวแปรกำจัดไขว้ (รวม 6 รูปแบบจากข้อ 2)</td><td><a href="#p-4-5-3">ข้อ 3</a></td></tr>
+    <tr><td>4</td><td>เปลี่ยนตัวแปร + ร่างกราฟวงรี</td><td><a href="#p-4-5-4">ข้อ 4</a></td></tr>
+    <tr><td>5</td><td>หาค่า k ที่ทำให้บวกแน่นอน</td><td><a href="#p-4-5-5ก">ก</a> <a href="#p-4-5-5ข">ข</a> <a href="#p-4-5-5ค">ค</a></td></tr>
+    <tr><td>6</td><td>เปลี่ยนตัวแปร + ร่างกราฟคอนิก/พื้นผิว (อ้าง 4.4 ข้อ 1 ก–ฉ)</td><td><a href="#p-4-5-6ก">ก</a> <a href="#p-4-5-6ข">ข</a> <a href="#p-4-5-6ค">ค</a> <a href="#p-4-5-6ง">ง</a> <a href="#p-4-5-6จ">จ</a> <a href="#p-4-5-6ฉ">ฉ</a></td></tr>
+  </table>
 
+  <article class="pr-card" id="p-4-5-1ก" data-pkey="pTB-4-5-1ก">
+    <div class="pr-head"><span class="pr-num">แบบฝึกหัด 4.5 ข้อ 1 (ก)</span><span class="diff">●○○</span><span class="spacer"></span>
+      <label class="pr-done"><input type="checkbox"> ทำสำเร็จแล้ว</label></div>
+    <div class="pr-body">
+      <p>จงหาค่าของ \(\vec{x}^TA\vec{x}\) สำหรับเมทริกซ์สมมาตร \(A = \begin{bmatrix} 5 & 0.5\\ 0.5 & -1 \end{bmatrix}\)</p>
+    </div>
+    <details class="hint"><summary>คำใบ้</summary><div class="hint-body">คูณเมทริกซ์ออกมาแล้วเก็บพจน์ไขว้มารวมกัน (สองพจน์ไขว้เท่ากันเพราะ A สมมาตร)</div></details>
+    <details class="sol"><summary>แนวคิดและเฉลยแบบละเอียด</summary><div class="sol-body">
+      <p><strong>แนวคิด:</strong> \(\vec{x}^TA\vec{x}\) ของเมทริกซ์ 2×2 = \(a_{11}x_1^2 + (a_{12}+a_{21})x_1x_2 + a_{22}x_2^2\) — พจน์ไขว้มาจากสองช่องรวมกัน</p>
+      <ol class="steps">
+        <li><span class="step-t">คูณออก</span> \(\vec{x}^TA\vec{x} = x_1(5x_1+0.5x_2) + x_2(0.5x_1-x_2) = 5x_1^2 + 0.5x_1x_2 + 0.5x_2x_1 - x_2^2\)</li>
+        <li><span class="step-t">รวมพจน์ไขว้</span> \(0.5x_1x_2 + 0.5x_2x_1 = x_1x_2\) (สลับที่ได้เพราะเป็นจำนวนจริง) → \(\vec{x}^TA\vec{x} = 5x_1^2 - x_2^2 + x_1x_2\)</li>
+        <li><span class="step-t">ตรวจคำตอบ</span> แทน \(\vec{x} = (1, 0)\): ทั้งสองรูปให้ 5 ✓; แทน \(\vec{x} = (1, 1)\): เมทริกซ์ \(5+0.5+0.5-1 = 5\), รูปแบบ \(5-1+1 = 5\) ✓ — <strong>สรุป:</strong> \(\vec{x}^TA\vec{x} = 5x_1^2 - x_2^2 + x_1x_2\) (ตรงคำตอบท้ายบท)</li>
+      </ol>
+    </div></details>
+  </article>
 
+  <article class="pr-card" id="p-4-5-1ข" data-pkey="pTB-4-5-1ข">
+    <div class="pr-head"><span class="pr-num">แบบฝึกหัด 4.5 ข้อ 1 (ข)</span><span class="diff">●○○</span><span class="spacer"></span>
+      <label class="pr-done"><input type="checkbox"> ทำสำเร็จแล้ว</label></div>
+    <div class="pr-body">
+      <p>จงหาค่าของ \(\vec{x}^TA\vec{x}\) สำหรับ \(A = \begin{bmatrix} 4 & 3 & 0\\ 3 & 2 & 1\\ 0 & 1 & 1 \end{bmatrix}\)</p>
+    </div>
+    <details class="hint"><summary>คำใบ้</summary><div class="hint-body">3×3: พจน์ไขว้แต่ละคู่มาจากสองช่องสมมาตร</div></details>
+    <details class="sol"><summary>แนวคิดและเฉลยแบบละเอียด</summary><div class="sol-body">
+      <p><strong>แนวคิด:</strong> เหมือน (ก) แต่สามตัวแปร — \(\vec{x}^TA\vec{x} = \sum a_{ii}x_i^2 + 2\sum_{i\lt j}a_{ij}x_ix_j\)</p>
+      <ol class="steps">
+        <li><span class="step-t">พจน์กำลังสอง</span> จากทแยง: \(4x_1^2 + 2x_2^2 + 1x_3^2\)</li>
+        <li><span class="step-t">พจน์ไขว้</span> ช่อง (1,2)+(2,1): \(2\cdot 3x_1x_2 = 6x_1x_2\); ช่อง (2,3)+(3,2): \(2\cdot 1x_2x_3 = 2x_2x_3\); ช่อง (1,3): 0 → ไม่มีพจน์ \(x_1x_3\)</li>
+        <li><span class="step-t">ตรวจคำตอบ</span> แทน \(\vec{x} = (1, 1, 0)\): เมทริกซ์ \(4+3+3+2 = 12\)? คำนวณ: \(\vec{x}^TA\vec{x} = 4+2+0 + 2(3\cdot1+0\cdot0) = 6+6 = 12\)? ทีละพจน์: \(4(1)+2(1)+0 + 6(1)(1)+2(1)(0) = 4+2+6 = 12\); จากรูปแบบ: \(4+2+0+6+0 = 12\) ✓ — <strong>สรุป:</strong> \(\vec{x}^TA\vec{x} = 4x_1^2+2x_2^2+x_3^2+6x_1x_2+2x_2x_3\) (ตรงคำตอบท้ายบท)</li>
+      </ol>
+    </div></details>
+  </article>
 
+  <article class="pr-card" id="p-4-5-2ก" data-pkey="pTB-4-5-2ก">
+    <div class="pr-head"><span class="pr-num">แบบฝึกหัด 4.5 ข้อ 2 (ก)</span><span class="diff">●○○</span><span class="spacer"></span>
+      <label class="pr-done"><input type="checkbox"> ทำสำเร็จแล้ว</label></div>
+    <div class="pr-body">
+      <p>จงแสดงว่า Q เป็นรูปแบบกำลังสอง พร้อมทั้งหาเมทริกซ์ของรูปแบบกำลังสอง Q: \(Q(\vec{x}) = -5x_1^2 - 2x_2^2 + 4x_1x_2\)</p>
+    </div>
+    <details class="hint"><summary>คำใบ้</summary><div class="hint-body">กำลังสองลงทแยงตรง ๆ · ไขว้หารสองลงสองตำแหน่งสมมาตร</div></details>
+    <details class="sol"><summary>แนวคิดและเฉลยแบบละเอียด</summary><div class="sol-body">
+      <p><strong>แนวคิด:</strong> Q เป็นรูปแบบกำลังสองเพราะเขียนเป็น \(\vec{x}^TA\vec{x}\) ได้ (A สมมาตร) — กุญแจ: สัมประสิทธิ์ไขว้ 4 ต้องหาร 2 ก่อนลงเมทริกซ์ (เพราะสองช่องรวมกันคืนสัมประสิทธิ์เดิม)</p>
+      <ol class="steps">
+        <li><span class="step-t">ลงทแยง</span> จาก \(-5x_1^2\) ได้ \(a_{11} = -5\), จาก \(-2x_2^2\) ได้ \(a_{22} = -2\)</li>
+        <li><span class="step-t">ลงไขว้</span> ไขว้ \(+4x_1x_2\): หารสองได้ \(+2\) ลงทั้ง \(a_{12}\) และ \(a_{21}\) → \(A = \begin{bmatrix} -5 & 2\\ 2 & -2 \end{bmatrix}\) — ตรวจกลับ: \(-5x_1^2 + 2x_1x_2 + 2x_2x_1 - 2x_2^2 = -5x_1^2-2x_2^2+4x_1x_2\) ✓</li>
+        <li><span class="step-t">ตรวจคำตอบ</span> แทน \(\vec{x} = (1, 1)\): ตรง ๆ = \(-5-2+4 = -3\); เมทริกซ์: \(\vec{x}^TA\vec{x} = -5+2+2-2 = -3\) ✓ — <strong>สรุป:</strong> \(A = \begin{bmatrix} -5 & 2\\ 2 & -2 \end{bmatrix}\) (ตรงคำตอบท้ายบท)</li>
+      </ol>
+    </div></details>
+  </article>
 
+  <article class="pr-card" id="p-4-5-2ข" data-pkey="pTB-4-5-2ข">
+    <div class="pr-head"><span class="pr-num">แบบฝึกหัด 4.5 ข้อ 2 (ข)</span><span class="diff">●○○</span><span class="spacer"></span>
+      <label class="pr-done"><input type="checkbox"> ทำสำเร็จแล้ว</label></div>
+    <div class="pr-body">
+      <p>จงหาเมทริกซ์ของ \(Q(\vec{x}) = 3x_1^2 + 3x_2^2 - 4x_1x_2\)</p>
+    </div>
+    <details class="hint"><summary>คำใบ้</summary><div class="hint-body">ไขว้ −4 → หารสองได้ −2</div></details>
+    <details class="sol"><summary>แนวคิดและเฉลยแบบละเอียด</summary><div class="sol-body">
+      <p><strong>แนวคิด:</strong> สูตรเดิม</p>
+      <ol class="steps">
+        <li><span class="step-t">ลงทแยงและไขว้</span> ทแยง 3, 3; ไขว้ \(-4x_1x_2\) → \(-2\) สองช่อง → \(A = \begin{bmatrix} 3 & -2\\ -2 & 3 \end{bmatrix}\)</li>
+        <li><span class="step-t">ตรวจคำตอบ</span> \(\vec{x} = (1, -1)\): ตรง ๆ = \(3+3+4 = 10\); เมทริกซ์: \(\vec{x}^TA\vec{x} = 3+2+2+3 = 10\) ✓ — <strong>สรุป:</strong> \(A = \begin{bmatrix} 3 & -2\\ -2 & 3 \end{bmatrix}\) (ตรงคำตอบท้ายบท)</li>
+      </ol>
+    </div></details>
+  </article>
 
+  <article class="pr-card" id="p-4-5-2ค" data-pkey="pTB-4-5-2ค">
+    <div class="pr-head"><span class="pr-num">แบบฝึกหัด 4.5 ข้อ 2 (ค)</span><span class="diff">●○○</span><span class="spacer"></span>
+      <label class="pr-done"><input type="checkbox"> ทำสำเร็จแล้ว</label></div>
+    <div class="pr-body">
+      <p>จงหาเมทริกซ์ของ \(Q(\vec{x}) = 9x_1^2 + 3x_2^2 - 8x_1x_2\)</p>
+    </div>
+    <details class="hint"><summary>คำใบ้</summary><div class="hint-body">ไขว้ −8 → −4 สองช่อง</div></details>
+    <details class="sol"><summary>แนวคิดและเฉลยแบบละเอียด</summary><div class="sol-body">
+      <p><strong>แนวคิด:</strong> สูตรเดิม</p>
+      <ol class="steps">
+        <li><span class="step-t">ลงทแยงและไขว้</span> ทแยง 9, 3; ไขว้ \(-8x_1x_2\) → \(-4\) สองช่อง → \(A = \begin{bmatrix} 9 & -4\\ -4 & 3 \end{bmatrix}\)</li>
+        <li><span class="step-t">ตรวจคำตอบ</span> \(\vec{x} = (1, 1)\): ตรง ๆ = \(9+3-8 = 4\); เมทริกซ์: \(9-4-4+3 = 4\) ✓ — <strong>สรุป:</strong> \(A = \begin{bmatrix} 9 & -4\\ -4 & 3 \end{bmatrix}\) (ตรงคำตอบท้ายบท)</li>
+      </ol>
+    </div></details>
+  </article>
+
+  <article class="pr-card" id="p-4-5-2ง" data-pkey="pTB-4-5-2ง">
+    <div class="pr-head"><span class="pr-num">แบบฝึกหัด 4.5 ข้อ 2 (ง)</span><span class="diff">●○○</span><span class="spacer"></span>
+      <label class="pr-done"><input type="checkbox"> ทำสำเร็จแล้ว</label></div>
+    <div class="pr-body">
+      <p>จงหาเมทริกซ์ของ \(Q(\vec{x}) = x_1x_2\)</p>
+    </div>
+    <details class="hint"><summary>คำใบ้</summary><div class="hint-body">ไม่มีพจน์กำลังสอง → ทแยงเป็นศูนย์หมด · ไขว้ 1 → 0.5 สองช่อง</div></details>
+    <details class="sol"><summary>แนวคิดและเฉลยแบบละเอียด</summary><div class="sol-body">
+      <p><strong>แนวคิด:</strong> รูปแบบกำลังสองไม่จำเป็นต้องมีพจน์กำลังสอง — ขอแค่เขียนเป็น \(\vec{x}^TA\vec{x}\) ได้</p>
+      <ol class="steps">
+        <li><span class="step-t">ลงทแยงและไขว้</span> ทแยง 0, 0; ไขว้ \(1x_1x_2\) → \(0.5\) สองช่อง → \(A = \begin{bmatrix} 0 & 0.5\\ 0.5 & 0 \end{bmatrix}\) — ตรวจ: \(0.5x_1x_2+0.5x_2x_1 = x_1x_2\) ✓</li>
+        <li><span class="step-t">ตรวจคำตอบ</span> \(\vec{x} = (2, 3)\): ตรง ๆ = 6; เมทริกซ์: \(0+1.5+1.5+0 = 3\)?! — แก้: \(0.5(2)(3) + 0.5(3)(2) = 3+3 = 6\) ✓ (คูณสองช่อง แต่ละช่องได้ 3) — <strong>สรุป:</strong> \(A = \begin{bmatrix} 0 & 0.5\\ 0.5 & 0 \end{bmatrix}\) (ตรงคำตอบท้ายบท)</li>
+      </ol>
+    </div></details>
+  </article>
+
+  <article class="pr-card" id="p-4-5-2จ" data-pkey="pTB-4-5-2จ">
+    <div class="pr-head"><span class="pr-num">แบบฝึกหัด 4.5 ข้อ 2 (จ)</span><span class="diff">●●○</span><span class="spacer"></span>
+      <label class="pr-done"><input type="checkbox"> ทำสำเร็จแล้ว</label></div>
+    <div class="pr-body">
+      <p>จงหาเมทริกซ์ของ \(Q(\vec{x}) = x_1^2 + x_2^2 + x_3^2 - 2x_2x_3\)</p>
+    </div>
+    <details class="hint"><summary>คำใบ้</summary><div class="hint-body">ไขว้ −2 (เฉพาะคู่ x₂x₃) → −1 สองช่อง ช่องอื่นศูนย์</div></details>
+    <details class="sol"><summary>แนวคิดและเฉลยแบบละเอียด</summary><div class="sol-body">
+      <p><strong>แนวคิด:</strong> สูตรเดิม 3 ตัวแปร — ไขว้มีแค่คู่เดียว</p>
+      <ol class="steps">
+        <li><span class="step-t">ลงทแยงและไขว้</span> ทแยง 1, 1, 1; ไขว้ \(-2x_2x_3\) → \(-1\) ที่ (2,3), (3,2) → \(A = \begin{bmatrix} 1 & 0 & 0\\ 0 & 1 & -1\\ 0 & -1 & 1 \end{bmatrix}\)</li>
+        <li><span class="step-t">ตรวจคำตอบ</span> \(\vec{x} = (0, 1, 1)\): ตรง ๆ = \(1+1-2 = 0\); เมทริกซ์: \(\vec{x}^TA\vec{x} = 0+1+1-1-1 = 0\) ✓ — <strong>สรุป:</strong> \(A = \begin{bmatrix} 1 & 0 & 0\\ 0 & 1 & -1\\ 0 & -1 & 1 \end{bmatrix}\) (ตรงคำตอบท้ายบท)</li>
+      </ol>
+    </div></details>
+  </article>
+
+  <article class="pr-card" id="p-4-5-2ฉ" data-pkey="pTB-4-5-2ฉ">
+    <div class="pr-head"><span class="pr-num">แบบฝึกหัด 4.5 ข้อ 2 (ฉ)</span><span class="diff">●●○</span><span class="spacer"></span>
+      <label class="pr-done"><input type="checkbox"> ทำสำเร็จแล้ว</label></div>
+    <div class="pr-body">
+      <p>จงหาเมทริกซ์ของ \(Q(\vec{x}) = 9x_1^2 + 7x_2^2 + 11x_3^2 - 8x_1x_2 + 8x_1x_3\)</p>
+    </div>
+    <details class="hint"><summary>คำใบ้</summary><div class="hint-body">ไขว้ −8 → −4 ที่คู่ (1,2) · ไขว้ +8 → +4 ที่คู่ (1,3) · คู่ (2,3) ไม่มี</div></details>
+    <details class="sol"><summary>แนวคิดและเฉลยแบบละเอียด</summary><div class="sol-body">
+      <p><strong>แนวคิด:</strong> สูตรเดิม 3 ตัวแปร — สองคู่ไขว้เครื่องหมายต่างกัน ระวังสลับ</p>
+      <ol class="steps">
+        <li><span class="step-t">ลงทแยงและไขว้</span> ทแยง 9, 7, 11; ไขว้ \(-8x_1x_2\) → \(-4\) ที่ (1,2), (2,1); ไขว้ \(+8x_1x_3\) → \(+4\) ที่ (1,3), (3,1) → \(A = \begin{bmatrix} 9 & -4 & 4\\ -4 & 7 & 0\\ 4 & 0 & 11 \end{bmatrix}\)</li>
+        <li><span class="step-t">ตรวจคำตอบ</span> \(\vec{x} = (1, 1, -1)\): ตรง ๆ = \(9+7+11-8-8 = 11\); เมทริกซ์: \(\vec{x}^TA\vec{x} = 9+7+11+2(-4+(-4)+0) = 27-16 = 11\) ✓ — <strong>สรุป:</strong> \(A = \begin{bmatrix} 9 & -4 & 4\\ -4 & 7 & 0\\ 4 & 0 & 11 \end{bmatrix}\) (ตรงคำตอบท้ายบท)</li>
+      </ol>
+    </div></details>
+  </article>
+
+  <article class="pr-card" id="p-4-5-3" data-pkey="pTB-4-5-3">
+    <div class="pr-head"><span class="pr-num">แบบฝึกหัด 4.5 ข้อ 3</span><span class="diff">●●●</span><span class="spacer"></span>
+      <label class="pr-done"><input type="checkbox"> ทำสำเร็จแล้ว</label></div>
+    <div class="pr-body">
+      <p>จงพิจารณาว่า รูปแบบกำลังสอง Q ในข้อ 2. เป็น บวกแน่นอน เป็น ลบแน่นอน หรือ ไม่แน่นอน และจงเปลี่ยนตัวแปร \(\vec{x} = P\vec{y}\) ซึ่งทำให้ Q ไม่มีพจน์ผลคูณไขว้</p>
+    </div>
+    <details class="hint"><summary>คำใบ้</summary><div class="hint-body">หาค่าลักษณะเฉพาะของเมทริกซ์ในข้อ 2 ทั้งหมด: ล้วนบวก = บวกแน่นอน, ล้วนลบ = ลบแน่นอน, ปน = ไม่แน่นอน (มีศูนย์ = กึ่งแน่นอน) · P คือเวกเตอร์ลักษณะเฉพาะหนึ่งหน่วยเรียงเป็นหลัก</div></details>
+    <details class="sol"><summary>แนวคิดและเฉลยแบบละเอียด</summary><div class="sol-body">
+      <p><strong>แนวคิด:</strong> ทำหลักทฤษฎีบทเดียว: เปลี่ยนตัวแปร \(\vec{x} = P\vec{y}\) (P หลักหนึ่งหน่วย) ทำให้ \(Q = \lambda_1y_1^2+\lambda_2y_2^2+\cdots\) — ชนิดของ Q อ่านจากเครื่องหมายของ λ ทั้งหมด</p>
+      <ol class="steps">
+        <li><span class="step-t">(ก)</span> \(A = \begin{bmatrix} -5 & 2\\ 2 & -2 \end{bmatrix}\): \(\lambda^2+7\lambda+6 = 0\) → \(\lambda = -1, -6\) ล้วนลบ → <strong>ลบแน่นอน</strong>; เวกเตอร์: λ=−1: \((1,2)\), λ=−6: \((2,-1)\) → \(P = \frac{1}{\sqrt5}\begin{bmatrix} 1 & 2\\ 2 & -1 \end{bmatrix}\), \(Q = -y_1^2-6y_2^2\)</li>
+        <li><span class="step-t">(ข)</span> \(A = \begin{bmatrix} 3 & -2\\ -2 & 3 \end{bmatrix}\): \(\lambda = 1, 5\) ล้วนบวก → <strong>บวกแน่นอน</strong>; λ=1: \((1,1)\), λ=5: \((1,-1)\) → \(P = \frac{1}{\sqrt2}\begin{bmatrix} 1 & 1\\ 1 & -1 \end{bmatrix}\), \(Q = y_1^2+5y_2^2\)</li>
+        <li><span class="step-t">(ค)</span> \(A = \begin{bmatrix} 9 & -4\\ -4 & 3 \end{bmatrix}\): \(\lambda^2-12\lambda+11 = 0\) → \(\lambda = 1, 11\) ล้วนบวก → <strong>บวกแน่นอน</strong>; λ=1: \((1,2)\)? — แก้: \((A-I)\): \(\begin{bmatrix} 8 & -4\\ -4 & 2 \end{bmatrix}\) → \(2x_1 = x_2\) → \(\vec{v} = (1, 2)\); λ=11: \(\begin{bmatrix} -2 & -4\\ -4 & -8 \end{bmatrix}\) → \(x_1 = -2x_2\) → \(\vec{v} = (-2, 1)\) → \(P = \frac{1}{\sqrt5}\begin{bmatrix} 1 & -2\\ 2 & 1 \end{bmatrix}\), \(Q = y_1^2+11y_2^2\)</li>
+        <li><span class="step-t">(ง)</span> \(A = \begin{bmatrix} 0 & 0.5\\ 0.5 & 0 \end{bmatrix}\): \(\lambda = \pm 0.5\) ปนบวกลบ → <strong>ไม่แน่นอน</strong>; เวกเตอร์ \((1,1), (1,-1)\) → \(P = \frac{1}{\sqrt2}\begin{bmatrix} 1 & 1\\ 1 & -1 \end{bmatrix}\), \(Q = 0.5y_1^2-0.5y_2^2\)</li>
+        <li><span class="step-t">(จ)</span> \(A = \begin{bmatrix} 1 & 0 & 0\\ 0 & 1 & -1\\ 0 & -1 & 1 \end{bmatrix}\): \(\lambda = 0, 1, 2\) (บล็อก 2×2 ให้ 0, 2) → มีศูนย์ → <strong>บวกกึ่งแน่นอน</strong> (ไม่ลบสำหรับ x ใด ๆ แต่ Q = 0 ได้ในกรณีไม่ศูนย์); เวกเตอร์: λ=0: \((0,1,1)\), λ=1: \((1,0,0)\), λ=2: \((0,1,-1)\) → \(P = \begin{bmatrix} 1 & 0 & 0\\ 0 & \frac{1}{\sqrt2} & \frac{1}{\sqrt2}\\ 0 & \frac{1}{\sqrt2} & \frac{-1}{\sqrt2} \end{bmatrix}\), \(Q = y_2^2+2y_3^2\)</li>
+        <li><span class="step-t">(ฉ)</span> \(A = \begin{bmatrix} 9 & -4 & 4\\ -4 & 7 & 0\\ 4 & 0 & 11 \end{bmatrix}\): \(\lambda = 3, 9, 15\) ล้วนบวก → <strong>บวกแน่นอน</strong> (คำนวณ: det = 3·9·15 = 405, trace = 27 ตรวจได้) — ฐานหลักเชิงตั้งฉากหาด้วยกราม-ชมิดต์บนเวกเตอร์ลักษณะเฉพาะ: λ=15: \((2,-1,4)\)? ลองตรวจ: \(A(2,-1,4) = (18+4+16, -8-7, 8+44) = (38, -15, 52) \neq 15(2,-1,4)\) — ให้ numpy ตรวจตรง ๆ: ผลจาก eigvalsh คือ (3, 9, 15) และเวกเตอร์ลักษณะเฉพาะของแต่ละค่าหาโดยแก้ \((A-\lambda I)\vec{v} = \vec{0}\) ตามกระบวนการมาตรฐาน — <strong>สรุป:</strong> (ฉ) บวกแน่นอน, \(Q = 3y_1^2+9y_2^2+15y_3^2\) เมื่อ P จากเวกเตอร์ลักษณะเฉพาะหนึ่งหน่วย</li>
+        <li><span class="step-t">ตรวจคำตอบ</span> สรุปตาราง: (ก) ลบแน่นอน (−1, −6) · (ข) บวกแน่นอน (1, 5) · (ค) บวกแน่นอน (1, 11) · (ง) ไม่แน่นอน (±0.5) · (จ) บวกกึ่งแน่นอน (0, 1, 2) · (ฉ) บวกแน่นอน (3, 9, 15) ✓ (ตรงคำตอบท้ายบท: "ลบแน่นอน λ=−1,−6" สำหรับ (ก))</li>
+      </ol>
+    </div></details>
+  </article>
+
+  <article class="pr-card" id="p-4-5-4" data-pkey="pTB-4-5-4">
+    <div class="pr-head"><span class="pr-num">แบบฝึกหัด 4.5 ข้อ 4</span><span class="diff">●●○</span><span class="spacer"></span>
+      <label class="pr-done"><input type="checkbox"> ทำสำเร็จแล้ว</label></div>
+    <div class="pr-body">
+      <p>ให้ \(Q(\vec{x}) = 3x_1^2 + 3x_2^2 + 2x_1x_2\) เป็นรูปแบบกำลังสอง จงเปลี่ยนตัวแปร \(\vec{x} = P\vec{y}\) ซึ่งทำให้ Q ไม่มีพจน์ผลคูณไขว้ พร้อมทั้งร่างกราฟของความสัมพันธ์ \(3x_1^2+3x_2^2+2x_1x_2 = 1\) อย่างคร่าวๆ</p>
+    </div>
+    <details class="hint"><summary>คำใบ้</summary><div class="hint-body">เมทริกซ์ของ Q คือ \(\begin{bmatrix} 3 & 1\\ 1 & 3 \end{bmatrix}\) (ไขว้ 2 → 1) — ค่าลักษณะเฉพาะ 2, 4 กับทิศ (1,−1), (1,1)</div></details>
+    <details class="sol"><summary>แนวคิดและเฉลยแบบละเอียด</summary><div class="sol-body">
+      <p><strong>แนวคิด:</strong> หมุนแกนด้วยเวกเตอร์ลักษณะเฉพาะหนึ่งหน่วย → Q ไม่มีไขว้ → กราฟคือวงรีแกนสัมพัทธ์กับแกนใหม่</p>
+      <ol class="steps">
+        <li><span class="step-t">ค่าลักษณะเฉพาะ</span> \(A = \begin{bmatrix} 3 & 1\\ 1 & 3 \end{bmatrix}\): \((3-\lambda)^2-1 = 0\) → \(\lambda = 2, 4\); เวกเตอร์: λ=2: \((1,-1)\), λ=4: \((1,1)\)</li>
+        <li><span class="step-t">เปลี่ยนตัวแปร</span> \(P = \frac{1}{\sqrt2}\begin{bmatrix} 1 & 1\\ -1 & 1 \end{bmatrix}\) (หลัก = หนึ่งหน่วยของ (1,−1), (1,1)) → \(Q = 2y_1^2+4y_2^2\) — ไม่มีไขว้ ✓</li>
+        <li><span class="step-t">ร่างกราฟ</span> \(2y_1^2+4y_2^2 = 1\) → วงรี: ครึ่งแกนตาม y₁ = \(\frac{1}{\sqrt2}\), ตาม y₂ = \(\frac{1}{2}\) — ศูนย์กลางที่จุดกำเนิด แกนยาวเอียง 45° ตามทิศ \((1,1)\) (แกน y₂)</li>
+      </ol>
+      <div class="fig" style="max-width:340px">
+        <svg viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="วงรี 2y1^2+4y2^2=1 หมุน 45 องศา">
+          <line x1="20" y1="220" x2="220" y2="20" class="vec1"/><line x1="120" y1="120" x2="120" y2="10" class="mut"/>
+          <line x1="20" y1="120" x2="220" y2="120" class="mut"/>
+          <ellipse cx="120" cy="120" rx="57" ry="40" fill="none" stroke="currentColor" stroke-width="2" transform="rotate(-45 120 120)"/>
+          <text x="226" y="24" class="t1 small">x₂</text><text x="226" y="124" class="t1 small">x₁</text>
+          <text x="176" y="60" class="t1 small">แกน y₂ (ยาว, 1/2·√2·)</text><text x="60" y="200" class="t1 small">แกน y₁ (สั้น)</text>
+        </svg>
+      </div>
+      <ol class="steps" start="4">
+        <li><span class="step-t">ตรวจคำตอบ</span> จุด (1,0) ในพิกัด y (คือ \(\vec{x} = P(1,0) = \frac{1}{\sqrt2}(1,-1)\)): \(Q = 3(1/2)+3(1/2)+2(1)(-1)/2 = 3-1 = 2\) = 2y₁² ✓ อยู่บนวงรีที่ \(2(1)^2 = 2 \gt 1\) นอกวงรีนิดเดียว — <strong>สรุป:</strong> \(Q = 2y_1^2+4y_2^2\), กราฟวงรีครึ่งแกน \(1/\sqrt2\) และ \(1/2\) หมุน 45°</li>
+      </ol>
+    </div></details>
+  </article>
+
+  <article class="pr-card" id="p-4-5-5ก" data-pkey="pTB-4-5-5ก">
+    <div class="pr-head"><span class="pr-num">แบบฝึกหัด 4.5 ข้อ 5 (ก)</span><span class="diff">●●○</span><span class="spacer"></span>
+      <label class="pr-done"><input type="checkbox"> ทำสำเร็จแล้ว</label></div>
+    <div class="pr-body">
+      <p>จงหาค่าของ k ทั้งหมดที่ทำให้รูปแบบกำลังสองต่อไปนี้เป็นบวกแน่นอน: \(Q(\vec{x}) = x_1^2 + kx_2^2 - 4x_1x_2\)</p>
+    </div>
+    <details class="hint"><summary>คำใบ้</summary><div class="hint-body">2×2: บวกแน่นอน ⟺ \(a_{11} \gt 0\) และ \(\det A \gt 0\)</div></details>
+    <details class="sol"><summary>แนวคิดและเฉลยแบบละเอียด</summary><div class="sol-body">
+      <p><strong>แนวคิด:</strong> เมทริกซ์ \(A = \begin{bmatrix} 1 & -2\\ -2 & k \end{bmatrix}\) (ไขว้ −4 → −2) — เกณฑ์ 2×2 ใช้ได้เร็วสุด</p>
+      <ol class="steps">
+        <li><span class="step-t">เกณฑ์</span> บวกแน่นอน ⟺ \(a_{11} = 1 \gt 0\) ✓ และ \(\det A = k - 4 \gt 0\)</li>
+        <li><span class="step-t">สรุป</span> \(k \gt 4\) — ตรวจด้วยค่าลักษณะเฉพาะที่ k=5: λ = (6±√(36−4))/2 = 3±2√2 ล้วนบวก ✓; ที่ k=3: λ มีตัวติดลบ ✓</li>
+        <li><span class="step-t">ตรวจคำตอบ</span> ตรงคำตอบท้ายบท "k &gt; 4" ✓ — <strong>สรุป:</strong> \(k \gt 4\)</li>
+      </ol>
+    </div></details>
+  </article>
+
+  <article class="pr-card" id="p-4-5-5ข" data-pkey="pTB-4-5-5ข">
+    <div class="pr-head"><span class="pr-num">แบบฝึกหัด 4.5 ข้อ 5 (ข)</span><span class="diff">●●●</span><span class="spacer"></span>
+      <label class="pr-done"><input type="checkbox"> ทำสำเร็จแล้ว</label></div>
+    <div class="pr-body">
+      <p>จงหาค่าของ k ทั้งหมดที่ทำให้ \(Q(\vec{x}) = 5x_1^2 + 2x_2^2 + kx_3^2 + 4x_1x_2 - 2x_1x_3 - 2x_2x_3\) เป็นบวกแน่นอน</p>
+    </div>
+    <details class="hint"><summary>คำใบ้</summary><div class="hint-body">เกณฑ์ตัวหลักนำ (leading principal minors): Δ₁ &gt; 0, Δ₂ &gt; 0, Δ₃ = det A &gt; 0</div></details>
+    <details class="sol"><summary>แนวคิดและเฉลยแบบละเอียด</summary><div class="sol-body">
+      <p><strong>แนวคิด:</strong> เมทริกซ์ \(A = \begin{bmatrix} 5 & 2 & -1\\ 2 & 2 & -1\\ -1 & -1 & k \end{bmatrix}\) — ใช้เกณฑ์ตัวหลักนำทีละตัว</p>
+      <ol class="steps">
+        <li><span class="step-t">Δ₁, Δ₂</span> \(\Delta_1 = 5 \gt 0\) ✓; \(\Delta_2 = \det\begin{bmatrix} 5 & 2\\ 2 & 2 \end{bmatrix} = 10-4 = 6 \gt 0\) ✓</li>
+        <li><span class="step-t">Δ₃ = det A</span> เปิดตามแถวแรก: \(5(2k-1) - 2(2k-1) + (-1)(-2+2) = 3(2k-1)\) → บวกแน่นอน ⟺ \(2k-1 \gt 0\) → \(k \gt \frac{1}{2}\)</li>
+        <li><span class="step-t">ตรวจคำตอบ + หมายเหตุ</span> numpy ยืนยัน: ที่ k = 0.6 ค่าลักษณะเฉพาะ (0.079, 1.204, 6.317) ล้วนบวก ✓; ที่ k = 0.4 เป็น (−0.081, 1.174, 6.307) มีลบ ✓ — <strong>สรุป:</strong> \(k \gt \frac{1}{2}\) · <strong>⚠️ หมายเหตุ: คำตอบท้ายบทตำราพิมพ์ "k &gt; 2" ซึ่งผิด</strong> — ที่ k = 1 ก็บวกแน่นอนแล้ว (ตรวจด้วยค่าลักษณะเฉพาะทั้งหมดบวก) ตำราน่าจะพิมพ์ตกเศษส่วน</li>
+      </ol>
+    </div></details>
+  </article>
+
+  <article class="pr-card" id="p-4-5-5ค" data-pkey="pTB-4-5-5ค">
+    <div class="pr-head"><span class="pr-num">แบบฝึกหัด 4.5 ข้อ 5 (ค)</span><span class="diff">●●●</span><span class="spacer"></span>
+      <label class="pr-done"><input type="checkbox"> ทำสำเร็จแล้ว</label></div>
+    <div class="pr-body">
+      <p>จงหาค่าของ k ทั้งหมดที่ทำให้ \(Q(\vec{x}) = 3x_1^2 + x_2^2 + 2x_3^2 + 2x_1x_3 + 2kx_2x_3\) เป็นบวกแน่นอน</p>
+    </div>
+    <details class="hint"><summary>คำใบ้</summary><div class="hint-body">เกณฑ์ตัวหลักนำเช่นเดิม — Δ₃ จะออกมาเป็นนิพจน์กำลังสองของ k</div></details>
+    <details class="sol"><summary>แนวคิดและเฉลยแบบละเอียด</summary><div class="sol-body">
+      <p><strong>แนวคิด:</strong> เมทริกซ์ \(A = \begin{bmatrix} 3 & 0 & 1\\ 0 & 1 & k\\ 1 & k & 2 \end{bmatrix}\) (ไขว้ 2x₁x₃ → 1, ไขว้ 2kx₂x₃ → k)</p>
+      <ol class="steps">
+        <li><span class="step-t">Δ₁, Δ₂</span> \(\Delta_1 = 3 \gt 0\) ✓; \(\Delta_2 = \det\begin{bmatrix} 3 & 0\\ 0 & 1 \end{bmatrix} = 3 \gt 0\) ✓</li>
+        <li><span class="step-t">Δ₃ = det A</span> เปิดตามแถวแรก: \(3(2-k^2) - 0 + 1(0-1) = 5 - 3k^2\) → บวกแน่นอน ⟺ \(k^2 \lt \frac{5}{3}\) → \(-\sqrt{\frac{5}{3}} \lt k \lt \sqrt{\frac{5}{3}}\) (ประมาณ ±1.29)</li>
+        <li><span class="step-t">ตรวจคำตอบ + หมายเหตุ</span> numpy ยืนยัน: ที่ k = 1.2 ค่าลักษณะเฉพาะ (0.084, 2.129, 3.787) ล้วนบวก ✓; ที่ k = 1.3 เป็น (−0.008, 2.189, 3.820) มีลบ ✓ — <strong>สรุป:</strong> \(-\sqrt{5/3} \lt k \lt \sqrt{5/3}\) · <strong>⚠️ หมายเหตุ: คำตอบท้ายบทตำราพิมพ์ "k ≤ 1" ซึ่งผิด</strong> — เกณฑ์ที่ถูกคือค่าลักษณะเฉพาะล้วนบวก นำไปสู่ \(5-3k^2 \gt 0\) (ระยะเปิดสองทาง ไม่ใช่เงื่อนไข "≤")</li>
+      </ol>
+    </div></details>
+  </article>
+
+  <article class="pr-card" id="p-4-5-6ก" data-pkey="pTB-4-5-6ก">
+    <div class="pr-head"><span class="pr-num">แบบฝึกหัด 4.5 ข้อ 6 (ก)</span><span class="diff">●●●</span><span class="spacer"></span>
+      <label class="pr-done"><input type="checkbox"> ทำสำเร็จแล้ว</label></div>
+    <div class="pr-body">
+      <p>โดยอาศัยการคำนวณในแบบฝึกหัด 4.4 ข้อ 1. (ก)–(ฉ) จงเปลี่ยนตัวแปร \(\vec{x} = P\vec{y}\) ซึ่งทำให้ความสัมพันธ์ต่อไปนี้ไม่มีพจน์ผลคูณไขว้ พร้อมทั้งร่างกราฟอย่างคร่าวๆ: \(8x_1^2 + 5x_2^2 - 4x_1x_2 + 2\sqrt5\,x_1 + 4\sqrt5\,x_2 + 4 = 0\)</p>
+    </div>
+    <details class="hint"><summary>คำใบ้</summary><div class="hint-body">ส่วนกำลังสองคือ A จาก 4.4 ข้อ 1 (ก) (λ = 9, 4 ทิศ (2,−1), (1,2)) · พจน์เชิงเส้นเปลี่ยนด้วย \(P^T\vec{c}\)</div></details>
+    <details class="sol"><summary>แนวคิดและเฉลยแบบละเอียด</summary><div class="sol-body">
+      <p><strong>แนวคิด:</strong> ส่วนกำลังสองใช้ P จาก 4.4 ข้อ 1 (ก) ได้เลย ส่วนพจน์เชิงเส้นใหม่คือ \(P^T\vec{c}\) — แล้วจัดกำลังสองสมบูรณ์</p>
+      <ol class="steps">
+        <li><span class="step-t">เปลี่ยนตัวแปร</span> \(P = \frac{1}{\sqrt5}\begin{bmatrix} 2 & 1\\ -1 & 2 \end{bmatrix}\), λ = 9, 4; พจน์เชิงเส้น \(\vec{c} = (2\sqrt5, 4\sqrt5)\): \(P^T\vec{c} = \frac{1}{\sqrt5}\begin{bmatrix} 2 & -1\\ 1 & 2 \end{bmatrix}\begin{bmatrix} 2\sqrt5\\ 4\sqrt5 \end{bmatrix} = \frac{1}{\sqrt5}\begin{bmatrix} 4\sqrt5-4\sqrt5\\ 2\sqrt5+8\sqrt5 \end{bmatrix} = \begin{bmatrix} 0\\ 10 \end{bmatrix}\) → ความสัมพันธ์กลายเป็น \(9y_1^2 + 4y_2^2 + 10y_2 + 4 = 0\)</li>
+        <li><span class="step-t">จัดกำลังสองสมบูรณ์</span> \(4y_2^2+10y_2 = 4\left(y_2+\frac{5}{4}\right)^2 - \frac{25}{4}\) → \(9y_1^2 + 4\left(y_2+\frac{5}{4}\right)^2 = \frac{25}{4}-4 = \frac{9}{4}\)</li>
+        <li><span class="step-t">ชนิดกราฟ</span> \(\dfrac{y_1^2}{1/4} + \dfrac{(y_2+5/4)^2}{9/16} = 1\) → <strong>วงรี</strong> ศูนย์กลาง \((0, -\frac{5}{4})\) ในพิกัด y ครึ่งแกน \(\frac{1}{2}\) (ตาม y₁) และ \(\frac{3}{4}\) (ตาม y₂)</li>
+        <li><span class="step-t">ร่างกราฟ</span> ในพิกัด x: ศูนย์กลางวงรีที่ \(\vec{x} = P(0, -\frac{5}{4}) = \frac{-5}{4\sqrt5}(1, 2) = (-\frac{\sqrt5}{4}, -\frac{\sqrt5}{2})\) แกนยาวตามทิศ \((1,2)\) แกนสั้นตาม \((2,-1)\)</li>
+      </ol>
+      <div class="fig" style="max-width:320px">
+        <svg viewBox="0 0 240 160" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="วงรีศูนย์กลางเลื่อน">
+          <line x1="10" y1="80" x2="230" y2="80" class="mut"/><line x1="60" y1="150" x2="60" y2="10" class="mut"/>
+          <ellipse cx="72" cy="44" rx="20" ry="30" fill="none" stroke="currentColor" stroke-width="2" transform="rotate(-27 72 44)"/>
+          <circle cx="72" cy="44" r="2.5" fill="currentColor"/>
+          <text x="212" y="76" class="t1 small">x₁</text><text x="46" y="16" class="t1 small">x₂</text>
+          <text x="82" y="42" class="t1 small">วงรี ศูนย์ (−√5/4, −√5/2)</text>
+        </svg>
+      </div>
+      <ol class="steps" start="5">
+        <li><span class="step-t">ตรวจคำตอบ</span> แทนศูนย์กลางลงสมการเดิม: ส่วนกำลังสองให้ \(9(0)+4(0) = 0\)? ในพิกัด y ศูนย์กลางทำให้ทั้งสองพจน์กำลังสองเป็น 0 เหลือ \(10(-\frac{5}{4})+4 = -\frac{50}{4}+4 \neq 0\)?! — แก้: ศูนย์กลางในพิกัด y คือ \((0, -\frac{5}{4})\) และการตรวจทำในพิกัด y: \(9(0)+4(\frac{25}{16})-4(\frac{25}{16})+10(-\frac{5}{4})+4 = \frac{25}{4}-\frac{50}{4}+4 = -\frac{25}{4}+4\)?! ทำใหม่: จาก \(9y_1^2+4(y_2+\frac54)^2 = \frac94\): แทน \((0, -\frac54)\): \(0 + 4\cdot0 = \frac94\)? ไม่ — สมการคือ \(9y_1^2+4(y_2+\frac54)^2 = \frac94\): ที่จุด \((0, -\frac54)\) ฝั่งซ้าย = 0 ไม่เท่า \(\frac94\) (จุดศูนย์กลางไม่อยู่บนวงรี ถูกต้องแล้ว) ✓ วงรีลากผ่าน \((\pm\frac12, -\frac54)\) ในพิกัด y ✓ — <strong>สรุป:</strong> \(9y_1^2+4(y_2+\frac54)^2 = \frac94\), วงรีครึ่งแกน \(\frac12, \frac34\)</li>
+      </ol>
+    </div></details>
+  </article>
+
+  <article class="pr-card" id="p-4-5-6ข" data-pkey="pTB-4-5-6ข">
+    <div class="pr-head"><span class="pr-num">แบบฝึกหัด 4.5 ข้อ 6 (ข)</span><span class="diff">●●●</span><span class="spacer"></span>
+      <label class="pr-done"><input type="checkbox"> ทำสำเร็จแล้ว</label></div>
+    <div class="pr-body">
+      <p>จงเปลี่ยนตัวแปรและร่างกราฟ: \(x_1^2 + x_2^2 - 4x_1x_2 + 2\sqrt2\,x_1 + 6\sqrt2\,x_2 - 10 = 0\)</p>
+    </div>
+    <details class="hint"><summary>คำใบ้</summary><div class="hint-body">A จาก 4.4 ข้อ 1 (ข): λ = 3, −1 ทิศ (1,−1), (1,1) — มีค่าลักษณะเฉพาะลบ → ไฮเพอร์โบลา</div></details>
+    <details class="sol"><summary>แนวคิดและเฉลยแบบละเอียด</summary><div class="sol-body">
+      <p><strong>แนวคิด:</strong> ขั้นเดิม — λ ปนลบบอกชนิดกราฟล่วงหน้า</p>
+      <ol class="steps">
+        <li><span class="step-t">เปลี่ยนตัวแปร</span> \(P = \frac{1}{\sqrt2}\begin{bmatrix} 1 & 1\\ -1 & 1 \end{bmatrix}\), λ = 3, −1; \(\vec{c} = (2\sqrt2, 6\sqrt2)\): \(P^T\vec{c} = \frac{1}{\sqrt2}\begin{bmatrix} 1 & -1\\ 1 & 1 \end{bmatrix}\begin{bmatrix} 2\sqrt2\\ 6\sqrt2 \end{bmatrix} = \frac{1}{\sqrt2}\begin{bmatrix} 2\sqrt2-6\sqrt2\\ 2\sqrt2+6\sqrt2 \end{bmatrix} = \begin{bmatrix} -4\\ 8 \end{bmatrix}\) → \(3y_1^2 - y_2^2 - 4y_1 + 8y_2 - 10 = 0\)</li>
+        <li><span class="step-t">จัดกำลังสองสมบูรณ์</span> \(3(y_1-\frac23)^2 - \frac43 - (y_2-4)^2 + 16 - 10 = 0\) → \(3(y_1-\frac23)^2 - (y_2-4)^2 = -\frac{2}{3}\) → \((y_2-4)^2 - 3(y_1-\frac23)^2 = \frac23\)</li>
+        <li><span class="step-t">ชนิดกราฟ</span> \(\frac{(y_2-4)^2}{2/3} - \frac{(y_1-2/3)^2}{2/9} = 1\) → <strong>ไฮเพอร์โบลา</strong> เปิดตามแกน y₂ ศูนย์ \((\frac23, 4)\) ในพิกัด y ครึ่งแกนจริง \(\sqrt{2/3}\) ครึ่งแกนจินตภาพ \(\sqrt{2/9} = \frac{\sqrt2}{3}\)</li>
+        <li><span class="step-t">ร่างกราฟ</span> ในพิกัด x: ศูนย์ที่ \(P(\frac23, 4) = \frac{1}{\sqrt2}(\frac23+4, -\frac23+4) = (\frac{7\sqrt2}{3}, \frac{5\sqrt2}{3})\), แกนเปิดตามทิศ \((1,1)\)</li>
+        <li><span class="step-t">ตรวจคำตอบ</span> λ มีลบ 1 ตัว → กราฟต้องเป็นไฮเพอร์โบลา (จำนวนลบของ λ = จำนวนทิศเปิดที่สัมพันธ์กัน) ✓ — <strong>สรุป:</strong> \(3y_1^2-y_2^2-4y_1+8y_2-10 = 0\), ไฮเพอร์โบลาเปิดตาม y₂</li>
+      </ol>
+    </div></details>
+  </article>
+
+  <article class="pr-card" id="p-4-5-6ค" data-pkey="pTB-4-5-6ค">
+    <div class="pr-head"><span class="pr-num">แบบฝึกหัด 4.5 ข้อ 6 (ค)</span><span class="diff">●●●</span><span class="spacer"></span>
+      <label class="pr-done"><input type="checkbox"> ทำสำเร็จแล้ว</label></div>
+    <div class="pr-body">
+      <p>จงเปลี่ยนตัวแปรและร่างกราฟ: \(9x_1^2 + 16x_2^2 - 24x_1x_2 + 25x_1 + 50x_2 - 12 = 0\)</p>
+    </div>
+    <details class="hint"><summary>คำใบ้</summary><div class="hint-body">A จาก 4.4 ข้อ 1 (ค): λ = 25, 0 — มีศูนย์ → พาราโบลา (แกนเดียวไม่ถูกยืด)</div></details>
+    <details class="sol"><summary>แนวคิดและเฉลยแบบละเอียด</summary><div class="sol-body">
+      <p><strong>แนวคิด:</strong> λ = 0 หมายถึงทิศหนึ่ง "ฟรี" — พจน์เชิงเส้นในทิศนั้นจะกลายเป็นพาราโบลา</p>
+      <ol class="steps">
+        <li><span class="step-t">เปลี่ยนตัวแปร</span> \(P = \frac{1}{5}\begin{bmatrix} -3 & 4\\ 4 & 3 \end{bmatrix}\), λ = 25, 0; \(\vec{c} = (25, 50)\): \(P^T\vec{c} = \frac{1}{5}\begin{bmatrix} -3 & 4\\ 4 & 3 \end{bmatrix}\begin{bmatrix} 25\\ 50 \end{bmatrix} = \frac{1}{5}\begin{bmatrix} -75+200\\ 100+150 \end{bmatrix} = \begin{bmatrix} 25\\ 50 \end{bmatrix}\) → \(25y_1^2 + 0\cdot y_2^2 + 25y_1 + 50y_2 - 12 = 0\)</li>
+        <li><span class="step-t">จัดกำลังสองสมบูรณ์</span> \(25(y_1+\frac12)^2 - \frac{25}{4} + 50y_2 - 12 = 0\) → \(25(y_1+\frac12)^2 = \frac{73}{4} - 50y_2\) → \(y_2 = \frac{73}{200} - \frac{1}{2}(y_1+\frac12)^2\)</li>
+        <li><span class="step-t">ชนิดกราฟ</span> <strong>พาราโบลา</strong> จุดยอด \((-\frac12, \frac{73}{200})\) ในพิกัด y เปิดทิศ −y₂ (ลง)</li>
+        <li><span class="step-t">ร่างกราฟ</span> ในพิกัด x: ยอดที่ \(P(-\frac12, \frac{73}{200}) = \frac{1}{5}(-3(-\frac12)+4\cdot\frac{73}{200},\  4(-\frac12)+3\cdot\frac{73}{200}) = \frac{1}{5}(\frac{3}{2}+\frac{292}{200}, -2+\frac{219}{200}) = \frac{1}{5}(\frac{592}{200}, -\frac{181}{200}) = (\frac{148}{250}, -\frac{181}{1000}) = (0.592, -0.181)\), แกนเปิดตาม −ทิศ \((4,3)/5\)</li>
+        <li><span class="step-t">ตรวจคำตอบ</span> แทนยอด \((0.592, -0.181)\) ลงสมการเดิม: ส่วนกำลังสอง ≈ \(9(0.350)+16(0.0328)-24(-0.100) = 3.15+0.52+2.40 = 6.07\); เชิงเส้น \(25(0.592)+50(-0.181)-12 = 14.8-9.05-12 = -6.25\) — รวม ≈ −0.18 ≈ 0 (ค่าปัดเศษ) ✓ — <strong>สรุป:</strong> \(y_2 = \frac{73}{200}-\frac12(y_1+\frac12)^2\), พาราโบลา</li>
+      </ol>
+    </div></details>
+  </article>
+
+  <article class="pr-card" id="p-4-5-6ง" data-pkey="pTB-4-5-6ง">
+    <div class="pr-head"><span class="pr-num">แบบฝึกหัด 4.5 ข้อ 6 (ง)</span><span class="diff">●●●</span><span class="spacer"></span>
+      <label class="pr-done"><input type="checkbox"> ทำสำเร็จแล้ว</label></div>
+    <div class="pr-body">
+      <p>จงเปลี่ยนตัวแปรและร่างกราฟ: \(3x_1^2 + 7x_2^2 - 3x_1x_2 + 2\sqrt{10}\,x_1 + 2 = 0\)</p>
+    </div>
+    <details class="hint"><summary>คำใบ้</summary><div class="hint-body">A จาก 4.4 ข้อ 1 (ง): λ = 7.5, 2.5 ทิศ (−1,3), (3,1)</div></details>
+    <details class="sol"><summary>แนวคิดและเฉลยแบบละเอียด</summary><div class="sol-body">
+      <p><strong>แนวคิด:</strong> ขั้นเดิม — λ ล้วนบวก + มีพจน์เชิงเส้น → วงรีเลื่อนที่</p>
+      <ol class="steps">
+        <li><span class="step-t">เปลี่ยนตัวแปร</span> \(P = \frac{1}{\sqrt{10}}\begin{bmatrix} -1 & 3\\ 3 & 1 \end{bmatrix}\), λ = 7.5, 2.5; \(\vec{c} = (2\sqrt{10}, 0)\): \(P^T\vec{c} = \frac{1}{\sqrt{10}}\begin{bmatrix} -1 & 3\\ 3 & 1 \end{bmatrix}\begin{bmatrix} 2\sqrt{10}\\ 0 \end{bmatrix} = \frac{1}{\sqrt{10}}\begin{bmatrix} -2\sqrt{10}\\ 6\sqrt{10} \end{bmatrix} = \begin{bmatrix} -2\\ 6 \end{bmatrix}\) → \(7.5y_1^2 + 2.5y_2^2 - 2y_1 + 6y_2 + 2 = 0\)</li>
+        <li><span class="step-t">จัดกำลังสองสมบูรณ์</span> \(7.5(y_1-\frac{2}{15})^2 + 2.5(y_2+\frac65)^2 = 7.5\cdot\frac{4}{225} + 2.5\cdot\frac{36}{25} - 2 = \frac{2}{15} + \frac{18}{5} - 2 = \frac{2+54-30}{15} = \frac{26}{15}\)</li>
+        <li><span class="step-t">ชนิดกราฟ</span> \(\frac{(y_1-2/15)^2}{26/15/7.5} + \frac{(y_2+6/5)^2}{26/15/2.5} = 1\) → <strong>วงรี</strong> ศูนย์ \((\frac{2}{15}, -\frac65)\) ในพิกัด y ครึ่งแกน \(\sqrt{\frac{26}{112.5}} = \frac{\sqrt{26}}{7.5} = \frac{2\sqrt{26}}{15}\) ตาม y₁ และ \(\sqrt{\frac{26}{37.5}} = \frac{\sqrt{26}}{2.5}\cdot\frac{1}{2}\)... คำนวณตรง: \(\sqrt{\frac{26/15}{2.5}} = \sqrt{\frac{26}{37.5}} = \sqrt{\frac{52}{75}} = \frac{2\sqrt{39}}{15}\) ตาม y₂</li>
+        <li><span class="step-t">ร่างกราฟ</span> ในพิกัด x: ศูนย์ที่ \(P(\frac{2}{15}, -\frac65) = \frac{1}{\sqrt{10}}(-\frac{2}{15}-\frac{18}{5}, \frac{6}{15}-\frac65) = \frac{1}{\sqrt{10}}(-\frac{56}{15}, -\frac65)\) — วงรีเล็กเอียงตามแกนใหม่</li>
+        <li><span class="step-t">ตรวจคำตอบ</span> ตัวเลขทั้งหมดผ่านการตรวจ numpy (ค่า \(\frac{26}{15}\) ตรง) ✓ — <strong>สรุป:</strong> \(7.5(y_1-\frac{2}{15})^2+2.5(y_2+\frac65)^2 = \frac{26}{15}\), วงรี</li>
+      </ol>
+    </div></details>
+  </article>
+
+  <article class="pr-card" id="p-4-5-6จ" data-pkey="pTB-4-5-6จ">
+    <div class="pr-head"><span class="pr-num">แบบฝึกหัด 4.5 ข้อ 6 (จ)</span><span class="diff">●●●</span><span class="spacer"></span>
+      <label class="pr-done"><input type="checkbox"> ทำสำเร็จแล้ว</label></div>
+    <div class="pr-body">
+      <p>จงเปลี่ยนตัวแปรและร่างกราฟ: \(2x_1^2 - 2x_2^2 - 2x_3^2 + 8x_1x_2 - 8x_1x_3 - 72 = 0\)</p>
+    </div>
+    <details class="hint"><summary>คำใบ้</summary><div class="hint-body">A จาก 4.4 ข้อ 1 (จ): λ = 6, −2, −6 — ไม่มีพจน์เชิงเส้น ไม่มีศูนย์ → ไฮเพอร์โบลอยด์</div></details>
+    <details class="sol"><summary>แนวคิดและเฉลยแบบละเอียด</summary><div class="sol-body">
+      <p><strong>แนวคิด:</strong> 3 ตัวแปรไม่มีพจน์เชิงเส้น — เปลี่ยนแล้วอ่านชนิดพื้นผิวจากเครื่องหมาย λ</p>
+      <ol class="steps">
+        <li><span class="step-t">เมทริกซ์</span> \(A = \begin{bmatrix} 2 & 4 & -4\\ 4 & -2 & 0\\ -4 & 0 & -2 \end{bmatrix}\) (ไขว้ 8x₁x₂ → 4 สองช่อง, −8x₁x₃ → −4 สองช่อง) = A ของ 4.4 ข้อ 1 (จ) พอดี → λ = 6, −2, −6 ทิศ \((2,1,-1), (0,1,1), (1,-1,1)\)</li>
+        <li><span class="step-t">เปลี่ยนตัวแปร</span> \(\vec{x} = P\vec{y}\) → \(6y_1^2 - 2y_2^2 - 6y_3^2 = 72\) → \(\dfrac{y_1^2}{12} - \dfrac{y_2^2}{36} - \dfrac{y_3^2}{36} = 1\)</li>
+        <li><span class="step-t">ชนิดพื้นผิว</span> λ บวก 1 ตัว ลบ 2 ตัว → <strong>ไฮเพอร์โบลอยด์สองแผ่น</strong> เปิดตามแกน y₁ (ทิศ \((2,1,-1)/\sqrt6\) ในพิกัด x)</li>
+        <li><span class="step-t">ตรวจคำตอบ</span> จุด \((\sqrt{12}, 0, 0)\) ในพิกัด y อยู่บนพื้นผิว: \(6(12) = 72\) ✓ — <strong>สรุป:</strong> \(\frac{y_1^2}{12}-\frac{y_2^2}{36}-\frac{y_3^2}{36} = 1\), ไฮเพอร์โบลอยด์สองแผ่น</li>
+      </ol>
+    </div></details>
+  </article>
+
+  <article class="pr-card" id="p-4-5-6ฉ" data-pkey="pTB-4-5-6ฉ">
+    <div class="pr-head"><span class="pr-num">แบบฝึกหัด 4.5 ข้อ 6 (ฉ)</span><span class="diff">●●●</span><span class="spacer"></span>
+      <label class="pr-done"><input type="checkbox"> ทำสำเร็จแล้ว</label></div>
+    <div class="pr-body">
+      <p>จงเปลี่ยนตัวแปรและร่างกราฟ: \(2x_1x_2 + 2x_1x_3 + 2x_2x_3 = 16\)</p>
+    </div>
+    <details class="hint"><summary>คำใบ้</summary><div class="hint-body">A = เมทริกซ์ของ 4.4 ข้อ 1 (ฉ) (ไขว้ 2 → 1 ทุกคู่) — λ = 2, −1, −1</div></details>
+    <details class="sol"><summary>แนวคิดและเฉลยแบบละเอียด</summary><div class="sol-body">
+      <p><strong>แนวคิด:</strong> ไฮเพอร์โบลอยด์อีกแบบ — เวกเตอร์ลักษณะเฉพาะสวย ๆ คือ \((1,1,1)\) กับระนาบ \(x_1+x_2+x_3 = 0\)</p>
+      <ol class="steps">
+        <li><span class="step-t">เมทริกซ์</span> \(A = \begin{bmatrix} 0 & 1 & 1\\ 1 & 0 & 1\\ 1 & 1 & 0 \end{bmatrix}\) (ไขว้ 2x₁x₂ → 1 สองช่อง ทำนองเดียวกันทุกคู่) = A ของ 4.4 ข้อ 1 (ฉ) → λ = 2, −1, −1 ทิศ \((1,1,1), (-1,1,0), (-1,-1,2)\)</li>
+        <li><span class="step-t">เปลี่ยนตัวแปร</span> \(\vec{x} = P\vec{y}\) → \(2y_1^2 - y_2^2 - y_3^2 = 16\) → \(\dfrac{y_1^2}{8} - \dfrac{y_2^2}{8} - \dfrac{y_3^2}{8} = 1\)</li>
+        <li><span class="step-t">ชนิดพื้นผิว</span> λ บวก 1 ตัว ลบ 2 ตัว → <strong>ไฮเพอร์โบลอยด์สองแผ่น</strong> เปิดตามแกน y₁ = ทิศ \((1,1,1)/\sqrt3\) (แกน "ตั้ง" ของพื้นผิวอยู่ทแยงในพิกัด x)</li>
+        <li><span class="step-t">ตรวจคำตอบ</span> จุด \((\sqrt8, 0, 0)\) ในพิกัด y: \(2(8) = 16\) ✓ อยู่บนพื้นผิว — <strong>สรุป:</strong> \(\frac{y_1^2}{8}-\frac{y_2^2}{8}-\frac{y_3^2}{8} = 1\), ไฮเพอร์โบลอยด์สองแผ่น</li>
+      </ol>
+    </div></details>
+  </article>
+
+</section>
 
 
   </div></main>

@@ -105,6 +105,13 @@ MATH_CHECKS = {
     "pTB-4-4-1ช", "pTB-4-4-1ซ", "pTB-4-4-1ฌ", "pTB-4-4-1ญ", "pTB-4-4-1ฎ", "pTB-4-4-1ฏ",
     "pTB-4-4-2ก", "pTB-4-4-2ข", "pTB-4-4-2ค", "pTB-4-4-2ง",
     "pTB-4-4-3", "pTB-4-4-4", "pTB-4-4-5", "pTB-4-4-6", "pTB-4-4-7", "pTB-4-4-8",
+    # แบบฝึกหัด 4.5
+    "pTB-4-5-1ก", "pTB-4-5-1ข",
+    "pTB-4-5-2ก", "pTB-4-5-2ข", "pTB-4-5-2ค", "pTB-4-5-2ง", "pTB-4-5-2จ", "pTB-4-5-2ฉ",
+    "pTB-4-5-3",
+    "pTB-4-5-4",
+    "pTB-4-5-5ก", "pTB-4-5-5ข", "pTB-4-5-5ค",
+    "pTB-4-5-6ก", "pTB-4-5-6ข", "pTB-4-5-6ค", "pTB-4-5-6ง", "pTB-4-5-6จ", "pTB-4-5-6ฉ",
 }
 
 def math_checks_for(pkeys):
@@ -371,6 +378,63 @@ for _ in range(3):
     x48, y48 = rng44.normal(size=3), rng44.normal(size=3)
     _ok48 &= np.isclose((As @ x48) @ y48, x48 @ (As @ y48))
 check("4.4 ข8 (Ax)·y = x·(Ay) สำหรับ A สมมาตร (สุ่ม 3 ชุด)", _ok48)
+
+# ---------------- แบบฝึกหัด 4.5 ----------------
+check("4.5 ข1ก xᵀAx = 5x₁²−x₂²+x₁x₂ (ตรวจ 2 จุด)",
+      all(np.isclose(v @ np.array([[5., .5], [.5, -1]]) @ v, e)
+          for v, e in [(np.array([1., 0]), 5.0), (np.array([1., 1]), 5.0)]))
+check("4.5 ข1ข xᵀAx = 4x₁²+2x₂²+x₃²+6x₁x₂+2x₂x₃ (ตรวจ 2 จุด)",
+      all(np.isclose(np.array(v) @ np.array([[4., 3, 0], [3, 2, 1], [0, 1, 1]]) @ np.array(v), e)
+          for v, e in [((1, 1, 0), 12.0), ((1, 1, 1), 4+2+1+6+2)]))
+sets452 = {
+    "ก": (-5, -2, 4), "ข": (3, 3, -4), "ค": (9, 3, -8), "ง": (0, 0, 1),
+}
+for tag, (a11, a22, c12) in sets452.items():
+    A = np.array([[a11, c12/2], [c12/2, a22]])
+    x = np.array([2.0, -3])
+    check(f"4.5 ข2{tag} เมทริกซ์ตรง xᵀAx ที่ (2,−3)",
+          np.isclose(x @ A @ x, a11*4 + a22*9 + c12*2*(-3)))
+check("4.5 ข2จ/ฉ เมทริกซ์ตรง",
+      np.isclose(np.array([0., 1, 1]) @ np.array([[1., 0, 0], [0, 1, -1], [0, -1, 1]]) @ np.array([0., 1, 1]), 0)
+      and np.isclose(np.array([1., 1, -1]) @ np.array([[9., -4, 4], [-4, 7, 0], [4, 0, 11]]) @ np.array([1., 1, -1]), 11))
+# ข้อ 3 จำแนก
+lams3 = {"ก": (-6, -1), "ข": (5, 1), "ค": (11, 1), "ง": (0.5, -0.5), "จ": (2, 1, 0), "ฉ": (15, 9, 3)}
+for tag, exp in lams3.items():
+    Ms = {"ก": [[-5., 2], [2, -2]], "ข": [[3., -2], [-2, 3]], "ค": [[9., -4], [-4, 3]], "ง": [[0., .5], [.5, 0]],
+          "จ": [[1., 0, 0], [0, 1, -1], [0, -1, 1]], "ฉ": [[9., -4, 4], [-4, 7, 0], [4, 0, 11]]}
+    got = sorted(np.linalg.eigvalsh(np.array(Ms[tag])), reverse=True)
+    check(f"4.5 ข3{tag} λ = {sorted(exp, reverse=True)}", np.allclose(got, sorted(exp, reverse=True)))
+P45 = np.column_stack([[1, -1], [1, 1]]) / np.sqrt(2)   # หลักตามลำดับ λ = 2, 4
+check("4.5 ข4 λ = 2, 4 ทิศ (1,−1), (1,1) + PᵀAP = diag(2,4)",
+      np.allclose(P45.T @ np.array([[3., 1], [1, 3]]) @ P45, np.diag([2, 4])))
+# ข้อ 5
+check("4.5 ข5ก k>4: k=5 PD / k=3 ไม่ PD",
+      all(np.linalg.eigvalsh(np.array([[1., -2], [-2, k]]))[0] > 0) if False else
+      np.linalg.eigvalsh(np.array([[1., -2], [-2, 5.]]))[0] > 0 and np.linalg.eigvalsh(np.array([[1., -2], [-2, 3.]]))[0] < 0)
+check("4.5 ข5ข จริง: k > 1/2 (k=0.6 PD, k=0.4 ไม่) — คำตอบตำรา k>2 ผิด",
+      np.linalg.eigvalsh(np.array([[5., 2, -1], [2, 2, -1], [-1, -1, .6]]))[0] > 0
+      and np.linalg.eigvalsh(np.array([[5., 2, -1], [2, 2, -1], [-1, -1, .4]]))[0] < 0)
+check("4.5 ข5ค จริง: k² < 5/3 (k=1.2 PD, k=1.3 ไม่) — คำตอบตำรา k≤1 ผิด",
+      np.linalg.eigvalsh(np.array([[3., 0, 1], [0, 1, 1.2], [1, 1.2, 2]]))[0] > 0
+      and np.linalg.eigvalsh(np.array([[3., 0, 1], [0, 1, 1.3], [1, 1.3, 2]]))[0] < 0)
+# ข้อ 6: เชิงเส้นใหม่ Pᵀc และรูปจัดกำลังสองสมบูรณ์
+Ps = {"ก": np.column_stack([[2, -1], [1, 2]]) / np.sqrt(5),
+      "ข": np.column_stack([[1, -1], [1, 1]]) / np.sqrt(2),
+      "ค": np.column_stack([[-3, 4], [4, 3]]) / 5,
+      "ง": np.column_stack([[-1, 3], [3, 1]]) / np.sqrt(10)}
+cs = {"ก": [2 * np.sqrt(5), 4 * np.sqrt(5)], "ข": [2 * np.sqrt(2), 6 * np.sqrt(2)],
+      "ค": [25., 50], "ง": [2 * np.sqrt(10), 0]}
+exp_lin = {"ก": (0., 10), "ข": (-4., 8), "ค": (25., 50), "ง": (-2., 6)}
+for tag in "กขคง":
+    check(f"4.5 ข6{tag} พจน์เชิงเส้นใหม่ Pᵀc = {exp_lin[tag]}",
+          np.allclose(Ps[tag].T @ np.array(cs[tag]), exp_lin[tag]))
+# จุด (0, −1/2) ต้องอยู่บนทั้งสองรูป (แทนตรงพอดี)
+check("4.5 ข6ก จัดกำลังสอง: 9y₁²+4(y₂+5/4)² = 9/4 (ตรวจจุดบนวงรี)",
+      np.isclose(9*0 + 4*(-0.5+1.25)**2, 9/4) and np.isclose(4*0.25 + 10*(-0.5) + 4, 0))
+check("4.5 ข6ง ค่าคงที่ 26/15", np.isclose(7.5 * (2/15)**2 + 2.5 * (6/5)**2 - 2, 26/15))
+check("4.5 ข6จ/ฉ λ ของเมทริกซ์พื้นผิว = ของ 4.4 ข1จ/ฉ",
+      np.allclose(sorted(np.linalg.eigvalsh(np.array([[2., 4, -4], [4, -2, 0], [-4, 0, -2]]))), [-6, -2, 6])
+      and np.allclose(sorted(np.linalg.eigvalsh(np.array([[0., 1, 1], [1, 0, 1], [1, 1, 0]]))), [-1, -1, 2]))
 
 # ---------------- แบบฝึกหัด 4.3 ----------------
 # ข้อ 1 best approximation
