@@ -59,4 +59,276 @@ tts: 1
   <a href="#set-4-5">4.5</a>
 </nav>
 
-<!-- ชุดแบบฝึกหัดแต่ละชุดเติมที่นี่เป็น <section class="block" id="set-4-X"> -->
+<section class="block" id="set-4-1">
+  <h2>แบบฝึกหัด 4.1 — ผลคูณภายในและเซตเชิงตั้งฉาก</h2>
+  <p class="page-sub">หมายเหตุ: คำตอบท้ายบทของตำราพิมพ์เฉพาะข้อ 1–2 ข้อ 3–6 ไม่มีคำตอบในตำรา (คลังนี้เฉลยครบทุกข้อ) · โจทย์คำต่อคำจากตำรา</p>
+  <table class="tbl">
+    <tr><th>ข้อ</th><th>เนื้อหาสั้น</th><th>การ์ด</th></tr>
+    <tr><td>1</td><td>ผลคูณจุด, นอร์ม, เวกเตอร์หนึ่งหน่วยของ 2u+v</td><td><a href="#p-4-1-1">ข้อ 1</a></td></tr>
+    <tr><td>2</td><td>เวกเตอร์ 3 หน่วย + ระยะห่าง</td><td><a href="#p-4-1-2">ข้อ 2</a></td></tr>
+    <tr><td>3</td><td>เซตเชิงตั้งฉาก → ฐานหลัก → เขียน x เป็นผลรวม → เมทริกซ์ U</td><td><a href="#p-4-1-3ก">ก</a> <a href="#p-4-1-3ข">ข</a> <a href="#p-4-1-3ค">ค</a> <a href="#p-4-1-3ง">ง</a></td></tr>
+    <tr><td>4</td><td>แบบเดียวกับข้อ 3 กับตัวเลขใหม่</td><td><a href="#p-4-1-4ก">ก</a> <a href="#p-4-1-4ข">ข</a> <a href="#p-4-1-4ค">ค</a> <a href="#p-4-1-4ง">ง</a></td></tr>
+    <tr><td>5</td><td>พิสูจน์อัตลักษณ์ความยาว (ก–ค)</td><td><a href="#p-4-1-5ก">ก</a> <a href="#p-4-1-5ข">ข</a> <a href="#p-4-1-5ค">ค</a></td></tr>
+    <tr><td>6</td><td>พิสูจน์ det U = ±1</td><td><a href="#p-4-1-6">ข้อ 6</a></td></tr>
+  </table>
+
+  <article class="pr-card" id="p-4-1-1" data-pkey="pTB-4-1-1">
+    <div class="pr-head"><span class="pr-num">แบบฝึกหัด 4.1 ข้อ 1</span><span class="tag exam">🎯 แนว ②</span><span class="diff">●○○</span><span class="spacer"></span>
+      <label class="pr-done"><input type="checkbox"> ทำสำเร็จแล้ว</label></div>
+    <div class="pr-body">
+      <p>ให้ \(\vec{u} = \begin{bmatrix} -1\\ 2 \end{bmatrix}\) และ \(\vec{v} = \begin{bmatrix} 3\\ 2 \end{bmatrix}\) จงหา \(\vec{u}\cdot\vec{v}\), \(\vec{v}\cdot\vec{u}\), \(\lVert\vec{u}\rVert\), \(\lVert\vec{v}\rVert\) และเวกเตอร์หนึ่งหน่วยในทิศทางเดียวและทิศทางตรงข้ามกับเวกเตอร์ \(2\vec{u}+\vec{v}\)</p>
+      <p class="tagline">มีบทเรียนประกอบ: <a href="ch4-1.html">หน้า 4.1</a></p>
+    </div>
+    <details class="hint"><summary>คำใบ้</summary><div class="hint-body">หา \(2\vec{u}+\vec{v}\) ก่อน แล้วหารด้วยความยาวของมัน — "ทิศตรงข้าม" คือเติมเครื่องหมาย ±</div></details>
+    <details class="sol"><summary>แนวคิดและเฉลยแบบละเอียด</summary><div class="sol-body">
+      <p><strong>แนวคิด:</strong> ผลคูณจุด = คูณตำแหน่งเดียวกันแล้วบวกกัน ส่วนเวกเตอร์หนึ่งหน่วยในทิศเดียวกับ \(\vec{w}\) คือ \(\vec{w}/\lVert\vec{w}\rVert\) (หารทุกช่องด้วยความยาว) — ทิศตรงข้ามก็แค่กลับเครื่องหมายทั้งตัว</p>
+      <ol class="steps">
+        <li><span class="step-t">ผลคูณจุด</span> \(\vec{u}\cdot\vec{v} = (-1)(3) + (2)(2) = -3 + 4 = 1\) ทำไมคูณตำแหน่งเดียวกัน: ช่องที่ 1 คูณช่องที่ 1, ช่องที่ 2 คูณช่องที่ 2 แล้วรวม ส่วน \(\vec{v}\cdot\vec{u}\) เพียงสลับลำดับ = \((3)(-1)+(2)(2) = 1\) เท่าเดิม (ผลคูณจุดสลับที่ได้)</li>
+        <li><span class="step-t">ความยาว</span> \(\lVert\vec{u}\rVert = \sqrt{(-1)^2 + 2^2} = \sqrt{5}\), \(\lVert\vec{v}\rVert = \sqrt{3^2 + 2^2} = \sqrt{13}\) — ยกกำลังสองทีละช่องเพื่อกำจัดเครื่องหมายลบ แล้วค่อยถอดราก</li>
+        <li><span class="step-t">เวกเตอร์เป้าหมาย</span> \(2\vec{u}+\vec{v} = \begin{bmatrix} 2(-1)+3\\ 2(2)+2 \end{bmatrix} = \begin{bmatrix} 1\\ 6 \end{bmatrix}\) — คูณสเกลาร์ทีละช่องก่อน แล้วค่อยบวกช่องต่อช่อง</li>
+        <li><span class="step-t">หนึ่งหน่วย</span> ความยาว \(\lVert 2\vec{u}+\vec{v}\rVert = \sqrt{1^2+6^2} = \sqrt{37}\) ดังนั้นเวกเตอร์หนึ่งหน่วยในทิศเดียวกันคือ \(\dfrac{1}{\sqrt{37}}\begin{bmatrix} 1\\ 6 \end{bmatrix}\) และทิศตรงข้ามคือ \(-\dfrac{1}{\sqrt{37}}\begin{bmatrix} 1\\ 6 \end{bmatrix}\) เขียนรวมเป็น \(\pm\dfrac{1}{\sqrt{37}}\begin{bmatrix} 1\\ 6 \end{bmatrix}\)</li>
+        <li><span class="step-t">ตรวจคำตอบ</span> ยาวของคำตอบ: \(\left(\frac{1}{\sqrt{37}}\right)^2(1+36) = \frac{37}{37} = 1\) ✓ และเช็กทิศ: \(\frac{1}{\sqrt{37}}\begin{bmatrix}1\\6\end{bmatrix}\) หารด้วย \(\frac{1}{\sqrt{37}}\) ได้ \(\begin{bmatrix}1\\6\end{bmatrix}\) ตรงกับ \(2\vec{u}+\vec{v}\) ✓ — <strong>สรุป:</strong> \(\vec{u}\cdot\vec{v} = \vec{v}\cdot\vec{u} = 1\), \(\lVert\vec{u}\rVert = \sqrt{5}\), \(\lVert\vec{v}\rVert = \sqrt{13}\), หนึ่งหน่วย \(\pm\frac{1}{\sqrt{37}}(1, 6)\)</li>
+      </ol>
+    </div></details>
+  </article>
+
+  <article class="pr-card" id="p-4-1-2" data-pkey="pTB-4-1-2">
+    <div class="pr-head"><span class="pr-num">แบบฝึกหัด 4.1 ข้อ 2</span><span class="tag exam">🎯 แนว ②</span><span class="diff">●○○</span><span class="spacer"></span>
+      <label class="pr-done"><input type="checkbox"> ทำสำเร็จแล้ว</label></div>
+    <div class="pr-body">
+      <p>ให้ \(\vec{u} = \begin{bmatrix} -6\\ 2\\ -3 \end{bmatrix}\) และ \(\vec{x} = \begin{bmatrix} -1\\ 0\\ -1 \end{bmatrix}\) จงหาเวกเตอร์ 3 หน่วยในทิศทางเดียวกับเวกเตอร์ \(\vec{u}\) และระยะห่างระหว่าง \(\vec{u}\) และ \(\vec{x}\)</p>
+      <p class="tagline">มีบทเรียนประกอบ: <a href="ch4-1.html">หน้า 4.1</a></p>
+    </div>
+    <details class="hint"><summary>คำใบ้</summary><div class="hint-body">"เวกเตอร์ \(k\) หน่วยในทิศเดียวกับ \(\vec{u}\)" = \(\dfrac{k\,\vec{u}}{\lVert\vec{u}\rVert}\) · ระยะห่าง = ความยาวของ \(\vec{u}-\vec{x}\)</div></details>
+    <details class="sol"><summary>แนวคิดและเฉลยแบบละเอียด</summary><div class="sol-body">
+      <p><strong>แนวคิด:</strong> หน่วยของ \(\vec{u}\) คือ \(\vec{u}/\lVert\vec{u}\rVert\) (ยาว 1) ขยายเป็น \(k\) หน่วยโดยคูณ \(k\) — ส่วน "ระยะห่างระหว่างสองจุด" คือความยาวของเวกเตอร์ลบกัน \(\lVert\vec{u}-\vec{x}\rVert\)</p>
+      <ol class="steps">
+        <li><span class="step-t">ความยาวของ u</span> \(\lVert\vec{u}\rVert = \sqrt{(-6)^2 + 2^2 + (-3)^2} = \sqrt{36+4+9} = \sqrt{49} = 7\) — ยกกำลังสองทีละช่อง: 36 + 4 + 9 รวมเป็นสี่เหลี่ยมสมบูรณ์ 7²</li>
+        <li><span class="step-t">เวกเตอร์ 3 หน่วย</span> \(3\cdot\dfrac{\vec{u}}{7} = \begin{bmatrix} -18/7\\ 6/7\\ -9/7 \end{bmatrix}\) — หารทีละช่องด้วย 7 ก่อน (\(-6/7, 2/7, -3/7\)) แล้วคูณ 3 ทีละช่อง ตัวเลขลบคงเครื่องหมายเดิม</li>
+        <li><span class="step-t">ระยะห่าง</span> \(\vec{u}-\vec{x} = \begin{bmatrix} -6-(-1)\\ 2-0\\ -3-(-1) \end{bmatrix} = \begin{bmatrix} -5\\ 2\\ -2 \end{bmatrix}\) ระวังลบซ้อนลบ: \(-6-(-1) = -6+1 = -5\), \(-3-(-1) = -3+1 = -2\) แล้ว \(\lVert\vec{u}-\vec{x}\rVert = \sqrt{25+4+4} = \sqrt{33}\)</li>
+        <li><span class="step-t">ตรวจคำตอบ</span> ยาวของคำตอบข้อแรก: \(\sqrt{(18/7)^2+(6/7)^2+(9/7)^2} = \frac{1}{7}\sqrt{324+36+81} = \frac{21}{7} = 3\) ✓ ตรงโจทย์ที่ขอ "3 หน่วย" — <strong>สรุป:</strong> \(3\vec{u}/\lVert\vec{u}\rVert = (-18/7, 6/7, -9/7)\), ระยะ \(\sqrt{33}\)</li>
+      </ol>
+    </div></details>
+  </article>
+
+  <article class="pr-card" id="p-4-1-3ก" data-pkey="pTB-4-1-3ก">
+    <div class="pr-head"><span class="pr-num">แบบฝึกหัด 4.1 ข้อ 3 (ก)</span><span class="diff">●○○</span><span class="spacer"></span>
+      <label class="pr-done"><input type="checkbox"> ทำสำเร็จแล้ว</label></div>
+    <div class="pr-body">
+      <p>กำหนดให้ \(S = \left\{\begin{bmatrix} 2\\ 4\\ -1 \end{bmatrix}, \begin{bmatrix} 1\\ 0\\ 2 \end{bmatrix}, \begin{bmatrix} 8\\ -5\\ -4 \end{bmatrix}\right\}\) จงแสดงว่าเซต \(S\) เป็นเซตเชิงตั้งฉากใน \(\mathbb{R}^3\)</p>
+    </div>
+    <details class="hint"><summary>คำใบ้</summary><div class="hint-body">นิยาม: เซตเชิงตั้งฉาก = ทุกคู่ที่แตกต่างกันต้องมี \(\vec{u}_i\cdot\vec{u}_j = 0\) — มี 3 คู่: (1,2), (1,3), (2,3)</div></details>
+    <details class="sol"><summary>แนวคิดและเฉลยแบบละเอียด</summary><div class="sol-body">
+      <p><strong>แนวคิด:</strong> เรียก \(\vec{u}_1, \vec{u}_2, \vec{u}_3\) ตามลำดับ ต้องเช็กทั้ง 3 คู่ที่เป็นไปได้ให้ครบ — ขาดคู่เดียวไม่ได้ เพราะนิยามต้องการ "ทุกคู่"</p>
+      <ol class="steps">
+        <li><span class="step-t">คู่ (1,2)</span> \(\vec{u}_1\cdot\vec{u}_2 = (2)(1) + (4)(0) + (-1)(2) = 2 + 0 - 2 = 0\) ✓</li>
+        <li><span class="step-t">คู่ (1,3)</span> \(\vec{u}_1\cdot\vec{u}_3 = (2)(8) + (4)(-5) + (-1)(-4) = 16 - 20 + 4 = 0\) ✓ ระวัง \((-1)(-4) = +4\) ลบคูณลบได้บวก</li>
+        <li><span class="step-t">คู่ (2,3)</span> \(\vec{u}_2\cdot\vec{u}_3 = (1)(8) + (0)(-5) + (2)(-4) = 8 + 0 - 8 = 0\) ✓</li>
+        <li><span class="step-t">สรุป</span> ทุกคู่ตั้งฉาก (ผลคูณจุด = 0 หมด) และไม่มีเวกเตอร์ศูนย์ จึงเป็นเซตเชิงตั้งฉากตามนิยาม ∎</li>
+      </ol>
+    </div></details>
+  </article>
+
+  <article class="pr-card" id="p-4-1-3ข" data-pkey="pTB-4-1-3ข">
+    <div class="pr-head"><span class="pr-num">แบบฝึกหัด 4.1 ข้อ 3 (ข)</span><span class="diff">●○○</span><span class="spacer"></span>
+      <label class="pr-done"><input type="checkbox"> ทำสำเร็จแล้ว</label></div>
+    <div class="pr-body">
+      <p>จงแสดงว่าเซต \(S\) เป็นฐานหลักเชิงตั้งฉากของ \(\mathbb{R}^3\) (ต่อเนื่องจากข้อ (ก))</p>
+    </div>
+    <details class="hint"><summary>คำใบ้</summary><div class="hint-body">ฐานหลักเชิงตั้งฉาก = เซตเชิงตั้งฉาก (ได้จาก (ก)) + ต้องเป็นฐานหลัก — ใช้ทฤษฎีบท: เซตเชิงตั้งฉากของเวกเตอร์ไม่ศูนย์ p ตัวใน \(\mathbb{R}^n\) เมื่อ \(p = n\) เป็นฐานหลักเชิงตั้งฉากเสมอ</div></details>
+    <details class="sol"><summary>แนวคิดและเฉลยแบบละเอียด</summary><div class="sol-body">
+      <p><strong>แนวคิด:</strong> จาก (ก) S เป็นเซตเชิงตั้งฉากแล้ว เหลือพิสูจน์ว่า "แผ่ทั่ว + อิสระ" — ไม่ต้องแก้ระบบเอง มีทฤษฎีบทลัด: เซตเชิงตั้งฉากที่ประกอบด้วยเวกเตอร์ไม่เป็นศูนย์ = เซตอิสระเชิงเส้นเสมอ</p>
+      <ol class="steps">
+        <li><span class="step-t">เวกเตอร์ทุกตัวไม่เป็นศูนย์</span> เห็นชัดจากโจทย์ว่า \(\vec{u}_1, \vec{u}_2, \vec{u}_3\) ไม่มีตัวไหนเป็น \(\vec{0}\)</li>
+        <li><span class="step-t">อิสระเชิงเส้น</span> สมมติ \(c_1\vec{u}_1 + c_2\vec{u}_2 + c_3\vec{u}_3 = \vec{0}\) จุดด้วย \(\vec{u}_1\): ได้ \(c_1\lVert\vec{u}_1\rVert^2 + 0 + 0 = 0\) เพราะคู่อื่นตั้งฉาก และ \(\lVert\vec{u}_1\rVert^2 \neq 0\) ดังนั้น \(c_1 = 0\) ทำเช่นเดียวกันจุดด้วย \(\vec{u}_2, \vec{u}_3\) ได้ \(c_2 = c_3 = 0\) — อิสระครบ</li>
+        <li><span class="step-t">แผ่ทั่ว</span> เซตอิสระ 3 ตัวใน \(\mathbb{R}^3\) ซึ่งมีมิติ 3 → จำนวนเท่ากับมิติ → แผ่ทั่วพอดี (ทฤษฎีบท: p เวกเตอร์อิสระในปริภูมิมิติ p เป็นฐานหลัก)</li>
+        <li><span class="step-t">สรุป</span> S อิสระ + แผ่ทั่ว + เชิงตั้งฉาก = ฐานหลักเชิงตั้งฉากของ \(\mathbb{R}^3\) ∎</li>
+      </ol>
+    </div></details>
+  </article>
+
+  <article class="pr-card" id="p-4-1-3ค" data-pkey="pTB-4-1-3ค">
+    <div class="pr-head"><span class="pr-num">แบบฝึกหัด 4.1 ข้อ 3 (ค)</span><span class="diff">●●○</span><span class="spacer"></span>
+      <label class="pr-done"><input type="checkbox"> ทำสำเร็จแล้ว</label></div>
+    <div class="pr-body">
+      <p>โดยใช้ทฤษฎีบท 4.1.2 จงเขียน \(\vec{x} = \begin{bmatrix} 5\\ 1\\ 0 \end{bmatrix}\) ในรูปผลรวมเชิงเส้นของเวกเตอร์ในเซต \(S\)</p>
+    </div>
+    <details class="hint"><summary>คำใบ้</summary><div class="hint-body">กับฐานหลักเชิงตั้งฉากไม่ต้องแก้ระบบ: \(c_i = \dfrac{\vec{x}\cdot\vec{u}_i}{\lVert\vec{u}_i\rVert^2}\) — ทำไม: จุดสมการผลรวมด้วย \(\vec{u}_i\) แล้วทุกพจน์อื่นร่วงหมด</div></details>
+    <details class="sol"><summary>แนวคิดและเฉลยแบบละเอียด</summary><div class="sol-body">
+      <p><strong>แนวคิด:</strong> ทฤษฎีบท 4.1.2 บอกว่าถ้า \(\{\vec{u}_1,\dots,\vec{u}_p\}\) เป็นฐานหลักเชิงตั้งฉากของ \(\mathbb{R}^n\) แล้ว \(\vec{x} = \sum c_i\vec{u}_i\) โดย \(c_i = \frac{\vec{x}\cdot\vec{u}_i}{\lVert\vec{u}_i\rVert^2}\) — หนึ่งผลคูณจุดต่อหนึ่งสัมประสิทธิ์ ไม่ต้องแก้ระบบ 3 ตัวแปร</p>
+      <ol class="steps">
+        <li><span class="step-t">หา c₁</span> \(\vec{x}\cdot\vec{u}_1 = (5)(2) + (1)(4) + (0)(-1) = 14\), \(\lVert\vec{u}_1\rVert^2 = 4+16+1 = 21\) → \(c_1 = \frac{14}{21} = \frac{2}{3}\) (ตัดเศษส่วนด้วย 7)</li>
+        <li><span class="step-t">หา c₂</span> \(\vec{x}\cdot\vec{u}_2 = (5)(1) + (1)(0) + (0)(2) = 5\), \(\lVert\vec{u}_2\rVert^2 = 1+0+4 = 5\) → \(c_2 = \frac{5}{5} = 1\)</li>
+        <li><span class="step-t">หา c₃</span> \(\vec{x}\cdot\vec{u}_3 = (5)(8) + (1)(-5) + (0)(-4) = 35\), \(\lVert\vec{u}_3\rVert^2 = 64+25+16 = 105\) → \(c_3 = \frac{35}{105} = \frac{1}{3}\) (ตัดด้วย 35)</li>
+        <li><span class="step-t">ตรวจคำตอบ</span> แทนกลับ: \(\frac{2}{3}\begin{bmatrix}2\\4\\-1\end{bmatrix} + 1\begin{bmatrix}1\\0\\2\end{bmatrix} + \frac{1}{3}\begin{bmatrix}8\\-5\\-4\end{bmatrix} = \begin{bmatrix} 4/3+1+8/3\\ 8/3+0-5/3\\ -2/3+2-4/3 \end{bmatrix} = \begin{bmatrix} 5\\ 1\\ 0 \end{bmatrix}\) ✓ ช่องที่ 3: \(-\frac{2}{3}+2-\frac{4}{3} = -\frac{6}{3}+2 = 0\) พอดี — <strong>สรุป:</strong> \(\vec{x} = \frac{2}{3}\vec{u}_1 + 1\cdot\vec{u}_2 + \frac{1}{3}\vec{u}_3\)</li>
+      </ol>
+    </div></details>
+  </article>
+
+  <article class="pr-card" id="p-4-1-3ง" data-pkey="pTB-4-1-3ง">
+    <div class="pr-head"><span class="pr-num">แบบฝึกหัด 4.1 ข้อ 3 (ง)</span><span class="diff">●●○</span><span class="spacer"></span>
+      <label class="pr-done"><input type="checkbox"> ทำสำเร็จแล้ว</label></div>
+    <div class="pr-body">
+      <p>จงหาเมทริกซ์เชิงตั้งฉากปรกติ \(U\) ซึ่งมีหลักเป็นเวกเตอร์หนึ่งหน่วยของเวกเตอร์ในเซต \(S\) พร้อมทั้งหา \(U^{-1}\)</p>
+    </div>
+    <details class="hint"><summary>คำใบ้</summary><div class="hint-body">แต่ละหลัก = \(\vec{u}_i/\lVert\vec{u}_i\rVert\) (นอร์มมาจากข้อ (ค) ได้แล้ว) · เมทริกซ์เชิงตั้งฉากปรกติมีสมบัติ \(U^{-1} = U^T\) เสมอ</div></details>
+    <details class="sol"><summary>แนวคิดและเฉลยแบบละเอียด</summary><div class="sol-body">
+      <p><strong>แนวคิด:</strong> นอร์มของแต่ละ \(\vec{u}_i\) ได้จากข้อ (ค) (\(\sqrt{21}, \sqrt{5}, \sqrt{105}\)) หารทีละหลัก ส่วน \(U^{-1}\) ไม่ต้อง Gauss — สมบัติของเมทริกซ์เชิงตั้งฉากปรกติ: หลักตั้งฉากกัน + ยาว 1 → \(U^TU = I\) → \(U^{-1} = U^T\) ทันที</p>
+      <ol class="steps">
+        <li><span class="step-t">สร้างหลักที่ 1</span> \(\vec{u}_1/\sqrt{21} = \begin{bmatrix} 2/\sqrt{21}\\ 4/\sqrt{21}\\ -1/\sqrt{21} \end{bmatrix}\) หารทีละช่อง ตัวเลขเดิมคงเครื่องหมาย</li>
+        <li><span class="step-t">หลักที่ 2 และ 3</span> \(\vec{u}_2/\sqrt{5} = (1/\sqrt{5}, 0, 2/\sqrt{5})^T\), \(\vec{u}_3/\sqrt{105} = (8/\sqrt{105}, -5/\sqrt{105}, -4/\sqrt{105})^T\) — ประกอบเป็น</li>
+      </ol>
+      \[ U = \begin{bmatrix} \frac{2}{\sqrt{21}} & \frac{1}{\sqrt{5}} & \frac{8}{\sqrt{105}}\\[2pt] \frac{4}{\sqrt{21}} & 0 & \frac{-5}{\sqrt{105}}\\[2pt] \frac{-1}{\sqrt{21}} & \frac{2}{\sqrt{5}} & \frac{-4}{\sqrt{105}} \end{bmatrix}, \qquad U^{-1} = U^T = \begin{bmatrix} \frac{2}{\sqrt{21}} & \frac{4}{\sqrt{21}} & \frac{-1}{\sqrt{21}}\\[2pt] \frac{1}{\sqrt{5}} & 0 & \frac{2}{\sqrt{5}}\\[2pt] \frac{8}{\sqrt{105}} & \frac{-5}{\sqrt{105}} & \frac{-4}{\sqrt{105}} \end{bmatrix} \]
+      <ol class="steps" start="3">
+        <li><span class="step-t">ตรวจคำตอบ</span> \(\lVert\)หลัก 1\(\rVert^2 = \frac{4+16+1}{21} = 1\) ✓ หลัก 2: \(\frac{1+4}{5} = 1\) ✓ หลัก 3: \(\frac{64+25+16}{105} = 1\) ✓ และหลักตั้งฉากกันเพราะเป็นสเกลาร์ของเซตเชิงตั้งฉากจาก (ก) ✓ — <strong>สรุป:</strong> \(U\) ตามด้านบน และ \(U^{-1} = U^T\)</li>
+      </ol>
+    </div></details>
+  </article>
+
+  <article class="pr-card" id="p-4-1-4ก" data-pkey="pTB-4-1-4ก">
+    <div class="pr-head"><span class="pr-num">แบบฝึกหัด 4.1 ข้อ 4 (ก)</span><span class="diff">●○○</span><span class="spacer"></span>
+      <label class="pr-done"><input type="checkbox"> ทำสำเร็จแล้ว</label></div>
+    <div class="pr-body">
+      <p>กำหนดให้ \(S = \left\{\begin{bmatrix} -3\\ 3\\ 0 \end{bmatrix}, \begin{bmatrix} -2\\ -2\\ 1 \end{bmatrix}, \begin{bmatrix} 1\\ 1\\ 4 \end{bmatrix}\right\}\) จงแสดงว่าเซต \(S\) เป็นเซตเชิงตั้งฉากใน \(\mathbb{R}^3\)</p>
+    </div>
+    <details class="hint"><summary>คำใบ้</summary><div class="hint-body">เช็ก 3 คู่ครบ เหมือนข้อ 3 (ก) — ระวังเครื่องหมายลบ ทุกช่อง</div></details>
+    <details class="sol"><summary>แนวคิดและเฉลยแบบละเอียด</summary><div class="sol-body">
+      <p><strong>แนวคิด:</strong> เรียก \(\vec{u}_1 = (-3,3,0)\), \(\vec{u}_2 = (-2,-2,1)\), \(\vec{u}_3 = (1,1,4)\) — หาผลคูณจุด 3 คู่ครบ</p>
+      <ol class="steps">
+        <li><span class="step-t">คู่ (1,2)</span> \(\vec{u}_1\cdot\vec{u}_2 = (-3)(-2) + (3)(-2) + (0)(1) = 6 - 6 + 0 = 0\) ✓ (ลบคูณลบช่องแรกได้ +6)</li>
+        <li><span class="step-t">คู่ (1,3)</span> \(\vec{u}_1\cdot\vec{u}_3 = (-3)(1) + (3)(1) + (0)(4) = -3 + 3 + 0 = 0\) ✓</li>
+        <li><span class="step-t">คู่ (2,3)</span> \(\vec{u}_2\cdot\vec{u}_3 = (-2)(1) + (-2)(1) + (1)(4) = -2 - 2 + 4 = 0\) ✓</li>
+        <li><span class="step-t">สรุป</span> ครบ 3 คู่ = 0 → เซตเชิงตั้งฉาก ∎</li>
+      </ol>
+    </div></details>
+  </article>
+
+  <article class="pr-card" id="p-4-1-4ข" data-pkey="pTB-4-1-4ข">
+    <div class="pr-head"><span class="pr-num">แบบฝึกหัด 4.1 ข้อ 4 (ข)</span><span class="diff">●○○</span><span class="spacer"></span>
+      <label class="pr-done"><input type="checkbox"> ทำสำเร็จแล้ว</label></div>
+    <div class="pr-body">
+      <p>จงแสดงว่าเซต \(S\) เป็นฐานหลักเชิงตั้งฉากของ \(\mathbb{R}^3\) (ต่อเนื่องจากข้อ (ก))</p>
+    </div>
+    <details class="hint"><summary>คำใบ้</summary><div class="hint-body">เหตุผลเดียวกับข้อ 3 (ข): เซตเชิงตั้งฉาก + ไม่มีเวกเตอร์ศูนย์ → อิสระ → 3 ตัวใน R³ = ฐานหลัก</div></details>
+    <details class="sol"><summary>แนวคิดและเฉลยแบบละเอียด</summary><div class="sol-body">
+      <p><strong>แนวคิด:</strong> จาก (ก) เป็นเซตเชิงตั้งฉากแล้ว เหลืออิสระ + แผ่ทั่ว — ใช้ทฤษฎีบทเดิม</p>
+      <ol class="steps">
+        <li><span class="step-t">อิสระเชิงเส้น</span> สมมติ \(c_1\vec{u}_1 + c_2\vec{u}_2 + c_3\vec{u}_3 = \vec{0}\) จุดด้วย \(\vec{u}_j\) แต่ละตัว พจน์ไขว้ร่วงหมดเพราะตั้งฉาก เหลือ \(c_j\lVert\vec{u}_j\rVert^2 = 0\) และเนื่องจาก \(\lVert\vec{u}_1\rVert^2 = 18 \neq 0\), \(\lVert\vec{u}_2\rVert^2 = 9 \neq 0\), \(\lVert\vec{u}_3\rVert^2 = 18 \neq 0\) จะได้ \(c_1 = c_2 = c_3 = 0\) — อิสระ</li>
+        <li><span class="step-t">แผ่ทั่ว</span> 3 เวกเตอร์อิสระในปริภูมิมิติ 3 → เป็นฐานหลัก</li>
+        <li><span class="step-t">สรุป</span> ฐานหลัก + เชิงตั้งฉาก = ฐานหลักเชิงตั้งฉากของ \(\mathbb{R}^3\) ∎</li>
+      </ol>
+    </div></details>
+  </article>
+
+  <article class="pr-card" id="p-4-1-4ค" data-pkey="pTB-4-1-4ค">
+    <div class="pr-head"><span class="pr-num">แบบฝึกหัด 4.1 ข้อ 4 (ค)</span><span class="diff">●●○</span><span class="spacer"></span>
+      <label class="pr-done"><input type="checkbox"> ทำสำเร็จแล้ว</label></div>
+    <div class="pr-body">
+      <p>โดยใช้ทฤษฎีบท 4.1.2 จงเขียน \(\vec{x} = \begin{bmatrix} 5\\ -3\\ 1 \end{bmatrix}\) ในรูปผลรวมเชิงเส้นของเวกเตอร์ในเซต \(S\)</p>
+    </div>
+    <details class="hint"><summary>คำใบ้</summary><div class="hint-body">\(c_i = \dfrac{\vec{x}\cdot\vec{u}_i}{\lVert\vec{u}_i\rVert^2}\) — นอร์มกำลังสอง: 18, 9, 18 ตามลำดับ</div></details>
+    <details class="sol"><summary>แนวคิดและเฉลยแบบละเอียด</summary><div class="sol-body">
+      <p><strong>แนวคิด:</strong> สูตรพิกัดบนฐานหลักเชิงตั้งฉากเดิม แต่ระวังสัมประสิทธิ์ติดลบในข้อนี้</p>
+      <ol class="steps">
+        <li><span class="step-t">หา c₁</span> \(\vec{x}\cdot\vec{u}_1 = (5)(-3) + (-3)(3) + (1)(0) = -15 - 9 + 0 = -24\), \(\lVert\vec{u}_1\rVert^2 = 9+9+0 = 18\) → \(c_1 = -\frac{24}{18} = -\frac{4}{3}\) (ตัดด้วย 6 แล้วคงเครื่องหมายลบ)</li>
+        <li><span class="step-t">หา c₂</span> \(\vec{x}\cdot\vec{u}_2 = (5)(-2) + (-3)(-2) + (1)(1) = -10 + 6 + 1 = -3\), \(\lVert\vec{u}_2\rVert^2 = 4+4+1 = 9\) → \(c_2 = \frac{-3}{9} = -\frac{1}{3}\)</li>
+        <li><span class="step-t">หา c₃</span> \(\vec{x}\cdot\vec{u}_3 = (5)(1) + (-3)(1) + (1)(4) = 5 - 3 + 4 = 6\), \(\lVert\vec{u}_3\rVert^2 = 1+1+16 = 18\) → \(c_3 = \frac{6}{18} = \frac{1}{3}\)</li>
+        <li><span class="step-t">ตรวจคำตอบ</span> แทนกลับ: \(-\frac{4}{3}\begin{bmatrix}-3\\3\\0\end{bmatrix} - \frac{1}{3}\begin{bmatrix}-2\\-2\\1\end{bmatrix} + \frac{1}{3}\begin{bmatrix}1\\1\\4\end{bmatrix} = \begin{bmatrix} 4 + 2/3 + 1/3\\ -4 + 2/3 + 1/3\\ 0 - 1/3 + 4/3 \end{bmatrix} = \begin{bmatrix} 5\\ -3\\ 1 \end{bmatrix}\) ✓ — <strong>สรุป:</strong> \(\vec{x} = -\frac{4}{3}\vec{u}_1 - \frac{1}{3}\vec{u}_2 + \frac{1}{3}\vec{u}_3\) (ตรงกับคำตอบท้ายบทของตำรา)</li>
+      </ol>
+    </div></details>
+  </article>
+
+  <article class="pr-card" id="p-4-1-4ง" data-pkey="pTB-4-1-4ง">
+    <div class="pr-head"><span class="pr-num">แบบฝึกหัด 4.1 ข้อ 4 (ง)</span><span class="diff">●●○</span><span class="spacer"></span>
+      <label class="pr-done"><input type="checkbox"> ทำสำเร็จแล้ว</label></div>
+    <div class="pr-body">
+      <p>จงหาเมทริกซ์เชิงตั้งฉากปรกติ \(U\) ซึ่งมีหลักเป็นเวกเตอร์หนึ่งหน่วยของเวกเตอร์ในเซต \(S\) พร้อมทั้งหา \(U^{-1}\)</p>
+    </div>
+    <details class="hint"><summary>คำใบ้</summary><div class="hint-body">\(\lVert\vec{u}_2\rVert = \sqrt{9} = 3\) พอดี — หลักที่ 2 จะไม่มีราก ส่วนหลัก 1, 3 ใช้ \(\sqrt{18} = 3\sqrt{2}\)</div></details>
+    <details class="sol"><summary>แนวคิดและเฉลยแบบละเอียด</summary><div class="sol-body">
+      <p><strong>แนวคิด:</strong> หารแต่ละหลักด้วยนอร์มของมันเหมือนข้อ 3 (ง) — \(\sqrt{18} = 3\sqrt{2}\) ทำให้เศษส่วนอ่านง่ายขึ้นได้</p>
+      <ol class="steps">
+        <li><span class="step-t">หลักที่ 1</span> \(\vec{u}_1/\sqrt{18} = \begin{bmatrix} -3/(3\sqrt{2})\\ 3/(3\sqrt{2})\\ 0 \end{bmatrix} = \begin{bmatrix} -1/\sqrt{2}\\ 1/\sqrt{2}\\ 0 \end{bmatrix}\) ตัด 3 ทั้งตัวเศษและตัวส่วน</li>
+        <li><span class="step-t">หลักที่ 2 และ 3</span> \(\vec{u}_2/3 = (-2/3, -2/3, 1/3)^T\), \(\vec{u}_3/\sqrt{18} = (1/\sqrt{2}, 1/\sqrt{2}, 4/(3\sqrt{2}))^T\) — เขียนรวม</li>
+      </ol>
+      \[ U = \begin{bmatrix} \frac{-1}{\sqrt{2}} & \frac{-2}{3} & \frac{1}{\sqrt{2}}\\[2pt] \frac{1}{\sqrt{2}} & \frac{-2}{3} & \frac{1}{\sqrt{2}}\\[2pt] 0 & \frac{1}{3} & \frac{4}{3\sqrt{2}} \end{bmatrix}, \qquad U^{-1} = U^T \]
+      <ol class="steps" start="3">
+        <li><span class="step-t">ตรวจคำตอบ</span> ยาวหลัก 1: \(\frac{1+1}{2} = 1\) ✓ หลัก 2: \(\frac{4+4+1}{9} = 1\) ✓ หลัก 3: \(\frac{1+1+16/9}{2} = \frac{18/9}{2} = 1\) ✓ และคู่ตั้งฉากจาก (ก) ✓ — <strong>สรุป:</strong> \(U\) ตามด้านบน, \(U^{-1} = U^T\) (ตรงคำตอบท้ายบท)</li>
+      </ol>
+    </div></details>
+  </article>
+
+  <article class="pr-card" id="p-4-1-5ก" data-pkey="pTB-4-1-5ก">
+    <div class="pr-head"><span class="pr-num">แบบฝึกหัด 4.1 ข้อ 5 (ก)</span><span class="diff">●●○</span><span class="spacer"></span>
+      <label class="pr-done"><input type="checkbox"> ทำสำเร็จแล้ว</label></div>
+    <div class="pr-body">
+      <p>สำหรับเวกเตอร์ \(\vec{u}\) และ \(\vec{v}\) ใน \(\mathbb{R}^n\) จงแสดงว่า \(\lVert\vec{u}+\vec{v}\rVert^2 + \lVert\vec{u}-\vec{v}\rVert^2 = 2\lVert\vec{u}\rVert^2 + 2\lVert\vec{v}\rVert^2\)</p>
+      <p class="tagline">มีบทเรียนประกอบ: <a href="ch4-1.html">หน้า 4.1</a></p>
+    </div>
+    <details class="hint"><summary>คำใบ้</summary><div class="hint-body">เปิด \(\lVert\vec{u}\pm\vec{v}\rVert^2 = (\vec{u}\pm\vec{v})\cdot(\vec{u}\pm\vec{v})\) แล้วใช้สมบัติการกระจาย — พจน์ไขว้จะตรงข้ามกันแล้วหายไป</div></details>
+    <details class="sol"><summary>แนวคิดและเฉลยแบบละเอียด</summary><div class="sol-body">
+      <p><strong>แนวคิด:</strong> นี่คือ "อัตลักษณ์สี่เหลี่ยมด้านขนาน" — กุญแจคือ \(\lVert\vec{w}\rVert^2 = \vec{w}\cdot\vec{w}\) แล้วเปิดกระจายทีละพจน์</p>
+      <ol class="steps">
+        <li><span class="step-t">เปิดฝั่งซ้าย</span> \(\lVert\vec{u}+\vec{v}\rVert^2 = (\vec{u}+\vec{v})\cdot(\vec{u}+\vec{v}) = \vec{u}\cdot\vec{u} + \vec{u}\cdot\vec{v} + \vec{v}\cdot\vec{u} + \vec{v}\cdot\vec{v} = \lVert\vec{u}\rVert^2 + 2\vec{u}\cdot\vec{v} + \lVert\vec{v}\rVert^2\) (กระจายแบบ \((a+b)^2\) แต่ระวัง: คูณเมทริกซ์/เวกเตอร์ไม่สลับที่ได้ทุกกรณี จึงเขียน 4 พจน์ก่อน แล้วรวมเพราะผลคูณจุดสลับที่ได้)</li>
+        <li><span class="step-t">เปิดพจน์ที่สอง</span> เช่นเดียวกัน \(\lVert\vec{u}-\vec{v}\rVert^2 = \lVert\vec{u}\rVert^2 - 2\vec{u}\cdot\vec{v} + \lVert\vec{v}\rVert^2\) — คราวนี้ไขว้ติดลบ</li>
+        <li><span class="step-t">บวกกัน</span> ฝั่งซ้าย = \(\lVert\vec{u}\rVert^2 + 2\vec{u}\cdot\vec{v} + \lVert\vec{v}\rVert^2 + \lVert\vec{u}\rVert^2 - 2\vec{u}\cdot\vec{v} + \lVert\vec{v}\rVert^2\) พจน์ \(\pm 2\vec{u}\cdot\vec{v}\) ตัดกันหาย → เหลือ \(2\lVert\vec{u}\rVert^2 + 2\lVert\vec{v}\rVert^2\) = ฝั่งขวา ∎</li>
+        <li><span class="step-t">ตรวจคำตอบ</span> ลอง \(\vec{u} = (1,0), \vec{v} = (0,1)\): ซ้าย = \(2 + 2 = 4\), ขวา = \(2(1) + 2(1) = 4\) ✓</li>
+      </ol>
+    </div></details>
+  </article>
+
+  <article class="pr-card" id="p-4-1-5ข" data-pkey="pTB-4-1-5ข">
+    <div class="pr-head"><span class="pr-num">แบบฝึกหัด 4.1 ข้อ 5 (ข)</span><span class="diff">●●○</span><span class="spacer"></span>
+      <label class="pr-done"><input type="checkbox"> ทำสำเร็จแล้ว</label></div>
+    <div class="pr-body">
+      <p>จงแสดงว่า \(4\vec{u}\cdot\vec{v} = \lVert\vec{u}+\vec{v}\rVert^2 - \lVert\vec{u}-\vec{v}\rVert^2\)</p>
+    </div>
+    <details class="hint"><summary>คำใบ้</summary><div class="hint-body">ผลต่างของสองอัตลักษณ์ในข้อ (ก) — คราวนี้พจน์กำลังสองที่ตรงกันตัดกันหาย เหลือไขว้</div></details>
+    <details class="sol"><summary>แนวคิดและเฉลยแบบละเอียด</summary><div class="sol-body">
+      <p><strong>แนวคิด:</strong> ใช้ผลเปิดจาก (ก): บวกได้ไขว้ +2, ลบได้ไขว้ −2 → ลบกันได้ไขว้ 4 เท่า</p>
+      <ol class="steps">
+        <li><span class="step-t">เขียนผลต่าง</span> \(\lVert\vec{u}+\vec{v}\rVert^2 - \lVert\vec{u}-\vec{v}\rVert^2 = \left(\lVert\vec{u}\rVert^2 + 2\vec{u}\cdot\vec{v} + \lVert\vec{v}\rVert^2\right) - \left(\lVert\vec{u}\rVert^2 - 2\vec{u}\cdot\vec{v} + \lVert\vec{v}\rVert^2\right)\)</li>
+        <li><span class="step-t">ตัดพจน์ตรงกัน</span> \(\lVert\vec{u}\rVert^2\) กับ \(\lVert\vec{v}\rVert^2\) หายคู่ เหลือ \(2\vec{u}\cdot\vec{v} + 2\vec{u}\cdot\vec{v} = 4\vec{u}\cdot\vec{v}\) ∎ — นี่คือ "พาราลาโกรามิด" ที่ใช้หามุมจากความยาว (แนวข้อสอบ: หามุมของ u, v จากความยาว u+v, u−v)</li>
+        <li><span class="step-t">ตรวจคำตอบ</span> \(\vec{u} = (1,0), \vec{v} = (0,1)\): ซ้าย = 0, ขวา = \(2 - 2 = 0\) ✓ อีกชุด \(\vec{u} = \vec{v} = (1,1)\): ซ้าย = \(4(2) = 8\), ขวา = \(8 - 0 = 8\) ✓</li>
+      </ol>
+    </div></details>
+  </article>
+
+  <article class="pr-card" id="p-4-1-5ค" data-pkey="pTB-4-1-5ค">
+    <div class="pr-head"><span class="pr-num">แบบฝึกหัด 4.1 ข้อ 5 (ค)</span><span class="tag exam">🎯 แนว ②</span><span class="diff">●●○</span><span class="spacer"></span>
+      <label class="pr-done"><input type="checkbox"> ทำสำเร็จแล้ว</label></div>
+    <div class="pr-body">
+      <p>จงแสดงว่า \(\vec{u}\) ตั้งฉากกับ \(\vec{v}\) ก็ต่อเมื่อ \(\lVert\vec{u}+\vec{v}\rVert^2 = \lVert\vec{u}\rVert^2 + \lVert\vec{v}\rVert^2\) (ทฤษฎีบทพีทาโกรัส)</p>
+      <p class="tagline">มีบทเรียนประกอบ: <a href="ch4-1.html">หน้า 4.1</a></p>
+    </div>
+    <details class="hint"><summary>คำใบ้</summary><div class="hint-body">"ก็ต่อเมื่อ" = พิสูจน์สองทิศ: (⇒) สมมติตั้งฉากไปหาความยาว, (⇐) สมมติความยาวไปหาตั้งฉาก</div></details>
+    <details class="sol"><summary>แนวคิดและเฉลยแบบละเอียด</summary><div class="sol-body">
+      <p><strong>แนวคิด:</strong> โจทย์ใช้คำว่า "ก็ต่อเมื่อ" จึงต้องพิสูจน์ 2 ทิศครบ — เครื่องมือเดียวคือการเปิด \(\lVert\vec{u}+\vec{v}\rVert^2\) เป็น 3 พจน์</p>
+      <ol class="steps">
+        <li><span class="step-t">ทิศ (⇒)</span> สมมติ \(\vec{u}\perp\vec{v}\) นั่นคือ \(\vec{u}\cdot\vec{v} = 0\) เปิดฝั่งซ้าย: \(\lVert\vec{u}+\vec{v}\rVert^2 = \lVert\vec{u}\rVert^2 + 2\vec{u}\cdot\vec{v} + \lVert\vec{v}\rVert^2 = \lVert\vec{u}\rVert^2 + 0 + \lVert\vec{v}\rVert^2\) ได้ตามต้องการ ✓</li>
+        <li><span class="step-t">ทิศ (⇐)</span> สมมติ \(\lVert\vec{u}+\vec{v}\rVert^2 = \lVert\vec{u}\rVert^2 + \lVert\vec{v}\rVert^2\) แต่การเปิดบอกว่าฝั่งซ้าย = \(\lVert\vec{u}\rVert^2 + 2\vec{u}\cdot\vec{v} + \lVert\vec{v}\rVert^2\) เทียบสองฝั่ง: \(\lVert\vec{u}\rVert^2 + 2\vec{u}\cdot\vec{v} + \lVert\vec{v}\rVert^2 = \lVert\vec{u}\rVert^2 + \lVert\vec{v}\rVert^2\) ตัดพจน์ตรงกัน → \(2\vec{u}\cdot\vec{v} = 0\) → \(\vec{u}\cdot\vec{v} = 0\) → ตั้งฉาก ✓</li>
+        <li><span class="step-t">สรุป</span> จริงทั้งสองทิศ จึงเป็น "ก็ต่อเมื่อ" สมบูรณ์ ∎ (ทฤษฎีบทพีทาโกรัสฉบับเวกเตอร์ — แนวข้อสอบปี 66 ถามพิสูจน์มุมฉากของสามเหลี่ยมด้วยเครื่องมือนี้)</li>
+      </ol>
+    </div></details>
+  </article>
+
+  <article class="pr-card" id="p-4-1-6" data-pkey="pTB-4-1-6">
+    <div class="pr-head"><span class="pr-num">แบบฝึกหัด 4.1 ข้อ 6</span><span class="diff">●●●</span><span class="spacer"></span>
+      <label class="pr-done"><input type="checkbox"> ทำสำเร็จแล้ว</label></div>
+    <div class="pr-body">
+      <p>จงพิสูจน์ว่า ถ้า \(U\) เป็นเมทริกซ์เชิงตั้งฉากปรกติ แล้ว \(\det U = \pm 1\)</p>
+    </div>
+    <details class="hint"><summary>คำใบ้</summary><div class="hint-body">เริ่มจาก \(U^TU = I\) แล้วถอดดีเทอร์มิแนนต์ทั้งสองฝั่ง ใช้ \(\det(U^T) = \det U\) และ \(\det I = 1\)</div></details>
+    <details class="sol"><summary>แนวคิดและเฉลยแบบละเอียด</summary><div class="sol-body">
+      <p><strong>แนวคิด:</strong> นิยามเมทริกซ์เชิงตั้งฉากปรกติ: หลักเป็นเซตเชิงตั้งฉากปรกติ → \(U^TU = I\) จากนั้น "ยก det" ทั้งสมการ — det แปลงผลคูณเป็นผลคูณของ det</p>
+      <ol class="steps">
+        <li><span class="step-t">จุดเริ่ม</span> \(U\) เชิงตั้งฉากปรกติ → \(U^TU = I\) (หลักตั้งฉากกันและยาว 1 ทำให้ \((U^TU)_{ij} = \vec{u}_i\cdot\vec{u}_j = \delta_{ij}\))</li>
+        <li><span class="step-t">ถอด det</span> \(\det(U^TU) = \det I\) ฝั่งซ้าย: \(\det(U^T)\det(U) = \det(U)\det(U) = (\det U)^2\) ฝั่งขวา: \(\det I = 1\)</li>
+        <li><span class="step-t">แก้สมการ</span> \((\det U)^2 = 1\) → \(\det U = 1\) หรือ \(\det U = -1\) นั่นคือ \(\det U = \pm 1\) ∎ ทำไม ± : จำนวนจริงที่ยกกำลังสองได้ 1 มีสองค่า</li>
+        <li><span class="step-t">ตรวจคำตอบ</span> ตัวอย่างเชิงประจักษ์: \(I\) (det = 1) และเมทริกซ์สลับแถว \(\begin{bmatrix}0&1\\1&0\end{bmatrix}\) (det = −1) ทั้งคู่เชิงตั้งฉากปรกติและ det = ±1 ตามทฤษฎี ✓</li>
+      </ol>
+    </div></details>
+  </article>
+
+</section>
+
