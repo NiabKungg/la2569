@@ -27,9 +27,9 @@ tts: 1
   <tr><td>แบบฝึกหัด 4.1</td><td>1–6</td><td>3:กขคง · 4:กขคง · 5:กขค</td><td>14</td><td>มีเฉพาะข้อ 1–2 (ตำราไม่พิมพ์ 3–6 — คลังนี้เฉลยเองครบ)</td></tr>
   <tr><td>แบบฝึกหัด 4.2</td><td>1–12</td><td>1:กข · 4:กข · 5:กขคง · 7:ก–ฉ · 8:กขค · 9:ก–ฉ · 10:กข · 12:กข</td><td>31</td><td>ข้อ 1–9 (10–12 พิสูจน์)</td></tr>
   <tr><td>แบบฝึกหัด 4.3</td><td>1–5</td><td>1:กข · 3,4,5:กขคง</td><td>15</td><td>ครบ 1–5</td></tr>
-  <tr><td>แบบฝึกหัด 4.4</td><td>1–8</td><td>1:ก–ญ (10 ข้อย่อย) · 2:กขคง</td><td>20</td><td>ข้อ 1–4 (5–8 พิสูจน์)</td></tr>
+  <tr><td>แบบฝึกหัด 4.4</td><td>1–8</td><td>1:ก–ฏ (12 ข้อย่อย รวม ฎ ฏ) · 2:กขคง</td><td>22</td><td>ข้อ 1–4 (5–8 พิสูจน์)</td></tr>
   <tr><td>แบบฝึกหัด 4.5</td><td>1–6</td><td>1:กข · 2:ก–ฉ · 5:กขค · 6:ก–ฉ</td><td>19</td><td>ครบ 1–6 (ข้อ 6 ตำราใช้กราฟ — คลังวาด SVG ให้)</td></tr>
-  <tr><td><strong>รวม</strong></td><td><strong>37 ข้อ</strong></td><td></td><td><strong>99 การ์ด</strong></td><td></td></tr>
+  <tr><td><strong>รวม</strong></td><td><strong>37 ข้อ</strong></td><td></td><td><strong>101 การ์ด</strong></td><td></td></tr>
 </table>
 
 <div class="box-warn">
@@ -1207,6 +1207,425 @@ tts: 1
   </article>
 
 </section>
+
+<section class="block" id="set-4-4">
+  <h2>แบบฝึกหัด 4.4 — การแปลงเป็นทแยงมุมของเมทริกซ์สมมาตร</h2>
+  <p class="page-sub">โจทย์คำต่อคำจากตำรา · ข้อ 5–8 เป็นโจทย์พิสูจน์ (คลังเฉลยพิสูจน์ให้ครบ) · บทนี้คือจุดจบของแนว eigen ข้อสอบ ⑤</p>
+  <table class="tbl">
+    <tr><th>ข้อ</th><th>เนื้อหาสั้น</th><th>การ์ด</th></tr>
+    <tr><td>1</td><td>ทแยงมุมเชิงตั้งฉาก 12 เมทริกซ์ (รวม 4×4 สองตัว)</td><td><a href="#p-4-4-1ก">ก</a> <a href="#p-4-4-1ข">ข</a> <a href="#p-4-4-1ค">ค</a> <a href="#p-4-4-1ง">ง</a> <a href="#p-4-4-1จ">จ</a> <a href="#p-4-4-1ฉ">ฉ</a> <a href="#p-4-4-1ช">ช</a> <a href="#p-4-4-1ซ">ซ</a> <a href="#p-4-4-1ฌ">ฌ</a> <a href="#p-4-4-1ญ">ญ</a> <a href="#p-4-4-1ฎ">ฎ</a> <a href="#p-4-4-1ฏ">ฏ</a></td></tr>
+    <tr><td>2</td><td>การแยกเชิงสเปกตรัมของข้อ 1 (ก)–(ง)</td><td><a href="#p-4-4-2ก">ก</a> <a href="#p-4-4-2ข">ข</a> <a href="#p-4-4-2ค">ค</a> <a href="#p-4-4-2ง">ง</a></td></tr>
+    <tr><td>3</td><td>แสดงว่า 5 เป็นค่าลักษณะเฉพาะ + ทแยงมุมเชิงตั้งฉาก</td><td><a href="#p-4-4-3">ข้อ 3</a></td></tr>
+    <tr><td>4</td><td>เวกเตอร์ลักษณะเฉพาะที่ให้มา + ทแยงมุมเชิงตั้งฉาก</td><td><a href="#p-4-4-4">ข้อ 4</a></td></tr>
+    <tr><td>5</td><td>ทแยงมุมเชิงตั้งฉากของ [[a,b],[b,a]]</td><td><a href="#p-4-4-5">ข้อ 5</a></td></tr>
+    <tr><td>6–8</td><td>พิสูจน์สมมาตร AAᵀ/AᵀA, A⁻¹ ทแยงมุมได้, (Ax)·y = x·(Ay)</td><td><a href="#p-4-4-6">6</a> <a href="#p-4-4-7">7</a> <a href="#p-4-4-8">8</a></td></tr>
+  </table>
+
+  <article class="pr-card" id="p-4-4-1ก" data-pkey="pTB-4-4-1ก">
+    <div class="pr-head"><span class="pr-num">แบบฝึกหัด 4.4 ข้อ 1 (ก)</span><span class="tag exam">🎯 แนว ⑤</span><span class="diff">●●○</span><span class="spacer"></span>
+      <label class="pr-done"><input type="checkbox"> ทำสำเร็จแล้ว</label></div>
+    <div class="pr-body">
+      <p>จงแปลงเมทริกซ์ต่อไปนี้เป็นทแยงมุมเชิงตั้งฉาก: \(A = \begin{bmatrix} 8 & -2\\ -2 & 5 \end{bmatrix}\)</p>
+      <p class="tagline">มีบทเรียนประกอบ: <a href="ch4-4.html">หน้า 4.4</a></p>
+    </div>
+    <details class="hint"><summary>คำใบ้</summary><div class="hint-body">สมการลักษณะเฉพาะ \(\det(A-\lambda I) = 0\) → หา \(\vec{v}\) → ปรับหนึ่งหน่วยเป็นหลักของ P</div></details>
+    <details class="sol"><summary>แนวคิดและเฉลยแบบละเอียด</summary><div class="sol-body">
+      <p><strong>แนวคิด:</strong> เมทริกซ์สมมาตรทแยงมุมเชิงตั้งฉากได้เสมอ: \(A = PDP^T\) โดย P มีหลักเป็นเวกเตอร์ลักษณะเฉพาะแบบหนึ่งหน่วย (ตั้งฉากกันอัตโนมัติเมื่อ λ ต่างกัน)</p>
+      <ol class="steps">
+        <li><span class="step-t">สมการลักษณะเฉพาะ</span> \(\det\begin{bmatrix} 8-\lambda & -2\\ -2 & 5-\lambda \end{bmatrix} = (8-\lambda)(5-\lambda) - 4 = \lambda^2-13\lambda+36 = (\lambda-9)(\lambda-4) = 0\) → \(\lambda = 9, 4\)</li>
+        <li><span class="step-t">เวกเตอร์ลักษณะเฉพาะ</span> λ=9: \(-x_1-2x_2 = 0\) → \(\vec{v}_1 = (2, -1)\); λ=4: \(4x_1-2x_2 = 0\) → \(\vec{v}_2 = (1, 2)\) — ตั้งฉาก: \(2-2 = 0\) ✓</li>
+        <li><span class="step-t">หนึ่งหน่วยแล้วประกอบ</span> \(\lVert\vec{v}_1\rVert = \lVert\vec{v}_2\rVert = \sqrt5\) → \(P = \frac{1}{\sqrt5}\begin{bmatrix} 2 & 1\\ -1 & 2 \end{bmatrix}\), \(D = \begin{bmatrix} 9 & 0\\ 0 & 4 \end{bmatrix}\)</li>
+        <li><span class="step-t">ตรวจคำตอบ</span> \(PDP^T = \frac{1}{5}\begin{bmatrix} 2 & 1\\ -1 & 2 \end{bmatrix}\begin{bmatrix} 9 & 0\\ 0 & 4 \end{bmatrix}\begin{bmatrix} 2 & -1\\ 1 & 2 \end{bmatrix} = \frac{1}{5}\begin{bmatrix} 18 & 4\\ -9 & 8 \end{bmatrix}\begin{bmatrix} 2 & -1\\ 1 & 2 \end{bmatrix} = \frac{1}{5}\begin{bmatrix} 40 & -10\\ -10 & 25 \end{bmatrix} = A\) ✓ — <strong>สรุป:</strong> \(\lambda = 9, 4\), \(P = \frac{1}{\sqrt5}\begin{bmatrix} 2 & 1\\ -1 & 2 \end{bmatrix}\), \(D = \mathrm{diag}(9, 4)\)</li>
+      </ol>
+    </div></details>
+  </article>
+
+  <article class="pr-card" id="p-4-4-1ข" data-pkey="pTB-4-4-1ข">
+    <div class="pr-head"><span class="pr-num">แบบฝึกหัด 4.4 ข้อ 1 (ข)</span><span class="tag exam">🎯 แนว ⑤</span><span class="diff">●●○</span><span class="spacer"></span>
+      <label class="pr-done"><input type="checkbox"> ทำสำเร็จแล้ว</label></div>
+    <div class="pr-body">
+      <p>จงแปลงเป็นทแยงมุมเชิงตั้งฉาก: \(A = \begin{bmatrix} 1 & -2\\ -2 & 1 \end{bmatrix}\)</p>
+      <p class="tagline">มีบทเรียนประกอบ: <a href="ch4-4.html">หน้า 4.4</a></p>
+    </div>
+    <details class="hint"><summary>คำใบ้</summary><div class="hint-body">ค่าลักษณะเฉพาะมีตัวติดลบ — เครื่องหมายลงใน D ตามจริง</div></details>
+    <details class="sol"><summary>แนวคิดและเฉลยแบบละเอียด</summary><div class="sol-body">
+      <p><strong>แนวคิด:</strong> ขั้นตอนเดิม — เมทริกซ์สมมาตรมีค่าลักษณะเฉพาะเป็นจำนวนจริงเสมอ แม้ติดลบ</p>
+      <ol class="steps">
+        <li><span class="step-t">สมการลักษณะเฉพาะ</span> \((1-\lambda)^2-4 = \lambda^2-2\lambda-3 = (\lambda-3)(\lambda+1) = 0\) → \(\lambda = 3, -1\)</li>
+        <li><span class="step-t">เวกเตอร์ลักษณะเฉพาะ</span> λ=3: \(-2x_1-2x_2 = 0\) → \(\vec{v}_1 = (1, -1)\); λ=−1: \(2x_1-2x_2 = 0\) → \(\vec{v}_2 = (1, 1)\) — ตั้งฉาก ✓</li>
+        <li><span class="step-t">ประกอบ</span> \(P = \frac{1}{\sqrt2}\begin{bmatrix} 1 & 1\\ -1 & 1 \end{bmatrix}\), \(D = \mathrm{diag}(3, -1)\)</li>
+        <li><span class="step-t">ตรวจคำตอบ</span> \(PDP^T = \frac{1}{2}\begin{bmatrix} 1 & 1\\ -1 & 1 \end{bmatrix}\begin{bmatrix} 3 & 0\\ 0 & -1 \end{bmatrix}\begin{bmatrix} 1 & -1\\ 1 & 1 \end{bmatrix} = \frac{1}{2}\begin{bmatrix} 3 & -1\\ -3 & -1 \end{bmatrix}\begin{bmatrix} 1 & -1\\ 1 & 1 \end{bmatrix}\) เดี๋ยว — คำนวณให้เป๊ะ: หลัก 1 ของ \(PD\) = \(3\cdot\frac{1}{\sqrt2}(1,-1) = \frac{1}{\sqrt2}(3,-3)\), หลัก 2 = \(-1\cdot\frac{1}{\sqrt2}(1,1) = \frac{1}{\sqrt2}(-1,-1)\); คูณ \(P^T\): ช่อง (1,1) = \(\frac{1}{2}(3+3) = 3\)?! — ทำตรง ๆ: \(\frac{1}{2}\begin{bmatrix} 3 & -1\\ -3 & -1 \end{bmatrix}\begin{bmatrix} 1 & -1\\ 1 & 1 \end{bmatrix} = \frac{1}{2}\begin{bmatrix} 3-1 & -3-1\\ -3-1 & 3-1 \end{bmatrix} = \frac{1}{2}\begin{bmatrix} 2 & -4\\ -4 & 2 \end{bmatrix} = \begin{bmatrix} 1 & -2\\ -2 & 1 \end{bmatrix}\) ✓ — <strong>สรุป:</strong> \(\lambda = 3, -1\), \(P = \frac{1}{\sqrt2}\begin{bmatrix} 1 & 1\\ -1 & 1 \end{bmatrix}\), \(D = \mathrm{diag}(3, -1)\)</li>
+      </ol>
+    </div></details>
+  </article>
+
+  <article class="pr-card" id="p-4-4-1ค" data-pkey="pTB-4-4-1ค">
+    <div class="pr-head"><span class="pr-num">แบบฝึกหัด 4.4 ข้อ 1 (ค)</span><span class="tag exam">🎯 แนว ⑤</span><span class="diff">●●○</span><span class="spacer"></span>
+      <label class="pr-done"><input type="checkbox"> ทำสำเร็จแล้ว</label></div>
+    <div class="pr-body">
+      <p>จงแปลงเป็นทแยงมุมเชิงตั้งฉาก: \(A = \begin{bmatrix} 9 & -12\\ -12 & 16 \end{bmatrix}\)</p>
+      <p class="tagline">มีบทเรียนประกอบ: <a href="ch4-4.html">หน้า 4.4</a></p>
+    </div>
+    <details class="hint"><summary>คำใบ้</summary><div class="hint-body">det A = 0 → ค่าลักษณะเฉพาะหนึ่งตัวเป็น 0</div></details>
+    <details class="sol"><summary>แนวคิดและเฉลยแบบละเอียด</summary><div class="sol-body">
+      <p><strong>แนวคิด:</strong> ขั้นตอนเดิม — λ = 0 ก็เป็นค่าลักษณะเฉพาะที่ถูกต้อง (เมทริกซ์เอกฐาน)</p>
+      <ol class="steps">
+        <li><span class="step-t">สมการลักษณะเฉพาะ</span> \((9-\lambda)(16-\lambda)-144 = \lambda^2-25\lambda = \lambda(\lambda-25) = 0\) → \(\lambda = 0, 25\)</li>
+        <li><span class="step-t">เวกเตอร์ลักษณะเฉพาะ</span> λ=25: \(-16x_1-12x_2 = 0\) → \(\vec{v}_1 = (-3, 4)\); λ=0: \(9x_1-12x_2 = 0\) → \(\vec{v}_2 = (4, 3)\) — ตั้งฉาก: \(-12+12 = 0\) ✓</li>
+        <li><span class="step-t">ประกอบ</span> \(\lVert\vec{v}_1\rVert = \lVert\vec{v}_2\rVert = 5\) (สามเหลี่ยม 3-4-5) → \(P = \frac{1}{5}\begin{bmatrix} -3 & 4\\ 4 & 3 \end{bmatrix}\), \(D = \mathrm{diag}(25, 0)\)</li>
+        <li><span class="step-t">ตรวจคำตอบ</span> \(PDP^T = \frac{25}{25}(-3,4)(-3,4)^T = \vec{u}_1\vec{u}_1^T\cdot 25 = \begin{bmatrix} 9 & -12\\ -12 & 16 \end{bmatrix}\) (เพราะ \(25\cdot\frac{1}{25}\begin{bmatrix} 9 & -12\\ -12 & 16 \end{bmatrix}\)) ✓ — <strong>สรุป:</strong> \(\lambda = 0, 25\), \(P = \frac{1}{5}\begin{bmatrix} -3 & 4\\ 4 & 3 \end{bmatrix}\), \(D = \mathrm{diag}(25, 0)\)</li>
+      </ol>
+    </div></details>
+  </article>
+
+  <article class="pr-card" id="p-4-4-1ง" data-pkey="pTB-4-4-1ง">
+    <div class="pr-head"><span class="pr-num">แบบฝึกหัด 4.4 ข้อ 1 (ง)</span><span class="tag exam">🎯 แนว ⑤</span><span class="diff">●●○</span><span class="spacer"></span>
+      <label class="pr-done"><input type="checkbox"> ทำสำเร็จแล้ว</label></div>
+    <div class="pr-body">
+      <p>จงแปลงเป็นทแยงมุมเชิงตั้งฉาก: \(A = \begin{bmatrix} 3 & -1.5\\ -1.5 & 7 \end{bmatrix}\)</p>
+    </div>
+    <details class="hint"><summary>คำใบ้</summary><div class="hint-body">ค่าลักษณะเฉพาะออกเศษ — คูณสมการลักษณะเฉพาะด้วย 4 ลดเศษก่อนแก้</div></details>
+    <details class="sol"><summary>แนวคิดและเฉลยแบบละเอียด</summary><div class="sol-body">
+      <p><strong>แนวคิด:</strong> ขั้นตอนเดิม — ค่าลักษณะเฉพาะเศษส่วนไม่ใช่ปัญหา</p>
+      <ol class="steps">
+        <li><span class="step-t">สมการลักษณะเฉพาะ</span> \((3-\lambda)(7-\lambda)-2.25 = \lambda^2-10\lambda+18.75 = 0\) คูณ 4: \(4\lambda^2-40\lambda+75 = 0\) → \(\lambda = \frac{40\pm\sqrt{1600-1200}}{8} = \frac{40\pm20}{8}\) → \(\lambda = 7.5, 2.5\)</li>
+        <li><span class="step-t">เวกเตอร์ลักษณะเฉพาะ</span> λ=7.5: \(-4.5x_1-1.5x_2 = 0\) → \(x_2 = -3x_1\) → \(\vec{v}_1 = (-1, 3)\); λ=2.5: \(0.5x_1-1.5x_2 = 0\) → \(\vec{v}_2 = (3, 1)\) — ตั้งฉาก: \(-3+3 = 0\) ✓</li>
+        <li><span class="step-t">ประกอบ</span> \(\lVert\vec{v}_1\rVert = \lVert\vec{v}_2\rVert = \sqrt{10}\) → \(P = \frac{1}{\sqrt{10}}\begin{bmatrix} -1 & 3\\ 3 & 1 \end{bmatrix}\), \(D = \mathrm{diag}(7.5, 2.5)\)</li>
+        <li><span class="step-t">ตรวจคำตอบ</span> \(A\vec{v}_1 = (-3-4.5, 1.5+21) = (-7.5, 22.5) = 7.5\vec{v}_1\) ✓, \(A\vec{v}_2 = (9-1.5, -4.5+7) = (7.5, 2.5) = 2.5\vec{v}_2\) ✓ — <strong>สรุป:</strong> \(\lambda = 2.5, 7.5\), \(P = \frac{1}{\sqrt{10}}\begin{bmatrix} -1 & 3\\ 3 & 1 \end{bmatrix}\), \(D = \mathrm{diag}(2.5, 7.5)\)</li>
+      </ol>
+    </div></details>
+  </article>
+
+  <article class="pr-card" id="p-4-4-1จ" data-pkey="pTB-4-4-1จ">
+    <div class="pr-head"><span class="pr-num">แบบฝึกหัด 4.4 ข้อ 1 (จ)</span><span class="tag exam">🎯 แนว ⑤</span><span class="diff">●●●</span><span class="spacer"></span>
+      <label class="pr-done"><input type="checkbox"> ทำสำเร็จแล้ว</label></div>
+    <div class="pr-body">
+      <p>จงแปลงเป็นทแยงมุมเชิงตั้งฉาก: \(A = \begin{bmatrix} 2 & 4 & -4\\ 4 & -2 & 0\\ -4 & 0 & -2 \end{bmatrix}\)</p>
+    </div>
+    <details class="hint"><summary>คำใบ้</summary><div class="hint-body">สมการกำลังสาม — ลองหารากเต็มเล็ก ๆ (±1, ±2, ±3, ±4, ±6) ที่หาร det ก่อนเสมอ</div></details>
+    <details class="sol"><summary>แนวคิดและเฉลยแบบละเอียด</summary><div class="sol-body">
+      <p><strong>แนวคิด:</strong> กระบวนการ 3×3 เต็มรูป — โครงเดียวกับแนวข้อสอบ ⑤ เพิ่มแค่การปรับหนึ่งหน่วย</p>
+      <ol class="steps">
+        <li><span class="step-t">สมการลักษณะเฉพาะ</span> เปิด \(\det(A-\lambda I)\) ตามแถวแรก จัดรูปได้ \(\det(A-\lambda I) = -\lambda^3-2\lambda^2+36\lambda+72\) → \(\lambda^3+2\lambda^2-36\lambda-72 = 0\) ลอง λ=6: \(216+72-216-72 = 0\) ✓ → หารสังเคราะห์: \((\lambda-6)(\lambda^2+8\lambda+12) = (\lambda-6)(\lambda+2)(\lambda+6) = 0\) → \(\lambda = 6, -2, -6\) ตรวจ trace: \(6-2-6 = -2 = \)trace(A) ✓</li>
+        <li><span class="step-t">เวกเตอร์ λ=6</span> \((A-6I)\vec{v} = \vec{0}\): แถว 2: \(4x_1-8x_2 = 0\) → \(x_1 = 2x_2\); แถว 3: \(-4x_1-8x_3 = 0\) → \(x_1 = -2x_3\) → \(\vec{v}_1 = (2, 1, -1)\) (ตรวจแถว 1: \(-8+4+4 = 0\) ✓)</li>
+        <li><span class="step-t">เวกเตอร์ λ=−2</span> \((A+2I)\vec{v} = \vec{0}\): แถว 2: \(4x_1 = 0\) → \(x_1 = 0\); แถว 1: \(4x_2-4x_3 = 0\) → \(x_2 = x_3\) → \(\vec{v}_2 = (0, 1, 1)\)</li>
+        <li><span class="step-t">เวกเตอร์ λ=−6</span> \((A+6I)\vec{v} = \vec{0}\): แถว 2: \(4x_1+4x_2 = 0\) → \(x_1 = -x_2\); แถว 1: \(8x_1+4x_2-4x_3 = 0\) → \(-8x_2+4x_2-4x_3 = 0\) → \(x_3 = -x_2\) → \(\vec{v}_3 = (1, -1, 1)\)</li>
+        <li><span class="step-t">หนึ่งหน่วย + ประกอบ</span> \(\lVert\vec{v}_1\rVert = \sqrt6\), \(\lVert\vec{v}_2\rVert = \sqrt2\), \(\lVert\vec{v}_3\rVert = \sqrt3\) → \(P = \begin{bmatrix} \frac{2}{\sqrt6} & 0 & \frac{1}{\sqrt3}\\ \frac{1}{\sqrt6} & \frac{1}{\sqrt2} & \frac{-1}{\sqrt3}\\ \frac{-1}{\sqrt6} & \frac{1}{\sqrt2} & \frac{1}{\sqrt3} \end{bmatrix}\), \(D = \mathrm{diag}(6, -2, -6)\)</li>
+        <li><span class="step-t">ตรวจคำตอบ</span> \(A(2,1,-1) = (12, 6, -6) = 6\vec{v}_1\) ✓, \(A(0,1,1) = (0, -2, -2) = -2\vec{v}_2\) ✓, \(A(1,-1,1) = (-6, 6, -6) = -6\vec{v}_3\) ✓ และคู่ตั้งฉากครบ: \((2,1,-1)\cdot(0,1,1) = 0\), \((2,1,-1)\cdot(1,-1,1) = 0\), \((0,1,1)\cdot(1,-1,1) = 0\) ✓ — <strong>สรุป:</strong> \(\lambda = 6, -2, -6\) พร้อม P, D ตามด้านบน</li>
+      </ol>
+    </div></div></details>
+  </article>
+
+  <article class="pr-card" id="p-4-4-1ฉ" data-pkey="pTB-4-4-1ฉ">
+    <div class="pr-head"><span class="pr-num">แบบฝึกหัด 4.4 ข้อ 1 (ฉ)</span><span class="tag exam">🎯 แนว ⑤</span><span class="diff">●●○</span><span class="spacer"></span>
+      <label class="pr-done"><input type="checkbox"> ทำสำเร็จแล้ว</label></div>
+    <div class="pr-body">
+      <p>จงแปลงเป็นทแยงมุมเชิงตั้งฉาก: \(A = \begin{bmatrix} 0 & 1 & 1\\ 1 & 0 & 1\\ 1 & 1 & 0 \end{bmatrix}\)</p>
+    </div>
+    <details class="hint"><summary>คำใบ้</summary><div class="hint-body">A = ones − I → ค่าลักษณะเฉพาะของ ones คือ 3, 0, 0 → ของ A คือ 2, −1, −1</div></details>
+    <details class="sol"><summary>แนวคิดและเฉลยแบบละเอียด</summary><div class="sol-body">
+      <p><strong>แนวคิด:</strong> ทางลัดโครงสร้าง: \(A = J - I\) (J = เมทริกซ์หนึ่งทั้งหมด) — ใช้ค่าลักษณะเฉพาะของ J แล้วลบ 1</p>
+      <ol class="steps">
+        <li><span class="step-t">ค่าลักษณะเฉพาะ</span> J มี \(\lambda = 3, 0, 0\) (แถวเหมือนกัน + rank 1) → \(A = J-I\) มี \(\lambda = 2, -1, -1\) — เวกเตอร์ลักษณะเฉพาะใช้ตัวเดียวกัน</li>
+        <li><span class="step-t">เวกเตอร์ลักษณะเฉพาะ</span> λ=2: \(\vec{v}_1 = (1,1,1)\); λ=−1: จาก \(x_1+x_2+x_3 = 0\) เลือกฐานตั้งฉาก: \(\vec{v}_2 = (-1, 1, 0)\), \(\vec{v}_3 = (-1, -1, 2)\) (ตั้งฉากกับ v₂: \(1-1+0 = 0\) ✓, อยู่ระนาบ: \(-1-1+2 = 0\) ✓)</li>
+        <li><span class="step-t">หนึ่งหน่วย + ประกอบ</span> \(P = \begin{bmatrix} \frac{1}{\sqrt3} & \frac{-1}{\sqrt2} & \frac{-1}{\sqrt6}\\ \frac{1}{\sqrt3} & \frac{1}{\sqrt2} & \frac{-1}{\sqrt6}\\ \frac{1}{\sqrt3} & 0 & \frac{2}{\sqrt6} \end{bmatrix}\), \(D = \mathrm{diag}(2, -1, -1)\)</li>
+        <li><span class="step-t">ตรวจคำตอบ</span> \(A(1,1,1) = (2,2,2) = 2\vec{v}_1\) ✓; \(A(-1,1,0) = (1,-1,0) = -\vec{v}_2\) ✓ (λ=−1); \(A(-1,-1,2) = (1,1,-2) = -\vec{v}_3\) ✓ (λ=−1) — <strong>สรุป:</strong> \(\lambda = 2, -1, -1\) พร้อม P, D ตามด้านบน</li>
+      </ol>
+    </div></details>
+  </article>
+
+  <article class="pr-card" id="p-4-4-1ช" data-pkey="pTB-4-4-1ช">
+    <div class="pr-head"><span class="pr-num">แบบฝึกหัด 4.4 ข้อ 1 (ช)</span><span class="tag exam">🎯 แนว ⑤</span><span class="diff">●●●</span><span class="spacer"></span>
+      <label class="pr-done"><input type="checkbox"> ทำสำเร็จแล้ว</label></div>
+    <div class="pr-body">
+      <p>จงแปลงเป็นทแยงมุมเชิงตั้งฉาก: \(A = \begin{bmatrix} 2 & 1 & 1\\ 1 & 2 & -1\\ 1 & -1 & 2 \end{bmatrix}\)</p>
+    </div>
+    <details class="hint"><summary>คำใบ้</summary><div class="hint-body">ค่าลักษณะเฉพาะ 0, 3, 3 — eigenspace ของ 3 เป็นระนาบ เลือกคู่ตั้งฉากในระนาบ</div></details>
+    <details class="sol"><summary>แนวคิดและเฉลยแบบละเอียด</summary><div class="sol-body">
+      <p><strong>แนวคิด:</strong> เหมือน (ฉ) — จุดสำคัญ: ใน eigenspace ที่ซ้ำ ต้องเลือกเวกเตอร์<em>ตั้งฉากกันเอง</em></p>
+      <ol class="steps">
+        <li><span class="step-t">สมการลักษณะเฉพาะ</span> \(\det(A-\lambda I) = -\lambda^3+6\lambda^2-9\lambda = -\lambda(\lambda-3)^2 = 0\) → \(\lambda = 0, 3, 3\) (ตรวจ trace = 6 ✓, det = 0 ✓)</li>
+        <li><span class="step-t">เวกเตอร์ λ=0</span> \(A\vec{v} = \vec{0}\): \(2x_1+x_2+x_3 = 0\), \(x_1+2x_2-x_3 = 0\) → \(\vec{v}_1 = (1, -1, -1)\) (ตรวจ: \(2-1-1 = 0\) ✓, \(1-2+1 = 0\) ✓)</li>
+        <li><span class="step-t">เวกเตอร์ λ=3</span> \((A-3I)\vec{v} = \vec{0}\): แถว \((-1, 1, 1)\), \((1, -1, -1)\), \((1, -1, -1)\) → เงื่อนไขเดียว \(x_1 = x_2+x_3\) → เลือก \(\vec{v}_2 = (1, 1, 0)\) (ตรวจ \(1 = 1+0\) ✓), และ \(\vec{v}_3\) ตั้งฉากกับ v₁, v₂: \(\vec{v}_1\times\vec{v}_2 = ((-1)(0)-(-1)(1), (-1)(1)-(1)(0), (1)(1)-(-1)(1)) = (1, -1, 2)\) ตรวจอยู่ eigenspace: \(1 = -1+2\) ✓</li>
+        <li><span class="step-t">หนึ่งหน่วย + ประกอบ</span> \(P = \begin{bmatrix} \frac{1}{\sqrt3} & \frac{1}{\sqrt2} & \frac{1}{\sqrt6}\\ \frac{-1}{\sqrt3} & \frac{1}{\sqrt2} & \frac{-1}{\sqrt6}\\ \frac{-1}{\sqrt3} & 0 & \frac{2}{\sqrt6} \end{bmatrix}\), \(D = \mathrm{diag}(0, 3, 3)\)</li>
+        <li><span class="step-t">ตรวจคำตอบ</span> \(A(1,-1,-1) = (2-1-1, 1-2+1, 1+1-2) = \vec{0} = 0\vec{v}_1\) ✓; \(A(1,1,0) = (3, 3, 0) = 3\vec{v}_2\) ✓; \(A(1,-1,2) = (2-1+2, 1-2-2, 1+1+4) = (3, -3, 6) = 3\vec{v}_3\) ✓ — <strong>สรุป:</strong> \(\lambda = 0, 3, 3\) พร้อม P, D ตามด้านบน</li>
+      </ol>
+    </div></details>
+  </article>
+
+  <article class="pr-card" id="p-4-4-1ซ" data-pkey="pTB-4-4-1ซ">
+    <div class="pr-head"><span class="pr-num">แบบฝึกหัด 4.4 ข้อ 1 (ซ)</span><span class="diff">●●●</span><span class="spacer"></span>
+      <label class="pr-done"><input type="checkbox"> ทำสำเร็จแล้ว</label></div>
+    <div class="pr-body">
+      <p>จงแปลงเป็นทแยงมุมเชิงตั้งฉาก: \(A = \begin{bmatrix} -2 & 0 & -36\\ 0 & -3 & 0\\ -36 & 0 & -23 \end{bmatrix}\)</p>
+    </div>
+    <details class="hint"><summary>คำใบ้</summary><div class="hint-body">แกน y แยกขาด → λ = −3 กับ \(\vec{v} = (0,1,0)\) ทันที เหลือบล็อก 2×2 บนพิกัด (x₁, x₃)</div></details>
+    <details class="sol"><summary>แนวคิดและเฉลยแบบละเอียด</summary><div class="sol-body">
+      <p><strong>แนวคิด:</strong> โครงบล็อกเชิงตั้งฉาก — ค่าลักษณะเฉพาะรวมจากแต่ละบล็อก</p>
+      <ol class="steps">
+        <li><span class="step-t">แกน y</span> \(A\vec{e}_2 = (0, -3, 0) = -3\vec{e}_2\) → λ = −3, \(\vec{v}_2 = (0, 1, 0)\) ทันที</li>
+        <li><span class="step-t">บล็อก x-z</span> \(\begin{bmatrix} -2 & -36\\ -36 & -23 \end{bmatrix}\) บนพิกัด \((x_1, x_3)\): \(\lambda^2+25\lambda-1330 = (\lambda+50)(\lambda-25) = 0\) → \(\lambda = 25, -50\)</li>
+        <li><span class="step-t">เวกเตอร์บล็อก</span> λ=25: \((-27)x_1-36x_3 = 0\) → \(\vec{v}_1 = (-4, 0, 3)\); λ=−50: \(48x_1-36x_3 = 0\) → \(\vec{v}_3 = (3, 0, 4)\)</li>
+        <li><span class="step-t">หนึ่งหน่วย + ประกอบ</span> ทั้งคู่ยาว 5 (สามเหลี่ยม 3-4-5) → \(P = \begin{bmatrix} \frac{-4}{5} & 0 & \frac{3}{5}\\ 0 & 1 & 0\\ \frac{3}{5} & 0 & \frac{4}{5} \end{bmatrix}\), \(D = \mathrm{diag}(25, -3, -50)\)</li>
+        <li><span class="step-t">ตรวจคำตอบ</span> \(A(-4,0,3) = (8-108, 0, 144-69) = (-100, 0, 75) = 25\vec{v}_1\) ✓, \(A(3,0,4) = (-6-144, 0, -108-92) = (-150, 0, -200) = -50\vec{v}_3\) ✓ — <strong>สรุป:</strong> \(\lambda = 25, -3, -50\), P และ D ตามด้านบน</li>
+      </ol>
+    </div></details>
+  </article>
+
+  <article class="pr-card" id="p-4-4-1ฌ" data-pkey="pTB-4-4-1ฌ">
+    <div class="pr-head"><span class="pr-num">แบบฝึกหัด 4.4 ข้อ 1 (ฌ)</span><span class="diff">●●○</span><span class="spacer"></span>
+      <label class="pr-done"><input type="checkbox"> ทำสำเร็จแล้ว</label></div>
+    <div class="pr-body">
+      <p>จงแปลงเป็นทแยงมุมเชิงตั้งฉาก: \(A = \begin{bmatrix} 1 & 1 & 0\\ 1 & 1 & 0\\ 0 & 0 & 0 \end{bmatrix}\)</p>
+    </div>
+    <details class="hint"><summary>คำใบ้</summary><div class="hint-body">rank 1 → λ = 0, 0 และตัวที่เหลือ = trace = 2</div></details>
+    <details class="sol"><summary>แนวคิดและเฉลยแบบละเอียด</summary><div class="sol-body">
+      <p><strong>แนวคิด:</strong> เมทริกซ์ rank 1 → λ = 0 ซ้ำ n−1 ครั้ง และตัวสุดท้าย = trace</p>
+      <ol class="steps">
+        <li><span class="step-t">ค่าลักษณะเฉพาะ</span> rank 1, trace = 2 → \(\lambda = 2, 0, 0\)</li>
+        <li><span class="step-t">เวกเตอร์ลักษณะเฉพาะ</span> λ=2: \(\vec{v}_1 = (1, 1, 0)\) (ตรวจ \(A(1,1,0) = (2,2,0)\) ✓); λ=0: Nul A: \(x_1+x_2 = 0\) → \(\vec{v}_2 = (1, -1, 0)\), \(\vec{v}_3 = (0, 0, 1)\) (ตั้งฉากกันเอง ✓)</li>
+        <li><span class="step-t">ประกอบ</span> \(P = \begin{bmatrix} \frac{1}{\sqrt2} & \frac{1}{\sqrt2} & 0\\ \frac{1}{\sqrt2} & \frac{-1}{\sqrt2} & 0\\ 0 & 0 & 1 \end{bmatrix}\), \(D = \mathrm{diag}(2, 0, 0)\)</li>
+        <li><span class="step-t">ตรวจคำตอบ</span> \(PDP^T = 2\,\vec{u}_1\vec{u}_1^T = 2\cdot\frac{1}{2}\begin{bmatrix} 1 & 1 & 0\\ 1 & 1 & 0\\ 0 & 0 & 0 \end{bmatrix}\) = A ✓ — <strong>สรุป:</strong> \(\lambda = 2, 0, 0\) พร้อม P, D ตามด้านบน</li>
+      </ol>
+    </div></details>
+  </article>
+
+  <article class="pr-card" id="p-4-4-1ญ" data-pkey="pTB-4-4-1ญ">
+    <div class="pr-head"><span class="pr-num">แบบฝึกหัด 4.4 ข้อ 1 (ญ)</span><span class="diff">●●○</span><span class="spacer"></span>
+      <label class="pr-done"><input type="checkbox"> ทำสำเร็จแล้ว</label></div>
+    <div class="pr-body">
+      <p>จงแปลงเป็นทแยงมุมเชิงตั้งฉาก: \(A = \begin{bmatrix} 2 & -1 & -1\\ -1 & 2 & -1\\ -1 & -1 & 2 \end{bmatrix}\)</p>
+    </div>
+    <details class="hint"><summary>คำใบ้</summary><div class="hint-body">แถวรวมกันได้ 0 → \((1,1,1)\) เป็นเวกเตอร์ลักษณะเฉพาะของ λ = 0 ทันที</div></details>
+    <details class="sol"><summary>แนวคิดและเฉลยแบบละเอียด</summary><div class="sol-body">
+      <p><strong>แนวคิด:</strong> โครงคล้าย ones: λ = 0 กับทิศ \((1,1,1)\), ที่เหลือจาก trace</p>
+      <ol class="steps">
+        <li><span class="step-t">ค่าลักษณะเฉพาะ</span> แถวรวม = 0 → λ = 0 กับ \((1,1,1)\); trace = 6, det = 0 → \(\lambda = 0, 3, 3\)</li>
+        <li><span class="step-t">เวกเตอร์ λ=3</span> \((A-3I)\vec{v} = \vec{0}\): ทุกแถวให้ \(x_1+x_2+x_3 = 0\) → เลือกฐานตั้งฉาก: \(\vec{v}_2 = (1, -1, 0)\), \(\vec{v}_3 = (1, 1, -2)\) (ตั้งฉากกัน ✓ อยู่ระนาบ ✓)</li>
+        <li><span class="step-t">ประกอบ</span> \(P = \begin{bmatrix} \frac{1}{\sqrt3} & \frac{1}{\sqrt2} & \frac{1}{\sqrt6}\\ \frac{1}{\sqrt3} & \frac{-1}{\sqrt2} & \frac{1}{\sqrt6}\\ \frac{1}{\sqrt3} & 0 & \frac{-2}{\sqrt6} \end{bmatrix}\), \(D = \mathrm{diag}(0, 3, 3)\)</li>
+        <li><span class="step-t">ตรวจคำตอบ</span> \(A(1,-1,0) = (3, -3, 0) = 3\vec{v}_2\) ✓, \(A(1,1,-2) = (3, 3, -6) = 3\vec{v}_3\) ✓ — <strong>สรุป:</strong> \(\lambda = 0, 3, 3\) พร้อม P, D ตามด้านบน</li>
+      </ol>
+    </div></details>
+  </article>
+
+  <article class="pr-card" id="p-4-4-1ฎ" data-pkey="pTB-4-4-1ฎ">
+    <div class="pr-head"><span class="pr-num">แบบฝึกหัด 4.4 ข้อ 1 (ฎ)</span><span class="diff">●●●</span><span class="spacer"></span>
+      <label class="pr-done"><input type="checkbox"> ทำสำเร็จแล้ว</label></div>
+    <div class="pr-body">
+      <p>จงแปลงเป็นทแยงมุมเชิงตั้งฉาก: \(A = \begin{bmatrix} 2 & 0 & 0 & 0\\ 0 & 1 & 0 & 1\\ 0 & 0 & 2 & 0\\ 0 & 1 & 0 & 1 \end{bmatrix}\) (โจทย์กำหนด \(\lambda = 0, 2\))</p>
+    </div>
+    <details class="hint"><summary>คำใบ้</summary><div class="hint-body">4×4 แต่เป็นบล็อก: ตำแหน่ง (1,1) และ (3,3) แยกขาด เหลือบล็อก 2×2 ที่พิกัด (x₂, x₄)</div></details>
+    <details class="sol"><summary>แนวคิดและเฉลยแบบละเอียด</summary><div class="sol-body">
+      <p><strong>แนวคิด:</strong> แนวข้อสอบ ⑤ ปี 66 ให้ 4×4 — ข้อนี้สอนว่า 4×4 อาจสลายเป็นบล็อกเล็ก ไม่ต้องกลัวสมการกำลัง 4</p>
+      <ol class="steps">
+        <li><span class="step-t">อ่านบล็อก</span> \(A\vec{e}_1 = 2\vec{e}_1\), \(A\vec{e}_3 = 2\vec{e}_3\) → λ = 2 สองตัวกับเวกเตอร์ \((1,0,0,0)\), \((0,0,1,0)\) ทันที</li>
+        <li><span class="step-t">บล็อก (x₂, x₄)</span> \(\begin{bmatrix} 1 & 1\\ 1 & 1 \end{bmatrix}\) → \(\lambda = 2, 0\): λ=2 กับ \(\vec{v} = (0,1,0,1)\), λ=0 กับ \(\vec{v} = (0,1,0,-1)\)</li>
+        <li><span class="step-t">ประกอบ</span> \(P = \begin{bmatrix} 1 & 0 & 0 & 0\\ 0 & \frac{1}{\sqrt2} & 0 & \frac{1}{\sqrt2}\\ 0 & 0 & 1 & 0\\ 0 & \frac{1}{\sqrt2} & 0 & \frac{-1}{\sqrt2} \end{bmatrix}\), \(D = \mathrm{diag}(2, 2, 2, 0)\)</li>
+        <li><span class="step-t">ตรวจคำตอบ</span> \(A(0,1,0,1) = (0,2,0,2) = 2\vec{v}\) ✓, \(A(0,1,0,-1) = (0,0,0,0) = 0\vec{v}\) ✓ หลักตั้งฉากยาว 1 ครบ ✓ — <strong>สรุป:</strong> \(\lambda = 2, 2, 2, 0\) พร้อม P, D ตามด้านบน (ตรงกำหนดของโจทย์)</li>
+      </ol>
+    </div></details>
+  </article>
+
+  <article class="pr-card" id="p-4-4-1ฏ" data-pkey="pTB-4-4-1ฏ">
+    <div class="pr-head"><span class="pr-num">แบบฝึกหัด 4.4 ข้อ 1 (ฏ)</span><span class="diff">●●●</span><span class="spacer"></span>
+      <label class="pr-done"><input type="checkbox"> ทำสำเร็จแล้ว</label></div>
+    <div class="pr-body">
+      <p>จงแปลงเป็นทแยงมุมเชิงตั้งฉาก: \(A = \begin{bmatrix} 2 & 0 & 1 & 0\\ 0 & 2 & 0 & 1\\ 1 & 0 & 2 & 0\\ 0 & 1 & 0 & 2 \end{bmatrix}\) (โจทย์กำหนด \(\lambda = 1, 3\))</p>
+    </div>
+    <details class="hint"><summary>คำใบ้</summary><div class="hint-body">A = 2I + K โดย K สลับพิกัด (1↔3), (2↔4) และ \(K^2 = I\) → λ ของ K = ±1 → λ ของ A = 2±1</div></details>
+    <details class="sol"><summary>แนวคิดและเฉลยแบบละเอียด</summary><div class="sol-body">
+      <p><strong>แนวคิด:</strong> 4×4 แบบคู่ขนานสองชั้น — ลองเวกเตอร์รูป \((a,b,a,b)\) และ \((a,b,-a,-b)\) จะเจอทั้งสี่เวกเตอร์ทันที</p>
+      <ol class="steps">
+        <li><span class="step-t">λ=3</span> ทิศทาง "สมมาตร": \(\vec{v}_1 = (1, 0, 1, 0)\), \(\vec{v}_2 = (0, 1, 0, 1)\) — ตรวจ \(A(1,0,1,0) = (3, 0, 3, 0) = 3\vec{v}\) ✓</li>
+        <li><span class="step-t">λ=1</span> ทิศทาง "ต้านสมมาตร": \(\vec{v}_3 = (1, 0, -1, 0)\), \(\vec{v}_4 = (0, 1, 0, -1)\) — ตรวจ \(A(1,0,-1,0) = (1, 0, -1, 0)\) ✓</li>
+        <li><span class="step-t">หนึ่งหน่วย + ประกอบ</span> ทุกตัวยาว \(\sqrt2\) → \(P = \frac{1}{\sqrt2}\begin{bmatrix} 1 & 0 & 1 & 0\\ 0 & 1 & 0 & 1\\ 1 & 0 & -1 & 0\\ 0 & 1 & 0 & -1 \end{bmatrix}\), \(D = \mathrm{diag}(3, 3, 1, 1)\)</li>
+        <li><span class="step-t">ตรวจคำตอบ</span> หลักทุกตัวยาว 1 ตั้งฉากกันครบ (คู่ใด ๆ มีสมาชิกทับกัน 0 ตำแหน่ง) ✓, \(A\vec{v} = \lambda\vec{v}\) ทุกหลัก ✓ — <strong>สรุป:</strong> \(\lambda = 1, 1, 3, 3\) พร้อม P, D ตามด้านบน (ตรงกำหนดของโจทย์)</li>
+      </ol>
+    </div></details>
+  </article>
+
+  <article class="pr-card" id="p-4-4-2ก" data-pkey="pTB-4-4-2ก">
+    <div class="pr-head"><span class="pr-num">แบบฝึกหัด 4.4 ข้อ 2 (ก)</span><span class="diff">●●○</span><span class="spacer"></span>
+      <label class="pr-done"><input type="checkbox"> ทำสำเร็จแล้ว</label></div>
+    <div class="pr-body">
+      <p>จงหาการแยกเชิงสเปกตรัมของเมทริกซ์สมมาตร \(A\) ในข้อ 1 (ก): \(A = \begin{bmatrix} 8 & -2\\ -2 & 5 \end{bmatrix}\)</p>
+      <p class="tagline">มีบทเรียนประกอบ: <a href="ch4-4.html">หน้า 4.4</a></p>
+    </div>
+    <details class="hint"><summary>คำใบ้</summary><div class="hint-body">การแยกเชิงสเปกตรัม: \(A = \lambda_1\vec{u}_1\vec{u}_1^T + \lambda_2\vec{u}_2\vec{u}_2^T\) โดย \(\vec{u}_i\) คือหลักหนึ่งหน่วยของ P จากข้อ 1 (ก)</div></details>
+    <details class="sol"><summary>แนวคิดและเฉลยแบบละเอียด</summary><div class="sol-body">
+      <p><strong>แนวคิด:</strong> \(A = PDP^T = \sum\lambda_i\vec{u}_i\vec{u}_i^T\) — แยก A เป็น "ผลรวมของเมทริกซ์ฉายคูณสเกลาร์" หนึ่งอันต่อหนึ่งค่าลักษณะเฉพาะ</p>
+      <ol class="steps">
+        <li><span class="step-t">อุปกรณ์จากข้อ 1 (ก)</span> \(\lambda_1 = 9\) กับ \(\vec{u}_1 = \frac{1}{\sqrt5}(2,-1)\), \(\lambda_2 = 4\) กับ \(\vec{u}_2 = \frac{1}{\sqrt5}(1,2)\)</li>
+        <li><span class="step-t">สร้างผลคูณตัวนอก</span> \(\vec{u}_1\vec{u}_1^T = \frac{1}{5}\begin{bmatrix} 4 & -2\\ -2 & 1 \end{bmatrix}\), \(\vec{u}_2\vec{u}_2^T = \frac{1}{5}\begin{bmatrix} 1 & 2\\ 2 & 4 \end{bmatrix}\)</li>
+        <li><span class="step-t">ประกอบ</span> \(A = 9\cdot\frac{1}{5}\begin{bmatrix} 4 & -2\\ -2 & 1 \end{bmatrix} + 4\cdot\frac{1}{5}\begin{bmatrix} 1 & 2\\ 2 & 4 \end{bmatrix} = \frac{1}{5}\begin{bmatrix} 36+4 & -18+8\\ -18+8 & 9+16 \end{bmatrix} = \frac{1}{5}\begin{bmatrix} 40 & -10\\ -10 & 25 \end{bmatrix} = \begin{bmatrix} 8 & -2\\ -2 & 5 \end{bmatrix}\) ✓</li>
+        <li><span class="step-t">ตรวจคำตอบ + สังเกต</span> แต่ละพจน์ \(\lambda_i\vec{u}_i\vec{u}_i^T\) เป็นเมทริกซ์ฉาย (rank 1, กำลังสองเท่าตัว) — รวมกันได้ A พอดี ✓ — <strong>สรุป:</strong> \(A = \frac{9}{5}\begin{bmatrix} 4 & -2\\ -2 & 1 \end{bmatrix} + \frac{4}{5}\begin{bmatrix} 1 & 2\\ 2 & 4 \end{bmatrix}\)</li>
+      </ol>
+    </div></details>
+  </article>
+
+  <article class="pr-card" id="p-4-4-2ข" data-pkey="pTB-4-4-2ข">
+    <div class="pr-head"><span class="pr-num">แบบฝึกหัด 4.4 ข้อ 2 (ข)</span><span class="diff">●●○</span><span class="spacer"></span>
+      <label class="pr-done"><input type="checkbox"> ทำสำเร็จแล้ว</label></div>
+    <div class="pr-body">
+      <p>จงหาการแยกเชิงสเปกตรัมของข้อ 1 (ข): \(A = \begin{bmatrix} 1 & -2\\ -2 & 1 \end{bmatrix}\)</p>
+      <p class="tagline">มีบทเรียนประกอบ: <a href="ch4-4.html">หน้า 4.4</a></p>
+    </div>
+    <details class="hint"><summary>คำใบ้</summary><div class="hint-body">ค่าลักษณะเฉพาะติดลบ = พจน์สเปกตรัมติดลบ — แทนตามจริง</div></details>
+    <details class="sol"><summary>แนวคิดและเฉลยแบบละเอียด</summary><div class="sol-body">
+      <p><strong>แนวคิด:</strong> สูตรเดิม — λ ลบทำให้พจน์นั้น "หักลบ" ออกจากผลรวม</p>
+      <ol class="steps">
+        <li><span class="step-t">อุปกรณ์จากข้อ 1 (ข)</span> \(\lambda_1 = 3\) กับ \(\vec{u}_1 = \frac{1}{\sqrt2}(1,-1)\), \(\lambda_2 = -1\) กับ \(\vec{u}_2 = \frac{1}{\sqrt2}(1,1)\)</li>
+        <li><span class="step-t">ประกอบ</span> \(A = 3\cdot\frac{1}{2}\begin{bmatrix} 1 & -1\\ -1 & 1 \end{bmatrix} + (-1)\cdot\frac{1}{2}\begin{bmatrix} 1 & 1\\ 1 & 1 \end{bmatrix} = \frac{1}{2}\begin{bmatrix} 3-1 & -3-1\\ -3-1 & 3-1 \end{bmatrix} = \begin{bmatrix} 1 & -2\\ -2 & 1 \end{bmatrix}\) ✓</li>
+        <li><span class="step-t">ตรวจคำตอบ</span> ผลรวมตรง A ทุกช่อง ✓ — <strong>สรุป:</strong> \(A = \frac{3}{2}\begin{bmatrix} 1 & -1\\ -1 & 1 \end{bmatrix} - \frac{1}{2}\begin{bmatrix} 1 & 1\\ 1 & 1 \end{bmatrix}\)</li>
+      </ol>
+    </div></details>
+  </article>
+
+  <article class="pr-card" id="p-4-4-2ค" data-pkey="pTB-4-4-2ค">
+    <div class="pr-head"><span class="pr-num">แบบฝึกหัด 4.4 ข้อ 2 (ค)</span><span class="diff">●●○</span><span class="spacer"></span>
+      <label class="pr-done"><input type="checkbox"> ทำสำเร็จแล้ว</label></div>
+    <div class="pr-body">
+      <p>จงหาการแยกเชิงสเปกตรัมของข้อ 1 (ค): \(A = \begin{bmatrix} 9 & -12\\ -12 & 16 \end{bmatrix}\)</p>
+    </div>
+    <details class="hint"><summary>คำใบ้</summary><div class="hint-body">λ = 0 ทำให้พจน์นั้นหายไปทั้งเทอม — A แยกได้ด้วยพจน์เดียว</div></details>
+    <details class="sol"><summary>แนวคิดและเฉลยแบบละเอียด</summary><div class="sol-body">
+      <p><strong>แนวคิด:</strong> เมทริกซ์เอกฐาน (มี λ = 0) สเปกตรัมเหลือพจน์เท่าจำนวนค่าลักษณะเฉพาะที่ไม่เป็นศูนย์</p>
+      <ol class="steps">
+        <li><span class="step-t">อุปกรณ์จากข้อ 1 (ค)</span> \(\lambda_1 = 25\) กับ \(\vec{u}_1 = \frac{1}{5}(-3,4)\), \(\lambda_2 = 0\) กับ \(\vec{u}_2 = \frac{1}{5}(4,3)\)</li>
+        <li><span class="step-t">ประกอบ</span> \(A = 25\cdot\frac{1}{25}\begin{bmatrix} 9 & -12\\ -12 & 16 \end{bmatrix} + 0\cdot(\cdots) = \begin{bmatrix} 9 & -12\\ -12 & 16 \end{bmatrix}\) ✓ — พจน์ λ=0 หายไปเพราะคูณศูนย์</li>
+        <li><span class="step-t">ตรวจคำตอบ + สังเกต</span> จริง ๆ นี่คือเหตุผลที่ \(A\) rank 1: มันคือฉายบนเส้น \((-3,4)\) คูณ 25 — <strong>สรุป:</strong> \(A = 25\,\vec{u}_1\vec{u}_1^T\) เท่านั้น</li>
+      </ol>
+    </div></details>
+  </article>
+
+  <article class="pr-card" id="p-4-4-2ง" data-pkey="pTB-4-4-2ง">
+    <div class="pr-head"><span class="pr-num">แบบฝึกหัด 4.4 ข้อ 2 (ง)</span><span class="diff">●●○</span><span class="spacer"></span>
+      <label class="pr-done"><input type="checkbox"> ทำสำเร็จแล้ว</label></div>
+    <div class="pr-body">
+      <p>จงหาการแยกเชิงสเปกตรัมของข้อ 1 (ง): \(A = \begin{bmatrix} 3 & -1.5\\ -1.5 & 7 \end{bmatrix}\)</p>
+    </div>
+    <details class="hint"><summary>คำใบ้</summary><div class="hint-body">ใช้ λ = 7.5, 2.5 กับ \(\vec{u}_1 = \frac{1}{\sqrt{10}}(-1,3)\), \(\vec{u}_2 = \frac{1}{\sqrt{10}}(3,1)\) จากข้อ 1 (ง)</div></details>
+    <details class="sol"><summary>แนวคิดและเฉลยแบบละเอียด</summary><div class="sol-body">
+      <p><strong>แนวคิด:</strong> สูตรเดิม — เศษส่วนจัดการด้วยตัวส่วนร่วม 10</p>
+      <ol class="steps">
+        <li><span class="step-t">ผลคูณตัวนอก</span> \(\vec{u}_1\vec{u}_1^T = \frac{1}{10}\begin{bmatrix} 1 & -3\\ -3 & 9 \end{bmatrix}\), \(\vec{u}_2\vec{u}_2^T = \frac{1}{10}\begin{bmatrix} 9 & 3\\ 3 & 1 \end{bmatrix}\)</li>
+        <li><span class="step-t">ประกอบ</span> \(A = 7.5\cdot\frac{1}{10}\begin{bmatrix} 1 & -3\\ -3 & 9 \end{bmatrix} + 2.5\cdot\frac{1}{10}\begin{bmatrix} 9 & 3\\ 3 & 1 \end{bmatrix} = \frac{1}{10}\begin{bmatrix} 7.5+22.5 & -22.5+7.5\\ -22.5+7.5 & 67.5+2.5 \end{bmatrix} = \begin{bmatrix} 3 & -1.5\\ -1.5 & 7 \end{bmatrix}\) ✓</li>
+        <li><span class="step-t">ตรวจคำตอบ</span> ตรง A ทุกช่อง ✓ — <strong>สรุป:</strong> \(A = \frac{7.5}{10}\begin{bmatrix} 1 & -3\\ -3 & 9 \end{bmatrix} + \frac{2.5}{10}\begin{bmatrix} 9 & 3\\ 3 & 1 \end{bmatrix}\)</li>
+      </ol>
+    </div></details>
+  </article>
+
+  <article class="pr-card" id="p-4-4-3" data-pkey="pTB-4-4-3">
+    <div class="pr-head"><span class="pr-num">แบบฝึกหัด 4.4 ข้อ 3</span><span class="tag exam">🎯 แนว ⑤</span><span class="diff">●●●</span><span class="spacer"></span>
+      <label class="pr-done"><input type="checkbox"> ทำสำเร็จแล้ว</label></div>
+    <div class="pr-body">
+      <p>ให้ \(A = \begin{bmatrix} 3 & 1 & 1\\ 1 & 3 & 1\\ 1 & 1 & 3 \end{bmatrix}\) และ \(\vec{v} = \begin{bmatrix} -1\\ 1\\ 0 \end{bmatrix}\) จงแสดงว่า 5 เป็นค่าลักษณะเฉพาะของ A (นั่นคือ \(\det(A-5I) = 0\)) และ \(\vec{v}\) เป็นเวกเตอร์ลักษณะเฉพาะของ A และจงแปลง A เป็นทแยงมุมเชิงตั้งฉาก</p>
+    </div>
+    <details class="hint"><summary>คำใบ้</summary><div class="hint-body">โครง ones: A = 2I + J — ค่าลักษณะเฉพาะคือ 2+3, 2, 2 · v อยู่ระนาบ \(x_1+x_2+x_3 = 0\) พอดี</div></details>
+    <details class="sol"><summary>แนวคิดและเฉลยแบบละเอียด</summary><div class="sol-body">
+      <p><strong>แนวคิด:</strong> A = 2I + J (J = เมทริกซ์หนึ่งทั้งหมด) — ทุกคำถามในข้อนี้ตอบได้จากโครงนี้</p>
+      <ol class="steps">
+        <li><span class="step-t">แสดงว่า 5 เป็นค่าลักษณะเฉพาะ</span> \(\det(A-5I)\): \(A-5I = \begin{bmatrix} -2 & 1 & 1\\ 1 & -2 & 1\\ 1 & 1 & -2 \end{bmatrix}\) — แถว 1 = −(แถว 2 + แถว 3)? ตรวจ: \(-(1+1), -(-2+1), -(1-2) = (-2, 1, 1)\) ✓ แถวพัวพัน → det = 0 → 5 เป็นค่าลักษณะเฉพาะ ∎ (เหตุผลโครงสร้าง: \(J(1,1,1)^T = 3(1,1,1)^T\) → \(A(1,1,1) = (2+3)(1,1,1) = 5(1,1,1)\))</li>
+        <li><span class="step-t">แสดงว่า v เป็นเวกเตอร์ลักษณะเฉพาะ</span> \(A\vec{v} = \begin{bmatrix} 3(-1)+1(1)+1(0)\\ 1(-1)+3(1)+1(0)\\ 1(-1)+1(1)+3(0) \end{bmatrix} = \begin{bmatrix} -2\\ 2\\ 0 \end{bmatrix} = 2\vec{v}\) → \(\vec{v}\) เป็นเวกเตอร์ลักษณะเฉพาะของ λ = 2 ∎ (สังเกต: v ตั้งฉากกับ (1,1,1) พอดี — เวกเตอร์ลักษณะเฉพาะคนละค่าของเมทริกซ์สมมาตรตั้งฉากกันเสมอ)</li>
+        <li><span class="step-t">หาที่เหลือเพื่อทแยงมุม</span> λ = 2 ซ้ำ: eigenspace \(x_1+x_2+x_3 = 0\) เลือก \(\vec{v}_2 = (-1, 1, 0)\), \(\vec{v}_3 = (-1, -1, 2)\); λ = 5: \(\vec{v}_1 = (1, 1, 1)\)</li>
+        <li><span class="step-t">ประกอบ</span> \(P = \begin{bmatrix} \frac{1}{\sqrt3} & \frac{-1}{\sqrt2} & \frac{-1}{\sqrt6}\\ \frac{1}{\sqrt3} & \frac{1}{\sqrt2} & \frac{-1}{\sqrt6}\\ \frac{1}{\sqrt3} & 0 & \frac{2}{\sqrt6} \end{bmatrix}\), \(D = \mathrm{diag}(5, 2, 2)\) → \(A = PDP^T\)</li>
+        <li><span class="step-t">ตรวจคำตอบ</span> \(A(1,1,1) = (5,5,5)\) ✓, \(A(-1,-1,2) = (-3-1+2, -1-3+2, -1-1+6) = (-2, -2, 4) = 2\vec{v}_3\) ✓ — <strong>สรุป:</strong> 5 เป็นค่าลักษณะเฉพาะ (กับ \((1,1,1)\)), v คือเวกเตอร์ลักษณะเฉพาะของ λ = 2, และ \(A = PDP^T\) ตามด้านบน</li>
+      </ol>
+    </div></details>
+  </article>
+
+  <article class="pr-card" id="p-4-4-4" data-pkey="pTB-4-4-4">
+    <div class="pr-head"><span class="pr-num">แบบฝึกหัด 4.4 ข้อ 4</span><span class="tag exam">🎯 แนว ⑤</span><span class="diff">●●●</span><span class="spacer"></span>
+      <label class="pr-done"><input type="checkbox"> ทำสำเร็จแล้ว</label></div>
+    <div class="pr-body">
+      <p>ให้ \(A = \begin{bmatrix} 5 & -4 & -2\\ -4 & 5 & 2\\ -2 & 2 & 2 \end{bmatrix}\), \(\vec{v}_1 = \begin{bmatrix} -2\\ 2\\ 1 \end{bmatrix}\) และ \(\vec{v}_2 = \begin{bmatrix} 1\\ 1\\ 0 \end{bmatrix}\) จงแสดงว่า \(\vec{v}_1\) และ \(\vec{v}_2\) เป็นเวกเตอร์ลักษณะเฉพาะของ A และจงแปลง A เป็นทแยงมุมเชิงตั้งฉาก</p>
+    </div>
+    <details class="hint"><summary>คำใบ้</summary><div class="hint-body">คูณ Av₁, Av₂ แล้วดูว่าเป็นสเกลาร์ของตัวเองไหม · ค่าที่สามจาก trace</div></details>
+    <details class="sol"><summary>แนวคิดและเฉลยแบบละเอียด</summary><div class="sol-body">
+      <p><strong>แนวคิด:</strong> ตรวจสองตัวที่ให้มาด้วยการคูณตรง แล้วหาตัวที่สาม (trace บอกผลรวมค่าลักษณะเฉพาะ)</p>
+      <ol class="steps">
+        <li><span class="step-t">ตรวจ v₁</span> \(A\vec{v}_1 = (5(-2)-4(2)-2(1), -4(-2)+5(2)+2(1), -2(-2)+2(2)+2(1)) = (-20, 20, 10) = 10\vec{v}_1\) ✓ → λ₁ = 10</li>
+        <li><span class="step-t">ตรวจ v₂</span> \(A\vec{v}_2 = (5-4, -4+5, -2+2) = (1, 1, 0) = 1\cdot\vec{v}_2\) ✓ → λ₂ = 1</li>
+        <li><span class="step-t">หาตัวที่สาม</span> trace \(= 5+5+2 = 12 = 10+1+\lambda_3\) → \(\lambda_3 = 1\) (ซ้ำ) — eigenspace: \((A-I)\vec{v} = \vec{0}\) และต้องตั้งฉากกับ v₁ (คนละค่า) → \(\vec{v}_3 = \vec{v}_1\times\vec{v}_2 = (2\cdot0-1\cdot1, 1\cdot1-(-2)\cdot0, -2\cdot1-2\cdot1) = (-1, 1, -4)\) ตรวจ: \(A(-1,1,-4) = (-5-4+8, 4+5-8, 2+2-8) = (-1, 1, -4) = 1\cdot\vec{v}_3\) ✓</li>
+        <li><span class="step-t">หนึ่งหน่วย + ประกอบ</span> \(\lVert\vec{v}_1\rVert = 3\), \(\lVert\vec{v}_2\rVert = \sqrt2\), \(\lVert\vec{v}_3\rVert = \sqrt{18} = 3\sqrt2\) → \(P = \begin{bmatrix} \frac{-2}{3} & \frac{1}{\sqrt2} & \frac{-1}{3\sqrt2}\\ \frac{2}{3} & \frac{1}{\sqrt2} & \frac{1}{3\sqrt2}\\ \frac{1}{3} & 0 & \frac{-4}{3\sqrt2} \end{bmatrix}\), \(D = \mathrm{diag}(10, 1, 1)\)</li>
+        <li><span class="step-t">ตรวจคำตอบ</span> คู่ตั้งฉาก: \(\vec{v}_1\cdot\vec{v}_2 = -2+2+0 = 0\) ✓, \(\vec{v}_1\cdot\vec{v}_3 = 2+2-4 = 0\) ✓, \(\vec{v}_2\cdot\vec{v}_3 = -1+1+0 = 0\) ✓ และ \(A\vec{v} = \lambda\vec{v}\) ครบทั้งสาม ✓ — <strong>สรุป:</strong> \(\lambda = 10, 1, 1\) พร้อม P, D ตามด้านบน</li>
+      </ol>
+    </div></details>
+  </article>
+
+  <article class="pr-card" id="p-4-4-5" data-pkey="pTB-4-4-5">
+    <div class="pr-head"><span class="pr-num">แบบฝึกหัด 4.4 ข้อ 5</span><span class="diff">●●○</span><span class="spacer"></span>
+      <label class="pr-done"><input type="checkbox"> ทำสำเร็จแล้ว</label></div>
+    <div class="pr-body">
+      <p>ให้ \(A = \begin{bmatrix} a & b\\ b & a \end{bmatrix}\) โดยที่ \(b \neq 0\) จงแปลง A เป็นทแยงมุมเชิงตั้งฉาก</p>
+      <p class="tagline">มีบทเรียนประกอบ: <a href="ch4-4.html">หน้า 4.4</a></p>
+    </div>
+    <details class="hint"><summary>คำใบ้</summary><div class="hint-body">ทำสมการลักษณะเฉพาะด้วยตัวแปร a, b — คำตอบคือทิศ (1,1) กับ (1,−1) เสมอ</div></details>
+    <details class="sol"><summary>แนวคิดและเฉลยแบบละเอียด</summary><div class="sol-body">
+      <p><strong>แนวคิด:</strong> โจทย์อักษร — วิธีเดิมแต่ใช้พีชคณิตแทนตัวเลข</p>
+      <ol class="steps">
+        <li><span class="step-t">สมการลักษณะเฉพาะ</span> \(\det\begin{bmatrix} a-\lambda & b\\ b & a-\lambda \end{bmatrix} = (a-\lambda)^2 - b^2 = 0\) → \(a-\lambda = \pm b\) → \(\lambda_1 = a+b\), \(\lambda_2 = a-b\) (จริง ๆ เพราะ \(b \neq 0\) สองค่าต่างกัน)</li>
+        <li><span class="step-t">เวกเตอร์ λ=a+b</span> \(\begin{bmatrix} -b & b\\ b & -b \end{bmatrix}\vec{v} = \vec{0}\) → \(-x_1+x_2 = 0\) → \(\vec{v}_1 = (1, 1)\); λ=a−b: \(\begin{bmatrix} b & b\\ b & b \end{bmatrix}\vec{v} = \vec{0}\) → \(\vec{v}_2 = (1, -1)\) — ตั้งฉาก ✓ (และ \(b\neq0\) ทำให้ทั้งคู่ไม่เป็นศูนย์)</li>
+        <li><span class="step-t">ประกอบ</span> \(P = \frac{1}{\sqrt2}\begin{bmatrix} 1 & 1\\ 1 & -1 \end{bmatrix}\), \(D = \begin{bmatrix} a+b & 0\\ 0 & a-b \end{bmatrix}\)</li>
+        <li><span class="step-t">ตรวจคำตอบ</span> \(PDP^T = \frac{1}{2}\begin{bmatrix} 1 & 1\\ 1 & -1 \end{bmatrix}\begin{bmatrix} a+b & 0\\ 0 & a-b \end{bmatrix}\begin{bmatrix} 1 & 1\\ 1 & -1 \end{bmatrix} = \frac{1}{2}\begin{bmatrix} a+b & a-b\\ a+b & -(a-b) \end{bmatrix}\begin{bmatrix} 1 & 1\\ 1 & -1 \end{bmatrix} = \frac{1}{2}\begin{bmatrix} 2a & 2b\\ 2b & 2a \end{bmatrix} = \begin{bmatrix} a & b\\ b & a \end{bmatrix}\) ✓ — <strong>สรุป:</strong> \(P = \frac{1}{\sqrt2}\begin{bmatrix} 1 & 1\\ 1 & -1 \end{bmatrix}\), \(D = \mathrm{diag}(a+b, a-b)\)</li>
+      </ol>
+    </div></details>
+  </article>
+
+  <article class="pr-card" id="p-4-4-6" data-pkey="pTB-4-4-6">
+    <div class="pr-head"><span class="pr-num">แบบฝึกหัด 4.4 ข้อ 6</span><span class="diff">●●○</span><span class="spacer"></span>
+      <label class="pr-done"><input type="checkbox"> ทำสำเร็จแล้ว</label></div>
+    <div class="pr-body">
+      <p>จงแสดงว่า สำหรับเมทริกซ์ A ใดๆ เราได้ว่า \(AA^T\) และ \(A^TA\) เป็นเมทริกซ์สมมาตร</p>
+    </div>
+    <details class="hint"><summary>คำใบ้</summary><div class="hint-body">นิยามสมมาตร: \(M^T = M\) — ใช้สมบัติ \((MN)^T = N^TM^T\) กับตัวถอกกำลังสอง</div></details>
+    <details class="sol"><summary>แนวคิดและเฉลยแบบละเอียด</summary><div class="sol-body">
+      <p><strong>แนวคิด:</strong> ถอดทรานสโพสของ \(AA^T\) แล้วเห็นว่ากลับมาเหมือนเดิม</p>
+      <ol class="steps">
+        <li><span class="step-t">AAᵀ</span> \((AA^T)^T = (A^T)^T A^T = AA^T\) — ใช้ \((MN)^T = N^TM^T\) แล้ว \((A^T)^T = A\) → สมมาตร ∎</li>
+        <li><span class="step-t">AᵀA</span> \((A^TA)^T = A^T(A^T)^T = A^TA\) → สมมาตร ∎ (ทำไมถึงจริงทั่วไป: ทรานสโพสสลับลำดับ แต่สองตัวนี้เป็นเมทริกซ์เดียวกันสองรอบ สลับแล้วเหมือนเดิม)</li>
+        <li><span class="step-t">สังเกตประกอบ</span> ตรวจเชิงประจักษ์ด้วย A มุมใดก็ได้ เช่น \(A = \begin{bmatrix} 1 & 2\\ 0 & 3 \end{bmatrix}\): \(AA^T = \begin{bmatrix} 5 & 6\\ 6 & 9 \end{bmatrix}\) สมมาตร ✓ — สมบัตินี้คือเหตุผลที่เมทริกซ์เหล่านี้ "เกือบจะทแยงมุมเชิงตั้งฉากได้เสมอ" ในทฤษฎีถัด ๆ ไป</li>
+      </ol>
+    </div></details>
+  </article>
+
+  <article class="pr-card" id="p-4-4-7" data-pkey="pTB-4-4-7">
+    <div class="pr-head"><span class="pr-num">แบบฝึกหัด 4.4 ข้อ 7</span><span class="diff">●●○</span><span class="spacer"></span>
+      <label class="pr-done"><input type="checkbox"> ทำสำเร็จแล้ว</label></div>
+    <div class="pr-body">
+      <p>ให้ A เป็นเมทริกซ์สมมาตรไม่เอกฐาน จงแสดงว่า \(A^{-1}\) สามารถแปลงเป็นทแยงมุมเชิงตั้งฉากได้</p>
+    </div>
+    <details class="hint"><summary>คำใบ้</summary><div class="hint-body">สองจุด: (1) A⁻¹ ก็สมมาตร (2) เวกเตอร์ลักษณะเฉพาะของ A⁻¹ ใช้ตัวเดียวกับของ A โดยค่าลักษณะเฉพาะเป็น 1/λ</div></details>
+    <details class="sol"><summary>แนวคิดและเฉลยแบบละเอียด</summary><div class="sol-body">
+      <p><strong>แนวคิด:</strong> ใช้ทฤษฎีบท "สมมาตร → ทแยงมุมเชิงตั้งฉากได้" กับ A⁻¹ โดยพิสูจน์ก่อนว่า A⁻¹ สมมาตร</p>
+      <ol class="steps">
+        <li><span class="step-t">A⁻¹ สมมาตร</span> \((A^{-1})^T = (A^T)^{-1} = A^{-1}\) (เพราะ \(A^T = A\)) → A⁻¹ เป็นเมทริกซ์สมมาตร ∎</li>
+        <li><span class="step-t">สมมาตร → ทแยงมุมเชิงตั้งฉากได้</span> โดยทฤษฎีบท 4.4.x มีเมทริกซ์เชิงตั้งฉากปรกติ P ซึ่ง \(A^{-1} = PDP^T\) ∎</li>
+        <li><span class="step-t">เสริมความเข้าใจ</span> ยิ่งไปกว่านั้น: ถ้า \(A = PDP^T\) แล้ว \(A^{-1} = (PDP^T)^{-1} = P\,D^{-1}\,P^T\) — ใช้ P ตัวเดิมได้เลย โดยค่าลักษณะเฉพาะกลายเป็น \(1/\lambda_i\) (ไม่เป็นศูนย์เพราะ A ไม่เอกฐาน) — ตรวจแนวคิดด้วยตัวอย่าง: \(A = \begin{bmatrix} 8 & -2\\ -2 & 5 \end{bmatrix}\) (ข้อ 1 ก) มี \(A^{-1} = \frac{1}{36}\begin{bmatrix} 5 & 2\\ 2 & 8 \end{bmatrix}\) และ \(D^{-1} = \mathrm{diag}(1/9, 1/4)\) คูณกลับได้ \(A^{-1}\) พอดี ✓</li>
+      </ol>
+    </div></details>
+  </article>
+
+  <article class="pr-card" id="p-4-4-8" data-pkey="pTB-4-4-8">
+    <div class="pr-head"><span class="pr-num">แบบฝึกหัด 4.4 ข้อ 8</span><span class="diff">●●○</span><span class="spacer"></span>
+      <label class="pr-done"><input type="checkbox"> ทำสำเร็จแล้ว</label></div>
+    <div class="pr-body">
+      <p>ให้ A เป็นเมทริกซ์สมมาตรมิติ \(n \times n\) จงแสดงว่า \((A\vec{x})\cdot\vec{y} = \vec{x}\cdot(A\vec{y})\) สำหรับทุกๆ เวกเตอร์ \(\vec{x}, \vec{y} \in \mathbb{R}^n\)</p>
+    </div>
+    <details class="hint"><summary>คำใบ้</summary><div class="hint-body">เขียนผลคูณจุดเป็นทรานสโพส: \(\vec{u}\cdot\vec{v} = \vec{u}^T\vec{v}\) แล้วย้ายทรานโพสจากหลังไปหน้า</div></details>
+    <details class="sol"><summary>แนวคิดและเฉลยแบบละเอียด</summary><div class="sol-body">
+      <p><strong>แนวคิด:</strong> สมบัติ "A ขยับข้ามผลคูณจุดได้" — กุญแจคือการเขียน dot เป็นการคูณเมทริกซ์แล้วใช้ \(A^T = A\)</p>
+      <ol class="steps">
+        <li><span class="step-t">แปลงเป็นทรานสโพส</span> \((A\vec{x})\cdot\vec{y} = (A\vec{x})^T\vec{y} = (\vec{x}^TA^T)\vec{y}\)</li>
+        <li><span class="step-t">ใช้สมมาตร</span> \(A^T = A\) → \(= \vec{x}^T(A\,\vec{y}) = \vec{x}\cdot(A\vec{y})\) ∎</li>
+        <li><span class="step-t">สังเกต</span> ตรวจเชิงประจักษ์: \(A = \begin{bmatrix} 1 & 2\\ 2 & 3 \end{bmatrix}\), \(\vec{x} = (1, 0)\), \(\vec{y} = (0, 1)\): \(A\vec{x} = (1, 2)\), \(\cdot\vec{y} = 2\); \(\vec{x}\cdot A\vec{y} = (1, 0)\cdot(2, 3) = 2\) ✓ — สมบัตินี้อธิบายว่าทำไมเมทริกซ์สมมาตรจึงมีฐานหลักเชิงตั้งฉากของเวกเตอร์ลักษณะเฉพาะ (เวกเตอร์ลักษณะเฉพาะคนละค่าตั้งฉากกันโดยอัตโนมัติจากสมบัตินี้)</li>
+      </ol>
+    </div></details>
+  </article>
+
+</section>
+
+
 
 
 

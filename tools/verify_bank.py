@@ -67,7 +67,7 @@ check(f"pkey ไม่ซ้ำทั้งเว็บ (รวม {len(web)} �
 for d in dup:
     print("   DUP:", d)
 
-bad_fmt = [k for k in all_bank_pkeys if not re.match(r"^pTB-\d-\d+([.-]\d+)?([ก-ญ])?$", k)]
+bad_fmt = [k for k in all_bank_pkeys if not re.match(r"^pTB-\d-\d+([.-]\d+)?([ก-ฏ])?$", k)]
 check("pkey คลังอยู่รูปแบบ pTB-* ถูกต้องทุกใบ", not bad_fmt)
 for k in bad_fmt:
     print("   FMT:", k)
@@ -100,6 +100,11 @@ MATH_CHECKS = {
     "pTB-4-3-3ก", "pTB-4-3-3ข", "pTB-4-3-3ค", "pTB-4-3-3ง",
     "pTB-4-3-4ก", "pTB-4-3-4ข", "pTB-4-3-4ค", "pTB-4-3-4ง",
     "pTB-4-3-5ก", "pTB-4-3-5ข", "pTB-4-3-5ค", "pTB-4-3-5ง",
+    # แบบฝึกหัด 4.4 (ระวังข้อย่อย ฎ ฏ — ต่อจาก ญ)
+    "pTB-4-4-1ก", "pTB-4-4-1ข", "pTB-4-4-1ค", "pTB-4-4-1ง", "pTB-4-4-1จ", "pTB-4-4-1ฉ",
+    "pTB-4-4-1ช", "pTB-4-4-1ซ", "pTB-4-4-1ฌ", "pTB-4-4-1ญ", "pTB-4-4-1ฎ", "pTB-4-4-1ฏ",
+    "pTB-4-4-2ก", "pTB-4-4-2ข", "pTB-4-4-2ค", "pTB-4-4-2ง",
+    "pTB-4-4-3", "pTB-4-4-4", "pTB-4-4-5", "pTB-4-4-6", "pTB-4-4-7", "pTB-4-4-8",
 }
 
 def math_checks_for(pkeys):
@@ -300,6 +305,72 @@ _u1, _u2 = _u1/np.linalg.norm(_u1), _u2 - (_u2@_u1)*_u1; _u2 = _u2/np.linalg.nor
 _yy = _rng42.normal(size=5)
 UU = np.column_stack([_u1, _u2])
 check("4.2 ข12 (UUᵀ)y = Σ(y·uᵢ)uᵢ", np.allclose((UU @ UU.T) @ _yy, (_yy@_u1)*_u1 + (_yy@_u2)*_u2))
+
+# ---------------- แบบฝึกหัด 4.4 ----------------
+sets44 = {
+    "ก": ([[8, -2], [-2, 5]], (9, 4), ((2, -1), (1, 2))),
+    "ข": ([[1, -2], [-2, 1]], (3, -1), ((1, -1), (1, 1))),
+    "ค": ([[9, -12], [-12, 16]], (25, 0), ((-3, 4), (4, 3))),
+    "ง": ([[3, -1.5], [-1.5, 7]], (7.5, 2.5), ((-1, 3), (3, 1))),
+    "จ": ([[2, 4, -4], [4, -2, 0], [-4, 0, -2]], (6, -2, -6), ((2, 1, -1), (0, 1, 1), (1, -1, 1))),
+    "ฉ": ([[0, 1, 1], [1, 0, 1], [1, 1, 0]], (2, -1, -1), ((1, 1, 1), (-1, 1, 0), (-1, -1, 2))),
+    "ช": ([[2, 1, 1], [1, 2, -1], [1, -1, 2]], (0, 3, 3), ((1, -1, -1), (1, 1, 0), (1, -1, 2))),
+    "ซ": ([[-2, 0, -36], [0, -3, 0], [-36, 0, -23]], (25, -3, -50), ((-4, 0, 3), (0, 1, 0), (3, 0, 4))),
+    "ฌ": ([[1, 1, 0], [1, 1, 0], [0, 0, 0]], (2, 0, 0), ((1, 1, 0), (1, -1, 0), (0, 0, 1))),
+    "ญ": ([[2, -1, -1], [-1, 2, -1], [-1, -1, 2]], (0, 3, 3), ((1, 1, 1), (1, -1, 0), (1, 1, -2))),
+    "ฎ": ([[2, 0, 0, 0], [0, 1, 0, 1], [0, 0, 2, 0], [0, 1, 0, 1]], (2, 2, 2, 0), ((1, 0, 0, 0), (0, 1, 0, 1), (0, 0, 1, 0), (0, 1, 0, -1))),
+    "ฏ": ([[2, 0, 1, 0], [0, 2, 0, 1], [1, 0, 2, 0], [0, 1, 0, 2]], (3, 3, 1, 1), ((1, 0, 1, 0), (0, 1, 0, 1), (1, 0, -1, 0), (0, 1, 0, -1))),
+}
+for tag, (M, lams, vecs) in sets44.items():
+    A = np.array(M, float)
+    ok44 = True
+    for lam, v in zip(lams, vecs):
+        v = np.array(v, float)
+        ok44 &= np.allclose(A @ v, lam * v)   # Av = λv ทุกคู่
+    V = np.column_stack([np.array(v, float) for v in vecs])
+    Q44 = V / np.linalg.norm(V, axis=0)       # หลักหนึ่งหน่วย
+    ok44 &= np.allclose(Q44.T @ Q44, np.eye(len(lams)))  # ตั้งฉากปรกติ
+    check(f"4.4 ข1{tag} λ={lams} Av=λv + P เชิงตั้งฉากปรกติ", ok44)
+
+# ข้อ 2 สเปกตรัม: A = Σ λᵢ uᵢuᵢᵀ
+for tag, (M, lams, vecs) in sets44.items():
+    if tag not in "กขคง":
+        continue
+    A = np.array(M, float)
+    V = np.column_stack([np.array(v, float) for v in vecs])
+    U = V / np.linalg.norm(V, axis=0)
+    rec = sum(l * np.outer(U[:, i], U[:, i]) for i, l in enumerate(lams))
+    check(f"4.4 ข2{tag} A = Σλᵢuᵢuᵢᵀ", np.allclose(rec, A))
+
+# ข้อ 3, 4, 5
+A3 = np.array([[3., 1, 1], [1, 3, 1], [1, 1, 3]])
+check("4.4 ข3 det(A−5I)=0, Av=2v ที่ v=(−1,1,0), eigen ครบ = 5,2,2",
+      np.isclose(np.linalg.det(A3 - 5 * np.eye(3)), 0) and np.allclose(A3 @ np.array([-1., 1, 0]), 2 * np.array([-1., 1, 0]))
+      and np.allclose(sorted(np.linalg.eigvalsh(A3)), [2, 2, 5]))
+A4 = np.array([[5., -4, -2], [-4, 5, 2], [-2, 2, 2]])
+check("4.4 ข4 v₁=(−2,2,1)→10, v₂=(1,1,0)→1, λ₃=1 กับ (−1,1,−4)",
+      np.allclose(A4 @ np.array([-2., 2, 1]), 10 * np.array([-2., 2, 1]))
+      and np.allclose(A4 @ np.array([1., 1, 0]), np.array([1., 1, 0]))
+      and np.allclose(A4 @ np.array([-1., 1, -4]), np.array([-1., 1, -4]))
+      and np.isclose(A4.trace(), 12))
+rng44 = np.random.default_rng(21)
+a44, b44 = float(rng44.uniform(-3, 3)), 0.0
+while b44 == 0: b44 = float(rng44.uniform(-3, 3))
+A5 = np.array([[a44, b44], [b44, a44]])
+P5 = np.array([[1, 1], [1, -1]]) / np.sqrt(2)
+check("4.4 ข5 PᵀAP = diag(a+b, a−b) (สุ่ม a,b)", np.allclose(P5.T @ A5 @ P5, np.diag([a44 + b44, a44 - b44])))
+check("4.4 ข6 AAᵀ สมมาตร (สุ่ม 2 ชุด)",
+      all(np.allclose(M @ M.T, (M @ M.T).T) for M in [np.array(rng44.normal(size=(3, 4))) for _ in range(2)]))
+A7 = np.array([[8., -2], [-2, 5]])
+P7 = np.array([[2, 1], [-1, 2]]) / np.sqrt(5)
+check("4.4 ข7 A⁻¹ = P D⁻¹ Pᵀ (ใช้ P เดิมจากข้อ 1ก)",
+      np.allclose(np.linalg.inv(A7), P7 @ np.diag([1/9, 1/4]) @ P7.T))
+_ok48 = True
+for _ in range(3):
+    As = rng44.normal(size=(3, 3)); As = (As + As.T) / 2
+    x48, y48 = rng44.normal(size=3), rng44.normal(size=3)
+    _ok48 &= np.isclose((As @ x48) @ y48, x48 @ (As @ y48))
+check("4.4 ข8 (Ax)·y = x·(Ay) สำหรับ A สมมาตร (สุ่ม 3 ชุด)", _ok48)
 
 # ---------------- แบบฝึกหัด 4.3 ----------------
 # ข้อ 1 best approximation
