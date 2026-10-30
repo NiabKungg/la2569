@@ -35,6 +35,7 @@ body[data-ch="3"] { --acc: #ec4899; --acc-ink: #be185d; --acc-soft: rgba(236, 72
 body[data-ch="4"] { --acc: #10b981; --acc-ink: #047857; --acc-soft: rgba(16, 185, 129, .13); }
 body[data-ch="5"] { --acc: #f59e0b; --acc-ink: #b45309; --acc-soft: rgba(245, 158, 11, .13); }
 body[data-ch="6"] { --acc: #ef4444; --acc-ink: #b91c1c; --acc-soft: rgba(239, 68, 68, .12); }
+body[data-ch="7"] { --acc: #14b8a6; --acc-ink: #0f766e; --acc-soft: rgba(20, 184, 166, .12); }
 
 html[data-theme="dark"] {
   --bg: #0b1220;
@@ -58,6 +59,7 @@ html[data-theme="dark"] body[data-ch="3"] { --acc: #f472b6; --acc-ink: #f9a8d4; 
 html[data-theme="dark"] body[data-ch="4"] { --acc: #34d399; --acc-ink: #6ee7b7; --acc-soft: rgba(52, 211, 153, .13); }
 html[data-theme="dark"] body[data-ch="5"] { --acc: #fbbf24; --acc-ink: #fcd34d; --acc-soft: rgba(251, 191, 36, .13); }
 html[data-theme="dark"] body[data-ch="6"] { --acc: #f87171; --acc-ink: #fca5a5; --acc-soft: rgba(248, 113, 113, .14); }
+html[data-theme="dark"] body[data-ch="7"] { --acc: #2dd4bf; --acc-ink: #5eead4; --acc-soft: rgba(45, 212, 191, .13); }
 
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }

@@ -61,6 +61,16 @@ const SITE = {
         { no: 'F', file: 'exam-final.html', title: 'ติว Final — แนวข้อสอบปลายภาค', practice: 8, disp: '🎓 ติว Final' },
       ],
     },
+    {
+      ch: 7, color: '#14b8a6', title: 'คลังโจทย์จากตำรา', en: 'Textbook Problem Bank',
+      sections: [
+        { no: 'TB-1', file: 'bank-ch1.html', title: 'คลังโจทย์ตำรา บทที่ 1 — ระบบเชิงเส้นและเมทริกซ์ (ครบทุกข้อ)', practice: 0, disp: '📚 คลังโจทย์ บทที่ 1' },
+        { no: 'TB-2', file: 'bank-ch2.html', title: 'คลังโจทย์ตำรา บทที่ 2 — การแปลงเชิงเส้นและพีชคณิตเมทริกซ์ (ครบทุกข้อ)', practice: 0, disp: '📚 คลังโจทย์ บทที่ 2' },
+        { no: 'TB-3', file: 'bank-ch3.html', title: 'คลังโจทย์ตำรา บทที่ 3 — ค่าลักษณะเฉพาะ (ครบทุกข้อ)', practice: 0, disp: '📚 คลังโจทย์ บทที่ 3' },
+        { no: 'TB-4', file: 'bank-ch4.html', title: 'คลังโจทย์ตำรา บทที่ 4 — เรขาคณิตเชิงเส้นและฐานหลักเชิงตั้งฉาก (ครบทุกข้อ)', practice: 0, disp: '📚 คลังโจทย์ บทที่ 4' },
+        { no: 'TB-5', file: 'bank-ch5.html', title: 'คลังโจทย์ตำรา บทที่ 5 — แนวคิดเชิงนามธรรม (ครบทุกข้อ)', practice: 0, disp: '📚 คลังโจทย์ บทที่ 5' },
+      ],
+    },
   ],
 };
 
@@ -81,8 +91,18 @@ function saveProgress(set) {
 function secKeyPrefix(secNo) { return 'p' + secNo.replace('.', '-') + '-'; }
 function secDoneCount(secNo, total) {
   const pre = secKeyPrefix(secNo); const prog = getProgress();
+  // หน้าคลังโจทย์: pkey มีท้ายแบบข้อย่อย (เช่น pTB-4-1-3ข) ที่ลูปตัวเลขจับไม่ได้ — ถ้าเจอ key ท้ายไม่ใช่ตัวเลข
+  // ให้นับจาก key จริงทั้งหมดที่ขึ้นต้นด้วย prefix แทน (หน้าเก่าซึ่ง key เป็นตัวเลขล้วนยังเดินลูปเดิม ผลไม่เปลี่ยน)
+  let hasSubKey = false;
+  for (const k of prog) {
+    if (k.startsWith(pre) && !/^\d+$/.test(k.slice(pre.length))) { hasSubKey = true; break; }
+  }
+  if (hasSubKey) {
+    let n2 = 0; for (const k of prog) if (k.startsWith(pre)) n2++;
+    return Math.min(n2, total);
+  }
   let n = 0; for (let i = 1; i <= total; i++) if (prog.has(pre + i)) n++;
-  return n;
+  return Math.min(n, total);
 }
 function chapterCounts(chIdx) {
   const c = SITE.chapters[chIdx];
