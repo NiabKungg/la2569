@@ -82,6 +82,18 @@ MATH_CHECKS = {
     "pTB-4-1-4ก", "pTB-4-1-4ข", "pTB-4-1-4ค", "pTB-4-1-4ง",
     "pTB-4-1-5ก", "pTB-4-1-5ข", "pTB-4-1-5ค",
     "pTB-4-1-6",
+    # แบบฝึกหัด 4.2
+    "pTB-4-2-1ก", "pTB-4-2-1ข",
+    "pTB-4-2-2", "pTB-4-2-3",
+    "pTB-4-2-4ก", "pTB-4-2-4ข",
+    "pTB-4-2-5ก", "pTB-4-2-5ข", "pTB-4-2-5ค", "pTB-4-2-5ง",
+    "pTB-4-2-6",
+    "pTB-4-2-7ก", "pTB-4-2-7ข", "pTB-4-2-7ค", "pTB-4-2-7ง", "pTB-4-2-7จ", "pTB-4-2-7ฉ",
+    "pTB-4-2-8ก", "pTB-4-2-8ข", "pTB-4-2-8ค",
+    "pTB-4-2-9ก", "pTB-4-2-9ข", "pTB-4-2-9ค", "pTB-4-2-9ง", "pTB-4-2-9จ", "pTB-4-2-9ฉ",
+    "pTB-4-2-10ก", "pTB-4-2-10ข",
+    "pTB-4-2-11",
+    "pTB-4-2-12ก", "pTB-4-2-12ข",
 }
 
 def math_checks_for(pkeys):
@@ -147,6 +159,141 @@ for _ in range(5):
 check("4.1 ข5 ก/ข/ค อัตลักษณ์ความยาวจริงทุกชุดสุ่ม", _ok5)
 check("4.1 ข6 det(I)=1, det([[0,1],[1,0]])=−1 → ±1 สมเหตุผล",
       np.isclose(np.linalg.det(np.eye(3)), 1) and np.isclose(np.linalg.det(np.array([[0., 1], [1, 0]])), -1))
+
+# ---------------- แบบฝึกหัด 4.2 ----------------
+# ข้อ 1
+check("4.2 ข1ก H⊥ ฐาน (−2,1,0),(3,0,1) ตั้งฉากกับ (1,2,−3)",
+      all(np.isclose(np.array(v) @ np.array([1., 2, -3]), 0) for v in ([-2, 1, 0], [3, 0, 1])))
+A421 = np.column_stack([[-1., 0, 0, 2], [0., 1, 2, -1]])
+check("4.2 ข1ข H⊥ ฐาน (0,−2,1,0),(2,1,0,1)", np.allclose(np.array([[0., -2, 1, 0], [2., 1, 0, 1]]) @ A421, 0))
+
+# ข้อ 2 และ 3
+U42 = [np.array([0., 1, -4, -1]), np.array([3., 5, 1, 1]), np.array([1., 0, 1, -4]), np.array([5., -3, -1, 1])]
+x42 = np.array([10., -8, 2, 0])
+check("4.2 ข2 u₁..u₄ เชิงตั้งฉากครบ 6 คู่",
+      all(np.isclose(U42[i] @ U42[j], 0) for i in range(4) for j in range(i+1, 4)))
+_z = (x42 @ U42[3] / (U42[3] @ U42[3])) * U42[3]
+check("4.2 ข2 z=(10,−6,−2,2), y=(0,−2,4,−2)",
+      np.allclose(_z, [10, -6, -2, 2]) and np.allclose(x42 - _z, [0, -2, 4, -2]))
+U423 = [np.array([1., 2, 1, 1]), np.array([-2., 1, -1, 1]), np.array([1., 1, -2, -1]), np.array([-1., 1, 1, -2])]
+x423 = np.array([4., 5, -3, 3])
+check("4.2 ข3 u₁..u₄ เชิงตั้งฉากครบ",
+      all(np.isclose(U423[i] @ U423[j], 0) for i in range(4) for j in range(i+1, 4)))
+_y = (x423 @ U423[0] / (U423[0] @ U423[0])) * U423[0]
+check("4.2 ข3 y=(2,4,2,2), z=(2,1,−5,1)",
+      np.allclose(_y, [2, 4, 2, 2]) and np.allclose(x423 - _y, [2, 1, -5, 1]))
+
+# ข้อ 4
+for tag, (a, b, y) in {"ก": ((1., 1, 0), (-1., 1, 0), (1., -4, 3)), "ข": ((3., -1, 2), (1., -1, -2), (-1., 2, 6))}.items():
+    a, b, y = map(np.array, (a, b, y))
+    proj = (y @ a / (a @ a)) * a + (y @ b / (b @ b)) * b
+    exp = (1., -4, 0) if tag == "ก" else (-1., 2, 6)
+    check(f"4.2 ข4{tag} ตั้งฉาก + proj = {exp}", np.isclose(a @ b, 0) and np.allclose(proj, exp))
+
+# ข้อ 5
+sets542 = {
+    "ก": ([(3., 4, 0), (-4., 3, 0)], (6., 3, -2), (6., 3, 0), (0., 0, -2)),
+    "ข": ([(1., 3, -2), (5., 1, 4)], (1., 3, 5), (10/3, 2/3, 8/3), (-7/3, 7/3, 7/3)),
+    "ค": ([(1., 1, 0, 1), (-1., 3, 1, -2), (-1., 0, 1, 1)], (4., 3, 3, 1), (34/15, 58/15, 2/5, 28/15), (26/15, -13/15, 13/5, -13/15)),
+    "ง": ([(1., 1, 0, -1), (1., 0, 1, 1), (0., -1, 1, -1)], (3., 4, 5, 6), (5., 2, 3, 6), (-2., 2, 2, 0)),
+}
+for tag, (us, y, ey, ez) in sets542.items():
+    us = [np.array(v) for v in us]; y = np.array(y)
+    orth = all(np.isclose(us[i] @ us[j], 0) for i in range(len(us)) for j in range(i+1, len(us)))
+    yhat = sum((y @ u / (u @ u)) * u for u in us)
+    check(f"4.2 ข5{tag} ฐานตั้งฉาก + ŷ,z ถูกต้อง", orth and np.allclose(yhat, ey) and np.allclose(y - yhat, ez))
+
+# ข้อ 6
+u16 = np.array([2/3, 1/3, 2/3]); u26 = np.array([-2/3, 2/3, 1/3]); y6 = np.array([4., 8, 1])
+U6 = np.column_stack([u16, u26]); UUt = U6 @ U6.T
+check("4.2 ข6 UᵀU=I₂, UUᵀ ตรงสูตร, proj=(2,4,5)=(UUᵀ)y",
+      np.allclose(U6.T @ U6, np.eye(2)) and np.allclose(UUt, np.array([[8, -2, 2], [-2, 5, 4], [2, 4, 5]]) / 9)
+      and np.allclose(UUt @ y6, [2, 4, 5]) and np.allclose((y6 @ u16) * u16 + (y6 @ u26) * u26, [2, 4, 5]))
+
+# ข้อ 7 กราม-ชมิดต์
+sets742 = {
+    "ก": ((1., -1, 0), (0., 1, -1), (0.5, 0.5, -1)),
+    "ข": ((3., 0, -1), (8., 5, -6), (-1., 5, -3)),
+    "ค": ((2., -5, 1), (4., -1, 2), (3., 1.5, 1.5)),
+    "ง": ((1., -4, 0, 1), (7., -7, 0, 1), (5., 1, 0, -1)),
+    "จ": ((3., -1, 2, -1), (-5., 9, -9, 3), (4., 6, -3, 0)),
+    "ฉ": ((1., 1, 1, 1), (1., 1, -1, -1), (1., 1, -1, -1)),
+}
+for tag, (a, b, ev2) in sets742.items():
+    a, b = np.array(a), np.array(b)
+    v2 = b - (b @ a / (a @ a)) * a
+    check(f"4.2 ข7{tag} GS v₂ = {ev2}", np.allclose(v2, ev2) and np.isclose(a @ v2, 0))
+
+# ข้อ 8
+A842 = {
+    "ก": (np.array([[1., 0, 1], [1, 1, 0], [1, 0, 1]]), [0, 1],
+          [(1/np.sqrt(3), 1/np.sqrt(3), 1/np.sqrt(3)), (-1/np.sqrt(6), 2/np.sqrt(6), -1/np.sqrt(6))]),
+    "ข": (np.array([[-1., 6, 6], [1, -2, 6], [1, -4, -3], [3, -8, 3]]), [0, 1, 2],
+          [(-1, 1, 1, 3), (3, 1, -1, 1), (-1, 3, -1, -1)]),
+    "ค": (np.array([[1., 1, 1, 0], [1, -1, 1, 1], [1, 0, 1, 1], [0, 1, 0, 1]]), [0, 1, 3],
+          [(1, 1, 1, 0), (1, -1, 0, 1), (-2, 1, 1, 3)]),
+}
+for tag, (A, piv, evecs) in A842.items():
+    M = A.copy(); mypiv = []; row = 0
+    for col in range(M.shape[1]):
+        p = next((r0 for r0 in range(row, M.shape[0]) if abs(M[r0, col]) > 1e-9), None)
+        if p is not None:
+            M[[row, p]] = M[[p, row]]; M[row:] -= np.outer(M[row:, col] / M[row, col], M[row]); mypiv.append(col); row += 1
+    basis = [A[:, c] for c in mypiv]
+    v = [basis[0].astype(float)]
+    for bcol in basis[1:]:
+        v.append(bcol - sum((bcol @ w) / (w @ w) * w for w in v))
+    check(f"4.2 ข8{tag} pivotcols={mypiv} + GS เวกเตอร์ตรงทิศฐานเชิงตั้งฉาก",
+          mypiv == piv and all(np.allclose(w / np.linalg.norm(w), np.array(e) / np.linalg.norm(e)) for w, e in zip(v, evecs)))
+    Qn = np.column_stack([w / np.linalg.norm(w) for w in v])
+    check(f"4.2 ข8{tag} QᵀQ = I", np.allclose(Qn.T @ Qn, np.eye(len(v))))
+
+# ข้อ 9 QR (ตรวจรูปมือ: QR=A, QᵀQ=I, R สามเหลี่ยมบน, เส้นทแยง R บวก)
+Q9 = {
+    "ก": (np.array([[1, -2], [2, 1]]) / np.sqrt(5), np.array([[np.sqrt(5), np.sqrt(5)], [0, np.sqrt(5)]])),
+    "ข": (np.array([[1/np.sqrt(2), -1/np.sqrt(3)], [0, 1/np.sqrt(3)], [1/np.sqrt(2), 1/np.sqrt(3)]]),
+          np.array([[np.sqrt(2), 3*np.sqrt(2)], [0, np.sqrt(3)]])),
+    "ค": (np.array([[1/3, 8/(3*np.sqrt(26))], [-2/3, 11/(3*np.sqrt(26))], [2/3, 7/(3*np.sqrt(26))]]),
+          np.array([[3, 1/3], [0, np.sqrt(26)/3]])),
+    "ง": (np.array([[1/np.sqrt(3), -2/np.sqrt(6), 0], [1/np.sqrt(3), 1/np.sqrt(6), -1/np.sqrt(2)], [1/np.sqrt(3), 1/np.sqrt(6), 1/np.sqrt(2)]]),
+          np.array([[np.sqrt(3), 2/np.sqrt(3), 1/np.sqrt(3)], [0, np.sqrt(6)/3, 1/np.sqrt(6)], [0, 0, 1/np.sqrt(2)]])),
+    "จ": (np.array([[1/np.sqrt(2), -1/np.sqrt(3), 1/np.sqrt(6)], [0, 1/np.sqrt(3), 2/np.sqrt(6)], [1/np.sqrt(2), 1/np.sqrt(3), -1/np.sqrt(6)]]),
+          np.array([[np.sqrt(2), np.sqrt(2), np.sqrt(2)], [0, np.sqrt(3), -1/np.sqrt(3)], [0, 0, 2*np.sqrt(6)/3]])),
+    "ฉ": (np.array([[1/2, 0, 1/2], [-1/2, 1/np.sqrt(2), 1/2], [1/2, 0, 1/2], [1/2, 1/np.sqrt(2), -1/2]]),
+          np.array([[2, 0, 1], [0, np.sqrt(2), np.sqrt(2)], [0, 0, 1]])),
+}
+A9 = {
+    "ก": np.array([[1., -1], [2, 3]]), "ข": np.array([[1., 2], [0, 1], [1, 4]]), "ค": np.array([[1., 1], [-2, 1], [2, 1]]),
+    "ง": np.array([[1., 0, 0], [1, 1, 0], [1, 1, 1]]), "จ": np.array([[1., 0, 2], [0, 1, 1], [1, 2, 0]]),
+    "ฉ": np.array([[1., 0, 1], [-1, 1, 1], [1, 0, 1], [1, 1, 1]]),
+}
+for tag, (Q, R) in Q9.items():
+    A = A9[tag]
+    check(f"4.2 ข9{tag} QR=A, QᵀQ=I, R บวกทแยง",
+          np.allclose(Q @ R, A) and np.allclose(Q.T @ Q, np.eye(Q.shape[1]))
+          and np.all(np.diag(R) > 0) and np.allclose(R, np.triu(R)))
+
+# ข้อ 10-12 พิสูจน์: ตรวจโครงสร้างด้วย H สุ่ม (H = Span สองเวกเตอร์อิสระใน R⁴)
+_rng42 = np.random.default_rng(11)
+_ok42 = True
+for _ in range(3):
+    b1, b2 = _rng42.normal(size=4), _rng42.normal(size=4)
+    B = np.column_stack([b1, b2])
+    Umat, s, _ = np.linalg.svd(B, full_matrices=True)
+    ns = Umat[:, 2:]                   # ฐานของ H⊥ (4×2) — null space อยู่ที่หลักท้ายของ U
+    _ok42 &= s[1] > 1e-8               # H มิติ 2 จริง
+    _ok42 &= np.allclose(ns.T @ B, 0, atol=1e-8)   # ทุกเวกเตอร์ H⊥ ตั้งฉากกับทุกเวกเตอร์ H → H∩H⊥={0}
+    U2, s2, _ = np.linalg.svd(ns, full_matrices=True)   # null(ns) = (H⊥)⊥ ต้องกลับมาเป็น H
+    back = U2[:, 2:]
+    _ok42 &= s2[1] > 1e-8 and np.allclose(ns.T @ back, 0, atol=1e-8) \
+        and np.linalg.matrix_rank(np.column_stack([back, B]), tol=1e-8) == 2
+check("4.2 ข10 โครงสร้าง H∩H⊥={0}, (H⊥)⊥=H (สุ่ม 3 ชุด)", _ok42)
+# ข้อ 12: proj สูตร (UUᵀ)y = Σ(y·uᵢ)uᵢ บนฐานหลักเชิงตั้งฉากปรกติ
+_u1, _u2 = _rng42.normal(size=5), _rng42.normal(size=5)
+_u1, _u2 = _u1/np.linalg.norm(_u1), _u2 - (_u2@_u1)*_u1; _u2 = _u2/np.linalg.norm(_u2)
+_yy = _rng42.normal(size=5)
+UU = np.column_stack([_u1, _u2])
+check("4.2 ข12 (UUᵀ)y = Σ(y·uᵢ)uᵢ", np.allclose((UU @ UU.T) @ _yy, (_yy@_u1)*_u1 + (_yy@_u2)*_u2))
 
 # ---------------------------------------------------------------- สรุป
 fails = [n for n, c in ok if not c]

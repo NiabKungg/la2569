@@ -351,6 +351,598 @@
 
 </section>
 
+<section class="block" id="set-4-2">
+  <h2>แบบฝึกหัด 4.2 — การฉายเชิงตั้งฉากและกระบวนการกราม-ชมิดต์</h2>
+  <p class="page-sub">โจทย์คำต่อคำจากตำรา · คำตอบท้ายบทมีข้อ 1–9 ข้อ 10–12 เป็นโจทย์พิสูจน์ (คลังเฉลยพิสูจน์ให้ครบ)</p>
+  <table class="tbl">
+    <tr><th>ข้อ</th><th>เนื้อหาสั้น</th><th>การ์ด</th></tr>
+    <tr><td>1</td><td>ฐานหลักของ H⊥</td><td><a href="#p-4-2-1ก">ก</a> <a href="#p-4-2-1ข">ข</a></td></tr>
+    <tr><td>2</td><td>แยก x = y + z, y ∈ Span{u₁,u₂,u₃}, z ∈ Span{u₄}</td><td><a href="#p-4-2-2">ข้อ 2</a></td></tr>
+    <tr><td>3</td><td>แยก x = y + z, y ∈ Span{u₁}, z ∈ Span{u₂,u₃,u₄}</td><td><a href="#p-4-2-3">ข้อ 3</a></td></tr>
+    <tr><td>4</td><td>ตั้งฉาก + ฉายบน Span{u₁,u₂}</td><td><a href="#p-4-2-4ก">ก</a> <a href="#p-4-2-4ข">ข</a></td></tr>
+    <tr><td>5</td><td>แยก y = ŷ + z โดย ŷ ∈ H, z ∈ H⊥</td><td><a href="#p-4-2-5ก">ก</a> <a href="#p-4-2-5ข">ข</a> <a href="#p-4-2-5ค">ค</a> <a href="#p-4-2-5ง">ง</a></td></tr>
+    <tr><td>6</td><td>UᵀU, UUᵀ, proj, (UUᵀ)y</td><td><a href="#p-4-2-6">ข้อ 6</a></td></tr>
+    <tr><td>7</td><td>กราม-ชมิดต์ 6 ข้อย่อย</td><td><a href="#p-4-2-7ก">ก</a> <a href="#p-4-2-7ข">ข</a> <a href="#p-4-2-7ค">ค</a> <a href="#p-4-2-7ง">ง</a> <a href="#p-4-2-7จ">จ</a> <a href="#p-4-2-7ฉ">ฉ</a></td></tr>
+    <tr><td>8</td><td>ฐานหลัก Col A + orthonormal</td><td><a href="#p-4-2-8ก">ก</a> <a href="#p-4-2-8ข">ข</a> <a href="#p-4-2-8ค">ค</a></td></tr>
+    <tr><td>9</td><td>การแยกตัวประกอบ QR 6 ข้อย่อย</td><td><a href="#p-4-2-9ก">ก</a> <a href="#p-4-2-9ข">ข</a> <a href="#p-4-2-9ค">ค</a> <a href="#p-4-2-9ง">ง</a> <a href="#p-4-2-9จ">จ</a> <a href="#p-4-2-9ฉ">ฉ</a></td></tr>
+    <tr><td>10</td><td>พิสูจน์ H ∩ H⊥ = {0}, (H⊥)⊥ = H</td><td><a href="#p-4-2-10ก">ก</a> <a href="#p-4-2-10ข">ข</a></td></tr>
+    <tr><td>11</td><td>พิสูจน์ proj เป็นการแปลงเชิงเส้น</td><td><a href="#p-4-2-11">ข้อ 11</a></td></tr>
+    <tr><td>12</td><td>สูตร proj บนฐานหลักเชิงตั้งฉากปรกติ</td><td><a href="#p-4-2-12ก">ก</a> <a href="#p-4-2-12ข">ข</a></td></tr>
+  </table>
+
+  <article class="pr-card" id="p-4-2-1ก" data-pkey="pTB-4-2-1ก">
+    <div class="pr-head"><span class="pr-num">แบบฝึกหัด 4.2 ข้อ 1 (ก)</span><span class="diff">●●○</span><span class="spacer"></span>
+      <label class="pr-done"><input type="checkbox"> ทำสำเร็จแล้ว</label></div>
+    <div class="pr-body">
+      <p>จงหาฐานหลักสำหรับ \(H^{\perp}\) เมื่อ \(H = \mathrm{Span}\left\{\begin{bmatrix} 1\\ 2\\ -3 \end{bmatrix}\right\}\)</p>
+      <p class="tagline">มีบทเรียนประกอบ: <a href="ch4-2.html">หน้า 4.2</a></p>
+    </div>
+    <details class="hint"><summary>คำใบ้</summary><div class="hint-body">\(H^{\perp}\) = เซตเวกเตอร์ทั้งหมดที่ตั้งฉากกับเวกเตอร์ใน H — กับ H ที่มีเวกเตอร์ตัวเดียว เงื่อนไขคือ \(\vec{x}\cdot\vec{h} = 0\) สมการเดียว แก้หา null space</div></details>
+    <details class="sol"><summary>แนวคิดและเฉลยแบบละเอียด</summary><div class="sol-body">
+      <p><strong>แนวคิด:</strong> \(\vec{x} \in H^{\perp}\) ก็ต่อเมื่อ \(\vec{x}\) ตั้งฉากกับเวกเตอร์ฐานหลักทุกตัวของ H — ที่นี่มีตัวเดียว จึงได้สมการเดียว ปริภูมิผลเฉลยมี 2 ตัวแปรเสรี</p>
+      <ol class="steps">
+        <li><span class="step-t">ตั้งเงื่อนไข</span> \(\vec{x}\cdot(1,2,-3) = x_1 + 2x_2 - 3x_3 = 0\) — ตัวสัมประสิทธิ์เอาจากเวกเตอร์ของ H ทีละช่อง</li>
+        <li><span class="step-t">แก้หาผลเฉลย</span> \(x_1 = -2x_2 + 3x_3\) ให้ \(x_2, x_3\) เป็นตัวแปรเสรี — เลือกคู่พื้นฐาน: \(x_2=1, x_3=0\) ได้ \(\vec{v}_1 = (-2,1,0)\), \(x_2=0, x_3=1\) ได้ \(\vec{v}_2 = (3,0,1)\)</li>
+        <li><span class="step-t">ตรวจคำตอบ</span> \((-2,1,0)\cdot(1,2,-3) = -2+2+0 = 0\) ✓, \((3,0,1)\cdot(1,2,-3) = 3+0-3 = 0\) ✓ และสองตัวอิสระกัน (ช่องที่ 2 ต่างกัน) — <strong>สรุป:</strong> \(H^{\perp} = \mathrm{Span}\{(-2,1,0), (3,0,1)\}\)</li>
+      </ol>
+    </div></details>
+  </article>
+
+  <article class="pr-card" id="p-4-2-1ข" data-pkey="pTB-4-2-1ข">
+    <div class="pr-head"><span class="pr-num">แบบฝึกหัด 4.2 ข้อ 1 (ข)</span><span class="diff">●●○</span><span class="spacer"></span>
+      <label class="pr-done"><input type="checkbox"> ทำสำเร็จแล้ว</label></div>
+    <div class="pr-body">
+      <p>จงหาฐานหลักสำหรับ \(H^{\perp}\) เมื่อ \(H = \mathrm{Span}\left\{\begin{bmatrix} -1\\ 0\\ 0\\ 2 \end{bmatrix}, \begin{bmatrix} 0\\ 1\\ 2\\ -1 \end{bmatrix}\right\}\)</p>
+      <p class="tagline">มีบทเรียนประกอบ: <a href="ch4-2.html">หน้า 4.2</a></p>
+    </div>
+    <details class="hint"><summary>คำใบ้</summary><div class="hint-body">ต้องตั้งฉากกับเวกเตอร์ฐานทั้งสองตัวพร้อมกัน → ระบบ 2 สมการ 4 ตัวแปร → ตัวแปรเสรี 2 ตัว</div></details>
+    <details class="sol"><summary>แนวคิดและเฉลยแบบละเอียด</summary><div class="sol-body">
+      <p><strong>แนวคิด:</strong> ตั้งฉากกับทุกเวกเตอร์ใน H = ตั้งฉากกับเวกเตอร์ฐานหลักแต่ละตัว (เพราะผลคูณจุดกระจายได้) จึงได้ระบบเอกพันธุ์ 2 สมการ</p>
+      <ol class="steps">
+        <li><span class="step-t">ตั้งระบบ</span> \(-x_1 + 2x_4 = 0\) และ \(x_2 + 2x_3 - x_4 = 0\) — สมการแรกจากเวกเตอร์ตัวแรก, สมการที่สองจากตัวที่สอง</li>
+        <li><span class="step-t">แก้</span> \(x_1 = 2x_4\), \(x_2 = x_4 - 2x_3\) — ให้ \(x_3, x_4\) เสรี แทนคู่พื้นฐาน: \(x_3=1,x_4=0\) → \(\vec{v}_1 = (0,-2,1,0)\); \(x_3=0,x_4=1\) → \(\vec{v}_2 = (2,1,0,1)\)</li>
+        <li><span class="step-t">ตรวจคำตอบ</span> \((0,-2,1,0)\): \(0+0=0\) ✓, \(-2+2-0 = 0\) ✓; \((2,1,0,1)\): \(-2+2 = 0\) ✓, \(1+0-1 = 0\) ✓ — <strong>สรุป:</strong> \(H^{\perp} = \mathrm{Span}\{(0,-2,1,0), (2,1,0,1)\}\)</li>
+      </ol>
+    </div></details>
+  </article>
+
+  <article class="pr-card" id="p-4-2-2" data-pkey="pTB-4-2-2">
+    <div class="pr-head"><span class="pr-num">แบบฝึกหัด 4.2 ข้อ 2</span><span class="tag exam">🎯 แนว ①</span><span class="diff">●●○</span><span class="spacer"></span>
+      <label class="pr-done"><input type="checkbox"> ทำสำเร็จแล้ว</label></div>
+    <div class="pr-body">
+      <p>กำหนดให้ \(\vec{u}_1 = \begin{bmatrix} 0\\ 1\\ -4\\ -1 \end{bmatrix}, \vec{u}_2 = \begin{bmatrix} 3\\ 5\\ 1\\ 1 \end{bmatrix}, \vec{u}_3 = \begin{bmatrix} 1\\ 0\\ 1\\ -4 \end{bmatrix}, \vec{u}_4 = \begin{bmatrix} 5\\ -3\\ -1\\ 1 \end{bmatrix}\) และ \(\vec{x} = \begin{bmatrix} 10\\ -8\\ 2\\ 0 \end{bmatrix}\) เราได้ว่า \(\{\vec{u}_1,\vec{u}_2,\vec{u}_3,\vec{u}_4\}\) เป็นฐานหลักเชิงตั้งฉากของ \(\mathbb{R}^4\) จงเขียนเวกเตอร์ \(\vec{x}\) ในรูปของผลรวมของสองเวกเตอร์ \(\vec{y}\) และ \(\vec{z}\) โดยที่ \(\vec{y} \in \mathrm{Span}\{\vec{u}_1,\vec{u}_2,\vec{u}_3\}\) และ \(\vec{z} \in \mathrm{Span}\{\vec{u}_4\}\)</p>
+    </div>
+    <details class="hint"><summary>คำใบ้</summary><div class="hint-body">การแยกนี้ unique: \(\vec{z}\) = องค์ประกอบของ \(\vec{x}\) ตามแกน \(\vec{u}_4\) = \(\frac{\vec{x}\cdot\vec{u}_4}{\lVert\vec{u}_4\rVert^2}\vec{u}_4\) แล้ว \(\vec{y} = \vec{x}-\vec{z}\)</div></details>
+    <details class="sol"><summary>แนวคิดและเฉลยแบบละเอียด</summary><div class="sol-body">
+      <p><strong>แนวคิด:</strong> \(\mathrm{Span}\{\vec{u}_4\} = \left(\mathrm{Span}\{\vec{u}_1,\vec{u}_2,\vec{u}_3\}\right)^{\perp}\) เพราะฐานหลักเชิงตั้งฉาก — การแยก \(\vec{x} = \vec{y}+\vec{z}\) จึงคือการฉาย: \(\vec{z} = \mathrm{proj}_{\vec{u}_4}\vec{x}\)</p>
+      <ol class="steps">
+        <li><span class="step-t">หาส่วนตาม u₄</span> \(\vec{x}\cdot\vec{u}_4 = (10)(5) + (-8)(-3) + (2)(-1) + (0)(1) = 50+24-2+0 = 72\), \(\lVert\vec{u}_4\rVert^2 = 25+9+1+1 = 36\) → สัมประสิทธิ์ \(= \frac{72}{36} = 2\)</li>
+        <li><span class="step-t">สร้าง z</span> \(\vec{z} = 2\vec{u}_4 = (10, -6, -2, 2)\) — คูณทีละช่อง: \(2(5), 2(-3), 2(-1), 2(1)\)</li>
+        <li><span class="step-t">สร้าง y</span> \(\vec{y} = \vec{x}-\vec{z} = (10-10, -8+6, 2+2, 0-2) = (0, -2, 4, -2)\) — ลบช่องต่อช่อง ระวังลบซ้อนลบที่ช่องที่ 2</li>
+        <li><span class="step-t">ตรวจคำตอบ</span> \(\vec{y}\cdot\vec{u}_4 = (0)(5)+(-2)(-3)+(4)(-1)+(-2)(1) = 0+6-4-2 = 0\) ✓ (y ตั้งฉากกับ u₄) และ \(\vec{y}+\vec{z} = (10,-8,2,0) = \vec{x}\) ✓ — <strong>สรุป:</strong> \(\vec{y} = (0,-2,4,-2)\), \(\vec{z} = (10,-6,-2,2)\)</li>
+      </ol>
+    </div></details>
+  </article>
+
+  <article class="pr-card" id="p-4-2-3" data-pkey="pTB-4-2-3">
+    <div class="pr-head"><span class="pr-num">แบบฝึกหัด 4.2 ข้อ 3</span><span class="tag exam">🎯 แนว ①</span><span class="diff">●●○</span><span class="spacer"></span>
+      <label class="pr-done"><input type="checkbox"> ทำสำเร็จแล้ว</label></div>
+    <div class="pr-body">
+      <p>กำหนดให้ \(\vec{u}_1 = \begin{bmatrix} 1\\ 2\\ 1\\ 1 \end{bmatrix}, \vec{u}_2 = \begin{bmatrix} -2\\ 1\\ -1\\ 1 \end{bmatrix}, \vec{u}_3 = \begin{bmatrix} 1\\ 1\\ -2\\ -1 \end{bmatrix}, \vec{u}_4 = \begin{bmatrix} -1\\ 1\\ 1\\ -2 \end{bmatrix}\) และ \(\vec{x} = \begin{bmatrix} 4\\ 5\\ -3\\ 3 \end{bmatrix}\) เราได้ว่า \(\{\vec{u}_1,\vec{u}_2,\vec{u}_3,\vec{u}_4\}\) เป็นฐานหลักเชิงตั้งฉากของ \(\mathbb{R}^4\) จงเขียนเวกเตอร์ \(\vec{x}\) ในรูปของผลรวมของสองเวกเตอร์ \(\vec{y}\) และ \(\vec{z}\) โดยที่ \(\vec{y} \in \mathrm{Span}\{\vec{u}_1\}\) และ \(\vec{z} \in \mathrm{Span}\{\vec{u}_2,\vec{u}_3,\vec{u}_4\}\)</p>
+    </div>
+    <details class="hint"><summary>คำใบ้</summary><div class="hint-body">คราวนี้ \(\vec{y}\) คือฉายบนเส้น \(\vec{u}_1\): \(\vec{y} = \frac{\vec{x}\cdot\vec{u}_1}{\lVert\vec{u}_1\rVert^2}\vec{u}_1\), \(\vec{z} = \vec{x}-\vec{y}\)</div></details>
+    <details class="sol"><summary>แนวคิดและเฉลยแบบละเอียด</summary><div class="sol-body">
+      <p><strong>แนวคิด:</strong> สลับบทบาทจากข้อ 2 — ตอนนี้เส้นเดียวคือ \(\mathrm{Span}\{\vec{u}_1\}\) ส่วนอีกฝั่งเป็นปริภูมิ 3 มิติ วิธีเดิมใช้ได้เพราะทุก \(\vec{u}_i\) ตั้งฉากกัน</p>
+      <ol class="steps">
+        <li><span class="step-t">หาส่วนตาม u₁</span> \(\vec{x}\cdot\vec{u}_1 = (4)(1) + (5)(2) + (-3)(1) + (3)(1) = 4+10-3+3 = 14\), \(\lVert\vec{u}_1\rVert^2 = 1+4+1+1 = 7\) → สัมประสิทธิ์ \(= \frac{14}{7} = 2\)</li>
+        <li><span class="step-t">สร้าง y</span> \(\vec{y} = 2\vec{u}_1 = (2, 4, 2, 2)\)</li>
+        <li><span class="step-t">สร้าง z</span> \(\vec{z} = \vec{x}-\vec{y} = (4-2, 5-4, -3-2, 3-2) = (2, 1, -5, 1)\)</li>
+        <li><span class="step-t">ตรวจคำตอบ</span> \(\vec{z}\cdot\vec{u}_1 = 2+2-5+1 = 0\) ✓ (z ตั้งฉากกับ u₁) และ \(\vec{y}+\vec{z} = (4,5,-3,3) = \vec{x}\) ✓ — <strong>สรุป:</strong> \(\vec{y} = (2,4,2,2)\), \(\vec{z} = (2,1,-5,1)\)</li>
+      </ol>
+    </div></details>
+  </article>
+
+  <article class="pr-card" id="p-4-2-4ก" data-pkey="pTB-4-2-4ก">
+    <div class="pr-head"><span class="pr-num">แบบฝึกหัด 4.2 ข้อ 4 (ก)</span><span class="tag exam">🎯 แนว ①</span><span class="diff">●●○</span><span class="spacer"></span>
+      <label class="pr-done"><input type="checkbox"> ทำสำเร็จแล้ว</label></div>
+    <div class="pr-body">
+      <p>จงแสดงว่า \(\{\vec{u}_1, \vec{u}_2\}\) เป็นเซตเชิงตั้งฉากและหาการฉายเชิงตั้งฉากของเวกเตอร์ \(\vec{y}\) บนปริภูมิย่อย \(\mathrm{Span}\{\vec{u}_1, \vec{u}_2\}\) เมื่อ \(\vec{u}_1 = \begin{bmatrix} 1\\ 1\\ 0 \end{bmatrix}, \vec{u}_2 = \begin{bmatrix} -1\\ 1\\ 0 \end{bmatrix}, \vec{y} = \begin{bmatrix} 1\\ -4\\ 3 \end{bmatrix}\)</p>
+      <p class="tagline">มีบทเรียนประกอบ: <a href="ch4-2.html">หน้า 4.2</a></p>
+    </div>
+    <details class="hint"><summary>คำใบ้</summary><div class="hint-body">เช็ก \(\vec{u}_1\cdot\vec{u}_2 = 0\) หนึ่งคู่พอ (มี 2 ตัว) แล้วใช้สูตร \(\hat{\vec{y}} = \frac{\vec{y}\cdot\vec{u}_1}{\lVert\vec{u}_1\rVert^2}\vec{u}_1 + \frac{\vec{y}\cdot\vec{u}_2}{\lVert\vec{u}_2\rVert^2}\vec{u}_2\)</div></details>
+    <details class="sol"><summary>แนวคิดและเฉลยแบบละเอียด</summary><div class="sol-body">
+      <p><strong>แนวคิด:</strong> ฐานหลักเชิงตั้งฉากทำให้สูตรฉายเป็น "ผลรวมของฉายหนึ่งมิติ" ไม่ต้องแก้สมการปรกติ \((A^TA)\vec{x} = A^T\vec{y}\)</p>
+      <ol class="steps">
+        <li><span class="step-t">ตรวจตั้งฉาก</span> \(\vec{u}_1\cdot\vec{u}_2 = (1)(-1) + (1)(1) + (0)(0) = -1+1+0 = 0\) ✓</li>
+        <li><span class="step-t">ฉายตาม u₁</span> \(\vec{y}\cdot\vec{u}_1 = (1)(1) + (-4)(1) + (3)(0) = -3\), \(\lVert\vec{u}_1\rVert^2 = 2\) → เทอมแรก \(= -\frac{3}{2}(1,1,0)\) — สัมประสิทธิ์ติดลบเพราะ y เอียงสวนทางกับ u₁</li>
+        <li><span class="step-t">ฉายตาม u₂</span> \(\vec{y}\cdot\vec{u}_2 = (1)(-1) + (-4)(1) + (3)(0) = -5\), \(\lVert\vec{u}_2\rVert^2 = 2\) → เทอมที่สอง \(= -\frac{5}{2}(-1,1,0)\)</li>
+        <li><span class="step-t">รวม</span> \(\hat{\vec{y}} = -\frac{3}{2}\begin{bmatrix}1\\1\\0\end{bmatrix} - \frac{5}{2}\begin{bmatrix}-1\\1\\0\end{bmatrix} = \begin{bmatrix} -3/2 + 5/2\\ -3/2 - 5/2\\ 0 \end{bmatrix} = \begin{bmatrix} 1\\ -4\\ 0 \end{bmatrix}\)</li>
+        <li><span class="step-t">ตรวจคำตอบ</span> \(\vec{y}-\hat{\vec{y}} = (0, 0, 3)\) ตั้งฉากกับทั้ง \(\vec{u}_1\) และ \(\vec{u}_2\) (ผลคูณจุด = 0) ✓ — <strong>สรุป:</strong> \(\hat{\vec{y}} = (1,-4,0)\) (ตรงคำตอบท้ายบท)</li>
+      </ol>
+    </div></details>
+  </article>
+
+  <article class="pr-card" id="p-4-2-4ข" data-pkey="pTB-4-2-4ข">
+    <div class="pr-head"><span class="pr-num">แบบฝึกหัด 4.2 ข้อ 4 (ข)</span><span class="tag exam">🎯 แนว ①</span><span class="diff">●●○</span><span class="spacer"></span>
+      <label class="pr-done"><input type="checkbox"> ทำสำเร็จแล้ว</label></div>
+    <div class="pr-body">
+      <p>จงแสดงว่า \(\{\vec{u}_1, \vec{u}_2\}\) เป็นเซตเชิงตั้งฉากและหาการฉายเชิงตั้งฉากของเวกเตอร์ \(\vec{y}\) บนปริภูมิย่อย \(\mathrm{Span}\{\vec{u}_1, \vec{u}_2\}\) เมื่อ \(\vec{u}_1 = \begin{bmatrix} 3\\ -1\\ 2 \end{bmatrix}, \vec{u}_2 = \begin{bmatrix} 1\\ -1\\ -2 \end{bmatrix}, \vec{y} = \begin{bmatrix} -1\\ 2\\ 6 \end{bmatrix}\)</p>
+    </div>
+    <details class="hint"><summary>คำใบ้</summary><div class="hint-body">สูตรเดิม — ข้อนี้มีเซอร์ไพรส์: คำตอบจะเท่ากับ y เอง เพราะ y อยู่ใน H พอดี</div></details>
+    <details class="sol"><summary>แนวคิดและเฉลยแบบละเอียด</summary><div class="sol-body">
+      <p><strong>แนวคิด:</strong> วิธีเดียวกับ (ก) — จุดสังเกตท้ายข้อ: ถ้า \(\vec{y}\in H\) แล้ว \(\mathrm{proj}_H\vec{y} = \vec{y}\) พอดี</p>
+      <ol class="steps">
+        <li><span class="step-t">ตรวจตั้งฉาก</span> \(\vec{u}_1\cdot\vec{u}_2 = (3)(1) + (-1)(-1) + (2)(-2) = 3+1-4 = 0\) ✓</li>
+        <li><span class="step-t">ฉายตาม u₁</span> \(\vec{y}\cdot\vec{u}_1 = (-1)(3) + (2)(-1) + (6)(2) = -3-2+12 = 7\), \(\lVert\vec{u}_1\rVert^2 = 14\) → \(\frac{7}{14} = \frac{1}{2}\) เทอมแรก \(= \frac{1}{2}(3,-1,2)\)</li>
+        <li><span class="step-t">ฉายตาม u₂</span> \(\vec{y}\cdot\vec{u}_2 = (-1)(1) + (2)(-1) + (6)(-2) = -1-2-12 = -15\), \(\lVert\vec{u}_2\rVert^2 = 6\) → \(-\frac{5}{2}\) เทอมที่สอง \(= -\frac{5}{2}(1,-1,-2)\)</li>
+        <li><span class="step-t">รวม</span> \(\hat{\vec{y}} = \begin{bmatrix} 3/2 - 5/2\\ -1/2 + 5/2\\ 1 + 5 \end{bmatrix} = \begin{bmatrix} -1\\ 2\\ 6 \end{bmatrix} = \vec{y}\) — ฉายแล้วได้ตัวเอง!</li>
+        <li><span class="step-t">ตรวจคำตอบ</span> เหตุผล: \(\vec{y} = \frac{1}{2}\vec{u}_1 - \frac{5}{2}\vec{u}_2\) อยู่ใน H อยู่แล้ว → ฉายลง H ได้ตัวเอง ✓ (สอดคล้องสมบัติการฉาย) — <strong>สรุป:</strong> \(\hat{\vec{y}} = (-1,2,6)\)</li>
+      </ol>
+    </div></details>
+  </article>
+
+  <article class="pr-card" id="p-4-2-5ก" data-pkey="pTB-4-2-5ก">
+    <div class="pr-head"><span class="pr-num">แบบฝึกหัด 4.2 ข้อ 5 (ก)</span><span class="tag exam">🎯 แนว ①</span><span class="diff">●●○</span><span class="spacer"></span>
+      <label class="pr-done"><input type="checkbox"> ทำสำเร็จแล้ว</label></div>
+    <div class="pr-body">
+      <p>กำหนดให้ \(H\) เป็นปริภูมิย่อยที่แผ่ทั่วโดยเซตเชิงตั้งฉากของเวกเตอร์ \(\vec{u}\)'s จงแยกเวกเตอร์ \(\vec{y}\) เป็นผลบวกของเวกเตอร์ใน \(H\) และ \(H^{\perp}\) เมื่อ \(\vec{u}_1 = \begin{bmatrix} 3\\ 4\\ 0 \end{bmatrix}, \vec{u}_2 = \begin{bmatrix} -4\\ 3\\ 0 \end{bmatrix}, \vec{y} = \begin{bmatrix} 6\\ 3\\ -2 \end{bmatrix}\)</p>
+    </div>
+    <details class="hint"><summary>คำใบ้</summary><div class="hint-body">\(\hat{\vec{y}} = \frac{\vec{y}\cdot\vec{u}_1}{\lVert\vec{u}_1\rVert^2}\vec{u}_1 + \frac{\vec{y}\cdot\vec{u}_2}{\lVert\vec{u}_2\rVert^2}\vec{u}_2 \in H\), \(\vec{z} = \vec{y}-\hat{\vec{y}} \in H^{\perp}\)</div></details>
+    <details class="sol"><summary>แนวคิดและเฉลยแบบละเอียด</summary><div class="sol-body">
+      <p><strong>แนวคิด:</strong> ทฤษฎีบทการแยกเชิงตั้งฉากบอกว่าแยกได้ unique หนึ่งวิธี — หาส่วนที่อยู่ใน H ด้วยสูตรฉาย แล้วส่วนที่เหลือจะตั้งฉากกับ H โดยอัตโนมัติ</p>
+      <ol class="steps">
+        <li><span class="step-t">ฉายตาม u₁</span> \(\vec{y}\cdot\vec{u}_1 = (6)(3)+(3)(4)+(-2)(0) = 30\), \(\lVert\vec{u}_1\rVert^2 = 25\) → \(\frac{30}{25} = \frac{6}{5}\) เทอมแรก \(= \frac{6}{5}(3,4,0)\)</li>
+        <li><span class="step-t">ฉายตาม u₂</span> \(\vec{y}\cdot\vec{u}_2 = (6)(-4)+(3)(3)+0 = -15\), \(\lVert\vec{u}_2\rVert^2 = 25\) → \(-\frac{15}{25} = -\frac{3}{5}\) เทอมที่สอง \(= -\frac{3}{5}(-4,3,0)\)</li>
+        <li><span class="step-t">รวมส่วนใน H</span> \(\hat{\vec{y}} = \frac{6}{5}(3,4,0) - \frac{3}{5}(-4,3,0) = \begin{bmatrix} 18/5 + 12/5\\ 24/5 - 9/5\\ 0 \end{bmatrix} = \begin{bmatrix} 6\\ 3\\ 0 \end{bmatrix}\)</li>
+        <li><span class="step-t">ส่วนเติมเต็ม</span> \(\vec{z} = \vec{y}-\hat{\vec{y}} = (6-6, 3-3, -2-0) = (0, 0, -2)\)</li>
+        <li><span class="step-t">ตรวจคำตอบ</span> \(\vec{z}\cdot\vec{u}_1 = 0+0+0 = 0\) ✓, \(\vec{z}\cdot\vec{u}_2 = 0+0+0 = 0\) ✓ (z ตั้งฉากกับฐานทั้งสอง → z ∈ H⊥) และ \(\hat{\vec{y}}+\vec{z} = (6,3,-2) = \vec{y}\) ✓ — <strong>สรุป:</strong> \(\hat{\vec{y}} = (6,3,0)\), \(\vec{z} = (0,0,-2)\)</li>
+      </ol>
+    </div></details>
+  </article>
+
+  <article class="pr-card" id="p-4-2-5ข" data-pkey="pTB-4-2-5ข">
+    <div class="pr-head"><span class="pr-num">แบบฝึกหัด 4.2 ข้อ 5 (ข)</span><span class="tag exam">🎯 แนว ①</span><span class="diff">●●○</span><span class="spacer"></span>
+      <label class="pr-done"><input type="checkbox"> ทำสำเร็จแล้ว</label></div>
+    <div class="pr-body">
+      <p>จงแยกเวกเตอร์ \(\vec{y}\) เป็นผลบวกของเวกเตอร์ใน \(H\) และ \(H^{\perp}\) เมื่อ \(\vec{u}_1 = \begin{bmatrix} 1\\ 3\\ -2 \end{bmatrix}, \vec{u}_2 = \begin{bmatrix} 5\\ 1\\ 4 \end{bmatrix}, \vec{y} = \begin{bmatrix} 1\\ 3\\ 5 \end{bmatrix}\)</p>
+    </div>
+    <details class="hint"><summary>คำใบ้</summary><div class="hint-body">ข้อนี้ \(\vec{y}\cdot\vec{u}_1 = 0\) พอดี — ส่วนตาม u₁ หายทั้งเทอม</div></details>
+    <details class="sol"><summary>แนวคิดและเฉลยแบบละเอียด</summary><div class="sol-body">
+      <p><strong>แนวคิด:</strong> สูตรเดิม — ระวังเศษส่วนช่องที่สอง</p>
+      <ol class="steps">
+        <li><span class="step-t">ฉายตาม u₁</span> \(\vec{y}\cdot\vec{u}_1 = (1)(1) + (3)(3) + (5)(-2) = 1+9-10 = 0\) → เทอมแรกเป็นศูนย์ (y ตั้งฉากกับ u₁ พอดี)</li>
+        <li><span class="step-t">ฉายตาม u₂</span> \(\vec{y}\cdot\vec{u}_2 = (1)(5) + (3)(1) + (5)(4) = 5+3+20 = 28\), \(\lVert\vec{u}_2\rVert^2 = 25+1+16 = 42\) → \(\frac{28}{42} = \frac{2}{3}\) (ตัดด้วย 14)</li>
+        <li><span class="step-t">รวมส่วนใน H</span> \(\hat{\vec{y}} = \frac{2}{3}(5,1,4) = \left(\frac{10}{3}, \frac{2}{3}, \frac{8}{3}\right)\)</li>
+        <li><span class="step-t">ส่วนเติมเต็ม</span> \(\vec{z} = \vec{y}-\hat{\vec{y}} = \left(1-\frac{10}{3}, 3-\frac{2}{3}, 5-\frac{8}{3}\right) = \left(-\frac{7}{3}, \frac{7}{3}, \frac{7}{3}\right)\) — คำนวณทีละช่อง: \(1-\frac{10}{3} = \frac{3-10}{3}\), \(3-\frac{2}{3} = \frac{7}{3}\), \(5-\frac{8}{3} = \frac{7}{3}\)</li>
+        <li><span class="step-t">ตรวจคำตอบ</span> \(\vec{z}\cdot\vec{u}_1 = -\frac{7}{3} + \frac{21}{3} - \frac{14}{3} = 0\) ✓, \(\vec{z}\cdot\vec{u}_2 = -\frac{35}{3} + \frac{7}{3} + \frac{28}{3} = 0\) ✓ — <strong>สรุป:</strong> \(\hat{\vec{y}} = \frac{1}{3}(10,2,8)\), \(\vec{z} = \frac{1}{3}(-7,7,7)\)</li>
+      </ol>
+    </div></details>
+  </article>
+
+  <article class="pr-card" id="p-4-2-5ค" data-pkey="pTB-4-2-5ค">
+    <div class="pr-head"><span class="pr-num">แบบฝึกหัด 4.2 ข้อ 5 (ค)</span><span class="tag exam">🎯 แนว ①</span><span class="diff">●●●</span><span class="spacer"></span>
+      <label class="pr-done"><input type="checkbox"> ทำสำเร็จแล้ว</label></div>
+    <div class="pr-body">
+      <p>จงแยกเวกเตอร์ \(\vec{y}\) เป็นผลบวกของเวกเตอร์ใน \(H\) และ \(H^{\perp}\) เมื่อ \(\vec{u}_1 = \begin{bmatrix} 1\\ 1\\ 0\\ 1 \end{bmatrix}, \vec{u}_2 = \begin{bmatrix} -1\\ 3\\ 1\\ -2 \end{bmatrix}, \vec{u}_3 = \begin{bmatrix} -1\\ 0\\ 1\\ 1 \end{bmatrix}, \vec{y} = \begin{bmatrix} 4\\ 3\\ 3\\ 1 \end{bmatrix}\)</p>
+    </div>
+    <details class="hint"><summary>คำใบ้</summary><div class="hint-body">3 เทอมใน H: \(\frac{\vec{y}\cdot\vec{u}_i}{\lVert\vec{u}_i\rVert^2}\vec{u}_i\) — ตัวหารคือ 3, 15, 3 ตามลำดับ</div></details>
+    <details class="sol"><summary>แนวคิดและเฉลยแบบละเอียด</summary><div class="sol-body">
+      <p><strong>แนวคิด:</strong> เหมือน (ก)(ข) แต่มี 3 เทอมและเป็น \(\mathbb{R}^4\) — ทำทีละเทอมอย่าใจร้อนรวมทั้งหมดพร้อมกัน</p>
+      <ol class="steps">
+        <li><span class="step-t">ฉายตาม u₁</span> \(\vec{y}\cdot\vec{u}_1 = 4+3+0+1 = 8\), \(\lVert\vec{u}_1\rVert^2 = 3\) → \(\frac{8}{3}(1,1,0,1)\)</li>
+        <li><span class="step-t">ฉายตาม u₂</span> \(\vec{y}\cdot\vec{u}_2 = -4+9+3-2 = 6\), \(\lVert\vec{u}_2\rVert^2 = 1+9+1+4 = 15\) → \(\frac{6}{15} = \frac{2}{5}\) ได้ \(\frac{2}{5}(-1,3,1,-2)\)</li>
+        <li><span class="step-t">ฉายตาม u₃</span> \(\vec{y}\cdot\vec{u}_3 = -4+0+3+1 = 0\) → เทอมนี้หาย (y ตั้งฉากกับ u₃)</li>
+        <li><span class="step-t">รวมส่วนใน H</span> \(\hat{\vec{y}} = \frac{8}{3}(1,1,0,1) + \frac{2}{5}(-1,3,1,-2) = \left(\frac{40-6}{15}, \frac{40+18}{15}, \frac{2}{5}, \frac{40-12}{15}\right) = \left(\frac{34}{15}, \frac{58}{15}, \frac{2}{5}, \frac{28}{15}\right)\) — รวมเศษส่วนด้วยตัวส่วนร่วม 15: \(\frac{8}{3} = \frac{40}{15}\), \(\frac{2}{5} = \frac{6}{15}\), \(\frac{4}{5} = \frac{12}{15}\)</li>
+        <li><span class="step-t">ส่วนเติมเต็ม</span> \(\vec{z} = \vec{y}-\hat{\vec{y}} = \left(4-\frac{34}{15}, 3-\frac{58}{15}, 3-\frac{2}{5}, 1-\frac{28}{15}\right) = \left(\frac{26}{15}, -\frac{13}{15}, \frac{13}{5}, -\frac{13}{15}\right)\)</li>
+        <li><span class="step-t">ตรวจคำตอบ</span> \(\vec{z}\cdot\vec{u}_1 = \frac{26}{15} - \frac{13}{15} + 0 - \frac{13}{15} = 0\) ✓, \(\vec{z}\cdot\vec{u}_3 = -\frac{26}{15} + 0 + \frac{13}{5} - \frac{13}{15} = \frac{-26+39-13}{15} = 0\) ✓ และตรวจกับ u₂ ได้ 0 เช่นกัน ✓ — <strong>สรุป:</strong> \(\hat{\vec{y}} = \frac{1}{15}(34, 58, 6, 28)\), \(\vec{z} = \frac{1}{15}(26, -13, 39, -13)\)</li>
+      </ol>
+    </div></details>
+  </article>
+
+  <article class="pr-card" id="p-4-2-5ง" data-pkey="pTB-4-2-5ง">
+    <div class="pr-head"><span class="pr-num">แบบฝึกหัด 4.2 ข้อ 5 (ง)</span><span class="tag exam">🎯 แนว ①</span><span class="diff">●●○</span><span class="spacer"></span>
+      <label class="pr-done"><input type="checkbox"> ทำสำเร็จแล้ว</label></div>
+    <div class="pr-body">
+      <p>จงแยกเวกเตอร์ \(\vec{y}\) เป็นผลบวกของเวกเตอร์ใน \(H\) และ \(H^{\perp}\) เมื่อ \(\vec{u}_1 = \begin{bmatrix} 1\\ 1\\ 0\\ -1 \end{bmatrix}, \vec{u}_2 = \begin{bmatrix} 1\\ 0\\ 1\\ 1 \end{bmatrix}, \vec{u}_3 = \begin{bmatrix} 0\\ -1\\ 1\\ -1 \end{bmatrix}, \vec{y} = \begin{bmatrix} 3\\ 4\\ 5\\ 6 \end{bmatrix}\)</p>
+    </div>
+    <details class="hint"><summary>คำใบ้</summary><div class="hint-body">ทุกตัวหารเป็น 3 (‖uᵢ‖² = 3 หมด) — สัมประสิทธิ์คือ 1/3, 14/3, −5/3</div></details>
+    <details class="sol"><summary>แนวคิดและเฉลยแบบละเอียด</summary><div class="sol-body">
+      <p><strong>แนวคิด:</strong> สูตรเดิม 3 เทอม — ข้อนี้คำตอบสวยเป็นจำนวนเต็ม</p>
+      <ol class="steps">
+        <li><span class="step-t">ฉายตาม u₁</span> \(\vec{y}\cdot\vec{u}_1 = 3+4+0-6 = 1\), \(\lVert\vec{u}_1\rVert^2 = 3\) → \(\frac{1}{3}\vec{u}_1\)</li>
+        <li><span class="step-t">ฉายตาม u₂</span> \(\vec{y}\cdot\vec{u}_2 = 3+0+5+6 = 14\), \(\lVert\vec{u}_2\rVert^2 = 3\) → \(\frac{14}{3}\vec{u}_2\)</li>
+        <li><span class="step-t">ฉายตาม u₃</span> \(\vec{y}\cdot\vec{u}_3 = 0-4+5-6 = -5\), \(\lVert\vec{u}_3\rVert^2 = 0+1+1+1 = 3\) → \(-\frac{5}{3}\vec{u}_3\)</li>
+        <li><span class="step-t">รวมส่วนใน H</span> \(\hat{\vec{y}} = \frac{1}{3}\begin{bmatrix}1\\1\\0\\-1\end{bmatrix} + \frac{14}{3}\begin{bmatrix}1\\0\\1\\1\end{bmatrix} - \frac{5}{3}\begin{bmatrix}0\\-1\\1\\-1\end{bmatrix} = \frac{1}{3}\begin{bmatrix} 1+14\\ 1+5\\ 14-5\\ -1+14+5 \end{bmatrix} = \frac{1}{3}\begin{bmatrix} 15\\ 6\\ 9\\ 18 \end{bmatrix} = \begin{bmatrix} 5\\ 2\\ 3\\ 6 \end{bmatrix}\)</li>
+        <li><span class="step-t">ส่วนเติมเต็ม + ตรวจ</span> \(\vec{z} = \vec{y}-\hat{\vec{y}} = (-2, 2, 2, 0)\) ตรวจ: \(\vec{z}\cdot\vec{u}_1 = -2+2+0-0 = 0\) ✓, \(\vec{z}\cdot\vec{u}_2 = -2+0+2+0 = 0\) ✓, \(\vec{z}\cdot\vec{u}_3 = 0-2+2-0 = 0\) ✓ และ \(\hat{\vec{y}}+\vec{z} = (3,4,5,6) = \vec{y}\) ✓ — <strong>สรุป:</strong> \(\hat{\vec{y}} = (5,2,3,6)\), \(\vec{z} = (-2,2,2,0)\)</li>
+      </ol>
+    </div></details>
+  </article>
+
+  <article class="pr-card" id="p-4-2-6" data-pkey="pTB-4-2-6">
+    <div class="pr-head"><span class="pr-num">แบบฝึกหัด 4.2 ข้อ 6</span><span class="diff">●●○</span><span class="spacer"></span>
+      <label class="pr-done"><input type="checkbox"> ทำสำเร็จแล้ว</label></div>
+    <div class="pr-body">
+      <p>ให้ \(\vec{y} = \begin{bmatrix} 4\\ 8\\ 1 \end{bmatrix}, \vec{u}_1 = \begin{bmatrix} 2/3\\ 1/3\\ 2/3 \end{bmatrix}, \vec{u}_2 = \begin{bmatrix} -2/3\\ 2/3\\ 1/3 \end{bmatrix}\), \(H = \mathrm{Span}\{\vec{u}_1, \vec{u}_2\}\) และ \(U = \begin{bmatrix} \vec{u}_1 & \vec{u}_2 \end{bmatrix}\) จงหา \(U^TU\), \(UU^T\), \(\mathrm{proj}_H\vec{y}\) และ \((UU^T)\vec{y}\)</p>
+    </div>
+    <details class="hint"><summary>คำใบ้</summary><div class="hint-body">\(\{\vec{u}_1,\vec{u}_2\}\) เป็นเซตเชิงตั้งฉากปรกติ → \(U^TU = I_2\) แต่ \(UU^T\) เป็น 3×3 = เมทริกซ์ฉาย — สังเกตว่า \((UU^T)\vec{y} = \mathrm{proj}_H\vec{y}\)</div></details>
+    <details class="sol"><summary>แนวคิดและเฉลยแบบละเอียด</summary><div class="sol-body">
+      <p><strong>แนวคิด:</strong> \(U^TU\) = ตารางผลคูณจุดของหลักทุกคู่ (2×2) ส่วน \(UU^T\) (3×3) ไม่เท่ากันโดยทั่ว — แต่ทั้งคู่ให้คำตอบฉายเดียวกัน</p>
+      <ol class="steps">
+        <li><span class="step-t">หา UᵀU</span> \(\vec{u}_1\cdot\vec{u}_1 = \frac{4+1+4}{9} = 1\), \(\vec{u}_1\cdot\vec{u}_2 = \frac{-4+2+2}{9} = 0\), \(\vec{u}_2\cdot\vec{u}_2 = \frac{4+4+1}{9} = 1\) → \(U^TU = \begin{bmatrix} 1 & 0\\ 0 & 1 \end{bmatrix}\) (เซตเชิงตั้งฉากปรกติ)</li>
+        <li><span class="step-t">หา UUᵀ</span> ทางลัด: \(UU^T = \vec{u}_1\vec{u}_1^T + \vec{u}_2\vec{u}_2^T\) (ผลคูณตัวนอก) = \(\frac{1}{9}\begin{bmatrix}4&2&4\\2&1&2\\4&2&4\end{bmatrix} + \frac{1}{9}\begin{bmatrix}4&-4&-2\\-4&4&2\\-2&2&1\end{bmatrix} = \frac{1}{9}\begin{bmatrix} 8 & -2 & 2\\ -2 & 5 & 4\\ 2 & 4 & 5 \end{bmatrix}\) ตรวจ: สมมาตร ✓ และ \(UU^TU = U\)</li>
+        <li><span class="step-t">ฉายด้วยผลคูณจุด</span> \(\vec{y}\cdot\vec{u}_1 = \frac{8+8+2}{3} = 6\), \(\vec{y}\cdot\vec{u}_2 = \frac{-8+16+1}{3} = 3\) → \(\mathrm{proj}_H\vec{y} = 6\vec{u}_1 + 3\vec{u}_2 = (4,2,4) + (-2,2,1) = (2,4,5)\)</li>
+        <li><span class="step-t">คูณ (UUᵀ)y</span> \(\frac{1}{9}\begin{bmatrix} 8 & -2 & 2\\ -2 & 5 & 4\\ 2 & 4 & 5 \end{bmatrix}\begin{bmatrix}4\\8\\1\end{bmatrix} = \frac{1}{9}\begin{bmatrix} 32-16+2\\ -8+40+4\\ 8+32+5 \end{bmatrix} = \frac{1}{9}\begin{bmatrix} 18\\ 36\\ 45 \end{bmatrix} = \begin{bmatrix} 2\\ 4\\ 5 \end{bmatrix}\) — เท่ากับ proj พอดี!</li>
+        <li><span class="step-t">ตรวจคำตอบ + สรุปทฤษฎี</span> เหตุที่เท่ากัน: \(\mathrm{proj}_H\vec{y} = U(U^T\vec{y}) = (UU^T)\vec{y}\) เสมอเมื่อหลักของ U เป็นเซตเชิงตั้งฉากปรกติ (โจทย์ 12 (ข) จะพิสูจน์เรื่องนี้) ✓ — <strong>สรุป:</strong> \(U^TU = I_2\), \(UU^T = \frac{1}{9}\begin{bmatrix} 8 & -2 & 2\\ -2 & 5 & 4\\ 2 & 4 & 5 \end{bmatrix}\), \(\mathrm{proj}_H\vec{y} = (UU^T)\vec{y} = (2,4,5)\)</li>
+      </ol>
+    </div></details>
+  </article>
+
+  <article class="pr-card" id="p-4-2-7ก" data-pkey="pTB-4-2-7ก">
+    <div class="pr-head"><span class="pr-num">แบบฝึกหัด 4.2 ข้อ 7 (ก)</span><span class="diff">●●○</span><span class="spacer"></span>
+      <label class="pr-done"><input type="checkbox"> ทำสำเร็จแล้ว</label></div>
+    <div class="pr-body">
+      <p>จงใช้กระบวนการกราม-ชมิดต์สร้างฐานหลักเชิงตั้งฉากของปริภูมิย่อยที่แผ่ทั่วโดย \(\vec{x}_1 = \begin{bmatrix} 1\\ -1\\ 0 \end{bmatrix}, \vec{x}_2 = \begin{bmatrix} 0\\ 1\\ -1 \end{bmatrix}\)</p>
+      <p class="tagline">มีบทเรียนประกอบ: <a href="ch4-2.html">หน้า 4.2</a></p>
+    </div>
+    <details class="hint"><summary>คำใบ้</summary><div class="hint-body">\(\vec{v}_1 = \vec{x}_1\), \(\vec{v}_2 = \vec{x}_2 - \frac{\vec{x}_2\cdot\vec{v}_1}{\vec{v}_1\cdot\vec{v}_1}\vec{v}_1\) — "ดึงออก" ส่วนที่คู่ขนานกับ v₁ ออกให้หมด</div></details>
+    <details class="sol"><summary>แนวคิดและเฉลยแบบละเอียด</summary><div class="sol-body">
+      <p><strong>แนวคิด:</strong> กราม-ชมิดต์สำหรับ 2 เวกเตอร์: เก็บตัวแรกไว้ แล้วทำตัวที่สองให้ตั้งฉากโดยลบฉายของมันบนตัวแรกทิ้ง</p>
+      <ol class="steps">
+        <li><span class="step-t">เทอมแรก</span> \(\vec{v}_1 = \vec{x}_1 = (1, -1, 0)\) — ไม่ต้องแก้ไขอะไร</li>
+        <li><span class="step-t">สัมประสิทธิ์ฉาย</span> \(\vec{x}_2\cdot\vec{v}_1 = (0)(1) + (1)(-1) + (-1)(0) = -1\), \(\vec{v}_1\cdot\vec{v}_1 = 2\) → สัมประสิทธิ์ \(= \frac{-1}{2} = -\frac{1}{2}\)</li>
+        <li><span class="step-t">เทอมที่สอง</span> \(\vec{v}_2 = \vec{x}_2 - \left(-\frac{1}{2}\right)\vec{v}_1 = (0,1,-1) + \frac{1}{2}(1,-1,0) = \left(\frac{1}{2}, \frac{1}{2}, -1\right)\) — สังเกตว่าลบค่าลบกลายเป็นบวก (จุดที่คนพลาดบ่อย)</li>
+        <li><span class="step-t">ตรวจคำตอบ</span> \(\vec{v}_1\cdot\vec{v}_2 = \frac{1}{2} - \frac{1}{2} + 0 = 0\) ✓ และ \(\mathrm{Span}\{\vec{v}_1,\vec{v}_2\} = \mathrm{Span}\{\vec{x}_1,\vec{x}_2\}\) เพราะ v₂ คือ x₂ ลบผสมของ v₁ (การดำเนินการแถวไม่เปลี่ยน Span) ✓ — <strong>สรุป:</strong> \(\{\vec{v}_1, \vec{v}_2\} = \{(1,-1,0), (\frac{1}{2},\frac{1}{2},-1)\}\) (คูณ 2 ได้ \((1,1,-2)\) ก็ถูกต้องเช่นกัน)</li>
+      </ol>
+    </div></details>
+  </article>
+
+  <article class="pr-card" id="p-4-2-7ข" data-pkey="pTB-4-2-7ข">
+    <div class="pr-head"><span class="pr-num">แบบฝึกหัด 4.2 ข้อ 7 (ข)</span><span class="diff">●●○</span><span class="spacer"></span>
+      <label class="pr-done"><input type="checkbox"> ทำสำเร็จแล้ว</label></div>
+    <div class="pr-body">
+      <p>จงใช้กระบวนการกราม-ชมิดต์สร้างฐานหลักเชิงตั้งฉากของปริภูมิย่อยที่แผ่ทั่วโดย \(\vec{x}_1 = \begin{bmatrix} 3\\ 0\\ -1 \end{bmatrix}, \vec{x}_2 = \begin{bmatrix} 8\\ 5\\ -6 \end{bmatrix}\)</p>
+      <p class="tagline">มีบทเรียนประกอบ: <a href="ch4-2.html">หน้า 4.2</a></p>
+    </div>
+    <details class="hint"><summary>คำใบ้</summary><div class="hint-body">\(\vec{x}_2\cdot\vec{x}_1 = 30\), \(\lVert\vec{x}_1\rVert^2 = 10\) → สัมประสิทธิ์เป็นจำนวนเต็ม 3</div></details>
+    <details class="sol"><summary>แนวคิดและเฉลยแบบละเอียด</summary><div class="sol-body">
+      <p><strong>แนวคิด:</strong> สูตรเดียวกับ (ก) — ข้อนี้ตัวเลขสวยได้จำนวนเต็ม</p>
+      <ol class="steps">
+        <li><span class="step-t">เทอมแรก</span> \(\vec{v}_1 = (3, 0, -1)\)</li>
+        <li><span class="step-t">สัมประสิทธิ์ฉาย</span> \(\vec{x}_2\cdot\vec{v}_1 = (8)(3) + (5)(0) + (-6)(-1) = 24+0+6 = 30\), \(\vec{v}_1\cdot\vec{v}_1 = 9+0+1 = 10\) → \(\frac{30}{10} = 3\)</li>
+        <li><span class="step-t">เทอมที่สอง</span> \(\vec{v}_2 = \vec{x}_2 - 3\vec{v}_1 = (8-9, 5-0, -6+3) = (-1, 5, -3)\)</li>
+        <li><span class="step-t">ตรวจคำตอบ</span> \(\vec{v}_1\cdot\vec{v}_2 = -3+0+3 = 0\) ✓ — <strong>สรุป:</strong> \(\{(3,0,-1), (-1,5,-3)\}\)</li>
+      </ol>
+    </div></details>
+  </article>
+
+  <article class="pr-card" id="p-4-2-7ค" data-pkey="pTB-4-2-7ค">
+    <div class="pr-head"><span class="pr-num">แบบฝึกหัด 4.2 ข้อ 7 (ค)</span><span class="diff">●●○</span><span class="spacer"></span>
+      <label class="pr-done"><input type="checkbox"> ทำสำเร็จแล้ว</label></div>
+    <div class="pr-body">
+      <p>จงใช้กระบวนการกราม-ชมิดต์สร้างฐานหลักเชิงตั้งฉากของปริภูมิย่อยที่แผ่ทั่วโดย \(\vec{x}_1 = \begin{bmatrix} 2\\ -5\\ 1 \end{bmatrix}, \vec{x}_2 = \begin{bmatrix} 4\\ -1\\ 2 \end{bmatrix}\)</p>
+    </div>
+    <details class="hint"><summary>คำใบ้</summary><div class="hint-body">\(\vec{x}_2\cdot\vec{x}_1 = 15\), \(\lVert\vec{x}_1\rVert^2 = 30\) → สัมประสิทธิ์ \(\frac{1}{2}\) — คำตอบมีเศษส่วน ใจเย็นค่อย ๆ คูณ</div></details>
+    <details class="sol"><summary>แนวคิดและเฉลยแบบละเอียด</summary><div class="sol-body">
+      <p><strong>แนวคิด:</strong> สูตรเดิม — สังเกตว่าโจทย์ตั้งใจให้สัมประสิทธิ์เป็น \(\frac{1}{2}\) เพื่อซ้อมเศษส่วน</p>
+      <ol class="steps">
+        <li><span class="step-t">เทอมแรก</span> \(\vec{v}_1 = (2, -5, 1)\)</li>
+        <li><span class="step-t">สัมประสิทธิ์ฉาย</span> \(\vec{x}_2\cdot\vec{v}_1 = (4)(2) + (-1)(-5) + (2)(1) = 8+5+2 = 15\), \(\vec{v}_1\cdot\vec{v}_1 = 4+25+1 = 30\) → \(\frac{15}{30} = \frac{1}{2}\)</li>
+        <li><span class="step-t">เทอมที่สอง</span> \(\vec{v}_2 = \vec{x}_2 - \frac{1}{2}\vec{v}_1 = (4-1, -1+\frac{5}{2}, 2-\frac{1}{2}) = \left(3, \frac{3}{2}, \frac{3}{2}\right)\) ทีละช่อง: \(4 - \frac{2}{2} = 3\), \(-1 - (-\frac{5}{2}) = \frac{3}{2}\), \(2 - \frac{1}{2} = \frac{3}{2}\)</li>
+        <li><span class="step-t">ตรวจคำตอบ</span> \(\vec{v}_1\cdot\vec{v}_2 = 6 - \frac{15}{2} + \frac{3}{2} = 6 - 6 = 0\) ✓ — <strong>สรุป:</strong> \(\{(2,-5,1), (3,\frac{3}{2},\frac{3}{2})\}\) (คูณ 2: \((6,3,3)\) ก็ถูก)</li>
+      </ol>
+    </div></details>
+  </article>
+
+  <article class="pr-card" id="p-4-2-7ง" data-pkey="pTB-4-2-7ง">
+    <div class="pr-head"><span class="pr-num">แบบฝึกหัด 4.2 ข้อ 7 (ง)</span><span class="diff">●●○</span><span class="spacer"></span>
+      <label class="pr-done"><input type="checkbox"> ทำสำเร็จแล้ว</label></div>
+    <div class="pr-body">
+      <p>จงใช้กระบวนการกราม-ชมิดต์สร้างฐานหลักเชิงตั้งฉากของปริภูมิย่อยที่แผ่ทั่วโดย \(\vec{x}_1 = \begin{bmatrix} 1\\ -4\\ 0\\ 1 \end{bmatrix}, \vec{x}_2 = \begin{bmatrix} 7\\ -7\\ 0\\ 1 \end{bmatrix}\)</p>
+    </div>
+    <details class="hint"><summary>คำใบ้</summary><div class="hint-body">สูตรเดิมใน \(\mathbb{R}^4\) — \(\vec{x}_2\cdot\vec{x}_1 = 36\), \(\lVert\vec{x}_1\rVert^2 = 18\) → สัมประสิทธิ์ 2</div></details>
+    <details class="sol"><summary>แนวคิดและเฉลยแบบละเอียด</summary><div class="sol-body">
+      <p><strong>แนวคิด:</strong> 4 มิติ แต่วิธีไม่ต่างจาก 3 มิติ — เพิ่มแค่ช่องคำนวณ</p>
+      <ol class="steps">
+        <li><span class="step-t">เทอมแรก</span> \(\vec{v}_1 = (1, -4, 0, 1)\)</li>
+        <li><span class="step-t">สัมประสิทธิ์ฉาย</span> \(\vec{x}_2\cdot\vec{v}_1 = 7 + 28 + 0 + 1 = 36\), \(\vec{v}_1\cdot\vec{v}_1 = 1+16+0+1 = 18\) → \(\frac{36}{18} = 2\)</li>
+        <li><span class="step-t">เทอมที่สอง</span> \(\vec{v}_2 = \vec{x}_2 - 2\vec{v}_1 = (7-2, -7+8, 0, 1-2) = (5, 1, 0, -1)\)</li>
+        <li><span class="step-t">ตรวจคำตอบ</span> \(\vec{v}_1\cdot\vec{v}_2 = 5 - 4 + 0 - 1 = 0\) ✓ — <strong>สรุป:</strong> \(\{(1,-4,0,1), (5,1,0,-1)\}\)</li>
+      </ol>
+    </div></details>
+  </article>
+
+  <article class="pr-card" id="p-4-2-7จ" data-pkey="pTB-4-2-7จ">
+    <div class="pr-head"><span class="pr-num">แบบฝึกหัด 4.2 ข้อ 7 (จ)</span><span class="diff">●●●</span><span class="spacer"></span>
+      <label class="pr-done"><input type="checkbox"> ทำสำเร็จแล้ว</label></div>
+    <div class="pr-body">
+      <p>จงใช้กระบวนการกราม-ชมิดต์สร้างฐานหลักเชิงตั้งฉากของปริภูมิย่อยที่แผ่ทั่วโดย \(\vec{x}_1 = \begin{bmatrix} 3\\ -1\\ 2\\ -1 \end{bmatrix}, \vec{x}_2 = \begin{bmatrix} -5\\ 9\\ -9\\ 3 \end{bmatrix}\)</p>
+    </div>
+    <details class="hint"><summary>คำใบ้</summary><div class="hint-body">ระวังเครื่องหมาย: \(\vec{x}_2\cdot\vec{x}_1 = -45\), \(\lVert\vec{x}_1\rVert^2 = 15\) → สัมประสิทธิ์ = −3 → ลบค่าลบ = บวก 3x₁</div></details>
+    <details class="sol"><summary>แนวคิดและเฉลยแบบละเอียด</summary><div class="sol-body">
+      <p><strong>แนวคิด:</strong> สูตรเดิม — จุดอันตรายคือสัมประสิทธิ์ติดลบ \(-\left(-\frac{45}{15}\right) = +3\)</p>
+      <ol class="steps">
+        <li><span class="step-t">เทอมแรก</span> \(\vec{v}_1 = (3, -1, 2, -1)\)</li>
+        <li><span class="step-t">สัมประสิทธิ์ฉาย</span> \(\vec{x}_2\cdot\vec{v}_1 = (−5)(3) + (9)(−1) + (−9)(2) + (3)(−1) = -15-9-18-3 = -45\), \(\vec{v}_1\cdot\vec{v}_1 = 9+1+4+1 = 15\) → \(\frac{-45}{15} = -3\)</li>
+        <li><span class="step-t">เทอมที่สอง</span> \(\vec{v}_2 = \vec{x}_2 - (-3)\vec{v}_1 = \vec{x}_2 + 3\vec{v}_1 = (-5+9, 9-3, -9+6, 3-3) = (4, 6, -3, 0)\) — ลบสัมประสิทธิ์ลบจึงกลายเป็นบวก ทำไม: เพราะ x₂ เอียง "สวน" v₁ ต้องเติม v₁ เข้าไปเพื่อหมุนมันให้ตั้งฉาก</li>
+        <li><span class="step-t">ตรวจคำตอบ</span> \(\vec{v}_1\cdot\vec{v}_2 = 12 - 6 - 6 + 0 = 0\) ✓ — <strong>สรุป:</strong> \(\{(3,-1,2,-1), (4,6,-3,0)\}\)</li>
+      </ol>
+    </div></details>
+  </article>
+
+  <article class="pr-card" id="p-4-2-7ฉ" data-pkey="pTB-4-2-7ฉ">
+    <div class="pr-head"><span class="pr-num">แบบฝึกหัด 4.2 ข้อ 7 (ฉ)</span><span class="diff">●○○</span><span class="spacer"></span>
+      <label class="pr-done"><input type="checkbox"> ทำสำเร็จแล้ว</label></div>
+    <div class="pr-body">
+      <p>จงใช้กระบวนการกราม-ชมิดต์สร้างฐานหลักเชิงตั้งฉากของปริภูมิย่อยที่แผ่ทั่วโดย \(\vec{x}_1 = \begin{bmatrix} 1\\ 1\\ 1\\ 1 \end{bmatrix}, \vec{x}_2 = \begin{bmatrix} 1\\ 1\\ -1\\ -1 \end{bmatrix}\)</p>
+    </div>
+    <details class="hint"><summary>คำใบ้</summary><div class="hint-body">เช็ก \(\vec{x}_1\cdot\vec{x}_2\) ก่อน — ถ้าเป็น 0 อยู่แล้ว ไม่ต้องทำอะไร</div></details>
+    <details class="sol"><summary>แนวคิดและเฉลยแบบละเอียด</summary><div class="sol-body">
+      <p><strong>แนวคิด:</strong> กราม-ชมิดต์เริ่มจากเช็กความตั้งฉากก่อนเสมอ — บางชุดอยู่ดีมีสุข</p>
+      <ol class="steps">
+        <li><span class="step-t">เช็กก่อน</span> \(\vec{x}_1\cdot\vec{x}_2 = 1+1-1-1 = 0\) — ตั้งฉากกันอยู่แล้ว</li>
+        <li><span class="step-t">สรุป</span> \(\vec{v}_1 = \vec{x}_1 = (1,1,1,1)\), \(\vec{v}_2 = \vec{x}_2 = (1,1,-1,-1)\) ตามเดิม — กราม-ชมิดต์ "ทำงานศูนย์รอบ" เพราะเซตเป็นเชิงตั้งฉากอยู่ก่อน ∎ (ตรวจ: ต่างกันที่ช่อง 3–4 จึงไม่เป็นสเกลาร์ของกัน = อิสระ ✓)</li>
+      </ol>
+    </div></details>
+  </article>
+
+  <article class="pr-card" id="p-4-2-8ก" data-pkey="pTB-4-2-8ก">
+    <div class="pr-head"><span class="pr-num">แบบฝึกหัด 4.2 ข้อ 8 (ก)</span><span class="diff">●●○</span><span class="spacer"></span>
+      <label class="pr-done"><input type="checkbox"> ทำสำเร็จแล้ว</label></div>
+    <div class="pr-body">
+      <p>จงหาฐานหลัก และใช้กระบวนการกราม-ชมิดต์สร้างฐานหลักเชิงตั้งฉากปรกติของ \(\mathrm{Col}\,A\) เมื่อ \(A = \begin{bmatrix} 1 & 0 & 1\\ 1 & 1 & 0\\ 1 & 0 & 1 \end{bmatrix}\)</p>
+    </div>
+    <details class="hint"><summary>คำใบ้</summary><div class="hint-body">หลักที่ 3 = หลักที่ 1 (เห็นชัด) → ฐาน Col = หลัก 1, 2 → กราม-ชมิดต์แล้วปรับให้ยาว 1</div></details>
+    <details class="sol"><summary>แนวคิดและเฉลยแบบละเอียด</summary><div class="sol-body">
+      <p><strong>แนวคิด:</strong> ฐานหลักของ Col A = หลักตัวหลักของ A — หาจากการแปลงเป็นขั้นบันได แล้วค่อยทำกราม-ชมิดต์บนหลักตัวหลักเท่านั้น (ไม่ใช่ทุกหลัก)</p>
+      <ol class="steps">
+        <li><span class="step-t">หาฐานหลัก Col A</span> แถว 2 − แถว 1 = (0, 1, −1), แถว 3 − แถว 1 = (0, 0, 0) → ขั้นบันไดมีตัวหลักที่หลัก 1 และ 2 → ฐานหลักคือ \(\vec{a}_1 = (1,1,1)\), \(\vec{a}_2 = (0,1,0)\) (หลัก 3 ตก เพราะเป็นสำเนาของหลัก 1)</li>
+        <li><span class="step-t">กราม-ชมิดต์</span> \(\vec{v}_1 = (1,1,1)\); \(\vec{a}_2\cdot\vec{v}_1 = 1\), \(\vec{v}_1\cdot\vec{v}_1 = 3\) → \(\vec{v}_2 = (0,1,0) - \frac{1}{3}(1,1,1) = \left(-\frac{1}{3}, \frac{2}{3}, -\frac{1}{3}\right)\)</li>
+        <li><span class="step-t">ปรับหนึ่งหน่วย</span> \(\vec{q}_1 = \frac{1}{\sqrt{3}}(1,1,1)\), \(\lVert\vec{v}_2\rVert = \sqrt{\frac{1+4+1}{9}} = \frac{\sqrt{6}}{3}\) → \(\vec{q}_2 = \frac{1}{\sqrt{6}}(-1,2,-1)\) (คูณ \(\sqrt{6}\)/3 ทั้งตัว: \(-\frac{1}{3}\cdot\frac{3}{\sqrt{6}} = -\frac{1}{\sqrt{6}}\))</li>
+        <li><span class="step-t">ตรวจคำตอบ</span> \(\vec{q}_1\cdot\vec{q}_2 = \frac{-1+2-1}{\sqrt{18}} = 0\) ✓, ยาว 1 ทั้งคู่ ✓ — <strong>สรุป:</strong> ฐาน Col A = \{(1,1,1),(0,1,0)\}, ฐานเชิงตั้งฉากปรกติ = \(\{\frac{1}{\sqrt{3}}(1,1,1), \frac{1}{\sqrt{6}}(-1,2,-1)\}\) (ตรงคำตอบท้ายบท)</li>
+      </ol>
+    </div></details>
+  </article>
+
+  <article class="pr-card" id="p-4-2-8ข" data-pkey="pTB-4-2-8ข">
+    <div class="pr-head"><span class="pr-num">แบบฝึกหัด 4.2 ข้อ 8 (ข)</span><span class="diff">●●●</span><span class="spacer"></span>
+      <label class="pr-done"><input type="checkbox"> ทำสำเร็จแล้ว</label></div>
+    <div class="pr-body">
+      <p>จงหาฐานหลัก และใช้กระบวนการกราม-ชมิดต์สร้างฐานหลักเชิงตั้งฉากปรกติของ \(\mathrm{Col}\,A\) เมื่อ \(A = \begin{bmatrix} -1 & 6 & 6\\ 1 & -2 & 6\\ 1 & -4 & -3\\ 3 & -8 & 3 \end{bmatrix}\)</p>
+    </div>
+    <details class="hint"><summary>คำใบ้</summary><div class="hint-body">3 หลักอิสระหมด (rank 3) → กราม-ชมิดต์ 3 รอบ: รอบที่ 2 ลบฉายบน v₁, รอบที่ 3 ลบฉายบน v₁ <em>และ</em> v₂</div></details>
+    <details class="sol"><summary>แนวคิดและเฉลยแบบละเอียด</summary><div class="sol-body">
+      <p><strong>แนวคิด:</strong> หลักทั้ง 3 อิสระ (ตรวจด้วย rank) → ฐาน Col = หลักทั้งหมด → กราม-ชมิดต์ 3 รอบ — รอบสามต้องลบสองฉายพร้อมกัน</p>
+      <ol class="steps">
+        <li><span class="step-t">ฐานหลัก Col A</span> หลักทั้งสามอิสระเชิงเส้น (ลดรูปแล้วมีตัวหลัก 3 ตำแหน่ง) → ฐาน = \(\vec{a}_1 = (-1,1,1,3)\), \(\vec{a}_2 = (6,-2,-4,-8)\), \(\vec{a}_3 = (6,6,-3,3)\)</li>
+        <li><span class="step-t">รอบ 1–2</span> \(\vec{v}_1 = \vec{a}_1\); \(\vec{a}_2\cdot\vec{v}_1 = -6-2-4-24 = -36\), \(\vec{v}_1\cdot\vec{v}_1 = 1+1+1+9 = 12\) → \(-3\vec{v}_1\) → \(\vec{v}_2 = \vec{a}_2 + 3\vec{v}_1 = (6-3, -2+3, -4+3, -8+9) = (3, 1, -1, 1)\) ตรวจ \(\vec{v}_1\cdot\vec{v}_2 = -3+1-1+3 = 0\) ✓</li>
+        <li><span class="step-t">รอบ 3</span> \(\vec{a}_3\cdot\vec{v}_1 = -6+6-3+9 = 6\) → \(\frac{6}{12} = \frac{1}{2}\); \(\vec{a}_3\cdot\vec{v}_2 = 18+6+3+3 = 30\), \(\vec{v}_2\cdot\vec{v}_2 = 12\) → \(\frac{30}{12} = \frac{5}{2}\) → \(\vec{v}_3 = \vec{a}_3 - \frac{1}{2}\vec{v}_1 - \frac{5}{2}\vec{v}_2 = (6+\frac{1}{2}-\frac{15}{2},\  6-\frac{1}{2}-\frac{5}{2},\  -3+\frac{1}{2}+\frac{5}{2},\  3-\frac{3}{2}-\frac{5}{2}) = (-1, 3, -1, -1)\)</li>
+        <li><span class="step-t">ปรับหนึ่งหน่วย</span> \(\lVert\vec{v}_1\rVert = \sqrt{12} = 2\sqrt{3}\), \(\lVert\vec{v}_2\rVert = \sqrt{12} = 2\sqrt{3}\), \(\lVert\vec{v}_3\rVert = \sqrt{12} = 2\sqrt{3}\) → \(\vec{q}_i = \vec{v}_i/(2\sqrt{3})\): \(\vec{q}_1 = \frac{1}{2\sqrt{3}}(-1,1,1,3)\), \(\vec{q}_2 = \frac{1}{2\sqrt{3}}(3,1,-1,1)\), \(\vec{q}_3 = \frac{1}{2\sqrt{3}}(-1,3,-1,-1)\)</li>
+        <li><span class="step-t">ตรวจคำตอบ</span> คู่ใด ๆ ผลคูณจุด: \(\vec{v}_1\cdot\vec{v}_3 = 1+3-1-3 = 0\) ✓, \(\vec{v}_2\cdot\vec{v}_3 = -3+3+1-1 = 0\) ✓ ยาวทุกตัว = 1 ✓ — <strong>สรุป:</strong> ฐาน Col A = หลักทั้งสาม, ฐานเชิงตั้งฉากปรกติตามด้านบน (รูปคูณสเกลาร์อื่นก็ถูกต้อง)</li>
+      </ol>
+    </div></details>
+  </article>
+
+  <article class="pr-card" id="p-4-2-8ค" data-pkey="pTB-4-2-8ค">
+    <div class="pr-head"><span class="pr-num">แบบฝึกหัด 4.2 ข้อ 8 (ค)</span><span class="diff">●●●</span><span class="spacer"></span>
+      <label class="pr-done"><input type="checkbox"> ทำสำเร็จแล้ว</label></div>
+    <div class="pr-body">
+      <p>จงหาฐานหลัก และใช้กระบวนการกราม-ชมิดต์สร้างฐานหลักเชิงตั้งฉากปรกติของ \(\mathrm{Col}\,A\) เมื่อ \(A = \begin{bmatrix} 1 & 1 & 1 & 0\\ 1 & -1 & 1 & 1\\ 1 & 0 & 1 & 1\\ 0 & 1 & 0 & 1 \end{bmatrix}\)</p>
+    </div>
+    <details class="hint"><summary>คำใบ้</summary><div class="hint-body">4 หลักแต่ rank 3 — หลักไหนตกไป? ลดรูปดูตัวหลัก: หลัก 1, 2, 4 ได้ตัวหลัก หลัก 3 ตก</div></details>
+    <details class="sol"><summary>แนวคิดและเฉลยแบบละเอียด</summary><div class="sol-body">
+      <p><strong>แนวคิด:</strong> เมทริกซ์ 4×4 แต่ไม่เต็มอันดับ — ต้องหาว่าหลักไหนตกไปก่อน แล้วกราม-ชมิดต์เฉพาะหลักตัวหลัก</p>
+      <ol class="steps">
+        <li><span class="step-t">หาหลักตัวหลัก</span> ลดรูป: แถว 2−แถว 1 = (0,−2,0,1), แถว 3−แถว 1 = (0,−1,0,1) ต่อด้วย แถว 3 − ½·แถวใหม่ 2 = (0,0,0,½) → ขั้นบันไดมีตัวหลักที่หลัก 1, 2, 4 → หลัก 3 ไม่เป็นตัวหลัก — เหตุผลชัด ๆ: หลักที่ 3 = (1,1,1,0) <strong>เท่ากับหลักที่ 1 พอดี</strong> (สำเนาของกัน) จึงตกไป</li>
+        <li><span class="step-t">ฐานหลัก Col A</span> \(\vec{a}_1 = (1,1,1,0)\), \(\vec{a}_2 = (1,-1,0,1)\), \(\vec{a}_4 = (0,1,1,1)\)</li>
+        <li><span class="step-t">กราม-ชมิดต์</span> \(\vec{v}_1 = \vec{a}_1\); \(\vec{a}_2\cdot\vec{v}_1 = 1-1+0+0 = 0\) → \(\vec{v}_2 = \vec{a}_2 = (1,-1,0,1)\) (ตั้งฉากกับ v₁ อยู่แล้ว); \(\vec{a}_4\cdot\vec{v}_1 = 0+1+1+0 = 2\) → \(\frac{2}{3}\), \(\vec{a}_4\cdot\vec{v}_2 = 0-1+0+1 = 0\) → \(\vec{v}_3 = \vec{a}_4 - \frac{2}{3}\vec{v}_1 = \left(-\frac{2}{3}, \frac{1}{3}, \frac{1}{3}, 1\right)\)</li>
+        <li><span class="step-t">ปรับหนึ่งหน่วย</span> \(\lVert\vec{v}_1\rVert = \sqrt{3}\), \(\lVert\vec{v}_2\rVert = \sqrt{3}\), \(\lVert\vec{v}_3\rVert^2 = \frac{4}{9}+\frac{1}{9}+\frac{1}{9}+1 = \frac{6}{9}+1 = \frac{5}{3}\) → \(\lVert\vec{v}_3\rVert = \frac{\sqrt{15}}{3}\) → \(\vec{q}_3 = \frac{3}{\sqrt{15}}\cdot\frac{1}{3}(-2,1,1,3) = \frac{1}{\sqrt{15}}(-2,1,1,3)\) รวม: \(\vec{q}_1 = \frac{1}{\sqrt{3}}(1,1,1,0)\), \(\vec{q}_2 = \frac{1}{\sqrt{3}}(1,-1,0,1)\), \(\vec{q}_3 = \frac{1}{\sqrt{15}}(-2,1,1,3)\)</li>
+        <li><span class="step-t">ตรวจคำตอบ</span> \(\vec{v}_2\cdot\vec{v}_3 = -\frac{2}{3} - \frac{1}{3} + 0 + 1 = 0\) ✓ ยาว \(\vec{q}_3\): \(\frac{4+1+1+9}{15} = 1\) ✓ — <strong>สรุป:</strong> ฐาน Col A = หลัก 1, 2, 4; ฐานเชิงตั้งฉากปรกติ = \(\{\frac{1}{\sqrt{3}}(1,1,1,0), \frac{1}{\sqrt{3}}(1,-1,0,1), \frac{1}{\sqrt{15}}(-2,1,1,3)\}\)</li>
+      </ol>
+    </div></details>
+  </article>
+
+  <article class="pr-card" id="p-4-2-9ก" data-pkey="pTB-4-2-9ก">
+    <div class="pr-head"><span class="pr-num">แบบฝึกหัด 4.2 ข้อ 9 (ก)</span><span class="diff">●●○</span><span class="spacer"></span>
+      <label class="pr-done"><input type="checkbox"> ทำสำเร็จแล้ว</label></div>
+    <div class="pr-body">
+      <p>จงหาการแยกตัวประกอบ QR ของเมทริกซ์ \(A = \begin{bmatrix} 1 & -1\\ 2 & 3 \end{bmatrix}\)</p>
+      <p class="tagline">มีบทเรียนประกอบ: <a href="ch4-2.html">หน้า 4.2</a></p>
+    </div>
+    <details class="hint"><summary>คำใบ้</summary><div class="hint-body">QR = กราม-ชมิดต์บนหลักของ A แล้วปรับหนึ่งหน่วยเป็น Q; ส่วน R อ่านจากสัมประสิทธิ์ที่ใช้ตอนกราม-ชมิดต์ (\(R_{11} = \lVert\vec{a}_1\rVert\), \(R_{12} = \vec{a}_2\cdot\vec{q}_1\), \(R_{22} = \lVert\vec{v}_2\rVert\))</div></details>
+    <details class="sol"><summary>แนวคิดและเฉลยแบบละเอียด</summary><div class="sol-body">
+      <p><strong>แนวคิด:</strong> A = QR เมื่อ Q เก็บเวกเตอร์กราม-ชมิดต์แบบหนึ่งหน่วย (หลักเรียงตามหลัก A) และ R เป็นสามเหลี่ยมบน — ตัวเลข R คือ "ปริมาณที่ถูกลบออก" ตอนกราม-ชมิดต์</p>
+      <ol class="steps">
+        <li><span class="step-t">หลักที่ 1</span> \(\vec{a}_1 = (1,2)\), \(\lVert\vec{a}_1\rVert = \sqrt{5}\) → \(\vec{q}_1 = \frac{1}{\sqrt{5}}(1,2)\), บันทึก \(R_{11} = \sqrt{5}\)</li>
+        <li><span class="step-t">สัมประสิทธิ์ของหลักที่ 2</span> \(\vec{a}_2 = (-1,3)\); \(\vec{a}_2\cdot\vec{q}_1 = \frac{-1+6}{\sqrt{5}} = \frac{5}{\sqrt{5}} = \sqrt{5}\) → \(R_{12} = \sqrt{5}\); เวกเตอร์ตั้งฉาก \(\vec{v}_2 = \vec{a}_2 - \sqrt{5}\,\vec{q}_1 = (-1,3) - (1,2) = (-2,1)\)</li>
+        <li><span class="step-t">หนึ่งหน่วย</span> \(\lVert\vec{v}_2\rVert = \sqrt{5}\) → \(\vec{q}_2 = \frac{1}{\sqrt{5}}(-2,1)\), \(R_{22} = \sqrt{5}\) → ประกอบ \(Q = \frac{1}{\sqrt{5}}\begin{bmatrix} 1 & -2\\ 2 & 1 \end{bmatrix}\), \(R = \begin{bmatrix} \sqrt{5} & \sqrt{5}\\ 0 & \sqrt{5} \end{bmatrix}\)</li>
+        <li><span class="step-t">ตรวจคำตอบ</span> \(QR = \frac{1}{5}\begin{bmatrix} 1 & -2\\ 2 & 1 \end{bmatrix}\begin{bmatrix} 5 & 5\\ 0 & 5 \end{bmatrix} = \frac{1}{5}\begin{bmatrix} 5 & -5\\ 10 & 15 \end{bmatrix} = \begin{bmatrix} 1 & -1\\ 2 & 3 \end{bmatrix} = A\) ✓ (ระวังเศษ: \(\frac{1}{\sqrt5}\cdot\sqrt5 = 1\) ทำให้คูณง่าย)</li>
+      </ol>
+    </div></details>
+  </article>
+
+  <article class="pr-card" id="p-4-2-9ข" data-pkey="pTB-4-2-9ข">
+    <div class="pr-head"><span class="pr-num">แบบฝึกหัด 4.2 ข้อ 9 (ข)</span><span class="diff">●●○</span><span class="spacer"></span>
+      <label class="pr-done"><input type="checkbox"> ทำสำเร็จแล้ว</label></div>
+    <div class="pr-body">
+      <p>จงหาการแยกตัวประกอบ QR ของเมทริกซ์ \(A = \begin{bmatrix} 1 & 2\\ 0 & 1\\ 1 & 4 \end{bmatrix}\)</p>
+      <p class="tagline">มีบทเรียนประกอบ: <a href="ch4-2.html">หน้า 4.2</a></p>
+    </div>
+    <details class="hint"><summary>คำใบ้</summary><div class="hint-body">\(\vec{a}_1 = (1,0,1)\) ยาว \(\sqrt2\) · \(\vec{a}_2\cdot\vec{q}_1 = \frac{2+4}{\sqrt2} = 3\sqrt2\)</div></details>
+    <details class="sol"><summary>แนวคิดและเฉลยแบบละเอียด</summary><div class="sol-body">
+      <p><strong>แนวคิด:</strong> เหมือน (ก) แต่หลักยาว 3 ช่อง — วินัยเดิม: ทีละหลัก บันทึก R ไปพร้อมกัน</p>
+      <ol class="steps">
+        <li><span class="step-t">หลักที่ 1</span> \(\vec{q}_1 = \frac{1}{\sqrt2}(1,0,1)\), \(R_{11} = \sqrt2\)</li>
+        <li><span class="step-t">หลักที่ 2 — ลบฉาย</span> \(\vec{a}_2\cdot\vec{q}_1 = \frac{(2)(1)+(1)(0)+(4)(1)}{\sqrt2} = \frac{6}{\sqrt2} = 3\sqrt2\) → \(R_{12} = 3\sqrt2\); \(\vec{v}_2 = \vec{a}_2 - 3\sqrt2\,\vec{q}_1 = (2,1,4) - 3(1,0,1) = (-1,1,1)\)</li>
+        <li><span class="step-t">หนึ่งหน่วย</span> \(\lVert\vec{v}_2\rVert = \sqrt3\) → \(\vec{q}_2 = \frac{1}{\sqrt3}(-1,1,1)\), \(R_{22} = \sqrt3\) → \(Q = \begin{bmatrix} \frac{1}{\sqrt2} & \frac{-1}{\sqrt3}\\ 0 & \frac{1}{\sqrt3}\\ \frac{1}{\sqrt2} & \frac{1}{\sqrt3} \end{bmatrix}\), \(R = \begin{bmatrix} \sqrt2 & 3\sqrt2\\ 0 & \sqrt3 \end{bmatrix}\)</li>
+        <li><span class="step-t">ตรวจคำตอบ</span> \(QR\): หลัก 1 = \(\sqrt2\vec{q}_1 = (1,0,1)\) ✓ หลัก 2 = \(3\sqrt2\vec{q}_1 + \sqrt3\vec{q}_2 = (3,0,3) + (-1,1,1) = (2,1,4)\) ✓ = A พอดี</li>
+      </ol>
+    </div></details>
+  </article>
+
+  <article class="pr-card" id="p-4-2-9ค" data-pkey="pTB-4-2-9ค">
+    <div class="pr-head"><span class="pr-num">แบบฝึกหัด 4.2 ข้อ 9 (ค)</span><span class="diff">●●●</span><span class="spacer"></span>
+      <label class="pr-done"><input type="checkbox"> ทำสำเร็จแล้ว</label></div>
+    <div class="pr-body">
+      <p>จงหาการแยกตัวประกอบ QR ของเมทริกซ์ \(A = \begin{bmatrix} 1 & 1\\ -2 & 1\\ 2 & 1 \end{bmatrix}\)</p>
+    </div>
+    <details class="hint"><summary>คำใบ้</summary><div class="hint-body">\(\lVert\vec{a}_1\rVert = 3\) พอดี · \(\vec{a}_2\cdot\vec{q}_1 = \frac{1-2+2}{3} = \frac{1}{3}\) — เศษส่วนมาแล้ว เก็บทีละขั้น</div></details>
+    <details class="sol"><summary>แนวคิดและเฉลยแบบละเอียด</summary><div class="sol-body">
+      <p><strong>แนวคิด:</strong> สูตรเดิม — ข้อนี้ v₂ ออกมาเป็นเศษส่วน ให้ทำงานกับตัวไม่มีเศษ (8, 11, 7) แล้วปรับตอนท้าย</p>
+      <ol class="steps">
+        <li><span class="step-t">หลักที่ 1</span> \(\vec{a}_1 = (1,-2,2)\), \(\lVert\vec{a}_1\rVert = 3\) → \(\vec{q}_1 = \frac{1}{3}(1,-2,2)\), \(R_{11} = 3\)</li>
+        <li><span class="step-t">หลักที่ 2</span> \(\vec{a}_2\cdot\vec{q}_1 = \frac{1+2+2}{3} = \frac{1}{3}\) → \(R_{12} = \frac{1}{3}\); \(\vec{v}_2 = \vec{a}_2 - \frac{1}{3}\vec{q}_1 = (1,1,1) - \frac{1}{9}(1,-2,2) = \left(\frac{8}{9}, \frac{11}{9}, \frac{7}{9}\right) = \frac{1}{9}(8,11,7)\)</li>
+        <li><span class="step-t">หนึ่งหน่วย</span> \(\lVert(8,11,7)\rVert = \sqrt{64+121+49} = \sqrt{234} = 3\sqrt{26}\) → \(\lVert\vec{v}_2\rVert = \frac{3\sqrt{26}}{9} = \frac{\sqrt{26}}{3}\) → \(R_{22} = \frac{\sqrt{26}}{3}\); \(\vec{q}_2 = \frac{1}{3\sqrt{26}}(8,11,7)\)</li>
+        <li><span class="step-t">ตรวจคำตอบ</span> หลัก 1 ของ \(QR\) = \(3\vec{q}_1 = (1,-2,2)\) ✓; หลัก 2 = \(\frac{1}{3}\cdot\frac{1}{3}(1,-2,2) + \frac{\sqrt{26}}{3}\cdot\frac{1}{3\sqrt{26}}(8,11,7) = \frac{1}{9}(1,-2,2) + \frac{1}{9}(8,11,7) = (1,1,1)\) ✓ — <strong>สรุป:</strong> \(Q = \begin{bmatrix} \frac{1}{3} & \frac{8}{3\sqrt{26}}\\ \frac{-2}{3} & \frac{11}{3\sqrt{26}}\\ \frac{2}{3} & \frac{7}{3\sqrt{26}} \end{bmatrix}\), \(R = \begin{bmatrix} 3 & \frac{1}{3}\\ 0 & \frac{\sqrt{26}}{3} \end{bmatrix}\)</li>
+      </ol>
+    </div></details>
+  </article>
+
+  <article class="pr-card" id="p-4-2-9ง" data-pkey="pTB-4-2-9ง">
+    <div class="pr-head"><span class="pr-num">แบบฝึกหัด 4.2 ข้อ 9 (ง)</span><span class="diff">●●●</span><span class="spacer"></span>
+      <label class="pr-done"><input type="checkbox"> ทำสำเร็จแล้ว</label></div>
+    <div class="pr-body">
+      <p>จงหาการแยกตัวประกอบ QR ของเมทริกซ์ \(A = \begin{bmatrix} 1 & 0 & 0\\ 1 & 1 & 0\\ 1 & 1 & 1 \end{bmatrix}\)</p>
+    </div>
+    <details class="hint"><summary>คำใบ้</summary><div class="hint-body">3 หลัก = กราม-ชมิดต์ 3 รอบ · R อ่านได้จาก \(R_{ij} = \vec{a}_j\cdot\vec{q}_i\) สำหรับ \(i \lt j\)</div></details>
+    <details class="sol"><summary>แนวคิดและเฉลยแบบละเอียด</summary><div class="sol-body">
+      <p><strong>แนวคิด:</strong> QR 3 หลัก — สังเกตว่า A เป็นเมทริกซ์สามเหลี่ยมล่าง จึงมีโครงสวยงาม แต่ทำตามกระบวนการเดิมทุกขั้น</p>
+      <ol class="steps">
+        <li><span class="step-t">หลักที่ 1</span> \(\vec{a}_1 = (1,1,1)\), \(\lVert\vec{a}_1\rVert = \sqrt3\) → \(\vec{q}_1 = \frac{1}{\sqrt3}(1,1,1)\), \(R_{11} = \sqrt3\)</li>
+        <li><span class="step-t">หลักที่ 2</span> \(\vec{a}_2\cdot\vec{q}_1 = \frac{0+1+1}{\sqrt3} = \frac{2}{\sqrt3}\) → \(R_{12} = \frac{2}{\sqrt3}\); \(\vec{v}_2 = (0,1,1) - \frac{2}{3}(1,1,1) = \frac{1}{3}(-2,1,1)\), \(\lVert\vec{v}_2\rVert = \frac{\sqrt6}{3}\) → \(\vec{q}_2 = \frac{1}{\sqrt6}(-2,1,1)\), \(R_{22} = \frac{\sqrt6}{3}\)</li>
+        <li><span class="step-t">หลักที่ 3</span> \(\vec{a}_3\cdot\vec{q}_1 = \frac{1}{\sqrt3}\) → \(R_{13} = \frac{1}{\sqrt3}\); \(\vec{a}_3\cdot\vec{q}_2 = \frac{1}{\sqrt6}\) → \(R_{23} = \frac{1}{\sqrt6}\); \(\vec{v}_3 = (0,0,1) - \frac{1}{3}(1,1,1) - \frac{1}{6}(-2,1,1) = \left(0, -\frac{1}{2}, \frac{1}{2}\right)\) → \(\vec{q}_3 = \frac{1}{\sqrt2}(0,-1,1)\), \(R_{33} = \frac{1}{\sqrt2}\)</li>
+        <li><span class="step-t">ตรวจคำตอบ</span> หลัก 3 ของ \(QR\) = \(R_{13}\vec{q}_1 + R_{23}\vec{q}_2 + R_{33}\vec{q}_3 = \frac{1}{3}(1,1,1) + \frac{1}{6}(-2,1,1) + \frac{1}{2}(0,-1,1) = \left(\frac{1}{3}-\frac{1}{3},\ \frac{1}{3}+\frac{1}{6}-\frac{1}{2},\ \frac{1}{3}+\frac{1}{6}+\frac{1}{2}\right) = (0,0,1)\) ✓ — <strong>สรุป:</strong> \(Q = \begin{bmatrix} \frac{1}{\sqrt3} & \frac{-2}{\sqrt6} & 0\\ \frac{1}{\sqrt3} & \frac{1}{\sqrt6} & \frac{-1}{\sqrt2}\\ \frac{1}{\sqrt3} & \frac{1}{\sqrt6} & \frac{1}{\sqrt2} \end{bmatrix}\), \(R = \begin{bmatrix} \sqrt3 & \frac{2}{\sqrt3} & \frac{1}{\sqrt3}\\ 0 & \frac{\sqrt6}{3} & \frac{1}{\sqrt6}\\ 0 & 0 & \frac{1}{\sqrt2} \end{bmatrix}\)</li>
+      </ol>
+    </div></details>
+  </article>
+
+  <article class="pr-card" id="p-4-2-9จ" data-pkey="pTB-4-2-9จ">
+    <div class="pr-head"><span class="pr-num">แบบฝึกหัด 4.2 ข้อ 9 (จ)</span><span class="diff">●●●</span><span class="spacer"></span>
+      <label class="pr-done"><input type="checkbox"> ทำสำเร็จแล้ว</label></div>
+    <div class="pr-body">
+      <p>จงหาการแยกตัวประกอบ QR ของเมทริกซ์ \(A = \begin{bmatrix} 1 & 0 & 2\\ 0 & 1 & 1\\ 1 & 2 & 0 \end{bmatrix}\)</p>
+    </div>
+    <details class="hint"><summary>คำใบ้</summary><div class="hint-body">หลัก 1 = (1,0,1) ยาว √2 · R₂₃ จะติดลบ (a₃ เอียงสวน q₂) — เครื่องหมายลบใน R เป็นเรื่องปรกติ</div></details>
+    <details class="sol"><summary>แนวคิดและเฉลยแบบละเอียด</summary><div class="sol-body">
+      <p><strong>แนวคิด:</strong> กระบวนการเดิม 3 รอบ — จุดใหม่: \(R_{23}\) ติดลบ ซึ่งถูกต้องตามการคำนวณ อย่าแก้เครื่องหมายเอง</p>
+      <ol class="steps">
+        <li><span class="step-t">หลักที่ 1</span> \(\vec{a}_1 = (1,0,1)\) → \(\vec{q}_1 = \frac{1}{\sqrt2}(1,0,1)\), \(R_{11} = \sqrt2\)</li>
+        <li><span class="step-t">หลักที่ 2</span> \(\vec{a}_2\cdot\vec{q}_1 = \frac{0+0+2}{\sqrt2} = \sqrt2\) → \(R_{12} = \sqrt2\); \(\vec{v}_2 = (0,1,2) - (1,0,1) = (-1,1,1)\), \(\lVert\vec{v}_2\rVert = \sqrt3\) → \(\vec{q}_2 = \frac{1}{\sqrt3}(-1,1,1)\), \(R_{22} = \sqrt3\)</li>
+        <li><span class="step-t">หลักที่ 3</span> \(\vec{a}_3\cdot\vec{q}_1 = \frac{2+0+0}{\sqrt2} = \sqrt2\) → \(R_{13} = \sqrt2\); \(\vec{a}_3\cdot\vec{q}_2 = \frac{-2+1+0}{\sqrt3} = -\frac{1}{\sqrt3}\) → \(R_{23} = -\frac{1}{\sqrt3}\); \(\vec{v}_3 = (2,1,0) - \sqrt2\,\vec{q}_1 + \frac{1}{\sqrt3}\,\vec{q}_2 = (2,1,0) - (1,0,1) + \frac{1}{3}(-1,1,1) = \left(\frac{2}{3}, \frac{4}{3}, -\frac{2}{3}\right) = \frac{2}{3}(1,2,-1)\), \(\lVert\vec{v}_3\rVert = \frac{2\sqrt6}{3}\) → \(\vec{q}_3 = \frac{1}{\sqrt6}(1,2,-1)\), \(R_{33} = \frac{2\sqrt6}{3}\)</li>
+        <li><span class="step-t">ตรวจคำตอบ</span> หลัก 3 ของ \(QR\) = \(\sqrt2\vec{q}_1 - \frac{1}{\sqrt3}\vec{q}_2 + \frac{2\sqrt6}{3}\vec{q}_3 = (1,0,1) + \frac{1}{3}(1,-1,-1) + \frac{2}{3}(1,2,-1) = \left(1+\frac{1}{3}+\frac{2}{3},\ -\frac{1}{3}+\frac{4}{3},\ 1-\frac{1}{3}-\frac{2}{3}\right) = (2,1,0)\) ✓ — <strong>สรุป:</strong> \(Q = \begin{bmatrix} \frac{1}{\sqrt2} & \frac{-1}{\sqrt3} & \frac{1}{\sqrt6}\\ 0 & \frac{1}{\sqrt3} & \frac{2}{\sqrt6}\\ \frac{1}{\sqrt2} & \frac{1}{\sqrt3} & \frac{-1}{\sqrt6} \end{bmatrix}\), \(R = \begin{bmatrix} \sqrt2 & \sqrt2 & \sqrt2\\ 0 & \sqrt3 & -\frac{1}{\sqrt3}\\ 0 & 0 & \frac{2\sqrt6}{3} \end{bmatrix}\)</li>
+      </ol>
+    </div></details>
+  </article>
+
+  <article class="pr-card" id="p-4-2-9ฉ" data-pkey="pTB-4-2-9ฉ">
+    <div class="pr-head"><span class="pr-num">แบบฝึกหัด 4.2 ข้อ 9 (ฉ)</span><span class="diff">●●●</span><span class="spacer"></span>
+      <label class="pr-done"><input type="checkbox"> ทำสำเร็จแล้ว</label></div>
+    <div class="pr-body">
+      <p>จงหาการแยกตัวประกอบ QR ของเมทริกซ์ \(A = \begin{bmatrix} 1 & 0 & 1\\ -1 & 1 & 1\\ 1 & 0 & 1\\ 1 & 1 & 1 \end{bmatrix}\)</p>
+    </div>
+    <details class="hint"><summary>คำใบ้</summary><div class="hint-body">\(\lVert\vec{a}_1\rVert = 2\) พอดี · \(\vec{a}_2\cdot\vec{q}_1 = 0\) (ตั้งฉากอยู่แล้ว) — จะได้กราม-ชมิดต์สบาย ๆ 2 รอบ</div></details>
+    <details class="sol"><summary>แนวคิดและเฉลยแบบละเอียด</summary><div class="sol-body">
+      <p><strong>แนวคิด:</strong> เมทริกซ์ 4×3 — กระบวนการเดิมทำงานกับหลัก ไม่สนจำนวนแถว</p>
+      <ol class="steps">
+        <li><span class="step-t">หลักที่ 1</span> \(\vec{a}_1 = (1,-1,1,1)\), \(\lVert\vec{a}_1\rVert = 2\) → \(\vec{q}_1 = \frac{1}{2}(1,-1,1,1)\), \(R_{11} = 2\)</li>
+        <li><span class="step-t">หลักที่ 2</span> \(\vec{a}_2\cdot\vec{q}_1 = \frac{0-1+0+1}{2} = 0\) → \(R_{12} = 0\), \(\vec{v}_2 = \vec{a}_2 = (0,1,0,1)\), \(\lVert\vec{v}_2\rVert = \sqrt2\) → \(\vec{q}_2 = \frac{1}{\sqrt2}(0,1,0,1)\), \(R_{22} = \sqrt2\)</li>
+        <li><span class="step-t">หลักที่ 3</span> \(\vec{a}_3\cdot\vec{q}_1 = \frac{1-1+1+1}{2} = 1\) (ระวัง: \(\vec{a}_3\cdot\vec{a}_1 = 2\) แต่ต้องหารด้วย \(\lVert\vec{a}_1\rVert = 2\)) → \(R_{13} = 1\); \(\vec{a}_3\cdot\vec{q}_2 = \frac{0+1+0+1}{\sqrt2} = \sqrt2\) → \(R_{23} = \sqrt2\); \(\vec{v}_3 = (1,1,1,1) - \frac{1}{2}(1,-1,1,1) - (0,1,0,1) = \left(\frac{1}{2}, \frac{1}{2}, \frac{1}{2}, -\frac{1}{2}\right) = \frac{1}{2}(1,1,1,-1)\), \(\lVert\vec{v}_3\rVert = 1\) → \(\vec{q}_3 = \frac{1}{2}(1,1,1,-1)\), \(R_{33} = 1\)</li>
+        <li><span class="step-t">ตรวจคำตอบ</span> หลัก 3 ของ \(QR\) = \(\vec{q}_1 + \sqrt2\vec{q}_2 + \vec{q}_3 = \left(\frac{1}{2},-\frac{1}{2},\frac{1}{2},\frac{1}{2}\right) + (0,1,0,1) + \left(\frac{1}{2},\frac{1}{2},\frac{1}{2},-\frac{1}{2}\right) = (1,1,1,1)\) ✓ และ \(\vec{q}_1\cdot\vec{q}_3 = \frac{1-1+1-1}{4} = 0\) ✓ — <strong>สรุป:</strong> \(Q = \begin{bmatrix} \frac{1}{2} & 0 & \frac{1}{2}\\ \frac{-1}{2} & \frac{1}{\sqrt2} & \frac{1}{2}\\ \frac{1}{2} & 0 & \frac{1}{2}\\ \frac{1}{2} & \frac{1}{\sqrt2} & \frac{-1}{2} \end{bmatrix}\), \(R = \begin{bmatrix} 2 & 0 & 1\\ 0 & \sqrt2 & \sqrt2\\ 0 & 0 & 1 \end{bmatrix}\)</li>
+      </ol>
+    </div></details>
+  </article>
+
+  <article class="pr-card" id="p-4-2-10ก" data-pkey="pTB-4-2-10ก">
+    <div class="pr-head"><span class="pr-num">แบบฝึกหัด 4.2 ข้อ 10 (ก)</span><span class="diff">●●○</span><span class="spacer"></span>
+      <label class="pr-done"><input type="checkbox"> ทำสำเร็จแล้ว</label></div>
+    <div class="pr-body">
+      <p>ให้ \(H\) เป็นปริภูมิย่อยของ \(\mathbb{R}^n\) จงแสดงว่า \(H \cap H^{\perp} = \{\vec{0}\}\)</p>
+    </div>
+    <details class="hint"><summary>คำใบ้</summary><div class="hint-body">หยิบเวกเตอร์ที่อยู่ทั้งสองฝั่งพร้อมกัน แล้วจุดมันกับตัวเอง — ผลจะบังคับมันเป็นศูนย์</div></details>
+    <details class="sol"><summary>แนวคิดและเฉลยแบบละเอียด</summary><div class="sol-body">
+      <p><strong>แนวคิด:</strong> พิสูจน์เซตเท่ากันต้องสองทิศ: \(\{\vec{0}\} \subseteq H\cap H^{\perp}\) ง่าย ส่วนทิศตรงข้ามใช้เทคนิค "จุดกับตัวเอง"</p>
+      <ol class="steps">
+        <li><span class="step-t">ทิศ ⊆</span> \(\vec{0}\) อยู่ในทุกปริภูมิย่อย รวมทั้ง H และ H⊥ จึง \(\vec{0} \in H\cap H^{\perp}\) ✓</li>
+        <li><span class="step-t">ทิศ ⊇</span> ให้ \(\vec{x} \in H\cap H^{\perp}\) — เพราะ \(\vec{x}\in H^{\perp}\) มันตั้งฉากกับ<em>ทุก</em>เวกเตอร์ใน H และเพราะ \(\vec{x}\in H\) ด้วย มันต้องตั้งฉากกับตัวเอง: \(\vec{x}\cdot\vec{x} = 0\)</li>
+        <li><span class="step-t">สรุป</span> \(\vec{x}\cdot\vec{x} = \lVert\vec{x}\rVert^2 = 0\) เกิดขึ้นได้กับ \(\vec{x} = \vec{0}\) เท่านั้น (สมบัติความยาว) → \(\vec{x} = \vec{0}\) ดังนั้น \(H\cap H^{\perp} = \{\vec{0}\}\) ∎</li>
+      </ol>
+    </div></details>
+  </article>
+
+  <article class="pr-card" id="p-4-2-10ข" data-pkey="pTB-4-2-10ข">
+    <div class="pr-head"><span class="pr-num">แบบฝึกหัด 4.2 ข้อ 10 (ข)</span><span class="diff">●●●</span><span class="spacer"></span>
+      <label class="pr-done"><input type="checkbox"> ทำสำเร็จแล้ว</label></div>
+    <div class="pr-body">
+      <p>จงแสดงว่า \(\left(H^{\perp}\right)^{\perp} = H\)</p>
+    </div>
+    <details class="hint"><summary>คำใบ้</summary><div class="hint-body">สองทิศเหมือนเดิม ทิศยากคือ \(\subseteq\): ใช้การแยกเชิงตั้งฉาก \(\vec{x} = \hat{\vec{x}} + \vec{z}\) กับปริภูมิ H แล้วเทียบกับสมมติฐาน \(\vec{x}\in(H^{\perp})^{\perp}\)</div></details>
+    <details class="sol"><summary>แนวคิดและเฉลยแบบละเอียด</summary><div class="sol-body">
+      <p><strong>แนวคิด:</strong> "ตั้งฉากสองรอบได้ตัวเดิมกลับ" — ทิศ \(H \subseteq (H^{\perp})^{\perp}\) ง่าย ทิศตรงข้ามใช้ทฤษฎีบทการแยกเชิงตั้งฉากเป็นกุญแจ</p>
+      <ol class="steps">
+        <li><span class="step-t">ทิศ H ⊆ (H⊥)⊥</span> ให้ \(\vec{h}\in H\) พิจารณา \(\vec{w}\in H^{\perp}\) ใด ๆ: \(\vec{h}\cdot\vec{w} = \vec{w}\cdot\vec{h} = 0\) (เพราะ w ตั้งฉากกับทุกตัวใน H) → \(\vec{h}\) ตั้งฉากกับทุกตัวใน H⊥ → \(\vec{h}\in(H^{\perp})^{\perp}\) ✓</li>
+        <li><span class="step-t">ทิศ ⊆ เตรียมเครื่องมือ</span> ให้ \(\vec{x}\in(H^{\perp})^{\perp}\) ใช้การแยกเชิงตั้งฉากกับ H: \(\vec{x} = \hat{\vec{x}} + \vec{z}\) โดย \(\hat{\vec{x}}\in H\), \(\vec{z}\in H^{\perp}\)</li>
+        <li><span class="step-t">จบทิศ ⊆</span> \(\vec{x} - \hat{\vec{x}} = \vec{z}\in H^{\perp}\) แต่ \(\vec{x}, \hat{\vec{x}}\in(H^{\perp})^{\perp}\) (ตัวแรกสมมติ ตัวหลังเพราะอยู่ใน H จากทิศแรก) และ \((H^{\perp})^{\perp}\) เป็นปริภูมิย่อย (ปิดการลบ) → \(\vec{z}\in(H^{\perp})^{\perp}\) แปลว่า \(\vec{z}\) ตั้งฉากกับทุกตัวใน H⊥ รวมถึงตัวมันเอง \(\vec{z}\cdot\vec{z} = 0\) → \(\vec{z} = \vec{0}\) → \(\vec{x} = \hat{\vec{x}}\in H\) ✓</li>
+        <li><span class="step-t">สรุป</span> จริงสองทิศ → \((H^{\perp})^{\perp} = H\) ∎</li>
+      </ol>
+    </div></details>
+  </article>
+
+  <article class="pr-card" id="p-4-2-11" data-pkey="pTB-4-2-11">
+    <div class="pr-head"><span class="pr-num">แบบฝึกหัด 4.2 ข้อ 11</span><span class="diff">●●○</span><span class="spacer"></span>
+      <label class="pr-done"><input type="checkbox"> ทำสำเร็จแล้ว</label></div>
+    <div class="pr-body">
+      <p>ให้ \(\{\vec{u}_1, \vec{u}_2, \ldots, \vec{u}_p\}\) เป็นฐานหลักเชิงตั้งฉากของปริภูมิย่อย \(H\) ของ \(\mathbb{R}^n\) จงแสดงว่าฟังก์ชัน \(T:\mathbb{R}^n\to H\) ซึ่งกำหนดโดย \(T(\vec{x}) = \mathrm{proj}_H\vec{x}\) สำหรับทุกๆ \(\vec{x}\in\mathbb{R}^n\) เป็นการแปลงเชิงเส้น</p>
+    </div>
+    <details class="hint"><summary>คำใบ้</summary><div class="hint-body">พิสูจน์สองสมบัติ: \(T(\vec{u}+\vec{v}) = T(\vec{u})+T(\vec{v})\) และ \(T(c\vec{u}) = cT(\vec{u})\) — ใช้สูตรฉายกับฐานหลักเชิงตั้งฉากแล้วกระจาย</div></details>
+    <details class="sol"><summary>แนวคิดและเฉลยแบบละเอียด</summary><div class="sol-body">
+      <p><strong>แนวคิด:</strong> เขียน proj ในรูปสูตรผลคูณจุด แล้วใช้สมบัติการกระจายของผลคูณจุด (เชิงเส้นในแต่ละตัวตัวถูกกระทำ)</p>
+      <ol class="steps">
+        <li><span class="step-t">เขียนสูตร</span> \(T(\vec{x}) = \sum_{i=1}^{p}\frac{\vec{x}\cdot\vec{u}_i}{\lVert\vec{u}_i\rVert^2}\vec{u}_i\) — สูตรนี้ใช้ได้เพราะฐานหลักเชิงตั้งฉาก</li>
+        <li><span class="step-t">เช็กเชิงเส้น (บวก)</span> \(T(\vec{u}+\vec{v}) = \sum\frac{(\vec{u}+\vec{v})\cdot\vec{u}_i}{\lVert\vec{u}_i\rVert^2}\vec{u}_i = \sum\frac{(\vec{u}\cdot\vec{u}_i) + (\vec{v}\cdot\vec{u}_i)}{\lVert\vec{u}_i\rVert^2}\vec{u}_i = T(\vec{u}) + T(\vec{v})\) ✓ (กระจายผลคูณจุดที่ตัวเศษ)</li>
+        <li><span class="step-t">เช็กเชิงเส้น (สเกลาร์)</span> \(T(c\vec{u}) = \sum\frac{(c\vec{u})\cdot\vec{u}_i}{\lVert\vec{u}_i\rVert^2}\vec{u}_i = c\sum\frac{\vec{u}\cdot\vec{u}_i}{\lVert\vec{u}_i\rVert^2}\vec{u}_i = cT(\vec{u})\) ✓ (สเกลาร์ดึงออกจากผลคูณจุดได้)</li>
+        <li><span class="step-t">สรุป</span> ครบสองสมบัติ → \(T = \mathrm{proj}_H\) เป็นการแปลงเชิงเส้น ∎ (ทำไมต้องฐานหลักเชิงตั้งฉาก: สูตรขั้น 1 ใช้ได้เฉพาะฐานหลักแบบนี้ ถ้าฐานหลักทั่วไปต้องแก้ระบบแล้วพิสูจน์ยากกว่า)</li>
+      </ol>
+    </div></details>
+  </article>
+
+  <article class="pr-card" id="p-4-2-12ก" data-pkey="pTB-4-2-12ก">
+    <div class="pr-head"><span class="pr-num">แบบฝึกหัด 4.2 ข้อ 12 (ก)</span><span class="diff">●●○</span><span class="spacer"></span>
+      <label class="pr-done"><input type="checkbox"> ทำสำเร็จแล้ว</label></div>
+    <div class="pr-body">
+      <p>ให้ \(\{\vec{u}_1, \vec{u}_2, \ldots, \vec{u}_p\}\) เป็นฐานหลักเชิงตั้งฉาก<em>ปรกติ</em>ของปริภูมิย่อย \(H\) ของ \(\mathbb{R}^n\) และ \(\vec{y}\) เป็นเวกเตอร์ใน \(\mathbb{R}^n\) จงพิสูจน์ว่า \(\mathrm{proj}_H\vec{y} = (\vec{y}\cdot\vec{u}_1)\vec{u}_1 + (\vec{y}\cdot\vec{u}_2)\vec{u}_2 + \cdots + (\vec{y}\cdot\vec{u}_p)\vec{u}_p\)</p>
+    </div>
+    <details class="hint"><summary>คำใบ้</summary><div class="hint-body">หนึ่งหน่วยทำให้ \(\lVert\vec{u}_i\rVert^2 = 1\) — สูตรทั่วไป \(\frac{\vec{y}\cdot\vec{u}_i}{\lVert\vec{u}_i\rVert^2}\vec{u}_i\) จึงยุบเหลือแค่ \((\vec{y}\cdot\vec{u}_i)\vec{u}_i\)</div></details>
+    <details class="sol"><summary>แนวคิดและเฉลยแบบละเอียด</summary><div class="sol-body">
+      <p><strong>แนวคิด:</strong> นี่คือกรณีพิเศษของสูตรฉายบนฐานหลักเชิงตั้งฉาก เมื่อตัวหารหายไปเพราะความยาวเท่ากับ 1</p>
+      <ol class="steps">
+        <li><span class="step-t">สูตรทั่วไป</span> บนฐานหลักเชิงตั้งฉาก \(\mathrm{proj}_H\vec{y} = \sum_i\frac{\vec{y}\cdot\vec{u}_i}{\lVert\vec{u}_i\rVert^2}\vec{u}_i\) (ที่มา: เขียน \(\hat{\vec{y}} = \sum c_i\vec{u}_i\) จุดด้วย \(\vec{u}_j\) พจน์ไขว้หาย เหลือ \(c_j\lVert\vec{u}_j\rVert^2 = \vec{y}\cdot\vec{u}_j\))</li>
+        <li><span class="step-t">แทนสมบัติหนึ่งหน่วย</span> ฐานหลักเชิงตั้งฉาก<em>ปรกติ</em> = ตั้งฉาก + ยาว 1 → \(\lVert\vec{u}_i\rVert^2 = 1\) ทุกตัว → ตัวส่วนเป็น 1 หายไปทั้งหมด</li>
+        <li><span class="step-t">สรุป</span> \(\mathrm{proj}_H\vec{y} = \sum_{i=1}^{p}(\vec{y}\cdot\vec{u}_i)\vec{u}_i\) ตามต้องการ ∎</li>
+      </ol>
+    </div></details>
+  </article>
+
+  <article class="pr-card" id="p-4-2-12ข" data-pkey="pTB-4-2-12ข">
+    <div class="pr-head"><span class="pr-num">แบบฝึกหัด 4.2 ข้อ 12 (ข)</span><span class="diff">●●○</span><span class="spacer"></span>
+      <label class="pr-done"><input type="checkbox"> ทำสำเร็จแล้ว</label></div>
+    <div class="pr-body">
+      <p>จงพิสูจน์ว่า ถ้า \(U = \begin{bmatrix} \vec{u}_1 & \vec{u}_2 & \ldots & \vec{u}_p \end{bmatrix}\) แล้ว \(\mathrm{proj}_H\vec{y} = (UU^T)\vec{y}\)</p>
+    </div>
+    <details class="hint"><summary>คำใบ้</summary><div class="hint-body">คูณ \(U\,(U^T\vec{y})\) ออกเป็นผลรวมของหลักคูณสเกลาร์ — สเกลาร์ที่ได้คือ \(\vec{y}\cdot\vec{u}_i\) จากข้อ (ก)</div></details>
+    <details class="sol"><summary>แนวคิดและเฉลยแบบละเอียด</summary><div class="sol-body">
+      <p><strong>แนวคิด:</strong> แปลงภาษาเมทริกซ์ ↔ ภาษาเวกเตอร์ — \(U^T\vec{y}\) คือเวกเตอร์ของผลคูณจุดทั้งหมด แล้ว U คูณกลับ = ผลรวมหลักคูณสเกลาร์</p>
+      <ol class="steps">
+        <li><span class="step-t">หา Uᵀy ก่อน</span> แถวที่ \(i\) ของ \(U^T\) คือ \(\vec{u}_i^T\) → ช่องที่ \(i\) ของ \(U^T\vec{y}\) คือ \(\vec{u}_i\cdot\vec{y} = \vec{y}\cdot\vec{u}_i\)</li>
+        <li><span class="step-t">คูณ U กลับ</span> \(U(U^T\vec{y}) = \sum_{i=1}^{p}(\vec{y}\cdot\vec{u}_i)\,\)หลักที่ \(i\) ของ \(U\) = \(\sum_{i=1}^{p}(\vec{y}\cdot\vec{u}_i)\vec{u}_i\) — ทำไม: คูณเมทริกซ์ด้วยเวกเตอร์ = ผสมเชิงเส้นของหลักด้วยช่องของเวกเตอร์</li>
+        <li><span class="step-t">เชื่อมข้อ (ก)</span> จาก (ก) ผลรวมนี้คือ \(\mathrm{proj}_H\vec{y}\) พอดี → \(\mathrm{proj}_H\vec{y} = (UU^T)\vec{y}\) ∎ (ผลพลอยได้: \(UU^T\) คือเมทริกซ์ของการฉายลง H — ตรงกับที่คำนวณในข้อ 6)</li>
+      </ol>
+    </div></details>
+  </article>
+
+</section>
+
+
+
+
 
 
   </div></main>
