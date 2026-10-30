@@ -112,6 +112,12 @@ MATH_CHECKS = {
     "pTB-4-5-4",
     "pTB-4-5-5ก", "pTB-4-5-5ข", "pTB-4-5-5ค",
     "pTB-4-5-6ก", "pTB-4-5-6ข", "pTB-4-5-6ค", "pTB-4-5-6ง", "pTB-4-5-6จ", "pTB-4-5-6ฉ",
+    # แบบฝึกหัด 3.1
+    "pTB-3-1-1ก", "pTB-3-1-1ข", "pTB-3-1-1ค", "pTB-3-1-1ง",
+    "pTB-3-1-2", "pTB-3-1-3", "pTB-3-1-4", "pTB-3-1-5",
+    "pTB-3-1-6ก", "pTB-3-1-6ข",
+    "pTB-3-1-7ก", "pTB-3-1-7ข", "pTB-3-1-7ค",
+    "pTB-3-1-8", "pTB-3-1-9", "pTB-3-1-10", "pTB-3-1-11", "pTB-3-1-12",
 }
 
 def math_checks_for(pkeys):
@@ -378,6 +384,85 @@ for _ in range(3):
     x48, y48 = rng44.normal(size=3), rng44.normal(size=3)
     _ok48 &= np.isclose((As @ x48) @ y48, x48 @ (As @ y48))
 check("4.4 ข8 (Ax)·y = x·(Ay) สำหรับ A สมมาตร (สุ่ม 3 ชุด)", _ok48)
+
+# ---------------- แบบฝึกหัด 3.1 ----------------
+F31 = lambda v: [float(x) for x in v]
+# ข้อ 1
+coords31 = {
+    "ก": (((1, -4), (-2, 7)), (-3, 7), (7, 5)),
+    "ข": (((2, 1), (-3, 4)), (3, -5), (-3/11, -13/11)),
+    "ง": (((1, 5, -3), (3, 7, -5)), (-2, 0, 1), (7/4, -5/4)),
+}
+for tag, (basis, x, exp) in coords31.items():
+    B = np.column_stack(basis).astype(float)
+    c = np.linalg.solve(B, np.array(x, float)) if len(basis[0]) == len(basis) else np.linalg.lstsq(B, np.array(x, float), rcond=None)[0]
+    check(f"3.1 ข1{tag} [x]B = {exp}", np.allclose(c, exp))
+Bk = np.column_stack([(3., 6, 2), (-1., 0, 1)])
+c = np.linalg.lstsq(Bk, np.array([3., 12, 7]), rcond=None)[0]
+check("3.1 ข1ค [x]B = (2, 3)", np.allclose(c, [2, 3]) and np.allclose(Bk @ c, [3, 12, 7]))
+# ข้อ 2
+P2 = np.array([[1., 0, -1], [2, 1, 1], [0, 0, 3]])
+check("3.1 ข2 det P = 3, P⁻¹v = (1,0,1)",
+      np.isclose(np.linalg.det(P2), 3) and np.allclose(np.linalg.solve(P2, np.array([0., 3, 3])), [1, 0, 1]))
+# ข้อ 3
+P3 = np.array([[0., -6], [4, -1]])
+check("3.1 ข3 P=[0 −6;4 −1], [x]C = (−6,11)", np.allclose(P3 @ np.array([3., 1]), [-6, 11]))
+# ข้อ 4
+M4 = np.array([[2., 0, -3], [-1, 3, 2], [1, 1, 0]])
+Pinv = np.linalg.inv(M4)
+check("3.1 ข4 P_{B←C} + [w1−2w2+2w3]B = (11/4, −3/4, 3/2)",
+      np.allclose(Pinv, [[-1/4, -3/8, 9/8], [1/4, 3/8, -1/8], [-1/2, -1/4, 3/4]])
+      and np.allclose(Pinv @ np.array([1., -2, 2]), [11/4, -3/4, 3/2]))
+# ข้อ 6
+T6 = lambda x: np.array([x[0] + 2*x[1], 2*x[0] - 3*x[1]], float)
+c1 = np.linalg.solve(np.column_stack([(2., 1), (-1., 0)]), T6((1., 0)))
+c2 = np.linalg.solve(np.column_stack([(2., 1), (-1., 0)]), T6((0., 1)))
+check("3.1 ข6ก [T] = [[2,−3],[3,−8]]", np.allclose(np.column_stack([c1, c2]), [[2, -3], [3, -8]]))
+c1 = np.linalg.solve(np.column_stack([(1., 1), (0., 2)]), T6((1., 1)))
+c2 = np.linalg.solve(np.column_stack([(1., 1), (0., 2)]), T6((-2., 3)))
+check("3.1 ข6ข [T] = [[3,4],[−2,−17/2]]", np.allclose(np.column_stack([c1, c2]), [[3, 4], [-2, -8.5]]))
+# ข้อ 7
+sets731 = {
+    "ก": (((7, 5), (-3, -1)), ((1, -5), (-2, 2)), [[-3, 1], [-5, 2]], [[-2, 1], [-5, 3]]),
+    "ข": (((-1, 8), (1, -5)), ((1, 4), (1, 1)), [[3, -2], [-4, 3]], [[3, 2], [4, 3]]),
+    "ค": (((-6, -1), (2, 0)), ((2, -1), (6, -2)), [[9, -2], [-4, 1]], [[1, 2], [4, 9]]),
+}
+for tag, (vb, wb, eCB, eBC) in sets731.items():
+    V = np.column_stack(vb).astype(float); W = np.column_stack(wb).astype(float)
+    PCB = np.linalg.solve(W, V); PBC = np.linalg.solve(V, W)
+    check(f"3.1 ข7{tag} B→C และ C→B ตรง", np.allclose(PCB, eCB) and np.allclose(PBC, eBC) and np.allclose(PCB @ PBC, np.eye(2)))
+# ข้อ 9
+TB9 = np.array([[0., 3, 1], [1, 1, 2], [1, 0, -1]])
+check("3.1 ข9 [T(x)]B = (3,−3,4)", np.allclose(TB9 @ np.array([1., 2, -3]), [3, -3, 4]))
+# ข้อ 10
+A10 = np.array([[2., -1, 0], [1, 1, 1], [0, 1, -1]])
+P10 = np.column_stack([(2., 1, 3), (1., 0, 1), (-1., 1, 1)])
+TB10 = np.linalg.inv(P10) @ A10 @ P10
+x31b = np.linalg.solve(P10, np.array([-1., 4, 0]))
+check("3.1 ข10 [T]B + [x]B = (7,−18,−3) + [T(x)]B = (−4,9,7)",
+      np.allclose(TB10, [[17, 7, -1], [-42, -17, 1], [-11, -5, 2]])
+      and np.allclose(x31b, [7, -18, -3]) and np.allclose(TB10 @ x31b, [-4, 9, 7]))
+# ข้อ 11
+A11 = np.array([[1., 0, 1, -1], [2, 0, -1, 0], [1, 2, 1, 1], [0, 0, 1, -1]])
+P11 = np.column_stack([(-1., 1, -1, 1), (2., 1, 0, 1), (1., 0, 0, 2), (0., 0, 0, 1)])
+TB11 = np.linalg.inv(P11) @ A11 @ P11
+x31c = np.linalg.solve(P11, np.array([2., -1, 2, 3]))
+check("3.1 ข11 [T]B + [x]B = (−2,1,−2,8) + [T(x)]B = (−5,7,−18,33)",
+      np.allclose(TB11, [[-1, -5, -3, -1], [0, 9, 5, 1], [-4, -22, -14, -4], [7, 39, 24, 7]])
+      and np.allclose(x31c, [-2, 1, -2, 8]) and np.allclose(TB11 @ x31c, [-5, 7, -18, 33]))
+# ข้อ 12
+A12 = np.array([[1., 1, 3], [2, -1, 1], [1, 2, 0]])
+Pb1 = np.column_stack([(1., 1, 1), (1., 0, 1), (-1., 1, 0)])
+Pb2 = np.column_stack([(1., 2, 1), (-1., 1, 2), (1., 2, 3)])
+TB1 = np.linalg.inv(Pb1) @ A12 @ Pb1; TB2 = np.linalg.inv(Pb2) @ A12 @ Pb2
+xb1 = np.linalg.solve(Pb1, np.array([1., 2, 2])); xb2 = np.linalg.solve(Pb2, np.array([1., 2, 2]))
+check("3.1 ข12 [T]B1, [T]B2, พิกัด, P_{B1←B2}, [T]_{B2←B1}",
+      np.allclose(TB1, [[4, 6, -4], [-1, -5, 5], [-2, -3, 1]])
+      and np.allclose(TB2, [[-8/3, -7/3, -2], [-11/3, -13/3, -7], [5, 4, 7]])
+      and np.allclose(xb1, [1, 1, 1]) and np.allclose(xb2, [.5, 0, .5])
+      and np.allclose(TB1 @ xb1, [6, -1, -4]) and np.allclose(TB2 @ xb2, [-7/3, -16/3, 6])
+      and np.allclose(np.linalg.inv(Pb1) @ Pb2, [[2, -2, 0], [-1, 4, 3], [0, 3, 2]])
+      and np.allclose(np.linalg.inv(Pb2) @ A12 @ Pb1, [[-2/3, 4/3, -3], [-8/3, -5/3, -1], [3, 1, 2]]))
 
 # ---------------- แบบฝึกหัด 4.5 ----------------
 check("4.5 ข1ก xᵀAx = 5x₁²−x₂²+x₁x₂ (ตรวจ 2 จุด)",
