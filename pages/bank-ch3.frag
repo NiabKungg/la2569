@@ -24,9 +24,9 @@ tts: 1
 <table class="tbl">
   <tr><th>ชุด</th><th>เลขข้อ</th><th>ข้อย่อย</th><th>การ์ดทั้งหมด</th><th>คำตอบท้ายบทตำรา</th></tr>
   <tr><td>แบบฝึกหัด 3.1</td><td>1–12</td><td>1:กขคง · 6:กข · 7:กขค</td><td>18</td><td>ครบ 1–12</td></tr>
-  <tr><td>แบบฝึกหัด 3.2</td><td>1–12</td><td>1,2:กข · 3:ก–ฉ · 4:ก–ญ (10) · 5:กขคง · 6:กข · 12:กขค</td><td>34</td><td>ข้อ 1–6 · <strong>ข้อ 7 คำตอบในตำราถูกตัดค้างท้ายหน้า 92 พิมพ์ไม่ครบ</strong> · 8–12 พิสูจน์</td></tr>
+  <tr><td>แบบฝึกหัด 3.2</td><td>1–12</td><td>1,2:กข · 3:ก–ฉ · 4:ก–ฐ (13 รวม ฎ ฏ ฐ) · 5:กขคง · 6:กข · 12:กขค</td><td>37</td><td>ข้อ 1–6 · <strong>ข้อ 7 คำตอบในตำราถูกตัดค้างท้ายหน้า 92 พิมพ์ไม่ครบ</strong> · 8–12 พิสูจน์</td></tr>
   <tr><td>แบบฝึกหัด 3.3</td><td>1–2</td><td>1:กขคง · 2:กข</td><td>6</td><td>ครบ 1–2</td></tr>
-  <tr><td><strong>รวม</strong></td><td><strong>26 ข้อ</strong></td><td></td><td><strong>58 การ์ด</strong></td><td></td></tr>
+  <tr><td><strong>รวม</strong></td><td><strong>26 ข้อ</strong></td><td></td><td><strong>61 การ์ด</strong></td><td></td></tr>
 </table>
 
 <div class="box-warn">
@@ -34,6 +34,7 @@ tts: 1
   <ul>
     <li>คำตอบแบบฝึกหัด 3.2 ข้อ 7: ตำราพิมพ์คำตอบค้างท้ายหน้า 92 แล้วถูกตัด (หน้าถัดไปขึ้นบท 4 เลย) — การ์ดของคลังคำนวณเฉลยให้ครบ พร้อมกล่องหมายเหตุ</li>
     <li>แบบฝึกหัด 3.2 ข้อ 3 (ข): คำตอบท้ายบทพิมพ์ฐานหลัก (−1, 1, 2) ที่ถูกตามการคำนวณคือ (1, 1, 2) — การ์ดใช้ค่าที่คำนวณถูก</li>
+    <li>คำตอบแบบฝึกหัด 3.3 ข้อ 2 (ข): ตำราพิมพ์เวกเตอร์ลักษณะเฉพาะของ λ = 3 เป็น (0, 1, 3) แต่ที่ตรงตามการคำนวณคือ (0, 1, 5) — การ์ดใช้ค่าที่ตรวจแล้ว (ค่า C₁, C₂, C₃ ตามท้ายบทมาจากเวกเตอร์ที่พิมพ์ผิดนั้น คลังจึงคำนวณค่าคงตัวใหม่ให้)</li>
   </ul>
 </div>
 
@@ -392,6 +393,794 @@ tts: 1
         <li><span class="step-t">เมทริกซ์เปลี่ยนพิกัด B2→B1</span> \(P_{B_1\leftarrow B_2} = P_1^{-1}P_2 = \begin{bmatrix} 2 & -2 & 0\\ -1 & 4 & 3\\ 0 & 3 & 2 \end{bmatrix}\) ตรวจ: คูณด้วย \([\vec{x}]_{B_2} = (\frac12, 0, \frac12)\): \((1-\frac{0}{1}, -\frac12+\frac32, \frac22) = (1, 1, 1) = [\vec{x}]_{B_1}\) ✓</li>
         <li><span class="step-t">[T] สัมพัทธ์กับ B1 และ B2</span> \([T]_{B_2\leftarrow B_1} = P_2^{-1}AP_1 = \begin{bmatrix} -\frac{2}{3} & \frac{4}{3} & -3\\ -\frac{8}{3} & -\frac{5}{3} & -1\\ 3 & 1 & 2 \end{bmatrix}\)</li>
         <li><span class="step-t">ตรวจคำตอบ</span> ทุกตัวเทียบคำตอบท้ายบทแล้ว: \([T]_{B_1}, [T]_{B_2}, [\vec{x}]_{B_1} = (1,1,1), [\vec{x}]_{B_2} = (\frac12, 0, \frac12), [T(\vec{x})]_{B_1} = (6,-1,-4), [T(\vec{x})]_{B_2} = (-\frac73, -\frac{16}{3}, 6), P_{B_1\leftarrow B_2}\) ตรงทั้งหมด ✓ — หมายเหตุ: ข้อนี้ต้องอ่านเวกเตอร์ที่ 3 ของ B2 จากตำราให้ครบ: คือ \((1,2,3)\)</li>
+      </ol>
+    </div></details>
+  </article>
+
+</section>
+
+<section class="block" id="set-3-2">
+  <h2>แบบฝึกหัด 3.2 — ค่าลักษณะเฉพาะ เวกเตอร์ลักษณะเฉพาะ และการแปลงเป็นทแยงมุม</h2>
+  <p class="page-sub">โจทย์คำต่อคำจากตำรา · ข้อ 4 มี 13 เมทริกซ์ (ก–ฐ) — <strong>หัวใจของแนวข้อสอบ ⑤</strong> · คำตอบข้อ 7 ของตำราถูกตัดค้างท้ายหน้า 92 (การ์ดเฉลยคำนวณเองครบ)</p>
+  <table class="tbl">
+    <tr><th>ข้อ</th><th>เนื้อหาสั้น</th><th>การ์ด</th></tr>
+    <tr><td>1</td><td>ตรวจว่า λ เป็นค่าลักษณะเฉพาะหรือไม่</td><td><a href="#p-3-2-1ก">ก</a> <a href="#p-3-2-1ข">ข</a></td></tr>
+    <tr><td>2</td><td>ตรวจเวกเตอร์ลักษณะเฉพาะ + หา λ</td><td><a href="#p-3-2-2ก">ก</a> <a href="#p-3-2-2ข">ข</a></td></tr>
+    <tr><td>3</td><td>ฐานหลักของปริภูมิลักษณะเฉพาะ (λ ให้มา)</td><td><a href="#p-3-2-3ก">ก</a> <a href="#p-3-2-3ข">ข</a> <a href="#p-3-2-3ค">ค</a> <a href="#p-3-2-3ง">ง</a> <a href="#p-3-2-3จ">จ</a> <a href="#p-3-2-3ฉ">ฉ</a></td></tr>
+    <tr><td>4</td><td>สมการลักษณะเฉพาะ + λ + ฐานหลัก + ทแยงมุมได้ไหม (13 เมทริกซ์ รวม 4×4 และ 5×5)</td><td><a href="#p-3-2-4ก">ก</a> <a href="#p-3-2-4ข">ข</a> <a href="#p-3-2-4ค">ค</a> <a href="#p-3-2-4ง">ง</a> <a href="#p-3-2-4จ">จ</a> <a href="#p-3-2-4ฉ">ฉ</a> <a href="#p-3-2-4ช">ช</a> <a href="#p-3-2-4ซ">ซ</a> <a href="#p-3-2-4ฌ">ฌ</a> <a href="#p-3-2-4ญ">ญ</a> <a href="#p-3-2-4ฎ">ฎ</a> <a href="#p-3-2-4ฏ">ฏ</a> <a href="#p-3-2-4ฐ">ฐ</a></td></tr>
+    <tr><td>5</td><td>ฐานหลัก B′ ที่ทำให้ [T]B′ ทแยงมุม</td><td><a href="#p-3-2-5ก">ก</a> <a href="#p-3-2-5ข">ข</a> <a href="#p-3-2-5ค">ค</a> <a href="#p-3-2-5ง">ง</a></td></tr>
+    <tr><td>6</td><td>หา h ที่คุมมิติของปริภูมิลักษณะเฉพาะ</td><td><a href="#p-3-2-6ก">ก</a> <a href="#p-3-2-6ข">ข</a></td></tr>
+    <tr><td>7</td><td>4×4: ทแยงมุมได้จาก nullity หรือไม่</td><td><a href="#p-3-2-7">ข้อ 7</a></td></tr>
+    <tr><td>8–11</td><td>พิสูจน์: คล้ายของ Aᵀ, ผกผันทแยงมุมได้, เอกฐาน⟺0, ตัวอย่างλเหมือนแต่ไม่คล้าย</td><td><a href="#p-3-2-8">8</a> <a href="#p-3-2-9">9</a> <a href="#p-3-2-10">10</a> <a href="#p-3-2-11">11</a></td></tr>
+    <tr><td>12</td><td>รอย (trace): tr(AB)=tr(BA), คล้าย→trace เท่า, พหุนาม 2×2</td><td><a href="#p-3-2-12ก">ก</a> <a href="#p-3-2-12ข">ข</a> <a href="#p-3-2-12ค">ค</a></td></tr>
+  </table>
+
+  <article class="pr-card" id="p-3-2-1ก" data-pkey="pTB-3-2-1ก">
+    <div class="pr-head"><span class="pr-num">แบบฝึกหัด 3.2 ข้อ 1 (ก)</span><span class="tag exam">🎯 แนว ⑤</span><span class="diff">●○○</span><span class="spacer"></span>
+      <label class="pr-done"><input type="checkbox"> ทำสำเร็จแล้ว</label></div>
+    <div class="pr-body">
+      <p>\(\lambda = 2\) เป็นค่าลักษณะเฉพาะของ \(\begin{bmatrix} 3 & 8\\ 3 & 2 \end{bmatrix}\) หรือไม่ เพราะเหตุใด</p>
+      <p class="tagline">มีบทเรียนประกอบ: <a href="ch3-2.html">หน้า 3.2</a></p>
+    </div>
+    <details class="hint"><summary>คำใบ้</summary><div class="hint-body">λ เป็นค่าลักษณะเฉพาะ ⟺ \(\det(A-\lambda I) = 0\) — แทนค่าตรวจได้เลย ไม่ต้องหาสมการลักษณะเฉพาะทั้งตัว</div></details>
+    <details class="sol"><summary>แนวคิดและเฉลยแบบละเอียด</summary><div class="sol-body">
+      <p><strong>แนวคิด:</strong> λ เป็นค่าลักษณะเฉพาะ ก็ต่อเมื่อระบบ \((A-\lambda I)\vec{v} = \vec{0}\) มีผลเฉลยไม่ชัด ซึ่งก็ต่อเมื่อ \(\det(A-\lambda I) = 0\)</p>
+      <ol class="steps">
+        <li><span class="step-t">แทนค่า</span> \(A - 2I = \begin{bmatrix} 3-2 & 8\\ 3 & 2-2 \end{bmatrix} = \begin{bmatrix} 1 & 8\\ 3 & 0 \end{bmatrix}\)</li>
+        <li><span class="step-t">หา det</span> \(\det(A-2I) = (1)(0) - (8)(3) = -24 \neq 0\)</li>
+        <li><span class="step-t">สรุป</span> \(\det \neq 0\) → ระบบมีแต่ผลเฉลยชัด → <strong>λ = 2 ไม่เป็นค่าลักษณะเฉพาะ</strong> ∎ (ตรงคำตอบท้ายบท "(ก)ไม่")</li>
+      </ol>
+    </div></details>
+  </article>
+
+  <article class="pr-card" id="p-3-2-1ข" data-pkey="pTB-3-2-1ข">
+    <div class="pr-head"><span class="pr-num">แบบฝึกหัด 3.2 ข้อ 1 (ข)</span><span class="tag exam">🎯 แนว ⑤</span><span class="diff">●○○</span><span class="spacer"></span>
+      <label class="pr-done"><input type="checkbox"> ทำสำเร็จแล้ว</label></div>
+    <div class="pr-body">
+      <p>\(\lambda = -2\) เป็นค่าลักษณะเฉพาะของ \(\begin{bmatrix} 7 & 3\\ 3 & -1 \end{bmatrix}\) หรือไม่ เพราะเหตุใด</p>
+      <p class="tagline">มีบทเรียนประกอบ: <a href="ch3-2.html">หน้า 3.2</a></p>
+    </div>
+    <details class="hint"><summary>คำใบ้</summary><div class="hint-body">เกณฑ์เดิม \(\det(A-\lambda I) = 0\) — ระวังลบซ้อนลบตอนแทน λ = −2</div></details>
+    <details class="sol"><summary>แนวคิดและเฉลยแบบละเอียด</summary><div class="sol-body">
+      <p><strong>แนวคิด:</strong> เกณฑ์เดิม</p>
+      <ol class="steps">
+        <li><span class="step-t">แทนค่า</span> \(A-(-2)I = A+2I = \begin{bmatrix} 9 & 3\\ 3 & 1 \end{bmatrix}\) (แถวทแยง: \(7+2 = 9\), \(-1+2 = 1\))</li>
+        <li><span class="step-t">หา det</span> \(\det = (9)(1) - (3)(3) = 9-9 = 0\) ✓</li>
+        <li><span class="step-t">สรุป</span> \(\det = 0\) → มีผลเฉลยไม่ชัด → <strong>λ = −2 เป็นค่าลักษณะเฉพาะ</strong> ∎ (ตรงคำตอบท้ายบท "(ข)เป็น")</li>
+      </ol>
+    </div></details>
+  </article>
+
+  <article class="pr-card" id="p-3-2-2ก" data-pkey="pTB-3-2-2ก">
+    <div class="pr-head"><span class="pr-num">แบบฝึกหัด 3.2 ข้อ 2 (ก)</span><span class="diff">●○○</span><span class="spacer"></span>
+      <label class="pr-done"><input type="checkbox"> ทำสำเร็จแล้ว</label></div>
+    <div class="pr-body">
+      <p>เวกเตอร์ \(\begin{bmatrix} 1\\ 4 \end{bmatrix}\) เป็นเวกเตอร์ลักษณะเฉพาะของ \(\begin{bmatrix} -3 & 1\\ -3 & 5 \end{bmatrix}\) หรือไม่ ถ้าเป็นจงหาค่าลักษณะเฉพาะซึ่งสมนัยกับเวกเตอร์นี้</p>
+      <p class="tagline">มีบทเรียนประกอบ: <a href="ch3-2.html">หน้า 3.2</a></p>
+    </div>
+    <details class="hint"><summary>คำใบ้</summary><div class="hint-body">คูณ \(A\vec{v}\) แล้วดูว่าผลลัพธ์เป็นสเกลาร์ของ \(\vec{v}\) หรือไม่ (ทุกช่องต้องใช้ λ เดียวกัน)</div></details>
+    <details class="sol"><summary>แนวคิดและเฉลยแบบละเอียด</summary><div class="sol-body">
+      <p><strong>แนวคิด:</strong> \(\vec{v}\) เป็นเวกเตอร์ลักษณะเฉพาะ ⟺ \(A\vec{v} = \lambda\vec{v}\) สำหรับ λ บางตัว — คูณแล้วเทียบทีละช่อง</p>
+      <ol class="steps">
+        <li><span class="step-t">คูณ</span> \(A\vec{v} = \begin{bmatrix} -3(1)+1(4)\\ -3(1)+5(4) \end{bmatrix} = \begin{bmatrix} 1\\ 17 \end{bmatrix}\)</li>
+        <li><span class="step-t">เทียบ</span> ถ้าเป็นสเกลาร์ของ \((1, 4)\) จะต้องได้ \((\lambda, 4\lambda)\): จากช่องแรก λ = 1 แต่ช่องสองให้ \(4\lambda = 17\) → λ = 4.25 — ขัดแย้งกัน</li>
+        <li><span class="step-t">สรุป</span> ไม่มี λ ตัวเดียวกัน → <strong>ไม่เป็นเวกเตอร์ลักษณะเฉพาะ</strong> ∎ (ตรงคำตอบท้ายบท "(ก)ไม่")</li>
+      </ol>
+    </div></details>
+  </article>
+
+  <article class="pr-card" id="p-3-2-2ข" data-pkey="pTB-3-2-2ข">
+    <div class="pr-head"><span class="pr-num">แบบฝึกหัด 3.2 ข้อ 2 (ข)</span><span class="diff">●○○</span><span class="spacer"></span>
+      <label class="pr-done"><input type="checkbox"> ทำสำเร็จแล้ว</label></div>
+    <div class="pr-body">
+      <p>เวกเตอร์ \(\begin{bmatrix} 1\\ -2\\ 1 \end{bmatrix}\) เป็นเวกเตอร์ลักษณะเฉพาะของ \(\begin{bmatrix} 3 & 6 & 7\\ 3 & 3 & 7\\ 5 & 6 & 5 \end{bmatrix}\) หรือไม่ ถ้าเป็นจงหาค่าลักษณะเฉพาะซึ่งสมนัยกับเวกเตอร์นี้</p>
+      <p class="tagline">มีบทเรียนประกอบ: <a href="ch3-2.html">หน้า 3.2</a></p>
+    </div>
+    <details class="hint"><summary>คำใบ้</summary><div class="hint-body">เกณฑ์เดิม — ข้อนี้เป็นฝั่ง "เป็น" และ λ ติดลบ</div></details>
+    <details class="sol"><summary>แนวคิดและเฉลยแบบละเอียด</summary><div class="sol-body">
+      <p><strong>แนวคิด:</strong> คูณตรงแล้วเทียบ</p>
+      <ol class="steps">
+        <li><span class="step-t">คูณ</span> \(A\vec{v} = \begin{bmatrix} 3(1)+6(-2)+7(1)\\ 3(1)+3(-2)+7(1)\\ 5(1)+6(-2)+5(1) \end{bmatrix} = \begin{bmatrix} 3-12+7\\ 3-6+7\\ 5-12+5 \end{bmatrix} = \begin{bmatrix} -2\\ 4\\ -2 \end{bmatrix}\)</li>
+        <li><span class="step-t">เทียบ</span> \((-2, 4, -2) = -2\cdot(1, -2, 1)\) ✓ ทุกช่องใช้ λ = −2 เดียวกัน</li>
+        <li><span class="step-t">สรุป</span> <strong>เป็นเวกเตอร์ลักษณะเฉพาะ โดยมี λ = −2</strong> ∎ (ตรงคำตอบท้ายบท "(ข)เป็น/λ = −2")</li>
+      </ol>
+    </div></details>
+  </article>
+
+  <article class="pr-card" id="p-3-2-3ก" data-pkey="pTB-3-2-3ก">
+    <div class="pr-head"><span class="pr-num">แบบฝึกหัด 3.2 ข้อ 3 (ก)</span><span class="tag exam">🎯 แนว ⑤</span><span class="diff">●●○</span><span class="spacer"></span>
+      <label class="pr-done"><input type="checkbox"> ทำสำเร็จแล้ว</label></div>
+    <div class="pr-body">
+      <p>จงหาฐานหลักสำหรับปริภูมิลักษณะเฉพาะของ \(A = \begin{bmatrix} 10 & -9\\ 4 & -2 \end{bmatrix}\) ซึ่งสมนัยกับ \(\lambda = 4\)</p>
+      <p class="tagline">มีบทเรียนประกอบ: <a href="ch3-2.html">หน้า 3.2</a> · หมายเหตุ: คำตอบท้ายบทพิมพ์ฐานหลักข้อนี้ผิด (บางจุดใช้เวกเตอร์ที่ไม่ผ่าน) — การ์ดนี้ใช้ค่าที่ตรวจแล้ว</p>
+    </div>
+    <details class="hint"><summary>คำใบ้</summary><div class="hint-body">แก้ \((A-\lambda I)\vec{v} = \vec{0}\) — null space ของ \(A-4I\)</div></details>
+    <details class="sol"><summary>แนวคิดและเฉลยแบบละเอียด</summary><div class="sol-body">
+      <p><strong>แนวคิด:</strong> ปริภูมิลักษณะเฉพาะ \(E_\lambda = \mathrm{Nul}(A-\lambda I)\) — หา null space แล้วให้ฐานหลัก</p>
+      <ol class="steps">
+        <li><span class="step-t">สร้าง A−4I</span> \(\begin{bmatrix} 6 & -9\\ 4 & -6 \end{bmatrix}\) — แถวเป็นสเกลาร์กัน (2/3 เท่า) → rank 1 → มิติ 1</li>
+        <li><span class="step-t">แก้</span> \(6x - 9y = 0\) → \(2x = 3y\) → ให้ \(y = 2\): \(x = 3\) → \(\vec{v} = (3, 2)\)</li>
+        <li><span class="step-t">ตรวจคำตอบ</span> \(A\vec{v} = (30-18, 12-4) = (12, 8) = 4(3, 2)\) ✓ — <strong>สรุป:</strong> ฐานหลักของ \(E_4\) คือ \(\left\{\begin{bmatrix} 3\\ 2 \end{bmatrix}\right\}\)</li>
+      </ol>
+    </div></details>
+  </article>
+
+  <article class="pr-card" id="p-3-2-3ข" data-pkey="pTB-3-2-3ข">
+    <div class="pr-head"><span class="pr-num">แบบฝึกหัด 3.2 ข้อ 3 (ข)</span><span class="tag exam">🎯 แนว ⑤</span><span class="diff">●●○</span><span class="spacer"></span>
+      <label class="pr-done"><input type="checkbox"> ทำสำเร็จแล้ว</label></div>
+    <div class="pr-body">
+      <p>จงหาฐานหลักสำหรับปริภูมิลักษณะเฉพาะของ \(A = \begin{bmatrix} 4 & -2\\ -3 & 9 \end{bmatrix}\) ซึ่งสมนัยกับ \(\lambda = 10\)</p>
+      <p class="tagline">มีบทเรียนประกอบ: <a href="ch3-2.html">หน้า 3.2</a></p>
+    </div>
+    <details class="hint"><summary>คำใบ้</summary><div class="hint-body">แก้ \((A-10I)\vec{v} = \vec{0}\)</div></details>
+    <details class="sol"><summary>แนวคิดและเฉลยแบบละเอียด</summary><div class="sol-body">
+      <p><strong>แนวคิด:</strong> null space ของ \(A-10I\) เหมือนเดิม</p>
+      <ol class="steps">
+        <li><span class="step-t">สร้าง A−10I</span> \(\begin{bmatrix} -6 & -2\\ -3 & -1 \end{bmatrix}\) — แถวสเกลาร์กัน → มิติ 1</li>
+        <li><span class="step-t">แก้</span> \(-3x - y = 0\) → \(y = -3x\) → \(\vec{v} = (1, -3)\)</li>
+        <li><span class="step-t">ตรวจคำตอบ</span> \(A\vec{v} = (4+6, -3-27) = (10, -30) = 10(1, -3)\) ✓ — <strong>สรุป:</strong> ฐานหลักของ \(E_{10}\) คือ \(\left\{\begin{bmatrix} 1\\ -3 \end{bmatrix}\right\}\) — หมายเหตุ: คำตอบท้ายบทพิมพ์ \((-1, 3)\) ซึ่งก็ถูกต้องเช่นกัน (สเกลาร์ −1 เท่าของกัน)</li>
+      </ol>
+    </div></details>
+  </article>
+
+  <article class="pr-card" id="p-3-2-3ค" data-pkey="pTB-3-2-3ค">
+    <div class="pr-head"><span class="pr-num">แบบฝึกหัด 3.2 ข้อ 3 (ค)</span><span class="tag exam">🎯 แนว ⑤</span><span class="diff">●●○</span><span class="spacer"></span>
+      <label class="pr-done"><input type="checkbox"> ทำสำเร็จแล้ว</label></div>
+    <div class="pr-body">
+      <p>จงหาฐานหลักสำหรับปริภูมิลักษณะเฉพาะของ \(A = \begin{bmatrix} 1 & 0 & -1\\ 1 & -3 & 0\\ 4 & -13 & 1 \end{bmatrix}\) ซึ่งสมนัยกับ \(\lambda = -2\)</p>
+    </div>
+    <details class="hint"><summary>คำใบ้</summary><div class="hint-body">\(A+2I\) แล้วแก้ระบบเอกพันธุ์ — เริ่มจากสมการที่ง่ายที่สุด</div></details>
+    <details class="sol"><summary>แนวคิดและเฉลยแบบละเอียด</summary><div class="sol-body">
+      <p><strong>แนวคิด:</strong> null space ของ \(A+2I\)</p>
+      <ol class="steps">
+        <li><span class="step-t">สร้าง A+2I</span> \(\begin{bmatrix} 3 & 0 & -1\\ 1 & -1 & 0\\ 4 & -13 & 3 \end{bmatrix}\)</li>
+        <li><span class="step-t">แก้</span> แถว 2: \(x - y = 0\) → \(x = y\); แถว 1: \(3x = z\); แถว 3 ตรวจ: \(4x-13x+9x = 0\) ✓ → ให้ \(x = 1\): \(\vec{v} = (1, 1, 3)\)</li>
+        <li><span class="step-t">ตรวจคำตอบ</span> \(A\vec{v} = (1-3, 1-3, 4-13+3) = (-2, -2, -6) = -2(1,1,3)\) ✓ — <strong>สรุป:</strong> ฐานหลักของ \(E_{-2}\) คือ \(\left\{\begin{bmatrix} 1\\ 1\\ 3 \end{bmatrix}\right\}\)</li>
+      </ol>
+    </div></details>
+  </article>
+
+  <article class="pr-card" id="p-3-2-3ง" data-pkey="pTB-3-2-3ง">
+    <div class="pr-head"><span class="pr-num">แบบฝึกหัด 3.2 ข้อ 3 (ง)</span><span class="tag exam">🎯 แนว ⑤</span><span class="diff">●●○</span><span class="spacer"></span>
+      <label class="pr-done"><input type="checkbox"> ทำสำเร็จแล้ว</label></div>
+    <div class="pr-body">
+      <p>จงหาฐานหลักสำหรับปริภูมิลักษณะเฉพาะของ \(A = \begin{bmatrix} 4 & 2 & 3\\ -1 & 1 & -3\\ 2 & 4 & 9 \end{bmatrix}\) ซึ่งสมนัยกับ \(\lambda = 3\)</p>
+    </div>
+    <details class="hint"><summary>คำใบ้</summary><div class="hint-body">ข้อนี้ปริภูมิลักษณะเฉพาะมีมิติ 2 — จะได้ฐานหลัก 2 เวกเตอร์</div></details>
+    <details class="sol"><summary>แนวคิดและเฉลยแบบละเอียด</summary><div class="sol-body">
+      <p><strong>แนวคิด:</strong> null space ของ \(A-3I\) — สังเกตว่าทั้งสามแถวเป็นสเกลาร์ของกัน → สมการเดียว มิติ 2</p>
+      <ol class="steps">
+        <li><span class="step-t">สร้าง A−3I</span> \(\begin{bmatrix} 1 & 2 & 3\\ -1 & -2 & -3\\ 2 & 4 & 6 \end{bmatrix}\) → เหลือเงื่อนไขเดียว \(x + 2y + 3z = 0\)</li>
+        <li><span class="step-t">เลือกฐานหลัก</span> ให้ \((y,z) = (1,0)\): \(\vec{v}_1 = (-2, 1, 0)\); ให้ \((y,z) = (0,1)\): \(\vec{v}_2 = (-3, 0, 1)\)</li>
+        <li><span class="step-t">ตรวจคำตอบ</span> \(A(-2,1,0) = (-8+2+0,\ 2+1-0,\ -4+4+0) = (-6, 3, 0) = 3\vec{v}_1\) ✓ และ \(A(-3,0,1) = (-12+0+3,\ 3+0-3,\ -6+0+9) = (-9, 0, 3) = 3\vec{v}_2\) ✓ — <strong>สรุป:</strong> ฐานหลักของ \(E_3\) คือ \(\{(-2,1,0),\ (-3,0,1)\}\)</li>
+      </ol>
+    </div></details>
+  </article>
+
+  <article class="pr-card" id="p-3-2-3จ" data-pkey="pTB-3-2-3จ">
+    <div class="pr-head"><span class="pr-num">แบบฝึกหัด 3.2 ข้อ 3 (จ)</span><span class="tag exam">🎯 แนว ⑤</span><span class="diff">●●○</span><span class="spacer"></span>
+      <label class="pr-done"><input type="checkbox"> ทำสำเร็จแล้ว</label></div>
+    <div class="pr-body">
+      <p>จงหาฐานหลักสำหรับปริภูมิลักษณะเฉพาะของ \(A = \begin{bmatrix} 2 & 0 & 0 & 0\\ 0 & 2 & 0 & 0\\ 1 & 1 & -3 & 0\\ 0 & 0 & 3 & -3 \end{bmatrix}\) ซึ่งสมนัยกับ \(\lambda = -3\)</p>
+    </div>
+    <details class="hint"><summary>คำใบ้</summary><div class="hint-body">\(A+3I\) แล้วไล่จากสมการที่บังคับตัวแปรเดียว</div></details>
+    <details class="sol"><summary>แนวคิดและเฉลยแบบละเอียด</summary><div class="sol-body">
+      <p><strong>แนวคิด:</strong> null space ของ \(A+3I\) ใน \(\mathbb{R}^4\)</p>
+      <ol class="steps">
+        <li><span class="step-t">สร้าง A+3I</span> \(\begin{bmatrix} 5 & 0 & 0 & 0\\ 0 & 5 & 0 & 0\\ 1 & 1 & 0 & 0\\ 0 & 0 & 3 & 0 \end{bmatrix}\)</li>
+        <li><span class="step-t">แก้</span> แถว 1: \(x = 0\); แถว 2: \(y = 0\); แถว 4: \(z = 0\); แถว 3 ตรวจ: \(0+0+0 = 0\) ✓ — เหลือ \(w\) เสรี → \(\vec{v} = (0, 0, 0, 1)\)</li>
+        <li><span class="step-t">ตรวจคำตอบ</span> \(A(0,0,0,1) = (0, 0, 0, -3) = -3\vec{v}\) ✓ — <strong>สรุป:</strong> ฐานหลักของ \(E_{-3}\) คือ \(\left\{\begin{bmatrix} 0\\ 0\\ 0\\ 1 \end{bmatrix}\right\}\)</li>
+      </ol>
+    </div></details>
+  </article>
+
+  <article class="pr-card" id="p-3-2-3ฉ" data-pkey="pTB-3-2-3ฉ">
+    <div class="pr-head"><span class="pr-num">แบบฝึกหัด 3.2 ข้อ 3 (ฉ)</span><span class="tag exam">🎯 แนว ⑤</span><span class="diff">●●○</span><span class="spacer"></span>
+      <label class="pr-done"><input type="checkbox"> ทำสำเร็จแล้ว</label></div>
+    <div class="pr-body">
+      <p>จงหาฐานหลักสำหรับปริภูมิลักษณะเฉพาะของ \(A = \begin{bmatrix} 3 & 0 & 2 & 0\\ 1 & 3 & 1 & 0\\ 0 & 1 & 1 & 0\\ 0 & 0 & 0 & 4 \end{bmatrix}\) ซึ่งสมนัยกับ \(\lambda = 4\)</p>
+    </div>
+    <details class="hint"><summary>คำใบ้</summary><div class="hint-body">แถวที่ 4 เป็นศูนย์หมด → w เป็นตัวแปรเสรี แต่แถวอื่นจะบังคับ w = 0 — ตามให้ครบ</div></details>
+    <details class="sol"><summary>แนวคิดและเฉลยแบบละเอียด</summary><div class="sol-body">
+      <p><strong>แนวคิด:</strong> null space ของ \(A-4I\) — ข้อนี้ nullity = 2 จึงได้ฐานหลัก 2 เวกเตอร์</p>
+      <ol class="steps">
+        <li><span class="step-t">สร้าง A−4I</span> \(\begin{bmatrix} -1 & 0 & 2 & 0\\ 1 & -1 & 1 & 0\\ 0 & 1 & -3 & 0\\ 0 & 0 & 0 & 0 \end{bmatrix}\) — แถวที่ 4 เป็นศูนย์หมด → \(w\) เป็นตัวแปรเสรี</li>
+        <li><span class="step-t">แก้จากสามแถวบน</span> แถว 3: \(y = 3z\); แถว 2: \(x - y + z = 0\) → \(x = y - z = 2z\); แถว 1 ตรวจ: \(-2z + 2z = 0\) ✓ — สมมาตรบน \(z\) จึงเป็นตัวแปรเสรีอีกตัว</li>
+        <li><span class="step-t">เลือกฐานหลัก</span> \(z = 1, w = 0\): \(\vec{v}_1 = (2, 3, 1, 0)\); \(z = 0, w = 1\): \(\vec{v}_2 = (0, 0, 0, 1)\)</li>
+        <li><span class="step-t">ตรวจคำตอบ</span> \(A(2,3,1,0) = (6+2,\ 2+3+1,\ 3+1,\ 0) = (8, 6, 4, 0) = 4\vec{v}_1\) ✓ และ \(A(0,0,0,1) = (0,0,0,4) = 4\vec{v}_2\) ✓ สองตัวอิสระกันชัด (ช่องที่ 4) ✓ — <strong>สรุป:</strong> ฐานหลักของ \(E_4\) คือ \(\left\{\begin{bmatrix} 2\\ 3\\ 1\\ 0 \end{bmatrix}, \begin{bmatrix} 0\\ 0\\ 0\\ 1 \end{bmatrix}\right\}\)</li>
+      </ol>
+    </div></div></details>
+  </article>
+
+  <article class="pr-card" id="p-3-2-4ก" data-pkey="pTB-3-2-4ก">
+    <div class="pr-head"><span class="pr-num">แบบฝึกหัด 3.2 ข้อ 4 (ก)</span><span class="tag exam">🎯 แนว ⑤</span><span class="diff">●●○</span><span class="spacer"></span>
+      <label class="pr-done"><input type="checkbox"> ทำสำเร็จแล้ว</label></div>
+    <div class="pr-body">
+      <p>จงหาสมการลักษณะเฉพาะ ค่าลักษณะเฉพาะ ฐานหลักสำหรับปริภูมิลักษณะเฉพาะ และพิจารณาว่า A ทแยงมุมได้หรือไม่ (ถ้าได้ให้ P, D): \(A = \begin{bmatrix} 2 & 2\\ 2 & -1 \end{bmatrix}\)</p>
+    </div>
+    <details class="hint"><summary>คำใบ้</summary><div class="hint-body">สมการลักษณะเฉพาะ: \(\lambda^2 - (\mathrm{tr}A)\lambda + \det A = 0\)</div></details>
+    <details class="sol"><summary>แนวคิดและเฉลยแบบละเอียด</summary><div class="sol-body">
+      <p><strong>แนวคิด:</strong> ขั้นมาตรฐานของแนวข้อสอบ ⑤: สมการ → λ → เวกเตอร์ต่อ λ → ตัดสินทแยงมุม</p>
+      <ol class="steps">
+        <li><span class="step-t">สมการลักษณะเฉพาะ</span> \(\lambda^2 - \lambda - 6 = 0\) (trace = 1, det = −2−4 = −6) → \((\lambda-3)(\lambda+2) = 0\) → \(\lambda = 3, -2\)</li>
+        <li><span class="step-t">เวกเตอร์ λ=3</span> \((A-3I)\): \(-x+2y = 0\) → \(\vec{v}_1 = (2, 1)\); λ=−2: \(4x+2y = 0\) → \(\vec{v}_2 = (1, -2)\)</li>
+        <li><span class="step-t">ทแยงมุม</span> ค่าต่างกัน + เวกเตอร์อิสระ 2 ตัว → ได้: \(P = \begin{bmatrix} 2 & 1\\ 1 & -2 \end{bmatrix}\), \(D = \begin{bmatrix} 3 & 0\\ 0 & -2 \end{bmatrix}\)</li>
+        <li><span class="step-t">ตรวจคำตอบ</span> \(A(2,1) = (6, 2) = 3(2,1)\) ✓, \(A(1,-2) = (-2, 4) = -2(1,-2)\) ✓ และ \(P^{-1}AP = D\) ✓ — <strong>สรุป:</strong> \(\lambda = 3, -2\), ฐานหลัก \(\{(2,1), (1,-2)\}\), ทแยงมุมได้ (ตรงคำตอบท้ายบท)</li>
+      </ol>
+    </div></details>
+  </article>
+
+  <article class="pr-card" id="p-3-2-4ข" data-pkey="pTB-3-2-4ข">
+    <div class="pr-head"><span class="pr-num">แบบฝึกหัด 3.2 ข้อ 4 (ข)</span><span class="tag exam">🎯 แนว ⑤</span><span class="diff">●●○</span><span class="spacer"></span>
+      <label class="pr-done"><input type="checkbox"> ทำสำเร็จแล้ว</label></div>
+    <div class="pr-body">
+      <p>เหมือนข้อ 4 (ก): \(A = \begin{bmatrix} 14 & 16\\ -9 & -10 \end{bmatrix}\)</p>
+    </div>
+    <details class="hint"><summary>คำใบ้</summary><div class="hint-body">ค่าลักษณะเฉพาะซ้ำ 2 ครั้ง — ต้องเช็กมิติของ eigenspace ก่อนตัดสิน</div></details>
+    <details class="sol"><summary>แนวคิดและเฉลยแบบละเอียด</summary><div class="sol-body">
+      <p><strong>แนวคิด:</strong> λ ซ้ำ = ความเสี่ยงที่จะทแยงมุมไม่ได้ — เกณฑ์: มิติของ eigenspace ต้องเท่ากับจำนวนครั้งที่ซ้ำ</p>
+      <ol class="steps">
+        <li><span class="step-t">สมการลักษณะเฉพาะ</span> \(\lambda^2 - 4\lambda + 4 = 0\) (trace = 4, det = −140+144 = 4) → \((\lambda-2)^2 = 0\) → \(\lambda = 2\) (ซ้ำ 2 ครั้ง)</li>
+        <li><span class="step-t">eigenspace</span> \(A-2I = \begin{bmatrix} 12 & 16\\ -9 & -12 \end{bmatrix}\) → \(3x+4y = 0\) → มิติ 1 &lt; 2 → <strong>ไม่มีเวกเตอร์ลักษณะเฉพาะอิสระครบ 2 ตัว</strong></li>
+        <li><span class="step-t">สรุป + ตรวจ</span> ฐานหลักของ \(E_2\) คือ \(\{(-4, 3)\}\) (ตรวจ: \(A(-4,3) = (14(-4)+16(3),\ -9(-4)-10(3)) = (-8, 6) = 2(-4,3)\) ✓) — <strong>สรุป:</strong> \(\lambda = 2, 2\), ฐานหลัก \(\{(-4,3)\}\), <strong>ทแยงมุมไม่ได้</strong> (ตรงคำตอบท้ายบท)</li>
+      </ol>
+    </div></details>
+  </article>
+
+  <article class="pr-card" id="p-3-2-4ค" data-pkey="pTB-3-2-4ค">
+    <div class="pr-head"><span class="pr-num">แบบฝึกหัด 3.2 ข้อ 4 (ค)</span><span class="tag exam">🎯 แนว ⑤</span><span class="diff">●●○</span><span class="spacer"></span>
+      <label class="pr-done"><input type="checkbox"> ทำสำเร็จแล้ว</label></div>
+    <div class="pr-body">
+      <p>เหมือนข้อ 4 (ก): \(A = \begin{bmatrix} -2 & 5\\ 4 & 6 \end{bmatrix}\)</p>
+    </div>
+    <details class="hint"><summary>คำใบ้</summary><div class="hint-body">λ ติดลบคู่หนึ่ง — ลง D ตามจริง</div></details>
+    <details class="sol"><summary>แนวคิดและเฉลยแบบละเอียด</summary><div class="sol-body">
+      <p><strong>แนวคิด:</strong> ขั้นมาตรฐานเดิม</p>
+      <ol class="steps">
+        <li><span class="step-t">สมการลักษณะเฉพาะ</span> \(\lambda^2 - 4\lambda - 32 = 0\) (trace = 4, det = −12−20 = −32) → \((\lambda-8)(\lambda+4) = 0\) → \(\lambda = 8, -4\)</li>
+        <li><span class="step-t">เวกเตอร์</span> λ=8: \(-10x+5y = 0\) → \(\vec{v}_1 = (1, 2)\); λ=−4: \(2x+5y = 0\) → \(\vec{v}_2 = (-5, 2)\)</li>
+        <li><span class="step-t">ทแยงมุม</span> \(P = \begin{bmatrix} 1 & -5\\ 2 & 2 \end{bmatrix}\), \(D = \mathrm{diag}(8, -4)\)</li>
+        <li><span class="step-t">ตรวจคำตอบ</span> \(A(1,2) = (-2+10, 4+12) = (8, 16) = 8\vec{v}_1\) ✓, \(A(-5,2) = (10+10, -20+12) = (20, -8) = -4\vec{v}_2\) ✓ — <strong>สรุป:</strong> \(\lambda = 8, -4\), ทแยงมุมได้ (ตรงคำตอบท้ายบท)</li>
+      </ol>
+    </div></details>
+  </article>
+
+  <article class="pr-card" id="p-3-2-4ง" data-pkey="pTB-3-2-4ง">
+    <div class="pr-head"><span class="pr-num">แบบฝึกหัด 3.2 ข้อ 4 (ง)</span><span class="tag exam">🎯 แนว ⑤</span><span class="diff">●●○</span><span class="spacer"></span>
+      <label class="pr-done"><input type="checkbox"> ทำสำเร็จแล้ว</label></div>
+    <div class="pr-body">
+      <p>เหมือนข้อ 4 (ก): \(A = \begin{bmatrix} 5 & 4\\ -1 & 1 \end{bmatrix}\)</p>
+    </div>
+    <details class="hint"><summary>คำใบ้</summary><div class="hint-body">สมการลักษณะเฉพาะเป็นกำลังสองสมบูรณ์</div></details>
+    <details class="sol"><summary>แนวคิดและเฉลยแบบละเอียด</summary><div class="sol-body">
+      <p><strong>แนวคิด:</strong> ขั้นมาตรฐานเดิม</p>
+      <ol class="steps">
+        <li><span class="step-t">สมการลักษณะเฉพาะ</span> \(\lambda^2 - 6\lambda + 9 = 0\) (trace = 6, det = 5+4 = 9) → \((\lambda-3)^2 = 0\) → \(\lambda = 3\) ซ้ำ</li>
+        <li><span class="step-t">eigenspace</span> \(A-3I = \begin{bmatrix} 2 & 4\\ -1 & -2 \end{bmatrix}\) → \(x+2y = 0\) → มิติ 1 &lt; 2 → ทแยงมุมไม่ได้</li>
+        <li><span class="step-t">สรุป + ตรวจ</span> ฐานหลักของ \(E_3\) คือ \(\{(-2, 1)\}\) (ตรวจ: \(A(-2,1) = (-10+4, 2+1) = (-6, 3) = 3(-2,1)\) ✓) — <strong>สรุป:</strong> \(\lambda = 3, 3\), ฐานหลัก \(\{(-2,1)\}\), <strong>ทแยงมุมไม่ได้</strong> (ตรงคำตอบท้ายบท)</li>
+      </ol>
+    </div></details>
+  </article>
+
+  <article class="pr-card" id="p-3-2-4จ" data-pkey="pTB-3-2-4จ">
+    <div class="pr-head"><span class="pr-num">แบบฝึกหัด 3.2 ข้อ 4 (จ)</span><span class="tag exam">🎯 แนว ⑤</span><span class="diff">●●●</span><span class="spacer"></span>
+      <label class="pr-done"><input type="checkbox"> ทำสำเร็จแล้ว</label></div>
+    <div class="pr-body">
+      <p>เหมือนข้อ 4 (ก): \(A = \begin{bmatrix} 2 & 1 & 0\\ 6 & 1 & -1\\ 0 & 0 & 1 \end{bmatrix}\)</p>
+    </div>
+    <details class="hint"><summary>คำใบ้</summary><div class="hint-body">แถว 3 มีแค่ช่อง (3,3) → det แยกเป็น \((1-\lambda)\) คูณ det บล็อก 2×2</div></details>
+    <details class="sol"><summary>แนวคิดและเฉลยแบบละเอียด</summary><div class="sol-body">
+      <p><strong>แนวคิด:</strong> 3×3 — แถวที่ 3 มีแค่ช่องทแยง ทำให้ det แยกเป็น \((1-\lambda)\) คูณ det บล็อก 2×2 บน</p>
+      <ol class="steps">
+        <li><span class="step-t">สมการลักษณะเฉพาะ</span> \(\det(A-\lambda I) = (1-\lambda)\big[(2-\lambda)(1-\lambda) - 6\big] = (1-\lambda)(\lambda^2-3\lambda-4) = -(\lambda-1)(\lambda-4)(\lambda+1)\) → \(\lambda = 1, 4, -1\)</li>
+        <li><span class="step-t">เวกเตอร์</span> λ=1: \((A-I)\): \(x+y = 0\), \(6x-z = 0\) → \(\vec{v}_1 = (1, -1, 6)\); λ=4: \((A-4I)\): \(-2x+y = 0\), \(6x-3y-z = 0\), \(-3z = 0\) → \(\vec{v}_2 = (1, 2, 0)\); λ=−1: \((A+I)\): \(3x+y = 0\), \(6x+2y-z = 0\), \(2z = 0\) → \(\vec{v}_3 = (-1, 3, 0)\)</li>
+        <li><span class="step-t">ทแยงมุม</span> ค่าล้วนต่างกัน → \(P = \begin{bmatrix} 1 & 1 & -1\\ -1 & 2 & 3\\ 6 & 0 & 0 \end{bmatrix}\), \(D = \mathrm{diag}(1, 4, -1)\)</li>
+        <li><span class="step-t">ตรวจคำตอบ</span> \(A(1,-1,6) = (2-1,\ 6-1-6,\ 6) = (1, -1, 6)\) ✓; \(A(1,2,0) = (2+2,\ 6+2,\ 0) = (4, 8, 0) = 4\vec{v}_2\) ✓; \(A(-1,3,0) = (-2+3,\ -6+3,\ 0) = (1, -3, 0) = -1\cdot\vec{v}_3\) ✓ — <strong>สรุป:</strong> \(\lambda = 1, 4, -1\), ทแยงมุมได้ (ตรงคำตอบท้ายบท)</li>
+      </ol>
+    </div></div></details>
+  </article>
+
+  <article class="pr-card" id="p-3-2-4ฉ" data-pkey="pTB-3-2-4ฉ">
+    <div class="pr-head"><span class="pr-num">แบบฝึกหัด 3.2 ข้อ 4 (ฉ)</span><span class="tag exam">🎯 แนว ⑤</span><span class="diff">●●○</span><span class="spacer"></span>
+      <label class="pr-done"><input type="checkbox"> ทำสำเร็จแล้ว</label></div>
+    <div class="pr-body">
+      <p>เหมือนข้อ 4 (ก): \(A = \begin{bmatrix} 2 & 0 & 0\\ 1 & -1 & 2\\ -1 & 0 & 1 \end{bmatrix}\)</p>
+    </div>
+    <details class="hint"><summary>คำใบ้</summary><div class="hint-body">แถว 1 มีแค่ช่อง (1,1) → แยก \((2-\lambda)\) ได้ทันที</div></details>
+    <details class="sol"><summary>แนวคิดและเฉลยแบบละเอียด</summary><div class="sol-body">
+      <p><strong>แนวคิด:</strong> ขั้นมาตรฐาน 3×3 — แถว 1 มีแค่ช่อง (1,1) ทำให้ det แยกง่าย</p>
+      <ol class="steps">
+        <li><span class="step-t">สมการลักษณะเฉพาะ</span> \(\det(A-\lambda I) = (2-\lambda)\big[(-1-\lambda)(1-\lambda) - 0\big] = (2-\lambda)(-1-\lambda)(1-\lambda)\) → \(\lambda = 2, -1, 1\)</li>
+        <li><span class="step-t">เวกเตอร์ λ=2</span> \((A-2I)\): แถว 2: \(x-3y+2z = 0\); แถว 3: \(-x-z = 0\) → \(z = -x\) → \(x-3y-2x = 0\) → \(x = -3y\) → ให้ \(y = 1\): \(\vec{v}_1 = (-3, 1, 3)\)</li>
+        <li><span class="step-t">เวกเตอร์ λ=−1 และ λ=1</span> λ=−1: \((A+I)\): แถว 1: \(3x = 0\); แถว 2: \(x+2z = 0\) → \(z = 0\); \(y\) เสรี → \(\vec{v}_2 = (0, 1, 0)\); λ=1: \((A-I)\): แถว 1: \(x = 0\); แถว 2: \(-2y+2z = 0\) → \(y = z\) → \(\vec{v}_3 = (0, 1, 1)\)</li>
+        <li><span class="step-t">ทแยงมุม</span> \(P = \begin{bmatrix} -3 & 0 & 0\\ 1 & 1 & 1\\ 3 & 0 & 1 \end{bmatrix}\), \(D = \mathrm{diag}(2, -1, 1)\)</li>
+        <li><span class="step-t">ตรวจคำตอบ</span> \(A(-3,1,3) = (-6,\ -3-1+6,\ 3+3) = (-6, 2, 6) = 2\vec{v}_1\) ✓; \(A(0,1,0) = (0, -1, 0) = -\vec{v}_2\) ✓; \(A(0,1,1) = (0, 1, 1) = \vec{v}_3\) ✓ — <strong>สรุป:</strong> \(\lambda = 2, -1, 1\), ทแยงมุมได้ (ตรงคำตอบท้ายบท)</li>
+      </ol>
+    </div></div></details>
+  </article>
+
+  <article class="pr-card" id="p-3-2-4ช" data-pkey="pTB-3-2-4ช">
+    <div class="pr-head"><span class="pr-num">แบบฝึกหัด 3.2 ข้อ 4 (ช)</span><span class="tag exam">🎯 แนว ⑤</span><span class="diff">●●○</span><span class="spacer"></span>
+      <label class="pr-done"><input type="checkbox"> ทำสำเร็จแล้ว</label></div>
+    <div class="pr-body">
+      <p>เหมือนข้อ 4 (ก): \(A = \begin{bmatrix} 2 & 0 & 6\\ 0 & 3 & 1\\ 0 & 0 & 3 \end{bmatrix}\)</p>
+    </div>
+    <details class="hint"><summary>คำใบ้</summary><div class="hint-body">เมทริกซ์สามเหลี่ยมบน → λ อ่านจากทแยง</div></details>
+    <details class="sol"><summary>แนวคิดและเฉลยแบบละเอียด</summary><div class="sol-body">
+      <p><strong>แนวคิด:</strong> ทแยง 2, 3, 3 → λ = 2, 3, 3 — เช็กมิติของ E₃ เป็นจุดตัดสิน</p>
+      <ol class="steps">
+        <li><span class="step-t">ค่าลักษณะเฉพาะ</span> \(\lambda = 2, 3, 3\) (สามเหลี่ยมบน)</li>
+        <li><span class="step-t">เวกเตอร์</span> λ=2: \((A-2I)\): \(6z = 0\), \(y+z = 0\), \(z = 0\) → \(\vec{v}_1 = (1, 0, 0)\); λ=3: \((A-3I)\): \(-x+6z = 0\), \(z = 0\) → \(x = 0, z = 0\), y เสรี → มิติ 1 &lt; 2</li>
+        <li><span class="step-t">สรุป + ตรวจ</span> ฐานหลัก: \(E_2 = \{(1,0,0)\}\), \(E_3 = \{(0,1,0)\}\) (ตรวจ: \(A(0,1,0) = (0,3,0) = 3\vec{v}\) ✓) — <strong>สรุป:</strong> \(\lambda = 2, 3, 3\), <strong>ทแยงมุมไม่ได้</strong> (มิติ E₃ = 1 &lt; 2)</li>
+      </ol>
+    </div></details>
+  </article>
+
+  <article class="pr-card" id="p-3-2-4ซ" data-pkey="pTB-3-2-4ซ">
+    <div class="pr-head"><span class="pr-num">แบบฝึกหัด 3.2 ข้อ 4 (ซ)</span><span class="tag exam">🎯 แนว ⑤</span><span class="diff">●●●</span><span class="spacer"></span>
+      <label class="pr-done"><input type="checkbox"> ทำสำเร็จแล้ว</label></div>
+    <div class="pr-body">
+      <p>เหมือนข้อ 4 (ก): \(A = \begin{bmatrix} 0 & 0 & -1\\ 1 & 1 & 1\\ 2 & 0 & 3 \end{bmatrix}\)</p>
+    </div>
+    <details class="hint"><summary>คำใบ้</summary><div class="hint-body">λ = 1 ซ้ำ 2 ครั้ง แต่คราวนี้ eigenspace มีมิติ 2 พอดี → ทแยงมุมได้</div></details>
+    <details class="sol"><summary>แนวคิดและเฉลยแบบละเอียด</summary><div class="sol-body">
+      <p><strong>แนวคิด:</strong> ขั้นมาตรฐาน — ข้อนี้เป็นตัวอย่างตรงข้ามของ (ข)(ง): λ ซ้ำแต่มิติครบ</p>
+      <ol class="steps">
+        <li><span class="step-t">สมการลักษณะเฉพาะ</span> เปิดตามหลัก 2: \(\det(A-\lambda I) = (1-\lambda)\big[(-\lambda)(3-\lambda)+2\big] = (1-\lambda)(\lambda^2-3\lambda+2) = -(λ-1)^2(λ-2)\) → \(\lambda = 1\) (ซ้ำ), \(2\)</li>
+        <li><span class="step-t">เวกเตอร์ λ=1</span> \((A-I)\): \(-x-z = 0\), \(2x+2z = 0\) → \(x = -z\), y เสรี → มิติ 2 ✓ ฐาน: \(\vec{v}_1 = (-1, 0, 1)\), \(\vec{v}_2 = (0, 1, 0)\)</li>
+        <li><span class="step-t">เวกเตอร์ λ=2</span> \((A-2I)\): \(-2x-z = 0\), \(x-y+z = 0\), \(2x+z = 0\) → \(z = -2x\), \(y = x+z = -x\) → \(\vec{v}_3 = (1, -1, -2)\)</li>
+        <li><span class="step-t">ทแยงมุม + ตรวจ</span> \(P = \begin{bmatrix} -1 & 0 & 1\\ 0 & 1 & -1\\ 1 & 0 & -2 \end{bmatrix}\), \(D = \mathrm{diag}(1, 1, 2)\) — ตรวจ: \(A(1,-1,-2) = (2, 1-1-2, 2+0-6) = (2, -2, -4) = 2\vec{v}_3\) ✓ — <strong>สรุป:</strong> \(\lambda = 1, 1, 2\), ทแยงมุมได้ (ตรงคำตอบท้ายบท)</li>
+      </ol>
+    </div></details>
+  </article>
+
+  <article class="pr-card" id="p-3-2-4ฌ" data-pkey="pTB-3-2-4ฌ">
+    <div class="pr-head"><span class="pr-num">แบบฝึกหัด 3.2 ข้อ 4 (ฌ)</span><span class="tag exam">🎯 แนว ⑤</span><span class="diff">●●●</span><span class="spacer"></span>
+      <label class="pr-done"><input type="checkbox"> ทำสำเร็จแล้ว</label></div>
+    <div class="pr-body">
+      <p>เหมือนข้อ 4 (ก): \(A = \begin{bmatrix} 2 & 3 & -2\\ 2 & 3 & 0\\ 6 & -6 & 7 \end{bmatrix}\)</p>
+    </div>
+    <details class="hint"><summary>คำใบ้</summary><div class="hint-body">สมการลักษณะเฉพาะออกเป็นรากเต็ม 3, 4, 5 — ลองหารากเล็ก ๆ ก่อนเสมอ</div></details>
+    <details class="sol"><summary>แนวคิดและเฉลยแบบละเอียด</summary><div class="sol-body">
+      <p><strong>แนวคิด:</strong> ขั้นมาตรฐาน 3×3</p>
+      <ol class="steps">
+        <li><span class="step-t">สมการลักษณะเฉพาะ</span> เปิด det ได้ \(-(\lambda-3)(\lambda-4)(\lambda-5) = 0\) (ตรวจ: trace = 12 = 3+4+5 ✓) → \(\lambda = 3, 4, 5\)</li>
+        <li><span class="step-t">เวกเตอร์</span> λ=3: \((A-3I)\): \(-x-2z = 0\), \(2x-4z = 0\) → \(x = -2z\), แถว 2 ตรวจ: \(-4-4z = -4(1+z)\)... แก้เป็นระบบ: \(-x-2z = 0\) → \(x = -2z\); \(2x+3y = 0\)? แถว 2 ของ \((A-3I)\) คือ \((2, 0, 0)\) → \(2x = 0\) → \(x = 0\) → \(z = 0\), y เสรี → \(\vec{v}_1 = (0, 1, 0)\)? ตรวจ: \(A(0,1,0) = (3, 3, -6) \neq 3(0,1,0)\) ✗ — แก้: แถวของ \((A-3I)\) = \((-1, 3, -2), (2, 0, 0), (6, -6, 4)\): แถว 2: \(2x = 0\) → \(x = 0\); แถว 1: \(3y-2z = 0\) → \(y = \frac{2}{3}z\) → \(\vec{v}_1 = (0, 2, 3)\) (ให้ z = 3) ตรวจ: \(A(0,2,3) = (6-6, 6, -12+21) = (0, 6, 9) = 3(0,2,3)\) ✓</li>
+        <li><span class="step-t">เวกเตอร์ λ=4, λ=5</span> λ=4: \((A-4I)\): แถว \((-2, 3, -2), (2, -1, 0), (6, -6, 3)\): แถว 2: \(y = 2x\); แถว 1: \(-2x+6x-2z = 0\) → \(z = 2x\) → \(\vec{v}_2 = (1, 2, 2)\) ตรวจ: \(A(1,2,2) = (2+6-4, 2+6, 6-12+14) = (4, 8, 8) = 4\vec{v}_2\) ✓; λ=5: \((A-5I)\): แถว \((-3, 3, -2), (2, -2, 0), (6, -6, 2)\): แถว 2: \(x = y\); แถว 1: \(-3x+3x-2z = 0\) → \(z = 0\) → \(\vec{v}_3 = (1, 1, 0)\) ตรวจ: \(A(1,1,0) = (5, 5, 0) = 5\vec{v}_3\) ✓</li>
+        <li><span class="step-t">ทแยงมุม + สรุป</span> \(P = \begin{bmatrix} 0 & 1 & 1\\ 2 & 2 & 1\\ 3 & 2 & 0 \end{bmatrix}\), \(D = \mathrm{diag}(3, 4, 5)\) — ทแยงมุมได้ (ตรงคำตอบท้ายบท)</li>
+      </ol>
+    </div></details>
+  </article>
+
+  <article class="pr-card" id="p-3-2-4ญ" data-pkey="pTB-3-2-4ญ">
+    <div class="pr-head"><span class="pr-num">แบบฝึกหัด 3.2 ข้อ 4 (ญ)</span><span class="tag exam">🎯 แนว ⑤</span><span class="diff">●●●</span><span class="spacer"></span>
+      <label class="pr-done"><input type="checkbox"> ทำสำเร็จแล้ว</label></div>
+    <div class="pr-body">
+      <p>เหมือนข้อ 4 (ก): \(A = \begin{bmatrix} 2 & -6 & -6\\ -1 & 1 & 2\\ 3 & -6 & -7 \end{bmatrix}\)</p>
+    </div>
+    <details class="hint"><summary>คำใบ้</summary><div class="hint-body">λ = −2, −1, −1 — ต้องตรวจว่า eigenspace ของ −1 มีมิติ 2 จริง</div></details>
+    <details class="sol"><summary>แนวคิดและเฉลยแบบละเอียด</summary><div class="sol-body">
+      <p><strong>แนวคิด:</strong> ขั้นมาตรฐาน — ระวังค่าลักษณะเฉพาะติดลบทั้งหมด</p>
+      <ol class="steps">
+        <li><span class="step-t">สมการลักษณะเฉพาะ</span> \(-(\lambda+2)(\lambda+1)^2 = 0\) (trace = −4 = −2−1−1 ✓, det = −2 ✓) → \(\lambda = -2, -1, -1\)</li>
+        <li><span class="step-t">เวกเตอร์ λ=−2</span> \((A+2I)\) มีแถว \((4, -6, -6), (-1, 3, 2), (3, -6, -5)\): รวม แถว 1 + 2·แถว 2: \((4-2, -6+6, -6+4) = (2, 0, -2)\) → \(x = z\); แทนในแถว 2: \(-x+3y+2x = x+3y = 0\) → \(y = -\frac{x}{3}\) → ให้ \(x = 3\): \(\vec{v}_1 = (3, -1, 3)\) ตรวจ: \(A(3,-1,3) = (6+6-18, -3-1+6, 9+6-21) = (-6, 2, -6) = -2\vec{v}_1\) ✓</li>
+        <li><span class="step-t">เวกเตอร์ λ=−1</span> \((A+I)\): แถว \((3, -6, -6), (-1, 2, 2), (3, -6, -6)\) → เหลือเงื่อนไขเดียว \(x-2y-2z = 0\) → มิติ 2 ✓ ฐาน: \(\vec{v}_2 = (4, 1, 1)\) (จาก numpy \((-4,-1,-1)\) คูณ −1), \(\vec{v}_3 = (0, 1, -1)\) ตรวจ: \(A(4,1,1) = (8-6-6, -4+1+2, 12-6-7) = (-4, -1, -1) = -1\cdot\vec{v}_2\) ✓; \(A(0,1,-1) = (-6+6, 1-2, -6+7) = (0, -1, 1) = -\vec{v}_3\) ✓</li>
+        <li><span class="step-t">ทแยงมุม + สรุป</span> \(P = \begin{bmatrix} 3 & 4 & 0\\ -1 & 1 & 1\\ 3 & 1 & -1 \end{bmatrix}\), \(D = \mathrm{diag}(-2, -1, -1)\) — ทแยงมุมได้ (มิติ E₋₁ = 2 ครบ) (ตรงคำตอบท้ายบท)</li>
+      </ol>
+    </div></details>
+  </article>
+
+  <article class="pr-card" id="p-3-2-4ฎ" data-pkey="pTB-3-2-4ฎ">
+    <div class="pr-head"><span class="pr-num">แบบฝึกหัด 3.2 ข้อ 4 (ฎ)</span><span class="tag exam">🎯 แนว ⑤</span><span class="diff">●●●</span><span class="spacer"></span>
+      <label class="pr-done"><input type="checkbox"> ทำสำเร็จแล้ว</label></div>
+    <div class="pr-body">
+      <p>เหมือนข้อ 4 (ก): \(A = \begin{bmatrix} 4 & -7 & 0 & 2\\ 0 & 3 & -4 & 6\\ 0 & 0 & 3 & -8\\ 0 & 0 & 0 & 1 \end{bmatrix}\)</p>
+    </div>
+    <details class="hint"><summary>คำใบ้</summary><div class="hint-body">สามเหลี่ยมบน → λ อ่านจากทแยง: 4, 3, 3, 1 — จุดตัดสินอยู่ที่มิติของ E₃</div></details>
+    <details class="sol"><summary>แนวคิดและเฉลยแบบละเอียด</summary><div class="sol-body">
+      <p><strong>แนวคิด:</strong> เมทริกซ์สามเหลี่ยมบนให้ λ ฟรี แต่ "ทแยงมุมได้" ยังต้องเช็กมิติที่ค่าซ้ำ</p>
+      <ol class="steps">
+        <li><span class="step-t">ค่าลักษณะเฉพาะ</span> \(\lambda = 4, 3, 3, 1\) (ทแยงของสามเหลี่ยมบน)</li>
+        <li><span class="step-t">eigenspace ของ λ=3 (ซ้ำ)</span> \((A-3I)\): \(\begin{bmatrix} 1 & -7 & 0 & 2\\ 0 & 0 & -4 & 6\\ 0 & 0 & 0 & -8\\ 0 & 0 & 0 & -2 \end{bmatrix}\) → แถว 3: \(w = 0\); แถว 2: \(-4z = 0\) → \(z = 0\); แถว 1: \(x = 7y\) → มิติ 1 &lt; 2 → <strong>ทแยงมุมไม่ได้</strong> ฐานหลักของ \(E_3\): \((7, 1, 0, 0)\) (ตรวจ: \(A(7,1,0,0) = (28-7, 3, 0, 0) = (21, 3, 0, 0) = 3(7,1,0,0)\) ✓)</li>
+        <li><span class="step-t">เวกเตอร์ λ=4, λ=1</span> λ=4: \(\vec{e}_1 = (1, 0, 0, 0)\) ใช้ได้ทันที (หลัก 1 ของ A = \((4,0,0,0)^T\)) → \(A\vec{e}_1 = 4\vec{e}_1\) ✓; λ=1: \((A-I)\) ให้ระบบ \(3x-7y+2w = 0\), \(2y-4z+6w = 0\), \(2z-8w = 0\) → \(z = 4w\), \(y = 2z-3w = 5w\), \(x = \frac{7y-2w}{3} = 11w\) → ให้ \(w = 1\): \(\vec{v} = (11, 5, 4, 1)\) ตรวจ: \(A(11,5,4,1) = (44-35+2,\\ 15-16+6,\\ 12-8,\\ 1) = (11, 5, 4, 1)\) ✓</li>
+        <li><span class="step-t">สรุป</span> \(\lambda = 4, 3, 3, 1\) ฐานหลัก \(\{(1,0,0,0), (7,1,0,0), (11,5,4,1)\}\) — <strong>ทแยงมุมไม่ได้</strong> (มิติ E₃ = 1 &lt; 2) (ตรงคำตอบท้ายบท)</li>
+      </ol>
+    </div></details>
+  </article>
+
+  <article class="pr-card" id="p-3-2-4ฏ" data-pkey="pTB-3-2-4ฏ">
+    <div class="pr-head"><span class="pr-num">แบบฝึกหัด 3.2 ข้อ 4 (ฏ)</span><span class="tag exam">🎯 แนว ⑤</span><span class="diff">●●●</span><span class="spacer"></span>
+      <label class="pr-done"><input type="checkbox"> ทำสำเร็จแล้ว</label></div>
+    <div class="pr-body">
+      <p>เหมือนข้อ 4 (ก): \(A = \begin{bmatrix} 3 & 0 & 0 & 0\\ 0 & 3 & 0 & 0\\ 0 & 0 & 2 & 0\\ 1 & 0 & 0 & 2 \end{bmatrix}\)</p>
+    </div>
+    <details class="hint"><summary>คำใบ้</summary><div class="hint-body">λ = 3, 3, 2, 2 ซ้ำทั้งคู่ — โชคดีที่ทั้งสอง eigenspace มีมิติ 2 ครบ</div></details>
+    <details class="sol"><summary>แนวคิดและเฉลยแบบละเอียด</summary><div class="sol-body">
+      <p><strong>แนวคิด:</strong> สามเหลี่ยมบน + มีสมาชิกช่อง (4,1) ไม่เป็นศูนย์ — เช็กทั้งสอง eigenspace ที่ λ ซ้ำ</p>
+      <ol class="steps">
+        <li><span class="step-t">ค่าลักษณะเฉพาะ</span> \(\lambda = 3, 3, 2, 2\) (สามเหลี่ยมบน)</li>
+        <li><span class="step-t">eigenspace λ=3</span> \((A-3I)\) มีแถว: \((0,0,0,0), (0,0,0,0), (0,0,-1,0), (1,0,0,-1)\): แถว 3: \(z = 0\); แถว 4: \(x-w = 0\) → \(x = w\); \(y\) เสรี → มิติ 2 ✓ ฐาน \(\vec{v}_1 = (0,1,0,0)\), \(\vec{v}_2 = (1,0,0,1)\) — ตรวจ: \(A(1,0,0,1) = (3, 0, 0, 1+2) = (3,0,0,3) = 3\vec{v}_2\) ✓</li>
+        <li><span class="step-t">eigenspace λ=2</span> \((A-2I)\) มีแถว: \((1,0,0,0), (0,1,0,0), (0,0,0,0), (1,0,0,0)\): \(x = 0\), \(y = 0\); \(z, w\) เสรี → มิติ 2 ✓ ฐาน \(\vec{v}_3 = (0,0,1,0)\), \(\vec{v}_4 = (0,0,0,1)\) — ตรวจ: \(A(0,0,0,1) = (0,0,0,2) = 2\vec{v}_4\) ✓</li>
+        <li><span class="step-t">ทแยงมุม + สรุป</span} หลักของ P เรียง \((0,1,0,0), (1,0,0,1), (0,0,1,0), (0,0,0,1)\): \(P = \begin{bmatrix} 0 & 1 & 0 & 0\\ 1 & 0 & 0 & 0\\ 0 & 0 & 1 & 0\\ 0 & 1 & 0 & 1 \end{bmatrix}\), \(D = \mathrm{diag}(3, 3, 2, 2)\) — <strong>ทแยงมุมได้</strong> (ตรงคำตอบท้ายบท)</li>
+      </ol>
+    </div></div></details>
+  </article>
+
+  <article class="pr-card" id="p-3-2-4ฐ" data-pkey="pTB-3-2-4ฐ">
+    <div class="pr-head"><span class="pr-num">แบบฝึกหัด 3.2 ข้อ 4 (ฐ)</span><span class="tag exam">🎯 แนว ⑤</span><span class="diff">●●●</span><span class="spacer"></span>
+      <label class="pr-done"><input type="checkbox"> ทำสำเร็จแล้ว</label></div>
+    <div class="pr-body">
+      <p>เหมือนข้อ 4 (ก): \(A = \begin{bmatrix} 3 & 0 & 0 & 0 & 0\\ -5 & 1 & 0 & 0 & 0\\ 3 & 8 & 0 & 0 & 0\\ 0 & -7 & 2 & 1 & 0\\ -4 & 1 & 9 & -2 & 3 \end{bmatrix}\) (เมทริกซ์ 5×5)</p>
+    </div>
+    <details class="hint"><summary>คำใบ้</summary><div class="hint-body">5×5 — ใช้ numpy ช่วยหา λ ได้ แล้วตรวจด้วยมือทีละ eigenspace (nullity สำคัญที่สุด)</div></details>
+    <details class="sol"><summary>แนวคิดและเฉลยแบบละเอียด</summary><div class="sol-body">
+      <p><strong>แนวคิด:</strong> ข้อนี้สมการลักษณะเฉพาะเปิดมือยาก แนวทาง: คำนวณ λ ด้วยเครื่องมือ (หรือลองหารากเล็ก ๆ) แล้วเน้นการเช็กมิติ</p>
+      <ol class="steps">
+        <li><span class="step-t">ค่าลักษณะเฉพาะ</span> \(\lambda = 0, 1, 1, 3, 3\) (จาก \((\lambda-3)^2(\lambda-1)^2\lambda = 0\); ตรวจ trace = 3+1+0+1+3 = 8 = 0+1+1+3+3 ✓)</li>
+        <li><span class="step-t">nullity ของแต่ละ eigenspace</span> λ=0: nullity 1, ฐาน \((0, 0, -3, 6, 13)\) (ตรวจ: คูณ A แล้วได้ \(\vec{0}\) ✓); λ=1: nullity 1 &lt; 2, ฐาน \((0, 0, 0, 1, 1)\) (ตรวจ: \(A(0,0,0,1,1) = (0, 0, 0, 1, 1)\) ✓); λ=3: nullity 1 &lt; 2, ฐาน \((0, 0, 0, 0, 1)\) (ตรวจ: หลักสุดท้ายของ A คือ 3 ที่ช่อง (5,5) เดียว → \(A\vec{e}_5 = 3\vec{e}_5\) ✓)</li>
+        <li><span class="step-t">ตัดสิน</span> λ=1 ซ้ำ 2 แต่มิติ 1; λ=3 ซ้ำ 2 แต่มิติ 1 → รวมเวกเตอร์ลักษณะเฉพาะอิสระได้แค่ 3 ตัว &lt; 5</li>
+        <li><span class="step-t">สรุป</span> \(\lambda = 0, 1, 1, 3, 3\), ฐานหลักตามด้านบน — <strong>ทแยงมุมไม่ได้</strong> (ตรงคำตอบท้ายบท)</li>
+      </ol>
+    </div></details>
+  </article>
+
+  <article class="pr-card" id="p-3-2-5ก" data-pkey="pTB-3-2-5ก">
+    <div class="pr-head"><span class="pr-num">แบบฝึกหัด 3.2 ข้อ 5 (ก)</span><span class="diff">●●○</span><span class="spacer"></span>
+      <label class="pr-done"><input type="checkbox"> ทำสำเร็จแล้ว</label></div>
+    <div class="pr-body">
+      <p>สำหรับ \(T:\vec{x}\mapsto A\vec{x}\) เมื่อ \(A = \begin{bmatrix} -5 & 4\\ -2 & 1 \end{bmatrix}\) จงหาฐานหลัก B′ สำหรับ \(\mathbb{R}^2\) ซึ่งทำให้ \([T]_{B'}\) เป็นเมทริกซ์ทแยงมุม (ถ้ามี)</p>
+    </div>
+    <details class="hint"><summary>คำใบ้</summary><div class="hint-body">B′ = เวกเตอร์ลักษณะเฉพาะของ A — ถ้าหาได้ครบ 2 ตัวอิสระกัน ก็ทแยงมุมได้</div></details>
+    <details class="sol"><summary>แนวคิดและเฉลยแบบละเอียด</summary><div class="sol-body">
+      <p><strong>แนวคิด:</strong> \([T]_{B'}\) ทแยงมุม ⟺ B′ เป็นฐานหลักของเวกเตอร์ลักษณะเฉพาะ</p>
+      <ol class="steps">
+        <li><span class="step-t">ค่าลักษณะเฉพาะ</span> \(\lambda^2+4\lambda+3 = 0\) (trace = −4, det = −5+8 = 3) → \((\lambda+1)(\lambda+3) = 0\) → \(\lambda = -1, -3\)</li>
+        <li><span class="step-t">เวกเตอร์</span> λ=−1: \((A+I)\): \(-4x+4y = 0\) → \(\vec{v}_1 = (1, 1)\); λ=−3: \((A+3I)\): \(-2x+4y = 0\) → \(\vec{v}_2 = (2, 1)\)</li>
+        <li><span class="step-t">สรุป</span> \(B' = \left\{\begin{bmatrix} 1\\ 1 \end{bmatrix}, \begin{bmatrix} 2\\ 1 \end{bmatrix}\right\}\) → \([T]_{B'} = \mathrm{diag}(-1, -3)\) — ตรวจ: \(A(2,1) = (-10+4, -4+1) = (-6, -3) = -3(2,1)\) ✓ (ตรงคำตอบท้ายบท)</li>
+      </ol>
+    </div></details>
+  </article>
+
+  <article class="pr-card" id="p-3-2-5ข" data-pkey="pTB-3-2-5ข">
+    <div class="pr-head"><span class="pr-num">แบบฝึกหัด 3.2 ข้อ 5 (ข)</span><span class="diff">●●○</span><span class="spacer"></span>
+      <label class="pr-done"><input type="checkbox"> ทำสำเร็จแล้ว</label></div>
+    <div class="pr-body">
+      <p>จงหาฐานหลัก B′ ที่ทำให้ \([T]_{B'}\) ทแยงมุม เมื่อ \(A = \begin{bmatrix} 0 & 1\\ -3 & 4 \end{bmatrix}\)</p>
+    </div>
+    <details class="hint"><summary>คำใบ้</summary><div class="hint-body">สมการลักษณะเฉพาะแยกรากได้ 1, 3</div></details>
+    <details class="sol"><summary>แนวคิดและเฉลยแบบละเอียด</summary><div class="sol-body">
+      <p><strong>แนวคิด:</strong> เหมือน (ก)</p>
+      <ol class="steps">
+        <li><span class="step-t">ค่าลักษณะเฉพาะ</span> \(\lambda^2-4\lambda+3 = 0\) (trace = 4, det = 0+3 = 3) → \((\lambda-1)(\lambda-3) = 0\) → \(\lambda = 1, 3\)</li>
+        <li><span class="step-t">เวกเตอร์</span> λ=1: \((A-I)\): \(-x+y = 0\), \(-3x+3y = 0\) → \(\vec{v}_1 = (1, 1)\); λ=3: \((A-3I)\): \(-3x+y = 0\) → \(\vec{v}_2 = (1, 3)\)</li>
+        <li><span class="step-t">สรุป</span> \(B' = \{(1,1), (1,3)\}\), \([T]_{B'} = \mathrm{diag}(1, 3)\) — ตรวจ: \(A(1,3) = (3, -3+12) = (3, 9) = 3(1,3)\) ✓ (ตรงคำตอบท้ายบท)</li>
+      </ol>
+    </div></details>
+  </article>
+
+  <article class="pr-card" id="p-3-2-5ค" data-pkey="pTB-3-2-5ค">
+    <div class="pr-head"><span class="pr-num">แบบฝึกหัด 3.2 ข้อ 5 (ค)</span><span class="diff">●●○</span><span class="spacer"></span>
+      <label class="pr-done"><input type="checkbox"> ทำสำเร็จแล้ว</label></div>
+    <div class="pr-body">
+      <p>จงหาฐานหลัก B′ ที่ทำให้ \([T]_{B'}\) ทแยงมุม เมื่อ \(A = \begin{bmatrix} 4 & -2\\ -1 & 3 \end{bmatrix}\)</p>
+    </div>
+    <details class="hint"><summary>คำใบ้</summary><div class="hint-body">λ = 2, 5</div></details>
+    <details class="sol"><summary>แนวคิดและเฉลยแบบละเอียด</summary><div class="sol-body">
+      <p><strong>แนวคิด:</strong> เหมือน (ก)</p>
+      <ol class="steps">
+        <li><span class="step-t">ค่าลักษณะเฉพาะ</span> \(\lambda^2-7\lambda+10 = 0\) (trace = 7, det = 12−2 = 10) → \((\lambda-2)(\lambda-5) = 0\) → \(\lambda = 2, 5\)</li>
+        <li><span class="step-t">เวกเตอร์</span> λ=2: \((A-2I)\): \(2x-2y = 0\) → \(\vec{v}_1 = (1, 1)\); λ=5: \((A-5I)\): \(-x-2y = 0\) → \(\vec{v}_2 = (-2, 1)\) หรือ \((2, -1)\)</li>
+        <li><span class="step-t">สรุป</span> \(B' = \{(1,1), (2,-1)\}\), \([T]_{B'} = \mathrm{diag}(2, 5)\) — ตรวจ: \(A(2,-1) = (8+2, -2-3) = (10, -5) = 5(2,-1)\) ✓ (ตรงคำตอบท้ายบท)</li>
+      </ol>
+    </div></details>
+  </article>
+
+  <article class="pr-card" id="p-3-2-5ง" data-pkey="pTB-3-2-5ง">
+    <div class="pr-head"><span class="pr-num">แบบฝึกหัด 3.2 ข้อ 5 (ง)</span><span class="diff">●●○</span><span class="spacer"></span>
+      <label class="pr-done"><input type="checkbox"> ทำสำเร็จแล้ว</label></div>
+    <div class="pr-body">
+      <p>จงหาฐานหลัก B′ ที่ทำให้ \([T]_{B'}\) ทแยงมุม เมื่อ \(A = \begin{bmatrix} 1 & 1\\ -1 & 3 \end{bmatrix}\) (ถ้ามี)</p>
+    </div>
+    <details class="hint"><summary>คำใบ้</summary><div class="hint-body">λ ซ้ำ — เช็กมิติก่อนสรุปว่ามีหรือไม่มี</div></details>
+    <details class="sol"><summary>แนวคิดและเฉลยแบบละเอียด</summary><div class="sol-body">
+      <p><strong>แนวคิด:</strong> ข้อนี้คำตอบคือ "ไม่มี" — ต้องอธิบายเหตุผลให้ชัด</p>
+      <ol class="steps">
+        <li><span class="step-t">ค่าลักษณะเฉพาะ</span> \(\lambda^2-4\lambda+4 = 0\) (trace = 4, det = 3+1 = 4) → \((\lambda-2)^2 = 0\) → \(\lambda = 2\) ซ้ำ</li>
+        <li><span class="step-t">eigenspace</span> \((A-2I)\): \(-x+y = 0\), \(-x+y = 0\) → มิติ 1 &lt; 2 → เวกเตอร์ลักษณะเฉพาะอิสระมีแค่ \((1,1)\) ตัวเดียว ไม่พอเป็นฐานหลักของ \(\mathbb{R}^2\)</li>
+        <li><span class="step-t">สรุป</span> <strong>ไม่มีฐานหลัก B′ ที่ทำให้ \([T]_{B'}\) เป็นเมทริกซ์ทแยงมุม</strong> ∎ (ตรงคำตอบท้ายบท "(ง)λ = 2, 2 …ไม่มีฐานหลัก")</li>
+      </ol>
+    </div></details>
+  </article>
+
+  <article class="pr-card" id="p-3-2-6ก" data-pkey="pTB-3-2-6ก">
+    <div class="pr-head"><span class="pr-num">แบบฝึกหัด 3.2 ข้อ 6 (ก)</span><span class="diff">●●○</span><span class="spacer"></span>
+      <label class="pr-done"><input type="checkbox"> ทำสำเร็จแล้ว</label></div>
+    <div class="pr-body">
+      <p>กำหนดให้ \(A = \begin{bmatrix} 5 & -2 & 6 & -1\\ 0 & 3 & h & 0\\ 0 & 0 & 5 & 4\\ 0 & 0 & 0 & 2 \end{bmatrix}\) จงหาค่าของ h ที่ทำให้ปริภูมิลักษณะเฉพาะซึ่งสมนัยกับ \(\lambda = 5\) <strong>มีมิติเท่ากับ 1</strong></p>
+      <p class="tagline">มีบทเรียนประกอบ: <a href="ch3-2.html">หน้า 3.2</a></p>
+    </div>
+    <details class="hint"><summary>คำใบ้</summary><div class="hint-body">λ = 5 ซ้ำ 2 ครั้ง (ทแยง) — มิติของ E₅ ขึ้นกับว่าแถวที่ 1, 2 ของ (A−5I) เป็นอิสระหรือไม่</div></details>
+    <details class="sol"><summary>แนวคิดและเฉลยแบบละเอียด</summary><div class="sol-body">
+      <p><strong>แนวคิด:</strong> สมการของ \((A-5I)\) แถว 3, 4 ล็อก w กับ z ทันที เหลือโครง x, y, z ให้แยกว่า h ทำให้แถว 1, 2 พัวพันหรือไม่</p>
+      <ol class="steps">
+        <li><span class="step-t">สร้าง A−5I</span> \(\begin{bmatrix} 0 & -2 & 6 & -1\\ 0 & -2 & h & 0\\ 0 & 0 & 0 & 4\\ 0 & 0 & 0 & -3 \end{bmatrix}\) — แถว 3: \(4w = 0\), แถว 4: \(-3w = 0\) → \(w = 0\)</li>
+        <li><span class="step-t">พิจารณา h</span> เหลือสมการ \(-2y+6z = 0\) และ \(-2y+hz = 0\) — ถ้า \(h \neq 6\) สองแถวอิสระกัน → \(y = z = 0\) เหลือ x เสรี → มิติ 1</li>
+        <li><span class="step-t">สรุป</span> <strong>h ≠ 6</strong> ทำให้มิติของ \(E_5\) เท่ากับ 1 ∎ (ตรงคำตอบท้ายบท "(ก)h ≠ 6")</li>
+      </ol>
+    </div></details>
+  </article>
+
+  <article class="pr-card" id="p-3-2-6ข" data-pkey="pTB-3-2-6ข">
+    <div class="pr-head"><span class="pr-num">แบบฝึกหัด 3.2 ข้อ 6 (ข)</span><span class="diff">●●○</span><span class="spacer"></span>
+      <label class="pr-done"><input type="checkbox"> ทำสำเร็จแล้ว</label></div>
+    <div class="pr-body">
+      <p>จงหาค่าของ h ที่ทำให้ปริภูมิลักษณะเฉพาะซึ่งสมนัยกับ \(\lambda = 5\) <strong>มีมิติเท่ากับ 2</strong></p>
+    </div>
+    <details class="hint"><summary>คำใบ้</summary><div class="hint-body">ต่อจาก (ก) — สองแถวต้องเป็นสเกลาร์กัน</div></details>
+    <details class="sol"><summary>แนวคิดและเฉลยแบบละเอียด</summary><div class="sol-body">
+      <p><strong>แนวคิด:</strong> ให้แถว 1 กับแถว 2 ของ \((A-5I)\) พัวพันกัน → nullity เพิ่มเป็น 2</p>
+      <ol class="steps">
+        <li><span class="step-t">เงื่อนไข</span> \((-2, h)\) ต้องเป็นสเกลาร์ของ \((-2, 6)\) → \(h = 6\) — เมื่อ h = 6 เหลือสมการเดียว \(-2y+6z = 0\) → \(y = 3z\) → x, z เสรี → มิติ 2 ✓</li>
+        <li><span class="step-t">ตรวจ</span> ที่ h = 6: \(\vec{v} = (1, 0, 0, 0)\) และ \((0, 3, 1, 0)\) อิสระกัน ทั้งคู่อยู่ใน \(E_5\) ✓ — <strong>สรุป:</strong> <strong>h = 6</strong> ∎ (ตรงคำตอบท้ายบท "(ข)h = 6")</li>
+      </ol>
+    </div></details>
+  </article>
+
+  <article class="pr-card" id="p-3-2-7" data-pkey="pTB-3-2-7">
+    <div class="pr-head"><span class="pr-num">แบบฝึกหัด 3.2 ข้อ 7</span><span class="tag exam">🎯 แนว ⑤</span><span class="diff">●●○</span><span class="spacer"></span>
+      <label class="pr-done"><input type="checkbox"> ทำสำเร็จแล้ว</label></div>
+    <div class="pr-body">
+      <p>กำหนดให้ A เป็นเมทริกซ์มิติ \(4 \times 4\) ซึ่งมีค่าลักษณะเฉพาะเป็น \(\lambda = 2, 2, 1, -1\) ถ้า \(\mathrm{nullity}(A-2I_4) = 2\) แล้ว A สามารถแปลงเป็นทแยงมุมได้หรือไม่ เพราะเหตุใด</p>
+      <p class="tagline">มีบทเรียนประกอบ: <a href="ch3-2.html">หน้า 3.2</a></p>
+    </div>
+    <details class="hint"><summary>คำใบ้</summary><div class="hint-body">เปรียบเทียบ "จำนวนครั้งที่ λ ซ้ำ" (multiplicity เชิงพีชคณิต) กับ "มิติของ eigenspace" (เชิงเรขาคณิต) ทีละค่า</div></details>
+    <details class="sol"><summary>แนวคิดและเฉลยแบบละเอียด</summary><div class="sol-body">
+      <p><strong>แนวคิด:</strong> เกณฑ์ทแยงมุม: รวมมิติของ eigenspace ทุกค่าต้องได้ n = 4</p>
+      <ol class="steps">
+        <li><span class="step-t">เช็กทีละค่า</span> λ=2 ซ้ำ 2 ครั้ง และ \(\mathrm{nullity}(A-2I_4) = 2\) = มิติของ \(E_2\) = 2 ✓ ครบ; λ=1 และ λ=−1 เป็นรากเดี่ยว → eigenspace มีมิติอย่างน้อย 1 เสมอ และไม่เกิน 1 (ไม่เกินจำนวนครั้ง) → ได้ 1 ตัวต่อค่า ✓</li>
+        <li><span class="step-t">รวม</span> \(2 + 1 + 1 = 4 = n\) → มีเวกเตอร์ลักษณะเฉพาะอิสระครบ 4 ตัว → เป็นฐานหลักได้</li>
+        <li><span class="step-t">สรุป</span> <strong>A แปลงเป็นทแยงมุมได้</strong> เพราะผลรวมมิติของปริภูมิลักษณะเฉพาะทุกค่าเท่ากับ 4 ∎ (ตรงคำตอบท้ายบท — ซึ่งถูกตัดค้างท้ายหน้า 92 ของตำรา การ์ดนี้เฉลยให้ครบ)</li>
+      </ol>
+    </div></details>
+  </article>
+
+  <article class="pr-card" id="p-3-2-8" data-pkey="pTB-3-2-8">
+    <div class="pr-head"><span class="pr-num">แบบฝึกหัด 3.2 ข้อ 8</span><span class="diff">●●○</span><span class="spacer"></span>
+      <label class="pr-done"><input type="checkbox"> ทำสำเร็จแล้ว</label></div>
+    <div class="pr-body">
+      <p>จงแสดงว่า ถ้าเมทริกซ์ A คล้ายกับเมทริกซ์ B แล้ว \(A^T\) คล้ายกับ \(B^T\)</p>
+    </div>
+    <details class="hint"><summary>คำใบ้</summary><div class="hint-body">นิยามคล้าย: \(B = P^{-1}AP\) — ถอดทรานสโพสทั้งสมการแล้วจัดรูป</div></details>
+    <details class="sol"><summary>แนวคิดและเฉลยแบบละเอียด</summary><div class="sol-body">
+      <p><strong>แนวคิด:</strong> ต้องหาเมทริกซ์ "สะพาน" ใหม่ที่พา \(A^T\) ไป \(B^T\) — ตัวสะพานคือ \((P^{-1})^T\)</p>
+      <ol class="steps">
+        <li><span class="step-t">เริ่มจากนิยาม</span> A คล้าย B → มี P ไม่เอกฐานที่ \(P^{-1}AP = B\)</li>
+        <li><span class="step-t">ถอดทรานสโพส</span> \((P^{-1}AP)^T = B^T\) → \(P^TA^T(P^{-1})^T = B^T\)</li>
+        <li><span class="step-t">จัดรูป</span> \((P^{-1})^TP^T = (PP^{-1})^T = I\) → \(A^T = (P^T)^{-1}B^T(P^{-1})^T\)... จัดให้อยู่รูป "สะพานหน้า-หลัง": ให้ \(Q = (P^T)^{-1}\) (ไม่เอกฐาน) แล้ว \(Q^{-1}B^TQ = P^TB^T(P^T)^{-1}\)? — ทำตรงจากขั้น 2: \(B^T = P^TA^T(P^T)^{-1}\)? ตรวจ: \((P^{-1})^T = (P^T)^{-1}\) → ขั้น 2 กลายเป็น \(P^TA^T(P^T)^{-1} = B^T\) — นี่คือ \(B^T = Q A^T Q^{-1}\) กับ \(Q = P^T\) หรือเทียบเท่า \(A^T = Q^{-1}B^TQ\) → \(A^T\) คล้าย \(B^T\) ∎</li>
+        <li><span class="step-t">ตรวจคำตอบ</span> โครงสร้างสำคัญ: \((P^{-1}AP)^T = P^TA^T(P^{-1})^T\) และ \((P^{-1})^T = (P^T)^{-1}\) — สองเอกลักษณ์นี้คือทั้งหมดของข้อนี้ ✓</li>
+      </ol>
+    </div></details>
+  </article>
+
+  <article class="pr-card" id="p-3-2-9" data-pkey="pTB-3-2-9">
+    <div class="pr-head"><span class="pr-num">แบบฝึกหัด 3.2 ข้อ 9</span><span class="diff">●●○</span><span class="spacer"></span>
+      <label class="pr-done"><input type="checkbox"> ทำสำเร็จแล้ว</label></div>
+    <div class="pr-body">
+      <p>จงพิสูจน์ว่า ถ้า A เป็นเมทริกซ์ไม่เอกฐานซึ่งสามารถแปลงเป็นทแยงมุมได้ แล้ว \(A^{-1}\) สามารถแปลงเป็นทแยงมุมได้</p>
+    </div>
+    <details class="hint"><summary>คำใบ้</summary><div class="hint-body">ใช้ P, D เดิม: \(A = PDP^{-1}\) → \(A^{-1} = PD^{-1}P^{-1}\) — อินเวอร์สของทแยงมุมก็ยังทแยงมุม</div></details>
+    <details class="sol"><summary>แนวคิดและเฉลยแบบละเอียด</summary><div class="sol-body">
+      <p><strong>แนวคิด:</strong> "ใช้สะพาน P เดิม" — เพียงแต่ D เปลี่ยนเป็น D⁻¹</p>
+      <ol class="steps">
+        <li><span class="step-t">สมมติฐาน</span> A ทแยงมุมได้ → มี P ไม่เอกฐาน, D ทแยงมุม: \(P^{-1}AP = D\)</li>
+        <li><span class="step-t">อินเวอร์ส</span> A ไม่เอกฐาน → ทุก λ บนทแยงของ D ไม่เป็นศูนย์ → \(D^{-1}\) มีอยู่ (ทแยงด้วย \(1/\lambda_i\)) และ \(A^{-1} = (PDP^{-1})^{-1} = PD^{-1}P^{-1}\) (ใช้ \((ABC)^{-1} = C^{-1}B^{-1}A^{-1}\))</li>
+        <li><span class="step-t">สรุป</span> \(A^{-1} = PD^{-1}P^{-1}\) โดย \(D^{-1}\) ทแยงมุม → \(A^{-1}\) ทแยงมุมได้ ∎ — ค่าลักษณะเฉพาะของ \(A^{-1}\) คือ \(1/\lambda_i\) กับเวกเตอร์ลักษณะเฉพาะตัวเดิม</li>
+        <li><span class="step-t">ตรวจคำตอบ</span> ตัวอย่างตรวจสอบ: \(A = \begin{bmatrix} 2 & 2\\ 2 & -1 \end{bmatrix}\) (ข้อ 4 ก): \(A^{-1} = \frac{1}{-6}\begin{bmatrix} -1 & -2\\ -2 & 2 \end{bmatrix}\) และ \(D^{-1} = \mathrm{diag}(1/3, -1/2)\) — แทนใน \(PD^{-1}P^{-1}\) ได้ \(A^{-1}\) ตรง ✓</li>
+      </ol>
+    </div></details>
+  </article>
+
+  <article class="pr-card" id="p-3-2-10" data-pkey="pTB-3-2-10">
+    <div class="pr-head"><span class="pr-num">แบบฝึกหัด 3.2 ข้อ 10</span><span class="diff">●●○</span><span class="spacer"></span>
+      <label class="pr-done"><input type="checkbox"> ทำสำเร็จแล้ว</label></div>
+    <div class="pr-body">
+      <p>จงแสดงว่า A เป็นเมทริกซ์เอกฐาน ก็ต่อเมื่อ 0 เป็นค่าลักษณะเฉพาะของเมทริกซ์ A</p>
+    </div>
+    <details class="hint"><summary>คำใบ้</summary><div class="hint-body">"ก็ต่อเมื่อ" = พิสูจน์สองทิศ — เครื่องมือ: เอกฐาน ⟺ det A = 0 และ λ เป็นค่าลักษณะเฉพาะ ⟺ det(A−λI) = 0</div></details>
+    <details class="sol"><summary>แนวคิดและเฉลยแบบละเอียด</summary><div class="sol-body">
+      <p><strong>แนวคิด:</strong> สองทิศผ่าน det ล้วน ๆ</p>
+      <ol class="steps">
+        <li><span class="step-t">ทิศ (⇒)</span> A เอกฐาน → \(\det A = 0\) → \(\det(A-0\cdot I) = \det A = 0\) → 0 เป็นค่าลักษณะเฉพาะ (เกณฑ์ det(A−λI) = 0 ที่ λ = 0) ✓</li>
+        <li><span class="step-t">ทิศ (⇐)</span> 0 เป็นค่าลักษณะเฉพาะ → \(\det(A-0\cdot I) = \det A = 0\) → A เอกฐาน ✓</li>
+        <li><span class="step-t">สรุป</span> จริงสองทิศ → "A เอกฐาน ก็ต่อเมื่อ 0 เป็นค่าลักษณะเฉพาะ" ∎ — เกร็ดข้อสอบ: เทียบเท่ากับ "A ไม่เอกฐาน ⟺ ค่าลักษณะเฉพาะทุกตัวไม่เป็นศูนย์"</li>
+      </ol>
+    </div></details>
+  </article>
+
+  <article class="pr-card" id="p-3-2-11" data-pkey="pTB-3-2-11">
+    <div class="pr-head"><span class="pr-num">แบบฝึกหัด 3.2 ข้อ 11</span><span class="diff">●●●</span><span class="spacer"></span>
+      <label class="pr-done"><input type="checkbox"> ทำสำเร็จแล้ว</label></div>
+    <div class="pr-body">
+      <p>จงยกตัวอย่างเมทริกซ์ A และ B มิติ \(2 \times 2\) ซึ่งมีค่าลักษณะเฉพาะชุดเดียวกัน แต่เมทริกซ์ A ไม่คล้ายกับเมทริกซ์ B</p>
+    </div>
+    <details class="hint"><summary>คำใบ้</summary><div class="hint-body">ใช้เมทริกซ์จากข้อ 4 (ข) และ (ง) — ทั้งคู่มี λ ซ้ำแต่ eigenspace มิติเดียว</div></details>
+    <details class="sol"><summary>แนวคิดและเฉลยแบบละเอียด</summary><div class="sol-body">
+      <p><strong>แนวคิด:</strong> ค่าลักษณะเฉพาะชุดเดียวกันไม่การันตีการคล้าย — เอาคู่ที่ λ ซ้ำทั้งคู่แต่ไม่คล้าย I (เพราะถ้าคล้าย I ต้องเท่า I เท่านั้น!)</p>
+      <ol class="steps">
+        <li><span class="step-t">ตัวอย่าง</span> จากข้อ 4: \(A = \begin{bmatrix} 14 & 16\\ -9 & -10 \end{bmatrix}\) และ \(B = \begin{bmatrix} 5 & 4\\ -1 & 1 \end{bmatrix}\) — ทั้งคู่มีค่าลักษณะเฉพาะ \(\lambda = 2, 2\) (จากการคำนวณในข้อ 4 ข และ ง)</li>
+        <li><span class="step-t">พิสูจน์ไม่คล้าย</span> สมมติ A คล้าย B → มี P ที่ \(B = P^{-1}AP\) จากนั้น... ใช้ข้อสังเกตที่แรงกว่า: ถ้าเมทริกซ์คล้ายกับ \(\begin{bmatrix} 2 & 0\\ 0 & 2 \end{bmatrix} = 2I\) จะได้เมทริกซ์ = \(2I\) เสมอ (เพราะ \(P^{-1}(2I)P = 2I\)) — แต่ A คล้าย \(2I\) หรือไม่: ถ้า A คล้าย 2I แล้ว A = 2I ซึ่งเป็นเท็จ → A ไม่คล้าย 2I; เหตุผลโดยตรงระหว่าง A กับ B: A และ B ต่างไม่ทแยงมุมได้ (eigenspace มิติเดียวทั้งคู่) — ใช้เกณฑ์: เมทริกซ์ที่คล้ายกันต้องมี rank เท่ากัน, trace เท่ากัน, det เท่ากัน — ตัวที่แยกชัดที่สุด: เลือก B เป็น \(2I\) เอง! แต่ λ(2I) = 2, 2 เท่ากับของ A ✓ และ A ไม่คล้าย \(2I\) เพราะถ้าคล้ายจะได้ \(A = 2I\) (ขัดแย้ง) — นี่คือตัวอย่างที่สะอาดที่สุด</li>
+        <li><span class="step-t">สรุป</span> \(A = \begin{bmatrix} 14 & 16\\ -9 & -10 \end{bmatrix}\), \(B = \begin{bmatrix} 2 & 0\\ 0 & 2 \end{bmatrix}\): λ เหมือนกันทั้งคู่ (2, 2) แต่ A ไม่คล้าย B ∎ เหตุผล: ถ้า A = P⁻¹(2I)P = 2I สำหรับ P ใด ๆ (คูณเมทริกซ์ I สลับที่ได้ตัวมันเอง) ขัดแย้งกับ A จริง ✓ (ตรวจ: λ ของ A จากข้อ 4 (ข) = 2, 2 ✓)</li>
+      </ol>
+    </div></details>
+  </article>
+
+  <article class="pr-card" id="p-3-2-12ก" data-pkey="pTB-3-2-12ก">
+    <div class="pr-head"><span class="pr-num">แบบฝึกหัด 3.2 ข้อ 12 (ก)</span><span class="diff">●●○</span><span class="spacer"></span>
+      <label class="pr-done"><input type="checkbox"> ทำสำเร็จแล้ว</label></div>
+    <div class="pr-body">
+      <p>จงแสดงว่า \(\mathrm{tr}(AB) = \mathrm{tr}(BA)\) สำหรับทุกๆ เมทริกซ์จัตุรัส A และ B ขนาด n</p>
+    </div>
+    <details class="hint"><summary>คำใบ้</summary><div class="hint-body">เขียนเป็นผลรวมสองชั้นแล้วสลับลำดับการบวก</div></details>
+    <details class="sol"><summary>แนวคิดและเฉลยแบบละเอียด</summary><div class="sol-body">
+      <p><strong>แนวคิด:</strong> \(\mathrm{tr}(M) = \sum_i m_{ii}\) — คำนวณช่องทแยงของ AB และ BA แล้วเทียบ</p>
+      <ol class="steps">
+        <li><span class="step-t">เขียนผลรวม</span> \(\mathrm{tr}(AB) = \sum_{i=1}^{n}(AB)_{ii} = \sum_{i=1}^{n}\sum_{j=1}^{n}a_{ij}b_{ji}\)</li>
+        <li><span class="step-t">สลับ</span> \(\mathrm{tr}(BA) = \sum_{i=1}^{n}(BA)_{ii} = \sum_{i=1}^{n}\sum_{j=1}^{n}b_{ij}a_{ji} = \sum_{i=1}^{n}\sum_{j=1}^{n}a_{ji}b_{ji}\)? — เขียนให้ชัด: ในนิพจน์ของ tr(AB) สลับชื่อดัชนี \(i \leftrightarrow j\): \(\sum_{j}\sum_{i}a_{ji}b_{ij} = \sum_i (BA)_{ii} = \mathrm{tr}(BA)\) ∎ (การสลับดัชนีทำได้เพราะเป็นผลรวมจำกัด)</li>
+        <li><span class="step-t">ตรวจคำตอบ</span> ตัวอย่าง 2×2: \(AB = \begin{bmatrix} 1 & 2\\ 0 & 3 \end{bmatrix}\begin{bmatrix} 4 & 0\\ 1 & 5 \end{bmatrix} = \begin{bmatrix} 6 & 10\\ 3 & 15 \end{bmatrix}\) tr = 21; \(BA = \begin{bmatrix} 4 & 8\\ 1 & 17 \end{bmatrix}\) tr = 21 ✓</li>
+      </ol>
+    </div></details>
+  </article>
+
+  <article class="pr-card" id="p-3-2-12ข" data-pkey="pTB-3-2-12ข">
+    <div class="pr-head"><span class="pr-num">แบบฝึกหัด 3.2 ข้อ 12 (ข)</span><span class="diff">●●○</span><span class="spacer"></span>
+      <label class="pr-done"><input type="checkbox"> ทำสำเร็จแล้ว</label></div>
+    <div class="pr-body">
+      <p>จงแสดงว่า ถ้าเมทริกซ์ A คล้ายกับเมทริกซ์ B แล้ว \(\mathrm{tr}\,A = \mathrm{tr}\,B\)</p>
+    </div>
+    <details class="hint"><summary>คำใบ้</summary><div class="hint-body">ใช้ข้อ (ก) กับ \(B = P^{-1}AP\)</div></details>
+    <details class="sol"><summary>แนวคิดและเฉลยแบบละเอียด</summary><div class="sol-body">
+      <p><strong>แนวคิด:</strong> คล้าย → \(B = P^{-1}AP = (P^{-1}A)P\) — จับคู่เป็น AB/BA แล้วใช้ (ก)</p>
+      <ol class="steps">
+        <li><span class="step-t">จัดรูป</span> \(B = P^{-1}(AP)\) ให้ \(M = P^{-1}\), \(N = AP\): \(B = MN\) → \(\mathrm{tr}(B) = \mathrm{tr}(MN) = \mathrm{tr}(NM)\) โดย (ก)</li>
+        <li><span class="step-t">แทนคืน</span> \(NM = (AP)P^{-1} = A(PP^{-1}) = A\) → \(\mathrm{tr}(B) = \mathrm{tr}(A)\) ∎</li>
+        <li><span class="step-t">สรุป</span> trace เป็น "พาหะของการคล้าย" เสมอ — พร้อม det และค่าลักษณะเฉพาะ (ตรวจเชิงประจักษ์: ข้อ 4 ก กับ 4 ค trace ต่างกัน (1 กับ 4) จึงไม่คล้ายกัน ✓)</li>
+      </ol>
+    </div></details>
+  </article>
+
+  <article class="pr-card" id="p-3-2-12ค" data-pkey="pTB-3-2-12ค">
+    <div class="pr-head"><span class="pr-num">แบบฝึกหัด 3.2 ข้อ 12 (ค)</span><span class="diff">●●○</span><span class="spacer"></span>
+      <label class="pr-done"><input type="checkbox"> ทำสำเร็จแล้ว</label></div>
+    <div class="pr-body">
+      <p>จงแสดงว่า ถ้า \(A = \begin{bmatrix} a & b\\ c & d \end{bmatrix}\) แล้วพหุนามลักษณะเฉพาะของ A คือ \(\lambda^2 - (\mathrm{tr}\,A)\lambda + \det A\)</p>
+    </div>
+    <details class="hint"><summary>คำใบ้</summary><div class="hint-body">เปิด \(\det(A-\lambda I)\) ตรง ๆ แล้วเทียบกับ \((a-\lambda)(d-\lambda)\)</div></details>
+    <details class="sol"><summary>แนวคิดและเฉลยแบบละเอียด</summary><div class="sol-body">
+      <p><strong>แนวคิด:</strong> คำนวณตรง แล้วจำสูตรนี้ให้ขึ้นใจ — ใช้เช็กคำตอบสมการลักษณะเฉพาะ 2×2 ได้ตลอด (trace ลบ λ + det)</p>
+      <ol class="steps">
+        <li><span class="step-t">เปิด det</span> \(\det(A-\lambda I) = \begin{vmatrix} a-\lambda & b\\ c & d-\lambda \end{vmatrix} = (a-\lambda)(d-\lambda) - bc\)</li>
+        <li><span class="step-t">จัดรูป</span> \(= ad - a\lambda - d\lambda + \lambda^2 - bc = \lambda^2 - (a+d)\lambda + (ad-bc) = \lambda^2 - (\mathrm{tr}\,A)\lambda + \det A\) ∎ (เพราะ \(\mathrm{tr}\,A = a+d\), \(\det A = ad-bc\))</li>
+        <li><span class="step-t">ตรวจคำตอบ</span> ใช้กับข้อ 4 (ก): \(A = \begin{bmatrix} 2 & 2\\ 2 & -1 \end{bmatrix}\): \(\lambda^2 - (1)\lambda + (-6) = 0\) ✓ ตรงกับที่คำนวณ — <strong>จำสูตร:</strong> พหุนามลักษณะเฉพาะของ 2×2 = \(\lambda^2 - (\mathrm{tr})\lambda + \det\)</li>
+      </ol>
+    </div></details>
+  </article>
+
+</section>
+
+<section class="block" id="set-3-3">
+  <h2>แบบฝึกหัด 3.3 — ระบบสมการเชิงอนุพันธ์</h2>
+  <p class="page-sub">โจทย์คำต่อคำจากตำรา · คำตอบท้ายบทครบทุกข้อ — หัวใจ: λ ของ A คือเลขชี้กำลัง, เวกเตอร์ลักษณะเฉพาะคือรูปแบบของผลเฉลย</p>
+  <table class="tbl">
+    <tr><th>ข้อ</th><th>เนื้อหาสั้น</th><th>การ์ด</th></tr>
+    <tr><td>1</td><td>ผลเฉลยทั่วไปของ \(\vec{x}' = A\vec{x}\) (ก–ง)</td><td><a href="#p-3-3-1ก">ก</a> <a href="#p-3-3-1ข">ข</a> <a href="#p-3-3-1ค">ค</a> <a href="#p-3-3-1ง">ง</a></td></tr>
+    <tr><td>2</td><td>ผลเฉลยเฉพาะ (ใส่เงื่อนไขเริ่มต้น)</td><td><a href="#p-3-3-2ก">ก</a> <a href="#p-3-3-2ข">ข</a></td></tr>
+  </table>
+
+  <article class="pr-card" id="p-3-3-1ก" data-pkey="pTB-3-3-1ก">
+    <div class="pr-head"><span class="pr-num">แบบฝึกหัด 3.3 ข้อ 1 (ก)</span><span class="diff">●●○</span><span class="spacer"></span>
+      <label class="pr-done"><input type="checkbox"> ทำสำเร็จแล้ว</label></div>
+    <div class="pr-body">
+      <p>จงหาผลเฉลยทั่วไปของระบบสมการเชิงอนุพันธ์: \(x_1' = x_1 - x_2,\quad x_2' = -4x_1 + 4x_2\)</p>
+    </div>
+    <details class="hint"><summary>คำใบ้</summary><div class="hint-body">เขียนเป็น \(\vec{x}' = A\vec{x}\) หา λ และ \(\vec{v}\) ของ A — ผลเฉลยคือ \(\vec{y} = C_1e^{\lambda_1 t}\vec{v}_1 + C_2e^{\lambda_2 t}\vec{v}_2\)</div></details>
+    <details class="sol"><summary>แนวคิดและเฉลยแบบละเอียด</summary><div class="sol-body">
+      <p><strong>แนวคิด:</strong> แทน \(e^{\lambda t}\vec{v}\) ใน \(\vec{x}' = A\vec{x}\) ได้ \(\lambda\vec{v} = A\vec{v}\) — ระบบเชิงอนุพันธ์จึงกลายเป็นโจทย์ค่าลักษณะเฉพาะ</p>
+      <ol class="steps">
+        <li><span class="step-t">เมทริกซ์ A และ λ</span> \(A = \begin{bmatrix} 1 & -1\\ -4 & 4 \end{bmatrix}\): \(\lambda^2 - 5\lambda + 0 = 0\) (trace = 5, det = 4−4 = 0) → \(\lambda = 5, 0\)</li>
+        <li><span class="step-t">เวกเตอร์ λ=5</span> \((A-5I)\): \(-4x - y = 0\) → \(\vec{v}_1 = (1, -4)\); λ=0: \(x - y = 0\) → \(\vec{v}_2 = (1, 1)\)</li>
+        <li><span class="step-t">ประกอบผลเฉลย</span> \(\vec{y} = C_1e^{5t}\begin{bmatrix} 1\\ -4 \end{bmatrix} + C_2e^{0t}\begin{bmatrix} 1\\ 1 \end{bmatrix}\) — เลขชี้กำลังมาจาก λ โดยตรง ค่า λ = 0 ให้ \(e^0 = 1\) (ค่าคงตัว)</li>
+        <li><span class="step-t">ตรวจคำตอบ</span> แทน \(\vec{y} = e^{5t}(1,-4)\) กลับ: ฝั่งซ้าย \(x_1' = 5e^{5t}\), ฝั่งขวา \(e^{5t}(1) - e^{5t}(-4) = 5e^{5t}\) ✓ และ \(x_2' = -20e^{5t} = -4e^{5t}+16e^{5t}\) ✓ — <strong>สรุป:</strong> \(\vec{y} = C_1e^{5t}(1,-4) + C_2(1,1)\) (ตรงคำตอบท้ายบท)</li>
+      </ol>
+    </div></details>
+  </article>
+
+  <article class="pr-card" id="p-3-3-1ข" data-pkey="pTB-3-3-1ข">
+    <div class="pr-head"><span class="pr-num">แบบฝึกหัด 3.3 ข้อ 1 (ข)</span><span class="diff">●●●</span><span class="spacer"></span>
+      <label class="pr-done"><input type="checkbox"> ทำสำเร็จแล้ว</label></div>
+    <div class="pr-body">
+      <p>จงหาผลเฉลยทั่วไปของระบบ: \(x_1' = 3x_1 + x_2,\quad x_2' = -2x_1 - x_2\)</p>
+    </div>
+    <details class="hint"><summary>คำใบ้</summary><div class="hint-body">สมการลักษณะเฉพาะแยกรากไม่ได้สวย ๆ — คำตอบจะมี \(\sqrt2\)</div></details>
+    <details class="sol"><summary>แนวคิดและเฉลยแบบละเอียด</summary><div class="sol-body">
+      <p><strong>แนวคิด:</strong> ขั้นเดิม — ค่าลักษณะเฉพาะอตรรกยะ ทำตามกระบวนการเดิมทุกขั้น</p>
+      <ol class="steps">
+        <li><span class="step-t">ค่าลักษณะเฉพาะ</span> \(A = \begin{bmatrix} 3 & 1\\ -2 & -1 \end{bmatrix}\): \(\lambda^2 - 2\lambda - 1 = 0\) → \(\lambda = \frac{2\pm\sqrt{8}}{2} = 1\pm\sqrt2\)</li>
+        <li><span class="step-t">เวกเตอร์ λ=1+√2</span> \((A-\lambda I)\): แถว 1: \((2-\sqrt2)x + y = 0\) → \(y = -(2-\sqrt2)x\) → \(\vec{v}_1 = (1, -2+\sqrt2)\); λ=1−√2: เช่นเดียวกัน \(\vec{v}_2 = (1, -2-\sqrt2)\)</li>
+        <li><span class="step-t">ประกอบ</span> \(\vec{y} = C_1e^{(1+\sqrt2)t}\begin{bmatrix} 1\\ -2+\sqrt2 \end{bmatrix} + C_2e^{(1-\sqrt2)t}\begin{bmatrix} 1\\ -2-\sqrt2 \end{bmatrix}\)</li>
+        <li><span class="step-t">ตรวจคำตอบ</span> แทน \(\lambda = 1+\sqrt2\), \(\vec{v} = (1, -2+\sqrt2)\): ฝั่งขวาสมการ 1: \(3(1)+(-2+\sqrt2) = 1+\sqrt2\) = λ·1 ✓; สมการ 2: \(-2(1)-(-2+\sqrt2) = -\sqrt2\) = λ\((-2+\sqrt2) = (1+\sqrt2)(-2+\sqrt2) = -2+\sqrt2-2\sqrt2+2 = -\sqrt2\) ✓ — <strong>สรุป:</strong> ผลเฉลยตามด้านบน (ตรงคำตอบท้ายบท)</li>
+      </ol>
+    </div></details>
+  </article>
+
+  <article class="pr-card" id="p-3-3-1ค" data-pkey="pTB-3-3-1ค">
+    <div class="pr-head"><span class="pr-num">แบบฝึกหัด 3.3 ข้อ 1 (ค)</span><span class="diff">●●●</span><span class="spacer"></span>
+      <label class="pr-done"><input type="checkbox"> ทำสำเร็จแล้ว</label></div>
+    <div class="pr-body">
+      <p>จงหาผลเฉลยทั่วไปของระบบ: \(x_1' = x_1 - x_2 - x_3,\quad x_2' = x_2 + 3x_3,\quad x_3' = 3x_2 + x_3\)</p>
+    </div>
+    <details class="hint"><summary>คำใบ้</summary><div class="hint-body">สังเกตว่า x₁ "แยกออก" — λ หนึ่งตัวมาจากช่อง (1,1) อีกสองตัวจากบล็อก 2×2 ล่าง</div></details>
+    <details class="sol"><summary>แนวคิดและเฉลยแบบละเอียด</summary><div class="sol-body">
+      <p><strong>แนวคิด:</strong> \(A = \begin{bmatrix} 1 & -1 & -1\\ 0 & 1 & 3\\ 0 & 3 & 1 \end{bmatrix}\) — หลัก 1 มีแต่ทแยง → บล็อกเชิงตั้งฉาก</p>
+      <ol class="steps">
+        <li><span class="step-t">ค่าลักษณะเฉพาะ</span> \(\det(A-\lambda I) = (1-\lambda)\big[(1-\lambda)^2-9\big] = (1-\lambda)(\lambda-4)(\lambda+2)\) → \(\lambda = 1, 4, -2\)</li>
+        <li><span class="step-t">เวกเตอร์</span> λ=1: \((A-I)\): \(-y-z = 0\), \(3z = 0\), \(3y = 0\) → \(\vec{v}_1 = (1, 0, 0)\); λ=4: \((A-4I)\): \(-3x-y-z = 0\), \(-3y+3z = 0\) → \(y = z\), \(x = -\frac{2}{3}z\) → \(\vec{v}_2 = (-2, 3, 3)\); λ=−2: \((A+2I)\): \(3x-y-z = 0\), \(3y+3z = 0\) → \(y = -z\), \(3x = y+z = 0\) → \(x = 0\) → \(\vec{v}_3 = (0, 1, -1)\)</li>
+        <li><span class="step-t">ประกอบ</span> \(\vec{y} = C_1e^{t}(1,0,0) + C_2e^{4t}(-2,3,3) + C_3e^{-2t}(0,1,-1)\) — เครื่องหมายของ \(\vec{v}_2\) กลับได้ (คำตอบท้ายบทใช้ \((2,-3,-3)\) ซึ่งเท่ากัน)</li>
+        <li><span class="step-t">ตรวจคำตอบ</span> \(A(-2,3,3) = (-2-3-3, 3+9, 9+3) = (-8, 12, 12) = 4(-2,3,3)\) ✓; \(A(0,1,-1) = (-1+1, 1-3, 3-1) = (0, -2, 2) = -2(0,1,-1)\) ✓ — <strong>สรุป:</strong> ตามด้านบน (ตรงคำตอบท้ายบท)</li>
+      </ol>
+    </div></details>
+  </article>
+
+  <article class="pr-card" id="p-3-3-1ง" data-pkey="pTB-3-3-1ง">
+    <div class="pr-head"><span class="pr-num">แบบฝึกหัด 3.3 ข้อ 1 (ง)</span><span class="diff">●●●</span><span class="spacer"></span>
+      <label class="pr-done"><input type="checkbox"> ทำสำเร็จแล้ว</label></div>
+    <div class="pr-body">
+      <p>จงหาผลเฉลยทั่วไปของระบบ: \(x_1' = 4x_1,\quad x_2' = 3x_1 - 5x_2,\quad x_3' = 2x_1 + x_2 + 2x_3\)</p>
+    </div>
+    <details class="hint"><summary>คำใบ้</summary><div class="hint-body">\(A = \begin{bmatrix} 4 & 0 & 0\\ 3 & -5 & 0\\ 2 & 1 & 2 \end{bmatrix}\) สามเหลี่ยมล่าง → λ อ่านจากทแยง: 4, −5, 2</div></details>
+    <details class="sol"><summary>แนวคิดและเฉลยแบบละเอียด</summary><div class="sol-body">
+      <p><strong>แนวคิด:</strong> เมทริกซ์สามเหลี่ยม → λ ฟรี เหลือแต่หาเวกเตอร์</p>
+      <ol class="steps">
+        <li><span class="step-t">ค่าลักษณะเฉพาะ</span> \(\lambda = 4, -5, 2\) (ทแยงของสามเหลี่ยมล่าง)</li>
+        <li><span class="step-t">เวกเตอร์ λ=4</span> \((A-4I)\): แถว 1 เป็นศูนย์; แถว 2: \(3x-9y = 0\) → \(x = 3y\); แถว 3: \(2x+y-2z = 0\) → \(z = \frac{7y}{2}\) → ให้ \(y = 2\): \(\vec{v}_1 = (6, 2, 7)\)</li>
+        <li><span class="step-t">เวกเตอร์ λ=2, λ=−5</span> λ=2: \((A-2I)\): แถว 1: \(2x = 0\); แถว 2: \(3x-7y = 0\) → \(y = 0\); z เสรี → \(\vec{v}_2 = (0, 0, 1)\); λ=−5: \((A+5I)\): แถว 1: \(9x = 0\) → \(x = 0\); แถว 3: \(y+7z = 0\) → \(y = -7z\) → \(\vec{v}_3 = (0, -7, 1)\)</li>
+        <li><span class="step-t">ประกอบ + ตรวจ</span> \(\vec{y} = C_1e^{2t}(0,0,1) + C_2e^{4t}(6,2,7) + C_3e^{-5t}(0,-7,1)\) — ตรวจ λ=4: \(A(6,2,7) = (24, 18-10, 12+2+14) = (24, 8, 28) = 4(6,2,7)\) ✓ — <strong>สรุป:</strong> ตามด้านบน (ตรงคำตอบท้ายบท)</li>
+      </ol>
+    </div></details>
+  </article>
+
+  <article class="pr-card" id="p-3-3-2ก" data-pkey="pTB-3-3-2ก">
+    <div class="pr-head"><span class="pr-num">แบบฝึกหัด 3.3 ข้อ 2 (ก)</span><span class="diff">●●●</span><span class="spacer"></span>
+      <label class="pr-done"><input type="checkbox"> ทำสำเร็จแล้ว</label></div>
+    <div class="pr-body">
+      <p>จงหาผลเฉลยเฉพาะของระบบ: \(x_1' = x_1 - 3x_2 + 2x_3,\quad x_2' = -x_2,\quad x_3' = -x_2 - 2x_3\) เมื่อ \(x_1(0) = -3, x_2(0) = 0, x_3(0) = 3\)</p>
+    </div>
+    <details class="hint"><summary>คำใบ้</summary><div class="hint-body">หาผลเฉลยทั่วไปก่อน แล้วแทน \(t = 0\) (ทำให้ e หายหมด) เพื่อแก้ C₁, C₂, C₃ จากเงื่อนไขเริ่มต้น</div></details>
+    <details class="sol"><summary>แนวคิดและเฉลยแบบละเอียด</summary><div class="sol-body">
+      <p><strong>แนวคิด:</strong> สองขั้น: ผลเฉลยทั่วไป → ใส่เงื่อนไขเริ่มต้นเป็นระบบสมการของ C</p>
+      <ol class="steps">
+        <li><span class="step-t">ค่าลักษณะเฉพาะ</span> \(A = \begin{bmatrix} 1 & -3 & 2\\ 0 & -1 & 0\\ 0 & -1 & -2 \end{bmatrix}\): แถว 2 มีแต่ทแยง → \((−1−λ)\) แยกออก → λ = 1, −2, −1</li>
+        <li><span class="step-t">เวกเตอร์</span> λ=1: \((A-I)\): \(-3y+2z = 0\), \(-2y = 0\), \(-y-3z = 0\) → \(y = 0, z = 0\) → \(\vec{v}_1 = (1, 0, 0)\); λ=−2: \((A+2I)\): \(3x-3y+2z = 0\), \(y = 0\), \(-y+z = 0\) → \(x = -\frac{2}{3}z\) → \(\vec{v}_2 = (2, 0, -3)\) (คูณ −3 จาก \((-2/3, 0, 1)\)); λ=−1: \((A+I)\): \(2x-3y+2z = 0\), \(-y-z = 0\) → \(y = -z\), \(2x+3z+2z = 0\) → \(x = -\frac{5}{2}z\) → \(\vec{v}_3 = (-5, -2, 2)\)</li>
+        <li><span class="step-t">ผลเฉลยทั่วไป</span> \(\vec{y} = C_1e^{t}\begin{bmatrix} 1\\ 0\\ 0 \end{bmatrix} + C_2e^{-2t}\begin{bmatrix} 2\\ 0\\ -3 \end{bmatrix} + C_3e^{-t}\begin{bmatrix} -5\\ -2\\ 2 \end{bmatrix}\)</li>
+        <li><span class="step-t">ใส่เงื่อนไขเริ่มต้น</span> ที่ \(t = 0\): \(C_1(1,0,0) + C_2(2,0,-3) + C_3(-5,-2,2) = (-3, 0, 3)\): จากช่อง 2: \(-2C_3 = 0\) → \(C_3 = 0\); ช่อง 3: \(-3C_2 + 2C_3 = 3\) → \(C_2 = -1\); ช่อง 1: \(C_1 + 2C_2 - 5C_3 = -3\) → \(C_1 = -3+2 = -1\)</li>
+        <li><span class="step-t">ตรวจคำตอบ</span> ผลเฉลยเฉพาะ: \(\vec{y} = -e^{t}(1,0,0) - e^{-2t}(2,0,-3)\) ที่ \(t = 0\): \((-1-2, 0, 3) = (-3, 0, 3)\) ✓ (ตรงคำตอบท้ายบท: \(C_1 = -1, C_2 = -1, C_3 = 0\))</li>
+      </ol>
+    </div></details>
+  </article>
+
+  <article class="pr-card" id="p-3-3-2ข" data-pkey="pTB-3-3-2ข">
+    <div class="pr-head"><span class="pr-num">แบบฝึกหัด 3.3 ข้อ 2 (ข)</span><span class="diff">●●○</span><span class="spacer"></span>
+      <label class="pr-done"><input type="checkbox"> ทำสำเร็จแล้ว</label></div>
+    <div class="pr-body">
+      <p>จงหาผลเฉลยเฉพาะของระบบ: \(x_1' = x_1,\quad x_2' = -2x_2 + x_3,\quad x_3' = 3x_3\) เมื่อ \(x_1(0) = 2, x_2(0) = 7, x_3(0) = 15\)</p>
+    </div>
+    <details class="hint"><summary>คำใบ้</summary><div class="hint-body">A สามเหลี่ยมบน → λ = 1, −2, 3 อ่านจากทแยงได้เลย</div></details>
+    <details class="sol"><summary>แนวคิดและเฉลยแบบละเอียด</summary><div class="sol-body">
+      <p><strong>แนวคิด:</strong> ขั้นเดิม — ข้อนี้ตัวเลขเรียงสวยทุกขั้น</p>
+      <ol class="steps">
+        <li><span class="step-t">ค่าลักษณะเฉพาะ</span> \(A = \begin{bmatrix} 1 & 0 & 0\\ 0 & -2 & 1\\ 0 & 0 & 3 \end{bmatrix}\) → \(\lambda = 1, -2, 3\)</li>
+        <li><span class="step-t">เวกเตอร์</span> λ=−2: \((A+2I)\): \(3x = 0\), \(z = 0\), \(5z = 0\) → \(\vec{v}_1 = (0, 1, 0)\); λ=1: \((A-I)\): \(-3y+z = 0\), \(2z = 0\) → \(z = 0, y = 0\) → \(\vec{v}_2 = (1, 0, 0)\); λ=3: \((A-3I)\): \(-2x = 0\), \(-5y+z = 0\) → \(y = \frac{z}{5}\) → \(\vec{v}_3 = (0, 1, 3)\)? ให้ \(y = 1\): \(z = 5\) — คำตอบท้ายบทใช้ \((0, 1, 3)\)? ตรวจ: \(A(0,1,3) = (0, -2+3, 9) = (0, 1, 9) \neq 3(0,1,3) = (0,3,9)\) — ช่องกลางไม่ตรง; ที่ถูกคือ \((0, 1, 5)\): \(A(0,1,5) = (0, -2+5, 15) = (0, 3, 15) = 3(0,1,5)\) ✓ — <strong>หมายเหตุ: คำตอบท้ายบทพิมพ์เวกเตอร์ (0,1,3) แต่ที่ทำให้ระบบจริงคือ (0,1,5)</strong> (หรือไม่ก็พิมพ์ e^{3t} ตกหล้า) — ค่า C ที่ได้ตามท้ายบทไม่เปลี่ยนเพราะคำนวณจากช่องที่ถูก</li>
+        <li><span class="step-t">ผลเฉลยทั่วไป</span> \(\vec{y} = C_1e^{-2t}\begin{bmatrix} 0\\ 1\\ 0 \end{bmatrix} + C_2e^{t}\begin{bmatrix} 1\\ 0\\ 0 \end{bmatrix} + C_3e^{3t}\begin{bmatrix} 0\\ 1\\ 5 \end{bmatrix}\)</li>
+        <li><span class="step-t">ใส่เงื่อนไขเริ่มต้น</span> ที่ \(t = 0\): \(C_1(0,1,0)+C_2(1,0,0)+C_3(0,1,5) = (2, 7, 15)\): ช่อง 1: \(C_2 = 2\); ช่อง 3: \(5C_3 = 15\) → \(C_3 = 3\)?! ตรวจช่อง 2: \(C_1+C_3 = 7\) → \(C_1 = 4\)?! ไม่ตรงคำตอบท้ายบท (2, 2, 5) — ตรวจใหม่ด้วยเวกเตอร์ท้ายบท \((0,1,3)\): ช่อง 3: \(3C_3 = 15\) → \(C_3 = 5\); ช่อง 2: \(C_1+C_3 = 7\) → \(C_1 = 2\); ช่อง 1: \(C_2 = 2\) ✓ ตรงท้ายบท — แต่ \((0,1,3)\) ไม่ใช่เวกเตอร์ลักษณะเฉพาะจริง (ตรวจข้างบนแล้ว) — เทียบสองทาง: เวกเตอร์ที่ถูก \((0,1,5)\) ให้ \(C_3 = 3, C_1 = 4, C_2 = 2\) และผลเฉลยเฉพาะ \(\vec{y} = 4e^{-2t}(0,1,0) + 2e^{t}(1,0,0) + 3e^{3t}(0,1,5)\) ที่ \(t=0\): \((2, 4+3, 15) = (2, 7, 15)\) ✓ สอดคล้องเงื่อนไขจริง — <strong>สรุป:</strong> \(\vec{y} = 2e^{t}(1,0,0) + 4e^{-2t}(0,1,0) + 3e^{3t}(0,1,5)\) พร้อมกล่องหมายเหตุว่าคำตอบท้ายบทพิมพ์เวกเตอร์เป็น \((0,1,3)\) ซึ่งไม่ตรงกับ \(\lambda = 3\) (ค่าที่ถูกคือ \((0,1,5)\)); ค่าคงตัวตามท้ายบท \((2,2,5)\) มาจากการใช้เวกเตอร์ที่พิมพ์ผิดนั้น</li>
       </ol>
     </div></details>
   </article>

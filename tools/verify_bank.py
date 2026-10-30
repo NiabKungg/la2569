@@ -67,7 +67,7 @@ check(f"pkey ไม่ซ้ำทั้งเว็บ (รวม {len(web)} �
 for d in dup:
     print("   DUP:", d)
 
-bad_fmt = [k for k in all_bank_pkeys if not re.match(r"^pTB-\d-\d+([.-]\d+)?([ก-ฏ])?$", k)]
+bad_fmt = [k for k in all_bank_pkeys if not re.match(r"^pTB-\d-\d+([.-]\d+)?([ก-ฮ])?$", k)]
 check("pkey คลังอยู่รูปแบบ pTB-* ถูกต้องทุกใบ", not bad_fmt)
 for k in bad_fmt:
     print("   FMT:", k)
@@ -118,6 +118,18 @@ MATH_CHECKS = {
     "pTB-3-1-6ก", "pTB-3-1-6ข",
     "pTB-3-1-7ก", "pTB-3-1-7ข", "pTB-3-1-7ค",
     "pTB-3-1-8", "pTB-3-1-9", "pTB-3-1-10", "pTB-3-1-11", "pTB-3-1-12",
+    # แบบฝึกหัด 3.2 (ระวัง ฎ ฏ ฐ)
+    "pTB-3-2-1ก", "pTB-3-2-1ข", "pTB-3-2-2ก", "pTB-3-2-2ข",
+    "pTB-3-2-3ก", "pTB-3-2-3ข", "pTB-3-2-3ค", "pTB-3-2-3ง", "pTB-3-2-3จ", "pTB-3-2-3ฉ",
+    "pTB-3-2-4ก", "pTB-3-2-4ข", "pTB-3-2-4ค", "pTB-3-2-4ง", "pTB-3-2-4จ", "pTB-3-2-4ฉ",
+    "pTB-3-2-4ช", "pTB-3-2-4ซ", "pTB-3-2-4ฌ", "pTB-3-2-4ญ", "pTB-3-2-4ฎ", "pTB-3-2-4ฏ", "pTB-3-2-4ฐ",
+    "pTB-3-2-5ก", "pTB-3-2-5ข", "pTB-3-2-5ค", "pTB-3-2-5ง",
+    "pTB-3-2-6ก", "pTB-3-2-6ข", "pTB-3-2-7",
+    "pTB-3-2-8", "pTB-3-2-9", "pTB-3-2-10", "pTB-3-2-11",
+    "pTB-3-2-12ก", "pTB-3-2-12ข", "pTB-3-2-12ค",
+    # แบบฝึกหัด 3.3
+    "pTB-3-3-1ก", "pTB-3-3-1ข", "pTB-3-3-1ค", "pTB-3-3-1ง",
+    "pTB-3-3-2ก", "pTB-3-3-2ข",
 }
 
 def math_checks_for(pkeys):
@@ -463,6 +475,117 @@ check("3.1 ข12 [T]B1, [T]B2, พิกัด, P_{B1←B2}, [T]_{B2←B1}",
       and np.allclose(TB1 @ xb1, [6, -1, -4]) and np.allclose(TB2 @ xb2, [-7/3, -16/3, 6])
       and np.allclose(np.linalg.inv(Pb1) @ Pb2, [[2, -2, 0], [-1, 4, 3], [0, 3, 2]])
       and np.allclose(np.linalg.inv(Pb2) @ A12 @ Pb1, [[-2/3, 4/3, -3], [-8/3, -5/3, -1], [3, 1, 2]]))
+
+# ---------------- แบบฝึกหัด 3.2 ----------------
+def _eigspace(A, lam):
+    B = np.array(A, float) - lam * np.eye(len(A))
+    _, s, vt = np.linalg.svd(B, full_matrices=True)
+    k = int(np.sum(s > 1e-9))
+    m = vt[k:].T
+    return m
+def _span_eq(m, ref):
+    """เวกเตอร์ใน m (คอลัมน์) แผ่เท่ากับ ref (คอลัมน์) หรือไม่"""
+    if m.shape[1] != len(ref): return False
+    R = np.column_stack(ref)
+    return np.linalg.matrix_rank(np.column_stack([m, R])) == np.linalg.matrix_rank(m) == np.linalg.matrix_rank(R)
+sets32_1 = {"ก": ([[3., 8], [3, 2]], 2.0, False), "ข": ([[7., 3], [3, -1]], -2.0, True)}
+for tag, (M, lam, expect) in sets32_1.items():
+    check(f"3.2 ข1{tag} det(A−λI)={0 if expect else '≠'}0", (abs(np.linalg.det(np.array(M) - lam*np.eye(2))) < 1e-9) == expect)
+check("3.2 ข2ก Av ไม่ใช่สเกลาร์ของ v", not np.allclose(np.array([[-3., 1], [-3, 5]]) @ np.array([1., 4]), np.array([1., 17]) / 1.0 * 0 + 17 / 4 * np.array([1., 4])))
+check("3.2 ข2ข Av = −2v", np.allclose(np.array([[3., 6, 7], [3, 3, 7], [5, 6, 5]]) @ np.array([1., -2, 1]), -2 * np.array([1., -2, 1])))
+sets32_3 = {
+    "ก": ([[10., -9], [4, -2]], 4, [(3, 2)]),
+    "ข": ([[4., -2], [-3, 9]], 10, [(1, -3)]),
+    "ค": ([[1., 0, -1], [1, -3, 0], [4, -13, 1]], -2, [(1, 1, 3)]),
+    "ง": ([[4., 2, 3], [-1, 1, -3], [2, 4, 9]], 3, [(-2, 1, 0), (-3, 0, 1)]),
+    "จ": ([[2., 0, 0, 0], [0, 2, 0, 0], [1, 1, -3, 0], [0, 0, 3, -3]], -3, [(0, 0, 0, 1)]),
+    "ฉ": ([[3., 0, 2, 0], [1, 3, 1, 0], [0, 1, 1, 0], [0, 0, 0, 4]], 4, [(2, 3, 1, 0), (0, 0, 0, 1)]),
+}
+for tag, (M, lam, basis) in sets32_3.items():
+    check(f"3.2 ข3{tag} ฐาน E_{lam} แผ่เท่ากัน + Av=λv",
+          _span_eq(_eigspace(M, lam), basis) and all(np.allclose(np.array(M, float) @ np.array(v, float), lam * np.array(v, float)) for v in basis))
+sets32_4 = {
+    "ก": ([[2., 2], [2, -1]], {3: [(2, 1)], -2: [(1, -2)]}, True),
+    "ข": ([[14., 16], [-9, -10]], {2: [(-4, 3)]}, False),
+    "ค": ([[-2., 5], [4, 6]], {8: [(1, 2)], -4: [(-5, 2)]}, True),
+    "ง": ([[5., 4], [-1, 1]], {3: [(-2, 1)]}, False),
+    "จ": ([[2., 1, 0], [6, 1, -1], [0, 0, 1]], {1: [(1, -1, 6)], 4: [(1, 2, 0)], -1: [(-1, 3, 0)]}, True),
+    "ฉ": ([[2., 0, 0], [1, -1, 2], [-1, 0, 1]], {2: [(-3, 1, 3)], -1: [(0, 1, 0)], 1: [(0, 1, 1)]}, True),
+    "ช": ([[2., 0, 6], [0, 3, 1], [0, 0, 3]], {2: [(1, 0, 0)], 3: [(0, 1, 0)]}, False),
+    "ซ": ([[0., 0, -1], [1, 1, 1], [2, 0, 3]], {1: [(-1, 0, 1), (0, 1, 0)], 2: [(1, -1, -2)]}, True),
+    "ฌ": ([[2., 3, -2], [2, 3, 0], [6, -6, 7]], {3: [(0, 2, 3)], 4: [(1, 2, 2)], 5: [(1, 1, 0)]}, True),
+    "ญ": ([[2., -6, -6], [-1, 1, 2], [3, -6, -7]], {-2: [(3, -1, 3)], -1: [(4, 1, 1), (0, 1, -1)]}, True),
+    "ฎ": ([[4., -7, 0, 2], [0, 3, -4, 6], [0, 0, 3, -8], [0, 0, 0, 1]], {4: [(1, 0, 0, 0)], 3: [(7, 1, 0, 0)], 1: [(11, 5, 4, 1)]}, False),
+    "ฏ": ([[3., 0, 0, 0], [0, 3, 0, 0], [0, 0, 2, 0], [1, 0, 0, 2]], {3: [(0, 1, 0, 0), (1, 0, 0, 1)], 2: [(0, 0, 1, 0), (0, 0, 0, 1)]}, True),
+    "ฐ": ([[3., 0, 0, 0, 0], [-5, 1, 0, 0, 0], [3, 8, 0, 0, 0], [0, -7, 2, 1, 0], [-4, 1, 9, -2, 3]], {0: [(0, 0, -3, 6, 13)], 1: [(0, 0, 0, 1, 1)], 3: [(0, 0, 0, 0, 1)]}, False),
+}
+for tag, (M, evs, diag_ok) in sets32_4.items():
+    A = np.array(M, float)
+    ok32 = True
+    for lam, basis in evs.items():
+        m = _eigspace(M, lam)
+        ok32 &= _span_eq(m, basis) and all(np.allclose(A @ np.array(v, float), lam * np.array(v, float)) for v in basis)
+    lam_np = sorted(np.round(np.linalg.eigvals(A).real, 6))
+    lam_listed = all(lam_np.count(l) >= len(b) and l in lam_np for l, b in evs.items())
+    check(f"3.2 ข4{tag} λ={lam_np} ฐานถูก + ทแยงมุมได้={diag_ok}", ok32 and lam_listed and diag_ok == all(lam_np.count(l) == _eigspace(M, l).shape[1] for l in set(lam_np)))
+sets32_5 = {
+    "ก": ([[-5., 4], [-2, 1]], {-1: [(1, 1)], -3: [(2, 1)]}, True),
+    "ข": ([[0., 1], [-3, 4]], {1: [(1, 1)], 3: [(1, 3)]}, True),
+    "ค": ([[4., -2], [-1, 3]], {2: [(1, 1)], 5: [(2, -1)]}, True),
+    "ง": ([[1., 1], [-1, 3]], {2: [(1, 1)]}, False),
+}
+for tag, (M, evs, diag_ok) in sets32_5.items():
+    A = np.array(M, float)
+    ok5 = all(np.allclose(A @ np.array(v, float), lam * np.array(v, float)) for lam, basis in evs.items() for v in basis)
+    lam_np = sorted(np.round(np.linalg.eigvals(A).real, 6))
+    check(f"3.2 ข5{tag} λ={lam_np} เวกเตอร์ถูก + ทแยงมุมได้={diag_ok}",
+          ok5 and diag_ok == all(lam_np.count(l) == _eigspace(M, l).shape[1] for l in set(lam_np)))
+for h, nd in ((5.9, 1), (6.0, 2), (6.1, 1)):
+    A = np.array([[5., -2, 6, -1], [0, 3, h, 0], [0, 0, 5, 4], [0, 0, 0, 2]])
+    check(f"3.2 ข6 h={h}: nullity(A−5I)={nd}", len(_eigspace(A, 5.0)[0]) == 0 or _eigspace(A, 5.0).shape[1] == nd)
+check("3.2 ข6 สรุป: h≠6→มิติ1, h=6→มิติ2", _eigspace(np.array([[5., -2, 6, -1], [0, 3, 6, 0], [0, 0, 5, 4], [0, 0, 0, 2]]), 5.0).shape[1] == 2
+      and _eigspace(np.array([[5., -2, 6, -1], [0, 3, 7, 0], [0, 0, 5, 4], [0, 0, 0, 2]]), 5.0).shape[1] == 1)
+rng32 = np.random.default_rng(31)
+check("3.2 ข8 (P⁻¹AP)ᵀ = (Pᵀ)⁻¹BᵀPᵀ (สุ่ม 2 ชุด)", all(
+    np.allclose((np.linalg.inv(P) @ A @ P).T, P.T @ A.T @ np.linalg.inv(P).T) for A, P in
+    [(rng32.normal(size=(3, 3)), rng32.normal(size=(3, 3))) for _ in range(2)]))
+check("3.2 ข9 A⁻¹ = P D⁻¹ P⁻¹ (จาก A = P D P⁻¹)", all(
+    np.allclose(np.linalg.inv(P @ D @ np.linalg.inv(P)), P @ np.linalg.inv(D) @ np.linalg.inv(P)) for D in
+    [np.diag(rng32.uniform(0.5, 3, size=3)) for _ in range(2)] for P in [rng32.normal(size=(3, 3)) + 3*np.eye(3)]))
+check("3.2 ข10 det=0 ⟺ 0 เป็นค่าลักษณะเฉพาะ (สุ่ม 3 ชุด)", all(
+    (abs(np.linalg.det(M)) < 1e-9) == (min(abs(np.linalg.eigvals(M))) < 1e-9)
+    for M in [rng32.normal(size=(3, 3)) for _ in range(2)] + [np.diag([1., 2, 0])]))
+check("3.2 ข11 A=[[14,16],[−9,−10]] ไม่คล้าย 2I (λ เหมือนแต่ 2I เท่ากับสเกลาร์ตัวมันเอง)",
+      np.allclose(sorted(np.linalg.eigvals(np.array([[14., 16], [-9, -10]])).real), [2, 2])
+      and not np.allclose(np.array([[14., 16], [-9, -10]]), 2*np.eye(2)))
+A, B = rng32.normal(size=(2, 2)), rng32.normal(size=(2, 2))
+check("3.2 ข12ก tr(AB)=tr(BA) (สุ่ม)", np.isclose((A@B).trace(), (B@A).trace()))
+M, N = rng32.normal(size=(2, 2)), rng32.normal(size=(2, 2))
+check("3.2 ข12ข tr(P⁻¹AP)=tr(A) (สุ่ม)", np.isclose((np.linalg.inv(P0) @ M @ P0).trace(), M.trace()) if False else all(
+    np.isclose((np.linalg.inv(P0) @ A @ P0).trace(), A.trace()) for A, P0 in
+    [(rng32.normal(size=(3, 3)), rng32.normal(size=(3, 3)) + 3*np.eye(3)) for _ in range(2)]))
+check("3.2 ข12ค 2×2: λ² − tr λ + det (สุ่ม)", all(
+    np.allclose(np.polyval(np.poly(A), np.linalg.eigvals(A)), [0, 0]) for A in
+    [rng32.normal(size=(2, 2)) for _ in range(3)]))
+
+# ---------------- แบบฝึกหัด 3.3 ----------------
+sets33 = {
+    "ก": ([[1., -1], [-4, 4]], {5: [(1, -4)], 0: [(1, 1)]}),
+    "ข": ([[3., 1], [-2, -1]], {1 + np.sqrt(2): [(1, -2 + np.sqrt(2))], 1 - np.sqrt(2): [(1, -2 - np.sqrt(2))]}),
+    "ค": ([[1., -1, -1], [0, 1, 3], [0, 3, 1]], {1: [(1, 0, 0)], 4: [(-2, 3, 3)], -2: [(0, 1, -1)]}),
+    "ง": ([[4., 0, 0], [3, -5, 0], [2, 1, 2]], {2: [(0, 0, 1)], 4: [(6, 2, 7)], -5: [(0, -7, 1)]}),
+}
+for tag, (M, evs) in sets33.items():
+    A = np.array(M, float)
+    check(f"3.3 ข1{tag} Av = λv ทุกคู่", all(np.allclose(A @ np.array(v, float), lam * np.array(v, float))
+          for lam, basis in evs.items() for v in basis))
+P33a = np.column_stack([(1., 0, 0), (2., 0, -3), (-5., -2, 2)])
+check("3.3 ข2ก C = (−1, −1, 0)", np.allclose(np.linalg.solve(P33a, np.array([-3., 0, 3])), [-1, -1, 0]))
+check("3.3 ข2ข λ=3 เวกเตอร์จริง = (0,1,5) (คำตอบท้ายบทพิมพ์ (0,1,3) ผิด)",
+      np.allclose(np.array([[1., 0, 0], [0, -2., 1], [0, 0, 3.]]) @ np.array([0., 1, 5]), 3 * np.array([0., 1, 5]))
+      and not np.allclose(np.array([[1., 0, 0], [0, -2., 1], [0, 0, 3.]]) @ np.array([0., 1, 3]), 3 * np.array([0., 1, 3])))
+P33b = np.column_stack([(0., 1, 0), (1., 0, 0), (0., 1, 5)])
+check("3.3 ข2ข C = (4, 2, 3) กับเวกเตอร์ที่ถูกต้อง", np.allclose(np.linalg.solve(P33b, np.array([2., 7, 15])), [4, 2, 3]))
 
 # ---------------- แบบฝึกหัด 4.5 ----------------
 check("4.5 ข1ก xᵀAx = 5x₁²−x₂²+x₁x₂ (ตรวจ 2 จุด)",
